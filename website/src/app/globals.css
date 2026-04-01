@@ -7,11 +7,12 @@
   --color-ink-light: #E8E4DF;
   --color-accent: #C45D3E;
   --color-accent-hover: #A84D32;
+  --color-accent-dark: #E07A5F;
   --color-muted: #6B6560;
   --color-muted-dark: #9A9590;
   --color-border: #E2DED8;
   --color-border-dark: #2A2A2A;
-  --color-surface: #FFFFFF;
+  --color-surface: #F0EDE8;
   --color-surface-dark: #1E1E1E;
 
   --font-serif: var(--font-newsreader), "Georgia", serif;
@@ -41,15 +42,54 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Selection styling */
+/* ===== Typography Craft ===== */
+
+/* Body text letter-spacing for reading comfort at 18-19px */
+.article-body p {
+  letter-spacing: -0.01em;
+}
+
+/* Vertical rhythm: distinct spacing for heading-before vs heading-after vs paragraph-after */
+.article-body h2 {
+  margin-top: 3em;
+  margin-bottom: 0.75em;
+}
+
+.article-body p {
+  margin-bottom: 1.5em;
+}
+
+.article-body p + h2 {
+  margin-top: 2.5em;
+}
+
+/* ===== Selection Styling ===== */
 ::selection {
   background-color: #C45D3E;
   color: white;
 }
 
-/* Scrollbar styling for dark mode */
-.dark ::-webkit-scrollbar {
+.dark ::selection {
+  background-color: #E07A5F;
+  color: #161616;
+}
+
+/* ===== Scrollbar Styling (both modes) ===== */
+::-webkit-scrollbar {
   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5D0CA;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B5B0AA;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -59,4 +99,120 @@ body {
 .dark ::-webkit-scrollbar-thumb {
   background: #3A3A3A;
   border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4A4A4A;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #D5D0CA transparent;
+}
+
+.dark {
+  scrollbar-color: #3A3A3A #1E1E1E;
+}
+
+/* ===== Reading Progress Bar ===== */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ===== Page transition fade ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ===== Scroll reveal animation ===== */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  animation: revealUp 0.6s ease-out forwards;
+}
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+
+/* ===== Perceptual Lens spotlight effect ===== */
+.lens-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-spotlight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(196, 93, 62, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.dark .lens-spotlight::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(224, 122, 95, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.lens-shadow {
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-shadow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.015) 10px,
+    rgba(0, 0, 0, 0.015) 20px
+  );
+  pointer-events: none;
+}
+
+.dark .lens-shadow::before {
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.015) 10px,
+    rgba(255, 255, 255, 0.015) 20px
+  );
 }
