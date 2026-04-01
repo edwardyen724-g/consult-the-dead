@@ -154,10 +154,10 @@ def build(person: str, framework_dir: str, domain: str):
     framework = assemble_framework(
         person=person,
         domain=domain,
-        incidents=incidents,
-        constructs=constructs,
-        lens=lens,
-        predictions=predictions,
+        incidents=[inc.to_dict() for inc in incidents],
+        constructs=[c.to_dict() for c in constructs],
+        lens=lens.to_dict(),
+        predictions=[p.to_dict() for p in predictions],
     )
     path = save_framework(framework, fw_dir)
     click.echo(f"Framework saved to {path}")
@@ -199,7 +199,7 @@ def validate(framework: str, person: str, domain: str, mode: str):
         tier1_data = json.loads(tier1_path.read_text())
         scenarios = [
             {"scenario": s["scenario"], "framework_response": s["framework_response"]}
-            for s in tier1_data["scenarios"]
+            for s in tier1_data["scenario_results"]
         ]
 
         click.echo("Running Tier 2: Internal Consistency...")
@@ -211,16 +211,15 @@ def validate(framework: str, person: str, domain: str, mode: str):
 
     if mode == "full":
         click.echo("Preparing Tier 3 materials for expert review...")
+        from framework_forge.validation.tier1 import Tier1Result, ScenarioResult
         tier1_data = json.loads((fw_dir / "validation" / "tier1_results.json").read_text())
-        scenarios = [
-            {
-                "scenario": s["scenario"],
-                "framework_response": s["framework_response"],
-                "baseline_response": s["baseline_response"],
-            }
-            for s in tier1_data["scenarios"]
-        ]
-        path = prepare_tier3_materials(scenarios, person, fw_dir / "validation" / "tier3_materials")
+        tier1_obj = Tier1Result(
+            scenario_results=[
+                ScenarioResult(**{k: v for k, v in s.items() if k in ScenarioResult.__dataclass_fields__})
+                for s in tier1_data["scenario_results"]
+            ]
+        )
+        path = prepare_tier3_materials(tier1_obj, person, fw_dir / "validation" / "tier3_materials")
         click.echo(f"  Review packet saved to {path}")
 
     if mode == "floor-check":
