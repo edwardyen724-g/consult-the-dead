@@ -195,3 +195,112 @@ class TestTier2:
         )
 
         assert result.passed is False
+
+
+# ---------------------------------------------------------------------------
+# Task 12: Tier 3 Prep + Floor Check
+# ---------------------------------------------------------------------------
+
+
+class TestTier3Prep:
+    """Tests for Tier 3 preparation — human review materials."""
+
+    def test_prepare_materials_creates_files(self, tmp_framework_dir):
+        """prepare_tier3_materials should create review_packet.json."""
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+        from framework_forge.validation.tier3_prep import prepare_tier3_materials
+
+        results = []
+        for i in range(5):
+            results.append(
+                ScenarioResult(
+                    scenario=f"scenario-{i}",
+                    framework_response=f"framework-response-{i}",
+                    baseline_response=f"baseline-response-{i}",
+                    divergence_score=8,
+                    specificity_score=7,
+                    traceability_score=9,
+                    divergent=True,
+                )
+            )
+
+        tier1 = Tier1Result(scenario_results=results)
+
+        output_path = prepare_tier3_materials(
+            tier1_results=tier1,
+            person="Steve Jobs",
+            output_dir=tmp_framework_dir / "validation" / "tier3_materials",
+        )
+
+        assert output_path.exists()
+        assert output_path.name == "review_packet.json"
+
+        loaded = json.loads(output_path.read_text(encoding="utf-8"))
+        assert "person" in loaded
+        assert "pairs" in loaded
+        assert len(loaded["pairs"]) == 5
+
+        # Verify A/B randomization: each pair has response_a and response_b
+        for pair in loaded["pairs"]:
+            assert "scenario" in pair
+            assert "response_a" in pair
+            assert "response_b" in pair
+            assert "labels" in pair  # which is A, which is B (for answer key)
+
+
+class TestFloorCheck:
+    """Tests for floor check validation."""
+
+    def test_floor_check_passes(self):
+        """FloorCheckResult should pass when alignment >= threshold."""
+        from framework_forge.validation.floor_check import run_floor_check
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "alignment_ratio": 0.70,
+            "per_decision_results": [
+                {
+                    "decision": "Remove the keyboard",
+                    "framework_would_predict": "Remove it",
+                    "aligned": True,
+                },
+                {
+                    "decision": "Launch without Flash",
+                    "framework_would_predict": "Launch without Flash",
+                    "aligned": True,
+                },
+                {
+                    "decision": "Focus on consumer market",
+                    "framework_would_predict": "Focus on consumer",
+                    "aligned": True,
+                },
+            ],
+        }
+
+        framework = {"perceptual_lens": {"statement": "test"}}
+        historical = [
+            {"decision": "Remove the keyboard", "context": "iPhone design"},
+            {"decision": "Launch without Flash", "context": "iPad launch"},
+            {"decision": "Focus on consumer market", "context": "Apple strategy"},
+        ]
+
+        result = run_floor_check(framework, historical, client=mock_client)
+
+        assert result.passed is True
+        assert result.alignment_ratio >= FLOOR_CHECK_MIN_ALIGNMENT
+        mock_client.prompt_json.assert_called_once()
+
+    def test_floor_check_fails_low_alignment(self):
+        """FloorCheckResult should fail when alignment < threshold."""
+        from framework_forge.validation.floor_check import FloorCheckResult
+
+        result = FloorCheckResult(
+            alignment_ratio=0.30,
+            per_decision_results=[
+                {"decision": "d1", "aligned": False},
+                {"decision": "d2", "aligned": False},
+                {"decision": "d3", "aligned": True},
+            ],
+        )
+
+        assert result.passed is False
