@@ -110,3 +110,88 @@ class TestTier1:
         tier1 = Tier1Result(scenario_results=results)
         assert tier1.divergent_count == 2
         assert tier1.passed is False
+
+
+# ---------------------------------------------------------------------------
+# Task 11: Tier 2 — Internal Consistency
+# ---------------------------------------------------------------------------
+
+
+class TestTier2:
+    """Tests for Tier 2 validation — internal consistency."""
+
+    def test_run_tier2_passes_traceable_responses(self):
+        """run_tier2 should pass when responses are traceable and consistent."""
+        from framework_forge.validation.tier2 import run_tier2
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "traceability_ratio": 0.90,
+            "lens_consistent": True,
+            "contradictions": [],
+            "per_scenario_details": [
+                {
+                    "scenario": "Launch timing",
+                    "traceable_steps": 9,
+                    "total_steps": 10,
+                    "lens_aligned": True,
+                    "contradiction": None,
+                }
+            ],
+        }
+
+        framework = {"perceptual_lens": {"statement": "test lens"}, "bipolar_constructs": []}
+        tier1_scenarios = [
+            {
+                "scenario": "Launch timing",
+                "framework_response": "Ship now",
+                "baseline_response": "Wait",
+            }
+        ]
+
+        result = run_tier2(framework, tier1_scenarios, client=mock_client)
+
+        assert result.passed is True
+        assert result.traceability_ratio >= TIER2_MIN_TRACEABILITY
+        assert result.lens_consistent is True
+        assert len(result.contradictions) == 0
+        mock_client.prompt_json.assert_called_once()
+
+    def test_tier2_fails_low_traceability(self):
+        """Tier2Result should fail when traceability ratio is below threshold."""
+        from framework_forge.validation.tier2 import Tier2Result
+
+        result = Tier2Result(
+            traceability_ratio=0.50,
+            lens_consistent=True,
+            contradictions=[],
+            per_scenario_details=[],
+        )
+
+        assert result.passed is False
+
+    def test_tier2_fails_with_contradictions(self):
+        """Tier2Result should fail when contradictions are found."""
+        from framework_forge.validation.tier2 import Tier2Result
+
+        result = Tier2Result(
+            traceability_ratio=0.90,
+            lens_consistent=True,
+            contradictions=[{"construct": "A", "scenario_a": "s1", "scenario_b": "s2"}],
+            per_scenario_details=[],
+        )
+
+        assert result.passed is False
+
+    def test_tier2_fails_lens_inconsistent(self):
+        """Tier2Result should fail when lens is inconsistent."""
+        from framework_forge.validation.tier2 import Tier2Result
+
+        result = Tier2Result(
+            traceability_ratio=0.90,
+            lens_consistent=False,
+            contradictions=[],
+            per_scenario_details=[],
+        )
+
+        assert result.passed is False
