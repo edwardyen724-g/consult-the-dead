@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #FAF8F5;
+  --color-charcoal: #161616;
+  --color-ink: #1A1A1A;
+  --color-ink-light: #E8E4DF;
+  --color-accent: #C45D3E;
+  --color-accent-hover: #A84D32;
+  --color-muted: #6B6560;
+  --color-muted-dark: #9A9590;
+  --color-border: #E2DED8;
+  --color-border-dark: #2A2A2A;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #1E1E1E;
+
+  --font-serif: var(--font-newsreader), "Georgia", serif;
+  --font-sans: var(--font-source-sans), "Helvetica Neue", sans-serif;
+}
+
+/* Light mode (default) */
+:root {
+  --background: #FAF8F5;
+  --foreground: #1A1A1A;
+}
+
+/* Dark mode */
+.dark {
+  --background: #161616;
+  --foreground: #E8E4DF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #C45D3E;
+  color: white;
+}
+
+/* Scrollbar styling for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3A3A3A;
+  border-radius: 4px;
+}
