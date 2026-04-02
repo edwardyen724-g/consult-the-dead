@@ -1,0 +1,482 @@
+[
+  {
+    "id": "incident-001",
+    "decision": "Jobs decided to personally call Bill Gates to repair the Apple-Microsoft relationship rather than continue the adversarial approach.",
+    "context": "Apple was in dire financial straits in 1997 with market share below 4% and facing potential bankruptcy. The prevailing view within Apple and the tech industry was that Apple and Microsoft were locked in a zero-sum competitive battle where one company's success required the other's failure.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that Apple's weakness made zero-sum competition suicidal - the company lacked the resources to defeat Microsoft. He also noticed that the adversarial framing was constraining Apple's strategic options and that Microsoft's dominance was actually stable, not threatened by Apple's moves.",
+      "active_goals": "Jobs was focused on Apple's survival and redefinition rather than beating competitors. His operative goal was to create space for Apple to rebuild its identity and find a sustainable market position without having to destroy Microsoft to succeed.",
+      "rejected_alternatives": "Jobs rejected continuing the adversarial stance that would have meant fighting Microsoft head-on, rejected seeking other technology partnerships that might have been less direct, and rejected internal solutions that ignored the external competitive dynamic entirely.",
+      "situation_framing": "Jobs reframed the situation from a zero-sum war between platforms to a market ecosystem where Apple could find a distinctive niche. He saw this as a strategic reset requiring diplomatic relationship management rather than a tactical competitive battle.",
+      "expected_outcome": "Jobs expected that patching up relations with Microsoft would remove a major constraint on Apple's strategic options, reduce active hostility that was draining resources, and create breathing room for Apple to focus on its core identity and strengths rather than anti-Microsoft positioning."
+    },
+    "counterfactual": "A typical CEO would have focused on internal restructuring, cost-cutting, and incremental product improvements while maintaining the competitive stance against Microsoft to preserve company morale and market positioning.",
+    "divergence_explanation": "Jobs diverged because he recognized that Apple's weakness made traditional competitive thinking self-defeating. His ability to separate ego from strategy and his insight that market categories could be reframed rather than just competed within allowed him to see cooperation as strength rather than capitulation.",
+    "outcome": "Gates agreed to invest $150 million in Apple and commit to continuing Office for Mac, providing Apple crucial breathing room and legitimacy that helped stabilize the company during its turnaround period.",
+    "source": "allthingsd_d5_gates_jobs_official_transcript"
+  },
+  {
+    "id": "incident-002",
+    "decision": "Apple decided to selectively partner with companies that excel in areas where Apple is not strong while maintaining complete control over the consumer experience and device integration.",
+    "context": "Jobs was articulating Apple's strategic approach to business partnerships during a period when tech companies faced pressure to either build everything in-house or rely heavily on external partnerships. Apple needed to balance competitive advantage with resource allocation while maintaining their signature user experience quality.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that Apple's core competency lay in consumer experience design and hardware integration, not in every underlying technology like search algorithms or mapping data. He noticed that attempting to excel in every domain would dilute Apple's focus and resources from their primary strengths.",
+      "active_goals": "The operative goal was to maintain Apple's position as the definitive consumer experience company while leveraging best-in-class external capabilities. Jobs was actively prioritizing user experience control over technological self-sufficiency.",
+      "rejected_alternatives": "Jobs rejected the alternatives of: (1) building every component technology in-house, which would spread resources too thin, (2) becoming a pure integrator without differentiation, and (3) allowing partners to control any aspect of the consumer-facing experience.",
+      "situation_framing": "Jobs framed this as a strategic orchestration challenge rather than a traditional make-vs-buy decision. He conceptualized Apple as the conductor of a technology symphony, where they controlled the overall composition and performance while allowing virtuoso partners to play specific instruments.",
+      "expected_outcome": "Jobs expected this approach would allow Apple to deliver superior consumer experiences faster and more efficiently than competitors, while maintaining the tight integration and quality control that differentiated Apple products in the market."
+    },
+    "counterfactual": "A competent peer would likely have pursued either full vertical integration to maintain control, or adopted a more open platform approach with standardized APIs, following conventional wisdom about building competitive moats through ownership or network effects.",
+    "divergence_explanation": "Jobs diverged from conventional strategic thinking because he uniquely prioritized consumer experience quality over traditional business metrics like margin control or platform openness. His framework was shaped by an acute understanding that Apple's differentiation came from the holistic user experience, not individual technological components.",
+    "outcome": "This philosophy enabled Apple to rapidly deploy services like Maps and Siri while maintaining seamless integration, though it also created dependencies that sometimes led to quality issues when partners couldn't meet Apple's experience standards.",
+    "source": "allthingsd_d5_gates_jobs_official_transcript"
+  },
+  {
+    "id": "incident-003",
+    "decision": "Jobs decided to donate Apple's entire corporate museum to Stanford and clear out all historical papers and machines rather than preserve them for company heritage.",
+    "context": "Jobs returned to Apple in 1997 after a 12-year absence to find a company struggling with identity crisis, declining market share, and an unfocused product line. The company had accumulated significant historical artifacts during his absence, including early computers and documentation that many would consider valuable corporate heritage. Jobs faced the choice of how to handle this legacy while repositioning Apple for the future.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that Apple was organizationally and psychologically anchored to past achievements rather than future possibilities, with physical artifacts serving as symbolic weight that reinforced backward-looking thinking and prevented the radical reinvention he deemed necessary.",
+      "active_goals": "To psychologically and organizationally reorient Apple toward future innovation by eliminating any institutional focus on past accomplishments that might constrain bold thinking or create attachment to outdated approaches.",
+      "rejected_alternatives": "He rejected preserving the museum for employee inspiration, using artifacts for marketing heritage value, or gradually transitioning the collection - dismissing these as half-measures that would maintain psychological anchoring to the past when complete cognitive reorientation was required.",
+      "situation_framing": "Jobs framed this as a fundamental choice between two incompatible organizational mindsets: nostalgic preservation that breeds complacency versus radical future-focus that enables breakthrough innovation, requiring complete elimination of backward-looking elements.",
+      "expected_outcome": "He expected that removing all physical and symbolic ties to Apple's history would liberate the organization from psychological constraints, enable employees to think without reference to past limitations, and create the cognitive space necessary for revolutionary product development."
+    },
+    "counterfactual": "A competent peer would have preserved select historical artifacts for corporate identity and employee inspiration while creating dedicated spaces for future-focused innovation work, viewing company history as a valuable asset to be balanced with forward momentum.",
+    "divergence_explanation": "Jobs operated from a mental model where organizational psychology required complete cognitive reorientation rather than balanced integration - he saw historical artifacts not as inspirational heritage but as psychological anchors that would unconsciously constrain the radical thinking necessary for Apple's resurrection.",
+    "outcome": "The radical clearing enabled Apple's complete cultural transformation toward future-focused innovation, contributing to the development of revolutionary products like the iMac, iPod, iPhone, and iPad that established Apple as the world's most valuable company.",
+    "source": "allthingsd_d5_gates_jobs_official_transcript"
+  },
+  {
+    "id": "incident-004",
+    "decision": "Jobs decided to publicly defend Apple's integrated hardware-software approach while acknowledging uncertainty about which model would ultimately prevail in the market.",
+    "context": "During the 2007 All Things Digital conference, Jobs was being questioned about Apple's closed, integrated approach versus more open, decoupled models. This was a period when industry observers were debating whether Apple's tight control would limit its market reach compared to more open platforms. Jobs needed to articulate his strategic philosophy while appearing reasonable and not overly dogmatic.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the questioner's implicit assumption that decoupled models were inherently superior, the absence of successful consumer examples beyond Windows/PC, the distinction between enterprise and consumer market dynamics, and the track record of successful integrated products in consumer markets.",
+      "active_goals": "Defend Apple's strategic approach without appearing closed-minded, reframe the debate from ideology to empirical evidence, distinguish Apple's consumer focus from enterprise-oriented competitors, and maintain credibility by acknowledging uncertainty about future outcomes.",
+      "rejected_alternatives": "Jobs rejected making absolute predictions about which model would win, rejected defending integration on purely ideological grounds, rejected ignoring the Windows/PC counterexample, and rejected treating enterprise and consumer markets as equivalent battlegrounds.",
+      "situation_framing": "Jobs framed this as an empirical question about market evidence rather than a philosophical debate about openness, positioning Apple as following consumer market patterns rather than being contrarian, and treating integration vs. decoupling as context-dependent rather than universally applicable.",
+      "expected_outcome": "Jobs expected this nuanced response would demonstrate thoughtful analysis rather than blind ideology, shift focus to Apple's consumer market strength, acknowledge reasonable uncertainty while supporting their approach, and maintain credibility with the tech industry audience."
+    },
+    "counterfactual": "A typical tech CEO would have either made bold predictions about their model's inevitable victory or provided generic talking points about 'giving customers choice' without engaging with the empirical evidence.",
+    "divergence_explanation": "Jobs's response differed because of his pattern recognition across consumer technology categories, his comfort with acknowledging uncertainty while still advocating his position, his instinct to reframe debates around concrete evidence rather than abstract principles, and his focus on consumer market dynamics where Apple competed rather than enterprise markets where they didn't.",
+    "outcome": "This response became part of Jobs's documented strategic thinking about vertical integration, demonstrated intellectual honesty that enhanced his credibility, and provided a framework that proved prescient as mobile devices followed integrated models while PCs remained the primary example of successful decoupling.",
+    "source": "allthingsd_d5_gates_jobs_official_transcript"
+  },
+  {
+    "id": "incident-005",
+    "decision": "Jobs chose not to create advertising campaigns highlighting Microsoft's extensive use of Mac computers for Xbox 360 development.",
+    "context": "Apple had discovered that Microsoft was using hundreds of Mac computers as the primary development platform for Xbox 360 software, creating a potentially powerful marketing narrative about Mac superiority in creative/development work. This occurred during a period when Apple and Microsoft maintained complex competitive-cooperative relationships across multiple product categories.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized the irony and marketing potential of Microsoft's reliance on Mac hardware for their flagship gaming console development, while also perceiving the broader strategic relationship dynamics between Apple and Microsoft across multiple business domains.",
+      "active_goals": "Preserve long-term strategic partnership value with Microsoft while maintaining Apple's reputation for restraint and class, rather than pursuing short-term tactical marketing advantages that could damage collaborative relationships.",
+      "rejected_alternatives": "Rejected creating advertising campaigns around Microsoft's Mac dependence, rejected public statements or press releases highlighting the irony, and rejected using this information in competitive presentations or developer conferences.",
+      "situation_framing": "Framed this as a strategic partnership management decision rather than a pure marketing opportunity, viewing it through the lens of maintaining productive business relationships over scoring tactical points.",
+      "expected_outcome": "Expected that restraint would preserve Microsoft's willingness to collaborate on important initiatives like Office for Mac, maintain professional relationships for future negotiations, and enhance Apple's reputation for strategic sophistication rather than opportunistic attacks."
+    },
+    "counterfactual": "A typical technology CEO would have immediately leveraged this information in advertising campaigns, keynote presentations, or press statements to demonstrate competitive superiority and highlight the contradiction in Microsoft's public positioning.",
+    "divergence_explanation": "Jobs's decision reflected his sophisticated understanding of ecosystem dynamics and long-term value creation over short-term tactical wins, recognizing that preserving Microsoft as a productive partner was more valuable than embarrassing them publicly.",
+    "outcome": "Apple maintained productive relationships with Microsoft across multiple product lines, preserved collaborative opportunities, and demonstrated strategic restraint that likely contributed to continued partnership in areas like Office for Mac development.",
+    "source": "allthingsd_d5_gates_jobs_official_transcript"
+  },
+  {
+    "id": "incident-006",
+    "decision": "Jobs deliberately labeled Apple TV as a 'hobby' in public communications despite Apple's substantial internal investment in the product.",
+    "context": "Apple had invested significantly in Apple TV development but the product existed in a market where many companies had attempted and failed to create viable TV/streaming businesses. Jobs was speaking publicly about Apple's product portfolio and needed to position Apple TV within that narrative while managing both investor expectations and competitive positioning.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the pattern of industry failures in the TV/streaming space, the substantial internal investment Apple had already made, the need to manage public expectations while maintaining strategic flexibility, and the historical parallel with iPod's initial market reception as a seemingly niche product.",
+      "active_goals": "Maintain strategic optionality by keeping expectations low while preserving Apple's ability to pivot aggressively if breakthrough opportunities emerged, protect Apple's reputation by avoiding overpromising in an unproven market, and create psychological space for experimentation without the pressure of immediate business unit performance metrics.",
+      "rejected_alternatives": "Rejected positioning Apple TV as a core business line (would create pressure for immediate major returns), rejected ignoring or downplaying the product entirely (would signal lack of commitment), rejected calling it an 'experiment' (would sound unfocused), and rejected comparing it to successful Apple products (would create unrealistic expectations).",
+      "situation_framing": "Jobs framed this as a strategic communication challenge requiring expectation management rather than a simple product categorization decision, viewing it through the lens of Apple's historical pattern of entering markets with initially modest ambitions that could scale dramatically once breakthrough insights emerged.",
+      "expected_outcome": "Expected that the 'hobby' label would reduce external pressure for immediate major profits, maintain internal investment flexibility, create potential for positive surprise if the product succeeded, and preserve Apple's credibility by avoiding overpromising in a market littered with failures."
+    },
+    "counterfactual": "A competent peer would have positioned Apple TV as a legitimate business initiative with measured expectations, emphasizing its strategic importance while acknowledging market challenges and timeline uncertainty.",
+    "divergence_explanation": "Jobs's decision reflected his unique understanding of expectation management as a strategic tool, his pattern recognition from iPod's evolution from niche to mainstream, and his willingness to use deliberately provocative language ('hobby') to create a specific psychological frame that would give Apple maximum strategic flexibility while minimizing downside risk to the company's reputation.",
+    "outcome": "The 'hobby' framing gave Apple years of strategic cover to iterate on Apple TV without intense scrutiny, eventually enabling the development of Apple TV+ and deeper integration into Apple's services ecosystem, while the deliberately lowered expectations created space for the product line to evolve without the pressure that typically accompanies major Apple product launches.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-007",
+    "decision": "Jobs refused to show AT&T the iPhone prototype before signing the carrier partnership deal.",
+    "context": "Apple needed a carrier partner for the revolutionary iPhone launch, but the device was still in development and represented Apple's most sensitive trade secrets. Traditional carrier deals involved extensive technical reviews and negotiations over device specifications, with carriers typically dictating many hardware and software requirements.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that AT&T desperately needed a breakthrough device to compete with Verizon, sensed their willingness to accept unusual terms due to their market position, and perceived that showing the iPhone would shift negotiating power entirely to AT&T who could then demand changes or threaten to leak details.",
+      "active_goals": "Maintain absolute control over iPhone design integrity, preserve maximum secrecy around Apple's breakthrough technology, establish a new paradigm where Apple dictates terms to carriers rather than vice versa, and secure carrier partnership without compromising product vision.",
+      "rejected_alternatives": "Rejected showing a limited demo (too much risk of leaks or technical criticism), rejected negotiating standard carrier customization terms (would compromise design), rejected seeking multiple carrier bids simultaneously (would require showing device to more parties), and rejected waiting until iPhone was more complete (would miss optimal launch timing).",
+      "situation_framing": "Framed this as a power inversion moment where Apple's innovation leadership allowed them to flip traditional carrier-manufacturer dynamics, viewing AT&T as needing Apple more than Apple needed them, similar to how premium brands command retail partnerships.",
+      "expected_outcome": "Expected AT&T would accept the unprecedented arrangement due to their competitive desperation, that secrecy would be maintained until Apple's controlled reveal, and that success would permanently establish Apple's dominant negotiating position with all carriers going forward."
+    },
+    "counterfactual": "A competent peer would have provided AT&T with detailed technical specifications, prototype demonstrations, and collaborative input sessions to ensure network compatibility and carrier requirements were met before finalizing the partnership.",
+    "divergence_explanation": "Jobs's decision diverged because of his extreme confidence in Apple's product superiority, his strategic insight that maintaining mystery would preserve negotiating leverage, and his long-term vision of reshaping industry power dynamics rather than just securing a single partnership deal.",
+    "outcome": "AT&T signed the exclusive deal without seeing the device, Apple maintained complete design control, the iPhone launch was a massive success, and this established the precedent for Apple's ongoing dominance in carrier relationships industry-wide.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-008",
+    "decision": "Steve Jobs mandated the iPhone would have no physical keyboard, eliminating all internal debate on this fundamental design choice.",
+    "context": "In 2007, the smartphone market was dominated by BlackBerry devices with physical keyboards that millions of users were 'addicted to.' The iPhone team was designing a revolutionary touchscreen device, and the keyboard decision would fundamentally shape the entire product architecture and user experience. This was a make-or-break design choice that would determine market acceptance.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs perceived the physical keyboard as a fundamental constraint on screen real estate and interface flexibility, recognizing that users could adapt to new input methods if the touch experience was superior, and that the market addiction to physical keyboards represented an opportunity rather than an insurmountable barrier.",
+      "active_goals": "Maximize screen real estate for the revolutionary multi-touch interface, create a clean aesthetic uncompromised by mechanical elements, establish Apple as the definitive innovator in mobile interfaces, and force a paradigm shift away from keyboard-centric mobile computing toward visual-centric interaction.",
+      "rejected_alternatives": "Hybrid designs with slide-out keyboards (dismissed as clunky compromises), virtual keyboards that mimicked physical layouts exactly (rejected as missing the transformative potential), and market research approaches that would validate existing user preferences (avoided because they would constrain revolutionary thinking).",
+      "situation_framing": "This was not a feature trade-off decision but a defining moment for establishing a new interaction paradigm - Jobs framed it as choosing between evolutionary improvement of existing patterns versus revolutionary redefinition of what mobile computing could become.",
+      "expected_outcome": "Users would initially resist but quickly adapt to superior touch interfaces, competitors would be forced to follow Apple's lead, the all-screen design would enable entirely new categories of mobile applications, and Apple would own the next generation of mobile interaction standards."
+    },
+    "counterfactual": "A competent peer would have conducted extensive user research, created prototypes with both keyboard options, tested market acceptance of touch-only interfaces, and likely included a physical keyboard option to hedge against user rejection of the new paradigm.",
+    "divergence_explanation": "Jobs operated from a design philosophy that users don't know what they want until shown superior alternatives, combined with absolute confidence in Apple's ability to create paradigm-shifting experiences that would make existing solutions obsolete rather than simply compete with them.",
+    "outcome": "The iPhone's touch interface became the industry standard, physical keyboards disappeared from premium smartphones, and Apple established dominance in the mobile market through this interface revolution.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-009",
+    "decision": "Jobs decided to reposition Apple TV from a complex set-top box replacement to a simple 'DVD player for the internet age.'",
+    "context": "Apple had been struggling for years to crack the living room entertainment market with Apple TV, initially approaching it as a sophisticated device meant to replace cable set-top boxes. This complex positioning had failed to gain market traction and was proving too difficult to execute successfully.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the massive installed base of DVD players compared to set-top boxes, recognizing that consumers already understood and accepted DVD players as simple, dedicated media devices rather than complex computing platforms.",
+      "active_goals": "To find a viable path to market penetration for Apple TV by leveraging existing consumer mental models and usage patterns rather than forcing adoption of entirely new paradigms.",
+      "rejected_alternatives": "Jobs rejected continuing the set-top box replacement strategy because it required consumers to change fundamental behaviors, dealt with complex cable industry politics, and positioned Apple TV as a complex computing device rather than a focused entertainment appliance.",
+      "situation_framing": "Jobs reframed the problem from 'how do we build a better computer for TV' to 'how do we build the internet equivalent of a familiar, simple media player' - shifting from complexity to simplicity paradigm.",
+      "expected_outcome": "Jobs expected this simpler positioning would accelerate adoption by reducing cognitive friction, allowing consumers to immediately understand the product's purpose and value without extensive education or behavior change."
+    },
+    "counterfactual": "A competent peer would likely have continued iterating on the set-top box approach, adding more features and capabilities to compete directly with cable companies and other sophisticated media centers.",
+    "divergence_explanation": "Jobs's decision diverged because of his exceptional ability to step back from technical complexity and see market dynamics through consumer psychology - recognizing that market penetration often requires meeting consumers where they are rather than where technology could take them.",
+    "outcome": "This reframing helped establish Apple TV as a more accessible product category, eventually leading to its evolution into a successful streaming platform as the market matured toward internet-based content delivery.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-010",
+    "decision": "Jobs decided to publicly express his visceral disdain for Windows while simultaneously positioning iTunes as Apple's gift to Windows users, maintaining strategic business engagement despite personal contempt.",
+    "context": "This occurred during the 2007 All Things Digital conference when iTunes had become one of the most popular applications on Windows, representing a major revenue stream for Apple. Jobs was being questioned about Apple's relationship with the Windows platform at a time when the iPod's success depended heavily on Windows compatibility.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the interviewer's expectation for diplomatic corporate speak about platform partnerships, the audience's anticipation of his legendary bluntness, and the opportunity to reinforce Apple's brand superiority while acknowledging business reality. He recognized this as a moment to demonstrate authentic leadership rather than sanitized PR messaging.",
+      "active_goals": "To maintain Apple's premium brand positioning and his personal authenticity while protecting a crucial revenue stream. He sought to signal to his core audience that developing for Windows was a necessary evil rather than strategic embrace, preserving Apple's aspirational identity.",
+      "rejected_alternatives": "He rejected standard corporate diplomacy about 'valued partnerships' or 'serving customers wherever they are' because it would dilute Apple's brand differentiation. He also rejected completely avoiding the Windows topic, which would seem evasive and weak.",
+      "situation_framing": "Jobs framed this as a rescue mission - Apple as the savior bringing quality software to an inferior platform. The 'hell' metaphor positioned Windows users as suffering victims who deserved Apple's mercy, not as a market Apple was courting for profit.",
+      "expected_outcome": "He expected this comment to reinforce Apple's premium positioning, demonstrate his authentic leadership style, generate media buzz, and actually increase iTunes adoption by making Windows users feel they were receiving something special from a superior company."
+    },
+    "counterfactual": "A typical CEO would have given a diplomatic response about serving customers across platforms, emphasizing market opportunity and partnership value while avoiding inflammatory language about competitors.",
+    "divergence_explanation": "Jobs's decision differed because he understood that brand authenticity and aspirational positioning were more valuable than diplomatic politeness. His framework prioritized long-term brand equity over short-term relationship management, recognizing that his bluntness was itself a competitive advantage.",
+    "outcome": "The comment became one of Jobs's most quoted lines, reinforced Apple's premium brand positioning, generated significant media coverage, and paradoxically may have increased iTunes adoption on Windows by making users feel they were accessing something exclusive and superior.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-011",
+    "decision": "Jobs decided to restrict third-party iPhone app development to maintain security and stability rather than opening the platform immediately to developers.",
+    "context": "In 2007, the iPhone was launching into a mobile landscape where smartphones regularly crashed and had poor user experiences. Jobs faced pressure from developers wanting SDK access and from industry observers expecting an open platform. The decision came at a critical moment when establishing the iPhone's reliability could determine its market success or failure.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the pattern of smartphone instability in the market (phones crashing 'once a day or more'), the potential for third-party apps to compromise core phone functions, and the fragility of the iPhone's reputation during its crucial launch period. He attended to user experience metrics and reliability data that others might have dismissed as secondary to market expansion.",
+      "active_goals": "His operative goals were preserving iPhone reliability and user trust above all else, establishing Apple's reputation for quality in the mobile space, and maintaining control over the user experience during the critical market introduction phase rather than maximizing short-term developer adoption.",
+      "rejected_alternatives": "He rejected immediately opening an SDK to all developers (too risky for stability), creating a limited beta program for select developers (still too much risk of leaks and crashes), and following the industry standard of open but unstable platforms (contradicted Apple's quality positioning).",
+      "situation_framing": "Jobs framed this as a 'bet the company' moment where iPhone's initial reputation for reliability would determine long-term success, similar to how early Mac reliability issues had hurt Apple previously. He saw it as choosing between short-term developer relations and long-term platform viability.",
+      "expected_outcome": "He expected that prioritizing stability would establish iPhone as the premium, reliable smartphone option, that users would value crash-free operation over app variety initially, and that developers would eventually accept the restrictions once they saw the platform's success and quality standards."
+    },
+    "counterfactual": "A competent peer would have likely launched with a limited SDK for vetted developers, accepting some stability risks to capture developer mindshare and compete with existing platforms that offered more openness.",
+    "divergence_explanation": "Jobs's decision diverged because of his unique framing of reliability as the primary competitive advantage and his willingness to sacrifice immediate ecosystem growth for long-term quality reputation. His experience with previous Apple product launches made him hyper-sensitive to early reliability issues that could permanently damage brand perception.",
+    "outcome": "The restricted approach initially frustrated developers but established iPhone's reputation for stability and quality, ultimately leading to a more controlled but highly successful App Store launch in 2008 that became the dominant mobile platform.",
+    "source": "allthingsd_d5_solo_2007"
+  },
+  {
+    "id": "incident-012",
+    "decision": "Jobs decided to publicly defend Apple's Flash rejection through 'Thoughts on Flash' after Adobe criticized Apple in the press.",
+    "context": "Apple had made an internal technical decision to exclude Adobe Flash from iOS devices, initially as a quiet strategic choice. When the iPad launched, Adobe began publicly criticizing Apple's decision in press statements, framing it as anti-competitive. Jobs faced escalating public criticism that positioned Apple as the aggressor in what Adobe portrayed as a technology standards war.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed Adobe's shift from private technical discussions to public press attacks ('they came after us'), the timing coinciding with iPad launch, and the narrative framing that positioned Apple as anti-competitive rather than technically prescient.",
+      "active_goals": "Control the narrative around Apple's technical decisions, protect Apple's reputation from being 'trashed by Adobe in the press', and establish Apple's position as forward-thinking rather than obstructionist.",
+      "rejected_alternatives": "Staying silent and letting Adobe control the narrative, responding through backchannels or private communications, issuing a brief corporate statement, or having subordinates handle the response rather than personal engagement.",
+      "situation_framing": "Jobs framed this as a public reputation battle where silence would be interpreted as weakness or guilt, requiring personal leadership response to defend Apple's technical vision and company integrity.",
+      "expected_outcome": "A definitive public statement would shift the narrative from Apple being obstructionist to Apple being visionary, demonstrate thought leadership on web standards, and deter future public attacks from technology partners."
+    },
+    "counterfactual": "A typical CEO would have issued a measured corporate response through PR channels, focusing purely on technical merits without personal engagement or detailed technical arguments.",
+    "divergence_explanation": "Jobs's response diverged because he conflated technical decisions with personal/corporate reputation battles, viewing Adobe's press criticism as a direct challenge requiring personal leadership response rather than routine corporate communication.",
+    "outcome": "'Thoughts on Flash' became a landmark tech industry document that successfully reframed the debate, positioned Apple as forward-thinking on web standards, and contributed to Flash's eventual decline while establishing Jobs as a technology visionary.",
+    "source": "allthingsd_d8_liveblog"
+  },
+  {
+    "id": "incident-013",
+    "decision": "Jobs decided to frame Apple's strategic approach around product excellence rather than competitive platform dynamics.",
+    "context": "During the PC era, Apple was competing against Microsoft's Windows ecosystem which was gaining dominant market share through platform strategies. Jobs was reflecting on Apple's historical approach and acknowledging they had 'lost' market share, yet defending their product-centric philosophy even in retrospect.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs attended to product quality metrics, user experience feedback, and internal team motivation rather than market share data, competitor platform moves, or developer ecosystem signals that would indicate platform war dynamics.",
+      "active_goals": "Maintain team focus on creating exceptional products, preserve Apple's identity as a product company, and avoid strategic thinking that might compromise product quality for competitive positioning.",
+      "rejected_alternatives": "Rejected explicitly competing as a platform (licensing Mac OS, prioritizing developer relations over user experience, making design compromises for market share), rejected viewing Microsoft as a direct strategic threat requiring platform-specific countermoves.",
+      "situation_framing": "Jobs framed the competitive landscape as a product quality contest rather than a platform ecosystem battle, viewing Apple as artisans creating superior products rather than platform warriors fighting for developer and user lock-in.",
+      "expected_outcome": "Expected that superior products would naturally win market share over time, that focusing on platforms would dilute product quality, and that Apple's differentiation through design excellence would ultimately prevail."
+    },
+    "counterfactual": "A conventional CEO would have explicitly acknowledged the platform war, allocated resources to developer ecosystem building, considered licensing strategies, and made product decisions with platform competition as a primary strategic constraint.",
+    "divergence_explanation": "Jobs's decision differed because his identity and expertise centered on product creation rather than platform strategy, he believed product excellence was the ultimate competitive advantage, and he may have cognitively avoided platform thinking because it conflicted with Apple's core competency and culture.",
+    "outcome": "Apple lost significant PC market share during the platform wars but maintained its product-centric culture, which later proved advantageous when they could apply this philosophy to new categories like smartphones where they could control the entire platform from the start.",
+    "source": "allthingsd_d8_liveblog"
+  },
+  {
+    "id": "incident-014",
+    "decision": "Jobs decided to pivot from tablet development to iPhone development despite having tablet technology ready first.",
+    "context": "Apple had successfully developed tablet technology and multi-touch interfaces, representing years of R&D investment toward Jobs's original vision of a tablet computer. However, the mobile phone market was ripe for disruption with existing smartphones being clunky and limited. Jobs faced a strategic sequencing decision about which revolutionary product to launch first.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that the multi-touch interface technology they'd developed for tablets could be miniaturized and that the mobile phone market had massive scale potential with every person being a potential customer, unlike the more niche tablet market at that time.",
+      "active_goals": "To maximize market impact and establish Apple as the dominant force in personal computing's next phase by choosing the product sequence that would create the strongest market position and consumer adoption.",
+      "rejected_alternatives": "He rejected proceeding with the original tablet-first plan, likely dismissed half-measures like improving existing phone designs incrementally, and avoided the conservative approach of developing both products simultaneously with divided resources.",
+      "situation_framing": "Jobs framed this as a strategic sequencing opportunity rather than a product choice dilemma - seeing it as 'which revolutionary product opens the door for the other' rather than 'which product should we build.'",
+      "expected_outcome": "Jobs expected the iPhone would establish Apple's mobile platform dominance, create a massive user base familiar with touch interfaces, and generate the revenue and market position needed to successfully launch the tablet later."
+    },
+    "counterfactual": "A competent peer would likely have proceeded with the original tablet plan, viewing it as the natural evolution of personal computing and honoring the original R&D investment and vision.",
+    "divergence_explanation": "Jobs possessed an exceptional ability to think in terms of market sequencing and ecosystem building rather than individual product success, allowing him to see that the phone would be a better 'Trojan horse' for touch computing than the tablet.",
+    "outcome": "The iPhone launched in 2007 to massive success, revolutionized the smartphone industry, and created the foundation for the iPad's successful launch in 2010, validating Jobs's strategic sequencing decision.",
+    "source": "allthingsd_d8_liveblog"
+  },
+  {
+    "id": "incident-015",
+    "decision": "Jobs defended App Store curation as customer protection while acknowledging rule changes and mistakes as necessary corrections rather than flaws in the system.",
+    "context": "Apple was facing criticism for App Store rejections and restrictive policies that appeared arbitrary or censorious. The tech industry was debating whether platform gatekeeping was beneficial curation or harmful control. Jobs needed to address mounting pressure while maintaining Apple's curated ecosystem philosophy.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs attended to the underlying customer trust relationship rather than just the immediate criticism - he noticed that admitting mistakes could actually strengthen credibility, and that framing rule changes as responsive adaptation rather than inconsistency would resonate with the audience's desire for responsible platform management.",
+      "active_goals": "Maintain Apple's premium brand positioning through quality control while demonstrating responsiveness to legitimate concerns - his operative goal was preserving the curated ecosystem model by reframing criticism as evidence of careful stewardship rather than arbitrary control.",
+      "rejected_alternatives": "He rejected denying mistakes (would appear defensive), completely opening the platform (would undermine differentiation), or detailed technical explanations of review processes (would bog down in specifics rather than addressing the philosophical framework) - these were dismissed because they either weakened Apple's market position or failed to address the core trust issue.",
+      "situation_framing": "Jobs framed this as a quality assurance scenario rather than a censorship controversy - he used the mental model of Apple as a responsible curator making difficult judgment calls on behalf of customers, similar to how a high-end retailer selects merchandise.",
+      "expected_outcome": "He expected that positioning mistakes as correctable within a fundamentally sound system would maintain customer confidence in App Store quality while deflecting criticism about arbitrary control - essentially turning a liability into proof of responsible stewardship."
+    },
+    "counterfactual": "A typical tech CEO would have provided detailed policy explanations, promised more transparent review processes, or emphasized developer relations and platform openness to address the immediate criticism.",
+    "divergence_explanation": "Jobs's response differed because he prioritized maintaining Apple's premium positioning over appeasing critics - his perceptual framework focused on customer trust and brand differentiation rather than industry norms of platform neutrality, leading him to defend curation as a feature rather than apologize for it as a limitation.",
+    "outcome": "The response reinforced Apple's curated ecosystem philosophy and helped establish the precedent that platform curation could be positioned as customer protection, though tensions between control and openness continued to generate ongoing controversy.",
+    "source": "allthingsd_d8_liveblog"
+  },
+  {
+    "id": "incident-016",
+    "decision": "Jobs decided to publicly position Apple's approach to privacy as fundamentally different from other Silicon Valley companies, framing transparency and user consent rather than data minimization as the core privacy principle.",
+    "context": "This occurred during the rise of data-driven business models in Silicon Valley, where companies like Google and Facebook were building empires on user data collection and behavioral advertising. Jobs was speaking at a high-profile tech conference where industry leaders were defending their data practices amid growing privacy concerns.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the industry's defensive posture around privacy issues, the complexity and opacity of typical privacy policies, and the emerging public unease about data collection practices. He recognized that competitors were framing privacy as a technical constraint rather than a user empowerment issue.",
+      "active_goals": "His operative goals were to differentiate Apple's business model from ad-supported competitors, establish moral leadership in the industry, and create a sustainable competitive moat based on user trust rather than data exploitation.",
+      "rejected_alternatives": "He rejected following the industry standard of lengthy, complex privacy policies that obscured data practices. He also rejected framing privacy purely as data minimization or security, and dismissed the option of remaining silent on privacy to avoid conflict with industry peers.",
+      "situation_framing": "Jobs framed this as a fundamental philosophical divide about the relationship between technology companies and users - whether users are customers to be served or products to be sold. He saw it as a values-based differentiation opportunity rather than a compliance issue.",
+      "expected_outcome": "He expected that clearly articulating Apple's privacy philosophy would build user trust, create competitive differentiation from ad-supported business models, and establish Apple as a principled alternative in an industry increasingly seen as exploitative."
+    },
+    "counterfactual": "A competent peer would likely have given a more defensive response about balancing user privacy with business needs, emphasized security measures and compliance with regulations, and avoided directly criticizing other companies' approaches to maintain industry relationships.",
+    "divergence_explanation": "Jobs's choice differed because he saw privacy not as a constraint on business but as a business opportunity itself. His integrated hardware-software-services model meant Apple could monetize through premium products rather than advertising, allowing him to turn competitors' business model dependency into his strategic advantage.",
+    "outcome": "This positioning became a cornerstone of Apple's brand identity and competitive strategy, culminating in features like App Tracking Transparency that directly challenged competitors' business models while strengthening customer loyalty and regulatory relationships.",
+    "source": "allthingsd_d8_liveblog"
+  },
+  {
+    "id": "incident-017",
+    "decision": "Jobs decided to naturally take on the commercial/sales role while leaving Wozniak to handle the technical development of Blue Box devices.",
+    "context": "Jobs and Wozniak had discovered they could build and sell Blue Box phone phreaking devices for significant profit. They needed to divide labor between technical development and commercialization. This was an illegal enterprise with real risks, but also substantial financial opportunity for two young men with limited resources.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed Wozniak's superior technical skills and intrinsic motivation for engineering challenges, his own natural comfort with interpersonal persuasion and risk-taking, the market demand signals from potential customers, and the profit margins possible from marking up Wozniak's technical work.",
+      "active_goals": "Maximize profit extraction from Wozniak's technical capabilities while minimizing his own time investment in technical details he couldn't master as well, establish a scalable business model that leveraged both their strengths, and position himself as the commercial interface to reduce Wozniak's exposure to sales risks.",
+      "rejected_alternatives": "Rejected equal participation in both technical and sales roles (would dilute expertise), rejected Jobs doing technical work while Wozniak sold (mismatched to natural abilities), rejected splitting profits equally without regard to different value contributions (Jobs recognized his sales/business skills added significant value beyond just labor hours).",
+      "situation_framing": "Framed this as a complementary partnership opportunity rather than a simple friendship project - recognized it as an early entrepreneurial venture requiring specialized role division, similar to how successful small businesses naturally organize around founder strengths rather than artificial equality.",
+      "expected_outcome": "Expected this division of labor would maximize total profits through specialization, create a sustainable model they could replicate with future projects, establish Jobs as the business-facing partner, and allow Wozniak to focus purely on technical innovation without commercial distractions."
+    },
+    "counterfactual": "A typical peer would have either split all responsibilities equally regardless of aptitude, focused purely on the technical challenge as a hobby project without serious commercialization, or been deterred entirely by the legal risks involved.",
+    "divergence_explanation": "Jobs uniquely recognized this illegal venture as a prototype for legitimate future partnerships - he saw past the immediate product to the underlying business model and relationship dynamics that could scale, while most peers would have seen only the immediate technical curiosity or quick money opportunity.",
+    "outcome": "This division of labor became the template for their entire career partnership, with Jobs developing his commercial instincts and Wozniak honing his technical focus, ultimately leading to Apple Computer where the same complementary roles enabled them to revolutionize personal computing.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-018",
+    "decision": "Jobs decided to approach Paul Terrell at Byte Shop to sell the Apple-1 as a commercial product rather than treating it as a hobbyist demonstration project.",
+    "context": "Wozniak had designed the Apple-1 computer primarily to impress fellow members of the Homebrew Computer Club, viewing it as a technical showcase for hobbyist enthusiasts. The prevailing assumption was that personal computers were niche products for electronics enthusiasts who would build and program their own systems. Jobs recognized an opportunity to transform this hobbyist creation into a broader commercial venture.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs observed reactions beyond technical admiration at Homebrew Club meetings - he noticed practical interest, questions about acquisition, and signs that people wanted the computer itself rather than just the technical knowledge. He recognized that Terrell's Byte Shop represented established retail distribution infrastructure for emerging computer products, indicating market readiness beyond hobbyist circles.",
+      "active_goals": "Jobs was actively pursuing commercial scalability and market expansion rather than technical validation. His operative goal was to identify and capture untapped demand for ready-made computer systems among consumers who wanted computing capability without the technical barrier of assembly and programming.",
+      "rejected_alternatives": "Jobs rejected limiting sales to Homebrew Club members or similar hobbyist networks, dismissing the assumption that only electronics enthusiasts would want personal computers. He rejected the typical approach of sharing technical specifications freely within the hobbyist community rather than commercializing the design. He also rejected waiting to perfect the product further before approaching commercial channels.",
+      "situation_framing": "Jobs framed this as a market timing opportunity rather than a technical achievement showcase. He conceptualized the Apple-1 as a consumer product entering an emerging market rather than a hobbyist project. His mental model was retail distribution and consumer adoption curves rather than technical community validation.",
+      "expected_outcome": "Jobs expected that Byte Shop's retail presence would validate broader consumer demand beyond hobbyists, leading to orders that would justify manufacturing scale and establish Apple as a commercial entity. He anticipated that retail success would attract additional distribution partners and create momentum for expanded product development."
+    },
+    "counterfactual": "A competent peer would have continued marketing primarily within the Homebrew Club network, possibly setting up direct sales to other hobbyist groups or computer clubs, treating the Apple-1 as a specialized product for technical enthusiasts who could assemble and program it themselves.",
+    "divergence_explanation": "Jobs possessed an unusual combination of technical appreciation and commercial instinct that allowed him to see market potential where others saw only hobbyist interest. His sales background enabled him to recognize buying signals and market readiness cues that technically-focused peers would dismiss. Unlike engineers focused on technical validation, Jobs was scanning for scalability indicators and commercial viability markers.",
+    "outcome": "Paul Terrell placed an order for 50 Apple-1 computers at $500 each, providing the initial capital and market validation that transformed Apple from a garage project into a commercial venture, establishing the foundation for the personal computer industry's retail distribution model.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-019",
+    "decision": "Jobs negotiated 30-day credit terms with suppliers to fund Apple-1 component purchases before receiving payment from Byte Shop.",
+    "context": "Jobs and Wozniak had secured an order from Byte Shop but lacked capital to purchase the electronic components needed for production. They faced a classic entrepreneurial cash flow gap where payment would come only after delivery, but production required upfront investment in parts.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that suppliers operated on standard business credit terms, that the 30-day window aligned with their production timeline, and that Byte Shop's order represented credible future payment. He noticed the temporal mismatch between when cash was needed versus when it would arrive, and that suppliers' credit policies could bridge this gap.",
+      "active_goals": "Maintain cash flow alignment to fulfill the Byte Shop order without personal financial exposure, establish Apple as a credible business entity through structured supplier relationships, and demonstrate to partners that the venture could operate with professional financial practices rather than just garage-level tinkering.",
+      "rejected_alternatives": "Personal loans or borrowing money from family/friends (too risky and unprofessional), seeking venture capital investment (premature and would dilute ownership), using personal savings or credit cards (insufficient funds and high personal risk), or asking Byte Shop for advance payment (would signal weakness and inexperience to the customer).",
+      "situation_framing": "Jobs framed this as a standard business operations challenge requiring working capital management, not as a startup funding crisis. He saw it through the lens of established business practices where supplier credit was a normal tool for managing cash flow timing, treating Apple as an emerging company deserving of trade credit rather than a hobby project.",
+      "expected_outcome": "The 30-day credit would provide sufficient time to manufacture and deliver the Apple-1 computers to Byte Shop, receive payment, and then pay suppliers on schedule, establishing a sustainable cash flow cycle and credibility with both customers and suppliers for future orders."
+    },
+    "counterfactual": "A typical peer would have either sought personal loans, asked family/friends for money, or approached Byte Shop for partial advance payment to cover component costs.",
+    "divergence_explanation": "Jobs's experience and mindset led him to think in terms of business-to-business relationships and standard commercial practices. While peers saw this as a personal funding problem requiring informal solutions, Jobs recognized it as a working capital challenge solvable through established supplier credit mechanisms, demonstrating his early grasp of professional business operations.",
+    "outcome": "The strategy worked successfully - Apple received the components, built the computers within the 30-day window, delivered to Byte Shop, received payment, and paid suppliers on time, establishing both cash flow and business credibility.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-020",
+    "decision": "Jobs positioned the Apple II as a universal computer for everyone rather than marketing it as a specialized hobbyist machine.",
+    "context": "In the late 1970s, personal computers were primarily viewed as kits for electronics enthusiasts and hobbyists. The industry assumption was that the market was limited to technically sophisticated users who enjoyed building and programming machines. Jobs faced the choice of how to position Apple II in this nascent market.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that non-technical people were curious about computers when demonstrated, observed the limitations of marketing to hobbyists alone, and recognized that businesses and schools had computational needs that existing solutions didn't address in user-friendly ways.",
+      "active_goals": "Create a mass market for personal computers by making them accessible to ordinary people, establish Apple as the leader in a dramatically expanded market category, and transform computing from a niche technical pursuit into an essential tool for daily life.",
+      "rejected_alternatives": "Rejected positioning as hobbyist kit (too limiting), rejected enterprise-only focus (missed broader opportunity), rejected educational-only positioning (insufficient market size), and rejected technical specification-led marketing (alienated non-technical users).",
+      "situation_framing": "Jobs framed this as a consumer appliance opportunity similar to television or stereo systems - a useful tool that people would want in their homes and offices once they understood its value, rather than a specialized technical instrument.",
+      "expected_outcome": "Expected to create unprecedented demand by tapping into latent needs across multiple market segments, anticipated that making computers approachable would generate word-of-mouth adoption, and believed this positioning would establish Apple's long-term competitive advantage through market leadership."
+    },
+    "counterfactual": "A competent peer would have focused on the established hobbyist market, emphasized technical specifications and capabilities, and gradually expanded to adjacent technical markets like small businesses with computing expertise.",
+    "divergence_explanation": "Jobs diverged because he possessed an intuitive understanding of consumer psychology and recognized that technology adoption follows different patterns than industry insiders assume - he saw the computer as a tool that could enhance people's capabilities rather than as an end in itself for technical enthusiasts.",
+    "outcome": "The Apple II became the first truly successful mass-market personal computer, generating hundreds of millions in revenue and establishing the template for personal computer marketing that the entire industry would follow.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-021",
+    "decision": "Jobs decided to risk NeXT's entire future by investing heavily in developing new UNIX workstation technology despite uncertain market demand.",
+    "context": "After being ousted from Apple in 1985, Jobs founded NeXT and faced the challenge of establishing credibility in a competitive computer market. The workstation market was dominated by established players like Sun Microsystems, and the demand for high-end UNIX systems was uncertain. Jobs had limited capital and needed to make decisive moves to differentiate NeXT.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs perceived emerging technological capabilities in UNIX workstations, object-oriented programming, and advanced hardware design that others were not fully exploiting. He noticed gaps between what existing workstations offered and what sophisticated users actually needed for development work.",
+      "active_goals": "Establish NeXT as a technology leader that would vindicate his vision and prove his capability independent of Apple. Create a product so technologically superior that it would command premium pricing and developer loyalty despite market uncertainty.",
+      "rejected_alternatives": "Rejected incremental product development, market research-driven design, conservative financial strategies, and partnerships with established players. Dismissed these as compromises that would result in mediocre products indistinguishable from competitors.",
+      "situation_framing": "Framed this as a 'breakthrough or bust' scenario where only revolutionary technological superiority could establish NeXT's market position. Viewed it as analogous to Apple's early days - a small company needing to leapfrog established competitors through superior design.",
+      "expected_outcome": "Expected that technological superiority would create its own market demand, that sophisticated users would pay premium prices for revolutionary capabilities, and that NeXT would establish a profitable niche in high-end computing."
+    },
+    "counterfactual": "A competent peer would have conducted extensive market research, developed products incrementally based on validated customer needs, maintained larger cash reserves, and pursued partnerships to reduce risk while building market presence gradually.",
+    "divergence_explanation": "Jobs's decision differed because he operated from a design-first rather than market-first mental model, believing that revolutionary products create their own demand. His pattern recognition was shaped by Apple's early success, where technological superiority had previously overcome market skepticism.",
+    "outcome": "NeXT produced technologically advanced but expensive workstations that found limited market acceptance. While the technology was impressive and eventually valuable to Apple (leading to Jobs's return), NeXT struggled financially and never achieved significant market share in workstations.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-022",
+    "decision": "Steve Jobs decided to launch physical Apple Stores organized by user intent rather than product categories, despite the industry's abandonment of branded retail.",
+    "context": "In the early 2000s, computer companies had largely exited physical retail, relying instead on big box stores like Best Buy and online sales channels. The conventional wisdom held that branded computer stores were economically unviable and that customers preferred the convenience and price competition of multi-brand retailers.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the poor customer experience in existing retail channels\u2014products displayed without context, uninformed sales staff, and no demonstration of how Apple's integrated ecosystem created superior user experiences. He observed that customers couldn't meaningfully evaluate Apple's design philosophy and product integration in cluttered big box environments.",
+      "active_goals": "Jobs was actively pursuing control over the complete customer journey and brand narrative, not just profit maximization. His operative goal was to create spaces where customers could experience Apple's vision of technology as intuitive, beautiful, and personally transformative.",
+      "rejected_alternatives": "Jobs rejected continuing with existing retail partnerships, opening traditional product-category-based stores, and pure online sales expansion. He dismissed these because they failed to convey Apple's experiential differentiation and left brand storytelling to intermediaries who couldn't articulate Apple's integrated ecosystem value.",
+      "situation_framing": "Jobs framed this as a brand communication and customer education challenge rather than a retail distribution problem. He saw physical spaces as three-dimensional marketing media that could demonstrate product philosophy in ways that conventional retail channels could not.",
+      "expected_outcome": "Jobs expected that experiential retail would justify premium pricing, build deeper customer loyalty, increase product attachment rates, and create a sustainable competitive moat by making Apple's integrated ecosystem tangible and personally relevant to customers."
+    },
+    "counterfactual": "A competent peer would have focused on optimizing existing retail partnerships, improving online sales capabilities, and potentially opening modest showrooms in high-traffic locations, following the industry consensus that branded computer retail was economically unsustainable.",
+    "divergence_explanation": "Jobs's decision diverged because he uniquely understood that Apple's true competitive advantage lay not in individual products but in the integrated user experience, which required controlled demonstration environments. His background in experiential design and brand storytelling led him to see retail space as brand medium rather than mere distribution channel.",
+    "outcome": "Apple Stores became highly profitable, generated higher sales per square foot than most luxury retailers, significantly improved customer satisfaction and loyalty, and created a new retail paradigm that many other brands attempted to replicate.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-023",
+    "decision": "Steve Jobs insisted on universal 99-cent flat-rate pricing for all iTunes song downloads rather than accepting the music industry's preferred variable pricing model.",
+    "context": "The music industry wanted different prices for different songs based on popularity, artist status, and market demand, similar to traditional retail models. Record labels saw variable pricing as maximizing revenue and maintaining their established value hierarchies. Jobs was launching iTunes and needed industry cooperation while also ensuring user adoption of this new digital music platform.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs recognized that consumers exhibited friction and decision fatigue when faced with variable pricing schemes, that the nascent digital music market required maximum simplicity to compete with free piracy, and that music industry executives were thinking in terms of physical retail economics rather than digital platform dynamics.",
+      "active_goals": "Maximize iTunes adoption velocity by eliminating user friction, establish iTunes as the dominant legal alternative to music piracy, and create a sustainable ecosystem where simplicity drives volume rather than complexity maximizing per-transaction revenue.",
+      "rejected_alternatives": "Variable pricing based on song popularity (rejected because it would create user confusion and comparison shopping friction), tiered pricing with multiple price points (rejected as still too complex for mass adoption), and subscription models (rejected as requiring different industry negotiations and user mental models).",
+      "situation_framing": "Jobs framed this as a platform adoption challenge rather than a traditional retail negotiation, recognizing that digital goods required different pricing psychology than physical products and that network effects would be more valuable than margin optimization in the early market.",
+      "expected_outcome": "Universal 99-cent pricing would eliminate consumer decision friction, drive massive adoption that would compensate record labels through volume, establish iTunes as the standard legal music platform, and create a sustainable ecosystem that would ultimately be more profitable for all parties than complex pricing schemes."
+    },
+    "counterfactual": "A competent peer would have likely accepted variable pricing with 2-3 price tiers to appease record label demands, focusing on securing industry partnerships and maintaining higher margins on premium content.",
+    "divergence_explanation": "Jobs understood that in platform businesses, adoption velocity trumps margin optimization, and that consumer psychology around digital goods differed fundamentally from physical retail - he prioritized ecosystem simplicity over immediate revenue maximization because he recognized the winner-take-all dynamics of digital platforms.",
+    "outcome": "The 99-cent pricing became the industry standard, iTunes achieved dominant market share in legal music downloads, and the simplicity drove massive adoption that generated far more total revenue than variable pricing would have achieved, while establishing Apple's platform business model.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-024",
+    "decision": "Steve Jobs decided to drop 'Computer' from Apple's corporate name, rebranding the company from 'Apple Computer' to 'Apple Inc.'",
+    "context": "Apple had successfully launched the iPod and was preparing to enter new consumer electronics markets beyond traditional computing. The company needed to signal a strategic transformation from a computer manufacturer to a broader consumer technology and lifestyle brand. This decision came at a pivotal moment when Apple's revenue streams were diversifying beyond Mac computers.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that 'Computer' in the company name was becoming a constraining label that limited consumer and investor perception of Apple's potential. He observed that the iPod's success demonstrated Apple's capability in non-computer consumer electronics, and likely noticed how the word 'Computer' created cognitive friction when discussing ventures into phones, media players, and other lifestyle products.",
+      "active_goals": "Jobs was actively pursuing the goal of positioning Apple as a premium lifestyle technology brand that could compete across multiple consumer electronics categories. His operative goal was to remove psychological barriers that would limit Apple's perceived scope and future market opportunities, while maintaining the strong brand equity of the 'Apple' name itself.",
+      "rejected_alternatives": "Jobs likely rejected keeping 'Apple Computer' to maintain tradition and avoid confusion, rejected creating a subsidiary structure with different names for different product lines, and rejected gradual semantic shifts or qualifying language. He dismissed these because they would preserve the limiting perception and create brand fragmentation rather than unified transformation.",
+      "situation_framing": "Jobs framed this as a strategic brand architecture decision rather than a simple naming change. He likely viewed it through the lens of companies like Sony or Samsung that successfully operate across diverse technology categories under a single master brand, seeing the name change as essential infrastructure for Apple's metamorphosis into a diversified technology leader.",
+      "expected_outcome": "Jobs expected the name change would signal to consumers, investors, and employees that Apple was no longer constrained by computer industry boundaries, enabling smoother market entry for future non-computer products and attracting talent and partnerships from broader technology sectors while maintaining premium brand positioning."
+    },
+    "counterfactual": "A competent peer would likely have kept 'Apple Computer' and managed the brand extension through product marketing, possibly creating sub-brands for different categories or using qualifying language in communications to gradually shift perception while maintaining the established corporate identity.",
+    "divergence_explanation": "Jobs's choice differed because of his exceptional sensitivity to symbolic communication and brand psychology. Where others saw a risky change to an established identity, Jobs recognized that language shapes perception and that 'Computer' was becoming an active constraint rather than a neutral descriptor. His theater background and design sensibility made him acutely aware of how names create mental frameworks that either enable or limit possibility.",
+    "outcome": "The rebranding successfully positioned Apple for its expansion into phones, tablets, watches, and services, with the market accepting Apple as a lifestyle technology company rather than questioning the brand stretch when new product categories launched.",
+    "source": "computer_history_museum"
+  },
+  {
+    "id": "incident-025",
+    "decision": "Jobs decided Apple would sell only fully assembled computers rather than kits that customers would build themselves.",
+    "context": "In the mid-1970s, the personal computer market consisted primarily of hobbyists who expected to buy computer kits and assemble them at home. This kit model required less manufacturing infrastructure and was the established norm among competitors like Altair and IMSAI. Jobs faced the choice of following this proven market approach or breaking from it entirely.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that the kit model created a fundamental barrier to market expansion - it limited computers to technically skilled hobbyists who could handle assembly, soldering, and troubleshooting. He observed that most people lacked both the technical skills and desire to build their own computers, representing a vast untapped market segment.",
+      "active_goals": "Jobs was actively pursuing market democratization and mass adoption rather than serving the existing hobbyist niche. His operative goal was to transform computers from technical curiosities into mainstream consumer products that anyone could use immediately upon purchase.",
+      "rejected_alternatives": "Jobs rejected the kit model despite its lower manufacturing costs, reduced inventory risk, and alignment with customer expectations. He dismissed the option of offering both kits and assembled units, recognizing this would dilute the brand message and manufacturing focus. He also rejected incremental approaches like partial assembly.",
+      "situation_framing": "Jobs framed this as a market creation opportunity rather than a product positioning decision within an existing market. He saw the situation as analogous to appliance manufacturing - computers should work immediately like televisions or toasters, not require technical assembly like hobbyist electronics projects.",
+      "expected_outcome": "Jobs expected that fully assembled computers would attract non-technical users who represented a much larger potential market than hobbyists. He anticipated this would differentiate Apple decisively from competitors and establish a new product category, despite requiring significant upfront manufacturing investment."
+    },
+    "counterfactual": "A competent peer would have followed the established kit model to minimize manufacturing costs and risks while serving the proven hobbyist market, possibly offering assembly services as an premium option.",
+    "divergence_explanation": "Jobs's decision diverged because he perceived market boundaries as malleable rather than fixed. While peers saw technical barriers as customer screening mechanisms, Jobs saw them as artificial constraints limiting market size. His consumer product intuition led him to prioritize user experience over manufacturing efficiency.",
+    "outcome": "The decision successfully opened the computer market to non-technical users, established Apple's differentiation in ease-of-use, and created the template for the modern personal computer industry where fully assembled systems became the standard.",
+    "source": "future_of_pc_1990"
+  },
+  {
+    "id": "incident-026",
+    "decision": "Jobs decided to start Apple Computer as an independent company after both Atari and HP rejected their early computer prototypes.",
+    "context": "Jobs and Wozniak had developed early computer prototypes while employed at Atari and HP respectively. They pitched their innovations to both companies, expecting corporate backing or acquisition. Both companies declined, leaving them with working technology but no institutional pathway to market.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that both rejections cited 'good reasons' but didn't dismiss the underlying technology's viability - the companies weren't saying the product was worthless, just that it didn't fit their current priorities or vision. He also noticed they still possessed the complete technological capability and prototype.",
+      "active_goals": "Jobs's operative goal was ensuring their computer innovation reached the market rather than died in corporate indifference. His active priority was finding any viable path to commercialization, not necessarily becoming an entrepreneur or building a company empire.",
+      "rejected_alternatives": "They rejected accepting the corporate rejections as final verdicts, rejected shelving the project entirely, rejected trying to pitch other established companies, and rejected treating this as a hobby project. Jobs dismissed these alternatives because they would mean abandoning a viable innovation to corporate shortsightedness.",
+      "situation_framing": "Jobs framed this as a market failure where established companies were blind to disruptive innovation, not as a validation of his product's weaknesses. He saw starting Apple as a corrective response to institutional myopia rather than as entrepreneurial opportunity-seeking.",
+      "expected_outcome": "Jobs expected that by starting their own company, they would prove the established companies wrong and demonstrate the market demand that HP and Atari had failed to recognize. He anticipated vindication through market success rather than wealth creation."
+    },
+    "counterfactual": "A competent peer would likely have accepted the corporate rejections as expert market validation, concluded the product wasn't commercially viable, and either refined the concept for resubmission or moved on to other projects within their existing employment.",
+    "divergence_explanation": "Jobs's decision differed because he interpreted corporate rejection as evidence of institutional blindness rather than product inadequacy. Where others saw authoritative market feedback, Jobs saw organizational inertia and risk aversion preventing established companies from recognizing breakthrough innovation.",
+    "outcome": "Apple Computer was founded and became one of the most successful technology companies in history, ultimately validating Jobs's interpretation that the corporate rejections reflected institutional limitations rather than market realities.",
+    "source": "future_of_pc_1990"
+  },
+  {
+    "id": "incident-027",
+    "decision": "Steve Jobs decided to explicitly reject market research as a methodology for developing breakthrough products.",
+    "context": "Jobs was operating in the technology industry where market research was the standard approach for product development and investment decisions. He was facing the fundamental challenge of how to create truly revolutionary products that would define new categories rather than simply compete within existing ones.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that customers could only articulate needs based on their current experience and existing product categories. He observed that breakthrough products like the Macintosh and personal computer had no precedent that customers could reference or request. He detected a fundamental limitation in the predictive power of customer feedback when applied to discontinuous innovation.",
+      "active_goals": "Jobs's operative goal was to create revolutionary products that would define entirely new categories and user experiences. He was focused on discovering latent needs that customers themselves couldn't articulate, rather than satisfying expressed needs. His goal was to achieve breakthrough innovation rather than incremental improvement.",
+      "rejected_alternatives": "Jobs rejected relying on traditional market research methodologies, focus groups, and customer surveys for breakthrough product development. He dismissed the approach of asking customers what they wanted and then building those features. He also rejected the safer path of incremental innovation based on customer feedback.",
+      "situation_framing": "Jobs framed this as a fundamental epistemological problem - the impossibility of customers predicting revolutionary products they've never experienced. He categorized market research as inherently backward-looking, capable only of optimizing existing paradigms rather than creating new ones. He saw breakthrough innovation as requiring vision that transcends current customer understanding.",
+      "expected_outcome": "Jobs expected that bypassing market research would enable the creation of products that would surprise and delight customers in ways they couldn't have anticipated. He anticipated that truly revolutionary products would create their own markets and customer demand, validating his approach post-launch rather than pre-development."
+    },
+    "counterfactual": "A competent peer would have used market research to validate product concepts, reduce development risk, and ensure customer acceptance. They would have conducted focus groups, surveys, and usability studies to guide product decisions and secure stakeholder buy-in.",
+    "divergence_explanation": "Jobs's decision differed because he possessed an unusual combination of design intuition, technological vision, and confidence in his ability to anticipate customer desires better than customers themselves. His framework prioritized revolutionary impact over risk mitigation, and he had developed pattern recognition for identifying breakthrough opportunities that transcended current customer articulation.",
+    "outcome": "This approach led to the creation of revolutionary products like the Macintosh, iPod, iPhone, and iPad that defined new product categories and achieved massive commercial success, validating Jobs's thesis that breakthrough innovation requires vision beyond current customer understanding.",
+    "source": "future_of_pc_1990"
+  },
+  {
+    "id": "incident-028",
+    "decision": "Jobs decided to implement factory automation at NeXT primarily to achieve superior quality and faster time-to-market rather than to reduce manufacturing costs.",
+    "context": "NeXT was operating in a highly competitive technology marketplace where product differentiation and speed were critical. Jobs was building a new computer company that needed to establish credibility and compete against established players with superior manufacturing capabilities.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed that technology markets were increasingly competitive on speed-to-market, that quality differentiation was becoming crucial for premium positioning, and that global competition required world-class manufacturing capabilities rather than just cost advantages.",
+      "active_goals": "Establish NeXT as a premium technology company with manufacturing excellence as a competitive differentiator, achieve rapid product iteration cycles to stay ahead of competitors, and build quality reputation that would justify premium pricing.",
+      "rejected_alternatives": "Jobs rejected the conventional approach of using automation primarily for cost reduction, dismissed manual or semi-automated processes that might be cheaper initially, and rejected outsourcing manufacturing to low-cost providers that couldn't guarantee quality or speed.",
+      "situation_framing": "Jobs framed this as a strategic capability investment rather than a cost optimization problem - he saw manufacturing automation as building a core competency for competing in fast-moving technology markets where quality and speed create sustainable competitive advantages.",
+      "expected_outcome": "Jobs expected that superior quality would justify premium pricing, faster time-to-market would allow NeXT to capture market opportunities before competitors, and manufacturing excellence would become a sustainable competitive moat that would be difficult for competitors to replicate quickly."
+    },
+    "counterfactual": "A competent peer would likely have focused automation investments primarily on cost reduction to achieve competitive pricing, possibly outsourced manufacturing to established low-cost providers, and treated manufacturing as a necessary operational function rather than a strategic differentiator.",
+    "divergence_explanation": "Jobs's decision diverged because he viewed manufacturing through a strategic lens rather than purely operational - he recognized that in technology markets, the companies that win long-term are those that can consistently deliver superior products faster than competitors, making quality and speed more valuable than short-term cost savings.",
+    "outcome": "NeXT achieved exceptional build quality and manufacturing precision, but the high costs associated with this approach contributed to pricing challenges that limited market adoption, ultimately demonstrating both the benefits and risks of prioritizing quality over cost optimization.",
+    "source": "future_of_pc_1990"
+  },
+  {
+    "id": "incident-029",
+    "decision": "Jobs decided to have the Mac development team sign the inside of computer cases to formally recognize them as artists rather than just engineers.",
+    "context": "During Mac development, Jobs observed his engineering team's creative passion and craftsmanship extending beyond mere technical execution. The computer industry typically treated hardware development as anonymous engineering work, with no individual recognition or artistic attribution. Jobs faced the choice of following industry norms or establishing a new precedent that honored the creative dimensions of computing work.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the team's passionate engagement with design aesthetics, their attention to elegant solutions, and their emotional investment in the product that mirrored artistic dedication rather than routine engineering work.",
+      "active_goals": "To establish computing as a legitimate artistic medium and ensure his team understood their work was creative expression worthy of recognition, not just technical problem-solving.",
+      "rejected_alternatives": "He rejected treating development as anonymous engineering work, rejected standard industry practices of no individual attribution, and rejected viewing the computer as merely a functional tool rather than an expressive medium.",
+      "situation_framing": "Jobs framed this as the emergence of a new artistic medium - computing - that required the same recognition and attribution conventions as traditional art forms like painting or sculpture.",
+      "expected_outcome": "The team would internalize their identity as artists creating in a new medium, leading to higher creative standards and helping establish computing as a recognized form of artistic expression in the broader culture."
+    },
+    "counterfactual": "A typical technology CEO would have treated the development team as skilled engineers, perhaps offering bonuses or public recognition for technical achievement, but would not have introduced artistic attribution practices or framed computing as an artistic medium.",
+    "divergence_explanation": "Jobs's background in liberal arts and exposure to artistic communities gave him a framework for recognizing creative work that most technology leaders lacked, allowing him to perceive parallels between software/hardware development and traditional artistic practice that others missed.",
+    "outcome": "The signed Mac cases became a symbolic precedent that helped establish the concept of technology workers as creative artists, contributing to the later emergence of 'design thinking' and the recognition of computing as a creative medium.",
+    "source": "future_of_pc_1990"
+  },
+  {
+    "id": "incident-030",
+    "decision": "Jobs decided to pivot Apple's strategy from targeting hardware hobbyists to pursuing the vastly larger market of software hobbyists who wanted to use computers without building them.",
+    "context": "In the mid-1970s, the personal computer industry was dominated by kit computers sold to hardware enthusiasts who enjoyed assembling and tinkering with machines. Apple was initially part of this hobbyist market, but Jobs recognized a critical market segmentation opportunity that others were missing.",
+    "cdm_probes": {
+      "cues_noticed": "Jobs noticed the stark numerical ratio between hardware builders and potential users - observing that for every person willing to solder circuits and assemble kits, there were potentially a thousand people who simply wanted to use a computer as a tool without any hardware involvement.",
+      "active_goals": "Jobs was actively pursuing market expansion and mass adoption rather than serving the existing niche hobbyist community - his operative goal was to transform computers from hobbyist toys into mainstream consumer products.",
+      "rejected_alternatives": "Jobs rejected continuing to focus primarily on the hardware hobbyist market (the existing industry approach), rejected making computers that required assembly skills, and rejected the assumption that technical complexity was necessary or desirable for end users.",
+      "situation_framing": "Jobs framed this as a classic market expansion opportunity rather than a hardware engineering problem - he saw the computer industry as artificially constraining itself by conflating the builders with the users, similar to how cars succeeded when buyers stopped needing to be mechanics.",
+      "expected_outcome": "Jobs expected that by eliminating hardware complexity and targeting software hobbyists, Apple could access a market that was 1000x larger than the existing hardware hobbyist base, leading to massive commercial success and computer democratization."
+    },
+    "counterfactual": "A competent peer would have continued focusing on the established hardware hobbyist market, incrementally improving kit designs and competing on technical specifications and price within the existing market boundaries.",
+    "divergence_explanation": "Jobs diverged because he applied market segmentation thinking rather than engineering optimization thinking - while others saw hardware hobbyists as 'the computer market,' Jobs recognized them as merely the early adopters of a much larger latent market that was being artificially excluded by unnecessary technical barriers.",
+    "outcome": "This insight became foundational to Apple's mass-market strategy, leading to the Apple II's success as one of the first truly consumer-friendly computers and establishing the template for the personal computer industry's evolution toward user-friendly, pre-assembled systems.",
+    "source": "future_of_pc_1990"
+  }
+]

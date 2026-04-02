@@ -1,0 +1,133 @@
+{
+  "criteria": {
+    "homepage_renders_gallery": true,
+    "card_shows_required_info": true,
+    "framework_detail_navigation": true,
+    "article_reading_view": true,
+    "theme_toggle": true,
+    "legal_disclaimer": true,
+    "no_console_errors": true,
+    "mobile_homepage": true,
+    "mobile_article": true
+  },
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "name": "01-homepage-desktop",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\01-homepage-desktop.png"
+    },
+    {
+      "name": "02-framework-detail-desktop",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\02-framework-detail-desktop.png"
+    },
+    {
+      "name": "03-article-reading-desktop",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\03-article-reading-desktop.png"
+    },
+    {
+      "name": "04-theme-toggled-desktop",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\04-theme-toggled-desktop.png"
+    },
+    {
+      "name": "05-theme-persisted-after-nav",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\05-theme-persisted-after-nav.png"
+    },
+    {
+      "name": "06-homepage-mobile",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\06-homepage-mobile.png"
+    },
+    {
+      "name": "07-article-mobile",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\07-article-mobile.png"
+    },
+    {
+      "name": "08-dark-mode-homepage",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\08-dark-mode-homepage.png"
+    },
+    {
+      "name": "09-dark-mode-article",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\09-dark-mode-article.png"
+    }
+  ],
+  "details": {
+    "homepage_renders_gallery": {
+      "title": "The Library",
+      "frameworkCount": 1
+    },
+    "card_shows_required_info": {
+      "archetypeName": "The Innovator",
+      "domainTexts": [
+        "Paradigm-Shifting Product Visionary",
+        "Technology, Design, Business"
+      ],
+      "perceptualLensExcerpt": "Perceives technological possibilities as paradigm-shifting moments that require revolutionary market"
+    },
+    "framework_detail_navigation": {
+      "url": "http://localhost:3000/frameworks/the-innovator",
+      "hasDescription": true,
+      "articlesLinked": 2
+    },
+    "article_reading_view": {
+      "url": "http://localhost:3000/articles/why-the-ai-hardware-race-is-already-over",
+      "title": "Why the AI Hardware Race Is Already Over",
+      "paragraphCount": 14,
+      "hasNarrowContainer": true,
+      "typography": {
+        "fontSize": "19px",
+        "lineHeight": "33.25px"
+      }
+    },
+    "theme_toggle": {
+      "initial": "light",
+      "afterToggle": "dark",
+      "afterNavigation": "dark",
+      "changed": true,
+      "persisted": true
+    },
+    "legal_disclaimer": {
+      "homepage": true,
+      "frameworkPage": true,
+      "articlePage": true
+    },
+    "no_console_errors": {
+      "errors": []
+    },
+    "mobile_homepage": {
+      "hasOverflow": false,
+      "h1Visible": true,
+      "cardsVisible": true
+    },
+    "mobile_article": {
+      "hasOverflow": false,
+      "paragraphsFit": true
+    },
+    "design_inspection": {
+      "bodyBg": "rgb(250, 248, 245)",
+      "bodyFont": "\"Source Sans 3\", \"Source Sans 3 Fallback\", \"Helvetica Neue\", sans-serif",
+      "bodyColor": "rgb(26, 26, 26)",
+      "h1Font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+      "h1Size": "48px",
+      "h1Weight": "300",
+      "h1Color": "rgb(26, 26, 26)",
+      "pFont": "\"Source Sans 3\", \"Source Sans 3 Fallback\", \"Helvetica Neue\", sans-serif",
+      "pSize": "18px",
+      "pLineHeight": "29.25px",
+      "pColor": "rgb(107, 101, 96)"
+    },
+    "dark_mode_design": {
+      "bg": "rgb(22, 22, 22)",
+      "color": "rgb(232, 228, 223)"
+    },
+    "article_typography": {
+      "containerMaxWidth": "896px",
+      "containerWidth": "896px",
+      "h1Font": "Newsreader, \"Newsreader Fallback\", Georgia, serif",
+      "h1Size": "36px",
+      "bodyPFont": "\"Source Sans 3\", \"Source Sans 3 Fallback\", \"Helvetica Neue\", sans-serif",
+      "bodyPSize": "19px",
+      "bodyPLineHeight": "33.25px",
+      "bodyPLetterSpacing": "normal",
+      "bodyPMarginBottom": "24px"
+    }
+  }
+}

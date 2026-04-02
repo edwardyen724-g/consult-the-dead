@@ -1,0 +1,159 @@
+{
+  "criteria": {
+    "C1_homepage_gallery": true,
+    "C2_card_info": true,
+    "C3_framework_detail": true,
+    "C4_article_reading": true,
+    "C5_theme_toggle": true,
+    "C6_legal_disclaimer": true,
+    "C7_no_console_errors": true,
+    "C8_mobile_homepage": false,
+    "C9_mobile_article": true
+  },
+  "newFeatures": {
+    "dark_mode_no_opacity90": false,
+    "monogram_renders": true,
+    "monogram_has_diamond": true,
+    "weighted_wordmark": false,
+    "card_accent_border": true,
+    "progress_bar": true,
+    "constructs_found": true,
+    "construct_accordion_works": true,
+    "chevron_svg": true,
+    "lens_spotlight_shadow": true,
+    "framer_motion_active": true,
+    "card_hover_lift_glow": true,
+    "distinct_vertical_rhythm": false,
+    "radial_glow": true,
+    "theme_label_visible": true
+  },
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "name": "01-homepage-desktop-light",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\01-homepage-desktop-light.png"
+    },
+    {
+      "name": "02-framework-detail-light",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\02-framework-detail-light.png"
+    },
+    {
+      "name": "03-article-reading-light",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\03-article-reading-light.png"
+    },
+    {
+      "name": "04-theme-toggled",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\04-theme-toggled.png"
+    },
+    {
+      "name": "05-homepage-mobile-light",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\05-homepage-mobile-light.png"
+    },
+    {
+      "name": "06-article-mobile-light",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\06-article-mobile-light.png"
+    },
+    {
+      "name": "07-homepage-dark",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\07-homepage-dark.png"
+    },
+    {
+      "name": "08-article-dark",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\08-article-dark.png"
+    },
+    {
+      "name": "09-framework-detail-dark",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\09-framework-detail-dark.png"
+    },
+    {
+      "name": "10-homepage-mobile-dark",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\10-homepage-mobile-dark.png"
+    },
+    {
+      "name": "11-article-mobile-dark",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\11-article-mobile-dark.png"
+    },
+    {
+      "name": "12-construct-accordion-open",
+      "path": "C:\\projects\\greatminds\\website\\tests\\screenshots\\iter2\\12-construct-accordion-open.png"
+    }
+  ],
+  "details": {
+    "dark_home_contrast": {
+      "bodyBg": "rgb(22, 22, 22)",
+      "bodyColor": "rgb(232, 228, 223)",
+      "h1Color": "rgb(26, 26, 26)",
+      "pColor": "rgb(196, 93, 62)"
+    },
+    "dark_article_contrast": {
+      "bodyBg": "rgb(22, 22, 22)",
+      "h1Color": "rgb(26, 26, 26)",
+      "bodyPColor": "lab(9.26323 0 0.00000596046 / 0.9)",
+      "bodyPOpacity": "1",
+      "bodyPClass": "text-[18px] md:text-[19px] leading-[1.75] text-ink/90 dark:text-ink-light font-sans"
+    },
+    "monogram": {
+      "found": true,
+      "hasDiamond": true,
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    "wordmark": {
+      "hasGreat": false,
+      "hasMinds": true,
+      "greatWeight": "600",
+      "mindsWeight": "300"
+    },
+    "card_border": {
+      "found": true,
+      "borderLeftWidth": "4px",
+      "borderLeftColor": "rgb(196, 93, 62)",
+      "borderLeftStyle": "solid"
+    },
+    "progress_bar": {
+      "found": true,
+      "position": "static",
+      "top": "auto",
+      "height": "0px",
+      "zIndex": "auto"
+    },
+    "lens_metaphor": {
+      "hasSpotlight": true,
+      "hasShadow": true,
+      "hasGrid": true,
+      "spotlightText": "In sharp focus",
+      "shadowText": "In the periphery"
+    },
+    "card_hover": {
+      "found": true,
+      "hasHoverShadow": true,
+      "hasHoverTranslate": true,
+      "hasTransition": true,
+      "className": "relative p-8 md:p-10 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-surface-dark hover:shadow-lg dark:hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-0.5"
+    },
+    "article_typography": {
+      "letterSpacing": "normal",
+      "fontSize": "19px",
+      "lineHeight": "33.25px",
+      "fontFamily": "\"Source Sans 3\", \"Source Sans 3 Fallback\", \"Helvetica Neue\",",
+      "marginBottom": "0px"
+    },
+    "vertical_rhythm": {
+      "h2MarginTop": "0px",
+      "h2MarginBottom": "0px",
+      "pMarginBottom": "0px"
+    },
+    "footer_design": {
+      "found": true,
+      "hasHR": true,
+      "hasBrand": true,
+      "hasTagline": true,
+      "brandText": "GreatMinds"
+    },
+    "theme_labels": {
+      "found": true,
+      "text": "The Reading Room",
+      "visible": true
+    }
+  }
+}

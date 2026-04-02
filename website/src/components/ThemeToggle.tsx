@@ -19,15 +19,15 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="flex items-center gap-2 px-3 py-1.5 rounded-full
-        border border-border dark:border-border-dark
+        border border-border
         hover:border-accent/40 dark:hover:border-accent-dark/40
         transition-all duration-300 group"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      <span className="text-[11px] tracking-wide text-muted dark:text-muted-dark font-sans italic">
+      <span className="text-[11px] tracking-wide text-muted font-sans italic">
         {isDark ? "The Late Study" : "The Reading Room"}
       </span>
-      <span className="text-muted dark:text-muted-dark group-hover:text-ink dark:group-hover:text-ink-light transition-colors">
+      <span className="text-muted group-hover:text-ink dark:group-hover:text-ink-light transition-colors">
         {isDark ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

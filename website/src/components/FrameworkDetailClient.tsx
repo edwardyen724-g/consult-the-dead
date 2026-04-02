@@ -24,7 +24,7 @@ export function FrameworkDetailClient({
       <nav className="mb-12">
         <Link
           href="/"
-          className="text-sm text-muted dark:text-muted-dark hover:text-accent dark:hover:text-accent-dark transition-colors inline-flex items-center gap-1.5"
+          className="text-sm text-muted hover:text-accent dark:hover:text-accent-dark transition-colors inline-flex items-center gap-1.5"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 12l-4-4 4-4" />
@@ -45,7 +45,7 @@ export function FrameworkDetailClient({
             className="w-2 h-8 rounded-full"
             style={{ backgroundColor: framework.accent_color }}
           />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
             {framework.domain}
           </span>
         </motion.div>
@@ -53,7 +53,7 @@ export function FrameworkDetailClient({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="font-serif text-4xl md:text-5xl font-light text-ink dark:text-ink-light mb-3"
+          className="font-serif text-4xl md:text-5xl font-light text-ink mb-3"
         >
           {framework.archetype_name}
         </motion.h1>
@@ -61,7 +61,7 @@ export function FrameworkDetailClient({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-lg text-muted dark:text-muted-dark mb-8 italic font-serif"
+          className="text-lg text-muted mb-8 italic font-serif"
         >
           {framework.archetype_title}
         </motion.p>
@@ -69,7 +69,7 @@ export function FrameworkDetailClient({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.5 }}
-          className="text-base leading-relaxed text-ink/90 dark:text-ink-light max-w-2xl"
+          className="text-base leading-relaxed text-ink max-w-2xl"
           style={{ letterSpacing: "-0.01em" }}
         >
           {framework.description}
@@ -79,14 +79,14 @@ export function FrameworkDetailClient({
       {/* Perceptual Lens -- Spotlight/Shadow metaphor */}
       <ScrollReveal>
         <section className="mb-20">
-          <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark mb-8">
+          <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted mb-8">
             Perceptual Lens
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-border dark:border-border-dark">
+          <div className="grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-border">
             {/* Spotlight side -- what they notice */}
             <div
-              className="relative p-8 md:p-10 bg-surface dark:bg-surface-dark"
+              className="relative p-8 md:p-10 bg-surface"
             >
               {/* Radial glow effect */}
               <div
@@ -110,7 +110,7 @@ export function FrameworkDetailClient({
                     In sharp focus
                   </h3>
                 </div>
-                <p className="text-sm leading-[1.8] text-ink dark:text-ink-light">
+                <p className="text-sm leading-[1.8] text-ink">
                   {framework.perceptual_lens.what_they_notice_first}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export function FrameworkDetailClient({
 
             {/* Shadow side -- what they ignore */}
             <div
-              className="relative p-8 md:p-10 bg-ink/[0.03] dark:bg-white/[0.02] border-t md:border-t-0 md:border-l border-border dark:border-border-dark"
+              className="relative p-8 md:p-10 bg-ink/[0.03] dark:bg-white/[0.02] border-t md:border-t-0 md:border-l border-border"
             >
               {/* Subtle diagonal lines */}
               <div
@@ -130,14 +130,14 @@ export function FrameworkDetailClient({
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-4">
                   {/* Blur icon */}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted dark:text-muted-dark">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted">
                     <circle cx="12" cy="12" r="10" strokeDasharray="2 3" />
                   </svg>
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-muted dark:text-muted-dark">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-muted">
                     In the periphery
                   </h3>
                 </div>
-                <p className="text-sm leading-[1.8] text-muted dark:text-muted-dark">
+                <p className="text-sm leading-[1.8] text-muted">
                   {framework.perceptual_lens.what_they_ignore}
                 </p>
               </div>
@@ -150,11 +150,11 @@ export function FrameworkDetailClient({
       <ScrollReveal>
         <section className="mb-20">
           <div className="flex items-center gap-4 mb-8">
-            <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+            <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
               Core Constructs
             </h2>
             <div className="flex-1 h-px bg-border dark:bg-border-dark" />
-            <span className="text-[11px] text-muted/60 dark:text-muted-dark/60 tabular-nums">
+            <span className="text-[11px] text-muted/60/60 tabular-nums">
               {framework.bipolar_constructs.length} dimensions
             </span>
           </div>
@@ -170,11 +170,11 @@ export function FrameworkDetailClient({
         <ScrollReveal>
           <section className="mb-8">
             <div className="flex items-center gap-4 mb-8">
-              <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+              <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
                 Articles
               </h2>
               <div className="flex-1 h-px bg-border dark:bg-border-dark" />
-              <span className="text-[11px] text-muted/60 dark:text-muted-dark/60 tabular-nums">
+              <span className="text-[11px] text-muted/60/60 tabular-nums">
                 {articles.length} {articles.length === 1 ? "piece" : "pieces"}
               </span>
             </div>
@@ -203,19 +203,19 @@ export function FrameworkDetailClient({
                 >
                   <Link
                     href={`/articles/${article.id}`}
-                    className="group block p-6 md:p-8 rounded-lg border border-border dark:border-border-dark
-                      bg-surface dark:bg-surface-dark
+                    className="group block p-6 md:p-8 rounded-lg border border-border
+                      bg-surface
                       hover:shadow-md dark:hover:shadow-xl
                       hover:-translate-y-px
                       transition-all duration-400"
                   >
-                    <h3 className="font-serif text-xl text-ink dark:text-ink-light group-hover:text-accent dark:group-hover:text-accent-dark transition-colors mb-2">
+                    <h3 className="font-serif text-xl text-ink group-hover:text-accent dark:group-hover:text-accent-dark transition-colors mb-2">
                       {article.title}
                     </h3>
-                    <p className="text-sm text-muted dark:text-muted-dark mb-4 leading-relaxed">
+                    <p className="text-sm text-muted mb-4 leading-relaxed">
                       {article.subtitle}
                     </p>
-                    <div className="flex items-center gap-4 text-[11px] text-muted/70 dark:text-muted-dark/70">
+                    <div className="flex items-center gap-4 text-[11px] text-muted/70/70">
                       <span>{article.reading_time_minutes} min read</span>
                       <span className="w-1 h-1 rounded-full bg-border dark:bg-border-dark" />
                       <span>

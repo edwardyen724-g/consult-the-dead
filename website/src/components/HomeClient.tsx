@@ -18,7 +18,7 @@ export function HomeClient({ frameworks }: { frameworks: FrameworkConfig[] }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark mb-6"
+          className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent mb-6"
         >
           A Library of Living Minds
         </motion.p>
@@ -26,7 +26,7 @@ export function HomeClient({ frameworks }: { frameworks: FrameworkConfig[] }) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-ink dark:text-ink-light mb-8 max-w-3xl"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-ink mb-8 max-w-3xl"
         >
           Cognitive frameworks from{" "}
           <span className="italic">history&apos;s most distinctive</span>{" "}
@@ -36,7 +36,7 @@ export function HomeClient({ frameworks }: { frameworks: FrameworkConfig[] }) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.6 }}
-          className="text-base md:text-lg text-muted dark:text-muted-dark max-w-xl leading-relaxed"
+          className="text-base md:text-lg text-muted max-w-xl leading-relaxed"
         >
           Each framework maps how a particular mind perceives the world &mdash;
           what it notices first, what it consistently ignores, and the reasoning
@@ -47,11 +47,11 @@ export function HomeClient({ frameworks }: { frameworks: FrameworkConfig[] }) {
       {/* Framework Gallery */}
       <section className="pb-24">
         <div className="flex items-center gap-4 mb-10">
-          <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+          <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
             Frameworks
           </h2>
           <div className="flex-1 h-px bg-border dark:bg-border-dark" />
-          <span className="text-[11px] text-muted/60 dark:text-muted-dark/60 tabular-nums">
+          <span className="text-[11px] text-muted/60/60 tabular-nums">
             {frameworks.length} {frameworks.length === 1 ? "mind" : "minds"}
           </span>
         </div>
@@ -83,7 +83,7 @@ export function HomeClient({ frameworks }: { frameworks: FrameworkConfig[] }) {
         </motion.div>
 
         {frameworks.length === 0 && (
-          <p className="text-muted dark:text-muted-dark text-center py-12 font-serif italic">
+          <p className="text-muted text-center py-12 font-serif italic">
             The library awaits its first mind.
           </p>
         )}
@@ -96,8 +96,8 @@ function FrameworkCard({ framework: fw }: { framework: FrameworkConfig }) {
   return (
     <Link href={`/frameworks/${fw.id}`} className="group block">
       <article
-        className="relative p-8 md:p-10 rounded-xl border border-border dark:border-border-dark
-          bg-surface dark:bg-surface-dark
+        className="relative p-5 md:p-8 lg:p-10 rounded-xl border border-border overflow-hidden
+          bg-surface
           hover:shadow-lg dark:hover:shadow-2xl
           transition-all duration-500 ease-out
           hover:-translate-y-0.5"
@@ -118,27 +118,27 @@ function FrameworkCard({ framework: fw }: { framework: FrameworkConfig }) {
         <div className="relative z-10">
           {/* Top row: domain + articles count */}
           <div className="flex items-center justify-between mb-5">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
               {fw.domain}
             </span>
-            <span className="text-[11px] text-muted/60 dark:text-muted-dark/60">
+            <span className="text-[11px] text-muted/60/60">
               {fw.articles.length} {fw.articles.length === 1 ? "article" : "articles"}
             </span>
           </div>
 
           {/* Framework name */}
           <h3
-            className="font-serif text-2xl md:text-3xl font-normal text-ink dark:text-ink-light mb-2 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-300"
+            className="font-serif text-2xl md:text-3xl font-normal text-ink mb-2 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-300"
           >
             {fw.archetype_name}
           </h3>
-          <p className="text-sm text-muted dark:text-muted-dark mb-6 italic font-serif">
+          <p className="text-sm text-muted mb-6 italic font-serif">
             {fw.archetype_title}
           </p>
 
           {/* Perceptual lens as pull quote */}
           <blockquote
-            className="pl-5 text-sm leading-relaxed text-ink/80 dark:text-ink-light font-serif italic"
+            className="pl-5 text-sm leading-relaxed text-ink font-serif italic"
             style={{
               borderLeft: `2px solid ${fw.accent_color}40`,
             }}

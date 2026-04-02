@@ -25,10 +25,16 @@
   --foreground: #1A1A1A;
 }
 
-/* Dark mode */
+/* Dark mode — force override all Tailwind color utilities */
 .dark {
   --background: #161616;
   --foreground: #E8E4DF;
+  --color-ink: #E8E4DF;
+  --color-accent: #E07A5F;
+  --color-muted: #9A9590;
+  --color-border: #2A2A2A;
+  --color-surface: #1E1E1E;
+  --color-paper: #161616;
 }
 
 html {

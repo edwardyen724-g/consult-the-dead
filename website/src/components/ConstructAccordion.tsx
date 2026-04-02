@@ -26,7 +26,7 @@ export function ConstructAccordion({
         return (
           <div
             key={i}
-            className="rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark overflow-hidden transition-colors duration-300"
+            className="rounded-lg border border-border bg-surface overflow-hidden transition-colors duration-300"
             style={{
               borderLeftWidth: "3px",
               borderLeftColor: isOpen ? (accentColor || "#C45D3E") : "transparent",
@@ -36,13 +36,13 @@ export function ConstructAccordion({
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="w-full text-left p-6 flex items-start justify-between gap-4 group cursor-pointer"
             >
-              <span className="font-serif text-base text-ink dark:text-ink-light group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+              <span className="font-serif text-base text-ink group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
                 {construct.construct}
               </span>
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="text-muted dark:text-muted-dark flex-shrink-0 mt-0.5"
+                className="text-muted flex-shrink-0 mt-0.5"
               >
                 <svg
                   width="16"
@@ -71,7 +71,7 @@ export function ConstructAccordion({
                   }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-6 pt-0 space-y-3 border-t border-border dark:border-border-dark">
+                  <div className="px-6 pb-6 pt-0 space-y-3 border-t border-border">
                     <div className="pt-4" />
                     <div className="flex items-baseline gap-3">
                       <span
@@ -80,19 +80,19 @@ export function ConstructAccordion({
                       >
                         Emergent pole
                       </span>
-                      <p className="text-sm text-ink/80 dark:text-ink-light">
+                      <p className="text-sm text-ink">
                         {construct.positive_pole}
                       </p>
                     </div>
                     <div className="flex items-baseline gap-3">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted dark:text-muted-dark whitespace-nowrap">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted whitespace-nowrap">
                         Implicit pole
                       </span>
-                      <p className="text-sm text-ink/80 dark:text-ink-light">
+                      <p className="text-sm text-ink">
                         {construct.negative_pole}
                       </p>
                     </div>
-                    <p className="text-sm text-muted dark:text-muted-dark italic pt-1 border-t border-border/50 dark:border-border-dark/50 mt-3">
+                    <p className="text-sm text-muted italic pt-1 border-t border-border/50/50 mt-3">
                       {construct.behavioral_implication}
                     </p>
                   </div>
