@@ -45,17 +45,39 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* ===== Noise Texture — Physical Materiality ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.dark body::before {
+  opacity: 0.04;
+}
+
+/* ===== Focus Visible — Keyboard Accessibility ===== */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* ===== Typography Craft ===== */
 
-/* Body text letter-spacing for reading comfort at 18-19px */
 .article-body p {
   letter-spacing: -0.01em;
 }
 
-/* Vertical rhythm: distinct spacing for heading-before vs heading-after vs paragraph-after */
 .article-body h2 {
   margin-top: 3em;
   margin-bottom: 0.75em;
@@ -67,6 +89,33 @@ body {
 
 .article-body p + h2 {
   margin-top: 2.5em;
+}
+
+/* Drop cap for first paragraph */
+.article-body > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: 0.08em;
+  padding-top: 0.06em;
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+/* ===== Crafted Horizontal Rule ===== */
+.hr-crafted {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 20%,
+    var(--color-accent) 50%,
+    var(--color-border) 80%,
+    transparent 100%
+  );
+  opacity: 0.6;
 }
 
 /* ===== Selection Styling ===== */
@@ -131,7 +180,7 @@ html {
   transition: width 0.1s linear;
 }
 
-/* ===== Page transition fade ===== */
+/* ===== Page Transition ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -221,4 +270,40 @@ html {
     rgba(255, 255, 255, 0.015) 10px,
     rgba(255, 255, 255, 0.015) 20px
   );
+}
+
+/* ===== Theme Toggle Room Transition ===== */
+@keyframes roomShift {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.room-shift {
+  animation: roomShift 0.5s ease-in-out;
+}
+
+/* ===== Construct Node Pulse ===== */
+@keyframes nodePulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.construct-node-pulse {
+  animation: nodePulse 3s ease-in-out infinite;
+}
+
+/* ===== Framework Lens Intro Glow ===== */
+@keyframes lensGlow {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.lens-intro {
+  animation: lensGlow 0.8s ease-out forwards;
+}
+
+/* ===== Parallax helper ===== */
+.parallax-slow {
+  will-change: transform;
 }

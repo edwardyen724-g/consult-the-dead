@@ -40,7 +40,7 @@ export default function RootLayout({
       className={`${newsreader.variable} ${sourceSans.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col antialiased overflow-x-hidden">
+      <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>

@@ -35,8 +35,9 @@ export function ConstructAccordion({
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="w-full text-left p-6 flex items-start justify-between gap-4 group cursor-pointer"
+              style={{ minHeight: "44px" }}
             >
-              <span className="font-serif text-base text-ink group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+              <span className="font-serif text-base text-ink group-hover:text-accent transition-colors">
                 {construct.construct}
               </span>
               <motion.span
@@ -92,7 +93,7 @@ export function ConstructAccordion({
                         {construct.negative_pole}
                       </p>
                     </div>
-                    <p className="text-sm text-muted italic pt-1 border-t border-border/50/50 mt-3">
+                    <p className="text-sm text-muted italic pt-1 border-t border-border/50 mt-3">
                       {construct.behavioral_implication}
                     </p>
                   </div>

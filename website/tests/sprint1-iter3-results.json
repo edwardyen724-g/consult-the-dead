@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-04-02T00:16:10.252Z",
+  "iteration": 3,
+  "criteria": {
+    "1_homepage_gallery": {
+      "pass": true,
+      "detail": "Found 1 framework card(s)"
+    },
+    "2_card_content": {
+      "pass": true,
+      "detail": "archetype=true, domain=true, lens=true"
+    },
+    "3_framework_detail": {
+      "pass": true,
+      "detail": "url=http://localhost:3000/frameworks/the-innovator, h1=\"The Innovator\", articles=2"
+    },
+    "4_article_reading": {
+      "pass": true,
+      "detail": "url=http://localhost:3000/articles/why-the-ai-hardware-race-is-already-over, hasBody=true, maxWidth=680px"
+    },
+    "5_dark_mode_toggle": {
+      "pass": true,
+      "detail": "toggleWorked=true, persisted=true"
+    },
+    "6_legal_disclaimer": {
+      "pass": true,
+      "detail": "Disclaimer present on all checked pages: true"
+    },
+    "7_no_console_errors": {
+      "pass": true,
+      "detail": "0 critical errors, 0 total",
+      "errors": []
+    },
+    "8_mobile_homepage": {
+      "pass": true,
+      "detail": "docWidth=375, vpWidth=375, overflow=0px"
+    },
+    "9_mobile_article": {
+      "pass": true,
+      "detail": "docWidth=375, vpWidth=375, overflow=0px"
+    }
+  },
+  "darkMode": {
+    "homepage_h1": {
+      "color": "rgb(232, 228, 223)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "14.30",
+      "meetsAA": true
+    },
+    "card_title": {
+      "color": "rgb(224, 122, 95)",
+      "background": "rgb(30, 30, 30)",
+      "contrastRatio": "5.65",
+      "meetsAA": true
+    },
+    "article_body": {
+      "color": "rgb(232, 228, 223)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "14.30",
+      "meetsAA": true
+    },
+    "article_h1": {
+      "color": "rgb(232, 228, 223)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "14.30",
+      "meetsAA": true
+    },
+    "muted_text": {
+      "color": "rgb(154, 149, 144)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "6.10",
+      "meetsAA": true
+    },
+    "overallPass": true,
+    "mobile_h1": {
+      "color": "rgb(232, 228, 223)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "14.30",
+      "meetsAA": true
+    },
+    "mobile_article_body": {
+      "color": "rgb(232, 228, 223)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "14.30",
+      "meetsAA": true
+    }
+  },
+  "typography": {
+    "paragraph": {
+      "letterSpacing": "-0.19px",
+      "marginBottom": "28.5px",
+      "fontSize": "19px",
+      "lineHeight": "33.25px"
+    },
+    "letterSpacingApplied": true,
+    "verticalRhythmApplied": true,
+    "heading": {
+      "marginTop": "72px",
+      "marginBottom": "18px"
+    }
+  },
+  "screenshots": [
+    "01-homepage-desktop-light.png",
+    "02-framework-detail-light.png",
+    "03-article-reading-light.png",
+    "04-homepage-dark.png",
+    "05-framework-detail-dark.png",
+    "06-article-dark.png",
+    "07-homepage-mobile-light.png",
+    "08-homepage-mobile-dark.png",
+    "09-article-mobile-light.png",
+    "10-article-mobile-dark.png"
+  ]
+}
