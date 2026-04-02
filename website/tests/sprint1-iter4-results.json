@@ -1,0 +1,199 @@
+{
+  "timestamp": "2026-04-02T00:32:38.950Z",
+  "iteration": 4,
+  "criteria": {
+    "1_homepage_immersive": {
+      "pass": true,
+      "detail": "hero=true, archetype=true, lens=true, constructs=true, articles=true"
+    },
+    "2_homepage_content": {
+      "pass": false,
+      "detail": "archetype=true, domain=false, lens=true"
+    },
+    "3_framework_detail": {
+      "pass": true,
+      "detail": "url=http://localhost:3000/frameworks/the-innovator, h1=\"The Innovator\", articles=2"
+    },
+    "4_article_reading": {
+      "pass": true,
+      "detail": "url=http://localhost:3000/articles/why-the-ai-hardware-race-is-already-over, hasBody=true, maxWidth=680px"
+    },
+    "5_dark_mode_toggle": {
+      "pass": true,
+      "detail": "toggleWorked=true, persisted=true"
+    },
+    "6_legal_disclaimer": {
+      "pass": true,
+      "detail": "Disclaimer present on all checked pages: true"
+    },
+    "7_no_console_errors": {
+      "pass": true,
+      "detail": "0 critical errors, 0 total",
+      "errors": []
+    },
+    "8_mobile_homepage": {
+      "pass": true,
+      "detail": "docWidth=375, vpWidth=375, overflow=0px"
+    },
+    "9_mobile_article": {
+      "pass": true,
+      "detail": "docWidth=375, vpWidth=375, overflow=0px"
+    }
+  },
+  "darkMode": {
+    "homepage_h1": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    },
+    "homepage_blockquote": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    },
+    "article_body": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    },
+    "article_h1": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    },
+    "muted_text": {
+      "color": "rgb(107, 101, 96)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "3.15",
+      "meetsAA": false
+    },
+    "overallPass": false,
+    "mobile_h1": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    },
+    "mobile_article_body": {
+      "color": "rgb(26, 26, 26)",
+      "background": "rgb(22, 22, 22)",
+      "contrastRatio": "1.04",
+      "meetsAA": false
+    }
+  },
+  "iter4Features": {
+    "lens_intro_block": {
+      "present": true
+    },
+    "construct_tracker": {
+      "present": true,
+      "visible": true
+    },
+    "drop_cap": {
+      "present": false,
+      "details": {
+        "found": true,
+        "fontSize": "19px",
+        "float": "none",
+        "color": "rgb(26, 26, 26)"
+      }
+    },
+    "crafted_hr": {
+      "present": true,
+      "hasGradient": false
+    },
+    "noise_texture": {
+      "present": false,
+      "details": {
+        "hasContent": false,
+        "opacity": "1",
+        "position": "static",
+        "pointerEvents": "auto",
+        "bgImage": "none"
+      }
+    },
+    "focus_visible": {
+      "found": false
+    },
+    "tap_targets_44px": {
+      "allPass": false,
+      "failures": [
+        {
+          "text": "The Hardware Trap",
+          "width": 180,
+          "height": 28,
+          "minHeight": "0px"
+        },
+        {
+          "text": "Software Eats Hardware, Again",
+          "width": 180,
+          "height": 28,
+          "minHeight": "0px"
+        },
+        {
+          "text": "The Disappearing Interface",
+          "width": 180,
+          "height": 28,
+          "minHeight": "0px"
+        },
+        {
+          "text": "The Lesson",
+          "width": 180,
+          "height": 28,
+          "minHeight": "0px"
+        }
+      ]
+    },
+    "monogram_enlarged": {
+      "found": true,
+      "width": 40,
+      "height": 40,
+      "enlarged": true
+    },
+    "theme_toggle_animation": {
+      "hasRoomName": true
+    },
+    "perceptual_diptych": {
+      "present": true
+    },
+    "construct_tension_lines": {
+      "present": true,
+      "count": 4
+    },
+    "thought_threads": {
+      "present": false
+    },
+    "parallax_hero": {
+      "found": true,
+      "hasMotionDiv": true
+    },
+    "overflow_fixed_at_source": {
+      "overflowX": "visible",
+      "overflowY": "visible",
+      "bodyClass": "min-h-screen flex flex-col antialiased",
+      "fixedAtSource": true
+    },
+    "dark_variant_classes": {
+      "count": 0,
+      "classes": []
+    }
+  },
+  "screenshots": [
+    "01-homepage-desktop-light.png",
+    "01b-hero-viewport.png",
+    "02-framework-detail-light.png",
+    "03-article-reading-light.png",
+    "04-homepage-dark.png",
+    "05-framework-detail-dark.png",
+    "06-article-dark.png",
+    "07-homepage-mobile-light.png",
+    "08-homepage-mobile-dark.png",
+    "09-article-mobile-light.png",
+    "10-article-mobile-dark.png",
+    "11-framework-detail-desktop-light.png"
+  ]
+}

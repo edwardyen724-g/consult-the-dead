@@ -25,17 +25,22 @@
   --foreground: #1A1A1A;
 }
 
-/* Dark mode — force override all Tailwind color utilities */
-.dark {
+/* Dark mode — direct color application since @theme inline can't be overridden via CSS vars */
+html.dark, .dark {
   --background: #161616;
   --foreground: #E8E4DF;
-  --color-ink: #E8E4DF;
-  --color-accent: #E07A5F;
-  --color-muted: #9A9590;
-  --color-border: #2A2A2A;
-  --color-surface: #1E1E1E;
-  --color-paper: #161616;
 }
+
+/* Force dark mode colors on all elements using Tailwind's color utilities */
+.dark .text-ink { color: #E8E4DF !important; }
+.dark .text-muted { color: #9A9590 !important; }
+.dark .text-accent { color: #E07A5F !important; }
+.dark .bg-surface { background-color: #1E1E1E !important; }
+.dark .bg-paper { background-color: #161616 !important; }
+.dark .border-border { border-color: #2A2A2A !important; }
+.dark .from-paper { --tw-gradient-from: #161616 !important; }
+.dark .to-paper { --tw-gradient-to: #161616 !important; }
+.dark .via-paper { --tw-gradient-via: #161616 !important; }
 
 html {
   scroll-behavior: smooth;
