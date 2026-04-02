@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { minds } from '@/data/minds';
 import { useCompanyStore, generatePlacementId } from '@/store/companyStore';
+import { getGhostPositionForMind } from '@/components/canvas/Canvas';
 import type { DomainCategory, MindArchetype, PlacedMind } from '@/types';
 
 const categories: { id: DomainCategory | 'all'; label: string }[] = [
@@ -41,16 +42,18 @@ function MindCard({ mind, isDeployed }: { mind: MindArchetype; isDeployed: boole
   };
 
   const handleClick = () => {
-    // Place mind at a staggered position based on how many are already placed
+    // Place mind at its ghost constellation position for organic layout continuity
+    const ghostPos = getGhostPositionForMind(mind.id);
     const count = placedMinds.length;
+    const fallbackPos = {
+      x: 100 + (count % 3) * 250,
+      y: 80 + Math.floor(count / 3) * 200,
+    };
     const newMind: PlacedMind = {
       id: generatePlacementId(mind.id),
       archetypeId: mind.id,
       role: null,
-      position: {
-        x: 100 + (count % 3) * 250,
-        y: 80 + Math.floor(count / 3) * 200,
-      },
+      position: ghostPos || fallbackPos,
     };
     addMind(newMind);
   };
@@ -147,9 +150,12 @@ function MindCard({ mind, isDeployed }: { mind: MindArchetype; isDeployed: boole
           {/* Deployed indicator or add button */}
           {isDeployed ? (
             <span
-              className="flex-shrink-0 w-4 h-4 flex items-center justify-center rounded-full transition-opacity"
+              className="flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full transition-all"
               style={{
-                opacity: isHovered ? 0.8 : 0.5,
+                opacity: isHovered ? 1 : 0.85,
+                background: `rgba(${rgb}, 0.15)`,
+                border: `1px solid rgba(${rgb}, 0.3)`,
+                boxShadow: `0 0 6px rgba(${rgb}, 0.2)`,
               }}
             >
               <svg width="10" height="10" viewBox="0 0 10 10">
@@ -157,7 +163,7 @@ function MindCard({ mind, isDeployed }: { mind: MindArchetype; isDeployed: boole
                   d="M2 5L4.2 7.2L8 3"
                   fill="none"
                   stroke={mind.accentColor}
-                  strokeWidth="1.3"
+                  strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />

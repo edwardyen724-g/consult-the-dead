@@ -141,8 +141,8 @@ html, body {
 
 /* ---- Ghost constellation pulse ---- */
 @keyframes ghost-pulse {
-  0%, 100% { opacity: 0.12; }
-  50% { opacity: 0.22; }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
 }
 
 /* ---- Select overrides (kept for any remaining native selects) ---- */

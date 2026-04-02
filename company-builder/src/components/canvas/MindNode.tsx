@@ -23,12 +23,12 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
       // Hexagonal / geometric grid
       return {
         backgroundImage: `
-          linear-gradient(30deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
-          linear-gradient(150deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
-          linear-gradient(30deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
-          linear-gradient(150deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
-          linear-gradient(60deg, rgba(${rgb}, 0.025) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.025) 75%),
-          linear-gradient(60deg, rgba(${rgb}, 0.025) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.025) 75%)
+          linear-gradient(30deg, rgba(${rgb}, 0.12) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.12) 87.5%),
+          linear-gradient(150deg, rgba(${rgb}, 0.12) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.12) 87.5%),
+          linear-gradient(30deg, rgba(${rgb}, 0.12) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.12) 87.5%),
+          linear-gradient(150deg, rgba(${rgb}, 0.12) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.12) 87.5%),
+          linear-gradient(60deg, rgba(${rgb}, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.08) 75%),
+          linear-gradient(60deg, rgba(${rgb}, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.08) 75%)
         `,
         backgroundSize: '40px 70px',
         backgroundPosition: '0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px',
@@ -41,8 +41,8 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
             135deg,
             transparent,
             transparent 8px,
-            rgba(${rgb}, 0.035) 8px,
-            rgba(${rgb}, 0.035) 9px
+            rgba(${rgb}, 0.10) 8px,
+            rgba(${rgb}, 0.10) 9px
           )
         `,
         backgroundSize: '20px 20px',
@@ -52,9 +52,9 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
       // Organic curved concentric rings
       return {
         backgroundImage: `
-          radial-gradient(ellipse at 70% 30%, rgba(${rgb}, 0.045) 0%, transparent 30%),
-          radial-gradient(ellipse at 30% 70%, rgba(${rgb}, 0.03) 0%, transparent 25%),
-          radial-gradient(circle at 50% 50%, transparent 40%, rgba(${rgb}, 0.02) 41%, transparent 42%)
+          radial-gradient(ellipse at 70% 30%, rgba(${rgb}, 0.14) 0%, transparent 30%),
+          radial-gradient(ellipse at 30% 70%, rgba(${rgb}, 0.10) 0%, transparent 25%),
+          radial-gradient(circle at 50% 50%, transparent 40%, rgba(${rgb}, 0.07) 41%, transparent 42%)
         `,
         backgroundSize: '100% 100%',
       };
@@ -65,19 +65,19 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
           conic-gradient(
             from 0deg at 50% 50%,
             transparent 0deg,
-            rgba(${rgb}, 0.04) 10deg,
+            rgba(${rgb}, 0.12) 10deg,
             transparent 20deg,
             transparent 70deg,
-            rgba(${rgb}, 0.04) 80deg,
+            rgba(${rgb}, 0.12) 80deg,
             transparent 90deg,
             transparent 160deg,
-            rgba(${rgb}, 0.04) 170deg,
+            rgba(${rgb}, 0.12) 170deg,
             transparent 180deg,
             transparent 250deg,
-            rgba(${rgb}, 0.04) 260deg,
+            rgba(${rgb}, 0.12) 260deg,
             transparent 270deg,
             transparent 340deg,
-            rgba(${rgb}, 0.04) 350deg,
+            rgba(${rgb}, 0.12) 350deg,
             transparent 360deg
           )
         `,

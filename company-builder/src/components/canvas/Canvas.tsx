@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useRef, useMemo, useEffect } from 'react';
+import React, { useCallback, useRef, useMemo, useEffect, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -41,7 +41,8 @@ function buildNodes(placedMinds: PlacedMind[]): Node[] {
 /* ---- Ghost constellation: 12 faint positions for minds awaiting activation ---- */
 
 // Arrange 12 minds in a loose constellation shape across the canvas
-const GHOST_POSITIONS: { x: number; y: number }[] = [
+// Positions correspond to minds array order (index 0-11)
+export const GHOST_POSITIONS: { x: number; y: number }[] = [
   { x: 180, y: 80 },
   { x: 520, y: 40 },
   { x: 860, y: 100 },
@@ -55,6 +56,16 @@ const GHOST_POSITIONS: { x: number; y: number }[] = [
   { x: 500, y: 600 },
   { x: 800, y: 580 },
 ];
+
+/** Get the ghost constellation position for a given archetype ID.
+ *  Returns the position offset so the node center lands on the ghost dot. */
+export function getGhostPositionForMind(archetypeId: string): { x: number; y: number } | null {
+  const mindIndex = minds.findIndex((m) => m.id === archetypeId);
+  if (mindIndex === -1 || mindIndex >= GHOST_POSITIONS.length) return null;
+  const pos = GHOST_POSITIONS[mindIndex];
+  // Offset by half-node size so node CENTER aligns with ghost dot
+  return { x: pos.x - 110, y: pos.y - 70 };
+}
 
 function GhostConstellation({
   placedMinds,
@@ -70,15 +81,16 @@ function GhostConstellation({
     [placedMinds]
   );
 
-  // Ghost minds are unplaced minds mapped to constellation positions
+  // Ghost minds are unplaced minds mapped to their FIXED constellation positions
+  // Each mind always occupies the same position regardless of which others are placed
   const ghostMinds = useMemo(() => {
     return minds
-      .filter((m) => !placedArchetypeIds.has(m.id))
-      .slice(0, 12)
-      .map((mind, i) => ({
+      .map((mind, originalIndex) => ({
         mind,
-        position: GHOST_POSITIONS[i % GHOST_POSITIONS.length],
-      }));
+        position: GHOST_POSITIONS[originalIndex % GHOST_POSITIONS.length],
+        index: originalIndex,
+      }))
+      .filter(({ mind }) => !placedArchetypeIds.has(mind.id));
   }, [placedArchetypeIds]);
 
   if (ghostMinds.length === 0) return null;
@@ -86,7 +98,7 @@ function GhostConstellation({
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
       <AnimatePresence>
-        {ghostMinds.map(({ mind, position }) => {
+        {ghostMinds.map(({ mind, position, index }) => {
           const isBeingDragged = draggedArchetypeId === mind.id;
           const brighten = isDraggingFromSidebar;
           const rgb = hexToRgb(mind.accentColor);
@@ -94,13 +106,17 @@ function GhostConstellation({
           return (
             <motion.div
               key={`ghost-${mind.id}`}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.6 }}
               animate={{
-                opacity: isBeingDragged ? 0.6 : brighten ? 0.3 : 1,
+                opacity: isBeingDragged ? 0.8 : brighten ? 0.55 : 1,
                 scale: isBeingDragged ? 1.3 : 1,
               }}
-              exit={{ opacity: 0, scale: 0.3 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              exit={{ opacity: 0, scale: 0.3, transition: { duration: 0.4 } }}
+              transition={{
+                duration: 0.6,
+                ease: 'easeOut',
+                delay: index * 0.12, // staggered entrance on first load
+              }}
               className="absolute flex flex-col items-center gap-1"
               style={{
                 left: position.x,
@@ -112,25 +128,29 @@ function GhostConstellation({
               <div
                 className="rounded-full"
                 style={{
-                  width: isBeingDragged ? 8 : 5,
-                  height: isBeingDragged ? 8 : 5,
+                  width: isBeingDragged ? 16 : 14,
+                  height: isBeingDragged ? 16 : 14,
                   background: mind.accentColor,
-                  opacity: isBeingDragged ? 0.8 : brighten ? 0.35 : 0.2,
+                  opacity: isBeingDragged ? 0.9 : brighten ? 0.6 : 0.45,
                   boxShadow: isBeingDragged
-                    ? `0 0 16px rgba(${rgb}, 0.6), 0 0 32px rgba(${rgb}, 0.3)`
-                    : `0 0 8px rgba(${rgb}, 0.15)`,
+                    ? `0 0 20px rgba(${rgb}, 0.7), 0 0 40px rgba(${rgb}, 0.35)`
+                    : `0 0 10px rgba(${rgb}, 0.25), 0 0 4px rgba(${rgb}, 0.15)`,
                   transition: 'all 0.4s ease',
+                  animation: !isBeingDragged && !brighten ? 'ghost-pulse 4s ease-in-out infinite' : 'none',
+                  animationDelay: `${index * 0.3}s`,
                 }}
               />
               {/* Ghost name label */}
               <div
-                className="text-[9px] uppercase tracking-[0.14em] whitespace-nowrap"
+                className="text-[10px] uppercase tracking-[0.14em] whitespace-nowrap"
                 style={{
                   fontFamily: 'var(--font-jetbrains-mono), monospace',
                   color: mind.accentColor,
-                  opacity: isBeingDragged ? 0.55 : brighten ? 0.2 : 0.12,
+                  opacity: isBeingDragged ? 0.8 : brighten ? 0.45 : 0.30,
                   transition: 'opacity 0.4s ease',
-                  textShadow: isBeingDragged ? `0 0 10px rgba(${rgb}, 0.4)` : 'none',
+                  textShadow: isBeingDragged
+                    ? `0 0 12px rgba(${rgb}, 0.5)`
+                    : `0 0 6px rgba(${rgb}, 0.15)`,
                 }}
               >
                 {mind.name}
@@ -168,7 +188,7 @@ function ColorBleedLayer({ placedMinds }: { placedMinds: PlacedMind[] }) {
                 marginLeft: -150,
                 marginTop: -150,
                 borderRadius: '50%',
-                background: `radial-gradient(circle, rgba(${rgb}, 0.045) 0%, rgba(${rgb}, 0.015) 40%, transparent 70%)`,
+                background: `radial-gradient(circle, rgba(${rgb}, 0.10) 0%, rgba(${rgb}, 0.04) 40%, transparent 70%)`,
                 filter: 'blur(30px)',
               }}
             />
@@ -194,6 +214,9 @@ interface ChemistryHint {
 }
 
 function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
+  const [showOnboardingHint, setShowOnboardingHint] = useState(false);
+  const onboardingShownRef = useRef(false);
+
   const hints = useMemo(() => {
     const result: ChemistryHint[] = [];
     for (let i = 0; i < placedMinds.length; i++) {
@@ -231,13 +254,50 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
     return result;
   }, [placedMinds]);
 
+  // Show one-time onboarding hint when chemistry is first detected
+  useEffect(() => {
+    if (hints.length > 0 && !onboardingShownRef.current) {
+      onboardingShownRef.current = true;
+      setShowOnboardingHint(true);
+      const timer = setTimeout(() => setShowOnboardingHint(false), 4500);
+      return () => clearTimeout(timer);
+    }
+  }, [hints.length]);
+
   if (hints.length === 0) return null;
 
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 6 }}>
+      {/* One-time onboarding hint */}
+      <AnimatePresence>
+        {showOnboardingHint && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.5 }}
+            className="absolute left-1/2 top-6"
+            style={{ transform: 'translateX(-50%)', zIndex: 10 }}
+          >
+            <div
+              className="text-[11px] italic px-4 py-2 rounded-lg"
+              style={{
+                fontFamily: 'var(--font-newsreader), serif',
+                color: 'rgba(180, 200, 220, 0.9)',
+                background: 'rgba(10, 10, 20, 0.9)',
+                border: '1px solid rgba(120, 200, 160, 0.25)',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+              }}
+            >
+              Minds sense each other &mdash; arrange them to discover relationships
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <svg className="absolute inset-0 w-full h-full" style={{ overflow: 'visible' }}>
         {hints.map((h) => {
-          const opacity = Math.max(0, Math.min(1, 1 - h.distance / 350)) * 0.4;
+          const opacity = Math.max(0, Math.min(1, 1 - h.distance / 350)) * 0.7;
           const color =
             h.warmth === 'synergy'
               ? 'rgba(120, 200, 160, VAR)'
@@ -257,8 +317,8 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
               d={`M ${h.x1} ${h.y1} Q ${cpx} ${cpy} ${h.x2} ${h.y2}`}
               fill="none"
               stroke={strokeColor}
-              strokeWidth={1.2}
-              strokeDasharray="6 4"
+              strokeWidth={2}
+              strokeDasharray="8 5"
               className="chemistry-arc"
             />
           );
@@ -268,13 +328,13 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
       {/* Hint labels at midpoints */}
       <AnimatePresence>
         {hints.map((h) => {
-          const fadeOpacity = Math.max(0, Math.min(1, 1 - h.distance / 350));
+          const fadeOpacity = Math.max(0.2, Math.min(1, 1 - h.distance / 350));
           const labelColor =
             h.warmth === 'synergy'
-              ? 'rgba(120, 200, 160, 0.7)'
+              ? 'rgba(120, 200, 160, 0.85)'
               : h.warmth === 'tension'
-                ? 'rgba(220, 120, 100, 0.7)'
-                : 'rgba(180, 180, 180, 0.6)';
+                ? 'rgba(220, 120, 100, 0.85)'
+                : 'rgba(180, 180, 180, 0.75)';
 
           // Offset label slightly from the arc
           const dx = h.x2 - h.x1;
@@ -286,7 +346,7 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
             <motion.div
               key={`label-${h.pairKey}`}
               initial={{ opacity: 0 }}
-              animate={{ opacity: fadeOpacity * 0.85 }}
+              animate={{ opacity: fadeOpacity * 0.9 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               className="absolute text-center"
@@ -294,16 +354,16 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
                 left: labelX,
                 top: labelY,
                 transform: 'translate(-50%, -50%)',
-                maxWidth: 200,
+                maxWidth: 220,
               }}
             >
               <div
-                className="text-[9px] italic leading-snug px-2 py-1 rounded-md inline-block"
+                className="text-[11px] italic leading-snug px-2.5 py-1 rounded-md inline-block"
                 style={{
                   fontFamily: 'var(--font-newsreader), serif',
                   color: labelColor,
-                  background: 'rgba(10, 10, 15, 0.7)',
-                  border: `1px solid ${h.warmth === 'synergy' ? 'rgba(120, 200, 160, 0.15)' : h.warmth === 'tension' ? 'rgba(220, 120, 100, 0.15)' : 'rgba(180, 180, 180, 0.1)'}`,
+                  background: 'rgba(10, 10, 15, 0.8)',
+                  border: `1px solid ${h.warmth === 'synergy' ? 'rgba(120, 200, 160, 0.25)' : h.warmth === 'tension' ? 'rgba(220, 120, 100, 0.25)' : 'rgba(180, 180, 180, 0.15)'}`,
                 }}
               >
                 {h.hint}

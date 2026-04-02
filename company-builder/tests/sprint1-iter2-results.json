@@ -1,0 +1,105 @@
+{
+  "criteria": {
+    "app_loads": true,
+    "has_vignette": false,
+    "has_particles": true,
+    "has_noise_overlay": true,
+    "has_monogram_circle": true,
+    "has_breathing_aura": true,
+    "has_glow_animation": true,
+    "has_accent_bar": true,
+    "no_native_select": true,
+    "has_custom_dropdown": true,
+    "dropdown_glassmorphic": true,
+    "dropdown_color_indicators": true,
+    "role_assignment_works": true,
+    "five_plus_minds_placed": true,
+    "has_color_bleed_pools": true,
+    "hover_reveals_quote": true,
+    "canvas_invite_pulse": true,
+    "drag_drop_creates_node": true,
+    "selection_has_effect": true,
+    "has_breath_keyframes": true,
+    "has_glow_keyframes": true,
+    "company_name_editable": false,
+    "search_filter_works": true,
+    "category_filter_works": true,
+    "zero_console_errors": false
+  },
+  "consoleErrors": [
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    },
+    {
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. nikola-tesla-1775138558176",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+        "lineNumber": 3272,
+        "columnNumber": 31
+      }
+    }
+  ],
+  "screenshots": [
+    "01-initial-load.png",
+    "02-placement-ceremony.png",
+    "03-custom-dropdown-open.png",
+    "04-role-assigned.png",
+    "05-multiple-glowing-nodes.png",
+    "06-hover-quote.png",
+    "07-mid-drag-feedback.png",
+    "08-after-drop.png",
+    "09-placement-flash-early.png",
+    "09b-placement-quote.png",
+    "10-final-showcase-6-minds.png",
+    "11-zoomed-showcase.png",
+    "12-final-hover-detail.png"
+  ],
+  "scores": {},
+  "timestamp": "2026-04-02T14:02:19.783Z",
+  "iteration": 2
+}
