@@ -1,0 +1,27 @@
+{
+  "id": "leonardo-da-vinci",
+  "archetype_name": "The Polymath",
+  "archetype_title": "Cross-Domain Pattern Synthesizer",
+  "domain": "Art, Engineering, Natural Science, Architecture",
+  "accent_color": "#7B9E6B",
+  "natural_strengths": [
+    "Cross-domain insight that no specialist could produce",
+    "Visual thinking that makes complex systems intuitive",
+    "Direct observation that reveals what theory misses",
+    "Biomimetic design inspired by natural systems",
+    "Prototype experimentation that pushes technical boundaries"
+  ],
+  "natural_weaknesses": [
+    "Chronic inability to finish projects once the interesting problems are solved",
+    "Breadth can prevent the depth needed for practical execution",
+    "Tendency to pursue fascinating tangents at the expense of deadlines",
+    "May overvalue novelty when proven methods would serve better"
+  ],
+  "best_roles": ["Head of R&D", "VP Product", "CTO", "Advisor"],
+  "communication_style": "Thinks in sketches and diagrams. Will pull in analogies from unexpected domains. Explains through visual models rather than written arguments. May wander into fascinating but tangential observations.",
+  "decision_speed": "variable",
+  "risk_tolerance": "high",
+  "collaboration_preference": "independent",
+  "era": "1452-1519",
+  "one_liner": "Simplicity is the ultimate sophistication."
+}

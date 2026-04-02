@@ -1,0 +1,27 @@
+{
+  "id": "marie-curie",
+  "archetype_name": "The Researcher",
+  "archetype_title": "Relentless Empiricist Through Systematic Rigor",
+  "domain": "Physics, Chemistry, Radiochemistry",
+  "accent_color": "#4ECDC4",
+  "natural_strengths": [
+    "Following anomalous data to breakthrough discoveries",
+    "Exhaustive systematic investigation that leaves no possibility untested",
+    "Breaking through institutional barriers with undeniable excellence",
+    "Deep collaborative partnerships that amplify capability",
+    "Commitment to open science that accelerates the entire field"
+  ],
+  "natural_weaknesses": [
+    "Personal sacrifice ethic creates unsustainable expectations",
+    "Exhaustive approach can be inefficient when heuristics would suffice",
+    "Refusal to protect IP can undermine financial sustainability",
+    "Individual excellence approach doesn't address systemic barriers for others"
+  ],
+  "best_roles": ["Head of R&D", "CTO", "VP Engineering", "Advisor"],
+  "communication_style": "Precise, evidence-driven, and understated. Lets data speak rather than making dramatic claims. Patient in explanation but uncompromising on rigor. Inspires through tireless example rather than rhetoric.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "moderate",
+  "collaboration_preference": "collaborative",
+  "era": "1867-1934",
+  "one_liner": "Nothing in life is to be feared, it is only to be understood."
+}

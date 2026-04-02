@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-void: #0a0a0f;
+  --color-void-surface: #13131f;
+  --color-void-panel: rgba(19, 19, 31, 0.85);
+  --color-void-border: rgba(255, 255, 255, 0.06);
+  --color-text-primary: #e4e4e7;
+  --color-text-muted: #a1a1aa;
+  --color-text-dim: #71717a;
+  --font-mono: var(--font-jetbrains-mono);
+  --font-serif: var(--font-newsreader);
+}
+
+/* ---- Base ---- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a0f;
+  color: #e4e4e7;
+}
+
+/* ---- Noise texture overlay ---- */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ---- Glass panels ---- */
+.glass-panel {
+  background: rgba(12, 12, 20, 0.88);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-top-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Custom scrollbar ---- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---- React Flow overrides ---- */
+.react-flow__background {
+  background: #0a0a0f !important;
+}
+.react-flow__minimap {
+  display: none !important;
+}
+.react-flow__attribution {
+  display: none !important;
+}
+.react-flow__controls {
+  display: none !important;
+}
+.react-flow__pane {
+  cursor: grab !important;
+}
+.react-flow__pane:active {
+  cursor: grabbing !important;
+}
+.react-flow__node {
+  cursor: default !important;
+}
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+/* ---- Mind breathing animation (aura background) ---- */
+@keyframes mind-breathe {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
+}
+
+/* ---- Mind glow animation (box-shadow) ---- */
+@keyframes mind-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+/* ---- Empty canvas prompt ---- */
+@keyframes float-prompt {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-6px); opacity: 0.7; }
+}
+
+/* ---- Ambient particle drift ---- */
+@keyframes particle-drift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--drift, 20px), calc(var(--drift, 20px) * -1.5));
+  }
+}
+
+/* ---- Canvas invite pulse when dragging ---- */
+@keyframes canvas-invite {
+  0%, 100% {
+    box-shadow: inset 0 0 30px rgba(255,255,255,0.01);
+  }
+  50% {
+    box-shadow: inset 0 0 60px rgba(255,255,255,0.03);
+  }
+}
+
+/* ---- Select overrides (kept for any remaining native selects) ---- */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23a1a1aa' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+}

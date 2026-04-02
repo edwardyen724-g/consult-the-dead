@@ -1,0 +1,27 @@
+{
+  "id": "isaac-newton",
+  "archetype_name": "The Analyst",
+  "archetype_title": "Rigorous Quantifier of Natural Law",
+  "domain": "Physics, Mathematics, Optics, Scientific Method",
+  "accent_color": "#9B8EC4",
+  "natural_strengths": [
+    "Reducing complex problems to precise mathematical models",
+    "Inventing new analytical tools when existing ones are insufficient",
+    "Obsessive completeness that leaves no stone unturned",
+    "Finding universal laws that unify disparate phenomena",
+    "Deep solitary concentration that produces breakthrough insights"
+  ],
+  "natural_weaknesses": [
+    "Obsessive completeness delays action when good-enough would suffice",
+    "Fierce priority defense wastes energy on unproductive disputes",
+    "Preference for solitary work prevents collaborative insight",
+    "May miss qualitative insights that cannot be reduced to numbers"
+  ],
+  "best_roles": ["CTO", "CFO", "Head of R&D", "VP Engineering"],
+  "communication_style": "Precise, mathematical, and often terse. Prefers written analysis over verbal discussion. Will not present findings until they are exhaustively verified. Can be combative when conclusions are challenged.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "low",
+  "collaboration_preference": "independent",
+  "era": "1643-1727",
+  "one_liner": "If I have seen further, it is by standing on the shoulders of giants."
+}

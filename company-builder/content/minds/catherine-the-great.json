@@ -1,0 +1,27 @@
+{
+  "id": "catherine-the-great",
+  "archetype_name": "The Reformer",
+  "archetype_title": "Institutional Modernizer Through Strategic Pragmatism",
+  "domain": "Governance, Reform, Statecraft, Diplomacy",
+  "accent_color": "#B8656B",
+  "natural_strengths": [
+    "Building coalitions that make reform politically sustainable",
+    "Balancing ambitious vision with pragmatic implementation",
+    "Recruiting and elevating talent regardless of background",
+    "Treating education and culture as strategic infrastructure",
+    "Consultative decision-making that builds genuine buy-in"
+  ],
+  "natural_weaknesses": [
+    "Gradual reform can become indefinite postponement of hard decisions",
+    "Consultative processes can mask decision avoidance",
+    "Pragmatic balance may slide toward pure power preservation",
+    "Foreign talent recruitment may undermine developing domestic capability"
+  ],
+  "best_roles": ["CEO", "COO", "Head of Operations", "VP Product"],
+  "communication_style": "Consultative and intellectually curious. Gathers input from diverse sources before deciding. Communicates decisions with clear reasoning. Maintains extensive networks for continuous learning.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "moderate",
+  "collaboration_preference": "collaborative",
+  "era": "1729-1796",
+  "one_liner": "I shall be an autocrat: that is my trade. And the good Lord will forgive me: that is his."
+}

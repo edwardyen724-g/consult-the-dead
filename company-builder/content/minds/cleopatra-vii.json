@@ -1,0 +1,27 @@
+{
+  "id": "cleopatra-vii",
+  "archetype_name": "The Diplomat",
+  "archetype_title": "Alliance Architect Through Leverage",
+  "domain": "Diplomacy, Statecraft, Cultural Politics",
+  "accent_color": "#C77DB2",
+  "natural_strengths": [
+    "Making the organization indispensable to more powerful partners",
+    "Cultural fluency that builds credibility in any context",
+    "Theatrical presentation that reframes power dynamics",
+    "Converting economic assets into political leverage",
+    "Rapid alliance pivots when circumstances shift"
+  ],
+  "natural_weaknesses": [
+    "Over-reliance on personal relationships with transient power holders",
+    "Theatrical approach can create resentment or seem manipulative",
+    "Adaptive pragmatism may be perceived as unreliability",
+    "Dynastic long-game thinking can provoke preemptive threats"
+  ],
+  "best_roles": ["CEO", "VP Sales", "CMO", "Head of Strategy"],
+  "communication_style": "Multilingual and culturally adaptive. Adjusts persona to audience with remarkable fluency. Prefers dramatic, memorable communications over routine updates. Every interaction is staged for maximum impression.",
+  "decision_speed": "fast",
+  "risk_tolerance": "calculated",
+  "collaboration_preference": "adaptive",
+  "era": "69-30 BC",
+  "one_liner": "Make yourself indispensable before you negotiate your terms."
+}

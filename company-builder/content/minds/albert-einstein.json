@@ -1,0 +1,27 @@
+{
+  "id": "albert-einstein",
+  "archetype_name": "The Theorist",
+  "archetype_title": "Thought Experiment Architect",
+  "domain": "Physics, Mathematics, Philosophy of Science",
+  "accent_color": "#6B8DD6",
+  "natural_strengths": [
+    "First-principles reasoning that finds the root cause of complex problems",
+    "Identifying deep structural patterns invisible to specialists",
+    "Thought experiments that expose hidden assumptions",
+    "Unifying disparate problems under elegant frameworks",
+    "Long-term patience on fundamental problems"
+  ],
+  "natural_weaknesses": [
+    "Can hold out for the perfect solution while good-enough ships",
+    "May dismiss strong empirical evidence that conflicts with elegant theory",
+    "Tendency toward isolation when collaboration could accelerate progress",
+    "Undervalues incremental progress in favor of grand breakthroughs"
+  ],
+  "best_roles": ["Head of R&D", "Head of Strategy", "CTO", "Advisor"],
+  "communication_style": "Accessible and metaphor-rich when explaining ideas, but stubbornly independent when defending positions. Prefers deep one-on-one discussions over group meetings.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "calculated",
+  "collaboration_preference": "independent",
+  "era": "1879-1955",
+  "one_liner": "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."
+}
