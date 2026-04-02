@@ -130,6 +130,21 @@ html, body {
   }
 }
 
+/* ---- Chemistry arc dash animation ---- */
+@keyframes chemistry-dash {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+.chemistry-arc {
+  animation: chemistry-dash 3s linear infinite;
+}
+
+/* ---- Ghost constellation pulse ---- */
+@keyframes ghost-pulse {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+}
+
 /* ---- Select overrides (kept for any remaining native selects) ---- */
 select {
   -webkit-appearance: none;

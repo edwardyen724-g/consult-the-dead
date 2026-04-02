@@ -6,13 +6,86 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { mindsMap } from '@/data/minds';
 import { roles } from '@/data/roles';
 import { useCompanyStore } from '@/store/companyStore';
-import type { RoleId } from '@/types';
+import type { RoleId, DomainCategory } from '@/types';
 
 interface MindNodeData {
   archetypeId: string;
   role: RoleId | null;
   label: string;
   [key: string]: unknown;
+}
+
+/* ---- Domain motif SVG patterns ---- */
+function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React.CSSProperties {
+  // Each domain gets a unique low-opacity CSS background pattern
+  switch (domainCategory) {
+    case 'science':
+      // Hexagonal / geometric grid
+      return {
+        backgroundImage: `
+          linear-gradient(30deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
+          linear-gradient(150deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
+          linear-gradient(30deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
+          linear-gradient(150deg, rgba(${rgb}, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.04) 87.5%),
+          linear-gradient(60deg, rgba(${rgb}, 0.025) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.025) 75%),
+          linear-gradient(60deg, rgba(${rgb}, 0.025) 25%, transparent 25.5%, transparent 75%, rgba(${rgb}, 0.025) 75%)
+        `,
+        backgroundSize: '40px 70px',
+        backgroundPosition: '0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px',
+      };
+    case 'strategy':
+      // Diagonal chevron lines
+      return {
+        backgroundImage: `
+          repeating-linear-gradient(
+            135deg,
+            transparent,
+            transparent 8px,
+            rgba(${rgb}, 0.035) 8px,
+            rgba(${rgb}, 0.035) 9px
+          )
+        `,
+        backgroundSize: '20px 20px',
+      };
+    case 'art':
+    case 'computing':
+      // Organic curved concentric rings
+      return {
+        backgroundImage: `
+          radial-gradient(ellipse at 70% 30%, rgba(${rgb}, 0.045) 0%, transparent 30%),
+          radial-gradient(ellipse at 30% 70%, rgba(${rgb}, 0.03) 0%, transparent 25%),
+          radial-gradient(circle at 50% 50%, transparent 40%, rgba(${rgb}, 0.02) 41%, transparent 42%)
+        `,
+        backgroundSize: '100% 100%',
+      };
+    case 'governance':
+      // Radial star / compass pattern
+      return {
+        backgroundImage: `
+          conic-gradient(
+            from 0deg at 50% 50%,
+            transparent 0deg,
+            rgba(${rgb}, 0.04) 10deg,
+            transparent 20deg,
+            transparent 70deg,
+            rgba(${rgb}, 0.04) 80deg,
+            transparent 90deg,
+            transparent 160deg,
+            rgba(${rgb}, 0.04) 170deg,
+            transparent 180deg,
+            transparent 250deg,
+            rgba(${rgb}, 0.04) 260deg,
+            transparent 270deg,
+            transparent 340deg,
+            rgba(${rgb}, 0.04) 350deg,
+            transparent 360deg
+          )
+        `,
+        backgroundSize: '100% 100%',
+      };
+    default:
+      return {};
+  }
 }
 
 /* ---- Custom Role Dropdown ---- */
@@ -139,11 +212,16 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const removeMind = useCompanyStore((s) => s.removeMind);
   const justPlacedIds = useCompanyStore((s) => s.justPlacedIds);
   const clearJustPlaced = useCompanyStore((s) => s.clearJustPlaced);
+  const hoveredSidebarArchetypeId = useCompanyStore((s) => s.hoveredSidebarArchetypeId);
 
   const [isHovered, setIsHovered] = useState(false);
+  const [isRemoving, setIsRemoving] = useState(false);
   const justPlaced = justPlacedIds.has(id);
   const [showPlacementQuote, setShowPlacementQuote] = useState(false);
   const [showFlash, setShowFlash] = useState(false);
+
+  // Is this node highlighted from sidebar hover?
+  const isHighlightedFromSidebar = hoveredSidebarArchetypeId === nodeData.archetypeId;
 
   // Random phase offset for pulse so nodes don't breathe in unison
   const phaseOffset = useMemo(() => Math.random() * 4, []);
@@ -171,17 +249,38 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
     [id, updateMindRole]
   );
 
+  const handleRemove = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      setIsRemoving(true);
+      // After shrink animation, actually remove from store
+      setTimeout(() => {
+        removeMind(id);
+      }, 450);
+    },
+    [id, removeMind]
+  );
+
   if (!mind) return null;
 
   const accent = mind.accentColor;
   const rgb = hexToRgb(accent);
   const monogram = mind.name.charAt(0).toUpperCase();
+  const domainMotif = getDomainMotifStyle(mind.domainCategory, rgb);
 
   return (
     <motion.div
       initial={{ scale: 0.05, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20, duration: 0.5 }}
+      animate={
+        isRemoving
+          ? { scale: 0.02, opacity: 0, filter: `blur(8px) brightness(3)` }
+          : { scale: 1, opacity: 1, filter: 'blur(0px) brightness(1)' }
+      }
+      transition={
+        isRemoving
+          ? { duration: 0.4, ease: 'easeIn' }
+          : { type: 'spring', stiffness: 300, damping: 20, duration: 0.5 }
+      }
       className="relative group"
       style={{ minWidth: 220 }}
       onMouseEnter={() => setIsHovered(true)}
@@ -241,6 +340,20 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         )}
       </AnimatePresence>
 
+      {/* Sidebar hover highlight ring */}
+      {isHighlightedFromSidebar && (
+        <div
+          className="absolute pointer-events-none rounded-2xl"
+          style={{
+            inset: -6,
+            border: `2px solid rgba(${rgb}, 0.5)`,
+            borderRadius: 18,
+            animation: 'mind-breathe 1.5s ease-in-out infinite',
+            boxShadow: `0 0 20px rgba(${rgb}, 0.3)`,
+          }}
+        />
+      )}
+
       {/* Breathing aura glow */}
       <div
         className="absolute pointer-events-none rounded-2xl"
@@ -267,7 +380,7 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         }}
       />
 
-      {/* Node body */}
+      {/* Node body with domain motif overlay */}
       <div
         className="relative rounded-2xl overflow-hidden transition-all duration-300"
         style={{
@@ -279,13 +392,19 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
           transition: 'border 0.3s ease, transform 0.3s ease',
         }}
       >
+        {/* Domain motif pattern overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none rounded-2xl"
+          style={domainMotif}
+        />
+
         {/* Top accent bar */}
         <div
-          className="h-[2px] w-full"
+          className="h-[2px] w-full relative"
           style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         />
 
-        <div className="px-4 pt-3 pb-3">
+        <div className="px-4 pt-3 pb-3 relative">
           {/* Monogram + Name row */}
           <div className="flex items-center gap-3 mb-2">
             {/* Monogram circle */}
@@ -317,16 +436,21 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
                 >
                   {mind.name}
                 </span>
+                {/* Remove button — styled X with hover glow */}
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeMind(id);
+                  onClick={handleRemove}
+                  className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-70 hover:!opacity-100 transition-all duration-200"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    color: '#71717a',
+                    fontSize: 9,
                   }}
-                  className="opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity text-xs flex-shrink-0"
-                  style={{ color: '#71717a', fontSize: 10 }}
                   title="Remove mind"
                 >
-                  ✕
+                  <svg width="8" height="8" viewBox="0 0 8 8">
+                    <path d="M1 1L7 7M7 1L1 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
                 </button>
               </div>
               {/* Archetype */}

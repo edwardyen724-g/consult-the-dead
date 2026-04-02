@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { minds } from '@/data/minds';
-import { useCompanyStore } from '@/store/companyStore';
+import { useCompanyStore, generatePlacementId } from '@/store/companyStore';
 import type { DomainCategory, MindArchetype, PlacedMind } from '@/types';
 
 const categories: { id: DomainCategory | 'all'; label: string }[] = [
@@ -15,12 +15,14 @@ const categories: { id: DomainCategory | 'all'; label: string }[] = [
   { id: 'computing', label: 'COMPUTE' },
 ];
 
-function MindCard({ mind }: { mind: MindArchetype }) {
+function MindCard({ mind, isDeployed }: { mind: MindArchetype; isDeployed: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const addMind = useCompanyStore((s) => s.addMind);
   const placedMinds = useCompanyStore((s) => s.placedMinds);
   const setDraggingFromSidebar = useCompanyStore((s) => s.setDraggingFromSidebar);
+  const setDraggedArchetypeId = useCompanyStore((s) => s.setDraggedArchetypeId);
+  const setHoveredSidebarArchetypeId = useCompanyStore((s) => s.setHoveredSidebarArchetypeId);
 
   const rgb = hexToRgb(mind.accentColor);
 
@@ -29,18 +31,20 @@ function MindCard({ mind }: { mind: MindArchetype }) {
     event.dataTransfer.effectAllowed = 'move';
     setIsDragging(true);
     setDraggingFromSidebar(true);
+    setDraggedArchetypeId(mind.id);
   };
 
   const onDragEnd = () => {
     setIsDragging(false);
     setDraggingFromSidebar(false);
+    setDraggedArchetypeId(null);
   };
 
   const handleClick = () => {
     // Place mind at a staggered position based on how many are already placed
     const count = placedMinds.length;
     const newMind: PlacedMind = {
-      id: `${mind.id}-${Date.now()}`,
+      id: generatePlacementId(mind.id),
       archetypeId: mind.id,
       role: null,
       position: {
@@ -51,6 +55,18 @@ function MindCard({ mind }: { mind: MindArchetype }) {
     addMind(newMind);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (isDeployed) {
+      setHoveredSidebarArchetypeId(mind.id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setHoveredSidebarArchetypeId(null);
+  };
+
   const monogram = mind.name.charAt(0).toUpperCase();
 
   return (
@@ -58,8 +74,8 @@ function MindCard({ mind }: { mind: MindArchetype }) {
       draggable
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
     <motion.div
@@ -71,7 +87,9 @@ function MindCard({ mind }: { mind: MindArchetype }) {
       style={{
         background: isHovered
           ? `radial-gradient(ellipse at center, rgba(${rgb}, 0.08) 0%, transparent 70%), rgba(18, 18, 30, 0.7)`
-          : 'rgba(18, 18, 30, 0.4)',
+          : isDeployed
+            ? 'rgba(18, 18, 30, 0.25)'
+            : 'rgba(18, 18, 30, 0.4)',
         border: `1px solid ${isHovered ? `rgba(${rgb}, 0.25)` : 'rgba(255,255,255,0.04)'}`,
         boxShadow: isDragging
           ? `0 0 30px rgba(${rgb}, 0.25), 0 0 60px rgba(${rgb}, 0.08)`
@@ -79,7 +97,7 @@ function MindCard({ mind }: { mind: MindArchetype }) {
             ? `0 0 20px rgba(${rgb}, 0.12)`
             : 'none',
         transform: isDragging ? 'scale(0.97)' : 'scale(1)',
-        opacity: isDragging ? 0.6 : 1,
+        opacity: isDragging ? 0.6 : isDeployed && !isHovered ? 0.55 : 1,
       }}
     >
       {/* Left accent bar */}
@@ -87,7 +105,7 @@ function MindCard({ mind }: { mind: MindArchetype }) {
         className="absolute left-0 top-0 bottom-0 w-[3px]"
         style={{
           background: `linear-gradient(180deg, ${mind.accentColor}, transparent)`,
-          opacity: isHovered ? 0.8 : 0.3,
+          opacity: isHovered ? 0.8 : isDeployed ? 0.5 : 0.3,
           transition: 'opacity 0.2s ease',
         }}
       />
@@ -97,7 +115,7 @@ function MindCard({ mind }: { mind: MindArchetype }) {
         <div className="flex items-center gap-2.5 mb-1">
           {/* Monogram */}
           <div
-            className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+            className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 relative"
             style={{
               background: `radial-gradient(circle, rgba(${rgb}, 0.2) 0%, rgba(${rgb}, 0.05) 70%)`,
               border: `1px solid rgba(${rgb}, 0.3)`,
@@ -120,12 +138,32 @@ function MindCard({ mind }: { mind: MindArchetype }) {
             className="text-[12px] font-medium tracking-wide truncate flex-1"
             style={{
               fontFamily: 'var(--font-jetbrains-mono), monospace',
-              color: '#e4e4e7',
+              color: isDeployed && !isHovered ? '#a1a1aa' : '#e4e4e7',
             }}
           >
             {mind.name}
           </span>
-          {isHovered && (
+
+          {/* Deployed indicator or add button */}
+          {isDeployed ? (
+            <span
+              className="flex-shrink-0 w-4 h-4 flex items-center justify-center rounded-full transition-opacity"
+              style={{
+                opacity: isHovered ? 0.8 : 0.5,
+              }}
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10">
+                <path
+                  d="M2 5L4.2 7.2L8 3"
+                  fill="none"
+                  stroke={mind.accentColor}
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          ) : isHovered ? (
             <span
               className="text-[10px] flex-shrink-0 w-4 h-4 flex items-center justify-center rounded"
               style={{
@@ -135,7 +173,7 @@ function MindCard({ mind }: { mind: MindArchetype }) {
             >
               +
             </span>
-          )}
+          ) : null}
         </div>
 
         {/* Archetype + Domain */}
@@ -145,6 +183,7 @@ function MindCard({ mind }: { mind: MindArchetype }) {
             style={{
               color: mind.accentColor,
               fontFamily: 'var(--font-jetbrains-mono), monospace',
+              opacity: isDeployed && !isHovered ? 0.6 : 1,
             }}
           >
             {mind.archetype}
@@ -206,6 +245,15 @@ export default function MindLibrary() {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<DomainCategory | 'all'>('all');
   const [collapsed, setCollapsed] = useState(false);
+  const placedMinds = useCompanyStore((s) => s.placedMinds);
+  const setDraggingFromSidebar = useCompanyStore((s) => s.setDraggingFromSidebar);
+  const setDraggedArchetypeId = useCompanyStore((s) => s.setDraggedArchetypeId);
+
+  // Track which archetype IDs are deployed
+  const deployedIds = useMemo(
+    () => new Set(placedMinds.map((pm) => pm.archetypeId)),
+    [placedMinds]
+  );
 
   const filteredMinds = useMemo(() => {
     return minds.filter((m) => {
@@ -251,11 +299,18 @@ export default function MindLibrary() {
               onDragStart={(e) => {
                 e.dataTransfer.setData('application/mindId', m.id);
                 e.dataTransfer.effectAllowed = 'move';
+                setDraggingFromSidebar(true);
+                setDraggedArchetypeId(m.id);
+              }}
+              onDragEnd={() => {
+                setDraggingFromSidebar(false);
+                setDraggedArchetypeId(null);
               }}
               className="w-3 h-3 rounded-full cursor-grab active:cursor-grabbing flex-shrink-0 transition-transform hover:scale-150"
               style={{
                 background: m.accentColor,
                 boxShadow: `0 0 8px ${m.accentColor}`,
+                opacity: deployedIds.has(m.id) ? 0.4 : 1,
               }}
               title={m.name}
             />
@@ -296,7 +351,9 @@ export default function MindLibrary() {
                   className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] transition-colors"
                   style={{ color: '#52525b' }}
                 >
-                  ✕
+                  <svg width="8" height="8" viewBox="0 0 8 8">
+                    <path d="M1 1L7 7M7 1L1 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
                 </button>
               )}
             </div>
@@ -332,7 +389,7 @@ export default function MindLibrary() {
           <div className="flex-1 overflow-y-auto custom-scrollbar px-2 py-2 flex flex-col gap-1.5">
             <AnimatePresence mode="popLayout">
               {filteredMinds.map((mind) => (
-                <MindCard key={mind.id} mind={mind} />
+                <MindCard key={mind.id} mind={mind} isDeployed={deployedIds.has(mind.id)} />
               ))}
             </AnimatePresence>
 
@@ -359,6 +416,9 @@ export default function MindLibrary() {
               }}
             >
               {filteredMinds.length} / {minds.length} minds
+              {deployedIds.size > 0 && (
+                <span style={{ color: '#52525b' }}> &middot; {deployedIds.size} deployed</span>
+              )}
             </div>
           </div>
         </>

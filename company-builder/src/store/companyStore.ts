@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { PlacedMind, RoleId, Company } from '@/types';
 
+let placementCounter = 0;
+
 interface CompanyState {
   company: Company;
   placedMinds: PlacedMind[];
@@ -8,6 +10,10 @@ interface CompanyState {
   justPlacedIds: Set<string>;
   /** Whether a mind is currently being dragged from the sidebar */
   isDraggingFromSidebar: boolean;
+  /** The archetype ID of the mind being dragged from sidebar (for ghost constellation) */
+  draggedArchetypeId: string | null;
+  /** The archetype ID being hovered in sidebar (to highlight on canvas) */
+  hoveredSidebarArchetypeId: string | null;
   setCompanyName: (name: string) => void;
   setCompanyMission: (mission: string) => void;
   addMind: (mind: PlacedMind) => void;
@@ -16,6 +22,14 @@ interface CompanyState {
   updateMindPosition: (id: string, position: { x: number; y: number }) => void;
   clearJustPlaced: (id: string) => void;
   setDraggingFromSidebar: (dragging: boolean) => void;
+  setDraggedArchetypeId: (id: string | null) => void;
+  setHoveredSidebarArchetypeId: (id: string | null) => void;
+}
+
+/** Generate a unique placement ID — never collides even with rapid placement */
+export function generatePlacementId(archetypeId: string): string {
+  placementCounter++;
+  return `${archetypeId}-${Date.now()}-${placementCounter}`;
 }
 
 export const useCompanyStore = create<CompanyState>((set) => ({
@@ -26,6 +40,8 @@ export const useCompanyStore = create<CompanyState>((set) => ({
   placedMinds: [],
   justPlacedIds: new Set(),
   isDraggingFromSidebar: false,
+  draggedArchetypeId: null,
+  hoveredSidebarArchetypeId: null,
 
   setCompanyName: (name) =>
     set((state) => ({ company: { ...state.company, name } })),
@@ -67,4 +83,10 @@ export const useCompanyStore = create<CompanyState>((set) => ({
 
   setDraggingFromSidebar: (dragging) =>
     set({ isDraggingFromSidebar: dragging }),
+
+  setDraggedArchetypeId: (id) =>
+    set({ draggedArchetypeId: id }),
+
+  setHoveredSidebarArchetypeId: (id) =>
+    set({ hoveredSidebarArchetypeId: id }),
 }));
