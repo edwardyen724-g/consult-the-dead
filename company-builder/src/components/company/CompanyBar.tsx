@@ -98,13 +98,13 @@ export default function CompanyBar() {
           ) : (
             <div
               onClick={() => setEditingName(true)}
-              className="text-[22px] font-bold tracking-wide cursor-text transition-colors hover:text-white"
+              className="text-[22px] font-bold tracking-wide cursor-text transition-colors hover:text-white min-h-[32px]"
               style={{
                 fontFamily: 'var(--font-jetbrains-mono), monospace',
-                color: '#e4e4e7',
+                color: company.name ? '#e4e4e7' : '#3f3f46',
               }}
             >
-              {company.name}
+              {company.name || 'Untitled Company'}
             </div>
           )}
 
@@ -127,13 +127,13 @@ export default function CompanyBar() {
           ) : (
             <div
               onClick={() => setEditingMission(true)}
-              className="text-[12px] tracking-wide cursor-text transition-colors hover:text-[#a1a1aa] mt-0.5"
+              className="text-[12px] tracking-wide cursor-text transition-colors hover:text-[#a1a1aa] mt-0.5 min-h-[20px]"
               style={{
                 fontFamily: 'var(--font-jetbrains-mono), monospace',
-                color: '#71717a',
+                color: company.mission ? '#71717a' : '#3f3f46',
               }}
             >
-              {company.mission}
+              {company.mission || 'Define your mission...'}
             </div>
           )}
         </div>
