@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCompanyStore } from '@/store/companyStore';
 import { mindsMap } from '@/data/minds';
@@ -21,6 +21,18 @@ export default function DetailPanel() {
   }, [selectedMindId, placedMinds]);
 
   const archetype = selectedMind ? mindsMap.get(selectedMind.archetypeId) : null;
+
+  // Escape key to close
+  useEffect(() => {
+    if (!selectedMindId) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedMindId(null);
+      }
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [selectedMindId, setSelectedMindId]);
 
   // Connections involving this mind
   const mindConnections = useMemo(() => {

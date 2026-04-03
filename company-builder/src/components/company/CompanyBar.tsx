@@ -261,6 +261,33 @@ export default function CompanyBar() {
           className="hidden"
         />
 
+        {/* Cmd+K hint */}
+        <div
+          className="glass-panel rounded-lg px-2.5 py-1.5 flex items-center gap-1.5 cursor-pointer transition-all duration-200 hover:border-white/10"
+          onClick={() => {
+            // Simulate Cmd+K keypress to open command palette
+            window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true, ctrlKey: true, bubbles: true }));
+          }}
+          title="Open command palette"
+          style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+        >
+          <svg width="10" height="10" viewBox="0 0 10 10" className="opacity-40">
+            <circle cx="4.5" cy="4.5" r="3" fill="none" stroke="#a1a1aa" strokeWidth="1.2" />
+            <path d="M7 7L9 9" stroke="#a1a1aa" strokeWidth="1.2" strokeLinecap="round" />
+          </svg>
+          <kbd
+            className="text-[8px] uppercase tracking-[0.08em] px-1 py-0.5 rounded"
+            style={{
+              fontFamily: 'var(--font-jetbrains-mono), monospace',
+              color: '#52525b',
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            {typeof navigator !== 'undefined' && navigator.platform?.includes('Mac') ? '\u2318K' : 'Ctrl+K'}
+          </kbd>
+        </div>
+
         {/* Stats badge */}
         <div className="glass-panel rounded-lg px-3 py-1.5">
           <span
