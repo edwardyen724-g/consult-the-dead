@@ -24,6 +24,7 @@ import { useCompanyStore } from '@/store/companyStore';
 import { useDebateStore } from '@/store/debateStore';
 import { minds, mindsMap } from '@/data/minds';
 import { getChemistry, type ChemistryWarmth } from '@/data/chemistry';
+import { hexToRgb } from '@/lib/colors';
 import type { PlacedMind, Connection } from '@/types';
 
 const nodeTypes: NodeTypes = {
@@ -775,9 +776,3 @@ export default function Canvas() {
   );
 }
 
-function hexToRgb(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
-}

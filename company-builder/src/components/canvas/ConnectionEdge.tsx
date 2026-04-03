@@ -7,6 +7,7 @@ import { mindsMap } from '@/data/minds';
 import { getChemistry, getWarmthColor } from '@/data/chemistry';
 import { useCompanyStore } from '@/store/companyStore';
 import { useDebateStore } from '@/store/debateStore';
+import { hexToRgb, blendColors } from '@/lib/colors';
 import type { ConnectionType } from '@/types';
 
 interface ConnectionEdgeData {
@@ -15,23 +16,6 @@ interface ConnectionEdgeData {
   connectionType: ConnectionType;
   connectionId: string;
   [key: string]: unknown;
-}
-
-function hexToRgb(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
-}
-
-function blendColors(color1: string, color2: string): string {
-  const r1 = parseInt(color1.slice(1, 3), 16);
-  const g1 = parseInt(color1.slice(3, 5), 16);
-  const b1 = parseInt(color1.slice(5, 7), 16);
-  const r2 = parseInt(color2.slice(1, 3), 16);
-  const g2 = parseInt(color2.slice(3, 5), 16);
-  const b2 = parseInt(color2.slice(5, 7), 16);
-  return `${Math.round((r1 + r2) / 2)}, ${Math.round((g1 + g2) / 2)}, ${Math.round((b1 + b2) / 2)}`;
 }
 
 function ConnectionEdgeComponent({

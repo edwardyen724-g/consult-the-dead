@@ -8,6 +8,7 @@ import { roles } from '@/data/roles';
 import { getRoleFit, getFitColor } from '@/data/roleFit';
 import { useCompanyStore } from '@/store/companyStore';
 import { useDebateStore } from '@/store/debateStore';
+import { hexToRgb } from '@/lib/colors';
 import type { RoleId, DomainCategory } from '@/types';
 
 interface MindNodeData {
@@ -597,13 +598,6 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
       />
     </motion.div>
   );
-}
-
-function hexToRgb(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
 }
 
 export const MindNode = memo(MindNodeComponent);
