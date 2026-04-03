@@ -3,6 +3,9 @@
 import dynamic from 'next/dynamic';
 import MindLibrary from '@/components/sidebar/MindLibrary';
 import CompanyBar from '@/components/company/CompanyBar';
+import DetailPanel from '@/components/panels/DetailPanel';
+import DebatePanel from '@/components/panels/DebatePanel';
+import DebateHistory from '@/components/panels/DebateHistory';
 
 // Dynamic import to avoid SSR issues with React Flow
 const Canvas = dynamic(() => import('@/components/canvas/Canvas'), {
@@ -33,6 +36,15 @@ export default function Home() {
         <Canvas />
         <CompanyBar />
       </div>
+
+      {/* Right panel: Mind Detail */}
+      <DetailPanel />
+
+      {/* Bottom panel: Debate */}
+      <DebatePanel />
+
+      {/* Right panel: Debate History */}
+      <DebateHistory />
     </main>
   );
 }

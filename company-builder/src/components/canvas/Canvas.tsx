@@ -7,22 +7,31 @@ import {
   BackgroundVariant,
   useNodesState,
   useEdgesState,
+  addEdge,
   type Node,
   type Edge,
   type NodeTypes,
+  type EdgeTypes,
+  type Connection as RFConnection,
   ReactFlowProvider,
   useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MindNode } from './MindNode';
+import { ConnectionEdge } from './ConnectionEdge';
 import { useCompanyStore } from '@/store/companyStore';
+import { useDebateStore } from '@/store/debateStore';
 import { minds, mindsMap } from '@/data/minds';
 import { getChemistry, type ChemistryWarmth } from '@/data/chemistry';
-import type { PlacedMind } from '@/types';
+import type { PlacedMind, Connection } from '@/types';
 
 const nodeTypes: NodeTypes = {
   mindNode: MindNode,
+};
+
+const edgeTypes: EdgeTypes = {
+  connectionEdge: ConnectionEdge as unknown as EdgeTypes[string],
 };
 
 function buildNodes(placedMinds: PlacedMind[]): Node[] {
@@ -38,10 +47,27 @@ function buildNodes(placedMinds: PlacedMind[]): Node[] {
   }));
 }
 
-/* ---- Ghost constellation: 12 faint positions for minds awaiting activation ---- */
+function buildEdges(connections: Connection[], placedMinds: PlacedMind[]): Edge[] {
+  const mindMap = new Map(placedMinds.map((pm) => [pm.id, pm]));
+  return connections.map((conn) => {
+    const sourceMind = mindMap.get(conn.sourceId);
+    const targetMind = mindMap.get(conn.targetId);
+    return {
+      id: conn.id,
+      source: conn.sourceId,
+      target: conn.targetId,
+      type: 'connectionEdge',
+      data: {
+        sourceArchetypeId: sourceMind?.archetypeId || '',
+        targetArchetypeId: targetMind?.archetypeId || '',
+        connectionType: conn.type,
+        connectionId: conn.id,
+      },
+    };
+  });
+}
 
-// Arrange 12 minds in a loose constellation shape across the canvas
-// Positions correspond to minds array order (index 0-11)
+/* ---- Ghost constellation ---- */
 export const GHOST_POSITIONS: { x: number; y: number }[] = [
   { x: 180, y: 80 },
   { x: 520, y: 40 },
@@ -57,13 +83,10 @@ export const GHOST_POSITIONS: { x: number; y: number }[] = [
   { x: 800, y: 580 },
 ];
 
-/** Get the ghost constellation position for a given archetype ID.
- *  Returns the position offset so the node center lands on the ghost dot. */
 export function getGhostPositionForMind(archetypeId: string): { x: number; y: number } | null {
   const mindIndex = minds.findIndex((m) => m.id === archetypeId);
   if (mindIndex === -1 || mindIndex >= GHOST_POSITIONS.length) return null;
   const pos = GHOST_POSITIONS[mindIndex];
-  // Offset by half-node size so node CENTER aligns with ghost dot
   return { x: pos.x - 110, y: pos.y - 70 };
 }
 
@@ -81,8 +104,6 @@ function GhostConstellation({
     [placedMinds]
   );
 
-  // Ghost minds are unplaced minds mapped to their FIXED constellation positions
-  // Each mind always occupies the same position regardless of which others are placed
   const ghostMinds = useMemo(() => {
     return minds
       .map((mind, originalIndex) => ({
@@ -115,7 +136,7 @@ function GhostConstellation({
               transition={{
                 duration: 0.6,
                 ease: 'easeOut',
-                delay: index * 0.12, // staggered entrance on first load
+                delay: index * 0.12,
               }}
               className="absolute flex flex-col items-center gap-1"
               style={{
@@ -124,7 +145,6 @@ function GhostConstellation({
                 transform: 'translate(-50%, -50%)',
               }}
             >
-              {/* Accent dot */}
               <div
                 className="rounded-full"
                 style={{
@@ -140,7 +160,6 @@ function GhostConstellation({
                   animationDelay: `${index * 0.3}s`,
                 }}
               />
-              {/* Ghost name label */}
               <div
                 className="text-[10px] uppercase tracking-[0.14em] whitespace-nowrap"
                 style={{
@@ -163,7 +182,7 @@ function GhostConstellation({
   );
 }
 
-/* ---- Color bleed: pools of accent color behind each node ---- */
+/* ---- Color bleed layer ---- */
 function ColorBleedLayer({ placedMinds }: { placedMinds: PlacedMind[] }) {
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
@@ -199,7 +218,7 @@ function ColorBleedLayer({ placedMinds }: { placedMinds: PlacedMind[] }) {
   );
 }
 
-/* ---- Proximity chemistry hints between nearby nodes ---- */
+/* ---- Proximity chemistry hints ---- */
 interface ChemistryHint {
   pairKey: string;
   x1: number;
@@ -213,9 +232,18 @@ interface ChemistryHint {
   distance: number;
 }
 
-function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
+function ProximityChemistry({ placedMinds, connections }: { placedMinds: PlacedMind[]; connections: Connection[] }) {
   const [showOnboardingHint, setShowOnboardingHint] = useState(false);
   const onboardingShownRef = useRef(false);
+
+  // Build a set of connected pairs to exclude from proximity chemistry
+  const connectedPairs = useMemo(() => {
+    const pairs = new Set<string>();
+    connections.forEach((c) => {
+      pairs.add([c.sourceId, c.targetId].sort().join('|'));
+    });
+    return pairs;
+  }, [connections]);
 
   const hints = useMemo(() => {
     const result: ChemistryHint[] = [];
@@ -223,7 +251,11 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
       for (let j = i + 1; j < placedMinds.length; j++) {
         const a = placedMinds[i];
         const b = placedMinds[j];
-        // Node center offsets (node is ~220x140)
+
+        // Skip if already connected (connection edge handles their display)
+        const pairKey = [a.id, b.id].sort().join('|');
+        if (connectedPairs.has(pairKey)) continue;
+
         const ax = a.position.x + 110;
         const ay = a.position.y + 70;
         const bx = b.position.x + 110;
@@ -252,9 +284,8 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
       }
     }
     return result;
-  }, [placedMinds]);
+  }, [placedMinds, connectedPairs]);
 
-  // Show one-time onboarding hint when chemistry is first detected
   useEffect(() => {
     if (hints.length > 0 && !onboardingShownRef.current) {
       onboardingShownRef.current = true;
@@ -268,7 +299,6 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
 
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 6 }}>
-      {/* One-time onboarding hint */}
       <AnimatePresence>
         {showOnboardingHint && (
           <motion.div
@@ -305,7 +335,6 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
                 ? 'rgba(220, 120, 100, VAR)'
                 : 'rgba(180, 180, 180, VAR)';
           const strokeColor = color.replace('VAR', String(opacity));
-          // Curved arc: control point perpendicular to midpoint
           const dx = h.x2 - h.x1;
           const dy = h.y2 - h.y1;
           const cpx = h.midX - dy * 0.15;
@@ -325,7 +354,6 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
         })}
       </svg>
 
-      {/* Hint labels at midpoints */}
       <AnimatePresence>
         {hints.map((h) => {
           const fadeOpacity = Math.max(0.2, Math.min(1, 1 - h.distance / 350));
@@ -336,7 +364,6 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
                 ? 'rgba(220, 120, 100, 0.85)'
                 : 'rgba(180, 180, 180, 0.75)';
 
-          // Offset label slightly from the arc
           const dx = h.x2 - h.x1;
           const dy = h.y2 - h.y1;
           const labelX = h.midX - dy * 0.12;
@@ -376,9 +403,12 @@ function ProximityChemistry({ placedMinds }: { placedMinds: PlacedMind[] }) {
   );
 }
 
-/* ---- Ambient particles floating across canvas ---- */
+/* ---- Ambient particles ---- */
 function AmbientParticles() {
-  const particles = useMemo(() => {
+  const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
+
+  // Base particles (always present)
+  const baseParticles = useMemo(() => {
     return Array.from({ length: 30 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -390,21 +420,39 @@ function AmbientParticles() {
     }));
   }, []);
 
+  // Extra particles for debate mode
+  const energyParticles = useMemo(() => {
+    return Array.from({ length: 25 }, (_, i) => ({
+      id: i + 100,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 1 + Math.random() * 2,
+      duration: 8 + Math.random() * 12,
+      delay: Math.random() * 8,
+      drift: 25 + Math.random() * 40,
+    }));
+  }, []);
+
+  const allParticles = isDebateRunning ? [...baseParticles, ...energyParticles] : baseParticles;
+
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 2 }}>
-      {particles.map((p) => (
+      {allParticles.map((p) => (
         <div
           key={p.id}
           className="absolute rounded-full"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
-            width: p.size,
-            height: p.size,
-            background: 'rgba(255,255,255,0.12)',
-            animation: `particle-drift ${p.duration}s linear infinite`,
+            width: isDebateRunning ? p.size * 1.3 : p.size,
+            height: isDebateRunning ? p.size * 1.3 : p.size,
+            background: isDebateRunning
+              ? 'rgba(120, 200, 160, 0.18)'
+              : 'rgba(255,255,255,0.12)',
+            animation: `particle-drift ${isDebateRunning ? p.duration * 0.5 : p.duration}s linear infinite`,
             animationDelay: `${p.delay}s`,
-            ['--drift' as string]: `${p.drift}px`,
+            ['--drift' as string]: `${isDebateRunning ? p.drift * 1.5 : p.drift}px`,
+            transition: 'background 1s ease, width 1s ease, height 1s ease',
           }}
         />
       ))}
@@ -412,26 +460,121 @@ function AmbientParticles() {
   );
 }
 
+/* ---- Connection context menu ---- */
+function ConnectionContextMenu() {
+  const contextMenu = useCompanyStore((s) => s.connectionContextMenu);
+  const removeConnection = useCompanyStore((s) => s.removeConnection);
+  const toggleConnectionType = useCompanyStore((s) => s.toggleConnectionType);
+  const setConnectionContextMenu = useCompanyStore((s) => s.setConnectionContextMenu);
+  const connections = useCompanyStore((s) => s.connections);
+
+  useEffect(() => {
+    if (!contextMenu) return;
+    const handler = () => setConnectionContextMenu(null);
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, [contextMenu, setConnectionContextMenu]);
+
+  if (!contextMenu) return null;
+
+  const conn = connections.find((c) => c.id === contextMenu.connectionId);
+  const currentType = conn?.type || 'reporting';
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      className="fixed rounded-lg overflow-hidden"
+      style={{
+        left: contextMenu.x,
+        top: contextMenu.y,
+        zIndex: 50,
+        background: 'rgba(12, 12, 22, 0.96)',
+        backdropFilter: 'blur(20px) saturate(1.3)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        boxShadow: '0 12px 40px rgba(0,0,0,0.6)',
+        minWidth: 160,
+      }}
+    >
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleConnectionType(contextMenu.connectionId);
+          setConnectionContextMenu(null);
+        }}
+        className="w-full text-[10px] uppercase tracking-[0.1em] px-3 py-2 text-left transition-colors duration-100 flex items-center gap-2 hover:bg-white/5"
+        style={{
+          color: '#a1a1aa',
+          fontFamily: 'var(--font-jetbrains-mono), monospace',
+        }}
+      >
+        <svg width="10" height="10" viewBox="0 0 10 10">
+          <path d="M1 5h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"
+            strokeDasharray={currentType === 'reporting' ? '3 2' : 'none'} />
+        </svg>
+        Switch to {currentType === 'reporting' ? 'collaboration' : 'reporting'}
+      </button>
+      <div className="h-px" style={{ background: 'rgba(255,255,255,0.06)' }} />
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          removeConnection(contextMenu.connectionId);
+        }}
+        className="w-full text-[10px] uppercase tracking-[0.1em] px-3 py-2 text-left transition-colors duration-100 flex items-center gap-2 hover:bg-red-500/10"
+        style={{
+          color: '#F44336',
+          fontFamily: 'var(--font-jetbrains-mono), monospace',
+        }}
+      >
+        <svg width="10" height="10" viewBox="0 0 10 10">
+          <path d="M2 2L8 8M8 2L2 8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+        Delete connection
+      </button>
+    </motion.div>
+  );
+}
+
+/* ---- Main Canvas ---- */
 function CanvasInner() {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const { screenToFlowPosition, setCenter } = useReactFlow();
 
   const placedMinds = useCompanyStore((s) => s.placedMinds);
+  const connections = useCompanyStore((s) => s.connections);
   const addMind = useCompanyStore((s) => s.addMind);
   const updateMindPosition = useCompanyStore((s) => s.updateMindPosition);
   const isDraggingFromSidebar = useCompanyStore((s) => s.isDraggingFromSidebar);
   const draggedArchetypeId = useCompanyStore((s) => s.draggedArchetypeId);
+  const addConnection = useCompanyStore((s) => s.addConnection);
+  const setSelectedMindId = useCompanyStore((s) => s.setSelectedMindId);
+  const setConnectionContextMenu = useCompanyStore((s) => s.setConnectionContextMenu);
+  const hydrateFromLocalStorage = useCompanyStore((s) => s.hydrateFromLocalStorage);
+  const hydrated = useCompanyStore((s) => s.hydrated);
+
+  // Hydrate from localStorage on mount
+  useEffect(() => {
+    if (!hydrated) {
+      hydrateFromLocalStorage();
+    }
+  }, [hydrated, hydrateFromLocalStorage]);
 
   const initialNodes = useMemo(() => buildNodes(placedMinds), [placedMinds]);
+  const initialEdges = useMemo(() => buildEdges(connections, placedMinds), [connections, placedMinds]);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, , onEdgesChange] = useEdgesState<Edge>([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  // Sync nodes with store whenever placedMinds changes
+  // Sync nodes with store
   useEffect(() => {
     setNodes(buildNodes(placedMinds));
   }, [placedMinds, setNodes]);
 
-  // Handle node drag stop -- persist position to store
+  // Sync edges with store
+  useEffect(() => {
+    setEdges(buildEdges(connections, placedMinds));
+  }, [connections, placedMinds, setEdges]);
+
   const onNodeDragStop = useCallback(
     (_event: React.MouseEvent, node: Node) => {
       updateMindPosition(node.id, { x: node.position.x, y: node.position.y });
@@ -439,7 +582,6 @@ function CanvasInner() {
     [updateMindPosition]
   );
 
-  // Double-click node to center canvas on it
   const onNodeDoubleClick = useCallback(
     (_event: React.MouseEvent, node: Node) => {
       setCenter(node.position.x + 110, node.position.y + 70, {
@@ -449,6 +591,22 @@ function CanvasInner() {
     },
     [setCenter]
   );
+
+  // Handle new connections from React Flow's built-in connect
+  const onConnect = useCallback(
+    (connection: RFConnection) => {
+      if (connection.source && connection.target && connection.source !== connection.target) {
+        addConnection(connection.source, connection.target, 'reporting');
+      }
+    },
+    [addConnection]
+  );
+
+  // Click on pane to deselect
+  const onPaneClick = useCallback(() => {
+    setSelectedMindId(null);
+    setConnectionContextMenu(null);
+  }, [setSelectedMindId, setConnectionContextMenu]);
 
   // Handle drop from sidebar
   const onDragOver = useCallback((event: React.DragEvent) => {
@@ -470,7 +628,6 @@ function CanvasInner() {
         x: event.clientX,
         y: event.clientY,
       });
-      // Offset to center node on drop point
       position.x -= 110;
       position.y -= 70;
 
@@ -502,7 +659,7 @@ function CanvasInner() {
         }}
       />
 
-      {/* Drag feedback: pulse ring on canvas when dragging from sidebar */}
+      {/* Drag feedback */}
       <AnimatePresence>
         {isDraggingFromSidebar && (
           <motion.div
@@ -525,18 +682,18 @@ function CanvasInner() {
         )}
       </AnimatePresence>
 
-      {/* Ghost constellation: minds waiting to be summoned */}
+      {/* Ghost constellation */}
       <GhostConstellation
         placedMinds={placedMinds}
         isDraggingFromSidebar={isDraggingFromSidebar}
         draggedArchetypeId={draggedArchetypeId}
       />
 
-      {/* Color bleed from placed minds */}
+      {/* Color bleed */}
       <ColorBleedLayer placedMinds={placedMinds} />
 
-      {/* Proximity chemistry hints */}
-      <ProximityChemistry placedMinds={placedMinds} />
+      {/* Proximity chemistry (for unconnected pairs) */}
+      <ProximityChemistry placedMinds={placedMinds} connections={connections} />
 
       {/* Ambient particles */}
       <AmbientParticles />
@@ -548,9 +705,10 @@ function CanvasInner() {
         onEdgesChange={onEdgesChange}
         onNodeDragStop={onNodeDragStop}
         onNodeDoubleClick={onNodeDoubleClick}
-        onDragOver={onDragOver}
-        onDrop={onDrop}
+        onConnect={onConnect}
+        onPaneClick={onPaneClick}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         fitView={false}
         minZoom={0.2}
         maxZoom={2}
@@ -559,6 +717,7 @@ function CanvasInner() {
         panOnScroll={false}
         selectionOnDrag={false}
         selectNodesOnDrag={false}
+        connectionLineStyle={{ stroke: 'rgba(255,255,255,0.3)', strokeWidth: 2 }}
         style={{ background: '#0a0a0f' }}
       >
         <Background
@@ -570,8 +729,7 @@ function CanvasInner() {
         />
       </ReactFlow>
 
-      {/* Empty canvas prompt — now the ghosts ARE the empty state,
-          but keep a subtle hint text */}
+      {/* Empty canvas prompt */}
       {placedMinds.length === 0 && (
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -602,6 +760,9 @@ function CanvasInner() {
           </div>
         </div>
       )}
+
+      {/* Connection context menu */}
+      <ConnectionContextMenu />
     </div>
   );
 }

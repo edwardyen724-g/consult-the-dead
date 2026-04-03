@@ -41,7 +41,54 @@ export interface Role {
   description: string;
 }
 
+export type ConnectionType = 'reporting' | 'collaboration';
+
+export interface Connection {
+  id: string;
+  sourceId: string;
+  targetId: string;
+  type: ConnectionType;
+}
+
 export interface Company {
   name: string;
   mission: string;
+}
+
+export interface DebateMessage {
+  id: string;
+  mindId: string;          // PlacedMind.id
+  archetypeId: string;     // MindArchetype.id for resolving display info
+  content: string;
+  round: number;
+  timestamp: string;
+}
+
+export interface Debate {
+  id: string;
+  topic: string;
+  participantIds: string[];       // PlacedMind.id references
+  participantArchetypeIds: string[]; // For resolving names/colors
+  messages: DebateMessage[];
+  status: 'running' | 'complete' | 'error';
+  startedAt: string;
+  completedAt?: string;
+  companyName: string;
+  companyMission: string;
+}
+
+export interface ChemistryResult {
+  score: number;             // 0-100
+  warmth: 'tension' | 'neutral' | 'synergy';
+  summary: string;           // Short hint
+  detail: string;            // Longer explanation
+}
+
+export interface SaveState {
+  version: number;
+  company: Company;
+  placedMinds: PlacedMind[];
+  connections: Connection[];
+  debates: Debate[];
+  savedAt: string;
 }

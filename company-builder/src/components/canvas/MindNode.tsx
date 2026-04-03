@@ -1,11 +1,13 @@
 'use client';
 
-import React, { memo, useMemo, useState, useRef, useEffect, useCallback } from 'react';
+import React, { memo, useMemo, useState, useEffect, useCallback } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { mindsMap } from '@/data/minds';
 import { roles } from '@/data/roles';
+import { getRoleFit, getFitColor } from '@/data/roleFit';
 import { useCompanyStore } from '@/store/companyStore';
+import { useDebateStore } from '@/store/debateStore';
 import type { RoleId, DomainCategory } from '@/types';
 
 interface MindNodeData {
@@ -17,10 +19,8 @@ interface MindNodeData {
 
 /* ---- Domain motif SVG patterns ---- */
 function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React.CSSProperties {
-  // Each domain gets a unique low-opacity CSS background pattern
   switch (domainCategory) {
     case 'science':
-      // Hexagonal / geometric grid
       return {
         backgroundImage: `
           linear-gradient(30deg, rgba(${rgb}, 0.12) 12%, transparent 12.5%, transparent 87%, rgba(${rgb}, 0.12) 87.5%),
@@ -34,7 +34,6 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
         backgroundPosition: '0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px',
       };
     case 'strategy':
-      // Diagonal chevron lines
       return {
         backgroundImage: `
           repeating-linear-gradient(
@@ -49,7 +48,6 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
       };
     case 'art':
     case 'computing':
-      // Organic curved concentric rings
       return {
         backgroundImage: `
           radial-gradient(ellipse at 70% 30%, rgba(${rgb}, 0.14) 0%, transparent 30%),
@@ -59,7 +57,6 @@ function getDomainMotifStyle(domainCategory: DomainCategory, rgb: string): React
         backgroundSize: '100% 100%',
       };
     case 'governance':
-      // Radial star / compass pattern
       return {
         backgroundImage: `
           conic-gradient(
@@ -97,10 +94,9 @@ function RoleDropdown({
   onSelect: (role: RoleId | null) => void;
 }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const selected = roles.find((r) => r.id === currentRole);
 
-  // Close on outside click
   useEffect(() => {
     if (!open) return;
     const handler = (e: MouseEvent) => {
@@ -114,7 +110,6 @@ function RoleDropdown({
 
   return (
     <div ref={ref} className="relative" onClick={(e) => e.stopPropagation()}>
-      {/* Trigger button */}
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-[11px] uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-md cursor-pointer focus:outline-none transition-all duration-200 text-left flex items-center gap-2"
@@ -143,7 +138,6 @@ function RoleDropdown({
         </svg>
       </button>
 
-      {/* Dropdown menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -162,7 +156,6 @@ function RoleDropdown({
               overflowY: 'auto',
             }}
           >
-            {/* Unassign option */}
             <button
               onClick={() => { onSelect(null); setOpen(false); }}
               className="w-full text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 text-left transition-colors duration-100 flex items-center gap-2"
@@ -213,6 +206,10 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const justPlacedIds = useCompanyStore((s) => s.justPlacedIds);
   const clearJustPlaced = useCompanyStore((s) => s.clearJustPlaced);
   const hoveredSidebarArchetypeId = useCompanyStore((s) => s.hoveredSidebarArchetypeId);
+  const setSelectedMindId = useCompanyStore((s) => s.setSelectedMindId);
+
+  const speakingMindId = useDebateStore((s) => s.speakingMindId);
+  const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isRemoving, setIsRemoving] = useState(false);
@@ -220,13 +217,20 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const [showPlacementQuote, setShowPlacementQuote] = useState(false);
   const [showFlash, setShowFlash] = useState(false);
 
-  // Is this node highlighted from sidebar hover?
   const isHighlightedFromSidebar = hoveredSidebarArchetypeId === nodeData.archetypeId;
-
-  // Random phase offset for pulse so nodes don't breathe in unison
+  const isSpeaking = speakingMindId === id;
   const phaseOffset = useMemo(() => Math.random() * 4, []);
 
-  // Placement ceremony: flash + quote on first appear
+  // Role fit indicator
+  const roleFit = useMemo(() => {
+    if (!nodeData.role) return null;
+    return getRoleFit(nodeData.archetypeId, nodeData.role);
+  }, [nodeData.archetypeId, nodeData.role]);
+
+  const fitColor = roleFit ? getFitColor(roleFit) : null;
+  const fitRgb = fitColor ? hexToRgb(fitColor) : null;
+
+  // Placement ceremony
   useEffect(() => {
     if (justPlaced) {
       setShowFlash(true);
@@ -253,12 +257,21 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
     (e: React.MouseEvent) => {
       e.stopPropagation();
       setIsRemoving(true);
-      // After shrink animation, actually remove from store
       setTimeout(() => {
         removeMind(id);
       }, 450);
     },
     [id, removeMind]
+  );
+
+  const handleNodeClick = useCallback(
+    (e: React.MouseEvent) => {
+      // Don't select if clicking on dropdown or buttons
+      const target = e.target as HTMLElement;
+      if (target.closest('button') || target.closest('[data-no-select]')) return;
+      setSelectedMindId(id);
+    },
+    [id, setSelectedMindId]
   );
 
   if (!mind) return null;
@@ -285,6 +298,7 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
       style={{ minWidth: 220 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleNodeClick}
     >
       {/* Placement flash burst */}
       <AnimatePresence>
@@ -310,7 +324,7 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         )}
       </AnimatePresence>
 
-      {/* Placement quote that fades in then out */}
+      {/* Placement quote */}
       <AnimatePresence>
         {showPlacementQuote && (
           <motion.div
@@ -319,11 +333,7 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.5 }}
             className="absolute left-0 right-0 text-center pointer-events-none"
-            style={{
-              bottom: '100%',
-              marginBottom: 8,
-              zIndex: 10,
-            }}
+            style={{ bottom: '100%', marginBottom: 8, zIndex: 10 }}
           >
             <div
               className="text-[11px] italic leading-relaxed px-3 py-1.5 rounded-lg inline-block max-w-[260px]"
@@ -354,15 +364,51 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         />
       )}
 
+      {/* Role-fit indicator ring */}
+      <AnimatePresence>
+        {fitColor && fitRgb && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4 }}
+            className="absolute pointer-events-none rounded-2xl"
+            style={{
+              inset: -1,
+              border: `2px solid ${fitColor}`,
+              borderRadius: 17,
+              boxShadow: `0 0 12px rgba(${fitRgb}, 0.3), inset 0 0 6px rgba(${fitRgb}, 0.1)`,
+              animation: 'fit-glow 3s ease-in-out infinite',
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Speaking indicator ring */}
+      {isSpeaking && (
+        <div
+          className="absolute pointer-events-none rounded-2xl"
+          style={{
+            inset: -8,
+            border: `2px solid rgba(${rgb}, 0.6)`,
+            borderRadius: 18,
+            animation: 'speaking-pulse 1s ease-in-out infinite',
+            boxShadow: `0 0 30px rgba(${rgb}, 0.5), 0 0 60px rgba(${rgb}, 0.2)`,
+          }}
+        />
+      )}
+
       {/* Breathing aura glow */}
       <div
         className="absolute pointer-events-none rounded-2xl"
         style={{
-          inset: -12,
-          background: `radial-gradient(ellipse at center, rgba(${rgb}, ${selected ? 0.18 : 0.08}) 0%, rgba(${rgb}, ${selected ? 0.06 : 0.02}) 60%, transparent 100%)`,
-          animation: `mind-breathe ${3.2 + phaseOffset * 0.3}s ease-in-out infinite`,
-          animationDelay: `${phaseOffset}s`,
-          filter: selected ? `blur(8px)` : `blur(6px)`,
+          inset: isSpeaking ? -20 : -12,
+          background: `radial-gradient(ellipse at center, rgba(${rgb}, ${isSpeaking ? 0.25 : selected ? 0.18 : 0.08}) 0%, rgba(${rgb}, ${isSpeaking ? 0.08 : selected ? 0.06 : 0.02}) 60%, transparent 100%)`,
+          animation: isSpeaking
+            ? `mind-breathe 1.2s ease-in-out infinite`
+            : `mind-breathe ${3.2 + phaseOffset * 0.3}s ease-in-out infinite`,
+          animationDelay: isSpeaking ? '0s' : `${phaseOffset}s`,
+          filter: isSpeaking ? `blur(12px)` : selected ? `blur(8px)` : `blur(6px)`,
           transition: 'all 0.4s ease',
         }}
       />
@@ -407,7 +453,6 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         <div className="px-4 pt-3 pb-3 relative">
           {/* Monogram + Name row */}
           <div className="flex items-center gap-3 mb-2">
-            {/* Monogram circle */}
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative"
               style={{
@@ -436,7 +481,6 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
                 >
                   {mind.name}
                 </span>
-                {/* Remove button — styled X with hover glow */}
                 <button
                   onClick={handleRemove}
                   className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-70 hover:!opacity-100 transition-all duration-200"
@@ -453,7 +497,6 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
                   </svg>
                 </button>
               </div>
-              {/* Archetype */}
               <div
                 className="text-[9px] uppercase tracking-[0.14em]"
                 style={{ color: accent, fontFamily: 'var(--font-jetbrains-mono), monospace' }}
@@ -466,19 +509,39 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
           {/* Divider */}
           <div className="w-full h-px mb-2" style={{ background: `linear-gradient(90deg, transparent, rgba(${rgb}, 0.15), transparent)` }} />
 
-          {/* Domain */}
-          <div
-            className="text-[9px] uppercase tracking-[0.1em] mb-2"
-            style={{ color: '#71717a', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-          >
-            {mind.domain}
+          {/* Domain + Fit badge */}
+          <div className="flex items-center gap-2 mb-2">
+            <div
+              className="text-[9px] uppercase tracking-[0.1em] flex-1"
+              style={{ color: '#71717a', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+            >
+              {mind.domain}
+            </div>
+            {/* Role fit badge */}
+            {roleFit && fitColor && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-[8px] uppercase tracking-[0.1em] px-1.5 py-0.5 rounded"
+                style={{
+                  fontFamily: 'var(--font-jetbrains-mono), monospace',
+                  color: fitColor,
+                  background: `rgba(${fitRgb}, 0.1)`,
+                  border: `1px solid rgba(${fitRgb}, 0.2)`,
+                }}
+              >
+                {roleFit} fit
+              </motion.div>
+            )}
           </div>
 
           {/* Custom Role Dropdown */}
-          <RoleDropdown
-            currentRole={nodeData.role}
-            onSelect={handleRoleChange}
-          />
+          <div data-no-select>
+            <RoleDropdown
+              currentRole={nodeData.role}
+              onSelect={handleRoleChange}
+            />
+          </div>
 
           {/* Hover quote reveal */}
           <AnimatePresence>
@@ -505,22 +568,37 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         </div>
       </div>
 
-      {/* Connection handles - hidden but functional for future sprints */}
+      {/* Connection handles - visible ports on left/right */}
       <Handle
         type="target"
-        position={Position.Top}
-        className="!w-2 !h-2 !border-0 !bg-transparent"
+        position={Position.Left}
+        className="connection-port connection-port-left"
+        style={{
+          width: 10,
+          height: 10,
+          background: `rgba(${rgb}, 0.3)`,
+          border: `1.5px solid rgba(${rgb}, 0.5)`,
+          borderRadius: '50%',
+          transition: 'all 0.2s ease',
+        }}
       />
       <Handle
         type="source"
-        position={Position.Bottom}
-        className="!w-2 !h-2 !border-0 !bg-transparent"
+        position={Position.Right}
+        className="connection-port connection-port-right"
+        style={{
+          width: 10,
+          height: 10,
+          background: `rgba(${rgb}, 0.3)`,
+          border: `1.5px solid rgba(${rgb}, 0.5)`,
+          borderRadius: '50%',
+          transition: 'all 0.2s ease',
+        }}
       />
     </motion.div>
   );
 }
 
-// Hex to RGB helper
 function hexToRgb(hex: string): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
