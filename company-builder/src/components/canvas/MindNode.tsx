@@ -110,7 +110,7 @@ function RoleDropdown({
   }, [open]);
 
   return (
-    <div ref={ref} className="relative" onClick={(e) => e.stopPropagation()}>
+    <div ref={ref} className="relative" onClick={(e) => e.stopPropagation()} onWheelCapture={(e) => { if (open) e.stopPropagation(); }}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-[11px] uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-md cursor-pointer focus:outline-none transition-all duration-200 text-left flex items-center gap-2"
@@ -146,7 +146,7 @@ function RoleDropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.97 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 right-0 mt-1 rounded-lg overflow-hidden custom-scrollbar"
+            className="absolute left-0 right-0 mt-1 rounded-lg overflow-hidden custom-scrollbar nowheel nopan"
             style={{
               zIndex: 50,
               background: 'rgba(12, 12, 22, 0.96)',
@@ -571,9 +571,10 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         </div>
       </div>
 
-      {/* Connection handles - visible ports on left/right */}
+      {/* Connection handles - all ports are both source AND target */}
       <Handle
         type="target"
+        id="left-target"
         position={Position.Left}
         className="connection-port connection-port-left"
         style={{
@@ -587,6 +588,33 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
       />
       <Handle
         type="source"
+        id="left-source"
+        position={Position.Left}
+        className="connection-port connection-port-left"
+        style={{
+          width: 10,
+          height: 10,
+          background: 'transparent',
+          border: 'none',
+          borderRadius: '50%',
+        }}
+      />
+      <Handle
+        type="target"
+        id="right-target"
+        position={Position.Right}
+        className="connection-port connection-port-right"
+        style={{
+          width: 10,
+          height: 10,
+          background: 'transparent',
+          border: 'none',
+          borderRadius: '50%',
+        }}
+      />
+      <Handle
+        type="source"
+        id="right-source"
         position={Position.Right}
         className="connection-port connection-port-right"
         style={{
