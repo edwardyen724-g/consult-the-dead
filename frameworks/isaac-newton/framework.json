@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Isaac Newton",
+    "domain": "Physics, Mathematics, Optics, Scientific Method",
+    "archetype_name": "The Analyst",
+    "archetype_title": "Rigorous Quantifier of Natural Law",
+    "accent_color": "#9B8EC4",
+    "born": "1643",
+    "died": "1727",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Newton perceives the world as a mathematically precise mechanism where every phenomenon can be reduced to quantifiable laws — and where the rigorous, obsessive pursuit of these laws, once begun, must be carried to absolute completion before moving on.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "Quantifiable patterns and mathematical relationships in phenomena that others perceive only qualitatively — the precise inverse-square law in gravity, the exact decomposition of white light, the specific mathematical structure underlying change itself",
+    "what_they_ignore": "Qualitative or aesthetic aspects of phenomena, collaborative opportunities, social niceties that interfere with concentrated work, and the feelings or contributions of others when they conflict with establishing priority and correctness",
+    "evidence": "Across incidents, Newton consistently reduces complex phenomena to precise mathematical formulations: inventing calculus to describe rates of change (001), decomposing white light into its spectrum with mathematical precision (003), and formulating gravitational attraction as an exact inverse-square law (002). He also consistently defends his priority with ferocious intensity, as in the calculus dispute with Leibniz (005)."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Mathematical precision vs. Qualitative understanding",
+      "positive_pole": "Reducing every phenomenon to exact mathematical relationships that can be calculated and predicted",
+      "negative_pole": "Understanding phenomena through descriptive, intuitive, or philosophical frameworks that capture meaning without mathematical exactness",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-003"],
+      "behavioral_implication": "When analyzing any problem, this person will immediately seek to quantify it — if it cannot be expressed mathematically, it is not yet understood"
+    },
+    {
+      "construct": "Obsessive completeness vs. Satisficing progress",
+      "positive_pole": "Pursuing a problem until every aspect is completely understood and every calculation verified, regardless of how long it takes",
+      "negative_pole": "Reaching a 'good enough' understanding and moving forward, accepting that perfect completeness is impractical",
+      "derived_from_incidents": ["incident-002", "incident-006", "incident-010"],
+      "behavioral_implication": "Once this person engages with a problem, they will pursue it with consuming intensity until it is completely solved, often at the expense of all other activities and relationships"
+    },
+    {
+      "construct": "Fierce priority defense vs. Collaborative knowledge-building",
+      "positive_pole": "Aggressively defending intellectual priority and original authorship, viewing challenges to priority as existential threats",
+      "negative_pole": "Sharing credit generously and viewing knowledge-building as a collaborative enterprise where attribution is secondary to progress",
+      "derived_from_incidents": ["incident-005", "incident-008", "incident-012"],
+      "behavioral_implication": "When others claim credit for similar work, this person will respond with intense, sustained, and sometimes disproportionate campaigns to establish their priority"
+    },
+    {
+      "construct": "Empirical rigor vs. Theoretical speculation",
+      "positive_pole": "Insisting that every claim must be supported by precise experimental evidence and mathematical demonstration",
+      "negative_pole": "Exploring theoretical possibilities even when they extend beyond what current evidence can confirm",
+      "derived_from_incidents": ["incident-003", "incident-004", "incident-007"],
+      "behavioral_implication": "When presented with an interesting hypothesis, this person will demand rigorous experimental and mathematical proof before accepting it, rejecting speculation no matter how elegant"
+    },
+    {
+      "construct": "Solitary concentration vs. Social engagement",
+      "positive_pole": "Working in deep isolation, viewing social interaction as an unwelcome distraction from the concentration required for breakthrough insight",
+      "negative_pole": "Engaging with peers, students, and institutions as essential parts of the intellectual enterprise",
+      "derived_from_incidents": ["incident-004", "incident-006", "incident-009"],
+      "behavioral_implication": "When deep work is possible, this person will eliminate all social contact, viewing human interaction as a direct competitor to the concentration needed for mathematical insight"
+    },
+    {
+      "construct": "Universal law-seeking vs. Particular case-solving",
+      "positive_pole": "Seeking the single universal law that explains all instances of a phenomenon, not satisfied until every case is covered",
+      "negative_pole": "Solving particular problems individually, accepting that different situations may require different explanations",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-013"],
+      "behavioral_implication": "When encountering a phenomenon, this person will not rest until they have found the universal law governing all instances, viewing particular solutions as incomplete"
+    },
+    {
+      "construct": "Strategic secrecy vs. Open publication",
+      "positive_pole": "Withholding discoveries until they are complete and until publication maximally establishes priority and reputation",
+      "negative_pole": "Publishing findings promptly to advance knowledge and invite peer review",
+      "derived_from_incidents": ["incident-005", "incident-008", "incident-011"],
+      "behavioral_implication": "When making discoveries, this person will hold results until the most strategically advantageous moment for publication, treating knowledge as a competitive asset"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "The team has built a working product with good user adoption but cannot explain why certain features perform better than others",
+      "ordinary_response": "Continue iterating on what works and deprecating what doesn't, using A/B testing to guide decisions",
+      "framework_response": "Halt feature development until a precise mathematical model explains exactly why each feature succeeds or fails — shipping without understanding is unacceptable",
+      "because": "Newton's mathematical precision construct means he cannot tolerate empirical success without theoretical understanding — working-but-unexplained feels like failure to him",
+      "confidence": 0.87
+    },
+    {
+      "situation_type": "A competitor publishes a paper describing an approach similar to the company's unreleased innovation",
+      "ordinary_response": "Accelerate the product launch to establish market position, or pivot to differentiate from the published approach",
+      "framework_response": "Launch an aggressive campaign to establish that the company's work predates the competitor's, meticulously documenting the timeline of development and pursuing every available channel to establish priority",
+      "because": "Newton's fierce priority defense construct means he views any potential challenge to originality as an existential threat requiring immediate and overwhelming response",
+      "confidence": 0.90
+    },
+    {
+      "situation_type": "The team wants to add a new feature based on customer feedback",
+      "ordinary_response": "Evaluate the feature request against the product roadmap and customer impact, then prioritize accordingly",
+      "framework_response": "Demand that the team first builds a rigorous model of why customers want this feature and what exact problem it solves — only build what can be precisely justified through evidence and logic",
+      "because": "Newton's empirical rigor construct means he would reject building anything based on feedback alone, requiring mathematical or logical proof that the feature addresses a real, quantified need",
+      "confidence": 0.82
+    },
+    {
+      "situation_type": "The company discovers a pattern in user behavior that suggests a major untapped market opportunity",
+      "ordinary_response": "Test the hypothesis with a small experiment and iterate based on results",
+      "framework_response": "Develop a complete mathematical model of the user behavior pattern, derive all implications, and only then design the definitive product that perfectly addresses the full scope of the opportunity",
+      "because": "Newton's obsessive completeness construct means he would not ship anything until the underlying model is complete, viewing premature action as wasting the opportunity through incomplete understanding",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "A team meeting is scheduled to brainstorm solutions to a technical challenge",
+      "ordinary_response": "Attend the meeting, contribute ideas, and build on others' suggestions collaboratively",
+      "framework_response": "Skip the meeting, work on the problem alone in deep concentration, and present a complete solution afterward — group brainstorming is a waste of the focus needed for breakthrough insight",
+      "because": "Newton's solitary concentration construct means he views collaborative work as a distraction from the deep focus that produces real breakthroughs",
+      "confidence": 0.83
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Newton invented calculus to solve physics problems that existing mathematics could not handle, creating an entirely new branch of mathematics as a tool.",
+      "context": "Newton was working on problems of motion and change — how objects accelerate, how orbits work, how quantities change continuously. Existing mathematics had no tools for dealing with continuous change, so Newton invented them.",
+      "cdm_probes": {
+        "cues_noticed": "The gap between the physics problems he wanted to solve and the mathematical tools available — the realization that the mathematics itself needed to be created before the physics could be addressed.",
+        "active_goals": "To solve specific physics problems, with mathematics as the necessary instrument rather than an end in itself.",
+        "rejected_alternatives": "Using geometric approximations (as others did), accepting qualitative descriptions of change, or waiting for mathematicians to develop the needed tools.",
+        "situation_framing": "Newton framed this as a tool-building problem — the physics was clear but the mathematical instrument needed to analyze it didn't exist, so building the instrument was the necessary first step.",
+        "expected_outcome": "That a mathematics of continuous change would enable precise solutions to problems of motion, forces, and orbits that were otherwise intractable."
+      },
+      "counterfactual": "A competent physicist would have worked with available mathematical tools, using geometric methods and approximations to get useful if imprecise results.",
+      "divergence_explanation": "Newton's mathematical precision construct meant approximate solutions were unacceptable — he needed exact tools and would create entirely new branches of mathematics to get them.",
+      "outcome": "Calculus became the most important mathematical tool in science and engineering, enabling precise analysis of everything from planetary orbits to engineering design to economic optimization.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-002",
+      "decision": "Newton formulated universal gravitation as a precise inverse-square law, unifying terrestrial and celestial mechanics under a single mathematical framework.",
+      "context": "Before Newton, the motion of objects on Earth and the motion of celestial bodies were treated as fundamentally different phenomena governed by different principles. Newton realized they were the same force described by the same law.",
+      "cdm_probes": {
+        "cues_noticed": "The mathematical relationship between the Moon's orbital acceleration and surface gravity, the inverse-square pattern in gravitational force, and the possibility that a single law could explain both terrestrial falling and planetary orbits.",
+        "active_goals": "To find the universal mathematical law governing gravitational attraction, applicable at every scale from falling apples to planetary orbits.",
+        "rejected_alternatives": "Separate theories for terrestrial and celestial gravity, qualitative descriptions of gravitational attraction, or empirical formulas without universal mathematical structure.",
+        "situation_framing": "Newton framed this as a unification problem — the same force must govern both terrestrial and celestial motion, and the task was finding the exact mathematical law that described both.",
+        "expected_outcome": "A single mathematical law that would precisely predict all gravitational phenomena — from falling objects to planetary orbits to tidal patterns."
+      },
+      "counterfactual": "A competent physicist might have established the inverse-square law empirically for either terrestrial or celestial contexts without insisting on universal unification.",
+      "divergence_explanation": "Newton's universal law-seeking construct meant he could not accept separate explanations for what he perceived as a single phenomenon — the unification had to be mathematically exact and universally applicable.",
+      "outcome": "Universal gravitation unified physics, enabled precise prediction of celestial mechanics, and established the paradigm of universal mathematical law that governed science for two centuries until Einstein's revision.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Newton waged a decades-long campaign to establish his priority over Leibniz in the invention of calculus, ultimately using his position as President of the Royal Society to influence the investigation.",
+      "context": "Leibniz independently developed calculus using different notation and published first, while Newton had developed his version earlier but published later. The dispute over who deserved credit became the most bitter priority controversy in the history of science.",
+      "cdm_probes": {
+        "cues_noticed": "Leibniz's publication of calculus methods, the possibility that Leibniz had seen Newton's unpublished manuscripts, and the threat to Newton's intellectual priority that Leibniz's claim represented.",
+        "active_goals": "To establish beyond any doubt that he was the original inventor of calculus, viewing this as a matter of truth and justice rather than mere ego.",
+        "rejected_alternatives": "Sharing credit with Leibniz as an independent co-inventor, accepting that publication date determines priority, or treating the dispute as irrelevant to the value of the mathematics itself.",
+        "situation_framing": "Newton framed this as a question of truth — either he invented calculus first or he didn't, and allowing a false claim of priority to stand was an offense against the truth itself.",
+        "expected_outcome": "That vigorous defense of his priority would establish the historical record correctly and vindicate his claim as the original inventor."
+      },
+      "counterfactual": "A generous scientist would have acknowledged Leibniz's independent contribution and focused on the collaborative advance of mathematics rather than personal priority.",
+      "divergence_explanation": "Newton's fierce priority defense construct made it impossible for him to share credit for what he viewed as his most important contribution — the threat to his priority triggered a response disproportionate to any rational assessment of the stakes.",
+      "outcome": "Newton effectively won the priority dispute during his lifetime, but historians now generally credit both Newton and Leibniz as independent co-inventors. The dispute damaged both men's reputations and hindered mathematical progress in England for decades.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-006",
+      "decision": "During his annus mirabilis (1665-1666), Newton worked in near-total isolation during the plague years, producing foundational work on calculus, optics, and gravitation simultaneously.",
+      "context": "Cambridge University closed due to the plague, and Newton retreated to his family home in Woolsthorpe. Free from all social and academic obligations, he entered a period of sustained, obsessive concentration that produced many of his most important discoveries.",
+      "cdm_probes": {
+        "cues_noticed": "The freedom from distraction that isolation provided, the interconnections between the problems of calculus, optics, and gravitation that became visible during deep concentration, and the productive intensity that uninterrupted focus enabled.",
+        "active_goals": "To pursue fundamental problems with total concentration, using the enforced isolation to achieve depths of focus impossible in normal academic life.",
+        "rejected_alternatives": "Maintaining social connections despite isolation, focusing on a single problem rather than pursuing multiple simultaneously, or using the time for rest and reflection rather than intense work.",
+        "situation_framing": "Newton framed the plague isolation not as a hardship but as an opportunity — the removal of all distractions created perfect conditions for the concentration his work required.",
+        "expected_outcome": "That sustained, undistracted focus would enable breakthrough progress on the foundational problems he had been contemplating."
+      },
+      "counterfactual": "Most scholars used the plague years for limited study, correspondence, and preparation for return to academic life, not for the obsessive, multi-front intellectual campaign Newton conducted.",
+      "divergence_explanation": "Newton's solitary concentration and obsessive completeness constructs meant that isolation was his ideal working condition — the plague removed social obligations he likely viewed as impediments to his real work.",
+      "outcome": "The annus mirabilis produced the foundations of calculus, the theory of colors, and the beginnings of universal gravitation — arguably the most productive period of individual scientific work in history.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Newton conducted exhaustive prismatic experiments to prove that white light is composed of colored components, contradicting the prevailing theory that prisms create colors through modification of pure white light.",
+      "context": "The accepted theory held that white light was pure and that prisms somehow modified it to produce colors. Newton's experiments demonstrated that white light was actually a mixture of colors that the prism merely separated.",
+      "cdm_probes": {
+        "cues_noticed": "The specific angles of refraction for different colors, the reversibility of prismatic decomposition and recomposition, and the mathematical precision of the relationship between color and refraction angle.",
+        "active_goals": "To establish the true nature of white light through rigorous experimental evidence that could not be disputed, not merely proposing an alternative theory but proving it definitively.",
+        "rejected_alternatives": "Accepting the modification theory as approximately correct, proposing his theory without exhaustive experimental support, or treating color theory as a philosophical rather than experimental question.",
+        "situation_framing": "Newton framed this as an empirical question that could and must be settled through precise experimentation — not philosophical debate but measurable, repeatable physical demonstration.",
+        "expected_outcome": "That sufficiently rigorous experiments would establish the composition theory beyond any reasonable doubt, replacing the modification theory with experimentally proven fact."
+      },
+      "counterfactual": "A typical natural philosopher would have proposed the composition theory as a hypothesis and engaged in theoretical debate with proponents of the modification theory.",
+      "divergence_explanation": "Newton's empirical rigor construct meant he could not accept theoretical debate as a path to truth — only precise, repeatable experiment could establish physical reality, and he designed experiments specifically to be unchallengeable.",
+      "outcome": "Newton's experiments decisively established the composition theory of white light, becoming a model for how experimental science should be conducted.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "The universe operates according to precise mathematical laws that can be discovered through rigorous analysis and experimentation — the challenge is achieving the intensity of focus and completeness of analysis required to extract these laws from nature's complexity."
+  },
+  "stated_principles": [
+    "Hypotheses non fingo — I do not feign hypotheses; I derive from evidence",
+    "If I have seen further, it is by standing on the shoulders of giants",
+    "What we know is a drop, what we don't know is an ocean",
+    "No great discovery was ever made without a bold guess",
+    "Truth is the offspring of silence and unbroken meditation"
+  ],
+  "value_hierarchy": [
+    "Mathematical precision and quantification",
+    "Empirical rigor and experimental proof",
+    "Intellectual priority and original authorship",
+    "Universal law over particular explanation",
+    "Deep solitary concentration"
+  ],
+  "blind_spots": [
+    "Obsessive completeness can delay action when 'good enough' would serve the immediate need",
+    "Fierce priority defense can damage relationships and waste energy on unproductive disputes",
+    "Preference for solitary work prevents benefiting from collaborative insight",
+    "Mathematical precision focus can miss qualitative insights that don't reduce to numbers"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Newton either invents new tools to overcome them (creating calculus when existing math was insufficient) or withdraws into deeper isolation to concentrate more intensely until the constraint yields to pure intellectual force."
+  },
+  "contextual_adaptation": {
+    "pattern": "Newton adapts very little to social context — he maintains the same obsessive, solitary, precision-driven approach regardless of setting. His later career at the Royal Mint showed he could apply his analytical intensity to practical administration, but the underlying approach remained unchanged."
+  }
+}

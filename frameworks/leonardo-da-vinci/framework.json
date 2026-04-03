@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Leonardo da Vinci",
+    "domain": "Art, Engineering, Natural Science, Architecture",
+    "archetype_name": "The Polymath",
+    "archetype_title": "Cross-Domain Pattern Synthesizer",
+    "accent_color": "#7B9E6B",
+    "born": "1452",
+    "died": "1519",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Leonardo perceives the world as a web of interconnected systems where understanding in one domain illuminates all others — the flow of water teaches painting, anatomy teaches engineering, and observation teaches everything.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "Analogies between domains — the branching of rivers mirrors the branching of blood vessels, the mechanics of bird flight reveal principles applicable to machines. Patterns that recur across nature at different scales.",
+    "what_they_ignore": "Disciplinary boundaries, the urgency of deadlines, the need to finish before starting something new, and the conventional separation between art and science, theory and practice",
+    "evidence": "Leonardo consistently draws connections across domains that others treat as separate: using anatomical dissection to improve painted musculature (001), studying bird flight to design flying machines (003), applying hydraulic engineering principles to landscape painting (005). He treats every project as an opportunity to investigate multiple fields simultaneously."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Cross-domain synthesis vs. Deep specialization",
+      "positive_pole": "Drawing insights from diverse fields to create solutions that no single discipline could produce alone",
+      "negative_pole": "Developing profound expertise in one area through sustained, exclusive focus",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-005"],
+      "behavioral_implication": "When solving a problem, this person will instinctively reach for analogies from other fields rather than going deeper within the problem's native domain"
+    },
+    {
+      "construct": "Direct observation vs. Received authority",
+      "positive_pole": "Trusting personal observation and experimentation over what any book, teacher, or tradition claims",
+      "negative_pole": "Building on established knowledge and accepted frameworks rather than re-deriving everything from scratch",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-008"],
+      "behavioral_implication": "When confronted with accepted wisdom, this person will insist on verifying it through direct observation, often discovering that conventional knowledge is incomplete or wrong"
+    },
+    {
+      "construct": "Process fascination vs. Outcome delivery",
+      "positive_pole": "Finding the investigation itself so valuable that the 'finished product' becomes less important than what was learned along the way",
+      "negative_pole": "Prioritizing delivery of completed work to meet commitments and build reputation",
+      "derived_from_incidents": ["incident-006", "incident-009", "incident-012"],
+      "behavioral_implication": "When working on a project, this person may pursue fascinating tangents and leave work unfinished because the discovery process itself is their primary reward"
+    },
+    {
+      "construct": "Visual thinking vs. Verbal/mathematical reasoning",
+      "positive_pole": "Understanding and communicating through drawing, spatial reasoning, and visual models",
+      "negative_pole": "Expressing and developing ideas through written arguments, mathematical proofs, or logical deduction",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-007"],
+      "behavioral_implication": "When trying to understand a new concept, this person will immediately start sketching and diagramming rather than writing or calculating"
+    },
+    {
+      "construct": "Nature as teacher vs. Human invention as teacher",
+      "positive_pole": "Believing that the deepest design principles are embedded in natural forms and processes, waiting to be observed and applied",
+      "negative_pole": "Viewing human technological and artistic traditions as the primary source of design knowledge",
+      "derived_from_incidents": ["incident-003", "incident-005", "incident-010"],
+      "behavioral_implication": "When designing anything, this person will first study how nature solves analogous problems, viewing biomimicry as the highest form of engineering"
+    },
+    {
+      "construct": "Ambitious prototyping vs. Proven methods",
+      "positive_pole": "Attempting revolutionary techniques and designs even when they risk complete failure",
+      "negative_pole": "Using well-tested methods that reliably produce good results",
+      "derived_from_incidents": ["incident-006", "incident-008", "incident-011"],
+      "behavioral_implication": "When choosing between a safe technique and an experimental one, this person will choose experimentation, viewing every project as a research opportunity"
+    },
+    {
+      "construct": "Holistic understanding vs. Pragmatic sufficiency",
+      "positive_pole": "Needing to understand every aspect of a system before feeling confident working within it",
+      "negative_pole": "Learning just enough to accomplish the immediate task and moving forward",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-013"],
+      "behavioral_implication": "Before starting work, this person will invest enormous time understanding the full context and underlying principles, even when a surface-level understanding would suffice for the immediate task"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "The team needs to choose a technology stack for a new product",
+      "ordinary_response": "Evaluate available technologies within the product's domain and choose the most proven option",
+      "framework_response": "Look at how completely different industries solve analogous problems, potentially importing techniques from biology, architecture, or other unexpected fields into the technology stack",
+      "because": "Leonardo's cross-domain synthesis construct means he would view same-domain solutions as inherently limited and would seek breakthrough insights from cross-pollination",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "A project deadline is approaching and the product is 80% complete",
+      "ordinary_response": "Focus all effort on completing the remaining 20% and shipping on time",
+      "framework_response": "Continue exploring interesting problems discovered during the 80% work, potentially missing the deadline but generating insights that make the eventual product far more innovative",
+      "because": "Leonardo's process fascination construct means he values discovery over delivery, and would view a deadline as an arbitrary constraint that shouldn't limit learning",
+      "confidence": 0.82
+    },
+    {
+      "situation_type": "An industry expert presents the team with best practices for their market",
+      "ordinary_response": "Adopt the best practices as a proven foundation and customize from there",
+      "framework_response": "Question every assumption behind the best practices through direct observation and experimentation, discovering that several 'proven' approaches are actually suboptimal",
+      "because": "Leonardo's direct observation construct means he fundamentally distrusts received authority, believing that personal investigation always reveals what secondhand knowledge misses",
+      "confidence": 0.88
+    },
+    {
+      "situation_type": "The company needs to explain a complex technical concept to investors",
+      "ordinary_response": "Prepare a slide deck with bullet points, charts, and key metrics",
+      "framework_response": "Create visual models, diagrams, and possibly physical prototypes that make the concept intuitively graspable through spatial and visual understanding rather than verbal explanation",
+      "because": "Leonardo's visual thinking construct means he would view verbal/numerical presentations as inherently inferior to visual communication for conveying complex ideas",
+      "confidence": 0.90
+    },
+    {
+      "situation_type": "The team is designing a new user interface",
+      "ordinary_response": "Study competitor interfaces, follow platform design guidelines, and apply established UX patterns",
+      "framework_response": "Study how natural organisms process information, how physical spaces guide human movement, and how other sensory systems work, then design an interface based on these deeper principles",
+      "because": "Leonardo's nature-as-teacher construct means he would view existing UI conventions as shallow imitations and seek deeper principles from natural information systems",
+      "confidence": 0.78
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Leonardo conducted extensive anatomical dissections to understand human musculature for painting, going far beyond what any artist had done before.",
+      "context": "Renaissance artists typically learned anatomy from classical sculptures and established artistic conventions. Leonardo felt these sources were insufficient for truly representing the human form, leading him to perform over 30 human dissections — work usually reserved for physicians.",
+      "cdm_probes": {
+        "cues_noticed": "Discrepancies between conventional artistic depictions of musculature and what he observed in living bodies, the dynamic complexity of how muscles interact during movement, and the inadequacy of static classical models.",
+        "active_goals": "To achieve perfect representation of the human form in painting by understanding its actual mechanical structure, not just its surface appearance.",
+        "rejected_alternatives": "Learning anatomy from existing medical texts, copying classical sculptural conventions as other artists did, or limiting anatomical study to what was directly relevant to current commissions.",
+        "situation_framing": "Leonardo framed painting not as an artistic skill but as a scientific practice requiring systematic investigation of natural phenomena — the painter must understand everything the eye can see.",
+        "expected_outcome": "That deep anatomical knowledge would make his painted figures more lifelike than any other artist could achieve, and that the anatomical knowledge itself would be independently valuable."
+      },
+      "counterfactual": "A talented artist would have studied anatomy from available texts and classical models, achieving good anatomical accuracy without the time investment of performing dissections.",
+      "divergence_explanation": "Leonardo's direct observation construct meant he could not trust secondhand anatomical knowledge, and his cross-domain synthesis drove him to see dissection as simultaneously serving art, science, and engineering.",
+      "outcome": "Leonardo's anatomical drawings remain medically relevant 500 years later, and his painted figures achieved unprecedented naturalism that transformed Renaissance art.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Leonardo spent decades studying bird flight to design flying machines, treating ornithology as an engineering discipline.",
+      "context": "No human-powered flight had ever been achieved, and most considered it impossible. Leonardo observed birds obsessively, filling notebooks with analysis of wing mechanics, air currents, and the physics of lift and thrust.",
+      "cdm_probes": {
+        "cues_noticed": "The specific mechanical actions birds use to generate lift, the role of air currents and wind patterns, and the analogies between bird wing structure and potential mechanical designs.",
+        "active_goals": "To understand flight well enough to replicate it mechanically, viewing nature's solution as a blueprint to be decoded rather than a mystery to be admired.",
+        "rejected_alternatives": "Accepting flight as impossible for humans, attempting flight through pure mechanical invention without studying natural flight, or limiting studies to theoretical analysis without designing actual machines.",
+        "situation_framing": "Leonardo framed flight as an engineering problem that nature had already solved — the task was to observe nature's solution carefully enough to adapt it for human use.",
+        "expected_outcome": "That sufficiently detailed understanding of bird flight mechanics would enable the design of functional flying machines for human use."
+      },
+      "counterfactual": "A competent engineer would have recognized the materials and power-source limitations that made human-powered flight impossible with available technology, and redirected effort to more achievable goals.",
+      "divergence_explanation": "Leonardo's nature-as-teacher construct meant he viewed natural flight as proof of possibility rather than an unreachable ideal, and his holistic understanding requirement drove him to study every aspect of flight rather than accepting the problem as intractable.",
+      "outcome": "Leonardo's flying machine designs were not practically achievable with available materials, but his aerodynamic observations anticipated principles that would prove correct centuries later. His approach of studying nature to inform engineering became a foundational methodology.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-006",
+      "decision": "Leonardo abandoned the Adoration of the Magi — a major commissioned painting — after completing extensive preparatory work.",
+      "context": "The Augustinian monks of San Donato a Scopeto commissioned Leonardo to paint the Adoration of the Magi in 1481. Leonardo created revolutionary preparatory studies and an innovative composition but left for Milan before completing the painting, leaving behind only an underpainting.",
+      "cdm_probes": {
+        "cues_noticed": "Opportunities in Milan that promised broader scope for his interests across engineering, military architecture, and court life — far beyond what the painting commission offered.",
+        "active_goals": "To find a patron and environment that would support his full range of interests rather than constraining him to a single discipline.",
+        "rejected_alternatives": "Completing the commission before leaving, negotiating a delay with the monks, or finding a way to pursue Milan opportunities while finishing the painting.",
+        "situation_framing": "Leonardo framed the decision not as 'abandoning a commitment' but as 'following where the most interesting problems lead' — his obligation to curiosity outweighed his obligation to patrons.",
+        "expected_outcome": "That Milan under Ludovico Sforza would provide a richer environment for his multidisciplinary investigations than Florence's art commissions could offer."
+      },
+      "counterfactual": "A professional artist would have completed the commission to maintain reputation and client relationships, treating personal curiosity as secondary to professional obligations.",
+      "divergence_explanation": "Leonardo's process fascination construct meant that once the most interesting problems in a project were solved, completion held little value. His cross-domain synthesis drive meant single-discipline work felt constraining.",
+      "outcome": "Leonardo left behind an unfinished masterpiece but found in Milan a patron who supported his engineering, military, and scientific work alongside art — enabling his most productive and diverse period.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-008",
+      "decision": "Leonardo used an experimental oil-based fresco technique for The Last Supper rather than the proven buon fresco method.",
+      "context": "Leonardo was commissioned to paint The Last Supper on the refectory wall of Santa Maria delle Grazie. The standard buon fresco technique required fast painting on wet plaster, which conflicted with Leonardo's methodical, experimental approach that demanded time for observation and revision.",
+      "cdm_probes": {
+        "cues_noticed": "The limitations of buon fresco — its speed requirements preventing careful observation and revision, its inability to achieve the luminosity and detail he envisioned, and its incompatibility with his working process.",
+        "active_goals": "To create the most lifelike and emotionally powerful representation of the scene using a technique that allowed extended observation, experimentation, and revision.",
+        "rejected_alternatives": "Using the proven buon fresco method as every other artist would have, compromising his vision to work within established constraints, or declining the commission.",
+        "situation_framing": "Leonardo framed this as a choice between a reliable but limiting technique and an experimental one that could achieve his full vision — choosing innovation over safety.",
+        "expected_outcome": "That the experimental technique would allow him to achieve unprecedented realism and emotional depth, justifying the technical risk."
+      },
+      "counterfactual": "Any competent muralist would have used the established buon fresco technique, which had proven durability over centuries, adapting their artistic process to the medium's constraints.",
+      "divergence_explanation": "Leonardo's ambitious prototyping construct and direct observation approach made him unwilling to constrain his process to fit an existing technique. He viewed the medium as something to be reinvented, not accepted.",
+      "outcome": "The Last Supper achieved unprecedented artistic brilliance but began deteriorating almost immediately due to the experimental technique's incompatibility with the wall surface — a direct consequence of prioritizing innovation over proven methods.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-010",
+      "decision": "Leonardo filled over 7,000 pages of notebooks with observations, inventions, and insights across dozens of fields but published almost nothing during his lifetime.",
+      "context": "Leonardo lived in an era when publishing could have spread his discoveries widely, established his priority in multiple fields, and built his intellectual reputation. Instead, he maintained private notebooks written in mirror script, sharing insights only with close associates.",
+      "cdm_probes": {
+        "cues_noticed": "The interconnected nature of his observations that didn't fit neatly into publishable categories, the incompleteness of many lines of investigation, and the risk that publication might invite criticism or theft of ideas.",
+        "active_goals": "To continue investigating and recording without the constraints of formal publication — maintaining freedom to explore, revise, and connect ideas across domains without premature closure.",
+        "rejected_alternatives": "Publishing completed findings in specific fields, collaborating with scholars who could help systematize his work, or preparing comprehensive treatises on subjects he had mastered.",
+        "situation_framing": "Leonardo framed his notebooks as a continuously evolving web of knowledge where nothing was ever truly finished — publication would freeze ideas that he wanted to keep developing.",
+        "expected_outcome": "That continued private investigation would eventually lead to a comprehensive understanding that could be published as a unified whole — though this moment never arrived."
+      },
+      "counterfactual": "A competent scholar would have published findings in specific domains as they matured, building reputation and receiving feedback that could have improved the work.",
+      "divergence_explanation": "Leonardo's holistic understanding construct meant he viewed every finding as provisional until it connected to a larger framework, and his process fascination made the investigation itself more rewarding than the recognition publication would bring.",
+      "outcome": "Most of Leonardo's scientific discoveries had no impact during his lifetime and had to be independently rediscovered by others. His notebooks, when finally studied centuries later, revealed he had anticipated numerous scientific and engineering advances.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Every problem is connected to every other problem through deep natural patterns — the challenge is to see across boundaries that others treat as walls, synthesizing insights from art, science, engineering, and nature into unified understanding."
+  },
+  "stated_principles": [
+    "Experience is the mother of all knowledge — observe directly, trust nothing secondhand",
+    "The painter must understand everything the eye can perceive",
+    "Simplicity is the ultimate sophistication",
+    "Nature is the best teacher — study her solutions before inventing your own",
+    "Art and science are not separate — they are the same pursuit through different instruments"
+  ],
+  "value_hierarchy": [
+    "Direct observation and empirical truth",
+    "Cross-domain synthesis and connection",
+    "Visual and spatial understanding",
+    "Nature as the ultimate design reference",
+    "The process of discovery itself"
+  ],
+  "blind_spots": [
+    "Chronic inability to finish projects when the most interesting problems have been solved",
+    "Cross-domain breadth can prevent the depth needed to bring ideas to practical fruition",
+    "Private investigation habits prevent insights from benefiting others during his lifetime",
+    "May overvalue novel approaches when proven methods would serve the actual goal better"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Leonardo circumvents them through invention — creating new techniques, tools, or approaches that dissolve the constraint entirely rather than working within it."
+  },
+  "contextual_adaptation": {
+    "pattern": "Leonardo adapts fluidly across domains — functioning as artist, engineer, anatomist, and architect as context requires — but maintains his core approach of direct observation and cross-domain synthesis regardless of the specific field."
+  }
+}

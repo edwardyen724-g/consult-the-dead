@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Marie Curie",
+    "domain": "Physics, Chemistry, Radiochemistry",
+    "archetype_name": "The Researcher",
+    "archetype_title": "Relentless Empiricist Through Systematic Rigor",
+    "accent_color": "#4ECDC4",
+    "born": "1867",
+    "died": "1934",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Curie perceives the world through meticulous measurement and systematic elimination of variables — trusting only what can be repeatedly demonstrated through painstaking experimental work, and following anomalous data wherever it leads regardless of personal cost or institutional resistance.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "Anomalous data that doesn't fit existing models — measurements that are slightly 'wrong' in ways that suggest unknown phenomena rather than experimental error. The gap between what theory predicts and what instruments measure.",
+    "what_they_ignore": "Social conventions about who should do science and under what conditions, personal health and safety risks when they interfere with research, institutional politics that would distract from laboratory work, and shortcuts that sacrifice measurement accuracy for speed",
+    "evidence": "Across incidents, Curie consistently follows anomalous measurements to their source: pitchblende's excess radioactivity revealing unknown elements (001), years of laborious purification to isolate radium (002), and refusal to accept that known elements could explain her measurements (003). She endures appalling working conditions, health risks, and social barriers without deviation from the research program."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Data-driven discovery vs. Theory-driven hypothesis",
+      "positive_pole": "Following wherever experimental data leads, even when it contradicts existing theory or leads to unexpected territory",
+      "negative_pole": "Starting from theoretical frameworks and designing experiments to test specific predictions",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-005"],
+      "behavioral_implication": "When data contradicts theory, this person will always trust the data and pursue its implications, viewing theoretical disagreement as evidence of discovery rather than experimental error"
+    },
+    {
+      "construct": "Exhaustive systematic process vs. Selective efficient approach",
+      "positive_pole": "Testing every possibility systematically and completely, leaving no potential explanation unexamined regardless of how tedious the process",
+      "negative_pole": "Using judgment and intuition to focus effort on the most likely explanations, accepting some risk of missing possibilities in exchange for efficiency",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-008"],
+      "behavioral_implication": "When investigating a problem, this person will insist on testing every possibility systematically, viewing shortcuts as potential sources of error that compromise the entire investigation"
+    },
+    {
+      "construct": "Personal sacrifice for work vs. Sustainable work-life integration",
+      "positive_pole": "Accepting extreme personal costs — health, comfort, social life — as the necessary price of rigorous research",
+      "negative_pole": "Maintaining personal wellbeing as essential for sustained productivity and long-term contribution",
+      "derived_from_incidents": ["incident-002", "incident-006", "incident-010"],
+      "behavioral_implication": "When research demands conflict with personal wellbeing, this person will consistently sacrifice wellbeing for the work, viewing personal comfort as irrelevant compared to the importance of the research"
+    },
+    {
+      "construct": "Barrier-breaking persistence vs. Strategic path selection",
+      "positive_pole": "Pushing through institutional, social, and physical barriers through sheer determination and excellence rather than seeking easier paths",
+      "negative_pole": "Choosing paths of least resistance and working within existing structures to maximize progress with minimum friction",
+      "derived_from_incidents": ["incident-004", "incident-007", "incident-009"],
+      "behavioral_implication": "When facing institutional barriers, this person will push through them directly with superior work rather than seeking alternative routes, viewing barrier-breaking as both necessary and principled"
+    },
+    {
+      "construct": "Collaborative partnership vs. Solitary independence",
+      "positive_pole": "Working in deep intellectual partnership where two minds amplify each other's capabilities",
+      "negative_pole": "Working independently to maintain full control over methods, conclusions, and credit",
+      "derived_from_incidents": ["incident-001", "incident-005", "incident-011"],
+      "behavioral_implication": "When the right intellectual partner is available, this person will form an exceptionally productive collaborative relationship, but will also prove capable of excellent independent work when necessary"
+    },
+    {
+      "construct": "Science for humanity vs. Science for knowledge",
+      "positive_pole": "Viewing scientific discovery as a contribution to humanity that should be freely shared for the benefit of all",
+      "negative_pole": "Pursuing knowledge for its intrinsic value, viewing practical applications as secondary or others' responsibility",
+      "derived_from_incidents": ["incident-006", "incident-008", "incident-012"],
+      "behavioral_implication": "When discoveries have practical applications, this person will refuse to patent them, believing that scientific knowledge belongs to humanity rather than to any individual or corporation"
+    },
+    {
+      "construct": "Measurement precision as foundation vs. Conceptual insight as foundation",
+      "positive_pole": "Treating precise, reproducible measurement as the irreducible foundation of all scientific knowledge",
+      "negative_pole": "Treating conceptual insight and theoretical frameworks as the foundation that gives meaning to measurements",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-003"],
+      "behavioral_implication": "When starting any investigation, this person will invest disproportionate effort in perfecting measurement techniques before drawing any conclusions, viewing unreliable measurement as the primary source of scientific error"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "Early user data shows unexpected behavior that doesn't match the product hypothesis",
+      "ordinary_response": "Investigate whether the data is an artifact of measurement error, then if real, adjust the product hypothesis accordingly",
+      "framework_response": "Treat the anomalous data as potentially the most important finding — the unexpected behavior may reveal a user need or market dynamic that nobody anticipated. Pursue it exhaustively before adjusting or dismissing it.",
+      "because": "Curie's data-driven discovery construct means she views anomalous data as the primary source of breakthrough insight, not as noise to be explained away",
+      "confidence": 0.90
+    },
+    {
+      "situation_type": "The team has identified three possible causes for a critical bug and wants to fix the most likely one first",
+      "ordinary_response": "Start with the most likely cause, then move to the next if that doesn't work",
+      "framework_response": "Test all three causes systematically before implementing any fix, because assuming the most likely cause may lead to a 'fix' that masks the real problem",
+      "because": "Curie's exhaustive systematic process construct means she would refuse to skip any possibility, viewing partial investigation as a source of error that could cause worse problems later",
+      "confidence": 0.87
+    },
+    {
+      "situation_type": "The company discovers a valuable technology and must decide whether to patent it",
+      "ordinary_response": "Patent the technology to protect competitive advantage and generate licensing revenue",
+      "framework_response": "Refuse to patent it, instead publishing the discovery openly so that the entire field can benefit and build upon it",
+      "because": "Curie's science-for-humanity construct means she would view patenting knowledge as morally wrong — discoveries belong to humanity, not to individuals or corporations",
+      "confidence": 0.80
+    },
+    {
+      "situation_type": "The company faces institutional barriers — regulatory hurdles, industry gatekeepers, or skeptical investors — that block progress",
+      "ordinary_response": "Find ways to work within or around the barriers, adapting the approach to fit institutional requirements",
+      "framework_response": "Push directly through the barriers with work so rigorous and results so undeniable that the barriers must yield — let the quality of the work speak louder than any objection",
+      "because": "Curie's barrier-breaking persistence construct means she would view institutional resistance as something to be overwhelmed through excellence rather than navigated through compromise",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "Team members are burning out from sustained intense work on a critical project",
+      "ordinary_response": "Implement rest periods, reduce scope, or bring in additional resources to ease the burden",
+      "framework_response": "Acknowledge the difficulty but maintain the pace, because the work is more important than comfort and genuine breakthroughs require sustained sacrifice that cannot be scheduled conveniently",
+      "because": "Curie's personal sacrifice construct means she would view burnout as a price worth paying for important work, having herself endured far worse conditions without complaint",
+      "confidence": 0.78
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Curie chose to investigate why pitchblende was more radioactive than could be explained by its known uranium content, hypothesizing the existence of unknown elements.",
+      "context": "While studying radioactive materials for her doctoral thesis, Curie measured the radioactivity of various uranium compounds and discovered that pitchblende ore was significantly more radioactive than pure uranium. This anomaly didn't fit existing theory, which assumed uranium was the sole radioactive element.",
+      "cdm_probes": {
+        "cues_noticed": "The precise quantitative discrepancy between pitchblende's measured radioactivity and the radioactivity that its uranium content could account for — a gap that could not be explained by experimental error.",
+        "active_goals": "To explain the excess radioactivity through rigorous measurement and systematic investigation, following the data wherever it led.",
+        "rejected_alternatives": "Attributing the excess to measurement error, accepting that pitchblende's complex composition might enhance uranium's radiation in unknown ways, or treating the anomaly as an interesting but unresolvable puzzle.",
+        "situation_framing": "Curie framed the anomaly not as experimental noise but as evidence of something unknown — the excess radioactivity was too large and too consistent to be error, which meant something undiscovered was producing it.",
+        "expected_outcome": "That systematic investigation would reveal one or more unknown radioactive elements in pitchblende, explaining the excess radioactivity through their presence."
+      },
+      "counterfactual": "A competent researcher might have noted the anomaly, reported it in a footnote, and continued with the primary thesis research rather than redirecting their entire doctoral project toward isolating unknown elements.",
+      "divergence_explanation": "Curie's data-driven discovery construct meant she could not set aside anomalous data — the excess radioactivity was a signal that demanded investigation, and her measurement precision gave her confidence the anomaly was real, not artifactual.",
+      "outcome": "The investigation led to the discovery of both polonium and radium — two new elements — and fundamentally transformed the understanding of atomic structure and radioactivity.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-002",
+      "decision": "Curie spent four years performing grueling physical labor to process tons of pitchblende ore, refining it to isolate a fraction of a gram of pure radium.",
+      "context": "After identifying the existence of radium through its radioactivity, Curie needed to isolate it in pure form to determine its properties and prove its existence as a distinct element. This required processing tons of raw pitchblende in a converted shed with no proper facilities, using physically exhausting chemical separation techniques.",
+      "cdm_probes": {
+        "cues_noticed": "The impossibility of proving radium's existence without isolating it in measurable quantities, the absence of any shortcut for the purification process, and the need for absolute precision in each stage of chemical separation.",
+        "active_goals": "To produce pure radium in sufficient quantity to measure its atomic weight and establish it definitively as a new element in the periodic table.",
+        "rejected_alternatives": "Accepting the radioactivity measurements as sufficient proof without isolation, delegating the physical labor to assistants who might not maintain adequate precision, or seeking better-equipped laboratories that might come with constraints on the research direction.",
+        "situation_framing": "Curie framed the isolation as a non-negotiable requirement — without pure radium, the element's existence would remain a hypothesis. The physical difficulty was irrelevant compared to the scientific necessity.",
+        "expected_outcome": "That years of painstaking work would produce enough pure radium to establish its atomic weight and properties definitively."
+      },
+      "counterfactual": "Most researchers would have published the radioactivity findings as strong evidence for radium's existence and moved on to other research, viewing the isolation work as disproportionately difficult compared to its scientific value.",
+      "divergence_explanation": "Curie's exhaustive systematic process and personal sacrifice constructs meant she could not accept indirect evidence when direct proof was theoretically possible, regardless of the physical cost of obtaining it.",
+      "outcome": "Curie successfully isolated pure radium, determined its atomic weight, and established it as element 88 — work that earned her the Nobel Prize in Chemistry and transformed atomic science.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-004",
+      "decision": "Curie became the first woman to earn a doctorate in physics in France, overcoming institutional barriers through academic excellence that was impossible to deny.",
+      "context": "The French academic system in the 1890s was deeply hostile to women in science. Curie faced barriers at every level — from accessing laboratory space to being taken seriously by established scientists. Rather than challenging the system politically, she simply produced work that was too good to ignore.",
+      "cdm_probes": {
+        "cues_noticed": "The institutional resistance to women in science, the gap between her capabilities and the opportunities available, and the possibility that exceptional work could overcome social barriers that political activism might not.",
+        "active_goals": "To gain the resources and recognition necessary for her research by making her scientific work undeniable, not by fighting the system but by exceeding its standards.",
+        "rejected_alternatives": "Seeking easier academic environments, pursuing political advocacy for women in science before establishing her own credentials, or accepting a lesser role that avoided institutional confrontation.",
+        "situation_framing": "Curie framed the barriers as obstacles to be overcome through superior performance rather than political contests to be won — the work itself was both the means and the end.",
+        "expected_outcome": "That work of sufficient quality would eventually be recognized regardless of the worker's gender, even in a hostile institutional environment."
+      },
+      "counterfactual": "A person facing such barriers might have sought institutions more receptive to women, pursued research in a less male-dominated field, or invested effort in advocacy alongside research.",
+      "divergence_explanation": "Curie's barrier-breaking persistence construct meant she addressed institutional discrimination not through political action but through scientific excellence so overwhelming it could not be dismissed, even by those who wished to dismiss it.",
+      "outcome": "Curie's doctoral work was recognized as exceptional, leading to her first Nobel Prize and creating a precedent that opened pathways for subsequent women in science.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-006",
+      "decision": "Curie and Pierre refused to patent the radium isolation process, instead publishing their methods openly so that anyone could use them.",
+      "context": "The Curies' radium isolation process was enormously valuable — radium was becoming important for medical treatment and scientific research. Patenting the process would have made them wealthy. Instead, they published all details openly.",
+      "cdm_probes": {
+        "cues_noticed": "The medical and scientific value of radium, the financial value of the isolation process, and the potential for a patent to slow the availability of radium for medical use.",
+        "active_goals": "To ensure that radium became available as quickly and widely as possible for medical treatment and scientific research, without any barrier to access.",
+        "rejected_alternatives": "Patenting the process and licensing it at reasonable rates, publishing the process but maintaining commercial production rights, or delaying publication until they had established their own production capacity.",
+        "situation_framing": "The Curies framed this as a moral question with only one acceptable answer — scientific discoveries belong to humanity, and placing financial barriers between a medical breakthrough and the patients who need it was unconscionable.",
+        "expected_outcome": "That open publication would accelerate the production of radium worldwide, enabling medical and scientific applications far faster than proprietary control would allow."
+      },
+      "counterfactual": "Most researchers with a commercially valuable discovery would have at least considered patenting it, particularly given the Curies' modest financial circumstances and the potential to fund future research.",
+      "divergence_explanation": "Curie's science-for-humanity construct made the patent decision simple — the purpose of science was to benefit humanity, and any mechanism that restricted access to beneficial knowledge was antithetical to that purpose.",
+      "outcome": "The open publication accelerated radium production and medical applications worldwide, though it also left the Curies financially strained. Curie's decision became a landmark example of scientific generosity.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-008",
+      "decision": "Curie continued working with radioactive materials despite growing evidence of health dangers, ultimately contributing to her death from aplastic anemia.",
+      "context": "As understanding of radiation's biological effects grew, evidence mounted that the Curies' constant exposure to radioactive materials was damaging their health. Pierre suffered from chronic fatigue and pain before his death. Marie continued working without significant protective measures.",
+      "cdm_probes": {
+        "cues_noticed": "Physical symptoms consistent with radiation exposure, colleagues' concerns about health risks, and the growing scientific understanding of radiation's biological effects.",
+        "active_goals": "To continue the research program without interruption, viewing the work as more important than personal health risks.",
+        "rejected_alternatives": "Implementing protective measures that might slow research, delegating dangerous work to assistants, reducing exposure by limiting laboratory hours, or shifting to theoretical rather than experimental work.",
+        "situation_framing": "Curie framed the health risks as acceptable costs of essential research, viewing personal safety as a secondary concern compared to the importance of the scientific program.",
+        "expected_outcome": "That continued intensive laboratory work would produce further discoveries that justified any personal cost."
+      },
+      "counterfactual": "A researcher aware of health risks would have implemented protective measures, delegated dangerous procedures, and balanced research productivity against personal safety.",
+      "divergence_explanation": "Curie's personal sacrifice construct made health considerations subordinate to research progress — she had already endured years of physically grueling isolation work, and radiation exposure was simply another cost to be accepted.",
+      "outcome": "Curie's continued exposure to radiation contributed to her death from aplastic anemia in 1934. Her personal papers remain so radioactive they must be stored in lead-lined boxes and handled with protective equipment.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Scientific truth is found through relentless measurement, systematic elimination of alternatives, and the courage to follow anomalous data wherever it leads — regardless of personal cost, institutional resistance, or how long the process takes."
+  },
+  "stated_principles": [
+    "Nothing in life is to be feared, it is only to be understood",
+    "Be less curious about people and more curious about ideas",
+    "One never notices what has been done; one can only see what remains to be done",
+    "Scientific knowledge belongs to humanity, not to individuals",
+    "I was taught that the way of progress was neither swift nor easy"
+  ],
+  "value_hierarchy": [
+    "Empirical truth through rigorous measurement",
+    "Systematic exhaustive investigation",
+    "Science as service to humanity",
+    "Barrier-breaking through excellence",
+    "Personal sacrifice for important work"
+  ],
+  "blind_spots": [
+    "Personal sacrifice ethic can create unsustainable expectations for self and team",
+    "Exhaustive systematic approach can be inefficient when faster heuristic methods would suffice",
+    "Refusal to patent can undermine the financial sustainability needed for continued research",
+    "Barrier-breaking through individual excellence doesn't address the systemic barriers that affect others"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Curie pushes through them with sustained, systematic effort and undeniable results — not circumventing barriers but overwhelming them through the sheer quality and rigor of the work."
+  },
+  "contextual_adaptation": {
+    "pattern": "Curie shows remarkable consistency across contexts — the same meticulous, self-sacrificing approach in the laboratory, in academic politics, and in personal life. She adapts her research methods to each problem but never adapts her fundamental commitment to exhaustive rigor."
+  }
+}

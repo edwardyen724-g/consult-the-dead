@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "company": {
+    "name": "Untitled Company",
+    "mission": "Define your mission..."
+  },
+  "placedMinds": [
+    {
+      "id": "steve-jobs-1775176240947-1",
+      "archetypeId": "steve-jobs",
+      "role": "ceo",
+      "position": {
+        "x": 473,
+        "y": 27
+      }
+    },
+    {
+      "id": "albert-einstein-1775176241744-2",
+      "archetypeId": "albert-einstein",
+      "role": null,
+      "position": {
+        "x": 410,
+        "y": -30
+      }
+    },
+    {
+      "id": "alexander-the-great-1775176242541-3",
+      "archetypeId": "alexander-the-great",
+      "role": null,
+      "position": {
+        "x": 750,
+        "y": 30
+      }
+    },
+    {
+      "id": "leonardo-da-vinci-1775176243346-4",
+      "archetypeId": "leonardo-da-vinci",
+      "role": null,
+      "position": {
+        "x": 74,
+        "y": 157
+      }
+    },
+    {
+      "id": "cleopatra-vii-1775176244154-5",
+      "archetypeId": "cleopatra-vii",
+      "role": null,
+      "position": {
+        "x": 330,
+        "y": 150
+      }
+    },
+    {
+      "id": "sun-tzu-1775176244979-6",
+      "archetypeId": "sun-tzu",
+      "role": null,
+      "position": {
+        "x": 630,
+        "y": 240
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-albert-einstein-1775176241744-2-alexander-the-great-1775176242541-3-1775176249025",
+      "sourceId": "albert-einstein-1775176241744-2",
+      "targetId": "alexander-the-great-1775176242541-3",
+      "type": "reporting"
+    },
+    {
+      "id": "conn-alexander-the-great-1775176242541-3-leonardo-da-vinci-1775176243346-4-1775176250360",
+      "sourceId": "alexander-the-great-1775176242541-3",
+      "targetId": "leonardo-da-vinci-1775176243346-4",
+      "type": "reporting"
+    },
+    {
+      "id": "conn-cleopatra-vii-1775176244154-5-steve-jobs-1775176240947-1-1775176252938",
+      "sourceId": "cleopatra-vii-1775176244154-5",
+      "targetId": "steve-jobs-1775176240947-1",
+      "type": "reporting"
+    },
+    {
+      "id": "conn-albert-einstein-1775176241744-2-leonardo-da-vinci-1775176243346-4-1775176255579",
+      "sourceId": "albert-einstein-1775176241744-2",
+      "targetId": "leonardo-da-vinci-1775176243346-4",
+      "type": "reporting"
+    }
+  ],
+  "savedAt": "2026-04-03T00:31:08.086Z"
+}

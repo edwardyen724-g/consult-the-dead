@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Alexander the Great",
+    "domain": "Military Strategy, Empire Building, Leadership",
+    "archetype_name": "The Conqueror",
+    "archetype_title": "Empire Architect Through Velocity",
+    "accent_color": "#D4A843",
+    "born": "356 BC",
+    "died": "323 BC",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Alexander perceives every situation as a battlefield where decisive speed, personal audacity, and psychological dominance create cascading advantages that overwhelm opponents before they can organize resistance.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The decisive point — the single moment, position, or action where concentrated force will collapse the entire opposing system. Psychological vulnerabilities in opponents that can be exploited through boldness.",
+    "what_they_ignore": "Logistical sustainability, long-term governance challenges, the costs of overextension, and counsel that urges caution or consolidation before further advance",
+    "evidence": "Across all incidents, Alexander consistently identifies and attacks the decisive point: charging directly at Darius at Gaugamela (002), cutting the Gordian Knot rather than untangling it (001), leading cavalry charges personally to shatter enemy morale (003). He systematically ignores advice to consolidate, rest, or negotiate when he perceives forward momentum as his primary advantage."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Decisive velocity vs. Careful consolidation",
+      "positive_pole": "Moving so fast that opponents cannot organize effective resistance, turning speed into a compounding strategic advantage",
+      "negative_pole": "Pausing to consolidate gains, build institutions, and ensure sustainable control before advancing further",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-005"],
+      "behavioral_implication": "When given the choice between advancing quickly or consolidating position, this person will almost always choose speed, viewing momentum itself as the most valuable strategic asset"
+    },
+    {
+      "construct": "Lead-from-the-front inspiration vs. Command-from-the-rear safety",
+      "positive_pole": "Personally sharing the greatest dangers to inspire extraordinary performance and build unshakeable loyalty",
+      "negative_pole": "Preserving leadership continuity by managing operations from a position of safety and delegating risk",
+      "derived_from_incidents": ["incident-003", "incident-007", "incident-010"],
+      "behavioral_implication": "In high-stakes situations, this person will personally take on the most dangerous role, understanding that visible courage creates exponential returns in team commitment"
+    },
+    {
+      "construct": "Psychological warfare vs. Material attrition",
+      "positive_pole": "Breaking the enemy's will to fight through spectacle, audacity, and symbolic actions that make resistance feel hopeless",
+      "negative_pole": "Systematically degrading the enemy's material capacity through logistics, blockades, and resource competition",
+      "derived_from_incidents": ["incident-001", "incident-004", "incident-008"],
+      "behavioral_implication": "When facing opposition, this person will prioritize dramatic actions that shatter opponent psychology over methodical approaches that gradually erode their capabilities"
+    },
+    {
+      "construct": "Cultural integration vs. Cultural domination",
+      "positive_pole": "Adopting and blending conquered peoples' customs, religions, and governance to build a unified multicultural entity",
+      "negative_pole": "Imposing the conqueror's culture uniformly to ensure ideological control and administrative simplicity",
+      "derived_from_incidents": ["incident-006", "incident-009", "incident-012"],
+      "behavioral_implication": "After winning a competitive battle, this person will integrate the strengths and traditions of the acquired entity rather than simply imposing their own culture"
+    },
+    {
+      "construct": "Audacious improvisation vs. Methodical planning",
+      "positive_pole": "Making bold decisions with incomplete information, trusting that speed and adaptability will compensate for uncertainty",
+      "negative_pole": "Gathering complete intelligence and developing detailed plans before committing to action",
+      "derived_from_incidents": ["incident-002", "incident-005", "incident-011"],
+      "behavioral_implication": "When faced with uncertain conditions, this person will make fast, bold decisions rather than waiting for more information, viewing analysis paralysis as more dangerous than imperfect action"
+    },
+    {
+      "construct": "Limitless ambition vs. Bounded objectives",
+      "positive_pole": "Setting goals beyond what anyone considers possible, using seemingly unreachable targets to expand the boundaries of what can be achieved",
+      "negative_pole": "Setting realistic, achievable goals that can be reliably delivered and measured",
+      "derived_from_incidents": ["incident-004", "incident-010", "incident-014"],
+      "behavioral_implication": "When setting objectives, this person will consistently aim for targets that others consider impossible, believing that audacious goals unlock capabilities that modest goals never would"
+    },
+    {
+      "construct": "Meritocratic talent elevation vs. Loyalty-based hierarchy",
+      "positive_pole": "Promoting the most capable individuals regardless of origin, background, or previous allegiance",
+      "negative_pole": "Rewarding long-standing loyalty and cultural alignment over raw capability",
+      "derived_from_incidents": ["incident-006", "incident-009", "incident-013"],
+      "behavioral_implication": "When building teams, this person will recruit and elevate the most talented people available — including former adversaries — valuing capability over tribal loyalty"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "A competitor has established a strong defensive market position with loyal customers",
+      "ordinary_response": "Find an undefended market niche or differentiate on features to avoid direct confrontation",
+      "framework_response": "Attack the competitor's strongest point directly and decisively, because defeating them where they are strongest breaks their will entirely and sends a signal to all other competitors",
+      "because": "Alexander's psychological warfare construct means he would view attacking strength directly as more efficient than flanking — total psychological defeat of one opponent deters all others",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "The team is exhausted after a major product launch and wants time to recover",
+      "ordinary_response": "Grant recovery time, celebrate the win, and begin planning the next phase at a sustainable pace",
+      "framework_response": "Immediately launch the next initiative while competitors are still reacting to the first one, leveraging momentum and the team's heightened capabilities from recent success",
+      "because": "Alexander's velocity construct means he sees post-victory momentum as a wasting asset — every day of rest is a day competitors use to adapt and prepare defenses",
+      "confidence": 0.88
+    },
+    {
+      "situation_type": "A key acquisition target's leadership resists being acquired",
+      "ordinary_response": "Increase the offer price, add protections for existing leadership, or move on to other targets",
+      "framework_response": "Make the acquired company's team feel they are joining something greater than both organizations, offering them elevated roles in the combined entity and adopting their best practices",
+      "because": "Alexander's cultural integration construct means he would make acquisition feel like unification rather than conquest, incorporating the best elements of what he acquires",
+      "confidence": 0.80
+    },
+    {
+      "situation_type": "A risky strategic bet has a 40% chance of massive success and 60% chance of significant failure",
+      "ordinary_response": "Look for ways to reduce risk, hedge the bet, or find a safer alternative with lower but more certain returns",
+      "framework_response": "Take the bet immediately and commit fully, then use speed and intensity of execution to shift the odds in your favor through sheer force of will and effort",
+      "because": "Alexander's audacious improvisation construct means he views probabilities as mutable through intensity of effort — committed action at full speed changes the odds",
+      "confidence": 0.83
+    },
+    {
+      "situation_type": "The company has achieved product-market fit and advisors recommend focusing on profitability",
+      "ordinary_response": "Optimize unit economics, build sustainable operations, and prepare for long-term profitability",
+      "framework_response": "Immediately expand into adjacent markets before competitors can establish positions, viewing the current success as merely the base camp for far larger ambitions",
+      "because": "Alexander's limitless ambition construct means he would view consolidation as stagnation — the purpose of any victory is to enable the next, larger conquest",
+      "confidence": 0.90
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Alexander cut the Gordian Knot with his sword rather than attempting to untangle it as tradition prescribed.",
+      "context": "An ancient prophecy declared that whoever untied the impossibly complex Gordian Knot would rule all of Asia. Previous visitors had spent hours or days attempting to find the knot's hidden end. Alexander's army was watching, and the symbolic stakes were enormous for establishing his divine mandate.",
+      "cdm_probes": {
+        "cues_noticed": "The knot was designed to be unsolvable by conventional means. The audience expected patient puzzle-solving. The prophecy's actual requirement was ambiguous about method.",
+        "active_goals": "Demonstrate that he was destined to rule Asia, establish his leadership style as one that redefines problems rather than solving them on others' terms, and send a psychological signal to his army and future opponents.",
+        "rejected_alternatives": "Patiently attempting to untangle the knot, declaring the prophecy irrelevant, or having someone else attempt it first.",
+        "situation_framing": "Alexander reframed this from 'how do I untangle this knot?' to 'how do I fulfill this prophecy in a way that demonstrates my nature as a ruler?' — the knot was a communication opportunity, not a puzzle.",
+        "expected_outcome": "That the dramatic action would cement his reputation for audacious problem-solving and strengthen his army's belief in his divine destiny."
+      },
+      "counterfactual": "A competent military leader would have either patiently attempted the puzzle or dismissed the prophecy as superstition, missing the psychological warfare opportunity.",
+      "divergence_explanation": "Alexander perceived the knot primarily as a psychological and symbolic challenge rather than a physical one, applying his audacious improvisation construct to redefine the terms of the problem entirely.",
+      "outcome": "The act became legendary, reinforcing Alexander's image as someone who transcends conventional constraints, boosting army morale and intimidating future opponents.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-002",
+      "decision": "At Gaugamela, Alexander led a cavalry charge directly at the Persian King Darius III's position despite being vastly outnumbered.",
+      "context": "Alexander's army of roughly 47,000 faced Darius III's force of over 200,000 on terrain Darius had specifically chosen and prepared. Conventional military wisdom dictated defensive tactics or strategic withdrawal when outnumbered 4-to-1.",
+      "cdm_probes": {
+        "cues_noticed": "A gap forming in the Persian line near Darius's position, the psychological centrality of Darius to Persian army cohesion, and the opportunity to convert a numerical disadvantage into a decisive psychological strike.",
+        "active_goals": "To destroy Persian resistance by personally threatening Darius, understanding that the Persian army's cohesion depended on their king's presence and perceived safety.",
+        "rejected_alternatives": "Defensive formations to offset numerical disadvantage, flanking maneuvers to avoid the strongest Persian positions, strategic retreat to choose better terrain, or delegating the cavalry charge to a subordinate.",
+        "situation_framing": "Alexander framed this not as 'army vs army' but as 'me vs Darius' — if Darius broke, the entire Persian force would collapse regardless of numerical advantage.",
+        "expected_outcome": "That a direct charge at Darius would cause the Persian king to flee, triggering cascading panic through the Persian army and converting a numerically disadvantaged position into decisive victory."
+      },
+      "counterfactual": "A competent general would have adopted a defensive posture, used terrain features to offset numerical disadvantage, and focused on avoiding catastrophic defeat rather than pursuing decisive victory.",
+      "divergence_explanation": "Alexander's perceptual lens identified the psychological decisive point — Darius himself — while others saw only the material balance of forces. His lead-from-the-front construct made personally leading the decisive charge natural rather than reckless.",
+      "outcome": "Darius fled when Alexander's cavalry broke through to within striking distance. The Persian army collapsed, giving Alexander control of the Persian Empire — the largest military victory in ancient history.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Alexander personally led the assault on the fortress of Multan, jumping over the walls alone when his troops hesitated.",
+      "context": "During the siege of Multan in India, Alexander's troops were showing signs of fatigue and reluctance after years of continuous campaigning. The fortress walls were being scaled, but progress was slow and casualties were mounting.",
+      "cdm_probes": {
+        "cues_noticed": "His troops' hesitation, the critical moment where momentum was stalling, the defensive gaps that individual bold action could exploit, and the symbolic importance of the commander sharing the greatest danger.",
+        "active_goals": "To break the siege immediately through personal example, reinvigorate troop morale through shared danger, and demonstrate that no obstacle was insurmountable when leadership committed fully.",
+        "rejected_alternatives": "Ordering a withdrawal to regroup, using siege engines to create safer entry points, sending elite units first while observing from safety, or negotiating terms.",
+        "situation_framing": "Alexander framed his personal leap as a catalyst that would transform his army's psychology — one person's audacity could unlock thousands' courage.",
+        "expected_outcome": "That his personal courage would shame his troops into following, turning a stalled siege into an overwhelming assault."
+      },
+      "counterfactual": "A competent commander would have recognized the stalled assault as a signal to try different tactics, not to personally increase risk — the potential loss of the supreme commander would have been viewed as catastrophic.",
+      "divergence_explanation": "Alexander's lead-from-the-front construct was so deeply embedded that he could not conceive of asking his troops to do what he would not do first. The risk to his person was, in his framework, always offset by the multiplicative effect on army morale.",
+      "outcome": "Alexander was seriously wounded by an arrow to the chest but survived. His troops, shamed and inspired, overwhelmed the fortress. The incident became legendary but also illustrated the unsustainable nature of leadership through personal risk.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-006",
+      "decision": "Alexander adopted Persian court customs, dress, and governance practices after conquering the Persian Empire.",
+      "context": "After defeating Darius III and inheriting the Persian Empire, Alexander faced the choice of how to govern an enormous, culturally diverse territory. His Macedonian officers expected him to impose Greek customs on conquered peoples. Many were deeply uncomfortable with Alexander's adoption of Persian practices.",
+      "cdm_probes": {
+        "cues_noticed": "The sophistication of Persian administrative systems, the impossibility of governing such vast territory through pure military force, and the potential to create something larger than either Greek or Persian civilization alone.",
+        "active_goals": "To build a sustainable multicultural empire that incorporated the strengths of all conquered civilizations, not merely a Macedonian military occupation.",
+        "rejected_alternatives": "Imposing Greek culture universally, maintaining separate Greek and Persian administrative systems, or delegating governance entirely to local rulers without integration.",
+        "situation_framing": "Alexander framed this as an opportunity to create an unprecedented fusion civilization, viewing cultural adoption not as weakness but as the ambition to build something the world had never seen.",
+        "expected_outcome": "That cultural integration would reduce resistance, attract talent from all conquered peoples, and create a more capable and resilient empire than pure Macedonian rule could sustain."
+      },
+      "counterfactual": "A typical conqueror would have imposed their own cultural norms on conquered peoples, viewing cultural adoption as capitulation and focusing on extracting resources rather than building integrated institutions.",
+      "divergence_explanation": "Alexander's cultural integration construct meant he saw conquered civilizations as sources of strength to be absorbed, not threats to be suppressed. His limitless ambition drove him to aim for something unprecedented — a truly multicultural empire.",
+      "outcome": "The cultural integration policy created tensions with Macedonian officers but enabled Alexander to govern his vast empire more effectively. After his death, the Hellenistic fusion of Greek and Eastern cultures persisted for centuries.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-010",
+      "decision": "Alexander refused to turn back at the Hyphasis River despite his army's mutiny, only yielding when it became clear his troops would not follow.",
+      "context": "After eight years of continuous campaigning and having conquered everything from Egypt to India, Alexander's army reached the Hyphasis River and collectively refused to continue eastward. Alexander's generals presented the troops' exhaustion and desire to return home.",
+      "cdm_probes": {
+        "cues_noticed": "Rumors of even larger armies beyond the river, his troops' physical and psychological exhaustion, the unified nature of the refusal across all units, and the absence of any realistic threat that could motivate continued advance.",
+        "active_goals": "To reach the eastern ocean, which he believed would mark the literal end of the world, completing history's greatest conquest.",
+        "rejected_alternatives": "Accepting the troops' position gracefully from the start, compromising on a shorter eastward advance, or replacing resistant officers with more compliant ones.",
+        "situation_framing": "Alexander framed the mutiny as a temporary failure of will that could be overcome through inspiration and personal persuasion, not as a rational assessment of strategic limits.",
+        "expected_outcome": "That his personal charisma and the promise of greater glory would overcome the army's exhaustion, as it had in every previous moment of doubt."
+      },
+      "counterfactual": "A competent commander would have recognized the army's limits earlier, planned a sustainable campaign with rest periods, and viewed the troops' refusal as valid strategic feedback rather than a failure of will.",
+      "divergence_explanation": "Alexander's limitless ambition construct made it nearly impossible for him to accept any boundary as final. His lead-from-the-front construct meant he interpreted the mutiny as a personal failure of inspiration rather than a rational collective decision.",
+      "outcome": "Alexander eventually yielded — the only time in his career he was forced to abandon an objective. He turned south toward the ocean and began the return journey, during which his army suffered catastrophic losses crossing the Gedrosian Desert.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Every market is a battlefield where the decisive factor is not resources or planning but velocity of action, personal courage, and the psychological impact of audacious moves that rewrite the rules of engagement."
+  },
+  "stated_principles": [
+    "Fortune favors the bold — speed and audacity create their own luck",
+    "Attack the strongest point, because its fall makes all other resistance crumble",
+    "A leader must share the greatest dangers to earn the greatest loyalty",
+    "Absorb the strengths of what you conquer rather than destroying them",
+    "There is nothing impossible to him who will try"
+  ],
+  "value_hierarchy": [
+    "Decisive action and velocity",
+    "Personal courage and visible leadership",
+    "Limitless ambition",
+    "Cultural synthesis and integration",
+    "Meritocratic excellence"
+  ],
+  "blind_spots": [
+    "Cannot recognize when consolidation is more valuable than expansion",
+    "Personal risk-taking that endangers organizational continuity",
+    "Inability to accept strategic limits as anything other than failures of will",
+    "Overreliance on personal charisma as a substitute for institutional systems"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Alexander attacks them directly and dramatically, viewing any obstacle as a challenge to be overwhelmed through audacity and personal commitment rather than navigated or avoided."
+  },
+  "contextual_adaptation": {
+    "pattern": "Alexander adapts culturally to new contexts — adopting local customs, integrating conquered talent — but never adapts his fundamental approach of decisive speed and personal leadership, regardless of scale or terrain."
+  }
+}

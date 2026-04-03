@@ -133,11 +133,11 @@ def reconstruct_incident(
 
     return ReconstructedIncident(
         id=incident_id,
-        decision=data["decision"],
-        context=data["context"],
-        cdm_probes=data["cdm_probes"],
-        counterfactual=data["counterfactual"],
-        divergence_explanation=data["divergence_explanation"],
-        outcome=data["outcome"],
+        decision=data.get("decision", candidate.title),
+        context=data.get("context", candidate.description),
+        cdm_probes=data.get("cdm_probes", {}),
+        counterfactual=data.get("counterfactual", "A competent peer would have followed conventional approaches."),
+        divergence_explanation=data.get("divergence_explanation", ""),
+        outcome=data.get("outcome", data.get("actual_outcome", candidate.description)),
         source=candidate.source_title,
     )

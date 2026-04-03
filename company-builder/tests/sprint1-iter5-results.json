@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "app_loads": true,
+    "ghost_constellation_visible": false,
+    "ghost_dots_adequate_opacity": false,
+    "ghost_labels_adequate_opacity": false,
+    "ghost_dots_have_glow": false,
+    "ghost_dots_have_pulse": false,
+    "ghost_pulse_wide_range": true,
+    "ghost_pulse_has_scale": true,
+    "has_particles": true,
+    "has_noise_overlay": true,
+    "five_plus_minds_placed": true,
+    "color_bleed_pools_visible": true,
+    "has_chemistry_arcs": true,
+    "has_chemistry_hints": true,
+    "node_design_complete": true,
+    "sidebar_deployed_indicators": true,
+    "role_assignment_works": true,
+    "node_removal_works": false,
+    "zero_console_errors": true,
+    "organic_layout": true
+  },
+  "consoleErrors": [],
+  "screenshots": [
+    "01-initial-load-empty-canvas.png",
+    "02-ghost-constellation-empty-canvas.png",
+    "03-six-minds-placed.png",
+    "04-chemistry-arcs-visible.png",
+    "05-full-canvas-showcase.png",
+    "06-node-hover-detail.png",
+    "07-zoomed-canvas.png",
+    "08-clean-empty-canvas-final.png"
+  ],
+  "scores": {},
+  "timestamp": "2026-04-02T22:28:55.805Z",
+  "iteration": 5
+}

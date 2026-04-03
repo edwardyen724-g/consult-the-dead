@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "person": "Sun Tzu",
+    "domain": "Military Strategy, Statecraft, Competitive Theory",
+    "archetype_name": "The Strategist",
+    "archetype_title": "Victory Through Asymmetric Positioning",
+    "accent_color": "#8B7355",
+    "born": "544 BC",
+    "died": "496 BC",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 8,
+    "prediction_count": 6
+  },
+  "perceptual_lens": {
+    "statement": "Sun Tzu perceives every competitive situation as a dynamic system where victory comes not from superior force but from superior positioning, information, and the ability to win without fighting through strategic manipulation of conditions.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The terrain of competition — positions of advantage and vulnerability, information asymmetries, the adversary's assumptions and expectations that can be exploited, and the shape of the competitive landscape that determines outcomes before any engagement begins",
+    "what_they_ignore": "Heroic narratives about courage and fighting spirit, the emotional satisfaction of direct confrontation, organizational pride that demands visible aggressive action, and the conventional view that more resources automatically equal more power",
+    "evidence": "Across incidents, Sun Tzu consistently seeks victory through positioning rather than confrontation: using deception to create false expectations (001), attacking where the enemy is weak rather than where honor demands (003), preferring to capture intact rather than destroy (005). He treats direct battle as a failure of strategy, not its culmination."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Winning without fighting vs. Decisive engagement",
+      "positive_pole": "Achieving objectives through positioning, deception, and strategic manipulation that makes fighting unnecessary",
+      "negative_pole": "Seeking decisive confrontation to establish dominance through superior performance in direct competition",
+      "derived_from_incidents": ["incident-001", "incident-005", "incident-008"],
+      "behavioral_implication": "When competition seems inevitable, this person will exhaust every indirect approach before accepting direct confrontation, viewing the need to fight as evidence of strategic failure"
+    },
+    {
+      "construct": "Formlessness and adaptation vs. Consistent strategic identity",
+      "positive_pole": "Constantly shifting approach to remain unpredictable, making it impossible for competitors to prepare effective countermeasures",
+      "negative_pole": "Maintaining a consistent strategic identity that builds brand recognition, trust, and organizational coherence",
+      "derived_from_incidents": ["incident-002", "incident-006", "incident-010"],
+      "behavioral_implication": "When developing strategy, this person will prioritize unpredictability and shape-shifting over building a recognizable strategic brand, viewing consistency as vulnerability"
+    },
+    {
+      "construct": "Information dominance vs. Capability dominance",
+      "positive_pole": "Investing primarily in knowing more than competitors — their plans, weaknesses, and assumptions — viewing intelligence as the decisive advantage",
+      "negative_pole": "Investing primarily in superior capabilities, talent, and resources, trusting that the better-equipped force will prevail",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-007"],
+      "behavioral_implication": "When allocating resources, this person will invest disproportionately in intelligence and information-gathering over capability-building, believing that knowing the terrain matters more than having bigger forces"
+    },
+    {
+      "construct": "Strategic patience vs. Opportunistic speed",
+      "positive_pole": "Waiting for the perfect conditions before acting, even when delay feels costly, because premature action wastes resources and reveals intentions",
+      "negative_pole": "Seizing opportunities as they appear, accepting imperfect conditions to maintain momentum and initiative",
+      "derived_from_incidents": ["incident-004", "incident-009", "incident-012"],
+      "behavioral_implication": "When an opportunity presents itself, this person will first assess whether the conditions are truly favorable rather than acting immediately, willing to let seemingly good opportunities pass if the positioning is not ideal"
+    },
+    {
+      "construct": "Terrain exploitation vs. Force application",
+      "positive_pole": "Shaping the competitive environment so that conditions favor your strengths before any engagement occurs",
+      "negative_pole": "Applying superior force to overcome whatever conditions exist, trusting in capability over positioning",
+      "derived_from_incidents": ["incident-003", "incident-005", "incident-011"],
+      "behavioral_implication": "Before any competitive action, this person will invest heavily in choosing and shaping the battleground — market segment, timing, framing — to ensure structural advantage"
+    },
+    {
+      "construct": "Deception as strategy vs. Transparency as trust-building",
+      "positive_pole": "Using misdirection, feints, and information control to keep competitors off-balance and guessing",
+      "negative_pole": "Operating transparently to build trust with allies, partners, and markets, viewing honesty as a competitive advantage",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-006"],
+      "behavioral_implication": "When communicating strategic intentions, this person will systematically misrepresent plans and capabilities to competitors, viewing information control as a fundamental strategic tool"
+    },
+    {
+      "construct": "Preservation through capture vs. Destruction of opposition",
+      "positive_pole": "Preferring to capture competitor resources, talent, and market positions intact rather than destroying them through aggressive competition",
+      "negative_pole": "Annihilating competitive threats completely to prevent future challenge",
+      "derived_from_incidents": ["incident-005", "incident-008", "incident-013"],
+      "behavioral_implication": "When winning against competitors, this person will seek to absorb their valuable assets rather than destroy them, viewing scorched-earth competition as wasteful"
+    },
+    {
+      "construct": "Systemic calculation vs. Intuitive boldness",
+      "positive_pole": "Making decisions through careful analysis of all variables, seeking certainty before committing resources",
+      "negative_pole": "Trusting instinct and making bold moves based on pattern recognition rather than exhaustive analysis",
+      "derived_from_incidents": ["incident-004", "incident-007", "incident-014"],
+      "behavioral_implication": "Before any significant strategic move, this person will conduct exhaustive analysis of conditions, competitors, and contingencies, preferring calculation over intuition"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "A well-funded competitor enters the company's primary market with aggressive pricing",
+      "ordinary_response": "Match prices, increase marketing spend, or find cost efficiencies to compete on the competitor's terms",
+      "framework_response": "Refuse to compete on the competitor's chosen terrain. Instead, shift the competition to a dimension where the competitor's funding advantage is irrelevant — customer relationships, switching costs, or market segments they cannot efficiently serve",
+      "because": "Sun Tzu's terrain exploitation construct means he would never accept battle on ground chosen by the opponent, instead reshaping the competitive landscape to neutralize the adversary's advantages",
+      "confidence": 0.92
+    },
+    {
+      "situation_type": "The company has a significant product advantage that competitors will eventually replicate",
+      "ordinary_response": "Move fast to capture market share while the advantage lasts, building scale to defend the position",
+      "framework_response": "Use the advantage window not to attack the obvious market but to quietly position for the next battleground, letting competitors waste resources fighting for the current one while you prepare to dominate the next",
+      "because": "Sun Tzu's winning-without-fighting construct means he would view the current advantage as a decoy — let competitors focus there while you secure the truly decisive position elsewhere",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "Internal teams are debating between two product strategies and pushing for quick resolution",
+      "ordinary_response": "Make a decision quickly to maintain momentum and organizational alignment",
+      "framework_response": "Delay the decision while gathering more intelligence about competitor moves and market conditions, because premature commitment reveals your direction and forecloses options",
+      "because": "Sun Tzu's strategic patience construct means he would view premature decision-making as self-inflicted disadvantage — maintaining optionality until conditions clearly favor one path",
+      "confidence": 0.80
+    },
+    {
+      "situation_type": "The company discovers a competitor's major strategic vulnerability",
+      "ordinary_response": "Exploit it immediately with aggressive competitive moves before the competitor can fix it",
+      "framework_response": "Do not attack immediately. First, ensure the competitor doesn't know you've found the vulnerability. Then quietly position your capabilities to exploit it at the moment of maximum impact while the competitor has committed resources elsewhere",
+      "because": "Sun Tzu's information dominance and deception constructs mean he would treat the discovery itself as an asset to be protected and deployed at the optimal moment rather than wasted on premature action",
+      "confidence": 0.88
+    },
+    {
+      "situation_type": "A failing competitor's team and customers are available for poaching",
+      "ordinary_response": "Aggressively recruit their talent and pursue their customers before other competitors do",
+      "framework_response": "Acquire the competitor's assets as intact as possible — their team, customer relationships, and institutional knowledge — through partnership or gentle absorption rather than aggressive poaching that damages the assets in the process",
+      "because": "Sun Tzu's preservation-through-capture construct means he would view aggressive poaching as destroying value through the process of acquiring it, preferring methods that preserve the competitor's organization intact",
+      "confidence": 0.83
+    },
+    {
+      "situation_type": "The board is pressing for a clear, public long-term strategy that investors can evaluate",
+      "ordinary_response": "Develop and publish a detailed strategic plan that demonstrates clear thinking and builds investor confidence",
+      "framework_response": "Present a plausible but incomplete picture that satisfies the board while concealing actual strategic intentions — never give competitors a roadmap to your plans, even if it means appearing less strategically sophisticated to observers",
+      "because": "Sun Tzu's deception construct means he would view strategic transparency as a gift to competitors, maintaining formlessness even at the cost of investor relations friction",
+      "confidence": 0.78
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Sun Tzu codified the principle that all warfare is based on deception — appear weak when strong, appear strong when weak.",
+      "context": "Ancient Chinese warfare was evolving from aristocratic ritual combat with fixed rules of engagement toward more fluid and pragmatic approaches. Sun Tzu observed that victories were most efficiently won when the enemy was deceived about the actual situation.",
+      "cdm_probes": {
+        "cues_noticed": "The pattern of successful campaigns relying on misdirection, the inefficiency of force-on-force engagements, and the disproportionate value of information control compared to military capability.",
+        "active_goals": "To systematize the observation that information manipulation is more powerful than force application, creating a doctrine where deception is the primary strategic tool rather than a secondary tactic.",
+        "rejected_alternatives": "Viewing deception as merely one tactic among many, treating warfare as primarily a test of courage and strength, or accepting the aristocratic model where open battle was the only honorable approach.",
+        "situation_framing": "Sun Tzu framed deception not as dishonesty but as the fundamental mechanism of strategy — controlling what the enemy believes is the same as controlling what the enemy does.",
+        "expected_outcome": "That systematizing deception as the foundation of strategy would produce more efficient victories with lower costs and fewer casualties."
+      },
+      "counterfactual": "A typical military thinker would have treated deception as a useful supplementary tactic while maintaining that superior force and courage were the primary determinants of victory.",
+      "divergence_explanation": "Sun Tzu's information dominance construct elevated deception from tactic to foundational principle, viewing the information domain as more decisive than the physical battlefield.",
+      "outcome": "The Art of War became history's most influential strategic text, with its deception-centered framework applied successfully across military, business, and competitive domains for over two millennia.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Sun Tzu advocated attacking where the enemy is weakest rather than where they are strongest, overturning the conventional honor of meeting strength with strength.",
+      "context": "Traditional military doctrine emphasized attacking the enemy's main force as the path to decisive victory. Sun Tzu observed that this approach maximized casualties and uncertainty, while attacking weak points produced more reliable results.",
+      "cdm_probes": {
+        "cues_noticed": "The mathematical reality that attacking strength with strength produces uncertain outcomes at maximum cost, while attacking weakness produces reliable outcomes at minimum cost.",
+        "active_goals": "To establish efficiency as the primary metric of strategic success — achieving objectives with minimum expenditure of resources, not maximum display of courage.",
+        "rejected_alternatives": "The honor-based model of meeting the enemy's champions, the doctrine of concentrating force against the enemy's main body, or the strategy of matching strength against strength at the decisive point.",
+        "situation_framing": "Sun Tzu framed this as a mathematical optimization problem — you want the highest probability of victory with the lowest expenditure, which means always seeking mismatches where you are strong and the enemy is weak.",
+        "expected_outcome": "That systematic exploitation of weakness would produce a higher win rate with lower costs than the conventional approach of seeking decisive engagement at the strongest point."
+      },
+      "counterfactual": "A conventional military leader would have viewed attacking weak points as avoiding the real fight, preferring to seek decisive battle against the enemy's main force as the path to lasting victory.",
+      "divergence_explanation": "Sun Tzu's terrain exploitation construct meant he evaluated engagements by efficiency rather than honor, and his systemic calculation approach made him view warfare as an optimization problem rather than a test of will.",
+      "outcome": "The doctrine of exploiting weakness became a foundational principle of strategic thinking across all competitive domains, from military operations to business competition.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Sun Tzu established that the supreme art of war is to subdue the enemy without fighting.",
+      "context": "Ancient warfare typically celebrated the general who won great battles. Sun Tzu proposed an inversion of this hierarchy: the greatest general is the one who achieves victory without any battle occurring at all.",
+      "cdm_probes": {
+        "cues_noticed": "That every battle — even victories — consumed resources, created casualties, and introduced risk. The most efficient path to strategic objectives avoided the destructive process of fighting entirely.",
+        "active_goals": "To redefine strategic excellence from 'winning battles' to 'achieving objectives' — making the measure of success the outcome rather than the process.",
+        "rejected_alternatives": "Accepting that battle is the natural and necessary mechanism of competition, viewing victory in battle as the highest military achievement, or treating the avoidance of battle as cowardice.",
+        "situation_framing": "Sun Tzu framed fighting as a cost, not an achievement — the ideal strategy eliminates the cost entirely while still achieving the objective.",
+        "expected_outcome": "That establishing this principle would redirect strategic thinking from 'how to win battles' to 'how to make battles unnecessary.'"
+      },
+      "counterfactual": "Conventional military thinkers celebrated the decisive battle as the apex of strategic art, viewing the avoidance of battle as weakness or indecision.",
+      "divergence_explanation": "Sun Tzu's winning-without-fighting construct fundamentally reframed what strategic excellence means, treating destruction as a cost rather than a metric of success.",
+      "outcome": "This principle became perhaps the most influential idea in strategic thought, applied across diplomacy, business, and competitive strategy as the ideal of achieving objectives through positioning rather than confrontation.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-007",
+      "decision": "Sun Tzu demanded that generals have complete intelligence about both themselves and their adversaries before committing to any course of action.",
+      "context": "Many military campaigns failed due to inadequate knowledge of the enemy's dispositions, terrain conditions, or even the state of one's own forces. Sun Tzu elevated intelligence-gathering from a useful supplement to an absolute prerequisite for strategic action.",
+      "cdm_probes": {
+        "cues_noticed": "The pattern of military failures traceable to information gaps, the asymmetric value of intelligence compared to additional fighting capability, and the observation that knowing the enemy's plans rendered superior numbers irrelevant.",
+        "active_goals": "To establish information superiority as the decisive factor in competition, more important than material resources, numerical advantage, or fighting quality.",
+        "rejected_alternatives": "Treating intelligence as one factor among many, accepting that perfect information is impossible and acting on available knowledge, or relying on superior capability to overcome information disadvantages.",
+        "situation_framing": "Sun Tzu framed strategy as fundamentally an information game — the side with better information wins regardless of other factors, while the side with poor information loses regardless of advantages.",
+        "expected_outcome": "That disproportionate investment in intelligence would produce returns far exceeding equivalent investment in fighting capability."
+      },
+      "counterfactual": "Conventional military thinking balanced intelligence investment against other military capabilities, treating it as important but not decisive in isolation.",
+      "divergence_explanation": "Sun Tzu's information dominance construct made intelligence the foundation of all other strategic activity, rather than a supporting function.",
+      "outcome": "The principle that intelligence is the foundation of strategy became central to military and competitive theory, with every subsequent strategic tradition acknowledging the primacy of information advantage.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-010",
+      "decision": "Sun Tzu advised that a skilled warrior should be like water — formless, adapting to whatever container it fills.",
+      "context": "Military doctrine typically emphasized discipline, formation, and consistency. Sun Tzu argued that the most effective force is one that can continuously adapt its form to exploit whatever conditions exist, never presenting the same approach twice.",
+      "cdm_probes": {
+        "cues_noticed": "The observation that fixed formations and predictable approaches allowed enemies to prepare effective countermeasures, while constantly shifting tactics kept opponents off-balance.",
+        "active_goals": "To establish adaptability as a core strategic principle, viewing any fixed approach as a vulnerability that opponents will eventually learn to exploit.",
+        "rejected_alternatives": "Building excellence in a single tactical system, developing reliable standard operating procedures, or creating a consistent strategic identity that allies and opponents could understand.",
+        "situation_framing": "Sun Tzu framed consistency as predictability and predictability as vulnerability — the most dangerous force is one that opponents cannot model or anticipate.",
+        "expected_outcome": "That formlessness would create a persistent information disadvantage for opponents, making them unable to prepare effective countermeasures against an approach that constantly changes."
+      },
+      "counterfactual": "Conventional military doctrine valued consistent, well-drilled formations and tactics that could be executed reliably under stress, viewing unpredictability as disorganization.",
+      "divergence_explanation": "Sun Tzu's formlessness construct inverted the conventional wisdom about organizational consistency, treating adaptability as a fundamental advantage rather than a sign of lack of discipline.",
+      "outcome": "The principle of formlessness became central to guerrilla warfare, competitive strategy, and adaptive management, influencing everything from insurgent tactics to agile development methodology.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Competition is an information game where the side that understands the terrain, the opponent, and itself most clearly will win — ideally without fighting at all. The art is shaping conditions so that victory is inevitable before any direct engagement occurs."
+  },
+  "stated_principles": [
+    "All warfare is based on deception",
+    "The supreme art of war is to subdue the enemy without fighting",
+    "Know yourself and know your enemy — in a hundred battles you will never be in peril",
+    "Be like water — formless, adapting to whatever terrain you encounter",
+    "Attack where the enemy is weak, not where they are strong"
+  ],
+  "value_hierarchy": [
+    "Information superiority and intelligence",
+    "Positional advantage over direct force",
+    "Efficiency and preservation of resources",
+    "Strategic patience and timing",
+    "Adaptability and formlessness"
+  ],
+  "blind_spots": [
+    "Overemphasis on indirect approaches may miss opportunities where decisive direct action would be more effective",
+    "Deception-centered strategy can undermine trust with allies and partners who need transparency",
+    "Strategic patience can become strategic paralysis when conditions never reach the 'ideal' threshold",
+    "Formlessness may prevent building the organizational identity and culture that motivates teams"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Sun Tzu flows around them like water — never confronting constraints directly but finding the path of least resistance that still leads to the objective."
+  },
+  "contextual_adaptation": {
+    "pattern": "Sun Tzu adapts completely to context — the entire strategic approach reshapes itself based on terrain, opponent, and conditions. The only constant is the meta-principle of adaptation itself."
+  }
+}

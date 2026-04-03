@@ -231,14 +231,14 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const fitColor = roleFit ? getFitColor(roleFit) : null;
   const fitRgb = fitColor ? hexToRgb(fitColor) : null;
 
-  // Placement ceremony
+  // Placement ceremony (F13 enhanced: longer quote hold, more prominent)
   useEffect(() => {
     if (justPlaced) {
       setShowFlash(true);
       setShowPlacementQuote(true);
-      const flashTimer = setTimeout(() => setShowFlash(false), 400);
-      const quoteTimer = setTimeout(() => setShowPlacementQuote(false), 2200);
-      const clearTimer = setTimeout(() => clearJustPlaced(id), 2500);
+      const flashTimer = setTimeout(() => setShowFlash(false), 500);
+      const quoteTimer = setTimeout(() => setShowPlacementQuote(false), 2800);
+      const clearTimer = setTimeout(() => clearJustPlaced(id), 3000);
       return () => {
         clearTimeout(flashTimer);
         clearTimeout(quoteTimer);
@@ -325,24 +325,26 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
         )}
       </AnimatePresence>
 
-      {/* Placement quote */}
+      {/* Placement quote (F13 enhanced: larger, more prominent) */}
       <AnimatePresence>
         {showPlacementQuote && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: -8 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.5 }}
-            className="absolute left-0 right-0 text-center pointer-events-none"
-            style={{ bottom: '100%', marginBottom: 8, zIndex: 10 }}
+            initial={{ opacity: 0, y: 14, scale: 0.92 }}
+            animate={{ opacity: 1, y: -12, scale: 1 }}
+            exit={{ opacity: 0, y: -24, scale: 0.95 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute left-1/2 text-center pointer-events-none"
+            style={{ bottom: '100%', marginBottom: 10, zIndex: 10, transform: 'translateX(-50%)' }}
           >
             <div
-              className="text-[11px] italic leading-relaxed px-3 py-1.5 rounded-lg inline-block max-w-[260px]"
+              className="text-[13px] italic leading-relaxed px-4 py-2.5 rounded-xl inline-block max-w-[300px]"
               style={{
-                color: `rgba(${rgb}, 0.9)`,
+                color: `rgba(${rgb}, 0.95)`,
                 fontFamily: 'var(--font-newsreader), serif',
-                background: 'rgba(10, 10, 15, 0.8)',
-                border: `1px solid rgba(${rgb}, 0.2)`,
+                background: 'rgba(8, 8, 14, 0.9)',
+                border: `1px solid rgba(${rgb}, 0.3)`,
+                boxShadow: `0 4px 24px rgba(${rgb}, 0.15), 0 0 40px rgba(${rgb}, 0.08)`,
+                textShadow: `0 0 20px rgba(${rgb}, 0.3)`,
               }}
             >
               &ldquo;{mind.one_liner}&rdquo;

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { Debate, DebateMessage } from '@/types';
+import { appEvents } from '@/lib/events';
 
 const STORAGE_KEY = 'greatmind-debates';
 
@@ -36,13 +37,21 @@ interface DebateState {
   speakingMindId: string | null;
   /** Whether state has been hydrated */
   hydrated: boolean;
+  /** Live streaming content for the currently speaking mind */
+  streamingContent: string;
+  /** Abort controller for cancelling active debate */
+  abortController: AbortController | null;
 
   // Actions
   startDebate: (debate: Debate) => void;
   addMessage: (message: DebateMessage) => void;
+  appendStreamingChunk: (text: string) => void;
+  resetStreamingContent: () => void;
   completeDebate: () => void;
+  cancelDebate: () => void;
   failDebate: () => void;
   setSpeakingMind: (mindId: string | null) => void;
+  setAbortController: (controller: AbortController | null) => void;
   openDebatePanel: () => void;
   closeDebatePanel: () => void;
   toggleHistoryPanel: () => void;
@@ -60,6 +69,8 @@ export const useDebateStore = create<DebateState>((set, get) => ({
   isDebateRunning: false,
   speakingMindId: null,
   hydrated: false,
+  streamingContent: '',
+  abortController: null,
 
   startDebate: (debate) => {
     set({
@@ -68,6 +79,7 @@ export const useDebateStore = create<DebateState>((set, get) => ({
       isDebateRunning: true,
       speakingMindId: null,
     });
+    appEvents.emit('debate.started', { debateId: debate.id, topic: debate.topic, participants: debate.participantArchetypeIds });
   },
 
   addMessage: (message) => {
@@ -80,6 +92,45 @@ export const useDebateStore = create<DebateState>((set, get) => ({
         },
       };
     });
+    appEvents.emit('debate.message', { mindId: message.mindId, archetypeId: message.archetypeId, round: message.round });
+  },
+
+  appendStreamingChunk: (text) => {
+    set((state) => ({ streamingContent: state.streamingContent + text }));
+  },
+
+  resetStreamingContent: () => {
+    set({ streamingContent: '' });
+  },
+
+  cancelDebate: () => {
+    const { abortController, activeDebate } = get();
+    if (abortController) {
+      abortController.abort();
+    }
+    if (activeDebate) {
+      const cancelled: Debate = {
+        ...activeDebate,
+        status: 'complete',
+        completedAt: new Date().toISOString(),
+      };
+      set((state) => ({
+        activeDebate: cancelled,
+        isDebateRunning: false,
+        speakingMindId: null,
+        streamingContent: '',
+        abortController: null,
+        debateHistory: cancelled.messages.length > 0 ? [cancelled, ...state.debateHistory] : state.debateHistory,
+      }));
+      if (cancelled.messages.length > 0) {
+        saveDebatesToStorage(get().debateHistory);
+      }
+      appEvents.emit('debate.cancelled', { debateId: activeDebate.id });
+    }
+  },
+
+  setAbortController: (controller) => {
+    set({ abortController: controller });
   },
 
   completeDebate: () => {
@@ -101,6 +152,7 @@ export const useDebateStore = create<DebateState>((set, get) => ({
 
     // Persist
     saveDebatesToStorage(get().debateHistory);
+    appEvents.emit('debate.ended', { debateId: activeDebate.id, messageCount: completed.messages.length });
   },
 
   failDebate: () => {

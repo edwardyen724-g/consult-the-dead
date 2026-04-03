@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { PlacedMind, RoleId, Company, Connection, ConnectionType, SaveState, Debate } from '@/types';
+import { appEvents } from '@/lib/events';
 
 let placementCounter = 0;
 
@@ -75,6 +76,8 @@ interface CompanyState {
   hydrated: boolean;
   /** Context menu for connection deletion */
   connectionContextMenu: { connectionId: string; x: number; y: number } | null;
+  /** IDs of connections just created (for spark animation). Cleared after animation. */
+  justCreatedConnectionIds: Set<string>;
 
   setCompanyName: (name: string) => void;
   setCompanyMission: (mission: string) => void;
@@ -93,6 +96,7 @@ interface CompanyState {
   removeConnection: (connectionId: string) => void;
   toggleConnectionType: (connectionId: string) => void;
   setConnectionContextMenu: (menu: { connectionId: string; x: number; y: number } | null) => void;
+  clearJustCreatedConnection: (connectionId: string) => void;
 
   // Persistence actions
   showSaveIndicator: () => void;
@@ -116,6 +120,7 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
   saveIndicatorVisible: false,
   hydrated: false,
   connectionContextMenu: null,
+  justCreatedConnectionIds: new Set(),
 
   setCompanyName: (name) => {
     set((state) => ({ company: { ...state.company, name } }));
@@ -133,18 +138,20 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
       justPlacedIds: new Set([...state.justPlacedIds, mind.id]),
     }));
     saveToLocalStorage(get());
+    appEvents.emit('mind.placed', { mindId: mind.id, archetypeId: mind.archetypeId });
   },
 
   removeMind: (id) => {
+    const mind = get().placedMinds.find((m) => m.id === id);
     set((state) => ({
       placedMinds: state.placedMinds.filter((m) => m.id !== id),
-      // Also remove any connections involving this mind
       connections: state.connections.filter(
         (c) => c.sourceId !== id && c.targetId !== id
       ),
       selectedMindId: state.selectedMindId === id ? null : state.selectedMindId,
     }));
     saveToLocalStorage(get());
+    appEvents.emit('mind.removed', { mindId: id, archetypeId: mind?.archetypeId });
   },
 
   updateMindRole: (id, role) => {
@@ -154,6 +161,7 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
       ),
     }));
     saveToLocalStorage(get());
+    appEvents.emit('mind.role_changed', { mindId: id, role });
   },
 
   updateMindPosition: (id, position) => {
@@ -202,8 +210,10 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
     };
     set((state) => ({
       connections: [...state.connections, connection],
+      justCreatedConnectionIds: new Set([...state.justCreatedConnectionIds, connection.id]),
     }));
     saveToLocalStorage(get());
+    appEvents.emit('connection.created', { connectionId: connection.id, sourceId: sourceId, targetId: targetId });
   },
 
   removeConnection: (connectionId) => {
@@ -212,6 +222,7 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
       connectionContextMenu: null,
     }));
     saveToLocalStorage(get());
+    appEvents.emit('connection.removed', { connectionId });
   },
 
   toggleConnectionType: (connectionId) => {
@@ -227,6 +238,13 @@ export const useCompanyStore = create<CompanyState>((set, get) => ({
 
   setConnectionContextMenu: (menu) =>
     set({ connectionContextMenu: menu }),
+
+  clearJustCreatedConnection: (connectionId) =>
+    set((state) => {
+      const next = new Set(state.justCreatedConnectionIds);
+      next.delete(connectionId);
+      return { justCreatedConnectionIds: next };
+    }),
 
   // Persistence
   showSaveIndicator: () => {

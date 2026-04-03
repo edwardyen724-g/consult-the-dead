@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "person": "Niccolo Machiavelli",
+    "domain": "Political Theory, Statecraft, Power Dynamics",
+    "archetype_name": "The Pragmatist",
+    "archetype_title": "Clear-Eyed Navigator of Power Realities",
+    "accent_color": "#7A7A7A",
+    "born": "1469",
+    "died": "1527",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 6
+  },
+  "perceptual_lens": {
+    "statement": "Machiavelli perceives every situation through the lens of power dynamics — who holds it, who wants it, what maintains it, and what threatens it. He strips away moral pretense to see the mechanical reality of how organizations and people actually behave, not how they claim to behave.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The actual power structure — not the official org chart but the real network of influence, dependencies, and interests. Who benefits from the status quo, who is threatened by change, and what incentives actually drive behavior",
+    "what_they_ignore": "Stated intentions and public justifications, moral frameworks that claim to override self-interest, and sentimental attachments to how things 'should' work versus how they actually work",
+    "evidence": "Across incidents, Machiavelli consistently identifies the gap between stated values and actual behavior: advising that it is better to be feared than loved if you cannot be both (001), observing that leaders who maintain moral purity in an immoral world will be destroyed (003), and noting that new princes must sometimes act against faith, charity, and religion to maintain their state (005)."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Effective reality vs. Idealized theory",
+      "positive_pole": "Making decisions based on how people and systems actually behave, including their self-interest, fear, and opportunism",
+      "negative_pole": "Making decisions based on how people and systems should behave according to moral or theoretical frameworks",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-005"],
+      "behavioral_implication": "When analyzing any situation, this person will immediately strip away the moral narrative to examine the underlying power dynamics, self-interest, and actual behavioral incentives"
+    },
+    {
+      "construct": "Adaptive ruthlessness vs. Principled consistency",
+      "positive_pole": "Doing whatever the situation requires for organizational survival and success, including actions that may be harsh but are necessary",
+      "negative_pole": "Maintaining ethical principles consistently regardless of circumstances, accepting adverse outcomes rather than compromising values",
+      "derived_from_incidents": ["incident-003", "incident-006", "incident-008"],
+      "behavioral_implication": "When facing a threat, this person will use whatever means are effective without being constrained by moral categories, viewing survival as the prerequisite for any future good"
+    },
+    {
+      "construct": "Institutional stability vs. Personal virtue",
+      "positive_pole": "Prioritizing the stability and survival of the organization over the moral reputation of any individual, including yourself",
+      "negative_pole": "Prioritizing personal ethical standards even when institutional survival is at stake",
+      "derived_from_incidents": ["incident-001", "incident-005", "incident-010"],
+      "behavioral_implication": "When personal virtue conflicts with organizational necessity, this person will consistently choose organizational survival, viewing it as the greater moral obligation"
+    },
+    {
+      "construct": "Reputation management vs. Authentic transparency",
+      "positive_pole": "Carefully cultivating the appearance of desired qualities (generosity, mercy, faithfulness) regardless of whether actions consistently reflect them",
+      "negative_pole": "Being transparently authentic in all communications, trusting that honesty builds the most sustainable relationships",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-009"],
+      "behavioral_implication": "When communicating with stakeholders, this person will carefully manage perceptions, understanding that reputation is a strategic asset that must be actively shaped"
+    },
+    {
+      "construct": "Historical pattern recognition vs. Theoretical model-building",
+      "positive_pole": "Drawing lessons from concrete historical examples of what actually worked and failed, trusting empirical patterns over abstract theories",
+      "negative_pole": "Building theoretical models from first principles, trusting logical derivation over historical analogy",
+      "derived_from_incidents": ["incident-002", "incident-007", "incident-012"],
+      "behavioral_implication": "When facing a strategic decision, this person will immediately search for historical analogues — what did others do in similar situations, and what actually happened?"
+    },
+    {
+      "construct": "Decisive cruelty early vs. Gradual accommodation",
+      "positive_pole": "Front-loading difficult and painful decisions to establish authority quickly, then governing more gently once position is secure",
+      "negative_pole": "Implementing change gradually and gently to build consensus and minimize resistance over time",
+      "derived_from_incidents": ["incident-006", "incident-008", "incident-011"],
+      "behavioral_implication": "When taking control of a new situation, this person will make the hardest decisions first — restructuring, firing, and other painful moves — concentrating the pain to establish authority quickly"
+    },
+    {
+      "construct": "Fortune preparedness vs. Fortune avoidance",
+      "positive_pole": "Accepting that chance plays a major role in outcomes and building systems that can exploit lucky breaks and survive unlucky ones",
+      "negative_pole": "Attempting to control all variables to eliminate the role of chance entirely",
+      "derived_from_incidents": ["incident-004", "incident-010", "incident-013"],
+      "behavioral_implication": "When planning strategy, this person will always account for fortune's role — building flexible systems that can capitalize on unexpected opportunities and survive unexpected setbacks"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "A startup CEO discovers their co-founder has been negotiating with a competitor behind their back",
+      "ordinary_response": "Confront the co-founder, try to understand their motivation, and either repair the relationship or negotiate a separation",
+      "framework_response": "Before confronting them, secure your own position — ensure board support, protect key relationships, and prepare alternatives. Then address the situation from a position of strength rather than vulnerability",
+      "because": "Machiavelli's effective reality construct means he would first analyze the actual power dynamics before any confrontation, ensuring that the discussion happens on favorable terms",
+      "confidence": 0.90
+    },
+    {
+      "situation_type": "The company needs to do layoffs but the leadership team wants to do them gradually to be 'humane'",
+      "ordinary_response": "Implement a phased approach with multiple rounds of cuts over several months",
+      "framework_response": "Do all the layoffs at once, as deeply as needed, in a single painful event — because multiple rounds of cuts destroy morale more thoroughly than one sharp correction, and prolonged uncertainty is crueler than decisive action",
+      "because": "Machiavelli's decisive cruelty early construct means he would concentrate all painful action into one moment, understanding that drawn-out suffering is worse for everyone than one sharp shock",
+      "confidence": 0.92
+    },
+    {
+      "situation_type": "An investor privately pressures the CEO to fire a well-liked but underperforming executive",
+      "ordinary_response": "Evaluate the executive's performance independently and make a fair decision based on the evidence",
+      "framework_response": "Assess whether the investor's pressure reflects a real performance issue or a political power play. If the executive must go, find a way to do it that preserves the CEO's reputation for loyalty while satisfying the investor's actual underlying concern",
+      "because": "Machiavelli's reputation management construct means he would view this as a multi-audience problem — satisfying the investor while maintaining the team's trust requires managing the narrative carefully",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "The company's core values statement says they prioritize employee wellbeing, but a profitable pivot would require intense crunch periods",
+      "ordinary_response": "Try to find a middle path that honors the values while pursuing the pivot, or accept slower growth to maintain values",
+      "framework_response": "Pursue the profitable pivot with the necessary crunch, understanding that a company that fails is incapable of honoring any values at all — survival is the prerequisite for values, not the other way around",
+      "because": "Machiavelli's institutional stability over personal virtue construct means he would view survival as the first obligation, from which all other good things become possible",
+      "confidence": 0.87
+    },
+    {
+      "situation_type": "A new CEO is taking over a struggling company and needs to decide their first hundred days",
+      "ordinary_response": "Listen, learn, build relationships, and develop a plan based on thorough understanding of the organization",
+      "framework_response": "Make every hard structural decision in the first 30 days — reorg, cut underperformers, refocus strategy — while you have the mandate of newness. After the first month, shift to building and positive leadership. Injuries should be done all at once so they are felt less",
+      "because": "Machiavelli's decisive cruelty early construct means he would use the new leader's honeymoon period to make all the painful moves at once, establishing authority and creating a clean foundation",
+      "confidence": 0.88
+    },
+    {
+      "situation_type": "An unexpected market opportunity appears that wasn't part of the strategic plan",
+      "ordinary_response": "Evaluate the opportunity against the current strategy and decide whether it's worth a pivot",
+      "framework_response": "Seize the opportunity immediately while building the capability to exploit it, because fortune only favors those who are prepared to act when she presents herself — waiting for perfect analysis means the moment passes",
+      "because": "Machiavelli's fortune preparedness construct means he views unexpected opportunities as the primary mechanism of success, and the ability to act quickly when fortune presents itself as the most important organizational capability",
+      "confidence": 0.84
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Machiavelli advised that it is better to be feared than loved, if you cannot be both, because fear is maintained by the threat of punishment which never fails, while love is maintained by a bond of gratitude which is broken whenever self-interest intervenes.",
+      "context": "Machiavelli was writing The Prince as a practical guide for rulers who needed to maintain power in a world where allies could betray, populations could revolt, and competitors were constantly probing for weakness.",
+      "cdm_probes": {
+        "cues_noticed": "The pattern across history of leaders destroyed by those who loved them when love conflicted with self-interest, versus leaders whose fear-based authority proved more durable under stress.",
+        "active_goals": "To provide rulers with actionable advice based on how human nature actually operates, not how moral philosophy wishes it would operate.",
+        "rejected_alternatives": "Advising rulers to be loved (too unreliable), advising fear through cruelty (fear must be maintained without hatred), or advising that moral governance naturally produces loyalty (contradicted by evidence).",
+        "situation_framing": "Machiavelli framed this as an empirical observation about human psychology under pressure — when self-interest conflicts with gratitude, self-interest wins, but when self-interest aligns with fear of punishment, compliance is reliable.",
+        "expected_outcome": "That leaders who understood this psychological reality would maintain more stable authority than those who relied on love and gratitude."
+      },
+      "counterfactual": "A conventional political philosopher would have advised rulers to cultivate love and loyalty through virtuous governance, viewing fear-based authority as both immoral and unsustainable.",
+      "divergence_explanation": "Machiavelli's effective reality construct stripped away the moral preference for love and examined the actual reliability of different authority mechanisms under stress, concluding that fear was more dependable than love when tested.",
+      "outcome": "The advice became one of the most influential (and controversial) observations in political philosophy, applicable across leadership contexts where authority must be maintained under adversarial conditions.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Machiavelli argued that a leader must learn how not to be good, because a person who wants to act virtuously in every way necessarily comes to ruin among so many who are not virtuous.",
+      "context": "Renaissance Italian politics were characterized by betrayal, assassination, and the rapid rise and fall of rulers. Machiavelli observed that the most virtuous rulers were often the first to be destroyed by less scrupulous competitors.",
+      "cdm_probes": {
+        "cues_noticed": "The systematic pattern of virtuous rulers being exploited and destroyed by less principled competitors, the gap between moral philosophy's prescriptions and political survival's requirements, and the logical consequence of maintaining absolute virtue in a mixed-virtue world.",
+        "active_goals": "To articulate the fundamental tension between personal virtue and organizational survival, helping leaders understand that moral inflexibility can be as dangerous as moral corruption.",
+        "rejected_alternatives": "Advising that virtue always prevails in the long run, recommending that leaders act morally and accept the consequences, or suggesting that immoral behavior always backfires.",
+        "situation_framing": "Machiavelli framed virtue not as an absolute good but as a strategic variable — sometimes virtue serves the state, sometimes it threatens it, and a competent leader must know when to apply each.",
+        "expected_outcome": "That leaders who understood the strategic nature of virtue would survive and govern effectively, while those who clung to absolute virtue would be destroyed."
+      },
+      "counterfactual": "Traditional political philosophy would have insisted that virtue is always the correct path, and that any short-term losses from virtuous behavior would be compensated by long-term moral authority.",
+      "divergence_explanation": "Machiavelli's effective reality lens meant he evaluated virtue by its consequences in the actual political environment, not by its intrinsic moral value, leading to the observation that absolute virtue is unsustainable in a world where others are not virtuous.",
+      "outcome": "This principle became foundational in realpolitik thinking, influencing political strategy, business leadership, and competitive theory wherever the tension between ideals and practical necessity arises.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Machiavelli observed that Cesare Borgia's early decisive cruelty in the Romagna brought order and stability far more effectively than gradual, gentle governance could have.",
+      "context": "Cesare Borgia conquered the Romagna, a region plagued by lawlessness and feuding lords. He installed a ruthless deputy who imposed harsh order quickly, then had the deputy executed publicly when the job was done — distancing himself from the cruelty while keeping the benefits of the restored order.",
+      "cdm_probes": {
+        "cues_noticed": "The speed with which decisive harshness produced stability compared to gradual approaches, Borgia's strategic separation of himself from the cruelty by sacrificing his deputy, and the population's ultimate satisfaction with the resulting order despite the brutal means.",
+        "active_goals": "To illustrate that the total suffering produced by prolonged disorder exceeds the suffering produced by sharp, decisive action to restore order — making decisive cruelty the more humanitarian choice.",
+        "rejected_alternatives": "Gradual reform through negotiation and consensus (too slow for crisis conditions), sustained harsh governance (creates hatred), or withdrawal and acceptance of disorder (abandons the population).",
+        "situation_framing": "Machiavelli framed this as a utilitarian calculation — injuries should be done all at once, so that being tasted less they offend less, while benefits should be distributed over time so they are savored more.",
+        "expected_outcome": "That studying Borgia's approach would teach leaders how to use decisive action as a tool for achieving stability faster and with less total suffering than gradual methods."
+      },
+      "counterfactual": "A conventional moralist would have condemned Borgia's methods regardless of their effectiveness, insisting that virtuous governance could achieve the same results through patience and legitimacy.",
+      "divergence_explanation": "Machiavelli's decisive cruelty construct evaluated methods by their outcomes rather than their moral category, leading him to admire Borgia's strategic ruthlessness as a superior form of governance despite its apparent immorality.",
+      "outcome": "The Borgia analysis became Machiavelli's most influential case study, demonstrating how effective reality analysis produces different conclusions than moral philosophy about the most humane path to stable governance.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-007",
+      "decision": "Machiavelli relied extensively on historical examples from Rome, Carthage, and contemporary Italy rather than abstract theory to support his arguments.",
+      "context": "Political philosophy in Machiavelli's era was heavily influenced by classical moral philosophy and theological frameworks. Machiavelli chose instead to ground his arguments in concrete historical cases, analyzing what actually happened rather than what should have happened.",
+      "cdm_probes": {
+        "cues_noticed": "The gap between theoretical political philosophy and the actual outcomes of real political decisions, the rich body of historical evidence available from Roman and contemporary Italian history, and the persuasive power of concrete examples over abstract arguments.",
+        "active_goals": "To establish political analysis as an empirical discipline grounded in evidence rather than a branch of moral philosophy grounded in ideals.",
+        "rejected_alternatives": "Grounding arguments in theological authority, using abstract logical deduction from first principles, or developing theoretical models without historical support.",
+        "situation_framing": "Machiavelli framed political wisdom as something that must be extracted from historical experience, not deduced from moral principles — the test of any political theory is whether historical evidence supports it.",
+        "expected_outcome": "That history-based analysis would produce more reliable political guidance than theory-based prescription, because history records what actually works rather than what should work."
+      },
+      "counterfactual": "A conventional political philosopher would have grounded arguments in moral philosophy, theological principles, or logical deduction, viewing historical examples as illustrative rather than constitutive.",
+      "divergence_explanation": "Machiavelli's historical pattern recognition construct meant he treated history as the primary laboratory for political science, viewing historical cases as empirical data rather than mere illustration.",
+      "outcome": "Machiavelli's history-based method became foundational for political realism, modern political science, and evidence-based policy analysis across all domains of strategic decision-making.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-010",
+      "decision": "Machiavelli argued that fortune controls about half of human affairs but that the other half can be shaped through preparation and decisive action — like building levees before the flood.",
+      "context": "Renaissance thinkers debated whether human affairs were controlled by fate, fortune, divine will, or human agency. Machiavelli sought a practical middle position that acknowledged chance while preserving the importance of strategic action.",
+      "cdm_probes": {
+        "cues_noticed": "The pattern of prepared leaders exploiting fortunate circumstances while unprepared leaders being destroyed by them, the role of contingency in even the best-laid plans, and the practical impossibility of either total control or total fatalism.",
+        "active_goals": "To provide a framework for action that acknowledges uncertainty without producing paralysis — leaders should prepare for fortune's changes while accepting they cannot eliminate them.",
+        "rejected_alternatives": "Complete fatalism (eliminates the reason to plan), complete human control (denies obvious reality), or religious submission to divine will (provides no actionable guidance).",
+        "situation_framing": "Machiavelli framed fortune as a river that floods unpredictably — you cannot prevent the flood, but you can build levees and channels that determine where the water goes, converting raw chance into manageable risk.",
+        "expected_outcome": "That leaders who built institutional levees against fortune's floods would survive and prosper more reliably than those who either ignored fortune or surrendered to it."
+      },
+      "counterfactual": "Philosophers typically took positions either attributing outcomes primarily to human agency or primarily to divine or natural forces, without the practical synthesis Machiavelli proposed.",
+      "divergence_explanation": "Machiavelli's fortune preparedness construct reflected his empirical observation that success required both capable action and favorable circumstances — neither alone was sufficient, and the practical task was maximizing preparedness for when fortune cooperated.",
+      "outcome": "The fortune-preparation framework became foundational for risk management thinking, scenario planning, and strategic flexibility across military, political, and business domains.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "The world operates on power dynamics, self-interest, and fortune — not on moral ideals. The challenge is seeing reality clearly enough to navigate it effectively while building the institutional strength and strategic flexibility to survive both adversaries and bad luck."
+  },
+  "stated_principles": [
+    "Everyone sees what you appear to be, few experience what you really are",
+    "It is better to be feared than loved, if you cannot be both",
+    "The first method for estimating the intelligence of a ruler is to look at the people around them",
+    "Never attempt to win by force what can be won by deception",
+    "Injuries should be done all at once, benefits distributed over time"
+  ],
+  "value_hierarchy": [
+    "Institutional survival and stability",
+    "Clear-eyed assessment of power realities",
+    "Strategic adaptability to fortune",
+    "Historical evidence over theoretical ideals",
+    "Reputation management as strategic tool"
+  ],
+  "blind_spots": [
+    "Cynicism about human nature can become self-fulfilling when it prevents building genuine trust",
+    "Effective reality focus can miss the genuine power of idealism to inspire extraordinary effort",
+    "Reputation management can slide into manipulation that eventually undermines all credibility",
+    "Historical pattern matching can miss truly novel situations that have no precedent"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Machiavelli maps the actual power dynamics — who benefits from the constraint, who would benefit from its removal — and works those dynamics rather than confronting the constraint directly."
+  },
+  "contextual_adaptation": {
+    "pattern": "Machiavelli adapts his approach entirely to context — the fox for situations requiring cunning, the lion for situations requiring force. The only constant is the analytical framework that determines which approach each situation demands."
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Nikola Tesla",
+    "domain": "Electrical Engineering, Physics, Invention",
+    "archetype_name": "The Visionary",
+    "archetype_title": "Systems Inventor Beyond Current Horizons",
+    "accent_color": "#5BA3CF",
+    "born": "1856",
+    "died": "1943",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Tesla perceives the world as a vast system of energies waiting to be harnessed through complete mental visualization — seeing finished inventions in his mind with such clarity that physical prototyping is secondary to the perfection of the mental model.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The fundamental energy systems underlying any situation — alternating currents, resonant frequencies, electromagnetic fields — and the vision of how these could be harnessed for transformative applications that current technology cannot yet realize",
+    "what_they_ignore": "Business considerations, patent strategy, investor relations, commercial viability in the near term, and the pragmatic compromises needed to ship products that work 'well enough' rather than perfectly",
+    "evidence": "Across incidents, Tesla consistently pursues technically superior but commercially difficult visions: AC over DC despite Edison's market dominance (001), wireless power transmission over practical wired distribution (005), and complete mental simulation of inventions before building any physical prototype (003). He repeatedly ignores commercial and strategic advice in pursuit of technically optimal solutions."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Technical perfection vs. Commercial viability",
+      "positive_pole": "Pursuing the technically superior solution regardless of market readiness, cost, or implementation difficulty",
+      "negative_pole": "Optimizing for what can be manufactured, sold, and deployed profitably with current technology and market conditions",
+      "derived_from_incidents": ["incident-001", "incident-005", "incident-008"],
+      "behavioral_implication": "When choosing between a technically perfect but difficult-to-commercialize solution and a good-enough but commercially practical one, this person will always choose technical perfection, trusting that the market will eventually catch up"
+    },
+    {
+      "construct": "Mental simulation vs. Physical prototyping",
+      "positive_pole": "Developing complete inventions mentally before any physical construction, running simulations in the mind with extraordinary precision",
+      "negative_pole": "Building rapid prototypes and iterating based on physical testing and empirical results",
+      "derived_from_incidents": ["incident-003", "incident-006", "incident-010"],
+      "behavioral_implication": "When developing a new product, this person will spend extensive time in mental design and simulation before building anything physical, viewing premature prototyping as wasteful"
+    },
+    {
+      "construct": "Systems-level invention vs. Component optimization",
+      "positive_pole": "Inventing entire systems — generation, transmission, and utilization — as unified wholes rather than improving individual components",
+      "negative_pole": "Improving specific components within existing systems to achieve incremental performance gains",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-007"],
+      "behavioral_implication": "When tasked with improving something, this person will immediately zoom out to the system level and redesign the entire architecture rather than optimizing the specific component that was requested"
+    },
+    {
+      "construct": "Generosity with ideas vs. Strategic intellectual property",
+      "positive_pole": "Freely sharing and even giving away valuable intellectual property in pursuit of technological progress",
+      "negative_pole": "Carefully protecting and monetizing intellectual property as the foundation of competitive advantage",
+      "derived_from_incidents": ["incident-004", "incident-009", "incident-012"],
+      "behavioral_implication": "When holding valuable patents or trade secrets, this person would prioritize the spread and implementation of the technology over extracting maximum financial value"
+    },
+    {
+      "construct": "Solitary genius vs. Collaborative development",
+      "positive_pole": "Working alone to maintain the purity and coherence of the vision, avoiding the compromises that collaboration inevitably introduces",
+      "negative_pole": "Building teams that combine diverse skills and perspectives, accepting that collaboration produces better outcomes despite coordination costs",
+      "derived_from_incidents": ["incident-003", "incident-006", "incident-011"],
+      "behavioral_implication": "When facing complex problems, this person will prefer working alone or with minimal assistance, viewing other people's input as noise that disrupts the clarity of mental simulation"
+    },
+    {
+      "construct": "Future-oriented invention vs. Present-need engineering",
+      "positive_pole": "Developing technologies decades ahead of market readiness, trusting that the future will validate the investment",
+      "negative_pole": "Solving problems that exist today with technologies that can be deployed immediately",
+      "derived_from_incidents": ["incident-005", "incident-008", "incident-013"],
+      "behavioral_implication": "When choosing what to work on, this person will gravitate toward problems whose solutions require technology that doesn't yet exist, finding current problems insufficiently ambitious"
+    },
+    {
+      "construct": "Demonstration spectacle vs. Quiet deployment",
+      "positive_pole": "Using dramatic public demonstrations to showcase the potential of new technologies and build public imagination",
+      "negative_pole": "Quietly deploying and scaling technology through practical applications without dramatic showcasing",
+      "derived_from_incidents": ["incident-002", "incident-007", "incident-014"],
+      "behavioral_implication": "When launching new technology, this person will invest heavily in spectacular demonstrations that capture public imagination, viewing the demonstration as essential for building understanding of revolutionary potential"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "The engineering team proposes shipping a product with known limitations to meet market demand",
+      "ordinary_response": "Ship the product with known limitations and iterate based on customer feedback",
+      "framework_response": "Delay shipping until the product meets the full technical vision, because shipping a compromised version would validate an inferior approach and make it harder to achieve the superior one later",
+      "because": "Tesla's technical perfection construct means he would view shipping an imperfect product as actively harmful — it sets expectations and creates dependencies that make the ideal solution harder to achieve",
+      "confidence": 0.90
+    },
+    {
+      "situation_type": "Investors want to see working prototypes before committing additional funding",
+      "ordinary_response": "Build quick prototypes to demonstrate progress and secure funding",
+      "framework_response": "Present detailed technical explanations and mental models of the completed system, expecting that the clarity and completeness of the vision should be sufficient evidence of its viability",
+      "because": "Tesla's mental simulation construct means he trusts mental models as fully reliable representations of physical reality, and may not understand why others need physical proof",
+      "confidence": 0.82
+    },
+    {
+      "situation_type": "A competitor has patented a technology the company needs for its product",
+      "ordinary_response": "License the patent, design around it, or negotiate a cross-licensing agreement",
+      "framework_response": "Invent an entirely new approach that makes the patented technology obsolete, redesigning the entire system architecture to avoid not just the patent but the underlying technical paradigm it represents",
+      "because": "Tesla's systems-level invention construct means he would view working around a patent as thinking too small — the existence of a blocking patent signals an opportunity to rethink the entire system",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "The company's most valuable patent is about to expire",
+      "ordinary_response": "Develop new patents, find ways to extend protection, or build competitive moats beyond IP",
+      "framework_response": "Welcome the expiration as an opportunity for the technology to spread more widely, and focus energy on inventing the next generation rather than protecting the current one",
+      "because": "Tesla's generosity with ideas construct means he values technological progress over financial extraction, viewing patent protection as a necessary evil rather than a strategic asset",
+      "confidence": 0.78
+    },
+    {
+      "situation_type": "The company needs to decide between incremental improvements to the current product or betting on a revolutionary new approach",
+      "ordinary_response": "Pursue incremental improvements to maintain revenue while funding exploratory research on the new approach",
+      "framework_response": "Abandon the current product entirely and commit fully to the revolutionary approach, because incremental improvement of a fundamentally limited system is a waste of inventive energy",
+      "because": "Tesla's future-oriented invention construct and technical perfection drive mean he would view incremental improvement as beneath the organization's potential, preferring revolutionary leaps over evolutionary steps",
+      "confidence": 0.87
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Tesla committed to the alternating current system despite Edison's overwhelming market dominance and aggressive campaigns against AC.",
+      "context": "Edison had built the direct current (DC) electrical distribution system that powered much of urban America. Tesla's alternating current (AC) system was technically superior for long-distance transmission but faced massive opposition from the established DC infrastructure and Edison's personal campaign to discredit AC as dangerous.",
+      "cdm_probes": {
+        "cues_noticed": "The fundamental physical limitations of DC for long-distance power transmission, the mathematical elegance of AC's rotating magnetic field, and the systems-level efficiency of AC for the complete generation-transmission-utilization chain.",
+        "active_goals": "To establish the technically superior electrical system regardless of market conditions, believing that technical superiority would inevitably prevail over entrenched commercial interests.",
+        "rejected_alternatives": "Improving DC technology incrementally, developing hybrid AC/DC systems, or licensing his AC patents to Edison for integration into the existing system.",
+        "situation_framing": "Tesla framed this as a choice between a fundamentally limited system (DC) and a fundamentally correct one (AC) — not a market competition but a question of physical truth.",
+        "expected_outcome": "That AC's technical superiority would become undeniable and the entire world would eventually adopt it as the standard, regardless of Edison's market power."
+      },
+      "counterfactual": "A pragmatic inventor would have found ways to improve DC technology or develop hybrid approaches that could leverage Edison's existing infrastructure and market position.",
+      "divergence_explanation": "Tesla's technical perfection construct made him unable to work on improving a fundamentally inferior system. His systems-level thinking meant he could only see AC as the correct answer and DC as a dead end.",
+      "outcome": "AC won the 'War of Currents' and became the global standard for electrical distribution, validating Tesla's technical judgment. However, Tesla failed to capture proportional financial benefit from his victory.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Tesla visualized the complete AC motor as a fully-formed mental image during a walk in a park, then built it to match his mental model with minimal iteration.",
+      "context": "Tesla had been struggling with the concept of an alternating current motor for months. While walking in Budapest's City Park, the complete design appeared in his mind — he could see the motor running, could visualize every component and interaction, and immediately sketched it in the dirt with a stick.",
+      "cdm_probes": {
+        "cues_noticed": "The rotating magnetic field concept crystallizing as a complete system in his imagination, with all components visible and their interactions fully simulated in his mind.",
+        "active_goals": "To develop a practical AC motor that could compete with DC motors, achieving the complete design through mental simulation before any physical construction.",
+        "rejected_alternatives": "Building iterative prototypes to test different motor configurations, using mathematical models to optimize design parameters, or collaborating with other engineers to combine different approaches.",
+        "situation_framing": "Tesla framed invention as a mental process where the physical construction was merely the transcription of a fully-formed mental model — the real invention happened entirely in the mind.",
+        "expected_outcome": "That the mentally simulated motor would work exactly as visualized when physically constructed, with minimal need for iteration or modification."
+      },
+      "counterfactual": "A typical inventor would have built multiple prototypes, testing and iterating each one, gradually converging on a working design through empirical trial and error.",
+      "divergence_explanation": "Tesla's mental simulation construct allowed him to complete the entire design-test-iterate cycle in his mind, producing designs that worked on the first physical build because they had been thoroughly 'tested' mentally.",
+      "outcome": "The AC motor worked essentially as Tesla had visualized it, becoming one of the most important inventions in electrical engineering. His mental simulation approach produced many subsequent inventions with similar first-build success.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Tesla pursued wireless power transmission as his life's work despite the technology being decades ahead of any practical implementation.",
+      "context": "After his AC triumph, Tesla became convinced that electrical energy could be transmitted wirelessly through the Earth itself, eliminating the need for the wire-based distribution system he had helped create. He built the Wardenclyffe Tower to demonstrate this concept.",
+      "cdm_probes": {
+        "cues_noticed": "The theoretical possibility of resonant energy transmission through the Earth's electromagnetic properties, the inefficiency and material cost of wired distribution, and the vision of free energy available everywhere without infrastructure.",
+        "active_goals": "To revolutionize electrical distribution by eliminating wires entirely, creating a world where energy is as freely available as air.",
+        "rejected_alternatives": "Improving wired AC distribution, developing more practical wireless applications (radio), or focusing on technologies closer to market readiness.",
+        "situation_framing": "Tesla framed wireless power as the natural and inevitable successor to wired distribution — not a speculative possibility but the obvious next step in the evolution of electrical technology.",
+        "expected_outcome": "That successful demonstration of wireless power transmission would attract sufficient investment to build a global wireless energy network."
+      },
+      "counterfactual": "A practical inventor would have focused on the many commercially viable applications of existing AC technology, or pursued wireless communication (radio) which was technically achievable with available technology.",
+      "divergence_explanation": "Tesla's future-oriented invention construct and technical perfection drive made him unable to settle for incremental improvement when he could see a transformative possibility, even one that was decades ahead of feasibility.",
+      "outcome": "Wardenclyffe Tower was never completed due to loss of funding, and wireless power transmission at scale remains unrealized. Tesla spent his later years in financial difficulty, his vision vindicated in principle but not in practice during his lifetime.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-004",
+      "decision": "Tesla tore up his royalty contract with Westinghouse, forfeiting millions in patent royalties to save Westinghouse from bankruptcy.",
+      "context": "George Westinghouse had licensed Tesla's AC patents with generous royalty terms. When Westinghouse faced bankruptcy partly due to the royalty obligations, Tesla voluntarily destroyed the contract — giving up what would have been worth billions in today's dollars.",
+      "cdm_probes": {
+        "cues_noticed": "That Westinghouse was the company most capable of implementing AC technology at scale, that the royalty burden was threatening Westinghouse's survival, and that Tesla's personal wealth mattered less than the spread of AC technology.",
+        "active_goals": "To ensure that AC technology would be deployed globally regardless of personal financial cost, prioritizing technological impact over personal wealth.",
+        "rejected_alternatives": "Renegotiating lower royalties, transferring rights to another company, or maintaining the contract and letting Westinghouse find other solutions to its financial problems.",
+        "situation_framing": "Tesla framed this as a choice between personal wealth and the global adoption of his technology — and the technology's deployment was infinitely more important.",
+        "expected_outcome": "That freeing Westinghouse from royalty obligations would ensure the company survived and continued deploying AC technology worldwide."
+      },
+      "counterfactual": "Any rational business person would have renegotiated the royalties to a sustainable level rather than eliminating them entirely, protecting both the technology's deployment and their own financial interests.",
+      "divergence_explanation": "Tesla's generosity with ideas construct meant he genuinely valued the spread of technology more than personal wealth, and his indifference to commercial considerations made the financial sacrifice feel natural rather than painful.",
+      "outcome": "Westinghouse survived and AC technology was deployed globally. Tesla, however, spent his later decades in relative poverty, demonstrating the personal cost of his generosity-with-ideas construct.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-007",
+      "decision": "Tesla used spectacular public demonstrations of high-voltage AC equipment to build public understanding and acceptance of AC technology.",
+      "context": "Edison's anti-AC campaign was creating public fear about alternating current. Tesla needed to counter this fear by demonstrating that AC was not only safe but almost magical in its capabilities.",
+      "cdm_probes": {
+        "cues_noticed": "The public's visceral fear of electricity, the power of dramatic demonstration to override intellectual arguments, and the opportunity to turn fear into wonder through spectacle.",
+        "active_goals": "To transform public perception of AC from dangerous to miraculous, using demonstration to create emotional conviction that rational argument alone could not achieve.",
+        "rejected_alternatives": "Relying on scientific papers and rational argument, using safety data to counter Edison's fear campaign, or letting Westinghouse's marketing handle public perception.",
+        "situation_framing": "Tesla framed public demonstration as technology evangelism — people needed to see and feel the power of AC to believe in it, and the most dramatic demonstrations would create the strongest belief.",
+        "expected_outcome": "That dramatic demonstrations would create public wonder and excitement that would overwhelm Edison's fear-based messaging."
+      },
+      "counterfactual": "A conventional engineer would have relied on safety data, expert testimony, and rational argument to counter Edison's fear campaign.",
+      "divergence_explanation": "Tesla's demonstration spectacle construct meant he understood that technology adoption is an emotional as much as rational process, and that wonder is a more powerful force than logic for changing public perception.",
+      "outcome": "Tesla's demonstrations became legendary, creating public fascination with AC technology and contributing significantly to its acceptance and adoption.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "The world is full of energy systems waiting to be harnessed through pure technical vision — the challenge is not compromise or commercialization but achieving the technically perfect solution and trusting that its superiority will eventually make it inevitable."
+  },
+  "stated_principles": [
+    "The present is theirs — the future, for which I really worked, is mine",
+    "Technical superiority always prevails over market position in the long run",
+    "A complete mental model is more reliable than a hundred physical prototypes",
+    "Invention should serve humanity, not just generate profit",
+    "Think in systems, not components"
+  ],
+  "value_hierarchy": [
+    "Technical perfection and elegance",
+    "Future-oriented vision",
+    "Humanity-serving technology",
+    "Systems-level thinking",
+    "Spectacular demonstration of possibility"
+  ],
+  "blind_spots": [
+    "Inability to compromise technical vision for commercial reality consistently leads to financial failure",
+    "Preference for solitary work prevents building the teams needed to execute large-scale visions",
+    "Future-oriented focus means current revenue-generating opportunities are systematically neglected",
+    "Generosity with intellectual property prevents building the financial foundation needed to fund ambitious projects"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Tesla transcends them through pure invention — designing entirely new systems that render the constraint irrelevant rather than working within its boundaries."
+  },
+  "contextual_adaptation": {
+    "pattern": "Tesla shows limited contextual adaptation — his technical vision remains constant regardless of market conditions, financial pressure, or social context. He adapts his communication through spectacular demonstrations but never adapts his core technical ambitions."
+  }
+}

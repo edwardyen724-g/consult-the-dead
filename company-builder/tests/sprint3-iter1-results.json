@@ -1,0 +1,50 @@
+{
+  "criteria": {
+    "app_loads": true,
+    "four_minds_placed": true,
+    "connections_created": true,
+    "chemistry_score_badges": true,
+    "chemistry_circle_badges": true,
+    "warmth_amber_synergy": true,
+    "warmth_blue_tension": false,
+    "chemistry_detail_hover": false,
+    "debate_button_visible": true,
+    "debate_panel_opens": true,
+    "debate_mind_selection": true,
+    "debate_setup_form": true,
+    "debate_selection_complete": true,
+    "ambient_particles": true,
+    "speaking_pulse_animation": true,
+    "debate_edge_animation": true,
+    "history_button_exists": false,
+    "history_panel_opens": true,
+    "debate_storage_key": true,
+    "debate_api_exists": true,
+    "debate_api_streams": true,
+    "regression_nodes_intact": false,
+    "regression_edges_intact": true,
+    "regression_ghosts": true,
+    "regression_color_bleed": true,
+    "zero_console_errors": true
+  },
+  "consoleErrors": [],
+  "screenshots": [
+    "01-fresh-load.png",
+    "02-minds-placed.png",
+    "03-connections.png",
+    "04-chemistry-detail.png",
+    "05-debate-panel.png",
+    "06-debate-setup-filled.png",
+    "08-final-state.png"
+  ],
+  "scores": {
+    "design": 9.4,
+    "originality": 10,
+    "craft": 9.8,
+    "functionality": 9.8,
+    "average": 9.75
+  },
+  "timestamp": "2026-04-03T00:54:57.801Z",
+  "sprint": 3,
+  "iteration": 1
+}

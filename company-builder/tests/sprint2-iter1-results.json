@@ -1,0 +1,50 @@
+{
+  "criteria": {
+    "app_loads": true,
+    "five_plus_minds_placed": true,
+    "connections_created": true,
+    "six_plus_connections": false,
+    "connection_glow": true,
+    "connection_types_visual": true,
+    "connection_context_menu": true,
+    "detail_panel_opens": true,
+    "detail_strengths": true,
+    "detail_weaknesses": true,
+    "detail_quote": true,
+    "role_fit_indicator": true,
+    "localstorage_autosave": true,
+    "persistence_reload": true,
+    "export_valid_json": true,
+    "export_button": true,
+    "import_button": true,
+    "import_file_input": true,
+    "save_indicator": false,
+    "company_bar_stats": true,
+    "chemistry_hint_hover": false,
+    "zero_console_errors": true,
+    "ghost_constellation_regression": true
+  },
+  "consoleErrors": [],
+  "screenshots": [
+    "01-fresh-load.png",
+    "02-minds-placed.png",
+    "03-connections.png",
+    "04-context-menu.png",
+    "05-detail-panel.png",
+    "06-role-fit.png",
+    "07-after-reload.png",
+    "08-full-state.png",
+    "09-chemistry-hint.png",
+    "10-final-state.png"
+  ],
+  "scores": {
+    "design": 9,
+    "originality": 8.5,
+    "craft": 9.5,
+    "functionality": 9.5,
+    "average": 9.13
+  },
+  "timestamp": "2026-04-03T00:30:35.062Z",
+  "sprint": 2,
+  "iteration": 1
+}
