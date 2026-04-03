@@ -6,6 +6,8 @@ import CompanyBar from '@/components/company/CompanyBar';
 import DetailPanel from '@/components/panels/DetailPanel';
 import DebatePanel from '@/components/panels/DebatePanel';
 import DebateHistory from '@/components/panels/DebateHistory';
+import CommandPalette from '@/components/shared/CommandPalette';
+import ErrorBoundary from '@/components/shared/ErrorBoundary';
 
 // Dynamic import to avoid SSR issues with React Flow
 const Canvas = dynamic(() => import('@/components/canvas/Canvas'), {
@@ -29,22 +31,35 @@ export default function Home() {
   return (
     <main className="h-screen w-screen flex overflow-hidden" style={{ background: '#0a0a0f' }}>
       {/* Left sidebar: Mind Library */}
-      <MindLibrary />
+      <ErrorBoundary section="Mind Library">
+        <MindLibrary />
+      </ErrorBoundary>
 
       {/* Canvas area */}
       <div className="flex-1 relative">
-        <Canvas />
+        <ErrorBoundary section="Canvas">
+          <Canvas />
+        </ErrorBoundary>
         <CompanyBar />
       </div>
 
       {/* Right panel: Mind Detail */}
-      <DetailPanel />
+      <ErrorBoundary section="Detail Panel">
+        <DetailPanel />
+      </ErrorBoundary>
 
       {/* Bottom panel: Debate */}
-      <DebatePanel />
+      <ErrorBoundary section="Debate Panel">
+        <DebatePanel />
+      </ErrorBoundary>
 
       {/* Right panel: Debate History */}
-      <DebateHistory />
+      <ErrorBoundary section="Debate History">
+        <DebateHistory />
+      </ErrorBoundary>
+
+      {/* Command Palette (Cmd+K) */}
+      <CommandPalette />
     </main>
   );
 }

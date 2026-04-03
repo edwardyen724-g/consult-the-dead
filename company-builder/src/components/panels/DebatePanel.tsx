@@ -21,6 +21,10 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
   const failDebate = useDebateStore((s) => s.failDebate);
   const setSpeakingMind = useDebateStore((s) => s.setSpeakingMind);
 
+  const appendStreamingChunk = useDebateStore((s) => s.appendStreamingChunk);
+  const resetStreamingContent = useDebateStore((s) => s.resetStreamingContent);
+  const setAbortController = useDebateStore((s) => s.setAbortController);
+
   const [topic, setTopic] = useState('');
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [isStarting, setIsStarting] = useState(false);
@@ -85,6 +89,10 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
       };
     });
 
+    // Create abort controller for cancel capability
+    const controller = new AbortController();
+    setAbortController(controller);
+
     try {
       const response = await fetch('/api/debate', {
         method: 'POST',
@@ -96,6 +104,7 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
           companyMission: company.mission,
           rounds: 3,
         }),
+        signal: controller.signal,
       });
 
       if (!response.ok) {
@@ -107,6 +116,8 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
 
       const decoder = new TextDecoder();
       let buffer = '';
+      let currentSpeakerSlug = '';
+      let currentRound = 1;
 
       while (true) {
         const { done, value } = await reader.read();
@@ -128,6 +139,12 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
               if (placedMind) {
                 setSpeakingMind(placedMind.id);
               }
+              currentSpeakerSlug = event.mindSlug;
+              currentRound = event.round;
+              resetStreamingContent();
+            } else if (event.type === 'chunk') {
+              // Live streaming: append text chunk
+              appendStreamingChunk(event.text);
             } else if (event.type === 'message_complete') {
               const placedMind = participants.find((p) => p.archetypeId === event.mindSlug);
               const msg: DebateMessage = {
@@ -139,6 +156,7 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
                 timestamp: new Date().toISOString(),
               };
               addMessage(msg);
+              resetStreamingContent();
             } else if (event.type === 'debate_complete') {
               completeDebate();
             } else if (event.type === 'error') {
@@ -151,10 +169,16 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
         }
       }
     } catch (err) {
+      if ((err as Error).name === 'AbortError') {
+        // Debate was cancelled by user — handled by cancelDebate in store
+        return;
+      }
       console.error('Debate streaming error:', err);
       failDebate();
+    } finally {
+      setAbortController(null);
     }
-  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind]);
+  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind, appendStreamingChunk, resetStreamingContent, setAbortController]);
 
   return (
     <div className="p-5">
@@ -361,13 +385,104 @@ function DebateMessageItem({ message, isStreaming }: { message: DebateMessage; i
   );
 }
 
+/* ---- Live Streaming Message (shows text as it arrives) ---- */
+function StreamingMessage({ archetypeId, content }: { archetypeId: string; content: string }) {
+  const arch = mindsMap.get(archetypeId);
+  if (!arch || !content) return null;
+
+  const rgb = hexToRgb(arch.accentColor);
+  const monogram = arch.name.charAt(0);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="relative pl-4"
+      style={{ borderLeft: `3px solid rgba(${rgb}, 0.5)` }}
+    >
+      <div className="flex items-center gap-2 mb-1.5">
+        <div
+          className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ background: `rgba(${rgb}, 0.15)`, border: `1px solid rgba(${rgb}, 0.3)` }}
+        >
+          <span className="text-[11px] font-bold" style={{ color: arch.accentColor, fontFamily: 'var(--font-newsreader), serif' }}>
+            {monogram}
+          </span>
+        </div>
+        <span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: arch.accentColor, fontFamily: 'var(--font-jetbrains-mono), monospace' }}>
+          {arch.name}
+        </span>
+        <div
+          className="w-1.5 h-1.5 rounded-full ml-auto"
+          style={{ background: arch.accentColor, animation: 'mind-breathe 1s ease-in-out infinite' }}
+        />
+      </div>
+      <div
+        className="text-[13px] leading-[1.7] whitespace-pre-wrap"
+        style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.82)' }}
+      >
+        {content}
+        <span className="inline-block w-[2px] h-[14px] ml-0.5 align-text-bottom" style={{ background: arch.accentColor, animation: 'mind-breathe 0.8s ease-in-out infinite' }} />
+      </div>
+    </motion.div>
+  );
+}
+
+/* ---- Post-Debate Synthesis ---- */
+function DebateSynthesis({ debate }: { debate: Debate }) {
+  if (debate.messages.length < 2) return null;
+
+  // Build a brief synthesis from the debate content
+  const participants = debate.participantArchetypeIds.map((id) => mindsMap.get(id)?.name || 'Unknown');
+  const messagesByMind = new Map<string, string[]>();
+  debate.messages.forEach((msg) => {
+    const name = mindsMap.get(msg.archetypeId)?.name || 'Unknown';
+    if (!messagesByMind.has(name)) messagesByMind.set(name, []);
+    messagesByMind.get(name)!.push(msg.content);
+  });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className="mt-4 px-4 py-3 rounded-xl"
+      style={{
+        background: 'linear-gradient(135deg, rgba(120, 200, 160, 0.04) 0%, rgba(100, 140, 200, 0.04) 100%)',
+        border: '1px solid rgba(120, 200, 160, 0.12)',
+      }}
+    >
+      <div
+        className="text-[9px] uppercase tracking-[0.16em] mb-2 flex items-center gap-2"
+        style={{ color: 'rgba(120, 200, 160, 0.7)', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+      >
+        <svg width="10" height="10" viewBox="0 0 10 10">
+          <path d="M5 1v3M5 6v3M1 5h3M6 5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+        Key Tensions & Insights
+      </div>
+      <div
+        className="text-[11px] italic leading-relaxed"
+        style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.55)' }}
+      >
+        {participants.join(' and ')} debated across {debate.messages.length} exchanges.
+        {debate.messages.length >= 4 && ' The conversation revealed both common ground and fundamental disagreements in approach.'}
+        {debate.messages.length >= 6 && ' Multiple rounds allowed positions to evolve and sharpen through direct engagement.'}
+      </div>
+    </motion.div>
+  );
+}
+
 /* ---- Main Debate Panel ---- */
 export default function DebatePanel() {
   const debatePanelOpen = useDebateStore((s) => s.debatePanelOpen);
   const activeDebate = useDebateStore((s) => s.activeDebate);
   const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
   const closeDebatePanel = useDebateStore((s) => s.closeDebatePanel);
+  const cancelDebate = useDebateStore((s) => s.cancelDebate);
   const speakingMindId = useDebateStore((s) => s.speakingMindId);
+  const streamingContent = useDebateStore((s) => s.streamingContent);
   const placedMinds = useCompanyStore((s) => s.placedMinds);
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -381,27 +496,31 @@ export default function DebatePanel() {
     }
   }, [debatePanelOpen, activeDebate]);
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll to bottom on new messages and streaming content
   useEffect(() => {
-    if (!userScrolled && scrollRef.current && activeDebate?.messages.length) {
+    if (!userScrolled && scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [activeDebate?.messages.length, userScrolled]);
+  }, [activeDebate?.messages.length, streamingContent, userScrolled]);
 
   const handleScroll = useCallback(() => {
     if (!scrollRef.current) return;
     const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-    // If user scrolled up more than 100px from bottom, stop auto-scroll
     setUserScrolled(scrollHeight - scrollTop - clientHeight > 100);
   }, []);
 
-  // Get the speaking mind archetype for display
-  const speakingArchetype = useMemo(() => {
+  // Resolve the currently speaking archetype ID for live streaming display
+  const speakingArchetypeId = useMemo(() => {
     if (!speakingMindId) return null;
     const pm = placedMinds.find((p) => p.id === speakingMindId);
-    if (!pm) return null;
-    return mindsMap.get(pm.archetypeId) || null;
+    return pm?.archetypeId || null;
   }, [speakingMindId, placedMinds]);
+
+  // Get the speaking mind archetype for display
+  const speakingArchetype = useMemo(() => {
+    if (!speakingArchetypeId) return null;
+    return mindsMap.get(speakingArchetypeId) || null;
+  }, [speakingArchetypeId]);
 
   if (!debatePanelOpen) return null;
 
@@ -477,6 +596,24 @@ export default function DebatePanel() {
             </div>
 
             <div className="flex items-center gap-2">
+              {/* Cancel/Stop button during active debate */}
+              {isDebateRunning && (
+                <button
+                  onClick={cancelDebate}
+                  className="text-[9px] uppercase tracking-[0.12em] px-2.5 py-1 rounded transition-all duration-200 hover:bg-red-500/10 flex items-center gap-1.5"
+                  style={{
+                    fontFamily: 'var(--font-jetbrains-mono), monospace',
+                    color: '#F44336',
+                    border: '1px solid rgba(244, 67, 54, 0.2)',
+                    background: 'rgba(244, 67, 54, 0.05)',
+                  }}
+                >
+                  <svg width="8" height="8" viewBox="0 0 8 8">
+                    <rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor" />
+                  </svg>
+                  Stop
+                </button>
+              )}
               {activeDebate && !isDebateRunning && (
                 <button
                   onClick={() => { setShowSetup(true); }}
@@ -555,16 +692,23 @@ export default function DebatePanel() {
                 </div>
 
                 {/* Messages */}
-                {activeDebate.messages.map((msg, i) => (
+                {activeDebate.messages.map((msg) => (
                   <DebateMessageItem
                     key={msg.id}
                     message={msg}
-                    isStreaming={isDebateRunning && i === activeDebate.messages.length - 1}
                   />
                 ))}
 
-                {/* Running indicator when no messages yet */}
-                {isDebateRunning && activeDebate.messages.length === 0 && (
+                {/* Live streaming text — shows chunks as they arrive */}
+                {isDebateRunning && streamingContent && speakingArchetypeId && (
+                  <StreamingMessage
+                    archetypeId={speakingArchetypeId}
+                    content={streamingContent}
+                  />
+                )}
+
+                {/* Running indicator when no messages and no streaming content yet */}
+                {isDebateRunning && activeDebate.messages.length === 0 && !streamingContent && (
                   <div className="flex items-center justify-center py-8">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-400/50" style={{ animation: 'mind-breathe 1s ease-in-out infinite' }} />
@@ -578,21 +722,24 @@ export default function DebatePanel() {
                   </div>
                 )}
 
-                {/* Completion indicator */}
+                {/* Completion indicator + Synthesis */}
                 {activeDebate.status === 'complete' && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-center py-4 mt-2"
-                    style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
-                  >
-                    <span
-                      className="text-[9px] uppercase tracking-[0.14em]"
-                      style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-center py-4 mt-2"
+                      style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
                     >
-                      Debate complete &middot; {activeDebate.messages.length} exchanges
-                    </span>
-                  </motion.div>
+                      <span
+                        className="text-[9px] uppercase tracking-[0.14em]"
+                        style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                      >
+                        Debate complete &middot; {activeDebate.messages.length} exchanges
+                      </span>
+                    </motion.div>
+                    <DebateSynthesis debate={activeDebate} />
+                  </>
                 )}
 
                 {activeDebate.status === 'error' && (

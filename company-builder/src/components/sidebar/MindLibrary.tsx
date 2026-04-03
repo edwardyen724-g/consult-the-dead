@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { minds } from '@/data/minds';
+import { minds, mindsMap } from '@/data/minds';
 import { useCompanyStore, generatePlacementId } from '@/store/companyStore';
 import { getGhostPositionForMind } from '@/components/canvas/Canvas';
 import { hexToRgb } from '@/lib/colors';
@@ -253,8 +253,41 @@ export default function MindLibrary() {
   const [activeCategory, setActiveCategory] = useState<DomainCategory | 'all'>('all');
   const [collapsed, setCollapsed] = useState(false);
   const placedMinds = useCompanyStore((s) => s.placedMinds);
+  const addMind = useCompanyStore((s) => s.addMind);
   const setDraggingFromSidebar = useCompanyStore((s) => s.setDraggingFromSidebar);
   const setDraggedArchetypeId = useCompanyStore((s) => s.setDraggedArchetypeId);
+
+  // Listen for command palette toggle-sidebar event
+  useEffect(() => {
+    const handleToggle = () => setCollapsed((prev) => !prev);
+    window.addEventListener('toggle-sidebar', handleToggle);
+    return () => window.removeEventListener('toggle-sidebar', handleToggle);
+  }, []);
+
+  // Listen for command palette place-mind event
+  useEffect(() => {
+    const handlePlace = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (!detail?.archetypeId) return;
+      const mind = mindsMap.get(detail.archetypeId);
+      if (!mind) return;
+      const ghostPos = getGhostPositionForMind(mind.id);
+      const count = placedMinds.length;
+      const fallbackPos = {
+        x: 100 + (count % 3) * 250,
+        y: 80 + Math.floor(count / 3) * 200,
+      };
+      const newMind: PlacedMind = {
+        id: generatePlacementId(mind.id),
+        archetypeId: mind.id,
+        role: null,
+        position: ghostPos || fallbackPos,
+      };
+      addMind(newMind);
+    };
+    window.addEventListener('place-mind', handlePlace);
+    return () => window.removeEventListener('place-mind', handlePlace);
+  }, [addMind, placedMinds.length]);
 
   // Track which archetype IDs are deployed
   const deployedIds = useMemo(
