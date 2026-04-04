@@ -802,12 +802,15 @@ export default function DebatePanel() {
     }
   }, [debatePanelOpen, activeDebate]);
 
-  // Auto-scroll to bottom on new messages and streaming content
+  const convergenceContent = useDebateStore((s) => s.convergenceContent);
+  const isConverging = useDebateStore((s) => s.isConverging);
+
+  // Auto-scroll to bottom on new messages, streaming content, and convergence
   useEffect(() => {
     if (!userScrolled && scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [activeDebate?.messages.length, streamingContent, userScrolled]);
+  }, [activeDebate?.messages.length, streamingContent, convergenceContent, userScrolled]);
 
   const handleScroll = useCallback(() => {
     if (!scrollRef.current) return;
@@ -1069,24 +1072,26 @@ export default function DebatePanel() {
                   </div>
                 )}
 
-                {/* Completion indicator + Synthesis */}
-                {activeDebate.status === 'complete' && (
-                  <>
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-center py-4 mt-2"
-                      style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+                {/* Convergence synthesis — shows during AND after convergence */}
+                {(isConverging || convergenceContent) && (
+                  <DebateSynthesis />
+                )}
+
+                {/* Completion indicator */}
+                {activeDebate.status === 'complete' && !isConverging && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center py-4 mt-2"
+                    style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+                  >
+                    <span
+                      className="text-[9px] uppercase tracking-[0.14em]"
+                      style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
                     >
-                      <span
-                        className="text-[9px] uppercase tracking-[0.14em]"
-                        style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                      >
-                        Debate complete &middot; {activeDebate.messages.length} exchanges
-                      </span>
-                    </motion.div>
-                    <DebateSynthesis />
-                  </>
+                      Debate complete &middot; {activeDebate.messages.length} exchanges
+                    </span>
+                  </motion.div>
                 )}
 
                 {activeDebate.status === 'error' && (

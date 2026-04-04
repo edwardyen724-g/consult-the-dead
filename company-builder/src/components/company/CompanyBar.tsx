@@ -16,6 +16,8 @@ export default function CompanyBar() {
   const importFromJSON = useCompanyStore((s) => s.importFromJSON);
 
   const openDebatePanel = useDebateStore((s) => s.openDebatePanel);
+  const closeDebatePanel = useDebateStore((s) => s.closeDebatePanel);
+  const debatePanelOpen = useDebateStore((s) => s.debatePanelOpen);
   const toggleHistoryPanel = useDebateStore((s) => s.toggleHistoryPanel);
   const debateHistory = useDebateStore((s) => s.debateHistory);
   const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
@@ -163,7 +165,7 @@ export default function CompanyBar() {
         {/* Run Debate button */}
         {connections.length > 0 && (
           <button
-            onClick={() => openDebatePanel()}
+            onClick={() => debatePanelOpen ? closeDebatePanel() : openDebatePanel()}
             className="glass-panel rounded-lg px-2.5 py-1.5 transition-all duration-200 hover:border-white/10 flex items-center gap-1.5"
             title="Run a debate between connected minds"
             style={{
