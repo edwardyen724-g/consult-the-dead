@@ -88,14 +88,17 @@ async function fetchGitHub(query: string): Promise<{ repos: GitHubRepo[]; raw: s
       topics: (r.topics as string[]) ?? [],
     }));
 
-    const raw = repos
+    // Filter out spam repos (descriptions > 500 chars are usually abuse)
+    const cleanRepos = repos.filter((r) => !r.description || r.description.length < 500);
+
+    const raw = cleanRepos
       .map(
         (r, i) =>
-          `${i + 1}. ${r.full_name} (${r.stargazers_count.toLocaleString()} stars, ${r.language ?? 'N/A'}) — ${r.description ?? 'No description'} — ${r.html_url}`
+          `${i + 1}. ${r.full_name} (${r.stargazers_count.toLocaleString()} stars, ${r.language ?? 'N/A'}) — ${(r.description ?? 'No description').slice(0, 200)} — ${r.html_url}`
       )
       .join('\n');
 
-    return { repos, raw: raw || 'No GitHub repositories found.' };
+    return { repos: cleanRepos, raw: raw || 'No GitHub repositories found.' };
   } catch {
     return { repos: [], raw: 'Failed to fetch GitHub data.' };
   }
@@ -132,7 +135,7 @@ export async function POST(request: NextRequest) {
     // Collect sources
     const sources = [
       ...hnResult.stories.map((s) => ({ title: s.title, url: s.url, snippet: `${s.points} points, ${s.num_comments} comments` })),
-      ...ghResult.repos.map((r) => ({ title: r.full_name, url: r.html_url, snippet: r.description ?? '' })),
+      ...ghResult.repos.map((r) => ({ title: r.full_name, url: r.html_url, snippet: (r.description ?? '').slice(0, 200) })),
     ];
 
     // Synthesize with Claude
