@@ -28,6 +28,9 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
   const setResearchBriefing = useDebateStore((s) => s.setResearchBriefing);
   const appendResearchChunk = useDebateStore((s) => s.appendResearchChunk);
   const setResearchSources = useDebateStore((s) => s.setResearchSources);
+  const setConverging = useDebateStore((s) => s.setConverging);
+  const appendConvergenceChunk = useDebateStore((s) => s.appendConvergenceChunk);
+  const setConvergenceContent = useDebateStore((s) => s.setConvergenceContent);
 
   const [topic, setTopic] = useState('');
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -242,6 +245,15 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
               };
               addMessage(msg);
               resetStreamingContent();
+            } else if (event.type === 'convergence_started') {
+              setSpeakingMind(null);
+              resetStreamingContent();
+              setConverging(true);
+            } else if (event.type === 'convergence_chunk') {
+              appendConvergenceChunk(event.text);
+            } else if (event.type === 'convergence_complete') {
+              setConvergenceContent(event.content);
+              setConverging(false);
             } else if (event.type === 'debate_complete') {
               completeDebate();
             } else if (event.type === 'error') {
@@ -722,45 +734,44 @@ function ResearchBriefingPanel({ briefing, sources, isStreaming }: { briefing: s
 }
 
 /* ---- Post-Debate Synthesis ---- */
-function DebateSynthesis({ debate }: { debate: Debate }) {
-  if (debate.messages.length < 2) return null;
+function DebateSynthesis() {
+  const convergenceContent = useDebateStore((s) => s.convergenceContent);
+  const isConverging = useDebateStore((s) => s.isConverging);
 
-  // Build a brief synthesis from the debate content
-  const participants = debate.participantArchetypeIds.map((id) => mindsMap.get(id)?.name || 'Unknown');
-  const messagesByMind = new Map<string, string[]>();
-  debate.messages.forEach((msg) => {
-    const name = mindsMap.get(msg.archetypeId)?.name || 'Unknown';
-    if (!messagesByMind.has(name)) messagesByMind.set(name, []);
-    messagesByMind.get(name)!.push(msg.content);
-  });
+  if (!convergenceContent && !isConverging) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className="mt-4 px-4 py-3 rounded-xl"
+      className="mt-6 px-5 py-4 rounded-xl"
       style={{
-        background: 'linear-gradient(135deg, rgba(120, 200, 160, 0.04) 0%, rgba(100, 140, 200, 0.04) 100%)',
-        border: '1px solid rgba(120, 200, 160, 0.12)',
+        background: 'linear-gradient(135deg, rgba(120, 200, 160, 0.06) 0%, rgba(100, 140, 200, 0.06) 100%)',
+        border: '1px solid rgba(120, 200, 160, 0.15)',
+        boxShadow: '0 4px 20px rgba(120, 200, 160, 0.05)',
       }}
     >
       <div
-        className="text-[9px] uppercase tracking-[0.16em] mb-2 flex items-center gap-2"
-        style={{ color: 'rgba(120, 200, 160, 0.7)', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        className="text-[10px] uppercase tracking-[0.16em] mb-3 flex items-center gap-2"
+        style={{ color: 'rgba(120, 200, 160, 0.8)', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
       >
-        <svg width="10" height="10" viewBox="0 0 10 10">
-          <path d="M5 1v3M5 6v3M1 5h3M6 5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        <svg width="12" height="12" viewBox="0 0 12 12">
+          <path d="M6 1v4M6 7v4M1 6h4M7 6h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
-        Key Tensions & Insights
+        {isConverging ? 'Synthesizing Consensus...' : 'Convergence Synthesis'}
       </div>
       <div
-        className="text-[11px] italic leading-relaxed"
-        style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.55)' }}
+        className="text-[13px] leading-[1.8] whitespace-pre-wrap"
+        style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.75)' }}
       >
-        {participants.join(' and ')} debated across {debate.messages.length} exchanges.
-        {debate.messages.length >= 4 && ' The conversation revealed both common ground and fundamental disagreements in approach.'}
-        {debate.messages.length >= 6 && ' Multiple rounds allowed positions to evolve and sharpen through direct engagement.'}
+        {convergenceContent}
+        {isConverging && (
+          <span
+            className="inline-block w-[2px] h-[14px] ml-0.5 align-middle"
+            style={{ background: 'rgba(120, 200, 160, 0.6)', animation: 'mind-breathe 1s ease-in-out infinite' }}
+          />
+        )}
       </div>
     </motion.div>
   );
@@ -1074,7 +1085,7 @@ export default function DebatePanel() {
                         Debate complete &middot; {activeDebate.messages.length} exchanges
                       </span>
                     </motion.div>
-                    <DebateSynthesis debate={activeDebate} />
+                    <DebateSynthesis />
                   </>
                 )}
 

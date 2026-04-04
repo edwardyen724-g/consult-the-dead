@@ -200,6 +200,64 @@ Keep your response to 2-3 paragraphs. Do NOT use the reasoning protocol headers 
             }
           }
 
+          // === CONVERGENCE ROUND ===
+          // Synthesize all arguments into actionable consensus
+          const convergenceEvent = `data: ${JSON.stringify({ type: 'convergence_started' })}\n\n`;
+          controller.enqueue(encoder.encode(convergenceEvent));
+
+          const fullDebateTranscript = allMessages
+            .map((m) => `${m.mindName} (${m.mindSlug}, Round ${m.round}): ${m.content}`)
+            .join('\n\n---\n\n');
+
+          const convergencePrompt = `You are a strategic synthesis analyst. You just observed a debate between ${minds.map(m => `${m.name} (${m.role})`).join(', ')} at ${companyName} (mission: ${companyMission}).
+
+Topic debated: ${topic}
+
+Full debate transcript:
+${fullDebateTranscript}
+
+${researchBriefing ? `Research briefing used:\n${researchBriefing}\n` : ''}
+
+Now produce a CONVERGENCE SYNTHESIS — this is the actionable output of the debate:
+
+1. **CONSENSUS POINTS** — What did all minds agree on? What common ground emerged?
+2. **KEY TENSIONS** — Where do they fundamentally disagree, and why? What are the real tradeoffs?
+3. **RECOMMENDED ACTION** — Given the strongest arguments from each mind, what is the single best path forward? Be specific — name the product, strategy, or initiative.
+4. **IMMEDIATE NEXT STEPS** — 3-5 concrete actions the team should take this week.
+5. **RISK FACTORS** — What could go wrong with this recommendation? Which mind raised the most important warning?
+
+Be decisive. Don't just summarize — RECOMMEND. The company needs to act on this.`;
+
+          let convergenceContent = '';
+          const convergenceStream = anthropic.messages.stream({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1500,
+            system: 'You are a strategic analyst who synthesizes multi-perspective debates into clear, actionable recommendations. You are direct, specific, and decisive. You do not hedge.',
+            messages: [{ role: 'user', content: convergencePrompt }],
+          });
+
+          for await (const event of convergenceStream) {
+            if (
+              event.type === 'content_block_delta' &&
+              'delta' in event &&
+              event.delta.type === 'text_delta'
+            ) {
+              const text = event.delta.text;
+              convergenceContent += text;
+              const chunkEvent = `data: ${JSON.stringify({
+                type: 'convergence_chunk',
+                text,
+              })}\n\n`;
+              controller.enqueue(encoder.encode(chunkEvent));
+            }
+          }
+
+          const convergenceCompleteEvent = `data: ${JSON.stringify({
+            type: 'convergence_complete',
+            content: convergenceContent,
+          })}\n\n`;
+          controller.enqueue(encoder.encode(convergenceCompleteEvent));
+
           const doneEvent = `data: ${JSON.stringify({ type: 'debate_complete' })}\n\n`;
           controller.enqueue(encoder.encode(doneEvent));
         } catch (err) {

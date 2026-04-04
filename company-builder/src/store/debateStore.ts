@@ -49,6 +49,10 @@ interface DebateState {
   researchSources: ResearchSource[];
   /** Uploaded document contents */
   documents: string[];
+  /** Whether convergence synthesis is in progress */
+  isConverging: boolean;
+  /** Accumulated convergence text */
+  convergenceContent: string;
 
   // Actions
   startDebate: (debate: Debate) => void;
@@ -65,6 +69,9 @@ interface DebateState {
   appendResearchChunk: (text: string) => void;
   setResearchSources: (sources: ResearchSource[]) => void;
   setDocuments: (docs: string[]) => void;
+  setConverging: (value: boolean) => void;
+  appendConvergenceChunk: (text: string) => void;
+  setConvergenceContent: (text: string) => void;
   openDebatePanel: () => void;
   closeDebatePanel: () => void;
   toggleHistoryPanel: () => void;
@@ -88,6 +95,8 @@ export const useDebateStore = create<DebateState>((set, get) => ({
   researchBriefing: '',
   researchSources: [],
   documents: [],
+  isConverging: false,
+  convergenceContent: '',
 
   startDebate: (debate) => {
     set({
@@ -98,6 +107,8 @@ export const useDebateStore = create<DebateState>((set, get) => ({
       isResearching: false,
       researchBriefing: '',
       researchSources: [],
+      isConverging: false,
+      convergenceContent: '',
     });
     appEvents.emit('debate.started', { debateId: debate.id, topic: debate.topic, participants: debate.participantArchetypeIds });
   },
@@ -207,6 +218,18 @@ export const useDebateStore = create<DebateState>((set, get) => ({
 
   setDocuments: (docs) => {
     set({ documents: docs });
+  },
+
+  setConverging: (value) => {
+    set({ isConverging: value });
+  },
+
+  appendConvergenceChunk: (text) => {
+    set((state) => ({ convergenceContent: state.convergenceContent + text }));
+  },
+
+  setConvergenceContent: (text) => {
+    set({ convergenceContent: text });
   },
 
   openDebatePanel: () => {
