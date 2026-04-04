@@ -8,6 +8,7 @@ import { mindsMap } from '@/data/minds';
 import { rolesMap } from '@/data/roles';
 import { hexToRgb } from '@/lib/colors';
 import { appEvents } from '@/lib/events';
+import ReactMarkdown from 'react-markdown';
 import type { Debate, DebateMessage, ResearchSource } from '@/types';
 
 /* ---- Debate Setup Modal ---- */
@@ -586,13 +587,13 @@ function DebateMessageItem({ message, isStreaming }: { message: DebateMessage; i
 
       {/* Body */}
       <div
-        className="text-[13px] leading-[1.7] whitespace-pre-wrap"
+        className="text-[13px] leading-[1.7] debate-markdown"
         style={{
           fontFamily: 'var(--font-newsreader), serif',
           color: 'rgba(255, 255, 255, 0.82)',
         }}
       >
-        {message.content}
+        <ReactMarkdown>{message.content}</ReactMarkdown>
       </div>
     </motion.div>
   );
@@ -632,10 +633,10 @@ function StreamingMessage({ archetypeId, content }: { archetypeId: string; conte
         />
       </div>
       <div
-        className="text-[13px] leading-[1.7] whitespace-pre-wrap"
+        className="text-[13px] leading-[1.7] debate-markdown"
         style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.82)' }}
       >
-        {content}
+        <ReactMarkdown>{content}</ReactMarkdown>
         <span className="inline-block w-[2px] h-[14px] ml-0.5 align-text-bottom" style={{ background: arch.accentColor, animation: 'mind-breathe 0.8s ease-in-out infinite' }} />
       </div>
     </motion.div>
@@ -762,10 +763,10 @@ function DebateSynthesis() {
         {isConverging ? 'Synthesizing Consensus...' : 'Convergence Synthesis'}
       </div>
       <div
-        className="text-[13px] leading-[1.8] whitespace-pre-wrap"
+        className="text-[13px] leading-[1.8] debate-markdown"
         style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.75)' }}
       >
-        {convergenceContent}
+        <ReactMarkdown>{convergenceContent}</ReactMarkdown>
         {isConverging && (
           <span
             className="inline-block w-[2px] h-[14px] ml-0.5 align-middle"
