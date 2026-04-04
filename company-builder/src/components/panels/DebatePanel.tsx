@@ -830,9 +830,9 @@ export default function DebatePanel() {
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed bottom-0 left-0 right-0 flex flex-col custom-scrollbar"
           style={{
-            height: '50vh',
+            height: activeDebate && !isDebateRunning ? '70vh' : '50vh',
             minHeight: 340,
-            maxHeight: '70vh',
+            maxHeight: '85vh',
             zIndex: 35,
             background: 'rgba(10, 10, 18, 0.95)',
             backdropFilter: 'blur(28px) saturate(1.3)',
