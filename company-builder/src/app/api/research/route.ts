@@ -124,13 +124,54 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const searchQuery = focus ? `${topic} ${focus}` : topic;
+    // Extract search-friendly keywords from the conversational topic
+    const anthropic = new Anthropic({ apiKey });
+    let searchTerms: string[];
+    try {
+      const keywordResponse = await anthropic.messages.create({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 150,
+        messages: [{
+          role: 'user',
+          content: `Extract 3-4 short technical search queries (2-4 words each) from this topic for searching HackerNews and GitHub. Return ONLY a JSON array of strings, nothing else.\n\nTopic: ${topic}${focus ? `\nFocus: ${focus}` : ''}\n\nExample output: ["AI agents framework", "developer tools startup", "LLM orchestration"]`,
+        }],
+      });
+      const rawText = keywordResponse.content[0].type === 'text' ? keywordResponse.content[0].text : '[]';
+      const parsed = JSON.parse(rawText.replace(/```json\n?|\n?```/g, '').trim());
+      searchTerms = Array.isArray(parsed) ? parsed.slice(0, 4) : [topic];
+    } catch {
+      searchTerms = focus ? [focus, topic.split(' ').slice(0, 4).join(' ')] : [topic.split(' ').slice(0, 4).join(' ')];
+    }
 
-    // Fetch from real APIs in parallel
-    const [hnResult, ghResult] = await Promise.all([
-      fetchHackerNews(searchQuery),
-      fetchGitHub(searchQuery),
-    ]);
+    // Fetch from real APIs using extracted search terms (parallel, merge results)
+    const allHnStories: HNHit[] = [];
+    const allGhRepos: GitHubRepo[] = [];
+    const seenHnIds = new Set<string>();
+    const seenGhNames = new Set<string>();
+
+    await Promise.all(
+      searchTerms.map(async (query) => {
+        const [hn, gh] = await Promise.all([fetchHackerNews(query), fetchGitHub(query)]);
+        hn.stories.forEach((s) => { if (!seenHnIds.has(s.objectID)) { seenHnIds.add(s.objectID); allHnStories.push(s); } });
+        gh.repos.forEach((r) => { if (!seenGhNames.has(r.full_name)) { seenGhNames.add(r.full_name); allGhRepos.push(r); } });
+      })
+    );
+
+    // Sort by relevance (points for HN, stars for GH) and take top 10
+    allHnStories.sort((a, b) => b.points - a.points);
+    allGhRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    const topHnStories = allHnStories.slice(0, 10);
+    const topGhRepos = allGhRepos.slice(0, 10);
+
+    const hnRaw = topHnStories.length > 0
+      ? topHnStories.map((s, i) => `${i + 1}. "${s.title}" (${s.points} pts, ${s.num_comments} comments) — ${s.url}`).join('\n')
+      : 'No HackerNews stories found.';
+    const ghRaw = topGhRepos.length > 0
+      ? topGhRepos.map((r, i) => `${i + 1}. ${r.full_name} (${r.stargazers_count.toLocaleString()} stars, ${r.language ?? 'N/A'}) — ${(r.description ?? 'No description').slice(0, 200)} — ${r.html_url}`).join('\n')
+      : 'No GitHub repositories found.';
+
+    const hnResult = { stories: topHnStories, raw: hnRaw };
+    const ghResult = { repos: topGhRepos, raw: ghRaw };
 
     // Collect sources
     const sources = [
@@ -138,8 +179,7 @@ export async function POST(request: NextRequest) {
       ...ghResult.repos.map((r) => ({ title: r.full_name, url: r.html_url, snippet: (r.description ?? '').slice(0, 200) })),
     ];
 
-    // Synthesize with Claude
-    const anthropic = new Anthropic({ apiKey });
+    // Synthesize with Claude (reuses anthropic client from keyword extraction)
 
     const synthesisPrompt = `You are a technology research analyst. Synthesize the following real-time data into a structured briefing for a strategic debate.
 
