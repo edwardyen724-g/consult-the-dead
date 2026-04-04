@@ -146,20 +146,23 @@ function RoleDropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.97 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 right-0 mt-1 rounded-lg overflow-hidden custom-scrollbar nowheel nopan"
+            className="absolute left-0 rounded-lg overflow-hidden custom-scrollbar nowheel nopan"
             style={{
               zIndex: 50,
-              background: 'rgba(12, 12, 22, 0.96)',
+              bottom: '100%',
+              marginBottom: 4,
+              width: 220,
+              background: 'rgba(12, 12, 22, 0.97)',
               backdropFilter: 'blur(20px) saturate(1.3)',
               border: '1px solid rgba(255,255,255,0.1)',
-              boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)',
-              maxHeight: 200,
+              boxShadow: '0 -8px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)',
+              maxHeight: 360,
               overflowY: 'auto',
             }}
           >
             <button
               onClick={() => { onSelect(null); setOpen(false); }}
-              className="w-full text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 text-left transition-colors duration-100 flex items-center gap-2"
+              className="w-full text-[10px] uppercase tracking-[0.1em] px-3 py-2 text-left transition-colors duration-100 flex items-center gap-2"
               style={{
                 color: '#52525b',
                 fontFamily: 'var(--font-jetbrains-mono), monospace',
@@ -175,7 +178,7 @@ function RoleDropdown({
               <button
                 key={role.id}
                 onClick={() => { onSelect(role.id); setOpen(false); }}
-                className="w-full text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 text-left transition-colors duration-100 flex items-center gap-2"
+                className="w-full text-[10px] uppercase tracking-[0.1em] px-3 py-2 text-left transition-colors duration-100 flex items-center gap-2"
                 style={{
                   color: role.color,
                   fontFamily: 'var(--font-jetbrains-mono), monospace',
