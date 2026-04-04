@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { Debate, DebateMessage } from '@/types';
+import type { Debate, DebateMessage, ResearchSource } from '@/types';
 import { appEvents } from '@/lib/events';
 
 const STORAGE_KEY = 'greatmind-debates';
@@ -41,6 +41,14 @@ interface DebateState {
   streamingContent: string;
   /** Abort controller for cancelling active debate */
   abortController: AbortController | null;
+  /** Whether research phase is in progress */
+  isResearching: boolean;
+  /** Accumulated research briefing text */
+  researchBriefing: string;
+  /** Sources discovered during research */
+  researchSources: ResearchSource[];
+  /** Uploaded document contents */
+  documents: string[];
 
   // Actions
   startDebate: (debate: Debate) => void;
@@ -52,6 +60,11 @@ interface DebateState {
   failDebate: () => void;
   setSpeakingMind: (mindId: string | null) => void;
   setAbortController: (controller: AbortController | null) => void;
+  setResearching: (value: boolean) => void;
+  setResearchBriefing: (text: string) => void;
+  appendResearchChunk: (text: string) => void;
+  setResearchSources: (sources: ResearchSource[]) => void;
+  setDocuments: (docs: string[]) => void;
   openDebatePanel: () => void;
   closeDebatePanel: () => void;
   toggleHistoryPanel: () => void;
@@ -71,6 +84,10 @@ export const useDebateStore = create<DebateState>((set, get) => ({
   hydrated: false,
   streamingContent: '',
   abortController: null,
+  isResearching: false,
+  researchBriefing: '',
+  researchSources: [],
+  documents: [],
 
   startDebate: (debate) => {
     set({
@@ -78,6 +95,9 @@ export const useDebateStore = create<DebateState>((set, get) => ({
       debatePanelOpen: true,
       isDebateRunning: true,
       speakingMindId: null,
+      isResearching: false,
+      researchBriefing: '',
+      researchSources: [],
     });
     appEvents.emit('debate.started', { debateId: debate.id, topic: debate.topic, participants: debate.participantArchetypeIds });
   },
@@ -167,6 +187,26 @@ export const useDebateStore = create<DebateState>((set, get) => ({
 
   setSpeakingMind: (mindId) => {
     set({ speakingMindId: mindId });
+  },
+
+  setResearching: (value) => {
+    set({ isResearching: value });
+  },
+
+  setResearchBriefing: (text) => {
+    set({ researchBriefing: text });
+  },
+
+  appendResearchChunk: (text) => {
+    set((state) => ({ researchBriefing: state.researchBriefing + text }));
+  },
+
+  setResearchSources: (sources) => {
+    set({ researchSources: sources });
+  },
+
+  setDocuments: (docs) => {
+    set({ documents: docs });
   },
 
   openDebatePanel: () => {

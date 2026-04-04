@@ -18,6 +18,11 @@ interface DebateRequest {
   companyName: string;
   companyMission: string;
   rounds: number;
+  researchEnabled?: boolean;
+  researchFocus?: string;
+  researchBriefing?: string;
+  researchSources?: { title: string; url: string }[];
+  documents?: string[];
 }
 
 function loadFramework(slug: string): Record<string, unknown> | null {
@@ -55,7 +60,7 @@ function getApiKey(): string | null {
 export async function POST(request: NextRequest) {
   try {
     const body: DebateRequest = await request.json();
-    const { topic, minds, companyName, companyMission, rounds = 3 } = body;
+    const { topic, minds, companyName, companyMission, rounds = 3, researchBriefing, researchSources, documents } = body;
 
     if (!topic || !minds || minds.length < 2) {
       return new Response(JSON.stringify({ error: 'Need topic and at least 2 minds' }), {
@@ -107,13 +112,35 @@ export async function POST(request: NextRequest) {
                 .map((m) => `${m.name} (${m.role})`)
                 .join(', ');
 
+              // Build research context block
+              let researchContext = '';
+              if (researchBriefing) {
+                researchContext += `\nCURRENT LANDSCAPE RESEARCH:\n${researchBriefing}\n`;
+                if (researchSources && researchSources.length > 0) {
+                  researchContext += '\nKey sources:\n';
+                  researchSources.slice(0, 8).forEach((s) => {
+                    researchContext += `- ${s.title} (${s.url})\n`;
+                  });
+                }
+                researchContext += '\n';
+              }
+
+              // Build documents context block
+              let documentsContext = '';
+              if (documents && documents.length > 0) {
+                documentsContext = '\nREFERENCE DOCUMENTS PROVIDED BY THE USER:\n';
+                documents.forEach((doc, i) => {
+                  documentsContext += `--- Document ${i + 1} ---\n${doc}\n`;
+                });
+                documentsContext += '\n';
+              }
+
               const userPrompt = `You are ${mind.name}, serving as ${mind.role} at ${companyName}.
 The company's mission: ${companyMission}.
 
 You are in a debate with: ${otherMinds}.
 Topic: ${topic}
-
-${conversationSoFar ? `Conversation so far:\n${conversationSoFar}\n\n` : ''}Respond as ${mind.name} would — in their voice, with their reasoning style, drawing on their domain expertise. Be substantive. Take a position. Disagree if you would disagree. Concede if convinced. Be yourself.
+${researchContext}${documentsContext}${conversationSoFar ? `Conversation so far:\n${conversationSoFar}\n\n` : ''}Respond as ${mind.name} would — in their voice, with their reasoning style, drawing on their domain expertise. Be substantive. Take a position. Disagree if you would disagree. Concede if convinced. Be yourself.${researchBriefing ? ' Reference specific data points from the research briefing when relevant — cite actual projects, numbers, or trends.' : ''}
 
 This is round ${round} of ${rounds}. ${round === 1 ? 'Open with your initial position.' : round === rounds ? 'This is the final round — make your strongest closing argument.' : 'Address what others have said and develop your position.'}
 

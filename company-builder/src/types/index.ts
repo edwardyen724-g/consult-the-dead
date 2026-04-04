@@ -64,17 +64,26 @@ export interface DebateMessage {
   timestamp: string;
 }
 
+export interface ResearchSource {
+  title: string;
+  url: string;
+  snippet?: string;
+}
+
 export interface Debate {
   id: string;
   topic: string;
-  participantIds: string[];       // PlacedMind.id references
-  participantArchetypeIds: string[]; // For resolving names/colors
+  participantIds: string[];
+  participantArchetypeIds: string[];
   messages: DebateMessage[];
   status: 'running' | 'complete' | 'error';
   startedAt: string;
   completedAt?: string;
   companyName: string;
   companyMission: string;
+  researchBriefing?: string;
+  researchSources?: ResearchSource[];
+  documents?: string[];
 }
 
 export interface ChemistryResult {

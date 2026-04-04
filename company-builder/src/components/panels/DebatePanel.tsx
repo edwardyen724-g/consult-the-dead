@@ -8,7 +8,7 @@ import { mindsMap } from '@/data/minds';
 import { rolesMap } from '@/data/roles';
 import { hexToRgb } from '@/lib/colors';
 import { appEvents } from '@/lib/events';
-import type { Debate, DebateMessage } from '@/types';
+import type { Debate, DebateMessage, ResearchSource } from '@/types';
 
 /* ---- Debate Setup Modal ---- */
 function DebateSetup({ onClose }: { onClose: () => void }) {
@@ -24,10 +24,18 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
   const appendStreamingChunk = useDebateStore((s) => s.appendStreamingChunk);
   const resetStreamingContent = useDebateStore((s) => s.resetStreamingContent);
   const setAbortController = useDebateStore((s) => s.setAbortController);
+  const setResearching = useDebateStore((s) => s.setResearching);
+  const setResearchBriefing = useDebateStore((s) => s.setResearchBriefing);
+  const appendResearchChunk = useDebateStore((s) => s.appendResearchChunk);
+  const setResearchSources = useDebateStore((s) => s.setResearchSources);
 
   const [topic, setTopic] = useState('');
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [isStarting, setIsStarting] = useState(false);
+  const [researchEnabled, setResearchEnabled] = useState(true);
+  const [researchFocus, setResearchFocus] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState<{ name: string; content: string }[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Find minds that have connections
   const connectedMindIds = useMemo(() => {
@@ -54,6 +62,28 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
       return next;
     });
   };
+
+  const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+    Array.from(files).forEach((file) => {
+      if (file.size > 500_000) return; // skip files > 500KB
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const text = ev.target?.result as string;
+        if (text) {
+          setUploadedFiles((prev) => [...prev, { name: file.name, content: text }]);
+        }
+      };
+      reader.readAsText(file);
+    });
+    // Reset file input
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  }, []);
+
+  const removeFile = useCallback((index: number) => {
+    setUploadedFiles((prev) => prev.filter((_, i) => i !== index));
+  }, []);
 
   const canStart = selectedIds.size >= 2 && topic.trim().length > 0;
 
@@ -94,6 +124,63 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
     setAbortController(controller);
 
     try {
+      // Phase 1: Research (if enabled)
+      let briefingText = '';
+      let sources: ResearchSource[] = [];
+
+      if (researchEnabled) {
+        setResearching(true);
+        setResearchBriefing('');
+
+        const researchResponse = await fetch('/api/research', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            topic: topic.trim(),
+            focus: researchFocus.trim() || undefined,
+          }),
+          signal: controller.signal,
+        });
+
+        if (researchResponse.ok && researchResponse.body) {
+          const resReader = researchResponse.body.getReader();
+          const resDecoder = new TextDecoder();
+          let resBuf = '';
+
+          while (true) {
+            const { done, value } = await resReader.read();
+            if (done) break;
+
+            resBuf += resDecoder.decode(value, { stream: true });
+            const lines = resBuf.split('\n\n');
+            resBuf = lines.pop() || '';
+
+            for (const line of lines) {
+              if (!line.startsWith('data: ')) continue;
+              try {
+                const event = JSON.parse(line.slice(6));
+                if (event.type === 'research_sources') {
+                  sources = event.sources;
+                  setResearchSources(sources);
+                } else if (event.type === 'research_chunk') {
+                  briefingText += event.text;
+                  appendResearchChunk(event.text);
+                } else if (event.type === 'research_complete') {
+                  // research done
+                } else if (event.type === 'error') {
+                  console.error('Research error:', event.message);
+                }
+              } catch {
+                // skip malformed
+              }
+            }
+          }
+        }
+
+        setResearching(false);
+      }
+
+      // Phase 2: Debate
       const response = await fetch('/api/debate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -103,6 +190,10 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
           companyName: company.name,
           companyMission: company.mission,
           rounds: 3,
+          researchEnabled,
+          researchBriefing: briefingText || undefined,
+          researchSources: sources.length > 0 ? sources : undefined,
+          documents: uploadedFiles.length > 0 ? uploadedFiles.map((f) => f.content) : undefined,
         }),
         signal: controller.signal,
       });
@@ -116,8 +207,6 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
 
       const decoder = new TextDecoder();
       let buffer = '';
-      let currentSpeakerSlug = '';
-      let currentRound = 1;
 
       while (true) {
         const { done, value } = await reader.read();
@@ -134,16 +223,12 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
             const event = JSON.parse(jsonStr);
 
             if (event.type === 'speaking') {
-              // Find the placed mind ID from the slug
               const placedMind = participants.find((p) => p.archetypeId === event.mindSlug);
               if (placedMind) {
                 setSpeakingMind(placedMind.id);
               }
-              currentSpeakerSlug = event.mindSlug;
-              currentRound = event.round;
               resetStreamingContent();
             } else if (event.type === 'chunk') {
-              // Live streaming: append text chunk
               appendStreamingChunk(event.text);
             } else if (event.type === 'message_complete') {
               const placedMind = participants.find((p) => p.archetypeId === event.mindSlug);
@@ -170,7 +255,7 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
       }
     } catch (err) {
       if ((err as Error).name === 'AbortError') {
-        // Debate was cancelled by user — handled by cancelDebate in store
+        setResearching(false);
         return;
       }
       console.error('Debate streaming error:', err);
@@ -178,7 +263,7 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
     } finally {
       setAbortController(null);
     }
-  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind, appendStreamingChunk, resetStreamingContent, setAbortController]);
+  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, researchEnabled, researchFocus, uploadedFiles, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind, appendStreamingChunk, resetStreamingContent, setAbortController, setResearching, setResearchBriefing, appendResearchChunk, setResearchSources]);
 
   return (
     <div className="p-5">
@@ -223,6 +308,122 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
           }}
           onKeyDown={(e) => e.key === 'Enter' && handleStart()}
         />
+      </div>
+
+      {/* Research toggle */}
+      <div className="mb-4 flex items-center justify-between">
+        <label
+          className="text-[9px] uppercase tracking-[0.14em]"
+          style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          Include Research
+        </label>
+        <button
+          onClick={() => setResearchEnabled((v) => !v)}
+          className="relative w-9 h-5 rounded-full transition-all duration-300"
+          style={{
+            background: researchEnabled
+              ? 'rgba(59, 130, 246, 0.25)'
+              : 'rgba(255,255,255,0.06)',
+            border: researchEnabled
+              ? '1px solid rgba(59, 130, 246, 0.4)'
+              : '1px solid rgba(255,255,255,0.1)',
+            backdropFilter: 'blur(8px)',
+          }}
+        >
+          <div
+            className="absolute top-0.5 w-3.5 h-3.5 rounded-full transition-all duration-300"
+            style={{
+              left: researchEnabled ? '18px' : '3px',
+              background: researchEnabled ? '#3b82f6' : 'rgba(255,255,255,0.2)',
+              boxShadow: researchEnabled ? '0 0 8px rgba(59, 130, 246, 0.5)' : 'none',
+            }}
+          />
+        </button>
+      </div>
+
+      {/* Research focus input (shown when research enabled) */}
+      {researchEnabled && (
+        <div className="mb-4">
+          <label
+            className="text-[9px] uppercase tracking-[0.14em] block mb-1.5"
+            style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+          >
+            Research Focus (optional)
+          </label>
+          <input
+            type="text"
+            value={researchFocus}
+            onChange={(e) => setResearchFocus(e.target.value)}
+            placeholder="e.g., AI agents, developer tools, hardware"
+            className="w-full text-[12px] px-3 py-2 rounded-lg bg-transparent outline-none"
+            style={{
+              fontFamily: 'var(--font-jetbrains-mono), monospace',
+              color: '#a1a1aa',
+              background: 'rgba(59, 130, 246, 0.03)',
+              border: '1px solid rgba(59, 130, 246, 0.12)',
+              caretColor: '#3b82f6',
+            }}
+          />
+        </div>
+      )}
+
+      {/* Document upload */}
+      <div className="mb-4">
+        <label
+          className="text-[9px] uppercase tracking-[0.14em] block mb-1.5"
+          style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          Reference Documents (optional)
+        </label>
+        <div
+          className="rounded-lg px-3 py-2.5 text-center cursor-pointer transition-all duration-200 hover:border-opacity-30"
+          onClick={() => fileInputRef.current?.click()}
+          style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px dashed rgba(255,255,255,0.1)',
+          }}
+        >
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".txt,.md,.csv"
+            multiple
+            onChange={handleFileUpload}
+            className="hidden"
+          />
+          <span
+            className="text-[10px]"
+            style={{ color: '#52525b', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+          >
+            Click to upload .txt, .md files
+          </span>
+        </div>
+        {uploadedFiles.length > 0 && (
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {uploadedFiles.map((f, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded"
+                style={{
+                  fontFamily: 'var(--font-jetbrains-mono), monospace',
+                  color: '#a1a1aa',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                {f.name}
+                <button
+                  onClick={(e) => { e.stopPropagation(); removeFile(i); }}
+                  className="ml-0.5 hover:text-red-400 transition-colors"
+                  style={{ color: '#52525b' }}
+                >
+                  x
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Mind selection */}
@@ -429,6 +630,97 @@ function StreamingMessage({ archetypeId, content }: { archetypeId: string; conte
   );
 }
 
+/* ---- Research Briefing Panel ---- */
+function ResearchBriefingPanel({ briefing, sources, isStreaming }: { briefing: string; sources: ResearchSource[]; isStreaming: boolean }) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  if (!briefing) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="rounded-xl overflow-hidden"
+      style={{
+        background: 'rgba(59, 130, 246, 0.04)',
+        border: '1px solid rgba(59, 130, 246, 0.15)',
+        backdropFilter: 'blur(12px)',
+      }}
+    >
+      {/* Header */}
+      <button
+        onClick={() => setCollapsed((v) => !v)}
+        className="w-full flex items-center gap-2 px-4 py-2.5 transition-colors hover:bg-white/[0.02]"
+      >
+        <span style={{ fontSize: '14px' }}>&#x1F4CA;</span>
+        <span
+          className="text-[10px] uppercase tracking-[0.14em] flex-1 text-left"
+          style={{ color: 'rgba(59, 130, 246, 0.8)', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+        >
+          Research Briefing
+        </span>
+        {isStreaming && (
+          <div
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: '#3b82f6', animation: 'mind-breathe 1s ease-in-out infinite' }}
+          />
+        )}
+        <svg
+          width="8" height="8" viewBox="0 0 8 8"
+          className="transition-transform duration-200"
+          style={{ transform: collapsed ? 'rotate(-90deg)' : 'rotate(0deg)', color: '#3b82f6', opacity: 0.5 }}
+        >
+          <path d="M1 2L4 5L7 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+        </svg>
+      </button>
+
+      {/* Body */}
+      {!collapsed && (
+        <div className="px-4 pb-3">
+          <div
+            className="text-[12px] leading-[1.8] whitespace-pre-wrap"
+            style={{ fontFamily: 'var(--font-newsreader), serif', color: 'rgba(255, 255, 255, 0.7)' }}
+          >
+            {briefing}
+            {isStreaming && (
+              <span
+                className="inline-block w-[2px] h-[13px] ml-0.5 align-text-bottom"
+                style={{ background: '#3b82f6', animation: 'mind-breathe 0.8s ease-in-out infinite' }}
+              />
+            )}
+          </div>
+
+          {/* Source pills */}
+          {sources.length > 0 && !isStreaming && (
+            <div className="flex flex-wrap gap-1.5 mt-3 pt-2" style={{ borderTop: '1px solid rgba(59, 130, 246, 0.08)' }}>
+              {sources.slice(0, 10).map((s, i) => (
+                <a
+                  key={i}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[8px] px-2 py-0.5 rounded-full transition-all duration-200 hover:bg-blue-500/10 truncate max-w-[200px]"
+                  style={{
+                    fontFamily: 'var(--font-jetbrains-mono), monospace',
+                    color: 'rgba(59, 130, 246, 0.7)',
+                    background: 'rgba(59, 130, 246, 0.06)',
+                    border: '1px solid rgba(59, 130, 246, 0.12)',
+                    textDecoration: 'none',
+                  }}
+                  title={s.title}
+                >
+                  {s.title.length > 35 ? s.title.slice(0, 35) + '...' : s.title}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
 /* ---- Post-Debate Synthesis ---- */
 function DebateSynthesis({ debate }: { debate: Debate }) {
   if (debate.messages.length < 2) return null;
@@ -483,6 +775,9 @@ export default function DebatePanel() {
   const cancelDebate = useDebateStore((s) => s.cancelDebate);
   const speakingMindId = useDebateStore((s) => s.speakingMindId);
   const streamingContent = useDebateStore((s) => s.streamingContent);
+  const isResearching = useDebateStore((s) => s.isResearching);
+  const researchBriefing = useDebateStore((s) => s.researchBriefing);
+  const researchSources = useDebateStore((s) => s.researchSources);
   const placedMinds = useCompanyStore((s) => s.placedMinds);
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -573,7 +868,21 @@ export default function DebatePanel() {
                   {activeDebate.topic}
                 </span>
               )}
-              {isDebateRunning && speakingArchetype && (
+              {isResearching && (
+                <div className="flex items-center gap-1.5">
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ background: '#3b82f6', animation: 'mind-breathe 1s ease-in-out infinite' }}
+                  />
+                  <span
+                    className="text-[9px] uppercase tracking-[0.12em]"
+                    style={{ color: '#3b82f6', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                  >
+                    Researching...
+                  </span>
+                </div>
+              )}
+              {isDebateRunning && !isResearching && speakingArchetype && (
                 <div className="flex items-center gap-1.5">
                   <div
                     className="w-2 h-2 rounded-full"
@@ -690,6 +999,33 @@ export default function DebatePanel() {
                     })}
                   </div>
                 </div>
+
+                {/* Research Briefing */}
+                {(researchBriefing || isResearching) && (
+                  <>
+                    {isResearching && !researchBriefing && (
+                      <div className="flex items-center justify-center py-4">
+                        <div className="flex items-center gap-2">
+                          <div
+                            className="w-2 h-2 rounded-full"
+                            style={{ background: '#3b82f6', animation: 'mind-breathe 1s ease-in-out infinite' }}
+                          />
+                          <span
+                            className="text-[10px] uppercase tracking-[0.14em]"
+                            style={{ color: 'rgba(59, 130, 246, 0.6)', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                          >
+                            Researching...
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                    <ResearchBriefingPanel
+                      briefing={researchBriefing}
+                      sources={researchSources}
+                      isStreaming={isResearching}
+                    />
+                  </>
+                )}
 
                 {/* Messages */}
                 {activeDebate.messages.map((msg) => (
