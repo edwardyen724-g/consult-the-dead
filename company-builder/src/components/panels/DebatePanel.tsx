@@ -797,9 +797,12 @@ export default function DebatePanel() {
   const [userScrolled, setUserScrolled] = useState(false);
 
   // Auto-open setup when panel opens without active debate
+  // But if there's a completed debate, show its results instead
   useEffect(() => {
     if (debatePanelOpen && !activeDebate) {
       setShowSetup(true);
+    } else if (debatePanelOpen && activeDebate && activeDebate.status === 'complete') {
+      setShowSetup(false);
     }
   }, [debatePanelOpen, activeDebate]);
 
@@ -938,7 +941,7 @@ export default function DebatePanel() {
                   Stop
                 </button>
               )}
-              {activeDebate && !isDebateRunning && (
+              {activeDebate && !isDebateRunning && !showSetup && (
                 <button
                   onClick={() => { setShowSetup(true); }}
                   className="text-[9px] uppercase tracking-[0.12em] px-2.5 py-1 rounded transition-colors hover:bg-white/5"
@@ -949,6 +952,19 @@ export default function DebatePanel() {
                   }}
                 >
                   New Debate
+                </button>
+              )}
+              {showSetup && activeDebate && !isDebateRunning && (
+                <button
+                  onClick={() => { setShowSetup(false); }}
+                  className="text-[9px] uppercase tracking-[0.12em] px-2.5 py-1 rounded transition-colors hover:bg-white/5"
+                  style={{
+                    fontFamily: 'var(--font-jetbrains-mono), monospace',
+                    color: '#71717a',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                  }}
+                >
+                  ← View Last Debate
                 </button>
               )}
               <button
