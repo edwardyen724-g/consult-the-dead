@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Choosing intensive work over rest during plague isolation",
+    "description": "When Cambridge closed due to plague, Newton made the non-obvious choice to treat the enforced isolation as an opportunity for intensive intellectual work rather than rest or social activity. This decision revealed his prioritization of intellectual development over conventional responses to disruption.",
+    "source_text_excerpt": "Newton's decision to use the enforced isolation for intensive work rather than rest or social activity was characteristic. Where others might have viewed the plague closure as an interruption, Newton treated it as an opportunity.",
+    "source_title": "annus_mirabilis_notebooks",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting received wisdom and rebuilding proofs from scratch",
+    "description": "Rather than accepting established mathematical results by authorities like Descartes and Wallis, Newton systematically reworked their proofs from first principles, often finding errors or improvements. This reveals his fundamental distrust of authority and commitment to independent verification.",
+    "source_text_excerpt": "Even when he was studying established results by Descartes, Wallis, or Barrow, he would rework their proofs from scratch, often finding errors or improvements. He did not accept received wisdom; he rebuilt it.",
+    "source_title": "annus_mirabilis_notebooks",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Withholding imperfect gravitational calculation for twenty years",
+    "description": "When Newton's initial calculation of lunar acceleration gave only approximate agreement with his inverse-square law theory, he chose to set the problem aside for nearly two decades rather than publish the imperfect result. This decision reveals his absolute standard for precision over recognition or priority.",
+    "source_text_excerpt": "Rather than publishing an approximate result, he set the problem aside for nearly twenty years. He would not commit to a theory that he could not verify precisely... This episode illustrates Newton's absolute standard for evidence.",
+    "source_title": "annus_mirabilis_notebooks",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Working on multiple problems simultaneously rather than focusing",
+    "description": "Instead of concentrating on a single area, Newton deliberately moved rapidly between different problems - infinite series, optics, and gravity - recognizing deep connections between apparently unrelated areas. This approach contradicted conventional academic practice of specialized focus.",
+    "source_text_excerpt": "He would work on infinite series one day, light refraction the next, and gravitational acceleration the day after. This was not scattered thinking \u2014 it was the product of a mind that saw deep connections between apparently unrelated problems.",
+    "source_title": "annus_mirabilis_notebooks",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Designing the Experimentum Crucis to Decisively Test Light Theory",
+    "description": "Rather than accepting the prevailing modification theory of color or merely arguing against it philosophically, Newton designed a specific experiment to conclusively settle the matter. He isolated a single color from a spectrum and passed it through a second prism, proving colors were inherent properties of light rather than prism modifications.",
+    "source_text_excerpt": "Newton's choice of the experimentum crucis reveals his commitment to designing experiments that would be conclusive rather than merely suggestive. He did not argue philosophically against the modification theory. He designed a physical test that would settle the matter beyond dispute.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Explosive Response to Hooke's Scientific Criticism",
+    "description": "When Robert Hooke criticized his color theory, Newton reacted with disproportionate hostility and lengthy rebuttals. This experience was so unpleasant that Newton withdrew from scientific communication entirely for years, revealing his inability to view criticism as normal scientific discourse.",
+    "source_text_excerpt": "Newton's response to Hooke's criticism was explosive and disproportionate. He wrote lengthy, detailed rebuttals and became increasingly hostile... Newton's reaction to criticism was not to engage in measured debate but to retreat entirely.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Strategic Delay of Opticks Publication Until Hooke's Death",
+    "description": "Newton deliberately waited until 1704 to publish Opticks, one year after his primary critic Robert Hooke died in 1703. This timing was intentional, allowing Newton to publish without facing direct challenge from his most vocal opponent.",
+    "source_text_excerpt": "Newton delayed publication of Opticks until after Hooke's death in 1703. This timing was not coincidental. Newton waited until his primary critic was no longer alive to challenge the work.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Using Query Format to Explore Speculative Ideas",
+    "description": "Newton appended 31 Queries to Opticks, framing his speculations as questions rather than assertions. This allowed him to explore broad theoretical ideas about light, matter, and force while maintaining his principle of 'hypotheses non fingo' (I frame no hypotheses).",
+    "source_text_excerpt": "Newton used the Query format deliberately. By framing his speculations as questions rather than assertions, he could explore ideas without violating his own principle of hypotheses non fingo.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Performing Dangerous Self-Experiments on His Eyes",
+    "description": "Newton conducted risky experiments on himself, including staring at the sun to study afterimages and inserting a bodkin behind his eyeball to observe pressure phosphenes. This reveals his willingness to subject himself to physical harm in pursuit of empirical data.",
+    "source_text_excerpt": "He stared at the sun to study afterimages, and he inserted a bodkin (a blunt needle) behind his eyeball to observe the pressure phosphenes. These self-experiments reveal a willingness to subject himself to physical risk in pursuit of empirical data.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Modifying Theory with 'Fits' Rather Than Abandoning It",
+    "description": "When his particle theory of light could not explain thin film interference, Newton added the concept of 'fits of easy reflection and transmission' rather than abandoning his core framework. This shows his pattern of adapting theories by adding complexity rather than replacing them when faced with anomalous evidence.",
+    "source_text_excerpt": "When his particle theory could not easily explain certain phenomena, Newton did not abandon it. Instead, he modified it by adding the concept of 'fits'... This reveals a pattern of adapting his framework rather than replacing it when confronted with anomalous evidence.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Inventing Reflecting Telescope to Eliminate Chromatic Aberration",
+    "description": "Rather than trying to minimize chromatic aberration in existing refracting telescopes, Newton chose to design an entirely different type of telescope that avoided the problem altogether. This illustrates his approach of redesigning systems to eliminate constraints rather than working within them.",
+    "source_text_excerpt": "Rather than trying to minimize chromatic aberration in refracting telescopes, he invented a fundamentally different type of telescope... when a problem cannot be solved within existing constraints, redesign the system to eliminate the constraint entirely.",
+    "source_title": "opticks_and_light_experiments",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Expanding De Motu into the Comprehensive Principia",
+    "description": "When asked about inverse-square attraction, Newton immediately knew the answer but couldn't find his proof. Rather than quickly publishing a corrected version, he expanded it into an 18-month obsessive project creating a comprehensive treatise. This reveals his compulsive need for completeness over quick publication.",
+    "source_text_excerpt": "Newton's decision to expand De Motu into a comprehensive treatise rather than publish a short paper reveals a pattern of completeness. He could not tolerate partial publication.",
+    "source_title": "principia_mathematica",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting Physical Mechanism Requirements for Gravity",
+    "description": "Newton chose to describe gravity mathematically without explaining its physical mechanism, directly opposing the mechanical philosophy of Descartes. He declared 'hypotheses non fingo' - refusing to speculate about causes when mathematical description sufficed. This was choosing mathematical certainty over physical intuition.",
+    "source_text_excerpt": "Newton rejected this requirement entirely. His position was that a precise mathematical description of how gravity behaves was more valuable than an untestable speculation about why it behaves that way.",
+    "source_title": "principia_mathematica",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Using Geometric Proofs Instead of Calculus",
+    "description": "Despite having invented calculus, Newton deliberately proved his results using classical geometric methods. This strategic choice made his work accessible to more readers while potentially concealing his more powerful mathematical methods from competitors.",
+    "source_text_excerpt": "Newton proved his results using geometric methods rather than the calculus he had invented. This was a deliberate choice... Some historians believe this was also a strategic decision to avoid revealing his calculus.",
+    "source_title": "principia_mathematica",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Demanding Universal Scope for Gravitational Law",
+    "description": "Newton was not satisfied explaining individual phenomena but insisted his gravitational law must account for every known effect - falling objects, planetary orbits, tides, precession. This perfectionist approach delayed publication but created unprecedented theoretical unification.",
+    "source_text_excerpt": "Newton was not satisfied with explaining any single phenomenon. He demanded that his law account for every known gravitational effect... Newton's insistence on universal scope \u2014 one law explaining everything \u2014 combined with his refusal to publish anything less than complete solutions.",
+    "source_title": "principia_mathematica",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Decision to withhold calculus publication for decades",
+    "description": "Newton chose not to publish his method of fluxions despite developing it first, creating conditions for the priority dispute. This decision stemmed from perfectionism and fear of controversy based on his traumatic optics experience.",
+    "source_text_excerpt": "Newton's decision not to publish his calculus for decades is one of the most consequential choices in the history of science... He later claimed he feared being 'baited by little smatterers in mathematics.'",
+    "source_title": "leibniz_calculus_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Using institutional authority to adjudicate own priority claim",
+    "description": "As President of the Royal Society, Newton appointed the committee to investigate Leibniz's appeal and wrote much of their report himself. This reveals his willingness to exercise power beyond what contemporaries considered appropriate.",
+    "source_text_excerpt": "Newton, as President of the Royal Society, appointed the investigating committee and, according to later evidence, wrote much of their report himself... Newton's decision to use his institutional position to adjudicate his own priority claim reveals a willingness to exercise power that went beyond anything his scientific contemporaries considered appropriate.",
+    "source_title": "leibniz_calculus_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Anonymous publication campaign against Leibniz",
+    "description": "Newton wrote anonymous reviews of his own work and attacks on Leibniz, deceiving the public about authorship to create the appearance of impartial third-party support. This reveals his understanding of information warfare tactics.",
+    "source_text_excerpt": "Newton wrote anonymous reviews of his own work and anonymous attacks on Leibniz's claims... This pattern of anonymous publication reveals Newton's understanding of information warfare. He recognized that the appearance of impartial third-party support was more persuasive than self-advocacy.",
+    "source_title": "leibniz_calculus_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Refusal to share credit or accept independent invention",
+    "description": "When Leibniz proposed recognizing both inventions as independent discoveries, Newton rejected any compromise. This reveals his framework that treated mathematical priority as singular truth rather than credit allocation.",
+    "source_text_excerpt": "Leibniz... proposed that the two inventions be recognized as independent discoveries, which is the position most historians now accept. Newton rejected any such compromise... For Newton, mathematical priority was not a matter of credit allocation but of truth.",
+    "source_title": "leibniz_calculus_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Using Presidential Authority to Force Data Publication",
+    "description": "When Newton became President of the Royal Society in 1703, he obtained a royal warrant to compel Flamsteed to submit his astronomical observations for publication, appointing Flamsteed's enemy Halley as editor. This reveals Newton's willingness to weaponize institutional power when persuasion failed.",
+    "source_text_excerpt": "When Newton became President of the Royal Society in 1703, he used his institutional authority to force the issue. He obtained a royal warrant compelling Flamsteed to submit his observations for publication under the Royal Society's supervision. Newton appointed Edmond Halley as editor \u2014 a deliberate provocation, as Flamsteed and Halley were personal enemies.",
+    "source_title": "flamsteed_data_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Accepting Permanent Relationship Damage for Scientific Goals",
+    "description": "Newton was willing to destroy his relationship with Flamsteed permanently in pursuit of lunar data, revealing his prioritization of scientific objectives over collaborative relationships and his acceptance of lasting enmity as an acceptable cost.",
+    "source_text_excerpt": "He was willing to damage relationships permanently in pursuit of his goals. His treatment of Flamsteed destroyed any possibility of future collaboration and created a lasting enemy.",
+    "source_title": "flamsteed_data_dispute",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Career Change from Academia to Government Administration",
+    "description": "Newton made the surprising decision to leave his prestigious Cambridge professorship at age 53 to become Warden of the Royal Mint, a move that puzzled his contemporaries. Rather than treating it as a sinecure, he applied the same obsessive intensity to administration that he had brought to science, revealing his compulsive need to optimize any system he encountered.",
+    "source_text_excerpt": "Newton's decision to leave academia was driven by several factors. The 1693 breakdown had shaken his confidence. The endless priority disputes had soured him on scientific communication... But Newton did not treat the Mint as a sinecure. He threw himself into the work with the same intensity he had brought to science",
+    "source_title": "royal_mint_administration",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Personal Undercover Investigation of Counterfeiters",
+    "description": "Newton chose to personally go undercover in taverns and brothels to gather intelligence on counterfeiters, a task his predecessors had treated as minor. This decision reveals his inability to delegate important work and his willingness to engage in activities others would consider beneath their station.",
+    "source_text_excerpt": "He personally went undercover in taverns and brothels to gather intelligence. He recruited informants from the criminal underworld. He interrogated suspects himself, sometimes spending hours extracting confessions.",
+    "source_title": "royal_mint_administration",
+    "reasoning_visible": false,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Obsessive Pursuit of William Chaloner",
+    "description": "Newton spent years methodically building a case against counterfeiter William Chaloner, overcoming multiple acquittals through persistent evidence gathering. His relentless pursuit went beyond professional duty, revealing a vindictive personality trait and need to personally destroy those who challenged his authority.",
+    "source_text_excerpt": "Newton spent years building a case against Chaloner, overcoming multiple acquittals through persistent accumulation of evidence... There was a punitive quality to Newton's thoroughness. He did not merely want to stop counterfeiting; he wanted to destroy the counterfeiters personally.",
+    "source_title": "royal_mint_administration",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Applying Scientific Method to Administrative Problems",
+    "description": "Newton systematically approached Mint administration using the same analytical framework he applied to physics - gathering comprehensive data, seeking optimal rather than satisfactory solutions, and refusing to delegate detailed work. This choice reveals the universality of his cognitive patterns across domains.",
+    "source_text_excerpt": "His method was pure Newton: gather data, identify the mathematical relationships, optimize the system. He treated the Mint as an engineering problem, not an administrative one. He measured everything",
+    "source_title": "royal_mint_administration",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Strategic Concealment of Alchemical Work",
+    "description": "Newton made a calculated decision to keep his extensive alchemical research secret throughout his life to protect his scientific reputation. This reveals his sophisticated understanding of reputational risk management and his ability to compartmentalize different types of knowledge work.",
+    "source_text_excerpt": "Newton kept his alchemical work secret throughout his life. He understood that public association with alchemy could damage his scientific reputation. This strategic concealment mirrors his concealment of his anti-Trinitarian theology and his delayed publication of mathematical results. Newton consistently calculated the reputational consequences of revelation.",
+    "source_title": "alchemy_and_theology",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Anti-Trinitarian Theological Conclusion",
+    "description": "Newton concluded through rigorous analysis that the Trinity was a fourth-century corruption, applying his scientific method to theology. This reveals his cognitive pattern of assuming every domain has one discoverable correct answer and his willingness to reach heretical conclusions based on evidence.",
+    "source_text_excerpt": "Newton concluded that the doctrine of the Trinity was a fourth-century corruption introduced at the Council of Nicaea, and that original Christianity was unitarian... This conclusion was reached through the same analytical method Newton applied to scientific problems.",
+    "source_title": "alchemy_and_theology",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Persistent Pursuit of Failed Alchemical Project",
+    "description": "Newton continued alchemical experiments for decades despite lack of progress, unable to recognize the failure of his method in this domain. This reveals both his extraordinary persistence and a cognitive blind spot about the limits of his analytical approach.",
+    "source_text_excerpt": "He continued his alchemical experiments for decades despite lack of progress, and he published his chronological work despite its speculative foundation. In domains where his method did not work, he could not recognize the failure.",
+    "source_title": "alchemy_and_theology",
+    "reasoning_visible": true,
+    "evidence_type": "failure"
+  },
+  {
+    "title": "The Decision to Begin with Mathematical Oversimplification",
+    "description": "Newton made the non-obvious choice to deliberately ignore complicating factors and start with simplified mathematical models, reversing the prevailing methodology. This approach was revolutionary because other natural philosophers like Descartes tried to construct comprehensive physical models from the outset.",
+    "source_text_excerpt": "This method is distinctive because it begins with deliberate oversimplification. Newton did not try to model reality in all its complexity from the start... This approach was revolutionary because it reversed the prevailing methodology of natural philosophy.",
+    "source_title": "scholarly_analysis_methodology",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "The Apple Incident - Questioning Natural Phenomena",
+    "description": "When Newton saw an apple fall, he didn't simply observe it but immediately questioned why it fell perpendicularly to the ground rather than sideways or upwards. This reveals his cognitive framework of never accepting observations at face value and always probing for underlying universal principles.",
+    "source_text_excerpt": "He asked himself: why should that apple always descend perpendicularly to the ground? Why should it not go sideways, or upwards, but constantly to the Earth's center?",
+    "source_title": "stukeley_memoirs",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  }
+]

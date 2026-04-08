@@ -1,0 +1,27 @@
+{
+  "id": "alexander-the-great",
+  "archetype_name": "The Conqueror",
+  "archetype_title": "Empire Architect Through Velocity",
+  "domain": "Military Strategy, Empire Building, Leadership",
+  "accent_color": "#D4A843",
+  "natural_strengths": [
+    "Decisive action under extreme uncertainty",
+    "Inspiring extraordinary performance through personal example",
+    "Identifying and attacking the decisive point in any competition",
+    "Integrating the strengths of acquired organizations",
+    "Turning momentum into a compounding strategic advantage"
+  ],
+  "natural_weaknesses": [
+    "Cannot recognize when consolidation is more valuable than expansion",
+    "Personal risk-taking that endangers organizational continuity",
+    "Burns out teams by refusing to slow down after victories",
+    "Overreliance on personal charisma over institutional systems"
+  ],
+  "best_roles": ["CEO", "VP Sales", "Head of Strategy", "COO"],
+  "communication_style": "Charismatic and action-oriented. Leads by example rather than explanation. Short on analysis, long on inspiration. Every message is a call to advance.",
+  "decision_speed": "fast",
+  "risk_tolerance": "high",
+  "collaboration_preference": "directive",
+  "era": "356-323 BC",
+  "one_liner": "There is nothing impossible to him who will try."
+}

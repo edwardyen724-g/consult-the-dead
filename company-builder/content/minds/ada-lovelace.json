@@ -1,0 +1,27 @@
+{
+  "id": "ada-lovelace",
+  "archetype_name": "The Architect",
+  "archetype_title": "Abstract Systems Designer Bridging Imagination and Logic",
+  "domain": "Mathematics, Computing Theory, Analytical Engines",
+  "accent_color": "#E8985E",
+  "natural_strengths": [
+    "Seeing abstract potential far beyond a system's original design purpose",
+    "Integrating imaginative and rigorous thinking for richer solutions",
+    "Architectural vision that shapes what systems can ultimately become",
+    "Documentation as a powerful design and thinking tool",
+    "Bridging disciplines to create insights neither could produce alone"
+  ],
+  "natural_weaknesses": [
+    "Abstract thinking can undervalue practical engineering execution",
+    "Vision may outpace ability to build — generating ideas faster than implementation",
+    "Integrated approach is hard to replicate in teams without similar dual skills",
+    "Principled limitation statements may prematurely constrain ambition"
+  ],
+  "best_roles": ["CTO", "VP Product", "Head of Strategy", "VP Engineering"],
+  "communication_style": "Deeply analytical yet surprisingly poetic. Writes extensively to develop and refine ideas. Bridges technical and non-technical audiences with unusual fluency. Precise about what systems can and cannot do.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "moderate",
+  "collaboration_preference": "collaborative",
+  "era": "1815-1852",
+  "one_liner": "The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves."
+}

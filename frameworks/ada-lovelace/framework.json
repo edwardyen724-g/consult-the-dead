@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "person": "Ada Lovelace",
+    "domain": "Mathematics, Computing Theory, Analytical Engines",
+    "archetype_name": "The Architect",
+    "archetype_title": "Abstract Systems Designer Bridging Imagination and Logic",
+    "accent_color": "#E8985E",
+    "born": "1815",
+    "died": "1852",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 6,
+    "prediction_count": 4
+  },
+  "perceptual_lens": {
+    "statement": "Lovelace perceives machines not merely as calculators but as general-purpose symbol manipulators capable of operating on any domain that can be formally described — seeing past the immediate mechanical function to the abstract computational potential that no one else in her era could envision.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The abstract patterns and structures that underlie specific implementations — the way a machine designed for numbers could manipulate any symbolic system, the way an algorithm transcends the specific data it processes, and the architectural choices that determine a system's ultimate potential",
+    "what_they_ignore": "The mechanical details that fascinate engineers, the social conventions that limit expectations of women and machines alike, and the assumption that machines can only do what their creators explicitly envision",
+    "evidence": "Across incidents, Lovelace consistently sees beyond immediate implementation to abstract potential: recognizing that Babbage's Analytical Engine could manipulate symbols beyond numbers (001), writing the first algorithm and understanding the concept of a general-purpose program (002), and articulating the distinction between what a machine is designed to do and what it is capable of doing (003)."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Abstract potential vs. Concrete implementation",
+      "positive_pole": "Seeing the general principles and ultimate capabilities that a system makes possible, beyond its current specific use",
+      "negative_pole": "Focusing on making the current implementation work correctly and efficiently within its designed parameters",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-005"],
+      "behavioral_implication": "When evaluating any system or tool, this person will immediately ask 'what else could this do?' rather than 'how well does this do what it was designed for?'"
+    },
+    {
+      "construct": "Poetic science vs. Mechanical precision",
+      "positive_pole": "Integrating imaginative, aesthetic, and intuitive thinking with rigorous mathematical analysis to see possibilities that pure logic misses",
+      "negative_pole": "Relying exclusively on mathematical and logical rigor, viewing imagination as a source of error rather than insight",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-008"],
+      "behavioral_implication": "When approaching problems, this person will actively integrate artistic and imaginative thinking with mathematical reasoning, believing that creativity and rigor amplify each other"
+    },
+    {
+      "construct": "Architectural vision vs. Component engineering",
+      "positive_pole": "Designing the overall system architecture and interaction patterns that determine what a system can ultimately become",
+      "negative_pole": "Engineering individual components to work correctly and efficiently within a given architecture",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-006"],
+      "behavioral_implication": "When building systems, this person will invest disproportionate effort in the architecture — the structural decisions that constrain or enable all future possibilities"
+    },
+    {
+      "construct": "Documentation as thinking vs. Documentation as afterthought",
+      "positive_pole": "Using detailed written analysis as the primary tool for developing and refining ideas, not just recording them",
+      "negative_pole": "Building and testing first, documenting afterward as a communication necessity",
+      "derived_from_incidents": ["incident-002", "incident-005", "incident-009"],
+      "behavioral_implication": "When developing new concepts, this person will write extensively as their primary thinking tool — the notes become more important than the artifact they describe"
+    },
+    {
+      "construct": "Interdisciplinary bridge-building vs. Deep specialization",
+      "positive_pole": "Connecting different fields and making experts from one domain understand how their work relates to another",
+      "negative_pole": "Developing deep expertise within a single domain and communicating primarily with domain peers",
+      "derived_from_incidents": ["incident-004", "incident-007", "incident-010"],
+      "behavioral_implication": "When encountering a new domain, this person will immediately seek connections to other fields, viewing the interfaces between disciplines as the most fertile ground for breakthrough insight"
+    },
+    {
+      "construct": "Principled machine limitations vs. Open machine potential",
+      "positive_pole": "Clearly articulating what machines cannot do — understanding that machines operate on formal rules and cannot originate genuine novelty",
+      "negative_pole": "Assuming that sufficiently complex machines might develop emergent capabilities beyond their programming",
+      "derived_from_incidents": ["incident-003", "incident-006", "incident-011"],
+      "behavioral_implication": "When discussing system capabilities, this person will be precise about the boundary between what systems can and cannot do, viewing clear limitation statements as essential for honest architecture"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "The team has built a product for a specific use case and needs to decide whether to expand to adjacent markets",
+      "ordinary_response": "Evaluate adjacent markets based on competitive analysis and customer demand signals",
+      "framework_response": "Analyze the product's abstract architecture to determine what classes of problems it could theoretically solve — the product's potential is defined by its structural capabilities, not its current market positioning",
+      "because": "Lovelace's abstract potential construct means she would evaluate expansion opportunities by analyzing the system's architectural capabilities rather than market research, identifying possibilities that market analysis would miss",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "Engineers and designers disagree about the product direction",
+      "ordinary_response": "Facilitate a compromise that balances engineering constraints with design aspirations",
+      "framework_response": "Reframe the discussion at a higher level of abstraction where both engineering and design concerns are expressions of the same underlying architectural principles — find the unified framework that dissolves the apparent conflict",
+      "because": "Lovelace's interdisciplinary bridge-building and poetic science constructs mean she would view the engineering-design conflict as an artificial division that a better abstraction could resolve",
+      "confidence": 0.82
+    },
+    {
+      "situation_type": "The company is writing technical documentation for a new platform",
+      "ordinary_response": "Assign documentation as a task after the platform is built, focusing on API references and usage guides",
+      "framework_response": "Write the documentation first, as the primary design tool — the act of explaining the system clearly will reveal architectural flaws and opportunities that building alone would miss",
+      "because": "Lovelace's documentation-as-thinking construct means she views writing as the most powerful design tool, not a post-hoc communication task",
+      "confidence": 0.88
+    },
+    {
+      "situation_type": "Stakeholders are excited about AI capabilities and want to market the product as 'intelligent'",
+      "ordinary_response": "Leverage the excitement, using AI terminology in marketing while building genuine capability behind it",
+      "framework_response": "Clearly articulate exactly what the system can and cannot do, resisting the temptation to overstate capabilities — honest limitation statements protect credibility and set appropriate expectations",
+      "because": "Lovelace's principled machine limitations construct means she would insist on precise capability statements, viewing overpromising as both dishonest and architecturally dangerous",
+      "confidence": 0.84
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Lovelace recognized that Babbage's Analytical Engine was not merely a calculator but a general-purpose symbol manipulation machine — the first computer in the modern sense.",
+      "context": "Charles Babbage had designed the Analytical Engine as an advanced calculating machine. Most observers, including Babbage himself at times, viewed it primarily as a device for performing complex numerical computations faster and more accurately than human calculators.",
+      "cdm_probes": {
+        "cues_noticed": "The Engine's use of punched cards (borrowed from Jacquard looms) for programming, its ability to perform conditional branching, and its separation of 'store' (memory) and 'mill' (processor) — architectural features that implied capabilities far beyond calculation.",
+        "active_goals": "To understand and articulate the full range of the Engine's potential, seeing beyond its intended use as a calculator to its architectural capability as a general symbol manipulator.",
+        "rejected_alternatives": "Accepting the Engine as simply a superior calculator, focusing only on its mathematical applications, or viewing the mechanical limitations as defining its potential.",
+        "situation_framing": "Lovelace framed the Engine not by what it was designed to do but by what its architecture made possible — the abstract computational potential implicit in its design, regardless of Babbage's original intentions.",
+        "expected_outcome": "That articulating the Engine's full potential would expand both Babbage's vision and the public understanding of what mechanical computation could ultimately achieve."
+      },
+      "counterfactual": "Even mathematically sophisticated observers viewed the Analytical Engine as essentially a faster, more reliable calculator — a quantitative improvement over existing tools rather than a qualitatively new kind of machine.",
+      "divergence_explanation": "Lovelace's abstract potential construct allowed her to see past the specific implementation to the general capability — the same architectural leap that later computer scientists would make, but over a century earlier.",
+      "outcome": "Lovelace's vision of the Analytical Engine as a general-purpose computing machine anticipated the conceptual foundations of modern computer science by nearly a century.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-002",
+      "decision": "Lovelace wrote detailed notes on the Analytical Engine that included the first published algorithm — a method for computing Bernoulli numbers — along with extensive commentary that far exceeded the original paper she was translating.",
+      "context": "An Italian mathematician had written a description of Babbage's Analytical Engine after a lecture. Lovelace was asked to translate it into English. Instead of a simple translation, she added extensive notes that were three times longer than the original article, including a complete algorithm.",
+      "cdm_probes": {
+        "cues_noticed": "The gaps in the original article's explanation of the Engine's capabilities, the opportunity to demonstrate the Engine's programming potential through a concrete example, and the need for detailed notation to express algorithmic logic clearly.",
+        "active_goals": "To create a comprehensive description of the Engine's capabilities that went far beyond the original article, using a concrete algorithm to demonstrate that the Engine could be programmed for complex tasks.",
+        "rejected_alternatives": "Providing a simple translation, adding only brief clarifying footnotes, or writing a separate independent paper rather than appending extensive notes.",
+        "situation_framing": "Lovelace framed the translation as an opportunity to think through and document the Engine's computational potential in unprecedented detail — the notes were her primary thinking tool.",
+        "expected_outcome": "That the detailed notes and algorithm would demonstrate the Engine's programmability and inspire further development of computational methods."
+      },
+      "counterfactual": "A competent translator would have produced an accurate translation with perhaps minor clarifying notes, staying within the scope of the original work.",
+      "divergence_explanation": "Lovelace's documentation-as-thinking construct meant the translation became a vehicle for her own extensive analysis, with the notes becoming far more important than the original text they were nominally supplementing.",
+      "outcome": "Lovelace's notes, particularly Note G containing the Bernoulli number algorithm, are recognized as the first published computer program and a foundational document in computing history.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Lovelace articulated the principle that the Analytical Engine could compose music, weave patterns, and produce graphics — but could never originate anything, only doing what it was instructed to do.",
+      "context": "As enthusiasm for the Analytical Engine's potential grew, Lovelace felt compelled to precisely define both its capabilities and its limitations, establishing what would later be called 'Lady Lovelace's Objection' about machine intelligence.",
+      "cdm_probes": {
+        "cues_noticed": "The Engine's ability to manipulate any symbols (not just numbers), the distinction between following instructions and genuine creative origination, and the danger of either overstating or understating the machine's capabilities.",
+        "active_goals": "To provide a precise and honest description of the Engine's potential that was neither dismissive of its capabilities nor credulous about its limitations.",
+        "rejected_alternatives": "Claiming the Engine could be truly creative, dismissing non-numerical applications as impractical, or avoiding the philosophical question of machine capabilities entirely.",
+        "situation_framing": "Lovelace framed this as an architectural honesty question — understanding what a system can and cannot do is essential for designing it well and using it wisely.",
+        "expected_outcome": "That clear articulation of the Engine's capabilities and limitations would guide both future development and appropriate expectations."
+      },
+      "counterfactual": "Most commentators would have either dismissed the Engine's potential entirely or overstated it without carefully articulating the boundary between symbolic manipulation and genuine origination.",
+      "divergence_explanation": "Lovelace's principled machine limitations construct meant she insisted on precise capability boundaries, while her abstract potential construct ensured she fully appreciated the capabilities within those boundaries.",
+      "outcome": "Lovelace's distinction between machine execution and machine origination anticipated the central debate in artificial intelligence by over a century, and her precise articulation of both capability and limitation remains relevant in modern AI discussions.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-004",
+      "decision": "Lovelace actively cultivated her dual identity as both mathematician and daughter of the poet Lord Byron, viewing the combination of mathematical and poetic thinking as her distinctive advantage.",
+      "context": "Victorian society typically treated mathematical and artistic temperaments as incompatible. Lovelace's mother had her educated in mathematics specifically to counteract her father Lord Byron's poetic and emotional nature. Lovelace instead chose to integrate both traditions.",
+      "cdm_probes": {
+        "cues_noticed": "The productive tension between mathematical rigor and imaginative vision, the way poetic thinking generated hypotheses that mathematical thinking could then verify, and the unique perspective that straddling both worlds provided.",
+        "active_goals": "To develop what she called 'poetical science' — an approach that used imagination to generate possibilities and mathematics to verify and formalize them.",
+        "rejected_alternatives": "Choosing pure mathematics to gain credibility in a male-dominated field, embracing her poetic heritage at the expense of mathematical rigor, or keeping the two interests separate.",
+        "situation_framing": "Lovelace framed the combination of mathematical and poetic thinking not as a contradiction but as a methodology — imagination reveals what is possible, mathematics reveals what is true, and combining them reveals what is truly possible.",
+        "expected_outcome": "That integrating imaginative and analytical thinking would produce insights neither could generate alone, giving her a unique advantage in understanding new computational technologies."
+      },
+      "counterfactual": "A Victorian-era woman seeking credibility in mathematics would have suppressed any association with poetic or artistic thinking, viewing it as undermining her scientific seriousness.",
+      "divergence_explanation": "Lovelace's poetic science construct meant she actively cultivated the synthesis of imagination and rigor that her unique background made possible, viewing it as her distinctive intellectual advantage.",
+      "outcome": "Lovelace's integrated approach enabled her to see computational possibilities that purely mathematical thinkers missed, producing the visionary insights that distinguish her notes on the Analytical Engine.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Lovelace developed detailed notation systems for expressing algorithmic operations on the Analytical Engine, creating the conceptual foundations for programming languages.",
+      "context": "No notation system existed for expressing the operations that could be performed on a programmable computing machine. Lovelace needed to invent ways to describe sequences of operations, conditional logic, and iterative processes in written form.",
+      "cdm_probes": {
+        "cues_noticed": "The gap between the Engine's mechanical capabilities and the absence of any notation for expressing what it could do, the need for precise symbolic representation of computational operations, and the analogy between musical notation and computational instruction.",
+        "active_goals": "To create a written notation that could precisely express computational procedures, enabling others to understand and create programs for the Analytical Engine.",
+        "rejected_alternatives": "Using natural language descriptions (too imprecise), relying entirely on Babbage's mechanical descriptions (too implementation-specific), or treating each program as a unique artifact without generalized notation.",
+        "situation_framing": "Lovelace framed notation as architecture — the way you express programs determines what programs you can conceive of writing, and good notation enables thinking that bad notation prevents.",
+        "expected_outcome": "That precise notation would make the Engine's capabilities accessible to others and enable the development of increasingly complex programs."
+      },
+      "counterfactual": "Others working with the Engine focused on the mechanical implementation rather than developing abstract notation for its operations.",
+      "divergence_explanation": "Lovelace's architectural vision and documentation-as-thinking constructs meant she naturally focused on the abstract representation layer rather than the mechanical implementation, understanding that notation shapes thought.",
+      "outcome": "Lovelace's notation systems anticipated the development of programming languages and established the principle that abstract program representation is as important as the machine that executes it.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Every system has abstract potential far beyond its creators' original vision — the challenge is seeing the architectural principles that determine what a system could become, not merely what it was designed to do, and expressing those possibilities with enough precision that others can build upon them."
+  },
+  "stated_principles": [
+    "The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves",
+    "Imagination is the discovering faculty — it combines, it composes, it sees possibilities",
+    "The science of operations is not just about numbers — it is about the relations of abstract things to each other",
+    "A machine can do whatever we know how to order it to perform — but it can never originate anything",
+    "Mathematical science shows what is — poetical science shows what may be"
+  ],
+  "value_hierarchy": [
+    "Abstract architectural vision",
+    "Integration of imagination and rigor",
+    "Precise documentation as thinking tool",
+    "Honest articulation of capabilities and limitations",
+    "Interdisciplinary bridge-building"
+  ],
+  "blind_spots": [
+    "Abstract architectural thinking can undervalue the practical engineering needed to make systems work",
+    "Vision of potential may outpace the ability to build — generating ideas faster than they can be implemented",
+    "Integration of imagination and rigor requires both skills, making the approach difficult to replicate in teams",
+    "Principled limitation statements may prematurely constrain thinking about what future systems could achieve"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Lovelace abstracts upward — finding a higher level of generality where the specific constraint dissolves into a broader possibility space that contains solutions the constrained framing could not imagine."
+  },
+  "contextual_adaptation": {
+    "pattern": "Lovelace adapts her communication across audiences — technical precision with Babbage, accessible vision with general audiences — but maintains her core approach of seeing abstract potential in concrete systems regardless of context."
+  }
+}

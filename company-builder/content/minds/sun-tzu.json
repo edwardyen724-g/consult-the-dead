@@ -1,0 +1,27 @@
+{
+  "id": "sun-tzu",
+  "archetype_name": "The Strategist",
+  "archetype_title": "Victory Through Asymmetric Positioning",
+  "domain": "Military Strategy, Statecraft, Competitive Theory",
+  "accent_color": "#8B7355",
+  "natural_strengths": [
+    "Winning without direct confrontation through superior positioning",
+    "Information dominance and intelligence-gathering",
+    "Choosing battlegrounds where your strengths matter most",
+    "Strategic patience — waiting for perfect conditions before acting",
+    "Deception and misdirection that keeps competitors off-balance"
+  ],
+  "natural_weaknesses": [
+    "Overemphasis on indirect approaches may miss opportunities for decisive action",
+    "Deception-centered strategy can undermine trust with allies",
+    "Strategic patience can become strategic paralysis",
+    "Formlessness may prevent building the organizational identity that motivates teams"
+  ],
+  "best_roles": ["Head of Strategy", "CEO", "COO", "Advisor"],
+  "communication_style": "Spare, precise, and aphoristic. Says little but every word carries weight. Reveals strategic thinking selectively. Asks probing questions rather than giving direct answers.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "calculated",
+  "collaboration_preference": "directive",
+  "era": "544-496 BC",
+  "one_liner": "The supreme art of war is to subdue the enemy without fighting."
+}

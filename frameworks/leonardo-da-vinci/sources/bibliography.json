@@ -1,0 +1,180 @@
+[
+  {
+    "title": "Luca Pacioli's Divina Proportione (Leonardo's illustrations)",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Collaboration between Leonardo and mathematician Pacioli, showing how Leonardo integrated mathematical thinking with artistic vision, and his decision-making process when balancing scientific accuracy with aesthetic considerations.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Last Supper - Technical and Restoration Studies",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Documentation of Leonardo's experimental painting technique that failed, showing his willingness to take calculated risks, learn from failure, and his decision-making process when choosing innovation over proven methods.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Sforza Horse Project Documentation",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Records of Leonardo's abandoned equestrian monument project, showing his approach to large-scale project management, technical problem-solving, and how he made decisions when faced with resource constraints and competing priorities.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Notebooks of Leonardo da Vinci (Complete Manuscripts)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Leonardo's personal notebooks containing his unfiltered thoughts, observations, and reasoning processes across all disciplines. Shows his method of visual thinking, analogical reasoning, and systematic observation. Contains his self-critiques, experimental designs, and iterative problem-solving approaches.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Codex Leicester (Gates Collection digitized)",
+    "url": "https://www.bl.uk/manuscripts/FullDisplay.aspx?ref=Add_MS_49368",
+    "source_type": "private_writing",
+    "description": "Leonardo's scientific notebook focusing on water, geology, and astronomy. Reveals his systematic approach to testing hypotheses, his willingness to challenge established authority, and his method of connecting seemingly unrelated phenomena through observation and analogy.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Madrid Codices I & II",
+    "url": "https://www.museodelprado.es/en/the-collection/art-work/madrid-codex-i/",
+    "source_type": "private_writing",
+    "description": "Engineering and mechanical studies showing Leonardo's iterative design process, his approach to solving technical problems, and his method of learning from mechanical failures. Documents his reasoning about force, motion, and machine optimization.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Letters to Ludovico Sforza and other patrons",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Correspondence showing Leonardo's strategic thinking, how he positioned himself professionally, managed competing priorities, and made decisions about which projects to pursue. Reveals his self-assessment of capabilities and limitations.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Anatomical Studies - Windsor Collection",
+    "url": "https://www.rct.uk/collection/themes/exhibitions/leonardo-da-vinci/the-queens-gallery-buckingham-palace",
+    "source_type": "private_writing",
+    "description": "Detailed anatomical drawings with notes showing Leonardo's empirical methodology, his approach to challenging received wisdom through direct observation, and his systematic method of visual investigation and documentation.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Flying Machine Studies - Codex on Flight",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Leonardo's systematic study of bird flight and mechanical flight attempts, showing his empirical methodology, his process of analogical reasoning from nature to technology, and his approach to iterative experimentation and design.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Treatise on Painting (Codex Urbinas Latinus 1270)",
+    "url": "offline",
+    "source_type": "own_published_work",
+    "description": "Leonardo's systematic approach to artistic creation, revealing his decision-making framework for visual representation, his theories about perception and reality, and his method of translating observation into artistic technique.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Giorgio Vasari's Lives of the Artists (Leonardo section)",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Account by someone who interviewed people who knew Leonardo personally. Contains anecdotes about his working methods, decision-making in artistic projects, and his approach to balancing multiple interests and commitments.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Francesco Melzi's Compilation Notes",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Notes by Leonardo's close pupil and heir who observed his daily working methods, decision-making processes, and approach to organizing knowledge. Provides insight into Leonardo's pedagogical thinking and knowledge management systems.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Mirror Writing Analysis Studies",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Academic analysis of Leonardo's mirror writing practice, revealing insights into his cognitive processing, secrecy concerns, and systematic approach to knowledge documentation. Shows his meta-cognitive awareness of his own thinking processes.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Martin Kemp's Leonardo da Vinci: The Marvellous Works of Nature and Man",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Comprehensive scholarly analysis by a leading Leonardo expert, examining his cognitive patterns, analogical thinking methods, and systematic approach to connecting diverse fields of knowledge. Based on deep analysis of primary sources.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Charles Nicholl's Leonardo da Vinci: Flights of the Mind",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Detailed biographical analysis focusing on Leonardo's psychological patterns, decision-making in key life transitions, and his cognitive approach to problem-solving. Examines his reasoning processes through careful analysis of primary sources.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

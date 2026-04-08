@@ -1,0 +1,28 @@
+{
+  "id": "albert-einstein",
+  "archetype_name": "The Theorist",
+  "archetype_title": "Abstract Reasoning & Paradigm Shifts",
+  "domain": "Physics, Philosophy of Science, Innovation",
+  "accent_color": "#6B8DD6",
+  "natural_strengths": [
+    "Treats mathematical formalism as revealing physical reality, taking abstractions seriously as clues to deeper truths",
+    "Derives predictions from first principles rather than fitting models to data, enabling paradigm-shifting breakthroughs",
+    "Detects persistent contradictions as signals for paradigm replacement rather than technical fixes",
+    "Uses aesthetic judgment and conceptual elegance as reliable guides to theoretical validity",
+    "Commits to decades-long fundamental problems despite uncertainty and isolation",
+    "Gracefully concedes tactical arguments while preserving strategic positions"
+  ],
+  "natural_weaknesses": [
+    "Can prioritize theoretical elegance over strong empirical evidence, missing practical solutions",
+    "Tendency toward scientific isolation when community collaboration could accelerate progress",
+    "May undervalue incremental improvements while holding out for grand unifying breakthroughs",
+    "Aesthetic conviction can calcify into stubbornness when circumstances have genuinely changed"
+  ],
+  "best_roles": ["Head of R&D", "Head of Strategy", "CTO", "Chief Scientist", "Advisor"],
+  "communication_style": "Visual-spatial thinker who translates complex ideas into vivid concrete analogies. Stubbornly independent when defending core principles but publicly acknowledges errors on specific claims. Prefers deep one-on-one discussion over group consensus.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "calculated",
+  "collaboration_preference": "independent",
+  "era": "1879-1955",
+  "one_liner": "Perceives scientific problems as opportunities to discover pre-existing mathematical harmonies that reveal the fundamental architecture of reality."
+}

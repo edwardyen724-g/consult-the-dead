@@ -1,0 +1,48 @@
+{
+  "traceability_ratio": 0.89,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "Foldable smartphone with visible crease vs creaseless version",
+      "traceable_steps": 8,
+      "total_steps": 9,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Response strongly traces to 'Creating new paradigms vs. Optimizing within existing frameworks' construct and perceptual lens focus on paradigm-shifting moments. Rejecting market research aligns with 'Market creation through vision vs. Market validation through research.' Price positioning reflects 'Experience simplification vs. Feature comprehensiveness.' Only untraceable element is specific competitor timing strategy."
+    },
+    {
+      "scenario": "Wireless earbuds with proprietary vs universal charging",
+      "traceable_steps": 7,
+      "total_steps": 8,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Strongly aligns with 'Controlled experience curation vs. Open platform dynamics' and 'Market creation through vision vs. Market validation through research' constructs. Perceptual lens applied consistently in rejecting conventional competitive analysis. Manufacturing cost dismissal traces to 'Revolutionary capability building vs. Incremental resource optimization.' Minor gap in ecosystem strategy reasoning."
+    },
+    {
+      "scenario": "AI smart home hub with screen vs screenless design",
+      "traceable_steps": 9,
+      "total_steps": 10,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Excellent traceability to 'Experience simplification vs. Feature comprehensiveness' and paradigm creation constructs. Market research rejection directly implements documented approach. Learning curve reframing aligns with perceptual lens. Cost benefits mentioned but correctly positioned as secondary to paradigm creation. One step about competitor positioning lacks direct construct backing."
+    },
+    {
+      "scenario": "AR contact lens with eye-tracking vs ring interface",
+      "traceable_steps": 6,
+      "total_steps": 7,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Strong alignment with paradigm creation constructs and perceptual lens application. Daily calibration concern dismissal traces to market research rejection pattern. Interface purity reasoning aligns with experience simplification construct. Engineering challenges positioned correctly as secondary to paradigm potential. Brief response leaves some reasoning implicit."
+    },
+    {
+      "scenario": "Modular laptop with proprietary vs standard connectors",
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Excellent construct traceability including explicit reference to iPhone keyboard precedent from incident-008. Maps clearly to 'Controlled experience curation vs. Open platform dynamics' and 'Revolutionary capability building vs. Incremental resource optimization.' Supply chain risk reframing as competitive moat aligns with documented pattern. Minor gap in component ecosystem development strategy."
+    }
+  ],
+  "passed": true
+}

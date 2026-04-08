@@ -1,0 +1,172 @@
+[
+  {
+    "title": "Tesla's Deposition in the Marconi Patent Case (1916)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Court testimony where Tesla explains his reasoning behind specific technical decisions in wireless technology. Under legal pressure to be precise, reveals his actual thought process behind inventions.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's World's Fair Lectures (1893) - Complete Transcripts",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Transcripts of Tesla's demonstrations and explanations at the Chicago World's Fair, showing how he reasoned about public presentation of complex ideas and his criteria for what to demonstrate.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Wardenclyffe Correspondence with J.P. Morgan (1901-1906)",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Letters documenting Tesla's struggle between commercial viability and scientific vision. Shows how he reasoned about compromising his wireless transmission goals for financial backing, revealing his prioritization process.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's AC Motor Development Crisis (1887-1888) - Technical Papers and Letters",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Documentation of Tesla's struggle to solve rotating magnetic field problems, showing his iterative reasoning, dead-end approaches, and breakthrough moments. Reveals how he processed technical failures.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Oscillator Experiments - Failure Analysis from Technical Journals",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Contemporary technical reports documenting Tesla's mechanical oscillator experiments that caused building vibrations, showing his response to unexpected consequences and risk assessment processes.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Personal Letters to Robert Underwood Johnson (1899-1922)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Correspondence with his close friend and editor, revealing Tesla's private thoughts on business decisions, scientific priorities, and personal philosophy. Shows his reasoning about patent strategies and research directions.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Laboratory Notes and Journals (Colorado Springs, 1899-1900)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Day-by-day experimental records showing Tesla's hypothesis formation, testing protocols, and iterative reasoning. Reveals how he processed failures and adjusted experimental approaches.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Electrical World Interview Series (1894-1899)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Series of technical interviews where Tesla explains his reasoning behind various inventions. Less guarded than formal publications, revealing his actual thought processes and decision criteria.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Later Years: The Poverty and Isolation Period Letters (1920-1943)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Personal correspondence during his final decades revealing how his decision-making evolved under financial and social pressure. Shows adaptation of his reasoning frameworks to changed circumstances.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "My Inventions: The Autobiography of Nikola Tesla",
+    "url": "https://www.gutenberg.org/ebooks/43440",
+    "source_type": "own_published_work",
+    "description": "Tesla's own account of his life and work, revealing his systematic approach to invention, his visualization methods, and his decision-making process. Contains detailed descriptions of his mental laboratory technique and how he reasoned through technical problems.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Problem of Increasing Human Energy (Century Magazine, 1900)",
+    "url": "https://www.tfcbooks.com/tesla/1900-06-00.htm",
+    "source_type": "own_published_work",
+    "description": "Tesla's comprehensive essay on his philosophical framework for technological progress, revealing his systematic thinking about energy, efficiency, and human advancement. Shows his decision-making criteria for choosing research directions.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Inventions, Researches and Writings of Nikola Tesla",
+    "url": "https://www.gutenberg.org/ebooks/39272",
+    "source_type": "own_published_work",
+    "description": "Collection of Tesla's technical papers showing his systematic approach to problem-solving and his reasoning about electromagnetic phenomena. Reveals his conceptual frameworks and decision logic.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Nikola Tesla: A Biography by John J. O'Neill",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Written by a science journalist who knew Tesla personally and interviewed him extensively. Contains direct quotes about Tesla's mental methods and decision-making processes, including his visualization techniques.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tesla's Mental Models of Invention by W. Bernard Carlson",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Academic analysis of Tesla's cognitive processes based on his notebooks and technical papers. Examines his visualization methods and systematic approach to invention as decision-making frameworks.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

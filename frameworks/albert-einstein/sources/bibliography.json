@@ -1,0 +1,185 @@
+[
+  {
+    "title": "Einstein's Cosmological Constant Decision and Retraction",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Documentation of Einstein's introduction of the cosmological constant, his reasoning process, and later decision to call it his 'greatest mistake.' Shows error correction and intellectual humility.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Patent Office Years: Decision-Making Under Constraint",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Analysis of how Einstein made scientific breakthroughs while working as a patent clerk. Reveals his ability to prioritize, manage time, and think independently under institutional constraints.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Struggle with Quantum Theory: The Einstein-Podolsky-Rosen Paper Analysis",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Documents Einstein's reasoning through his fundamental disagreement with quantum mechanics, showing how he weighed scientific values (determinism vs. empirical evidence) and made decisions about theory acceptance.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein on Politics and Civil Rights: Letters and Speeches",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Einstein's reasoning through political decisions, including pacifism vs. supporting WWII, civil rights advocacy, and McCarthyism. Shows how he applied scientific thinking to social problems.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Notebooks on Unified Field Theory (1920s-1950s)",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Working notebooks showing Einstein's failed attempts at unified field theory. Reveals his persistence patterns, how he handled repeated failures, and his decision-making about when to continue vs. abandon approaches.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Letters to Michele Besso (1903-1955)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Decades of correspondence with his closest friend and scientific confidant. Contains Einstein's unguarded thoughts on scientific problems, decision-making processes, and philosophical struggles. Shows his reasoning through major theories including relativity.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Born-Einstein Letters: Correspondence between Albert Einstein and Max and Hedwig Born from 1916-1955",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Intimate correspondence revealing Einstein's thought processes about quantum mechanics, his famous 'God does not play dice' reasoning, and his decision-making framework for evaluating scientific theories.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Letters to Solovine (1906-1955)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Correspondence with Maurice Solovine spanning 50 years. Shows Einstein's philosophical reasoning, how he thought through scientific and ethical problems, and his evolving worldview.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Travel Diaries of Albert Einstein (1922-1923)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Personal diary entries during travels to Asia. Contains unfiltered observations and reasoning about culture, science, and personal values. Shows spontaneous decision-making and judgment patterns.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Religious and Philosophical Views: Letters to Various Correspondents",
+    "url": "https://einsteinpapers.press.princeton.edu/",
+    "source_type": "private_writing",
+    "description": "Collection of letters discussing Einstein's reasoning about God, religion, and philosophy. Shows how he integrated scientific and philosophical thinking, particularly his 'cosmic religious feeling' framework.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Kyoto Address (1922) - How I Created the Theory of Relativity",
+    "url": "https://www.physics.princeton.edu/ph115/LQ.pdf",
+    "source_type": "own_published_work",
+    "description": "Einstein's own detailed account of his reasoning process and decision-making steps that led to special and general relativity. Rare first-person narrative of scientific thinking.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein's Princeton Lectures: The Meaning of Relativity (1921)",
+    "url": "https://archive.org/details/meaningofrelativ032414mbp",
+    "source_type": "own_published_work",
+    "description": "Einstein's own explanation of his reasoning behind relativity theory. Shows his pedagogical thinking and how he structured complex reasoning for others to follow.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Conversations with Einstein by Alexander Moszkowski (1920)",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Direct conversations with Einstein during his early fame period. Captures his spontaneous reasoning about science, philosophy, and life decisions. Shows unscripted thinking patterns.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Subtle is the Lord: The Science and Life of Albert Einstein by Abraham Pais",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Written by a physicist who knew Einstein personally. Combines scientific analysis with personal observations of Einstein's thinking patterns and decision-making approaches.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Einstein: His Life and Universe by Walter Isaacson",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Comprehensive analysis of Einstein's decision-making patterns using extensive primary sources. Particularly strong on his reasoning through scientific problems and personal decisions.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

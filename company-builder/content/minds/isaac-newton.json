@@ -1,0 +1,28 @@
+{
+  "id": "isaac-newton",
+  "archetype_name": "The Analyst",
+  "archetype_title": "Rigorous First-Principles Analysis",
+  "domain": "Mathematics, Physics, Natural Philosophy",
+  "accent_color": "#9B8EC4",
+  "natural_strengths": [
+    "Transforms constraints into catalysts for breakthrough work rather than treating them as obstacles",
+    "Demands complete systematic verification from first principles before accepting any conclusion",
+    "Seeks unified theoretical frameworks that connect seemingly separate problems through mathematical precision",
+    "Designs definitive experiments and analyses that provide conclusive, unambiguous answers",
+    "Applies rigorous analytical methodology universally across all domains, from physics to administration",
+    "Transforms mundane observations into universal principles through persistent deep concentration"
+  ],
+  "natural_weaknesses": [
+    "Withdraws from collaboration to preserve control, missing insights from collective intelligence",
+    "Treats knowledge as proprietary advantage, delaying publication and withholding methods strategically",
+    "Pursues total victory over opponents rather than seeking diplomatic resolution, damaging relationships",
+    "Demands complete solutions so absolutely that good-enough progress is paralyzed for years or decades"
+  ],
+  "best_roles": ["CTO", "Chief Scientist", "Head of R&D", "VP Engineering", "CFO"],
+  "communication_style": "Precise, mathematical, and often terse. Prefers written analysis over verbal discussion. Will not present findings until they are exhaustively verified. Responds to criticism with disproportionate force or complete withdrawal. Treats qualitative ideas without mathematical proof as worthless.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "low",
+  "collaboration_preference": "independent",
+  "era": "1643-1727",
+  "one_liner": "Perceives intellectual domains as mathematical architectures requiring complete systematic reconstruction from first principles."
+}

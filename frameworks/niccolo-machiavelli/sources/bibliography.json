@@ -1,0 +1,183 @@
+[
+  {
+    "title": "Report on Cesare Borgia (1502-1503)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Real-time diplomatic reports while observing Cesare Borgia's political maneuvers. Show Machiavelli's analytical process in action - how he reads political situations, predicts outcomes, and adjusts his assessments based on new information. Crucial for understanding his observational method.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Mission Reports to the French Court (1504, 1510)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Diplomatic dispatches revealing how Machiavelli analyzes foreign political systems in real-time. Shows his comparative method, his framework for understanding different political cultures, and decision-making under uncertainty.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Correspondence with Francesco Guicciardini",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Exchange of letters with fellow political theorist reveals Machiavelli's reasoning process when challenged by an intellectual equal. Shows how he defends positions, modifies arguments, and deals with conflicting interpretations of political events.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Letters and documents from the Medici restoration crisis (1512-1513)",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Documentation of Machiavelli's fall from power, imprisonment, and strategic miscalculations. Shows how he processed failure, adjusted his political analysis, and modified his theoretical framework based on personal experience of political downfall.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Private Letters (1498-1527)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Letters to Francesco Vettori, Francesco Guicciardini, and others reveal unguarded thoughts about political events in real-time. Show his decision-making process during personal crises, his analysis of contemporary events, and reasoning behind career moves. Most valuable for seeing thought processes without public posturing.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Letter to Francesco Vettori (December 10, 1513)",
+    "url": "https://www.brown.edu/Departments/Italian_Studies/dweb/texts/letters.php",
+    "source_type": "private_writing",
+    "description": "Famous letter describing his daily routine and the writing of The Prince. Reveals his psychological coping mechanisms, his process of historical analysis, and how he mentally transitions between different analytical modes. Critical for understanding his intellectual method.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Prince",
+    "url": "https://www.gutenberg.org/ebooks/1232",
+    "source_type": "own_published_work",
+    "description": "Machiavelli's most famous work reveals his systematic approach to political analysis, showing how he weighs competing values (morality vs. effectiveness), constructs situational frameworks, and derives principles from historical examples. Contains explicit reasoning about when to break conventional moral rules.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Discourses on Livy",
+    "url": "https://www.gutenberg.org/ebooks/10827",
+    "source_type": "own_published_work",
+    "description": "More comprehensive than The Prince, this work shows Machiavelli's reasoning process through extensive historical analysis. Reveals his method of extracting patterns from history, his framework for analyzing republics vs. principalities, and his systematic approach to understanding power dynamics.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Art of War",
+    "url": "https://www.gutenberg.org/ebooks/10817",
+    "source_type": "own_published_work",
+    "description": "Shows Machiavelli applying his analytical framework to military strategy. Reveals his systematic approach to institutional design, his reasoning about human motivation, and how he balances theoretical principles with practical constraints.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Florentine Histories",
+    "url": "https://www.gutenberg.org/ebooks/10821",
+    "source_type": "own_published_work",
+    "description": "Commissioned work that reveals how Machiavelli selects, interprets, and presents historical evidence. Shows his causal reasoning, pattern recognition in political events, and how he constructs narratives to support broader analytical frameworks.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Machiavelli and His Friends edited by Athanasios Moulakis",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Collection of contemporary accounts and correspondence that reveal how Machiavelli reasoned through political problems with his circle of humanist friends. Shows his collaborative analytical process and intellectual development.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Machiavelli: A Biography by Miles Unger",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Modern biography that reconstructs Machiavelli's decision-making process during key life moments, including his career in the Florentine government and his response to political exile. Analyzes patterns in his choices and reasoning methods.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Harvest of Late Medieval Hermeneutics: Machiavelli's Reading of Crisis by Benedetto Fontana",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Academic analysis of how Machiavelli's interpretive framework shaped his political thinking. Examines his method of reading historical texts and contemporary events, revealing the cognitive structures underlying his analysis.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Machiavelli's Romans by Mikael H\u00f6rnqvist",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Detailed analysis of how Machiavelli used Roman history as an analytical tool. Reveals his pattern-matching methodology, his framework for extracting lessons from historical precedents, and his reasoning about institutional design.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Between Friends: Discourses of Power and Desire in the Machiavelli-Vettori Letters by John Najemy",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Deep analysis of the reasoning patterns visible in Machiavelli's most intimate political correspondence. Reconstructs his decision-making methodology and reveals the psychological dimensions of his political analysis.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

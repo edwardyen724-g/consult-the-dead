@@ -1,0 +1,226 @@
+[
+  {
+    "title": "Underground Education Risk",
+    "description": "Marie chose to attend the illegal 'Floating University' in Russian-occupied Poland, risking arrest for education. This established her lifelong pattern of pursuing knowledge regardless of personal risk.",
+    "source_text_excerpt": "She made the conscious choice to risk arrest for education, establishing a lifelong pattern of pursuing knowledge regardless of personal risk.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Strategic Educational Sacrifice",
+    "description": "Marie worked as a governess for years to fund her sister's medical education, demonstrating capacity for long-term strategic sacrifice and belief in deferred gratification. She endured intellectual isolation in rural Poland while systematically saving for her future.",
+    "source_text_excerpt": "Marie worked as a governess for years to fund her sister Bronya's medical education in Paris, with the agreement that Bronya would later support Marie's studies.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Paris Over Comfort Decision",
+    "description": "Despite having built a comfortable life in Warsaw with suitors and social connections, Marie chose the uncertainty of student life in Paris, living in poverty. She prioritized intellectual development over physical comfort with remarkable consistency.",
+    "source_text_excerpt": "She lived in a tiny garret apartment, sometimes too cold to sleep, eating so poorly she occasionally fainted. She prioritized intellectual development over physical comfort with remarkable consistency.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Marriage Based on Scientific Impact",
+    "description": "Marie initially resisted Pierre's proposals because she planned to return to Poland. Pierre's argument that she could do more for science in Paris convinced her, showing she made decisions based on intellectual impact rather than personal comfort.",
+    "source_text_excerpt": "Pierre's argument that she could do more for science in Paris than in Poland eventually convinced her - but she made this decision based on where she could have the greatest intellectual impact, not personal comfort.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Public Compliance, Private Resistance to Russian Cultural Suppression",
+    "description": "As a child in Warsaw, Marie chose to excel at speaking Russian to satisfy inspectors while internally burning with resentment at cultural suppression. This early pattern of performing publicly while maintaining private convictions would serve her throughout her career in male-dominated science.",
+    "source_text_excerpt": "When the Russian inspector came to her school, she was always chosen to answer questions because she spoke perfect Russian - but she burned with silent resentment at the cultural suppression. She learned early to perform publicly while maintaining private convictions",
+    "source_title": "eve_curie_madame_curie_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Choosing Uranium Rays Over X-Rays for Doctoral Research",
+    "description": "Marie Curie deliberately chose to investigate the less fashionable uranium rays instead of the more glamorous X-rays that most scientists were pursuing. This strategic decision to work in a neglected field allowed her to begin original experimental work immediately with minimal existing literature to compete against.",
+    "source_text_excerpt": "This was a strategic decision - the field was so new that very little literature existed, allowing her to begin original experimental work almost immediately. Most scientists were focused on the more glamorous X-rays discovered by Roentgen; Curie recognized opportunity in the neglected, less fashionable area of uranium radiation.",
+    "source_title": "nobel_lecture_physics_1903",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting Photographic Method for Electrometer Precision",
+    "description": "Rather than using the established photographic plate method like Becquerel, Curie chose to measure radioactivity using the Curie electrometer for quantitative precision. This methodological choice enabled her to detect subtle anomalies that qualitative photographic evidence would have missed.",
+    "source_text_excerpt": "Instead of making these bodies act upon photographic plates, I preferred to determine the intensity of their radiation by measuring the conductivity of the air exposed to the action of the rays.",
+    "source_title": "nobel_lecture_physics_1903",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Trusting Measurements Over Theoretical Expectations",
+    "description": "When pitchblende showed higher radioactivity than pure uranium, Curie chose to trust her precise measurements rather than dismiss the result as experimental error. This decision to believe her data over expectations led to the discovery of new radioactive elements.",
+    "source_text_excerpt": "This phenomenon could be explained only by assuming that these minerals contain a substance more strongly radioactive than uranium or thorium.",
+    "source_title": "nobel_lecture_physics_1903",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Proposing Atomic Property Theory Against Scientific Consensus",
+    "description": "Curie formed the revolutionary hypothesis that radioactivity was an intrinsic atomic property rather than a molecular phenomenon, contradicting prevailing physical theory. She defended this position despite considerable skepticism from the scientific community.",
+    "source_text_excerpt": "Curie formed the revolutionary hypothesis that radioactivity was an intrinsic property of individual atoms, not a molecular or chemical phenomenon. This was a profound conceptual leap that implied atoms had complex internal structure, contradicting prevailing physical theory.",
+    "source_title": "nobel_lecture_physics_1903",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Testing ALL Elements Despite Theoretical Predictions",
+    "description": "Rather than testing only selected elements based on theoretical predictions about radioactivity, Curie chose to test every known element systematically. This decision reflects her commitment to exhaustive empirical investigation over efficient hypothesis-driven research.",
+    "source_text_excerpt": "Rather than testing selected elements based on theoretical predictions, she tested ALL known elements for radioactivity.",
+    "source_title": "scholarly_analysis_research_methodology",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Refusal of Commercial Exploitation",
+    "description": "When offered commercial rights to their radium extraction process, Marie and Pierre refused based on scientific principles. They believed discoveries should benefit humanity, not enrich the discoverers.",
+    "source_text_excerpt": "It would be contrary to the scientific spirit... If our discovery has a commercial future, that is a circumstance from which we should not profit. And if radium is to be used in treating disease, it seems to me impossible to take advantage of that.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Personal Control Over Every Scientific Process",
+    "description": "During the four-year radium isolation, Marie insisted on performing every step herself from grinding ore to final crystallization rather than delegating to assistants. This decision reflected her deep distrust of others' precision and need for complete experimental control.",
+    "source_text_excerpt": "she performed every step herself, from grinding the raw ore to the final crystallization, because she trusted no one else's precision. Each batch required weeks of careful chemical processing, and a single error could contaminate the entire sample",
+    "source_title": "eve_curie_madame_curie_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Continuing Research in Substandard Laboratory Conditions",
+    "description": "Despite working in a converted shed with no proper ventilation that leaked and had extreme temperatures, Marie and Pierre chose to continue their groundbreaking research rather than seek better facilities. They prioritized the scientific work over personal comfort.",
+    "source_text_excerpt": "The facility had no proper ventilation, leaked when it rained, and was freezing in winter and sweltering in summer. A visiting German chemist described it as 'a cross between a stable and a potato cellar.' Despite these conditions, Marie and Pierre chose to continue their work rather than seek better facilities, viewing the research as more important than comfort.",
+    "source_title": "nobel_lecture_physics_1903",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Four-Year Commitment to Radium Isolation",
+    "description": "Curie chose to spend four years isolating radium in pure form rather than publishing its discovery based on earlier spectroscopic evidence. This decision prioritized scientific certainty over professional advancement and quick publication, revealing her values hierarchy.",
+    "source_text_excerpt": "Rather than publishing radium's existence based on spectroscopic evidence, she spent four years isolating it in pure form... she could have published the discovery years earlier based on partial evidence, but she chose to produce definitive proof.",
+    "source_title": "scholarly_analysis_research_methodology",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Decision to Continue Research After Pierre's Death",
+    "description": "After Pierre's tragic death, Marie chose to throw herself into work and continue their research rather than retreat from science. This decision shaped the rest of her career and scientific legacy.",
+    "source_text_excerpt": "It is now that I feel all the value of [your teaching]. I will try to continue our work.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Accepting Pierre's Chair for Laboratory Access",
+    "description": "Marie accepted Pierre's teaching position at the Sorbonne not for honor but pragmatically - the position gave her access to laboratory and resources needed to continue research. She prioritized scientific capability over recognition.",
+    "source_text_excerpt": "Her decision was pragmatic - the position gave her access to the laboratory and resources needed to continue the research. She did not seek the honor; she sought the tools.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Continuing Pierre's Lecture Without Personal Tribute",
+    "description": "When taking over Pierre's position at the Sorbonne after his death, Curie began her first lecture by simply continuing where Pierre left off, without personal remarks or tribute. This decision prioritized scientific continuity over emotional expression, revealing her commitment to separating personal grief from professional duty.",
+    "source_text_excerpt": "She began her first lecture not with tribute to Pierre or personal remarks, but simply picked up the physics course exactly where Pierre had left off, saying: 'When one considers the progress that has been made in physics in the past ten years, one is surprised at the advance that has taken place in our ideas concerning electricity and matter.'",
+    "source_title": "nobel_lecture_chemistry_1911",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Refusing to Apologize During the Langevin Scandal",
+    "description": "Under extreme public pressure and personal attack, Curie chose not to apologize, deny, or explain her private relationship. Instead, she maintained that her personal life was irrelevant to her scientific achievements, revealing her principle of separating private conduct from professional merit.",
+    "source_text_excerpt": "She did not publicly apologize, deny, or explain. She maintained that her private life was irrelevant to her scientific work... 'The prize has been awarded for the discovery of Radium and Polonium. I believe that there is no connection between my scientific work and the facts of my private life.'",
+    "source_title": "correspondence_einstein_rutherford",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Refusing to Withdraw from Nobel Ceremony During Scandal",
+    "description": "When the Swedish Academy suggested she not attend the 1911 Nobel ceremony due to the Langevin scandal, Curie wrote a principled refusal, separating her scientific work from personal life controversies. This revealed her core value that scientific merit should be judged independently of personal matters.",
+    "source_text_excerpt": "I believe that there is no connection between my scientific work and the facts of my private life... I cannot accept the idea in principle that the appreciation of the value of scientific work should be influenced by libel and slander concerning private life.",
+    "source_title": "nobel_lecture_chemistry_1911",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Responding to Kelvin's Challenge Through Experimental Evidence",
+    "description": "When Lord Kelvin publicly challenged radium's elemental status, Curie chose to respond not through debate but by producing pure metallic radium through electrolysis. This demonstrates her preference for letting experimental evidence speak over engaging in scientific polemics.",
+    "source_text_excerpt": "Rather than engaging in polemical debate, Curie responded by producing pure metallic radium through electrolysis with Andre Debierne in 1910. She let experimental evidence speak rather than rhetoric, demonstrating radium's elemental nature beyond any possible doubt.",
+    "source_title": "nobel_lecture_chemistry_1911",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "French Academy Response",
+    "description": "After being rejected by the French Academy of Sciences due to misogynistic opposition, Marie chose never to apply again. She let her work speak rather than campaign for institutional recognition, channeling energy into building the Radium Institute instead.",
+    "source_text_excerpt": "She never applied again, choosing to let her work speak rather than campaign for institutional recognition. She channeled her energy into building the Radium Institute instead.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Redirecting Scientific Expertise to War Service",
+    "description": "When WWI broke out, Curie immediately chose to abandon fundamental research and redirect all her scientific expertise toward the war effort. This was not obvious - many scientists continued laboratory work during the war, but she chose practical application over continued research because she recognized X-ray technology could save lives immediately.",
+    "source_text_excerpt": "I am resolved to put all my strength at the service of my adopted country, since I cannot do anything for my unfortunate native country just now.",
+    "source_title": "wwi_mobile_xray_units",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Innovative Mobile X-Ray Solution",
+    "description": "Curie recognized that the problem was not technology but logistics - X-ray equipment existed but was stationary while wounded soldiers were at the front. Her innovative solution was to convert ordinary touring cars into mobile radiological units, personally persuading manufacturers and wealthy women to donate vehicles.",
+    "source_text_excerpt": "Her solution was innovative: convert ordinary touring cars into mobile radiological units. She personally persuaded automobile manufacturers to donate vehicles, convinced equipment makers to provide X-ray apparatus, and designed the conversion herself.",
+    "source_title": "wwi_mobile_xray_units",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Bringing 17-Year-Old Daughter to Front Lines",
+    "description": "Curie made the controversial decision to bring her teenage daughter Irene to the front lines as a radiological assistant, despite social scandal. Her reasoning was pragmatic - Irene was scientifically trained and capable, and there was a desperate shortage of qualified operators. This reflected her belief that capability, not age or gender, should determine one's role.",
+    "source_text_excerpt": "This decision scandalized some, but Curie's reasoning was pragmatic: Irene was scientifically trained, capable, and there was a desperate shortage of qualified operators.",
+    "source_title": "wwi_mobile_xray_units",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Dual-Purpose Institute Vision",
+    "description": "Marie designed the Radium Institute to combine fundamental research with medical applications, unusual for the era. This reflected her belief that the boundary between pure and applied science was artificial.",
+    "source_text_excerpt": "Marie conceived and built the Radium Institute (later the Curie Institute) as a dual institution combining fundamental research with medical applications of radioactivity... Her design reflected her belief that the boundary between pure and applied science was artificial.",
+    "source_title": "autobiography_pierre_curie_memoir",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Training Women Scientists Without Making Speeches About Rights",
+    "description": "Curie actively recruited women researchers but chose practical action over advocacy rhetoric. She simply ensured her laboratory was open to qualified researchers regardless of gender, revealing her preference for direct action over political statements.",
+    "source_text_excerpt": "Curie actively recruited and trained women scientists at a time when this was rare. She did not make speeches about women's rights but simply ensured that her laboratory was open to qualified researchers regardless of gender.",
+    "source_title": "correspondence_einstein_rutherford",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Trading Personal Discomfort for Research Resources in America",
+    "description": "Despite her intense dislike of publicity, Curie endured six weeks of American public appearances to obtain radium for her research. This reveals her willingness to sacrifice personal comfort for scientific advancement.",
+    "source_text_excerpt": "Curie intensely disliked publicity... Yet she agreed to Meloney's American tour because she needed the radium. Her decision to endure six weeks of public appearances... was entirely instrumental - she traded personal discomfort for research resources.",
+    "source_title": "correspondence_einstein_rutherford",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Establishing International Radioactivity Standards",
+    "description": "Curie created the first international radium standard - a sealed tube with exactly 21.99 milligrams of pure radium chloride - for worldwide radioactivity measurements. This decision reveals her understanding that scientific progress requires shared measurement frameworks beyond individual discoveries.",
+    "source_text_excerpt": "She created the first international radium standard - a sealed glass tube containing exactly 21.99 milligrams of pure radium chloride - which served as the reference for radioactivity measurements worldwide. This standardization work shows her understanding that scientific progress requires shared measurement frameworks.",
+    "source_title": "nobel_lecture_chemistry_1911",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  }
+]

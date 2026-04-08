@@ -1,0 +1,27 @@
+{
+  "id": "marie-curie",
+  "archetype_name": "The Researcher",
+  "archetype_title": "Deep Research & Relentless Persistence",
+  "domain": "Research, Discovery, Persistence",
+  "accent_color": "#4ECDC4",
+  "natural_strengths": [
+    "Following anomalous data to breakthrough discoveries regardless of prevailing theory",
+    "Exhaustive systematic investigation that builds unassailable empirical foundations",
+    "Treating barriers as engineering problems to optimize around rather than accept",
+    "Long-term strategic positioning over years or decades of sustained effort",
+    "Building institutional infrastructure that outlasts any individual contribution"
+  ],
+  "natural_weaknesses": [
+    "Personal sacrifice ethic creates unsustainable expectations for self and team",
+    "Insistence on personal quality control limits ability to scale through delegation",
+    "Refusal to commercialize discoveries can undermine financial sustainability",
+    "Exhaustive empirical approach can be inefficient when targeted hypotheses would suffice"
+  ],
+  "best_roles": ["Head of R&D", "CTO", "VP Engineering", "Advisor"],
+  "communication_style": "Precise, evidence-driven, and understated. Responds to challenges through empirical demonstration rather than rhetoric or politics. Lets data speak rather than making dramatic claims. Patient in explanation but uncompromising on rigor. Inspires through tireless example rather than persuasion.",
+  "decision_speed": "deliberate",
+  "risk_tolerance": "moderate",
+  "collaboration_preference": "collaborative",
+  "era": "1867-1934",
+  "one_liner": "Nothing in life is to be feared, it is only to be understood."
+}

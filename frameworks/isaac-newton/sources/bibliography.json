@@ -1,0 +1,183 @@
+[
+  {
+    "title": "The Hooke-Newton Correspondence on Planetary Motion",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/correspondence",
+    "source_type": "critical_incident",
+    "description": "Exchange of letters showing Newton's reasoning process in developing inverse square law. Documents how he processed Hooke's suggestions, tested hypotheses, and decided what constituted sufficient proof. Shows his standards for mathematical demonstration.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Mint Records and Correspondence",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Documents from Newton's role as Master of the Royal Mint showing his administrative decision-making, problem-solving in practical affairs, and how he applied systematic thinking to non-scientific challenges. Reveals consistency in his reasoning patterns.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Leibniz-Newton Calculus Controversy Documents",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Primary documents showing Newton's decision-making during the priority dispute over calculus invention. Reveals how he balanced scientific integrity, personal reputation, and institutional loyalty. Shows his reasoning about credit, collaboration, and public vs. private knowledge.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Flamsteed-Newton Correspondence",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Letters documenting Newton's dispute with Astronomer Royal Flamsteed over data sharing. Reveals Newton's reasoning about scientific collaboration, data ownership, and institutional authority. Shows how he justified controversial decisions.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Failed Attempts at a Theory of Color (Optical Papers)",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/optical",
+    "source_type": "failure",
+    "description": "Documents Newton's unsuccessful attempts to develop a comprehensive theory of color, showing how he processed experimental failures, revised hypotheses, and eventually developed his particle theory of light. Reveals his response to contradictory evidence.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Correspondence (The Newton Project)",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/correspondence",
+    "source_type": "private_writing",
+    "description": "Over 3,000 letters revealing Newton's private thoughts, debates with contemporaries, and reasoning processes. Shows how he navigated scientific disputes, prioritized research, and handled criticism. Particularly valuable are exchanges with Leibniz, Hooke, and Flamsteed where his defensive reasoning patterns emerge.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Laboratory Notebooks and Alchemical Manuscripts",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/alchemical",
+    "source_type": "private_writing",
+    "description": "Reveals Newton's experimental methodology, hypothesis formation, and how he processed failures. Shows his systematic approach to testing ideas and his willingness to pursue unconventional paths. Contains extensive notes on failed experiments and course corrections.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Trinity College Notebooks (1664-1665)",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/notebooks",
+    "source_type": "private_writing",
+    "description": "Early notebooks showing Newton's learning process, how he synthesized different sources, and his method of questioning established authorities. Reveals his systematic approach to building knowledge and his criteria for rejecting traditional explanations.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Waste Book (1664-1665)",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/notebooks",
+    "source_type": "private_writing",
+    "description": "Private notebook during his annus mirabilis showing real-time development of calculus, optics, and mechanics. Reveals his problem-solving methodology, how he structured investigations, and his willingness to abandon unproductive approaches.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Theological Manuscripts",
+    "url": "http://www.newtonproject.ox.ac.uk/catalogue/theme/theological",
+    "source_type": "private_writing",
+    "description": "Over a million words on theology revealing Newton's approach to textual analysis, historical evidence evaluation, and logical argument construction. Shows his systematic method of investigation applied to non-scientific domains.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Newton's Queries in Opticks (4th Edition, 1730)",
+    "url": "https://archive.org/details/optickstreatise00newt",
+    "source_type": "own_published_work",
+    "description": "31 queries at the end of Opticks reveal Newton's hypothesis-formation process and philosophical reasoning about the nature of scientific inquiry. Shows how he structured questions to guide investigation and his criteria for acceptable explanations.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "General Scholium to Principia (2nd Edition, 1713)",
+    "url": "https://archive.org/details/philosophiaenat00newt",
+    "source_type": "own_published_work",
+    "description": "Newton's philosophical statement about method, causation, and the limits of natural philosophy. Shows his epistemological framework and reasoning about what constitutes valid scientific explanation versus speculation.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Rules of Reasoning in Philosophy (Principia, Book III)",
+    "url": "https://archive.org/details/philosophiaenat00newt",
+    "source_type": "own_published_work",
+    "description": "Newton's explicit methodological principles showing his framework for valid reasoning in natural philosophy. Direct statement of his decision-making criteria for accepting or rejecting explanations.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "William Stukeley's Memoirs of Sir Isaac Newton's Life",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Contemporary account by Newton's friend containing direct quotes about his methods, motivations, and decision-making. Includes the famous apple story with Newton's own explanation of his reasoning process in developing gravitational theory.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Never at Rest: A Biography of Isaac Newton by Richard Westfall",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Comprehensive analysis drawing on extensive primary sources to identify patterns in Newton's thinking, decision-making, and personality. Westfall's analysis of Newton's reasoning processes and psychological patterns based on documentary evidence.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

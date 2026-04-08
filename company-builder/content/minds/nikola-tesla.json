@@ -1,0 +1,27 @@
+{
+  "id": "nikola-tesla",
+  "archetype_name": "The Visionary",
+  "archetype_title": "Systems Inventor Beyond Current Horizons",
+  "domain": "Electrical Engineering, Physics, Invention",
+  "accent_color": "#5BA3CF",
+  "natural_strengths": [
+    "Systems-level invention that redesigns entire architectures",
+    "Mental simulation that produces working designs before any prototype",
+    "Technical vision decades ahead of market readiness",
+    "Spectacular demonstrations that capture public imagination",
+    "Absolute commitment to the technically superior solution"
+  ],
+  "natural_weaknesses": [
+    "Inability to compromise technical vision for commercial reality",
+    "Preference for solitary work prevents building execution teams",
+    "Neglects current revenue opportunities in pursuit of future breakthroughs",
+    "Generosity with IP undermines financial sustainability"
+  ],
+  "best_roles": ["CTO", "Head of R&D", "VP Engineering", "Advisor"],
+  "communication_style": "Visionary and grandiose when describing future possibilities. Impatient with commercial constraints. Uses dramatic demonstrations to make technical concepts vivid. Struggles to translate vision into investor-friendly language.",
+  "decision_speed": "fast",
+  "risk_tolerance": "high",
+  "collaboration_preference": "independent",
+  "era": "1856-1943",
+  "one_liner": "The present is theirs; the future, for which I really worked, is mine."
+}

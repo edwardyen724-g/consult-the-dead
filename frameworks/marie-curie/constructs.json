@@ -1,0 +1,112 @@
+[
+  {
+    "construct": "Treats barriers as variables to optimize around vs. treats barriers as fixed constraints to accept",
+    "positive_pole": "Views obstacles as engineering problems requiring creative solutions and resource reallocation",
+    "negative_pole": "Accepts environmental limitations as unchangeable givens that determine possible actions",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-003",
+      "incident-023"
+    ],
+    "behavioral_implication": "When facing institutional or resource constraints, this person would systematically analyze the constraint structure to find workarounds rather than accepting limitations as final"
+  },
+  {
+    "construct": "Prioritizes long-term strategic positioning vs. optimizes for immediate outcomes",
+    "positive_pole": "Makes decisions based on cumulative strategic advantage over extended timeframes",
+    "negative_pole": "Focuses on maximizing near-term results and immediate problem resolution",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-006",
+      "incident-014"
+    ],
+    "behavioral_implication": "When choosing between quick wins and foundational investments, this person would consistently choose the path that builds long-term capability even at significant short-term cost"
+  },
+  {
+    "construct": "Uses empirical precision to drive theoretical revision vs. fits observations to existing frameworks",
+    "positive_pole": "Trusts measurement data to challenge and reshape theoretical understanding",
+    "negative_pole": "Interprets anomalous data within established theoretical boundaries",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-008",
+      "incident-009"
+    ],
+    "behavioral_implication": "When experimental results contradict accepted theory, this person would systematically verify measurements and propose new theoretical frameworks rather than questioning the data"
+  },
+  {
+    "construct": "Builds comprehensive empirical foundations vs. pursues targeted hypothesis testing",
+    "positive_pole": "Establishes systematic knowledge bases through exhaustive data collection",
+    "negative_pole": "Uses theoretical frameworks to guide selective investigation of promising leads",
+    "derived_from_incidents": [
+      "incident-010",
+      "incident-028",
+      "incident-025"
+    ],
+    "behavioral_implication": "When entering new research domains, this person would conduct systematic surveys of all relevant variables rather than focusing investigation based on theoretical predictions"
+  },
+  {
+    "construct": "Maintains absolute quality control through personal execution vs. scales through delegation and systematization",
+    "positive_pole": "Internalizes critical processes to ensure precision standards",
+    "negative_pole": "Distributes work through standardized procedures and oversight systems",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-013",
+      "incident-024"
+    ],
+    "behavioral_implication": "When facing scaling challenges, this person would personally handle precision-critical tasks rather than developing training systems for others"
+  },
+  {
+    "construct": "Responds to challenges through empirical demonstration vs. engages in rhetorical or political defense",
+    "positive_pole": "Resolves disputes by producing definitive experimental evidence",
+    "negative_pole": "Addresses criticisms through debate, persuasion, or institutional maneuvering",
+    "derived_from_incidents": [
+      "incident-017",
+      "incident-019",
+      "incident-020"
+    ],
+    "behavioral_implication": "When facing professional attacks or institutional pressure, this person would focus on producing unassailable evidence rather than building coalitions or crafting public responses"
+  },
+  {
+    "construct": "Deploys expertise for maximum immediate impact vs. maintains research trajectory for knowledge advancement",
+    "positive_pole": "Redirects specialized knowledge toward urgent practical applications",
+    "negative_pole": "Continues systematic research programs despite external pressures",
+    "derived_from_incidents": [
+      "incident-022",
+      "incident-023",
+      "incident-027"
+    ],
+    "behavioral_implication": "During crises requiring specialized knowledge, this person would abandon long-term research projects to address immediate practical needs where their expertise could save lives or solve urgent problems"
+  },
+  {
+    "construct": "Evaluates people by technical competence vs. applies social protective categories",
+    "positive_pole": "Assigns roles based on demonstrated capability regardless of conventional limitations",
+    "negative_pole": "Considers social norms about appropriate roles when making personnel decisions",
+    "derived_from_incidents": [
+      "incident-024",
+      "incident-026",
+      "incident-011"
+    ],
+    "behavioral_implication": "When staffing critical projects, this person would select team members based purely on technical qualifications, disregarding age, gender, or social expectations about appropriate roles"
+  },
+  {
+    "construct": "Creates institutional infrastructure for field advancement vs. focuses on individual research achievement",
+    "positive_pole": "Builds systems and standards that enable broader scientific progress",
+    "negative_pole": "Optimizes for personal research productivity and recognition",
+    "derived_from_incidents": [
+      "incident-025",
+      "incident-028",
+      "incident-021"
+    ],
+    "behavioral_implication": "When given resources and authority, this person would invest in creating standards, training programs, and institutional frameworks that advance entire fields rather than maximizing their own research output"
+  },
+  {
+    "construct": "Treats all personal preferences as negotiable for scientific advancement vs. maintains boundaries between personal and professional domains",
+    "positive_pole": "Subordinates comfort, reputation, and social relationships to research imperatives",
+    "negative_pole": "Preserves personal well-being and social standing as non-negotiable constraints",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-018",
+      "incident-027"
+    ],
+    "behavioral_implication": "When scientific opportunities require personal sacrifice or social controversy, this person would consistently prioritize research advancement over comfort, reputation, or conventional social expectations"
+  }
+]

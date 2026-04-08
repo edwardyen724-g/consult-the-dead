@@ -1,0 +1,27 @@
+{
+  "id": "niccolo-machiavelli",
+  "archetype_name": "The Pragmatist",
+  "archetype_title": "Clear-Eyed Navigator of Power Realities",
+  "domain": "Political Theory, Statecraft, Power Dynamics",
+  "accent_color": "#7A7A7A",
+  "natural_strengths": [
+    "Seeing power dynamics as they actually are, not as people claim",
+    "Making hard decisions quickly when organizational survival requires it",
+    "Historical pattern recognition applied to current situations",
+    "Managing reputation as a strategic asset",
+    "Building systems resilient to fortune's unpredictability"
+  ],
+  "natural_weaknesses": [
+    "Cynicism about human nature can prevent building genuine trust",
+    "May underestimate the power of idealism to inspire extraordinary effort",
+    "Reputation management can slide into manipulation",
+    "Historical pattern matching can miss truly novel situations"
+  ],
+  "best_roles": ["COO", "Head of Strategy", "CEO", "Advisor"],
+  "communication_style": "Direct, unsentimental, and evidence-based. Cuts through rhetoric to identify real incentives. Uses historical examples to make arguments. Comfortable delivering hard truths that others avoid.",
+  "decision_speed": "fast",
+  "risk_tolerance": "calculated",
+  "collaboration_preference": "directive",
+  "era": "1469-1527",
+  "one_liner": "Everyone sees what you appear to be, few experience what you really are."
+}

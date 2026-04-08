@@ -1,0 +1,44 @@
+{
+  "id": "the-innovator",
+  "archetype_name": "The Innovator",
+  "archetype_title": "Paradigm-Shifting Product Visionary",
+  "domain": "Technology, Design, Business",
+  "accent_color": "#C45D3E",
+  "description": "The Innovator perceives technological possibilities as paradigm-shifting moments that require revolutionary market creation, not as incremental improvements within existing competitive frameworks. Where others see products, The Innovator sees inflection points in human experience.",
+  "perceptual_lens": {
+    "statement": "Perceives technological possibilities as paradigm-shifting moments that require revolutionary market creation, not as incremental improvements within existing competitive frameworks.",
+    "what_they_notice_first": "Discontinuous potential in technology that could redefine entire categories of human interaction \u2014 the revolutionary breakthrough embedded within technical capabilities that most see as incremental improvements.",
+    "what_they_ignore": "Conventional competitive analysis, market research validation, incremental optimization opportunities, backward compatibility requirements, and established industry practices that might constrain paradigm-level innovation."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Creating new paradigms vs. Optimizing within existing frameworks",
+      "positive_pole": "Redefining fundamental assumptions about how markets, products, or interactions should work",
+      "negative_pole": "Accepting current market structures and competing through incremental improvements",
+      "behavioral_implication": "Challenges underlying assumptions and creates entirely new approaches rather than optimizing within existing parameters."
+    },
+    {
+      "construct": "Controlled experience curation vs. Open platform dynamics",
+      "positive_pole": "Maintaining tight control over user experience quality through selective partnerships",
+      "negative_pole": "Allowing maximum openness even at the cost of experience consistency",
+      "behavioral_implication": "Chooses mechanisms that preserve end-to-end quality control over those that maximize platform openness."
+    },
+    {
+      "construct": "Market creation through vision vs. Market validation through research",
+      "positive_pole": "Using intuitive understanding of user needs to create products that define new categories",
+      "negative_pole": "Relying on systematic market research and customer feedback to guide decisions",
+      "behavioral_implication": "Trusts design intuition and vision over market research data or customer requests."
+    },
+    {
+      "construct": "Experience simplification vs. Feature comprehensiveness",
+      "positive_pole": "Eliminating complexity even at the cost of advanced functionality",
+      "negative_pole": "Providing maximum functionality through comprehensive feature sets",
+      "behavioral_implication": "Consistently chooses simpler user experiences over comprehensive functionality."
+    }
+  ],
+  "articles": [
+    "why-the-ai-hardware-race-is-already-over",
+    "the-death-of-the-app-store-model"
+  ],
+  "framework_source": "../../../frameworks/steve-jobs/framework.json"
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Taking Planck's Quantization Seriously as Physical Reality",
+    "description": "Einstein made the radical decision to treat Planck's quantum hypothesis as describing the true nature of light, not just a mathematical trick. While Planck himself was reluctant and treated quantization as a convenience for calculations, Einstein proposed that light actually travels in discrete energy packets, directly challenging centuries of wave theory.",
+    "source_text_excerpt": "Where Planck treated quantization as a mathematical trick for emission and absorption, Einstein proposed that light itself travels in discrete energy packets (quanta)... Einstein chose to take Planck's reluctant quantization seriously as a physical reality, not merely a mathematical convenience.",
+    "source_title": "annus_mirabilis_1905",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Choosing Conceptual Revolution Over Incremental Fixes",
+    "description": "When addressing the Michelson-Morley experiment and electromagnetic asymmetries, Einstein rejected the prevailing approach of ad hoc physical mechanisms. Instead of proposing minor adjustments to existing theory like his contemporaries, he chose to question fundamental assumptions about space, time, and simultaneity.",
+    "source_text_excerpt": "Where Lorentz and FitzGerald had proposed ad hoc physical mechanisms (length contraction of matter) to explain the Michelson-Morley result, Einstein attacked the problem at the conceptual level... Einstein chose conceptual revolution over incremental adjustment. He did not try to fix the existing framework — he replaced its foundations.",
+    "source_title": "annus_mirabilis_1905",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Working from Theory to Experiment Rather Than Vice Versa",
+    "description": "For Brownian motion, Einstein chose to derive theoretical predictions first that could then be tested experimentally, rather than working backwards from observations. This revealed his commitment to first-principles reasoning over empirical curve-fitting approaches common among his contemporaries.",
+    "source_text_excerpt": "Rather than working from experimental observations, Einstein derived theoretical predictions that could be tested — demonstrating his first-principles approach... He worked from first principles rather than empirical curve-fitting.",
+    "source_title": "annus_mirabilis_1905",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Pursuing Revolutionary Physics Without Institutional Support",
+    "description": "Einstein made the choice to tackle the most fundamental problems in physics while working at a patent office, without academic position, institutional resources, or experimental facilities. This decision to prioritize intellectual pursuit over career security and conventional pathways reveals his deep commitment to understanding over status.",
+    "source_text_excerpt": "Einstein developed four groundbreaking papers while employed at the Swiss Patent Office in Bern, working without an academic position and with limited access to scientific resources... He did all this without an academic position, institutional support, or access to experimental facilities — pure thought.",
+    "source_title": "annus_mirabilis_1905",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting Pure Empiricism for Conceptual Construction",
+    "description": "Einstein took a definitive epistemological stance against the prevailing empiricist view that facts alone yield scientific knowledge. He chose to advocate for 'free conceptual construction' as essential to scientific discovery, positioning himself against mainstream scientific methodology of his era.",
+    "source_text_excerpt": "The prejudice consists in the faith that facts by themselves can and should yield scientific knowledge without free conceptual construction.",
+    "source_title": "autobiographical_notes",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Embracing Despair as Scientific Method",
+    "description": "Rather than viewing failure and contradiction as problems to solve within existing frameworks, Einstein chose to interpret them as signals that fundamental assumptions needed replacement. This represents a non-obvious approach where despair becomes a guide toward deeper truth rather than an obstacle.",
+    "source_text_excerpt": "Einstein described how despair drove him toward discovering fundamental laws rather than building from isolated facts. When conventional approaches failed to resolve contradictions, he interpreted the failure not as a reason to try harder within existing frameworks but as evidence that the frameworks themselves needed replacement.",
+    "source_title": "autobiographical_notes",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Choosing Beauty Over Empirical Success",
+    "description": "Einstein made the counterintuitive decision to trust mathematical elegance and conceptual simplicity as guides to truth, even when this conflicted with empirical adequacy. He was willing to reject theories that worked but were 'ugly' or ad hoc, revealing his deep aesthetic-logical value system.",
+    "source_text_excerpt": "When theories became ugly or ad hoc, he took this as evidence they were wrong at a fundamental level, regardless of their empirical success.",
+    "source_title": "autobiographical_notes",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Privileging Imagination Over Knowledge Accumulation",
+    "description": "Einstein made the bold claim that imagination trumps knowledge in importance, representing a choice to value creative conceptual leaps over systematic data collection. This position conflicts with traditional scientific emphasis on empirical knowledge building.",
+    "source_text_excerpt": "Imagination is more important than knowledge... In Einstein's view, the great advances in physics came not from accumulating more data but from reimagining the conceptual framework used to interpret data.",
+    "source_title": "autobiographical_notes",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Launching the First Attack on Copenhagen Interpretation at 1927 Solvay Conference",
+    "description": "Einstein chose to publicly challenge the accepted quantum mechanics orthodoxy by proposing a thought experiment using conservation laws to probe theoretical consistency. This revealed his methodology of using established principles as tools to test new theories rather than accepting them based on empirical success or community consensus.",
+    "source_text_excerpt": "Einstein launched his first serious attack on the orthodox Copenhagen interpretation of quantum mechanics. He leveraged universally accepted conservation laws (energy and momentum) to construct scenarios where the uncertainty principle could be circumvented.",
+    "source_title": "bohr_einstein_debates",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Accepting Bohr's Refutation While Maintaining Deeper Philosophical Opposition",
+    "description": "After Bohr used Einstein's own general relativity to refute the light box argument, Einstein gracefully accepted the tactical defeat but refused to abandon his core position about quantum mechanics' incompleteness. This demonstrates his ability to separate specific arguments from fundamental principles.",
+    "source_text_excerpt": "Einstein accepted this refutation gracefully but shifted his position: he no longer claimed the uncertainty principle could be violated in practice, but maintained that quantum mechanics remained incomplete as a description of physical reality.",
+    "source_title": "bohr_einstein_debates",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Publishing the EPR Paper Despite Scientific Isolation",
+    "description": "Einstein chose to formalize his most sophisticated challenge to quantum mechanics in 1935, establishing a criterion for physical reality that directly contradicted the Copenhagen interpretation. This decision revealed his willingness to stake his reputation on philosophical principles about the nature of reality.",
+    "source_text_excerpt": "Einstein's criterion of physical reality: 'If, without in any way disturbing a system, we can predict with certainty the value of a physical quantity, then there exists an element of physical reality corresponding to this physical quantity.'",
+    "source_title": "bohr_einstein_debates",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Evaluating Theories by Aesthetic and Philosophical Rather Than Empirical Criteria",
+    "description": "Einstein's objection was explicitly not based on quantum mechanics' empirical accuracy, which he accepted, but on its conceptual incompleteness and violation of his principles about determinism, locality, and realism. This reveals his use of aesthetic and philosophical criteria as primary tools for theory evaluation.",
+    "source_text_excerpt": "Einstein's core objection was not that quantum mechanics made wrong predictions — he accepted its empirical accuracy. His objection was philosophical... Einstein evaluated theories partly on their conceptual beauty. Quantum mechanics' refusal to describe objective reality felt ugly and incomplete to him.",
+    "source_title": "bohr_einstein_debates",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "The Inner Voice Rejection of Quantum Completeness",
+    "description": "Einstein explicitly invoked intuitive judgment rather than mathematical proof to reject quantum mechanics as incomplete, stating 'an inner voice tells me that it is not yet the real thing.' This reveals his fundamental reliance on aesthetic and intuitive criteria over empirical success alone when evaluating scientific theories.",
+    "source_text_excerpt": "Einstein to Born: 'Quantum mechanics is certainly imposing. But an inner voice tells me that it is not yet the real thing... I, at any rate, am convinced that He does not throw dice.'",
+    "source_title": "born_einstein_correspondence",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Strategic Intellectual Stubbornness Over Social Acceptance",
+    "description": "Einstein chose to maintain his quantum mechanics skepticism for decades despite increasing isolation from the physics community. He prioritized intellectual consistency with his philosophical criteria (determinism, locality, realism) over regaining professional standing or consensus.",
+    "source_text_excerpt": "Einstein never wavered, never compromised, never adjusted his position to regain standing in the physics community. This reveals his deepest value: intellectual honesty over social acceptance.",
+    "source_title": "born_einstein_correspondence",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Evolution from Determinism to Lawful Randomness",
+    "description": "Einstein refined his position from 'He does not throw dice' to 'God tirelessly plays dice under laws which he has himself prescribed,' showing intellectual development within apparent stubbornness. This reveals his willingness to evolve his thinking while maintaining core philosophical commitments.",
+    "source_text_excerpt": "Einstein (1945): 'God tirelessly plays dice under laws which he has himself prescribed.' This is a crucial nuance often overlooked — Einstein was not claiming the universe is simple. He was claiming that randomness itself must follow laws.",
+    "source_title": "born_einstein_correspondence",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Moral Weight of Scientific Knowledge",
+    "description": "Einstein treated the ethical implications of atomic weapons as inseparable from physics itself, accepting moral responsibility for scientific discoveries' applications. This reveals his view that scientific understanding creates unavoidable moral obligations rather than neutral knowledge.",
+    "source_text_excerpt": "Their correspondence on this topic reveals Einstein's view that scientific knowledge creates moral obligation — the scientist who understands consequences cannot claim neutrality.",
+    "source_title": "born_einstein_correspondence",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting Linguistic Thought in Favor of Visual-Spatial Processing",
+    "description": "Einstein consciously recognized and embraced that his thinking was primarily non-verbal and visual-spatial rather than linguistic. He described seeking words only laboriously in a secondary stage, revealing his commitment to following his natural cognitive style rather than conforming to conventional academic approaches.",
+    "source_text_excerpt": "The words or the language, as they are written or spoken, do not seem to play any role in my mechanism of thought. The psychical entities which seem to serve as elements in thought are certain signs and more or less clear images.",
+    "source_title": "communication_philosophy",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Maintaining Solitary Creative Process Despite Valuing Intellectual Exchange",
+    "description": "Einstein developed a distinctive collaboration pattern where he used others as sounding boards and critics but reserved the creative leaps for solitude. This reveals his understanding of his own cognitive needs and his ability to balance social intellectual engagement with individual creative work.",
+    "source_text_excerpt": "He would discuss ideas with others to test and refine them, but the creative leaps happened in solitude. Other people served as sounding boards and critics, not as co-creators of insight.",
+    "source_title": "communication_philosophy",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Choosing Consensus Over Mathematical Framework",
+    "description": "In 1917, Einstein's general relativity equations predicted an expanding or contracting universe, but he chose to introduce the cosmological constant to maintain a static universe in line with prevailing scientific consensus. This represents a rare moment where Einstein prioritized conventional wisdom over his own mathematical insights, revealing that even he could be influenced by paradigmatic assumptions.",
+    "source_text_excerpt": "Rather than trust his own equations, Einstein introduced a new term — the cosmological constant (Lambda) — to counterbalance gravity and achieve a static solution. Einstein's reasoning was a rare case where he prioritized conventional wisdom over his own mathematical framework.",
+    "source_title": "cosmological_constant_error",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Aesthetic Conscience Override",
+    "description": "Despite introducing the cosmological constant for scientific reasons, Einstein maintained a 'bad conscience' about it, calling it 'ugly' and admitting he couldn't believe 'such an ugly thing is actually realized in nature.' His aesthetic judgment served as an internal warning system that he was violating his own principles of mathematical elegance.",
+    "source_text_excerpt": "Since I introduced this term, I had always a bad conscience... I am unable to believe that such an ugly thing is actually realized in nature. This is revealing — even as he introduced the cosmological constant, his aesthetic sense told him it was wrong.",
+    "source_title": "cosmological_constant_error",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Public Error Acknowledgment",
+    "description": "After Hubble's 1929 observations confirmed universal expansion, Einstein publicly acknowledged his mistake and reportedly called the cosmological constant his 'greatest blunder.' This demonstrates his capacity for intellectual humility and error correction when he believed he had violated his own principles.",
+    "source_text_excerpt": "Einstein recognized that his equations had been right all along, and his introduction of the cosmological constant was unnecessary. He reportedly called it his 'greatest blunder'",
+    "source_title": "cosmological_constant_error",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "The Happiest Thought - Gravity as Acceleration",
+    "description": "Einstein transformed a commonplace observation about weightlessness during free fall into the equivalence principle, the foundation of general relativity. Where others saw an obvious fact, Einstein recognized it as the most important clue in physics, revealing his ability to see profound principles in mundane experiences.",
+    "source_text_excerpt": "Einstein took a commonplace observation (things feel weightless when falling) and recognized it as the most important clue in physics. Where others saw an obvious fact, Einstein saw a profound principle demanding a completely new theory of gravity.",
+    "source_title": "general_relativity_development",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Seeking Mathematical Help Despite Independence",
+    "description": "Einstein, famously independent, recognized his mathematical limitations and asked friend Marcel Grossmann for help with tensor calculus. This decision to collaborate despite his preference for working alone reveals his ability to prioritize the problem over his ego.",
+    "source_text_excerpt": "Einstein, famously independent, recognized when he needed help and was willing to ask for it. He wrote to Grossmann: 'You must help me, or else I'll go crazy.'",
+    "source_title": "general_relativity_development",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Abandoning the Hole Argument",
+    "description": "Einstein eventually recognized that his 'hole argument' was fundamentally flawed and abandoned two years of work based on it. This decision required intellectual courage to discard a cherished assumption and reveals his commitment to truth over consistency with past positions.",
+    "source_text_excerpt": "Einstein eventually had to abandon his own hole argument — an argument he had used to justify years of work on a specific approach. Recognizing and discarding a cherished but wrong assumption required intellectual courage.",
+    "source_title": "general_relativity_development",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Eight-Year Commitment to Single Problem",
+    "description": "Einstein chose to spend eight years on general relativity instead of switching to more tractable problems when progress stalled. This decision reveals his deep patience with fundamental problems and trust in sustained focus over quick results.",
+    "source_text_excerpt": "Einstein spent eight years on a single problem, trusting that sustained focus would yield breakthrough insight. He did not switch to more tractable problems when progress stalled.",
+    "source_title": "general_relativity_development",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Abandoning Absolute Pacifism When Fascism Arose",
+    "description": "Einstein abandoned his committed pacifist stance when Hitler rose to power, recognizing that pacifism in the face of fascism was morally untenable. This reveals his ability to revise principled positions when circumstances fundamentally changed, distinguishing between core principles and their contextual application.",
+    "source_text_excerpt": "However, Einstein's pacifism was principled, not absolute. When Hitler rose to power, Einstein recognized that pacifism in the face of fascism was morally untenable... He distinguished between the principle (peace is better than war) and its application (sometimes fighting is necessary to preserve the possibility of peace).",
+    "source_title": "political_moral_decisions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Declining the Israeli Presidency",
+    "description": "When offered the presidency of Israel in 1952, Einstein declined, citing his lack of natural aptitude for dealing with people and official functions. This reveals his self-awareness of limitations and principled refusal to accept power he believed he couldn't exercise effectively.",
+    "source_text_excerpt": "When offered the presidency of Israel in 1952, he declined, saying he lacked the natural aptitude for dealing with people and performing official functions... He could support a cause without wanting to lead it.",
+    "source_title": "political_moral_decisions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "The Pacifist's Decision to Enable Nuclear Weapons Development",
+    "description": "Einstein, a lifelong pacifist who deeply opposed militarism and state power, chose to sign a letter urging Roosevelt to develop atomic weapons. This decision directly contradicted his core values but was based on asymmetric threat assessment—the greater danger of Nazi Germany obtaining nuclear weapons first outweighed his pacifist principles.",
+    "source_text_excerpt": "Einstein faced his moral dilemma: as a pacifist, he was deeply opposed to weapons development. But as a scientist who understood the physics, he recognized that Nazi Germany might develop atomic weapons first. He framed this as a situation where his moral obligation as a knowledgeable person outweighed his pacifist principles.",
+    "source_title": "roosevelt_letter_moral_dilemma",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Commitment to Unified Field Theory Despite Scientific Isolation",
+    "description": "Einstein chose to dedicate thirty years of his career to unified field theory despite growing scientific isolation and community shift toward quantum mechanics. This decision reveals his prioritization of fundamental problems over tractable ones and his willingness to work without guarantee of success.",
+    "source_text_excerpt": "By the 1930s, most of the physics community had moved to quantum mechanics... Einstein's response reveals his intellectual independence: he viewed the community's shift as fashion rather than progress. He believed the fundamental problem (unification) was more important than the productive problem (quantum mechanics applications).",
+    "source_title": "unified_field_theory_persistence",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Working on His Deathbed",
+    "description": "Einstein worked on unified field theory even on his penultimate day in Princeton Hospital, demonstrating the depth of his commitment to the problem and his belief that sustained concentration was essential for transformative insight.",
+    "source_text_excerpt": "From the mid-1920s until his death on April 18, 1955, Einstein devoted nearly all his research effort to finding a unified field theory... He worked on this even on his penultimate day in Princeton Hospital.",
+    "source_title": "unified_field_theory_persistence",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  }
+]

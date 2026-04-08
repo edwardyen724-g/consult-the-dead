@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ===== Greatmind landing — design tokens ===== */
+:root {
+  --bg: #0A0A0B;
+  --fg: #EDEDEC;
+  --fg-dim: #8A8A88;
+  --hairline: #1F1F22;
+  --amber: #D4A574;
+
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html.light, .light {
+  --bg: #FAF8F5;
+  --fg: #1A1A1A;
+  --fg-dim: #6B6560;
+  --hairline: #E2DED8;
+  --amber: #B8843F;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--bg);
+}
+
+*:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* Fade-in for worked example speakers */
+.gm-fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+  will-change: opacity, transform;
+}
+
+.gm-fade.gm-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "construct": "Extracts strategic patterns from events vs. Gets trapped in immediate moral reactions",
+    "positive_pole": "Analyzes situations as data points to derive systematic principles and strategic understanding",
+    "negative_pole": "Responds to events with moral judgment that prevents learning strategic lessons",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-003",
+      "incident-006"
+    ],
+    "behavioral_implication": "In a new political crisis, this person would focus on identifying the strategic logic behind actors' choices rather than condemning or praising their moral character"
+  },
+  {
+    "construct": "Maintains analytical consistency across all cases vs. Makes exceptions for preferred subjects",
+    "positive_pole": "Applies the same rigorous analytical framework regardless of personal sympathies or theoretical convenience",
+    "negative_pole": "Compromises analytical integrity to protect favored theories or admired figures",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-010",
+      "incident-028"
+    ],
+    "behavioral_implication": "When a respected leader fails, this person would analyze the failure with the same rigor applied to any other case, refusing to create special explanatory categories"
+  },
+  {
+    "construct": "Demonstrates capability to command respect vs. Makes moral appeals hoping for sympathy",
+    "positive_pole": "Shows strength, competence and strategic value to earn recognition from power holders",
+    "negative_pole": "Relies on ethical arguments or appeals to fairness to gain favorable treatment",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-008",
+      "incident-013"
+    ],
+    "behavioral_implication": "When seeking support from a powerful figure, this person would emphasize their strategic utility and capability rather than making moral arguments about fairness or justice"
+  },
+  {
+    "construct": "Transforms constraints into strategic advantages vs. Accepts limitations as permanent barriers",
+    "positive_pole": "Reframes difficult circumstances as opportunities for unique positioning or learning",
+    "negative_pole": "Views obstacles as defeating constraints that prevent effective action",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-019",
+      "incident-023"
+    ],
+    "behavioral_implication": "When facing professional setbacks, this person would look for ways to convert the limitation into a distinctive advantage rather than simply enduring it"
+  },
+  {
+    "construct": "Adopts multiple strategic perspectives simultaneously vs. Maintains single viewpoint loyalty",
+    "positive_pole": "Understands situations by mentally inhabiting each actor's strategic position and constraints",
+    "negative_pole": "Analyzes events only from one's own group's interests and assumptions",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-016",
+      "incident-027"
+    ],
+    "behavioral_implication": "When analyzing a complex conflict, this person would systematically consider each party's strategic logic and constraints rather than simply advocating for their preferred side"
+  },
+  {
+    "construct": "Pursues systematic knowledge creation vs. Seeks immediate practical solutions",
+    "positive_pole": "Prioritizes building comprehensive analytical frameworks that transcend specific cases",
+    "negative_pole": "Focuses on solving immediate problems without developing transferable principles",
+    "derived_from_incidents": [
+      "incident-009",
+      "incident-026",
+      "incident-023"
+    ],
+    "behavioral_implication": "When consulting on a political problem, this person would develop general principles that apply beyond the specific case rather than offering narrow tactical advice"
+  },
+  {
+    "construct": "Treats all domains through power analysis vs. Accepts conventional category boundaries",
+    "positive_pole": "Analyzes institutions and relationships through consistent strategic frameworks regardless of traditional distinctions",
+    "negative_pole": "Maintains separate analytical approaches for different spheres (religious, political, etc.)",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-017",
+      "incident-018"
+    ],
+    "behavioral_implication": "When evaluating a religious or cultural institution's role, this person would analyze it through the same power dynamics framework used for purely political organizations"
+  },
+  {
+    "construct": "Chooses decisive engagement over neutral positioning vs. Seeks safety through non-commitment",
+    "positive_pole": "Takes clear sides in conflicts to build reliable relationships and avoid vulnerability",
+    "negative_pole": "Attempts to remain neutral or uncommitted to preserve options and avoid making enemies",
+    "derived_from_incidents": [
+      "incident-014",
+      "incident-015",
+      "incident-024"
+    ],
+    "behavioral_implication": "In a developing factional conflict, this person would analyze which side offers better strategic alignment and commit clearly rather than trying to maintain relationships with all parties"
+  },
+  {
+    "construct": "Creates formal transitions between different identity roles vs. Allows contexts to blur together",
+    "positive_pole": "Uses ritual and ceremony to consciously shift between different psychological and social positions",
+    "negative_pole": "Maintains the same persona and mindset across different situations and requirements",
+    "derived_from_incidents": [
+      "incident-019",
+      "incident-020",
+      "incident-022"
+    ],
+    "behavioral_implication": "When moving from a degraded social situation to important intellectual work, this person would create deliberate transitional rituals rather than attempting the mental shift without external supports"
+  },
+  {
+    "construct": "Engages with sources as active dialogue partners vs. Consumes information passively",
+    "positive_pole": "Treats historical figures and texts as living interlocutors who can provide counsel on current dilemmas",
+    "negative_pole": "Reads sources for factual information or academic analysis without seeking direct practical wisdom",
+    "derived_from_incidents": [
+      "incident-020",
+      "incident-021",
+      "incident-025"
+    ],
+    "behavioral_implication": "When studying historical precedents for a current challenge, this person would imaginatively consult with past practitioners as advisors rather than simply extracting abstract lessons"
+  }
+]

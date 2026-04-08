@@ -1,0 +1,142 @@
+[
+  {
+    "title": "The Bamboo Annals and Spring and Autumn Chronicles - Wu State Military Records",
+    "url": "https://ctext.org/chun-qiu-zuo-zhuan",
+    "source_type": "critical_incident",
+    "description": "Contemporary records of Wu state military campaigns during Sun Tzu's period. While not directly about him, these provide context for understanding the decision-making environment and strategic challenges he faced.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Warring States Period Military History and Strategy",
+    "url": "https://ctext.org/zhan-guo-ce",
+    "source_type": "critical_incident",
+    "description": "Records of military and political decisions during Sun Tzu's era, providing context for understanding the strategic environment that shaped his thinking and the types of decisions he would have faced.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Art of War (\u5b59\u5b50\u5175\u6cd5) - Original Chinese Text with Commentary",
+    "url": "https://ctext.org/art-of-war",
+    "source_type": "own_published_work",
+    "description": "Sun Tzu's complete strategic treatise showing his systematic approach to conflict analysis. Reveals his logical frameworks for assessing situations, his prioritization of intelligence over force, and his method of thinking through multiple contingencies. The original Chinese provides insights into his conceptual categories and reasoning structure.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sima Qian's Records of the Grand Historian (\u53f2\u8bb0) - Biography of Sun Tzu",
+    "url": "https://ctext.org/shiji/sun-zi-wu-qi-lie-zhuan",
+    "source_type": "firsthand_biography",
+    "description": "Contains the earliest biographical account of Sun Tzu, including the famous story of his demonstration with palace women that reveals his decision-making under pressure and his willingness to follow through on stated principles even when politically costly.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Art of War - Lionel Giles Translation with Extensive Commentary",
+    "url": "https://www.gutenberg.org/ebooks/132",
+    "source_type": "scholarly_analysis",
+    "description": "Giles' translation includes detailed analysis of Sun Tzu's reasoning patterns and strategic thinking methods. His commentary identifies recurring logical structures and decision-making frameworks throughout the text.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sun Tzu: The Art of War - Ralph Sawyer Translation and Commentary",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Sawyer's extensive historical and military analysis examines Sun Tzu's thinking within the context of Warring States period warfare. Includes analysis of how Sun Tzu's strategic concepts evolved and his decision-making methodology.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Chinese Military Texts - Strategic Thought in Ancient China",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Academic analysis comparing Sun Tzu's reasoning patterns with other ancient Chinese military theorists, revealing his unique cognitive approach and decision-making preferences.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sun Tzu's Art of War and Ancient Chinese Thought - Ames Translation",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Roger Ames' philosophical analysis of Sun Tzu's conceptual framework, examining his epistemological assumptions and how his understanding of knowledge and reality shaped his strategic thinking.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Seven Military Classics of Ancient China",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Places Sun Tzu's work in context with other military thinkers, allowing analysis of his distinctive reasoning patterns and decision-making approaches compared to contemporaries and successors.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sun Tzu's Strategic Thinking - Wee Chow Hou Analysis",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Modern strategic analysis focusing specifically on Sun Tzu's cognitive processes, decision-making patterns, and how his thinking methodology can be extracted and applied.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Tao of Physics and Ancient Chinese Strategic Thought",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Academic examination of the philosophical underpinnings of Sun Tzu's strategic thinking, particularly his use of Taoist concepts in military decision-making.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sun Tzu for Executives - Donald Krause",
+    "url": "offline",
+    "source_type": "secondary_reporting",
+    "description": "Modern interpretation of Sun Tzu's decision-making patterns applied to business contexts. While secondary, it systematically analyzes his reasoning processes and strategic thinking methods.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

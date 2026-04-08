@@ -1,0 +1,482 @@
+[
+  {
+    "id": "incident-001",
+    "decision": "Newton chose to treat the enforced plague isolation as an intensive work period rather than a time for rest or social activity.",
+    "context": "Cambridge University closed in 1665 due to plague outbreak, forcing all students and faculty into extended isolation. Most viewed this as an unwelcome interruption to normal academic life. Newton faced months of unstructured time away from formal university activities and social interactions.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived the absence of external obligations and social distractions as creating unprecedented intellectual freedom. He noticed that his physical isolation provided mental space for sustained, deep thinking without the typical interruptions of university life and social expectations.",
+      "active_goals": "Newton's operative goal was maximizing intellectual development and pursuing fundamental questions in mathematics and natural philosophy that required sustained, uninterrupted contemplation. His priority was advancing his understanding of complex problems rather than maintaining social connections or personal comfort.",
+      "rejected_alternatives": "He rejected treating this as a period of rest and recovery from academic stress. He dismissed the option of maintaining minimal intellectual activity or focusing on social correspondence. He also rejected viewing the closure as a temporary interruption to endure passively until normal life resumed.",
+      "situation_framing": "Newton framed the plague isolation as a rare gift of unstructured intellectual freedom rather than a disruptive crisis. He saw it as analogous to a scholar's retreat or sabbatical - an opportunity for deep work that would normally be impossible within the constraints of institutional life.",
+      "expected_outcome": "Newton expected that intensive, sustained work during this period would yield significant intellectual breakthroughs that would not be achievable under normal circumstances. He anticipated that the isolation would enable deeper insights than fragmented university work could produce."
+    },
+    "counterfactual": "A competent peer would have treated the closure as an unwelcome interruption, maintaining minimal intellectual activity while focusing on social correspondence, personal comfort, and waiting for normal university life to resume.",
+    "divergence_explanation": "Newton's choice differed because he possessed an unusually strong intrinsic motivation for intellectual work that made isolation energizing rather than depleting. His ability to find deep satisfaction in solitary thinking enabled him to reframe external constraint as internal opportunity, while most others experienced social isolation as a loss rather than a gain.",
+    "outcome": "This period became Newton's 'annus mirabilis' during which he developed calculus, formulated laws of motion and gravitation, and conducted groundbreaking work in optics - achievements that established the foundation of modern physics and mathematics.",
+    "source": "annus_mirabilis_notebooks"
+  },
+  {
+    "id": "incident-002",
+    "decision": "Newton decided to systematically rework all established mathematical proofs from first principles rather than accepting them on authority.",
+    "context": "Newton was studying the mathematical works of leading authorities like Descartes, Wallis, and Barrow during his formative years. The standard practice was to accept established results from recognized mathematical authorities and build upon them. Newton faced the choice of following conventional scholarly practice or investing enormous effort in independent verification.",
+    "cdm_probes": {
+      "cues_noticed": "Newton detected logical gaps, unexplained steps, and potential errors in the proofs of established authorities that other scholars overlooked or dismissed as unimportant details.",
+      "active_goals": "To achieve complete logical certainty and build an unshakeable foundation of mathematical knowledge that he could trust absolutely for future discoveries.",
+      "rejected_alternatives": "He rejected accepting results on authority alone, rejected partial verification of key steps only, and rejected the efficient scholarly practice of building directly on established work without full reconstruction.",
+      "situation_framing": "Newton framed this as a fundamental epistemological challenge rather than routine mathematical study - viewing each established result as a hypothesis requiring independent proof rather than accepted knowledge.",
+      "expected_outcome": "Newton expected that systematic reconstruction would reveal hidden errors and improvements, provide deeper understanding of underlying principles, and create a more reliable foundation for his own mathematical innovations."
+    },
+    "counterfactual": "A competent peer would have accepted the established results from recognized authorities like Descartes and Wallis, perhaps spot-checking a few key proofs, and focused their energy on extending or applying these results to new problems.",
+    "divergence_explanation": "Newton's extraordinary commitment to logical rigor and distrust of authority stemmed from his belief that mathematical truth could only be established through complete, independent verification - a standard far higher than his peers considered necessary or practical.",
+    "outcome": "Newton discovered numerous errors and improvements in established proofs, developed deeper insights into mathematical principles, and created an exceptionally solid foundation that enabled his revolutionary discoveries in calculus and mathematical physics.",
+    "source": "annus_mirabilis_notebooks"
+  },
+  {
+    "id": "incident-003",
+    "decision": "Newton decided to withhold publication of his gravitational theory for twenty years rather than release calculations showing only approximate agreement with observational data.",
+    "context": "Newton had developed his inverse-square law of gravitation and attempted to verify it by calculating lunar acceleration, but the results showed only rough agreement with his theoretical predictions. The scientific community of his era routinely published theories with acknowledged imprecisions and ongoing refinements. Newton faced the choice of publishing his groundbreaking but imperfect work or maintaining silence until achieving complete precision.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to the quantitative discrepancy between his calculated lunar acceleration and the theoretical prediction from his inverse-square law, recognizing this gap as fundamentally problematic rather than merely an acceptable approximation within current mathematical limits.",
+      "active_goals": "Newton's operative goal was maintaining absolute theoretical integrity and precision rather than securing priority, recognition, or advancing scientific discourse through incremental publication of promising but incomplete results.",
+      "rejected_alternatives": "He rejected publishing with acknowledged limitations (standard practice), seeking collaboration to resolve discrepancies, publishing preliminary results while continuing refinements, and releasing the theoretical framework separate from the problematic calculations, dismissing these because they would compromise his standard of complete verification.",
+      "situation_framing": "Newton framed this as a fundamental test of theoretical validity rather than a normal case of scientific work-in-progress, viewing the discrepancy as potentially invalidating the entire theoretical edifice rather than representing typical measurement uncertainty or computational limitations.",
+      "expected_outcome": "Newton expected that withholding publication would preserve his theoretical integrity and that eventually he would either resolve the discrepancy to achieve perfect agreement or discover fundamental flaws requiring complete theoretical revision."
+    },
+    "counterfactual": "A competent peer would have published the theory with explicit acknowledgment of the computational limitations and approximate agreement, viewing this as valuable contribution to ongoing scientific discourse while continuing to refine the calculations.",
+    "divergence_explanation": "Newton's choice diverged because he operated with an unusually absolute standard for theoretical precision that treated approximate agreement as theoretical failure, whereas his peers viewed incremental publication and gradual refinement as normal scientific practice.",
+    "outcome": "Newton's twenty-year delay ultimately led to the publication of a more complete and precise theory in the Principia, establishing gravitational mechanics with unprecedented mathematical rigor, though at the cost of delaying one of history's most important scientific advances.",
+    "source": "annus_mirabilis_notebooks"
+  },
+  {
+    "id": "incident-004",
+    "decision": "Newton chose to work simultaneously across multiple mathematical and physical domains rather than pursuing deep specialization in a single area.",
+    "context": "During his annus mirabilis period, Newton faced the conventional academic expectation of focused specialization within discrete disciplines. The established scholarly approach demanded sustained attention to one problem domain until mastery was achieved. Newton was working in relative isolation at Woolsthorpe, free from immediate institutional pressures but aware that his unconventional approach contradicted accepted practice.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived recurring mathematical patterns and structural similarities across seemingly disparate problems - the same calculus principles underlying both orbital mechanics and optics, similar infinite series appearing in gravitational and optical calculations, and analogous geometric relationships spanning multiple domains.",
+      "active_goals": "To uncover the fundamental mathematical principles that unified natural phenomena, rather than simply solving isolated problems within established disciplinary boundaries.",
+      "rejected_alternatives": "He rejected the conventional approach of sustained focus on a single domain until expertise was achieved, dismissing sequential problem-solving as inefficient, and abandoned the standard practice of working within established disciplinary silos because it obscured cross-domain connections.",
+      "situation_framing": "Newton framed this as a unified mathematical architecture underlying all natural phenomena, viewing the different problems as facets of a single coherent system rather than separate intellectual territories requiring distinct approaches.",
+      "expected_outcome": "He expected that rapid cross-domain movement would reveal hidden connections and accelerate insight generation, leading to breakthrough discoveries that specialized focus would miss."
+    },
+    "counterfactual": "A competent contemporary natural philosopher would have chosen one domain - likely optics or mechanics - and pursued systematic, deep investigation within that established field until achieving recognized expertise before moving to another area.",
+    "divergence_explanation": "Newton's exceptional pattern recognition ability allowed him to perceive structural similarities across domains that others could not see, while his isolation from academic pressure enabled him to pursue intellectually risky cross-domain work that institutional scholars would avoid.",
+    "outcome": "This approach led to simultaneous breakthroughs in calculus, optics, and gravitational theory during 1665-1666, establishing the mathematical foundations that would later become the Principia and fundamentally transforming natural philosophy.",
+    "source": "annus_mirabilis_notebooks"
+  },
+  {
+    "id": "incident-005",
+    "decision": "Newton decided to design a definitive physical experiment that would isolate a single color and test it through a second prism, rather than engage in philosophical argumentation about color theory.",
+    "context": "The prevailing modification theory held that prisms altered white light to produce colors, rather than revealing inherent properties of light itself. Newton faced a fundamental theoretical dispute that had been debated philosophically but never conclusively resolved through empirical means. The scientific community was divided on whether colors were modifications imposed by prisms or inherent properties of light rays.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that existing debates relied on philosophical reasoning rather than decisive empirical tests, and that the modification theory made a specific testable prediction: if colors were prism-induced modifications, then a single isolated color passed through a second prism should be further modified or split.",
+      "active_goals": "To settle the fundamental nature of light and color conclusively through experimental proof rather than theoretical argument, establishing a definitive empirical foundation that would end the philosophical debate permanently.",
+      "rejected_alternatives": "Newton rejected philosophical counter-argumentation against the modification theory, rejected conducting more observational studies of prismatic effects, and rejected designing experiments that would merely add evidence rather than provide conclusive proof.",
+      "situation_framing": "Newton framed this as a decisive moment requiring an experimentum crucis - a crucial experiment that would definitively discriminate between competing theories through a single, unambiguous test that one theory could survive and the other could not.",
+      "expected_outcome": "Newton expected that isolating a single spectral color and passing it unchanged through a second prism would definitively prove that colors are inherent properties of light rays, not modifications imposed by prisms, thereby conclusively refuting the modification theory."
+    },
+    "counterfactual": "A competent peer would have continued the philosophical debate by marshaling additional theoretical arguments against the modification theory, or conducted more observational studies to accumulate additional evidence supporting their position.",
+    "divergence_explanation": "Newton's mathematical and methodological training led him to seek definitive proof rather than probabilistic evidence, recognizing that only a crucial experiment could transform a theoretical dispute into settled knowledge by making one theory untenable.",
+    "outcome": "The experiment succeeded in proving that isolated spectral colors remained unchanged when passed through a second prism, definitively establishing that colors are inherent properties of light and decisively refuting the modification theory.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-006",
+    "decision": "Newton chose to withdraw completely from scientific communication rather than engage in ongoing scholarly debate about his color theory.",
+    "context": "Robert Hooke had publicly criticized Newton's theory of light and colors, challenging both specific experimental details and theoretical conclusions. This criticism occurred in the context of Royal Society proceedings where scientific debate was expected and normal. Newton faced the choice of how to respond to what he perceived as an attack on his work.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to the public nature of Hooke's criticism, the challenge to his experimental methodology, and what he interpreted as questioning of his competence and integrity as a natural philosopher. He noticed the potential for ongoing dispute and the emotional cost of defending his work.",
+      "active_goals": "Newton's operative goals were to preserve his intellectual reputation, avoid further public humiliation, and maintain control over how his work was presented and discussed. His goal was self-protection rather than advancing scientific knowledge through discourse.",
+      "rejected_alternatives": "Newton rejected engaging in measured point-by-point scientific rebuttal, seeking collaborative refinement of his theory, or treating Hooke's criticism as normal scholarly exchange. He dismissed these options because they would require ongoing vulnerability to criticism and potential loss of face.",
+      "situation_framing": "Newton framed Hooke's criticism not as standard scientific discourse but as a personal attack on his character and competence. He categorized the situation as a zero-sum conflict where engaging meant risking defeat and withdrawal meant preserving dignity.",
+      "expected_outcome": "Newton expected that withdrawal would protect him from further criticism, preserve his reputation by avoiding prolonged public dispute, and allow him to control the terms of any future scientific communication."
+    },
+    "counterfactual": "A competent peer would have responded with measured scientific rebuttals addressing Hooke's specific points, perhaps conducted follow-up experiments to resolve disputes, and continued participating in Royal Society discourse while defending their position through evidence and reasoning.",
+    "divergence_explanation": "Newton's extreme sensitivity to criticism stemmed from his perfectionist psychology and view of scientific work as extension of personal identity. Unlike peers who could separate professional critique from personal worth, Newton experienced criticism as existential threat, leading him to choose protective withdrawal over productive engagement.",
+    "outcome": "Newton indeed withdrew from scientific communication for years, depriving the scientific community of his insights and slowing progress in optics. His reputation remained intact but his contributions were delayed, and he established a pattern of hypersensitivity to criticism that would persist throughout his career.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-007",
+    "decision": "Newton chose to delay publication of Opticks until 1704, one year after Robert Hooke's death in 1703.",
+    "context": "Newton had completed substantial optical research but faced vigorous scientific opposition from Robert Hooke, who had publicly challenged Newton's theories and claimed priority on key discoveries. The scientific community operated through direct debate and correspondence, where living critics could mount sustained attacks on new publications.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that Hooke's advanced age and declining health created a finite window of opposition, observed the pattern of Hooke's aggressive challenges to his previous work, and noted that posthumous publication would eliminate the possibility of direct rebuttal and priority disputes.",
+      "active_goals": "To ensure his optical theories would be received without immediate systematic refutation, to establish definitive priority for his discoveries, and to control the scientific narrative around his work by eliminating his most knowledgeable and persistent critic.",
+      "rejected_alternatives": "Publishing immediately despite Hooke's opposition (rejected due to certainty of vigorous challenge), engaging in direct debate with Hooke (rejected due to previous bitter exchanges), and seeking institutional arbitration (rejected as unreliable and potentially damaging to reputation).",
+      "situation_framing": "Newton framed this as a strategic timing problem rather than a scientific publication decision - treating it as a battlefield where the elimination of the primary opponent would ensure victory rather than a scholarly discourse requiring immediate contribution.",
+      "expected_outcome": "Newton anticipated that Opticks would be received as authoritative without facing systematic challenge, his optical theories would become accepted doctrine, and he would be credited as the sole originator of key optical discoveries without competing claims."
+    },
+    "counterfactual": "A competent peer would have published their completed research promptly, engaged with Hooke's criticisms through normal scientific discourse, and relied on the strength of their experimental evidence to establish priority and credibility.",
+    "divergence_explanation": "Newton's strategic thinking diverged from typical scientific practice because he viewed scientific publication through the lens of personal reputation management and intellectual warfare rather than collaborative knowledge advancement, leading him to prioritize tactical advantage over timely contribution to scientific progress.",
+    "outcome": "Opticks was published in 1704 to widespread acclaim without major opposition, became a foundational text in optics, and established Newton's unchallenged authority in the field, though the delay meant optical science progressed more slowly than it might have otherwise.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-008",
+    "decision": "Newton chose to frame his speculative ideas about light, matter, and force as 31 Queries appended to Opticks rather than presenting them as direct theoretical assertions.",
+    "context": "Newton had developed extensive speculative ideas about the nature of light, matter, and forces that went beyond his experimental findings in optics. However, he was committed to his methodological principle of 'hypotheses non fingo' (I frame no hypotheses), which meant avoiding unsupported theoretical claims. He needed a way to explore and communicate these ideas without compromising his empirical standards.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized the tension between his rich speculative insights and his methodological commitment to avoid unfounded hypotheses. He noticed that his speculative ideas were valuable but couldn't be presented as established facts, and he perceived the rhetorical power of the interrogative format to signal intellectual humility while still advancing ideas.",
+      "active_goals": "Newton's operative goals were to explore and communicate his theoretical speculations about natural philosophy while maintaining his methodological integrity and reputation for empirical rigor, and to influence scientific discourse by seeding important questions for future investigation.",
+      "rejected_alternatives": "Newton rejected presenting these ideas as direct theoretical assertions (which would violate hypotheses non fingo), omitting them entirely from publication (which would waste valuable insights), and burying them in technical sections (which would limit their influence). He dismissed these because they either compromised his principles or failed to maximize the ideas' impact.",
+      "situation_framing": "Newton framed this as a rhetorical and methodological challenge requiring an innovative communication strategy. He saw it as analogous to a teacher posing questions to guide students' thinking - the Query format would stimulate investigation while maintaining appropriate epistemic distance from unproven claims.",
+      "expected_outcome": "Newton expected the Query format would allow him to influence scientific thinking by raising important questions, maintain his reputation for methodological rigor, stimulate future research in productive directions, and create a precedent for how to communicate speculative but valuable ideas in natural philosophy."
+    },
+    "counterfactual": "A competent peer would likely have either presented these ideas as tentative hypotheses with appropriate caveats, or relegated them to private correspondence and unpublished notes, following conventional academic practices of the time.",
+    "divergence_explanation": "Newton's choice differed because of his unique combination of methodological scrupulosity and rhetorical sophistication. His deep commitment to 'hypotheses non fingo' was more stringent than typical scholarly caution, while his understanding of how interrogative formats could simultaneously advance and protect ideas reflected exceptional strategic thinking about scientific communication.",
+    "outcome": "The Queries became highly influential in 18th-century natural philosophy, stimulating research programs in areas like the nature of matter, forces, and light while establishing a model for how to communicate speculative ideas responsibly. They allowed Newton to shape scientific discourse beyond his experimental findings without compromising his methodological reputation.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-009",
+    "decision": "Newton decided to conduct direct physical experiments on his own eyes, including staring at the sun and inserting a bodkin behind his eyeball.",
+    "context": "Newton was investigating the nature of vision, color perception, and optical phenomena in an era before established experimental protocols or ethical guidelines. He had limited access to willing experimental subjects and faced constraints in available instrumentation for studying subjective visual experiences.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that subjective visual phenomena like afterimages and pressure phosphenes could only be studied through direct first-person observation, and that his own eyes provided the most accessible and controllable experimental apparatus for investigating the mechanics of vision.",
+      "active_goals": "To obtain empirical data about the fundamental mechanisms of vision and light perception that could not be gathered through external observation alone, prioritizing the acquisition of novel scientific knowledge over personal safety.",
+      "rejected_alternatives": "He likely rejected using animal subjects (insufficient for studying subjective visual experience), recruiting human volunteers (limited availability and ethical concerns of the era), purely theoretical approaches (insufficient empirical grounding), and indirect measurement methods (inadequate for capturing subjective phenomena).",
+      "situation_framing": "Newton framed this as a controlled scientific investigation where his body was both the experimental apparatus and the measuring instrument, similar to how natural philosophers of his era viewed themselves as integrated components of their experimental systems.",
+      "expected_outcome": "Newton expected to gather unique empirical data about visual perception mechanisms that would advance understanding of optics and vision, likely believing he could control the experiments sufficiently to avoid permanent damage while obtaining scientifically valuable observations."
+    },
+    "counterfactual": "A competent peer would have focused on safer external optical experiments using lenses, prisms, and projected light sources, or developed indirect methods to study vision without risking eye damage.",
+    "divergence_explanation": "Newton's exceptional commitment to empirical methodology combined with his belief that certain subjective phenomena required first-person observation led him to view personal risk as an acceptable cost for advancing scientific knowledge, whereas peers would have been constrained by normal risk-aversion.",
+    "outcome": "Newton successfully gathered novel data about afterimages and pressure phosphenes that contributed to his optical theories, though he reportedly suffered temporary vision problems and had to recover in darkness for several days.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-010",
+    "decision": "Newton decided to modify his particle theory of light by adding the concept of 'fits of easy reflection and transmission' rather than abandoning the theory when confronted with thin film interference phenomena.",
+    "context": "Newton had developed a comprehensive particle theory of light based on extensive experimental work and mathematical analysis. However, thin film interference patterns - such as the colorful bands seen in soap bubbles or oil films - presented anomalous evidence that his simple particle model could not readily explain. This created a critical decision point about how to handle contradictory empirical data.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed that his particle theory successfully explained most optical phenomena (reflection, refraction, dispersion) but failed to account for the periodic color patterns in thin films. He recognized that the interference patterns showed regular, predictable variations that suggested an underlying systematic cause rather than random noise or experimental error.",
+      "active_goals": "Newton's operative goal was preserving the mathematical elegance and explanatory power of his established theoretical framework while maintaining empirical adequacy. He sought to extend rather than replace his successful particle model, aiming to demonstrate theoretical continuity and avoid the intellectual cost of abandoning years of theoretical development.",
+      "rejected_alternatives": "Newton rejected abandoning his particle theory entirely in favor of wave theories of light, likely dismissing this as unnecessarily radical given his theory's successes. He also rejected simply ignoring the anomalous data or treating thin film effects as experimental artifacts, recognizing their systematic nature demanded theoretical accommodation.",
+      "situation_framing": "Newton framed this as a problem of theoretical extension rather than theoretical crisis. He categorized the situation as requiring incremental modification of a fundamentally sound framework - similar to how astronomers added epicycles to preserve planetary theories - rather than a paradigm-threatening anomaly requiring revolutionary change.",
+      "expected_outcome": "Newton expected that adding 'fits' would preserve his particle theory's explanatory successes while extending its scope to cover thin film phenomena. He anticipated this modification would maintain theoretical coherence and demonstrate that particle optics could accommodate apparent wave-like behaviors through more sophisticated particle dynamics."
+    },
+    "counterfactual": "A competent peer scientist would likely have either adopted emerging wave theories of light to explain interference phenomena, or acknowledged the limitations of particle theory and suspended judgment pending further evidence, rather than adding complex ad hoc modifications.",
+    "divergence_explanation": "Newton's choice reflected his exceptional commitment to mathematical unification and theoretical parsimony. His deep investment in the particle framework, combined with his pattern of preferring mathematical complexity over theoretical plurality, led him to extend existing theory rather than embrace competing frameworks. His confidence in mathematical description overrode concerns about theoretical elegance.",
+    "outcome": "The 'fits' concept successfully preserved Newton's particle theory in the short term and explained thin film interference mathematically, but the modification was ultimately recognized as ad hoc when wave optics provided more natural explanations. This decision delayed but did not prevent the eventual acceptance of wave theories of light.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-011",
+    "decision": "Newton decided to abandon refracting telescope design entirely and invent a reflecting telescope using mirrors instead of lenses.",
+    "context": "Newton was investigating chromatic aberration - the splitting of white light into colors by glass lenses - which created blurred, rainbow-fringed images in all existing refracting telescopes. Contemporary optical instrument makers were focused on minimizing this aberration through better lens grinding and combinations.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed that chromatic aberration was not a manufacturing defect but an inherent property of how glass refracts different wavelengths of light at different angles - a fundamental physical constraint that no amount of lens refinement could eliminate.",
+      "active_goals": "To create a telescope that could produce sharp, undistorted images by completely eliminating chromatic aberration rather than merely reducing it to acceptable levels.",
+      "rejected_alternatives": "He rejected the conventional approaches of using higher quality glass, different lens curvatures, or compound lens systems because these still relied on refraction and would inevitably produce some color separation regardless of craftsmanship.",
+      "situation_framing": "Newton framed this as a fundamental constraint elimination problem rather than an optimization problem - recognizing that mirrors reflect all wavelengths equally and therefore bypass the physics of chromatic aberration entirely.",
+      "expected_outcome": "Newton expected that a properly designed reflecting telescope would produce images completely free of chromatic aberration while maintaining or improving magnification and clarity compared to refracting telescopes."
+    },
+    "counterfactual": "A competent peer would have continued working within the refracting telescope paradigm, experimenting with different glass compositions, lens shapes, or multi-element designs to minimize chromatic aberration.",
+    "divergence_explanation": "Newton's deep understanding of the physics of light refraction allowed him to recognize chromatic aberration as an insurmountable constraint of the refracting approach, leading him to reconceptualize the entire optical system around reflection rather than optimization within existing constraints.",
+    "outcome": "Newton successfully created the first practical reflecting telescope, eliminating chromatic aberration and establishing a new paradigm in telescope design that remains dominant in modern astronomy.",
+    "source": "opticks_and_light_experiments"
+  },
+  {
+    "id": "incident-012",
+    "decision": "Newton decided to expand his brief De Motu demonstration into a comprehensive 18-month treatise rather than quickly publishing a corrected proof.",
+    "context": "When Halley asked Newton about inverse-square attraction, Newton immediately knew the answer was an ellipse but couldn't locate his proof. He promised to send a corrected demonstration but instead embarked on creating what would become the Principia. The scientific community expected a brief paper resolving the orbital mechanics question.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed the interconnectedness of the orbital problem with broader questions of force, motion, and celestial mechanics that his brief proof had left unaddressed. He perceived gaps and loose ends in the mathematical foundation that others might have overlooked or accepted as adequate for the immediate question.",
+      "active_goals": "Newton's operative goal was achieving mathematical completeness and systematic rigor rather than priority of publication. He was driven to construct a unified theoretical framework that would definitively establish the principles of natural philosophy rather than merely answering Halley's specific question.",
+      "rejected_alternatives": "Newton rejected the standard academic approach of publishing incremental findings, dismissing quick publication as intellectually insufficient. He also rejected collaborative development or sharing partial results, viewing incomplete work as fundamentally unsatisfactory regardless of its practical utility or priority value.",
+      "situation_framing": "Newton framed this not as a simple question-and-answer exchange but as an opportunity to construct a complete mathematical system of the world. He saw Halley's question as revealing the need for comprehensive foundations rather than isolated proofs.",
+      "expected_outcome": "Newton expected that his comprehensive approach would produce a definitive mathematical treatise that would establish natural philosophy on unshakeable foundations, even though this would require extensive time and risk being preceded by others on specific points."
+    },
+    "counterfactual": "A competent peer would have quickly reconstructed the ellipse proof, published it as a brief paper establishing priority on the inverse-square law, and then potentially developed extensions in subsequent publications.",
+    "divergence_explanation": "Newton's decision diverged because of his pathological need for systematic completeness and his inability to tolerate partial publication. Where others saw a discrete mathematical question, Newton perceived an entire edifice of natural philosophy that required comprehensive construction. His compulsive perfectionism overrode normal academic incentives for timely publication.",
+    "outcome": "Newton spent 18 months creating the Principia Mathematica, producing the most influential work in the history of physics but risking being scooped on individual discoveries and isolating himself from collaborative scientific discourse.",
+    "source": "principia_mathematica"
+  },
+  {
+    "id": "incident-013",
+    "decision": "Newton chose to present gravity as a precise mathematical law without proposing any physical mechanism to explain how gravitational force operates across empty space.",
+    "context": "The dominant Cartesian mechanical philosophy required all natural phenomena to be explained through direct physical contact and mechanical causes. Newton faced pressure to explain not just how gravity behaves mathematically, but why it works through seemingly empty space. Contemporary natural philosophers expected causal mechanisms, not just mathematical descriptions.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that his mathematical formulation could predict gravitational phenomena with unprecedented precision, while all proposed mechanical explanations (vortices, ethereal fluids, invisible particles) either contradicted observational evidence or remained empirically untestable speculation.",
+      "active_goals": "To establish natural philosophy on the foundation of mathematical certainty rather than speculative hypotheses, prioritizing predictive power and empirical adequacy over satisfying intuitive demands for mechanical causation.",
+      "rejected_alternatives": "Newton rejected proposing vortex theories (contradicted by orbital mechanics), ethereal medium explanations (lacked empirical support), and particle-based mechanisms (purely speculative), dismissing these because they added untestable assumptions without improving predictive accuracy.",
+      "situation_framing": "Newton framed this as a methodological choice between mathematical natural philosophy based on phenomena versus speculative mechanical philosophy based on hypothetical causes, viewing precise mathematical description as a higher form of knowledge than causal speculation.",
+      "expected_outcome": "Newton expected that mathematical laws grounded in observation would prove more durable and useful than mechanical hypotheses, and that future investigators could build upon secure mathematical foundations even without understanding ultimate causes."
+    },
+    "counterfactual": "A competent contemporary natural philosopher would have proposed some form of mechanical explanation for gravitational attraction, such as Cartesian vortices or an ethereal medium, to satisfy the prevailing requirement that all physical phenomena operate through contact forces.",
+    "divergence_explanation": "Newton's mathematical training and success with calculus gave him confidence that mathematical relationships could constitute complete knowledge without mechanical underpinnings, while his empirical rigor made him unwilling to propose untestable causal mechanisms that his contemporaries would accept as necessary philosophical completeness.",
+    "outcome": "Newton's Principia established mathematical physics as the dominant approach to natural philosophy, demonstrating that precise mathematical laws could be more powerful than intuitive mechanical explanations, fundamentally reshaping scientific methodology toward mathematical rather than mechanical reasoning.",
+    "source": "principia_mathematica"
+  },
+  {
+    "id": "incident-014",
+    "decision": "Newton chose to present his revolutionary physical discoveries using traditional geometric proofs rather than his newly invented calculus methods.",
+    "context": "Newton had developed calculus as a powerful mathematical tool that enabled his breakthroughs in physics and astronomy. However, when writing the Principia Mathematica, he faced the challenge of communicating these discoveries to the broader scientific community. The mathematical establishment was still rooted in classical geometric methods, and calculus was largely unknown outside Newton's private work.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that his intended audience of natural philosophers and mathematicians were trained exclusively in Euclidean geometry and classical mathematical proofs. He also perceived the competitive threat from contemporaries like Leibniz who were developing similar mathematical methods, and noticed the potential for intellectual property disputes over mathematical innovations.",
+      "active_goals": "Newton's operative goals were to maximize the acceptance and comprehension of his physical theories while simultaneously protecting his methodological advantages. He prioritized broad scientific impact over showcasing mathematical innovation, seeking to establish his physics without creating barriers to understanding or revealing his most powerful analytical tools.",
+      "rejected_alternatives": "Newton rejected presenting his work using calculus notation and methods, which would have been more direct and elegant. He also dismissed the option of teaching calculus first then applying it, likely viewing this as too time-consuming and risky. He rejected partial revelation of calculus methods, apparently viewing this as potentially more dangerous than complete concealment.",
+      "situation_framing": "Newton framed this as a strategic communication and competitive intelligence problem rather than a purely mathematical exposition challenge. He viewed the situation through the lens of both pedagogy and intellectual warfare, treating mathematical methods as proprietary tools that provided competitive advantage in natural philosophy.",
+      "expected_outcome": "Newton expected that geometric proofs would make his physical discoveries accessible to the established mathematical community while preserving his methodological advantages for future work. He anticipated that this approach would accelerate acceptance of his theories while maintaining his edge over competitors who lacked his analytical tools."
+    },
+    "counterfactual": "A competent contemporary mathematician would likely have presented their discoveries using the most natural and direct mathematical methods available to them, prioritizing clarity and elegance of proof over strategic considerations, and would have been eager to demonstrate any new mathematical techniques they had developed.",
+    "divergence_explanation": "Newton's choice diverged from typical mathematical practice because he uniquely possessed both groundbreaking physical insights and revolutionary mathematical methods. Unlike peers who would showcase new techniques, Newton recognized that his calculus was so powerful it constituted a strategic asset worth protecting, and he had the mathematical sophistication to successfully translate calculus-derived results back into geometric form.",
+    "outcome": "The Principia became highly influential and accessible to the mathematical community of the time, establishing Newton's reputation in natural philosophy. However, the concealment of calculus methods also led to the famous priority dispute with Leibniz and delayed the broader adoption of calculus in English mathematics by decades.",
+    "source": "principia_mathematica"
+  },
+  {
+    "id": "incident-015",
+    "decision": "Newton decided to withhold publication of his gravitational theory until it could explain every known gravitational phenomenon with universal scope.",
+    "context": "Newton had developed a mathematical law of gravitation that could explain falling objects and planetary motion. Contemporary natural philosophers typically published explanations for individual phenomena separately. Newton faced pressure to publish his discoveries but was unsatisfied with partial explanations.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed that his gravitational law could potentially explain disparate phenomena (falling objects, planetary orbits, tides, precession) that had previously been treated as separate problems. He also noticed gaps where his current formulation couldn't yet account for all observed effects.",
+      "active_goals": "To create a single, mathematically unified theory that would demonstrate the fundamental unity of natural phenomena under one universal law, rather than merely explaining isolated effects.",
+      "rejected_alternatives": "He rejected publishing explanations for individual phenomena separately (the standard approach), rejected releasing preliminary versions of his theory, and rejected accepting approximations or partial solutions that left some gravitational effects unexplained.",
+      "situation_framing": "Newton framed this as an opportunity to reveal the fundamental mathematical architecture of nature itself - not just solving individual puzzles, but demonstrating that all gravitational phenomena were manifestations of one underlying principle.",
+      "expected_outcome": "Newton expected that achieving complete theoretical unification would establish an unprecedented standard for natural philosophy and demonstrate that nature operated according to universal mathematical laws rather than separate mechanisms for different phenomena."
+    },
+    "counterfactual": "A competent peer would have published explanations for the phenomena they could successfully explain (planetary motion, falling objects) and continued working on the remaining problems separately, following the standard incremental approach to natural philosophy.",
+    "divergence_explanation": "Newton's mathematical background gave him unique insight into the power of unified theoretical frameworks, while his perfectionist temperament and ambition to revolutionize natural philosophy made him unwilling to accept the piecemeal approach that satisfied his contemporaries.",
+    "outcome": "Newton's insistence on universal scope delayed the Principia's publication but ultimately created the first truly unified theory in physics, establishing the template for modern theoretical science and demonstrating that disparate natural phenomena could be explained by single mathematical laws.",
+    "source": "principia_mathematica"
+  },
+  {
+    "id": "incident-016",
+    "decision": "Newton decided to withhold publication of his method of fluxions (calculus) for decades despite having developed it first.",
+    "context": "Newton had developed his calculus methods in the mid-1660s but faced the decision of whether to publish immediately or refine further. He was operating in an environment where mathematical disputes could become personal attacks, having recently experienced harsh criticism over his optical theories. The decision occurred during a period when priority in mathematical discovery was becoming increasingly important for scholarly reputation.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to the harsh criticism and personal attacks he had received over his optics work, the incomplete state of his notation system, potential gaps in his proofs, and the presence of 'little smatterers in mathematics' who might misunderstand or attack his methods without proper mathematical foundation.",
+      "active_goals": "Newton was primarily focused on achieving mathematical perfection and avoiding public controversy that could damage his reputation, while maintaining control over the development and presentation of his mathematical innovations rather than seeking immediate recognition or priority claims.",
+      "rejected_alternatives": "He rejected immediate publication (too risky given incomplete notation), partial publication of key results only (would invite criticism without full justification), collaborative development with peers (risk of losing control), and abandoning the work entirely (too valuable to discard).",
+      "situation_framing": "Newton framed this as a choice between scholarly perfection and public vulnerability, viewing mathematical publication as entering a hostile arena where incomplete work would be attacked by lesser minds who couldn't appreciate the full scope of his innovations.",
+      "expected_outcome": "Newton expected that by withholding publication he would avoid the kind of harsh criticism he had experienced with optics, have time to perfect his methods and notation, and eventually publish a complete, unassailable mathematical framework that would establish his reputation definitively."
+    },
+    "counterfactual": "A competent peer would have published the key results with adequate proofs relatively quickly to establish priority, then refined the methods in subsequent publications, viewing early publication as protection against being scooped rather than as exposure to criticism.",
+    "divergence_explanation": "Newton's choice differed because his previous traumatic experience with public criticism over optics created an unusually strong aversion to controversy that overrode normal academic incentives for priority publication, combined with his perfectionist standards that made 'adequate' proofs feel insufficient for public exposure.",
+    "outcome": "Leibniz independently developed and published calculus first, leading to a bitter priority dispute that consumed Newton's later years and damaged relationships between English and Continental mathematicians for generations.",
+    "source": "leibniz_calculus_dispute"
+  },
+  {
+    "id": "incident-017",
+    "decision": "Newton decided to personally control the Royal Society's investigation into the calculus priority dispute by appointing the committee members and secretly writing their report himself.",
+    "context": "Leibniz had appealed to the Royal Society for an impartial investigation of the calculus priority dispute. As President of the Royal Society, Newton held the institutional authority to organize this investigation. The scientific community expected institutional neutrality in such disputes, but Newton faced the risk of losing his priority claim if he allowed a truly independent investigation.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed that Leibniz's appeal created a formal institutional process that could potentially legitimize Leibniz's priority claim; he recognized that his presidential authority gave him direct control over committee composition and deliberations; he perceived that a truly independent investigation might not favor his position due to the complexity of the timeline and evidence.",
+      "active_goals": "To secure definitive institutional validation of his priority claim over calculus invention while maintaining the appearance of proper procedure; to prevent any outcome that might officially recognize Leibniz as co-inventor or primary inventor; to leverage his institutional position to control the narrative and evidence presentation.",
+      "rejected_alternatives": "Recusing himself from the investigation entirely (rejected because it would remove his control over the outcome); appointing genuinely neutral committee members (rejected because they might rule against him); publicly refusing to investigate (rejected because it would appear guilty and damage his reputation); allowing committee members to write their own report (rejected because he couldn't guarantee the conclusions).",
+      "situation_framing": "Newton framed this as a institutional administrative matter where his presidential duties required him to ensure a thorough investigation, rather than recognizing it as a conflict of interest requiring recusal; he viewed himself as the victim of false claims who needed to defend truth rather than as a partisan in a dispute.",
+      "expected_outcome": "Newton expected the investigation would produce an authoritative institutional ruling in his favor that would permanently settle the dispute; he anticipated that his secret involvement would remain hidden and the report would be accepted as impartial; he believed this would enhance rather than damage his scientific reputation."
+    },
+    "counterfactual": "A competent peer in Newton's position would have recused themselves from the investigation, appointed a committee of genuinely neutral members from outside England, and allowed them to conduct an independent investigation without interference.",
+    "divergence_explanation": "Newton's exceptional sense of intellectual ownership and his belief in his own priority claim led him to view institutional neutrality as a luxury he couldn't afford; his unprecedented scientific authority made him believe he could control institutional processes without detection; unlike peers who would have recognized the conflict of interest, Newton's identity as both scientist and institutional leader became fused in a way that justified extraordinary measures to protect what he saw as scientific truth.",
+    "outcome": "The committee ruled entirely in Newton's favor, but the secret nature of his involvement was eventually discovered, severely damaging his reputation for institutional integrity and creating lasting controversy about the dispute's resolution.",
+    "source": "leibniz_calculus_dispute"
+  },
+  {
+    "id": "incident-018",
+    "decision": "Newton decided to orchestrate an anonymous publication campaign writing favorable reviews of his own work and attacks on Leibniz to create the illusion of independent scholarly support.",
+    "context": "Newton was engaged in a priority dispute with Leibniz over the invention of calculus, with both men's reputations and historical legacy at stake. The scientific community was divided on the question, and public perception of who deserved credit was still forming. Newton recognized that direct self-advocacy would appear partisan and unconvincing.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived that direct self-promotion would be dismissed as biased, that anonymous voices carried more credibility than identified authors, and that creating an apparent consensus of independent supporters would be more persuasive than isolated self-defense.",
+      "active_goals": "To establish himself as the true inventor of calculus in the historical record, to discredit Leibniz's claims to priority, and to shape public and scholarly opinion through the appearance of impartial third-party validation.",
+      "rejected_alternatives": "Newton rejected direct public debate (too risky and appearing defensive), relying solely on his institutional authority (insufficient against Leibniz's continental support), and ignoring the dispute entirely (would cede the field to Leibniz).",
+      "situation_framing": "Newton framed this as an information warfare campaign rather than a scholarly debate, recognizing it as a battle for historical narrative control where perception management was more important than mathematical proof.",
+      "expected_outcome": "Newton expected that multiple anonymous voices supporting his position would create a bandwagon effect, making his version of events appear to be the scholarly consensus and gradually marginalizing Leibniz's claims."
+    },
+    "counterfactual": "A competent peer would have engaged in direct scholarly debate through signed publications, relied on institutional backing from the Royal Society, or focused on producing superior mathematical work to demonstrate priority.",
+    "divergence_explanation": "Newton's choice differed because he uniquely recognized this as a propaganda campaign rather than a purely intellectual dispute, understanding that controlling the information environment was more strategically valuable than winning on mathematical merits alone.",
+    "outcome": "The anonymous campaign successfully shaped opinion in Newton's favor, contributing to his historical recognition as calculus's inventor, though the deceptive tactics were eventually discovered and damaged his reputation for scholarly integrity.",
+    "source": "leibniz_calculus_dispute"
+  },
+  {
+    "id": "incident-019",
+    "decision": "Newton rejected Leibniz's proposal to recognize both calculus inventions as independent discoveries, refusing any compromise on shared credit.",
+    "context": "The calculus priority dispute had escalated into a major intellectual controversy. Leibniz, seeking resolution, proposed that both inventions be acknowledged as independent discoveries - a reasonable compromise that most modern historians accept. Newton faced a choice between diplomatic resolution and maintaining his absolute position on mathematical priority.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to the philosophical implications of Leibniz's compromise proposal rather than its diplomatic utility, recognizing it as a fundamental challenge to his conception of mathematical truth as singular and discoverable rather than constructed or shared.",
+      "active_goals": "Newton's operative goal was preserving the integrity of mathematical truth as he conceived it - singular, objective, and not subject to social negotiation or credit-sharing arrangements that would treat discovery as a matter of convention rather than absolute priority.",
+      "rejected_alternatives": "Newton rejected the diplomatic compromise of shared credit, likely considering it a corruption of mathematical truth that would reduce discovery to social construction; he dismissed collaborative resolution as inappropriate for matters of objective fact.",
+      "situation_framing": "Newton framed this not as a dispute requiring diplomatic resolution, but as a question of mathematical and natural philosophical truth where compromise would constitute intellectual dishonesty and undermine the objective nature of mathematical discovery.",
+      "expected_outcome": "Newton expected that maintaining his absolute position would preserve the integrity of mathematical truth and establish the principle that priority in discovery reflects objective fact rather than social negotiation, even at the cost of prolonged conflict."
+    },
+    "counterfactual": "A competent peer would have accepted Leibniz's reasonable compromise, recognizing that shared credit for independent invention was both historically accurate and diplomatically wise, treating it as a practical matter of intellectual recognition rather than a philosophical crisis.",
+    "divergence_explanation": "Newton's unique philosophical framework treated mathematical discovery as revelation of pre-existing truth rather than human construction, making any compromise on priority a fundamental violation of his conception of how mathematical knowledge relates to reality, whereas others could separate practical credit allocation from metaphysical questions about mathematical truth.",
+    "outcome": "The dispute escalated into a bitter, prolonged controversy that damaged both Newton's and Leibniz's reputations, created lasting divisions in the mathematical community, and ironically led to the very outcome Newton sought to avoid - historical recognition of both as independent inventors of calculus.",
+    "source": "leibniz_calculus_dispute"
+  },
+  {
+    "id": "incident-020",
+    "decision": "Newton obtained a royal warrant to compel Flamsteed's data submission and appointed Halley as editor.",
+    "context": "As President of the Royal Society since 1703, Newton had been unable to persuade astronomer John Flamsteed to publish his Greenwich Observatory data, which Newton considered essential for scientific progress. Flamsteed maintained control over his observations and resisted publication without his consent. Newton now held institutional authority that could be leveraged to override Flamsteed's resistance.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived that his new institutional position provided access to royal authority that could override individual scientist's data control; he recognized that traditional academic persuasion had failed and that Flamsteed's continued resistance threatened broader astronomical progress; he noticed that appointing Halley as editor would maximize psychological pressure on Flamsteed.",
+      "active_goals": "Secure immediate access to Flamsteed's astronomical data for the scientific community; demonstrate the authority and effectiveness of his Royal Society presidency; establish precedent that institutional scientific needs supersede individual scientist's publication preferences; personally compel compliance from Flamsteed after years of frustration.",
+      "rejected_alternatives": "Continued diplomatic negotiation with Flamsteed (rejected as proven ineffective over years); waiting for Flamsteed to voluntarily publish (rejected as indefinitely delaying scientific progress); appointing a neutral editor (rejected as less likely to pressure Flamsteed into compliance); working around Flamsteed by developing alternative data sources (rejected as too time-consuming).",
+      "situation_framing": "Newton framed this as an institutional authority test where the Royal Society's scientific mission justified overriding individual autonomy; he conceptualized it as enforcing scientific duty rather than personal coercion; the situation was categorized as requiring decisive institutional action to break an impasse threatening scientific progress.",
+      "expected_outcome": "Flamsteed would be forced to submit his data under royal authority and could not refuse a direct warrant; the appointment of Halley would accelerate the publication process and demonstrate consequences of resistance; other scientists would recognize the Royal Society's enhanced authority under Newton's leadership; the astronomical community would finally gain access to crucial observational data."
+    },
+    "counterfactual": "A typical Royal Society president would have continued diplomatic efforts with Flamsteed, perhaps offering compromises on publication terms or seeking mediation through mutual colleagues, while respecting the traditional autonomy of individual scientists over their own research data.",
+    "divergence_explanation": "Newton's decision diverged because he possessed both exceptional confidence in wielding institutional power and personal investment in the specific data due to his gravitational theory work; his framework prioritized scientific progress over collegial norms, and his history of interpersonal conflicts made him comfortable with confrontational approaches that other presidents would avoid.",
+    "outcome": "The royal warrant successfully compelled Flamsteed to submit his data, but the conflict permanently damaged relationships within the astronomical community and established a controversial precedent for institutional coercion in scientific publication.",
+    "source": "flamsteed_data_dispute"
+  },
+  {
+    "id": "incident-021",
+    "decision": "Newton chose to pursue aggressive tactics to obtain Flamsteed's lunar observations despite knowing it would permanently destroy their relationship and create a lasting enemy.",
+    "context": "Newton needed precise lunar position data from Flamsteed, the Astronomer Royal, to complete his gravitational theory and lunar calculations. Flamsteed was protective of his observations and reluctant to share incomplete or unrefined data. Newton faced pressure to advance his theoretical work while navigating Flamsteed's gatekeeping of essential astronomical data.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived Flamsteed's data withholding as obstruction of scientific progress, noticed the irreplaceable value of Flamsteed's precise lunar observations for his theoretical work, and recognized that diplomatic approaches had failed to secure the needed data.",
+      "active_goals": "Complete his lunar theory and gravitational calculations by securing Flamsteed's astronomical data, regardless of interpersonal costs, while maintaining his scientific priority and reputation for theoretical breakthroughs.",
+      "rejected_alternatives": "Rejected continued diplomatic negotiation as too slow and uncertain, dismissed waiting for Flamsteed to voluntarily release refined data as potentially indefinite delay, and ruled out seeking alternative but less precise data sources as scientifically inadequate.",
+      "situation_framing": "Newton framed this as a conflict between scientific progress and individual ego, viewing Flamsteed as an obstacle to universal knowledge rather than a collaborator, and seeing the relationship as expendable compared to the permanent value of scientific discovery.",
+      "expected_outcome": "Newton expected to obtain the essential lunar data needed for his calculations, anticipated that Flamsteed would become permanently hostile, and believed the scientific advance would justify the relationship cost and that his theoretical contributions would overshadow any interpersonal fallout."
+    },
+    "counterfactual": "A competent peer would have invested more time in diplomatic relationship management, sought compromise solutions that addressed Flamsteed's concerns about data quality, or explored collaborative frameworks that gave Flamsteed appropriate credit while securing data access.",
+    "divergence_explanation": "Newton's singular focus on theoretical breakthroughs and his view of science as transcending individual relationships led him to treat collaboration as purely instrumental, unlike peers who would have balanced scientific goals with long-term professional relationships and recognized the value of maintaining the astronomical community's cooperation.",
+    "outcome": "Newton obtained some of the lunar data he needed but permanently destroyed his relationship with Flamsteed, created a bitter enemy who actively opposed him, and damaged his reputation within the astronomical community while advancing his lunar theory.",
+    "source": "flamsteed_data_dispute"
+  },
+  {
+    "id": "incident-022",
+    "decision": "Newton chose to leave his prestigious Cambridge professorship to become Warden of the Royal Mint and treat it as a full-intensity optimization challenge rather than a ceremonial retirement position.",
+    "context": "At age 53, Newton faced diminishing returns from scientific work after his 1693 mental breakdown and growing fatigue from priority disputes with contemporaries like Leibniz. The Royal Mint position offered both financial security and escape from academic conflicts, but most would have treated it as a comfortable sinecure.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived his declining mental resilience after the 1693 breakdown, the toxic pattern of priority disputes draining his energy, the systemic inefficiencies and corruption at the Royal Mint, and the opportunity to apply his analytical powers to a concrete optimization problem with measurable outcomes.",
+      "active_goals": "To escape the frustrating cycle of scientific disputes while finding a new domain where his compulsive drive for systematic perfection could produce tangible results without the ego conflicts that plagued academic science.",
+      "rejected_alternatives": "He rejected continuing pure research (too psychologically costly after the breakdown), treating the Mint role as a sinecure (incompatible with his compulsive nature), and other academic positions (would reproduce the same interpersonal conflicts).",
+      "situation_framing": "Newton framed this as a strategic pivot to a new optimization domain rather than career decline - he saw the Mint's administrative chaos as a complex system requiring the same methodical analysis he applied to natural philosophy, but with the advantage of clear authority and measurable outcomes.",
+      "expected_outcome": "Newton expected to systematically eliminate inefficiencies and corruption at the Royal Mint while finding intellectual satisfaction in optimization work that wouldn't trigger the priority disputes and psychological stress of scientific discovery."
+    },
+    "counterfactual": "A typical academic of Newton's stature would have treated the Royal Mint position as a well-deserved sinecure, maintaining the role ceremonially while pursuing gentlemanly interests or light scholarly work in retirement.",
+    "divergence_explanation": "Newton's compulsive optimization drive made it psychologically impossible for him to treat any system as 'good enough' - where others saw a comfortable retirement position, he saw another complex system requiring perfection, and his recent psychological fragility made him prefer concrete administrative problems over the ego-threatening uncertainties of continued scientific work.",
+    "outcome": "Newton transformed the Royal Mint's operations with the same obsessive thoroughness he had applied to the Principia, successfully recoining England's currency and establishing new anti-counterfeiting measures, while finding renewed purpose in systematic administration.",
+    "source": "royal_mint_administration"
+  },
+  {
+    "id": "incident-023",
+    "decision": "Newton decided to personally conduct undercover investigations in taverns and brothels to gather intelligence on counterfeiters rather than delegating this work to subordinates.",
+    "context": "As Warden of the Royal Mint, Newton was responsible for combating counterfeiting, which his predecessors had treated as a minor administrative duty. The counterfeiting problem required gathering intelligence from London's criminal underworld, typically through informants and intermediaries.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that counterfeiting was a sophisticated criminal enterprise requiring detailed intelligence about networks, methods, and key players - information that could only be obtained through direct contact with the criminal underworld, not through formal channels or distant supervision.",
+      "active_goals": "To completely eradicate counterfeiting by building comprehensive intelligence networks and personally ensuring the quality and reliability of information gathered, while maintaining direct control over the most critical aspects of the investigation.",
+      "rejected_alternatives": "He rejected delegating undercover work to subordinates (too unreliable), relying solely on official informants (insufficient access), conducting investigations through formal legal channels (too slow and limited), and treating counterfeiting as a routine administrative matter requiring only periodic attention.",
+      "situation_framing": "Newton framed this as a complex scientific investigation requiring the same methodical, hands-on approach he used in natural philosophy - a problem that demanded personal empirical observation and data collection rather than administrative oversight.",
+      "expected_outcome": "He expected that personal involvement would yield superior intelligence quality, enable him to identify patterns and connections others would miss, build more reliable informant networks, and ultimately achieve complete suppression of counterfeiting operations."
+    },
+    "counterfactual": "A competent peer would have established a formal system using professional informants and subordinate investigators, maintaining administrative distance while reviewing reports and making strategic decisions from their office.",
+    "divergence_explanation": "Newton's scientific mindset led him to treat counterfeiting investigation like experimental research requiring personal observation and data collection, while his perfectionist nature and distrust of others' competence made delegation feel like an unacceptable loss of control over critical variables.",
+    "outcome": "Newton successfully prosecuted numerous counterfeiters and significantly reduced counterfeiting operations, though his unconventional methods raised eyebrows among his contemporaries and consumed enormous amounts of his personal time and energy.",
+    "source": "royal_mint_administration"
+  },
+  {
+    "id": "incident-024",
+    "decision": "Newton decided to pursue William Chaloner with exhaustive, methodical investigation spanning years, continuing beyond professional necessity to ensure personal destruction.",
+    "context": "As Warden of the Royal Mint, Newton faced William Chaloner, a skilled counterfeiter who had evaded conviction multiple times through legal maneuvering and insufficient evidence. Chaloner represented both a professional threat to the mint's integrity and a personal challenge to Newton's authority and competence.",
+    "cdm_probes": {
+      "cues_noticed": "Newton perceived Chaloner's repeated acquittals not as procedural outcomes but as direct affronts to his intellectual authority; he noticed patterns in Chaloner's methods that revealed systematic vulnerabilities; he detected that standard enforcement approaches were insufficient against this particular adversary's sophistication.",
+      "active_goals": "Beyond stopping counterfeiting, Newton was driven by the goal of demonstrating his intellectual superiority over Chaloner; he sought to vindicate his authority as mint administrator; he aimed to establish a definitive precedent that would deter future challenges to his position.",
+      "rejected_alternatives": "Newton rejected delegating the investigation to subordinates, viewing this as admission of inadequacy; he dismissed accepting Chaloner's continued evasion as an acceptable cost of doing business; he refused to pursue only the minimum effort required for professional duty, seeing partial victory as complete failure.",
+      "situation_framing": "Newton framed this as an intellectual duel between himself and a worthy adversary rather than routine law enforcement; he conceptualized Chaloner as a personal nemesis whose existence challenged the natural order Newton represented; the situation became a test of his systematic methodology against criminal cunning.",
+      "expected_outcome": "Newton expected that his superior intellect and methodical approach would eventually overwhelm Chaloner's defenses; he anticipated that total victory would restore his authority and serve as a deterrent; he believed the thoroughness of his approach would create an unassailable case that would end in Chaloner's execution."
+    },
+    "counterfactual": "A competent peer would have pursued Chaloner with standard diligence, building a solid case through normal investigative channels, and would have accepted the first successful conviction as sufficient resolution to the professional problem.",
+    "divergence_explanation": "Newton's choice differed because his identity was fundamentally tied to intellectual dominance and systematic mastery - Chaloner's repeated evasions represented not just professional failure but existential threat to Newton's self-concept as supreme rational authority, triggering an obsessive need to prove his superiority through total victory.",
+    "outcome": "Newton's relentless investigation ultimately succeeded in building an unassailable case that led to Chaloner's conviction and execution, but at enormous personal cost in time and emotional energy that far exceeded what the professional situation required.",
+    "source": "royal_mint_administration"
+  },
+  {
+    "id": "incident-025",
+    "decision": "Newton decided to apply his systematic scientific methodology to Royal Mint administration, treating it as an optimization problem requiring comprehensive data collection and mathematical analysis.",
+    "context": "As Warden and later Master of the Royal Mint, Newton faced widespread corruption, inefficient processes, and production shortfalls that previous administrators had managed through conventional bureaucratic approaches. The Mint was essentially a medieval operation requiring modernization, but most officials would have relied on incremental reforms and delegation to subordinates.",
+    "cdm_probes": {
+      "cues_noticed": "Newton noticed quantifiable inefficiencies - production rates, material wastage, time delays, inconsistent weights and measures - that others treated as inevitable administrative friction. He recognized these as systematic problems with measurable parameters rather than intractable human nature issues.",
+      "active_goals": "To achieve mathematical optimization of the entire Mint system through comprehensive understanding of all variables, rather than merely maintaining adequate function or satisfying political expectations of gradual improvement.",
+      "rejected_alternatives": "He rejected delegating detailed oversight to subordinates, accepting traditional 'good enough' standards, treating corruption as a cost of doing business, and implementing piecemeal reforms without systematic analysis of the entire operation.",
+      "situation_framing": "Newton framed the Mint administration as a complex mechanical system with discoverable mathematical relationships between inputs and outputs, analogous to planetary motion or optical phenomena - a system whose optimal configuration could be calculated rather than negotiated.",
+      "expected_outcome": "He expected that comprehensive data collection and mathematical analysis would reveal the optimal operational parameters, eliminate inefficiencies through systematic redesign, and create a self-regulating system that would maintain peak performance."
+    },
+    "counterfactual": "A competent contemporary administrator would have focused on gradual reforms, worked through existing hierarchies, accepted some level of corruption as normal, and relied on trusted subordinates to handle detailed implementation while maintaining political relationships.",
+    "divergence_explanation": "Newton's scientific training led him to see administrative problems as natural phenomena governed by discoverable laws, making him intolerant of approximations and unwilling to accept traditional explanations that things 'just worked that way' - his pattern recognition was calibrated for universal principles rather than social accommodation.",
+    "outcome": "Newton successfully modernized the Mint's operations, dramatically improved production efficiency and quality control, largely eliminated counterfeiting through systematic prosecution, and established standardized processes that outlasted his tenure.",
+    "source": "royal_mint_administration"
+  },
+  {
+    "id": "incident-026",
+    "decision": "Newton decided to systematically conceal his extensive alchemical research throughout his lifetime to protect his scientific reputation.",
+    "context": "Newton operated in 17th-century England where alchemy was increasingly viewed as superstitious pseudoscience, while his mathematical and physical discoveries were establishing him as the preeminent natural philosopher. He faced the challenge of pursuing legitimate investigative interests in alchemy while maintaining credibility in emerging empirical science. The social and intellectual climate demanded clear boundaries between respectable natural philosophy and suspect occult practices.",
+    "cdm_probes": {
+      "cues_noticed": "Newton observed the growing cultural divide between empirical natural philosophy and alchemical traditions, noted the ridicule directed at alchemical practitioners by his scientific peers, and recognized that his mathematical and optical work was gaining him unprecedented scientific authority that could be jeopardized by association with alchemy.",
+      "active_goals": "Newton's operative goal was to maximize his long-term intellectual influence and scientific legacy while preserving the freedom to pursue all avenues of natural investigation that interested him, including alchemy.",
+      "rejected_alternatives": "Newton rejected full disclosure of his alchemical work (risking scientific credibility), complete abandonment of alchemy (losing a valued research domain), and selective partial revelation (creating inconsistent public persona and potential exposure).",
+      "situation_framing": "Newton framed this as a strategic reputation management problem requiring compartmentalization of different knowledge domains, similar to managing a diverse investment portfolio where different assets serve different functions and carry different risk profiles.",
+      "expected_outcome": "Newton expected that concealment would preserve his scientific authority, allow continued private alchemical investigation, and enable him to control the timing and context of any future revelations if the intellectual climate shifted."
+    },
+    "counterfactual": "A competent peer would likely have either abandoned alchemical pursuits entirely to focus on respectable natural philosophy, or would have attempted to legitimize their alchemical work by connecting it explicitly to their accepted scientific investigations.",
+    "divergence_explanation": "Newton's decision differed because of his exceptional ability to maintain parallel intellectual frameworks without cognitive dissonance, his sophisticated understanding of reputational dynamics across different audiences, and his confidence that he could pursue multiple knowledge domains simultaneously without internal contradiction.",
+    "outcome": "Newton successfully maintained his scientific reputation while conducting extensive alchemical research, his alchemical work remained largely unknown until centuries after his death, and he established a pattern of strategic concealment that he applied to other controversial interests like anti-Trinitarian theology.",
+    "source": "alchemy_and_theology"
+  },
+  {
+    "id": "incident-027",
+    "decision": "Newton concluded that the Trinity doctrine was a fourth-century corruption and that original Christianity was unitarian.",
+    "context": "Newton was conducting theological research in 17th-century England, where anti-Trinitarian views were considered heretical and legally dangerous. He applied his scientific methodology to analyze early Christian texts and historical documents. The social and legal context made public expression of such conclusions extremely risky for his career and personal safety.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to textual inconsistencies in biblical manuscripts, historical timing of doctrinal developments relative to the Council of Nicaea, and patterns of theological evolution that paralleled his observations of corrupted scientific texts. He noticed discrepancies between early Christian writings and later formalized doctrine.",
+      "active_goals": "Newton's operative goal was to discover the single, objectively correct theological truth through rigorous analysis, treating religious doctrine as a puzzle with one discoverable solution. He prioritized intellectual integrity and methodological consistency over social conformity or career safety.",
+      "rejected_alternatives": "Newton rejected accepting conventional Trinitarian doctrine without investigation, dismissed the idea that religious matters were beyond empirical analysis, and rejected compartmentalizing his analytical method to exclude theological questions. He refused to defer to ecclesiastical authority when it conflicted with his evidence-based conclusions.",
+      "situation_framing": "Newton framed this as a scientific investigation into historical corruption of original truth, analogous to identifying errors in corrupted astronomical texts or alchemical manuscripts. He treated theology as another domain where systematic analysis could recover authentic knowledge from accumulated distortions.",
+      "expected_outcome": "Newton expected his analysis would reveal the true nature of early Christianity and that this knowledge would be intellectually satisfying and theologically correct, regardless of its social acceptability. He likely expected to keep these conclusions private to avoid persecution."
+    },
+    "counterfactual": "A competent peer theologian would have accepted the Trinity as orthodox doctrine, focused their analysis within acceptable theological boundaries, and avoided conclusions that could be deemed heretical.",
+    "divergence_explanation": "Newton's decision diverged because of his fundamental assumption that every domain contains discoverable objective truth accessible through systematic analysis, combined with his willingness to prioritize intellectual integrity over social consequences. His scientific success reinforced his confidence in applying uniform methodology across all knowledge domains.",
+    "outcome": "Newton kept these conclusions largely private, sharing them only with select correspondents. His anti-Trinitarian views remained mostly secret during his lifetime, protecting his career while allowing him to maintain intellectual consistency with his analytical methodology.",
+    "source": "alchemy_and_theology"
+  },
+  {
+    "id": "incident-028",
+    "decision": "Newton decided to persist with alchemical experimentation for decades despite accumulating evidence of methodological failure.",
+    "context": "Newton was conducting extensive alchemical experiments throughout his career, seeking to transform base metals into gold and discover the philosopher's stone. Unlike his revolutionary work in mathematics and physics, these experiments yielded no reproducible results or theoretical breakthroughs, yet he continued investing substantial time and effort in this pursuit.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to marginal variations in experimental outcomes, cryptic symbolic patterns in alchemical texts, and occasional anomalous results that seemed to hint at deeper principles, while filtering out the consistent pattern of failed transmutations and lack of reproducible effects.",
+      "active_goals": "To discover the fundamental principles governing material transformation and unlock nature's deepest secrets, driven by the belief that his analytical method could penetrate any domain of natural philosophy and reveal universal mathematical relationships.",
+      "rejected_alternatives": "He rejected abandoning alchemy entirely, dismissed the possibility that some natural phenomena might not yield to mathematical analysis, and refused to accept that centuries of alchemical tradition might be fundamentally misguided rather than simply requiring more rigorous application of his method.",
+      "situation_framing": "Newton framed alchemy as another domain of natural philosophy amenable to systematic investigation, analogous to his successful mathematical analysis of motion and optics, where persistent application of rigorous method would eventually reveal the underlying rational principles.",
+      "expected_outcome": "He expected that continued experimentation and deeper study of alchemical texts would eventually yield the mathematical relationships governing material transformation, leading to reproducible transmutation and validation of his unified approach to natural philosophy."
+    },
+    "counterfactual": "A competent peer natural philosopher would have recognized the consistent failure pattern after several years of fruitless experimentation and redirected effort toward more promising domains of inquiry.",
+    "divergence_explanation": "Newton's extraordinary success with mathematical analysis in mechanics and optics created an overconfident cognitive framework where he believed his analytical method was universally applicable, preventing him from recognizing that alchemy represented a fundamentally different category of phenomenon not amenable to his approach.",
+    "outcome": "Newton spent decades on unproductive alchemical work, failing to achieve any transmutations or theoretical breakthroughs, while his analytical framework remained intact because he attributed failures to insufficient effort rather than methodological limitations.",
+    "source": "alchemy_and_theology"
+  },
+  {
+    "id": "incident-029",
+    "decision": "Newton decided to begin natural philosophy with deliberately simplified mathematical models rather than attempting comprehensive physical explanations from the start.",
+    "context": "In the 17th century, natural philosophers like Descartes dominated by constructing elaborate comprehensive theories to explain physical phenomena in their full complexity. Newton faced the choice of following this established methodology or pioneering a radically different approach that prioritized mathematical tractability over immediate physical completeness.",
+    "cdm_probes": {
+      "cues_noticed": "Newton recognized that existing comprehensive theories produced elegant philosophical systems but failed to yield precise, testable predictions; he noticed that mathematical relationships could be isolated and studied even when the underlying physical mechanisms remained mysterious; he observed that simplified models often captured essential behaviors despite ignoring secondary effects.",
+      "active_goals": "Newton's operative goal was to establish natural philosophy as a predictive mathematical science rather than a qualitative explanatory system; he prioritized developing methods that could generate precise, verifiable results over constructing complete physical narratives.",
+      "rejected_alternatives": "Newton rejected the Cartesian approach of building comprehensive mechanical models from first principles because it led to untestable speculation; he dismissed purely empirical approaches that collected observations without mathematical structure; he rejected waiting to develop mathematical laws until all physical mechanisms were understood.",
+      "situation_framing": "Newton framed this as a methodological crisis requiring a fundamental reversal of priorities - treating mathematics as the foundation rather than the ornament of natural philosophy; he saw simplified models not as intellectual weakness but as strategic abstraction that could reveal underlying mathematical order.",
+      "expected_outcome": "Newton expected that starting with mathematically tractable simplified cases would reveal universal laws that could later be extended to more complex situations; he anticipated this approach would produce testable predictions and practical applications even while physical mechanisms remained incompletely understood."
+    },
+    "counterfactual": "A competent peer like Leibniz or Huygens would have attempted to construct a comprehensive mechanical theory explaining celestial motion through detailed physical mechanisms like vortices or particle interactions, following the established Cartesian methodology.",
+    "divergence_explanation": "Newton's mathematical training at Cambridge emphasized geometric rigor over physical speculation, giving him confidence that mathematical relationships could be meaningful even without complete causal explanations; his early success with calculus had shown him that abstract mathematical methods could solve problems that resisted physical intuition.",
+    "outcome": "This methodological choice enabled Newton to derive the inverse square law, unify terrestrial and celestial mechanics, and establish mathematical physics as a new paradigm that prioritized predictive power over explanatory completeness, fundamentally transforming natural philosophy into modern science.",
+    "source": "scholarly_analysis_methodology"
+  },
+  {
+    "id": "incident-030",
+    "decision": "Newton decided to transform a mundane observation into a systematic inquiry about the fundamental nature of gravitational force and its universal properties.",
+    "context": "Newton witnessed an apple falling from a tree, a common everyday occurrence that most people would observe without deeper reflection. The immediate situational constraint was that this was simply a natural phenomenon happening in his presence, with no external pressure to analyze it or derive scientific insights from it.",
+    "cdm_probes": {
+      "cues_noticed": "Newton attended to the precise directionality of the apple's fall\u2014specifically that it moved perpendicularly toward the ground rather than in any other direction. He noticed the consistency and predictability of this trajectory, recognizing it as a cue that this wasn't random but followed an underlying pattern that demanded explanation.",
+      "active_goals": "Newton's operative goal was to identify universal principles underlying natural phenomena rather than simply cataloging observations. He was actively seeking to uncover the fundamental forces and laws that govern physical interactions, treating every natural event as a potential window into deeper cosmic mechanics.",
+      "rejected_alternatives": "Newton rejected simply noting the apple fell and moving on, dismissed explaining it through Aristotelian theories of natural motion toward the Earth's center, and avoided limiting his inquiry to terrestrial phenomena. He rejected these because they represented either intellectual passivity or acceptance of incomplete explanatory frameworks that failed to reveal universal principles.",
+      "situation_framing": "Newton framed this as a manifestation of a universal force that must operate consistently across all scales\u2014from apples to celestial bodies. He mentally categorized this not as an isolated terrestrial event, but as a local expression of cosmic mechanics that could reveal fundamental laws governing all matter in the universe.",
+      "expected_outcome": "Newton expected that rigorous inquiry into this simple phenomenon would reveal mathematical relationships that could predict and explain not only terrestrial gravity but also celestial mechanics, potentially unifying earthly and heavenly physics under a single theoretical framework."
+    },
+    "counterfactual": "A competent peer would have observed the apple fall, perhaps noted it was a normal occurrence, and continued with their day without deeper investigation or questioning of the underlying mechanisms.",
+    "divergence_explanation": "Newton's decision diverged because his cognitive framework was oriented toward identifying universal principles rather than accepting surface observations. His mathematical training predisposed him to seek quantifiable relationships, while his philosophical commitment to natural philosophy drove him to question fundamental assumptions about the nature of physical forces.",
+    "outcome": "This inquiry led Newton to develop his theory of universal gravitation, mathematically demonstrating that the same force governing falling apples also governs planetary motion, fundamentally revolutionizing physics and astronomy by unifying terrestrial and celestial mechanics.",
+    "source": "stukeley_memoirs"
+  }
+]

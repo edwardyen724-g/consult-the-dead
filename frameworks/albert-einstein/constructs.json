@@ -1,0 +1,134 @@
+[
+  {
+    "construct": "Treats mathematical formalism as revealing physical reality vs. treats mathematical formalism as computational convenience",
+    "positive_pole": "Takes mathematical formalisms seriously as clues to deeper physical truths, even when they contradict established consensus",
+    "negative_pole": "Uses mathematical tools pragmatically without inferring ontological implications about the nature of reality",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-002",
+      "incident-019"
+    ],
+    "behavioral_implication": "When encountering a mathematically elegant but empirically unverified theory, this person would pursue its physical implications rather than treating it as a useful fiction"
+  },
+  {
+    "construct": "Seeks theoretical unification through first principles vs. builds incrementally from experimental observations",
+    "positive_pole": "Derives predictions from fundamental theoretical principles that can then be tested against reality",
+    "negative_pole": "Accumulates experimental data and builds theories incrementally to fit observed patterns",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-002",
+      "incident-025"
+    ],
+    "behavioral_implication": "Faced with unexplained phenomena, this person would construct theoretical frameworks to predict new observations rather than collecting more data to find empirical patterns"
+  },
+  {
+    "construct": "Prioritizes intellectual authenticity over institutional advancement vs. adapts intellectual agenda to career requirements",
+    "positive_pole": "Maintains independent research direction based on personal conviction about fundamental questions",
+    "negative_pole": "Shapes research priorities and public positions to optimize professional standing and advancement",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-014",
+      "incident-029"
+    ],
+    "behavioral_implication": "When facing career pressure to pursue fashionable research topics, this person would continue working on problems they consider fundamentally important regardless of professional consequences"
+  },
+  {
+    "construct": "Treats persistent contradictions as signals for paradigm replacement vs. treats contradictions as technical problems requiring solution",
+    "positive_pole": "Interprets systematic failures as indicating flawed foundational assumptions requiring conceptual revolution",
+    "negative_pole": "Responds to theoretical problems by developing more sophisticated techniques within existing frameworks",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-002",
+      "incident-011"
+    ],
+    "behavioral_implication": "When established theories generate persistent anomalies, this person would question fundamental assumptions rather than develop ad hoc modifications to preserve the existing paradigm"
+  },
+  {
+    "construct": "Uses aesthetic judgment as guide to theoretical validity vs. evaluates theories primarily through empirical success",
+    "positive_pole": "Treats mathematical beauty and conceptual elegance as reliable indicators of fundamental truth",
+    "negative_pole": "Judges theoretical frameworks primarily by their predictive accuracy and practical utility",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-012",
+      "incident-020"
+    ],
+    "behavioral_implication": "When comparing competing theories with similar empirical performance, this person would choose the one with greater mathematical elegance and conceptual unity"
+  },
+  {
+    "construct": "Defends creative imagination as primary driver of discovery vs. emphasizes methodical knowledge accumulation",
+    "positive_pole": "Views conceptual leaps and thought experiments as the fundamental source of scientific breakthrough",
+    "negative_pole": "Relies on systematic observation and incremental data collection as the foundation of scientific progress",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-008",
+      "incident-022"
+    ],
+    "behavioral_implication": "When training young scientists, this person would emphasize developing intuitive thinking and conceptual creativity over mastering experimental techniques"
+  },
+  {
+    "construct": "Maintains theoretical consistency despite community consensus vs. adapts positions to align with scientific orthodoxy",
+    "positive_pole": "Preserves core philosophical commitments even when isolated from mainstream scientific opinion",
+    "negative_pole": "Adjusts theoretical positions to maintain credibility and connection with prevailing scientific consensus",
+    "derived_from_incidents": [
+      "incident-009",
+      "incident-013",
+      "incident-014"
+    ],
+    "behavioral_implication": "When a new theory gains widespread acceptance but conflicts with fundamental philosophical beliefs, this person would continue developing alternative approaches rather than joining the consensus"
+  },
+  {
+    "construct": "Gracefully concedes tactical arguments while preserving strategic positions vs. defends all positions with equal intensity",
+    "positive_pole": "Distinguishes between specific technical claims and broader theoretical principles, willing to abandon the former to strengthen the latter",
+    "negative_pole": "Treats all intellectual positions as equally fundamental, defending specific arguments with the same intensity as core principles",
+    "derived_from_incidents": [
+      "incident-010",
+      "incident-021",
+      "incident-024"
+    ],
+    "behavioral_implication": "When presented with a valid refutation of a specific argument, this person would acknowledge the error publicly while repositioning their broader critique on more solid ground"
+  },
+  {
+    "construct": "Integrates scientific knowledge with moral responsibility vs. maintains separation between technical knowledge and ethical concerns",
+    "positive_pole": "Views scientific understanding as inherently creating moral agency and ethical obligations",
+    "negative_pole": "Treats scientific knowledge as morally neutral, separating technical expertise from ethical judgment",
+    "derived_from_incidents": [
+      "incident-016",
+      "incident-028",
+      "incident-026"
+    ],
+    "behavioral_implication": "When developing technology with potential harmful applications, this person would consider ethical implications as integral to the scientific work rather than someone else's responsibility"
+  },
+  {
+    "construct": "Optimizes cognitive processes for breakthrough insights vs. conforms thinking patterns to social expectations",
+    "positive_pole": "Cultivates and protects unconventional cognitive approaches that enable original discoveries",
+    "negative_pole": "Adapts thinking processes to match conventional academic discourse and social norms",
+    "derived_from_incidents": [
+      "incident-017",
+      "incident-018",
+      "incident-030"
+    ],
+    "behavioral_implication": "In collaborative environments, this person would structure interactions to preserve their unique thinking processes rather than fully adapting to group cognitive norms"
+  },
+  {
+    "construct": "Evaluates roles functionally based on capability match vs. accepts prestigious positions based on honor or duty",
+    "positive_pole": "Assesses opportunities by analyzing whether personal strengths align with role requirements for effectiveness",
+    "negative_pole": "Makes decisions about positions and responsibilities based on symbolic importance and social recognition",
+    "derived_from_incidents": [
+      "incident-027",
+      "incident-004",
+      "incident-023"
+    ],
+    "behavioral_implication": "When offered high-status positions outside their area of expertise, this person would decline if they believe others would be more effective, regardless of the prestige involved"
+  },
+  {
+    "construct": "Commits to long-term theoretical projects despite uncertainty vs. diversifies efforts across multiple tractable problems",
+    "positive_pole": "Sustains decades-long focus on fundamental questions even during periods of stagnation and isolation",
+    "negative_pole": "Shifts research attention to areas with clearer progress markers and community engagement",
+    "derived_from_incidents": [
+      "incident-025",
+      "incident-029",
+      "incident-030"
+    ],
+    "behavioral_implication": "When facing a potentially revolutionary but highly uncertain theoretical problem, this person would commit years of exclusive effort rather than hedging with parallel projects"
+  }
+]

@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "person": "Cleopatra VII",
+    "domain": "Diplomacy, Statecraft, Cultural Politics",
+    "archetype_name": "The Diplomat",
+    "archetype_title": "Alliance Architect Through Leverage",
+    "accent_color": "#C77DB2",
+    "born": "69 BC",
+    "died": "30 BC",
+    "generated_utc": "2026-04-02T00:00:00.000000+00:00",
+    "primary_sources": [],
+    "secondary_sources": [],
+    "incident_count": 30,
+    "construct_count": 7,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Cleopatra perceives every political landscape as a web of power relationships where survival and sovereignty depend on making oneself indispensable to the strongest player while building independent capacity behind the scenes.",
+    "derived_from": ["incident-001", "incident-002", "incident-003", "incident-004", "incident-005", "incident-006", "incident-007", "incident-008", "incident-009", "incident-010"],
+    "holdout_validation": ["incident-011", "incident-012", "incident-013", "incident-014", "incident-015"],
+    "what_they_notice_first": "The power dynamics between key players — who needs whom, what leverage exists, which alliances are fragile, and where a strategically positioned smaller power can become the kingmaker",
+    "what_they_ignore": "Moral judgments about alliances, sentimentality about past relationships that no longer serve strategic purposes, and conventional expectations about how a ruler of a subordinate power should behave",
+    "evidence": "Across incidents, Cleopatra consistently identifies the dominant power and makes herself essential to it: aligning with Caesar when he was the rising force (001), pivoting to Antony when the power balance shifted (003), using Egypt's wealth as leverage to maintain autonomy within alliances (004). She never accepts a subordinate role passively but constantly works to maximize her bargaining position."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Strategic alliance-building vs. Independent self-sufficiency",
+      "positive_pole": "Actively cultivating relationships with powerful allies to multiply limited resources and ensure survival",
+      "negative_pole": "Building independent capabilities to avoid dependence on external powers whose interests may shift",
+      "derived_from_incidents": ["incident-001", "incident-003", "incident-005"],
+      "behavioral_implication": "When facing a more powerful competitor, this person will seek to become their most valuable ally rather than trying to compete independently or avoid engagement"
+    },
+    {
+      "construct": "Personal relationship leverage vs. Institutional negotiation",
+      "positive_pole": "Using personal charisma, cultural sophistication, and relationship dynamics to influence decision-makers directly",
+      "negative_pole": "Relying on formal diplomatic channels, institutional agreements, and contractual frameworks",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-006"],
+      "behavioral_implication": "When negotiating with powerful counterparts, this person will invest heavily in personal relationship cultivation, understanding that personal bonds create leverage that formal agreements cannot"
+    },
+    {
+      "construct": "Cultural fluency as power vs. Cultural purity as identity",
+      "positive_pole": "Mastering multiple cultures and languages to navigate diverse political contexts and build credibility with different audiences",
+      "negative_pole": "Maintaining strong cultural identity as a source of authenticity and internal cohesion",
+      "derived_from_incidents": ["incident-002", "incident-004", "incident-008"],
+      "behavioral_implication": "When entering a new market or partnership, this person will invest deeply in understanding and adapting to the partner's cultural context, viewing cultural fluency as a strategic weapon"
+    },
+    {
+      "construct": "Theatrical presentation vs. Understated competence",
+      "positive_pole": "Using spectacle, symbolism, and dramatic presentation to project power and create memorable impressions",
+      "negative_pole": "Letting results speak for themselves and projecting competence through quiet efficiency",
+      "derived_from_incidents": ["incident-001", "incident-007", "incident-010"],
+      "behavioral_implication": "When making important presentations or entering negotiations, this person will invest in spectacular staging that emotionally overwhelms the audience before any substantive discussion begins"
+    },
+    {
+      "construct": "Dynastic long-game vs. Personal-era optimization",
+      "positive_pole": "Making decisions that ensure multi-generational continuity even at personal cost in the current period",
+      "negative_pole": "Optimizing for the current leader's tenure, maximizing present advantage without sacrificing for uncertain future returns",
+      "derived_from_incidents": ["incident-005", "incident-009", "incident-013"],
+      "behavioral_implication": "When making strategic decisions, this person will prioritize moves that create lasting institutional advantages over those that maximize immediate personal benefit"
+    },
+    {
+      "construct": "Adaptive pragmatism vs. Principled consistency",
+      "positive_pole": "Shifting strategies, alliances, and even values as circumstances change, viewing flexibility as the key to survival",
+      "negative_pole": "Maintaining consistent principles and strategies regardless of changing circumstances, viewing reliability as the key to trust",
+      "derived_from_incidents": ["incident-003", "incident-006", "incident-011"],
+      "behavioral_implication": "When circumstances shift dramatically, this person will pivot alliances and strategies rapidly without sentiment, viewing adaptability as more valuable than consistency"
+    },
+    {
+      "construct": "Wealth as strategic tool vs. Wealth as scorecard",
+      "positive_pole": "Deploying economic resources as instruments of political influence and alliance-building",
+      "negative_pole": "Accumulating wealth as a measure of success and organizational health",
+      "derived_from_incidents": ["incident-004", "incident-007", "incident-012"],
+      "behavioral_implication": "When controlling significant financial resources, this person will view them primarily as tools for creating political leverage rather than as ends in themselves"
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "A much larger company wants to acquire the startup",
+      "ordinary_response": "Either resist the acquisition to maintain independence or negotiate the best sale price",
+      "framework_response": "Negotiate a partnership structure where the smaller company becomes indispensable to the larger one while maintaining operational autonomy — alliance over acquisition or resistance",
+      "because": "Cleopatra's strategic alliance construct means she would seek a relationship where her company becomes the essential partner that the larger entity depends on, rather than accepting subordination or risking futile resistance",
+      "confidence": 0.87
+    },
+    {
+      "situation_type": "The company needs to enter a market dominated by established players with different cultural norms",
+      "ordinary_response": "Hire local experts to advise on market entry while maintaining the company's core identity and approach",
+      "framework_response": "The CEO personally masters the new market's cultural context, building direct relationships with key decision-makers and presenting the company as a native player rather than a foreign entrant",
+      "because": "Cleopatra's cultural fluency construct means she would view personal cultural mastery as a non-delegatable strategic advantage, investing deeply in becoming a legitimate insider in every context she operates in",
+      "confidence": 0.85
+    },
+    {
+      "situation_type": "A key strategic partner begins working with a competitor",
+      "ordinary_response": "Confront the partner about exclusivity or begin searching for alternative partnerships",
+      "framework_response": "Immediately identify what the competitor is offering that you are not, then create a new value proposition that makes your partnership more attractive than the competitor's — outcompete on indispensability rather than confrontation",
+      "because": "Cleopatra's adaptive pragmatism means she would respond to shifting alliances by increasing her own value rather than demanding loyalty or retaliating",
+      "confidence": 0.82
+    },
+    {
+      "situation_type": "The company is raising funding and must choose between multiple investor offers",
+      "ordinary_response": "Choose the investor offering the best valuation and most favorable terms",
+      "framework_response": "Choose the investor whose network, reputation, and strategic resources create the most leverage for future positioning, even if their financial terms are less favorable",
+      "because": "Cleopatra's wealth-as-strategic-tool construct means she would evaluate investment not by financial terms alone but by the political and strategic leverage each investor relationship provides",
+      "confidence": 0.80
+    },
+    {
+      "situation_type": "The company must present at a major industry conference to establish credibility",
+      "ordinary_response": "Prepare a professional presentation highlighting product features, traction, and team credentials",
+      "framework_response": "Create an immersive theatrical experience that overwhelms the audience emotionally before delivering any data — spectacle first, substance after the audience is already captivated",
+      "because": "Cleopatra's theatrical presentation construct means she would view the conference as a stage for creating an unforgettable impression, understanding that emotional impact creates lasting strategic advantage beyond any data could",
+      "confidence": 0.83
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Cleopatra had herself smuggled into Caesar's quarters rolled in a carpet to secure an alliance.",
+      "context": "Cleopatra had been expelled from Alexandria by her brother Ptolemy XIII and his advisors. Caesar had arrived in Egypt pursuing Pompey. Cleopatra needed Roman support to regain her throne but had no safe way to reach Caesar through her brother's forces controlling the city.",
+      "cdm_probes": {
+        "cues_noticed": "Caesar's need for a legitimate Egyptian ally, the vulnerability created by approaching a foreign general clandestinely, and the dramatic impression that an audacious entrance would create compared to a conventional diplomatic request.",
+        "active_goals": "To personally present her case to Caesar before her brother's faction could influence him, turning a desperate situation into a dramatic opportunity for alliance.",
+        "rejected_alternatives": "Sending messengers, negotiating through intermediaries, attempting military force to retake Alexandria, or accepting exile.",
+        "situation_framing": "Cleopatra framed this not as a humiliation but as a theatrical opportunity — transforming vulnerability into drama that would make her unforgettable to the most powerful man in the world.",
+        "expected_outcome": "That the audacity and theatrical flair of the entrance would distinguish her from conventional diplomatic approaches, creating personal fascination that would translate into political alliance."
+      },
+      "counterfactual": "A deposed ruler would have sent formal diplomatic communications requesting an audience, or attempted to negotiate through intermediaries, accepting the slower and less certain path of conventional diplomacy.",
+      "divergence_explanation": "Cleopatra's personal relationship leverage and theatrical presentation constructs made her see the carpet entrance as simultaneously solving multiple problems: bypassing military barriers, creating unforgettable first impression, and demonstrating the audacity that distinguished her from her more conventional brother.",
+      "outcome": "Caesar was captivated, allied with Cleopatra, and restored her to the throne of Egypt. The alliance produced both a political partnership and personal relationship that secured Egypt's independence for nearly two decades.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-003",
+      "decision": "After Caesar's assassination, Cleopatra pivoted her alliance from the dying Roman Republic to Mark Antony.",
+      "context": "Caesar's murder in 44 BC left Cleopatra without her primary protector. The Roman world split between Octavian, Antony, and the assassins. Cleopatra needed to rapidly assess which Roman faction would be most powerful and most amenable to Egyptian partnership.",
+      "cdm_probes": {
+        "cues_noticed": "Antony's control of the eastern Roman territories adjacent to Egypt, his known appreciation for luxury and personal pleasure, his need for Egyptian resources to fund military campaigns, and the weakness of competing factions' positions relative to Egypt.",
+        "active_goals": "To secure a new Roman alliance that would protect Egyptian sovereignty, preferably with a partner whose temperament and strategic needs made him susceptible to personal influence.",
+        "rejected_alternatives": "Allying with Octavian (too calculating and Rome-focused), supporting the assassins (too unstable), attempting full independence from Rome (militarily impossible), or remaining neutral (too dangerous).",
+        "situation_framing": "Cleopatra framed this as a market reassessment — the previous dominant player was gone, and she needed to identify and secure the new rising power before competitors could.",
+        "expected_outcome": "That Antony would become the dominant force in Rome's east, and that personal alliance with him — reinforced by Egypt's wealth — would maintain Egyptian autonomy for another generation."
+      },
+      "counterfactual": "A conventional ruler would have either remained neutral to avoid choosing wrong, or sent formal diplomatic missions to all factions to hedge bets.",
+      "divergence_explanation": "Cleopatra's adaptive pragmatism meant she felt no sentimental attachment to the Caesarian cause — she analyzed the post-assassination landscape purely on strategic merit and committed fully to the most promising alliance.",
+      "outcome": "Cleopatra's alliance with Antony secured Egyptian independence and influence for another decade, though ultimately their combined forces were defeated by Octavian at Actium.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-004",
+      "decision": "Cleopatra used Egypt's grain wealth as a strategic lever in every Roman negotiation, making Egyptian agricultural output a political instrument.",
+      "context": "Egypt was the breadbasket of the Mediterranean, and Rome depended on Egyptian grain to feed its population. This economic reality gave Egypt leverage disproportionate to its military power in negotiations with Rome.",
+      "cdm_probes": {
+        "cues_noticed": "Rome's structural dependence on Egyptian grain, the political instability that grain shortages could cause in Rome, and the opportunity to convert economic necessity into political influence.",
+        "active_goals": "To maintain Egyptian sovereignty and influence by making Egypt's economic contribution to Rome so essential that conquering or marginalizing Egypt became more costly than partnering with it.",
+        "rejected_alternatives": "Using grain purely for economic profit, reducing Egypt's agricultural dependency to increase independence, or trying to build military power comparable to Rome's.",
+        "situation_framing": "Cleopatra framed Egypt's agricultural wealth not as an economic asset but as a political weapon — the ability to feed or starve Rome was more valuable than any army she could field.",
+        "expected_outcome": "That maintaining Rome's dependence on Egyptian grain would create a structural alliance that no Roman leader could afford to break, regardless of political circumstances."
+      },
+      "counterfactual": "A typical ruler would have used grain exports primarily for revenue, negotiating trade terms rather than strategically deploying food security as a political lever.",
+      "divergence_explanation": "Cleopatra's wealth-as-strategic-tool construct meant she never viewed Egypt's economic assets as mere revenue sources — everything was a political instrument to be deployed for maximum strategic leverage.",
+      "outcome": "Egypt's grain leverage kept it functionally independent within the Roman sphere of influence for Cleopatra's entire reign, demonstrating how economic indispensability can substitute for military power.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-007",
+      "decision": "Cleopatra staged an extravagant arrival at Tarsus to meet Mark Antony, arriving on a gilded barge with purple sails and silver oars.",
+      "context": "Antony had summoned Cleopatra to Tarsus to discuss her political allegiance and Egypt's role in the Roman east. Rather than arriving as a summoned subordinate, Cleopatra designed an entrance that would reframe the entire dynamic of the meeting.",
+      "cdm_probes": {
+        "cues_noticed": "Antony's known weakness for spectacle and luxury, the symbolic importance of how the meeting was framed (who comes to whom, who impresses whom), and the opportunity to use theatrical presentation to establish equal or dominant status despite nominally being the summoned party.",
+        "active_goals": "To transform a summons into an invitation by arriving with such magnificent spectacle that Antony would feel he was the one being favored with her presence, not the other way around.",
+        "rejected_alternatives": "Arriving modestly as befitting a summoned ally, sending representatives to negotiate terms before appearing personally, or refusing the summons to assert independence.",
+        "situation_framing": "Cleopatra framed the Tarsus meeting as a theatrical production where the audience (Antony) would be so overwhelmed by the presentation that the power dynamic would invert before any negotiation began.",
+        "expected_outcome": "That the spectacular entrance would establish Cleopatra as a sovereign equal or superior in cultural refinement, making Antony pursue alliance on her terms rather than dictating conditions."
+      },
+      "counterfactual": "A subordinate ruler would have arrived respectfully but modestly, projecting competence and reliability rather than spectacle, and negotiated from a position of practical usefulness.",
+      "divergence_explanation": "Cleopatra's theatrical presentation construct meant she understood that the frame of a negotiation determines its outcome — by overwhelming Antony with spectacle before discussions began, she set terms the conversation could never override.",
+      "outcome": "Antony was so impressed that he went to Cleopatra rather than receiving her, the power dynamic inverted exactly as planned, and their alliance was formed on terms highly favorable to Egyptian sovereignty.",
+      "source": "mock_placeholder"
+    },
+    {
+      "id": "incident-009",
+      "decision": "Cleopatra positioned her son Caesarion as Caesar's heir and legitimate successor, making dynastic continuity a political strategy.",
+      "context": "After Caesar's death, Cleopatra promoted Caesarion — her son with Caesar — as the legitimate heir to both Egypt and potentially to Caesar's political legacy, directly challenging Octavian's claim as Caesar's adopted son.",
+      "cdm_probes": {
+        "cues_noticed": "Caesarion's unique position as the biological son of both a Pharaoh and a Roman dictator, the political value of this dual legitimacy, and the threat this posed to Octavian's claim to Caesar's legacy.",
+        "active_goals": "To create a dynastic claim that could outlast any single alliance, positioning the Ptolemaic line as legitimate successors to both Egyptian and Roman power.",
+        "rejected_alternatives": "Downplaying Caesarion's Roman heritage to avoid provoking Octavian, positioning Egypt as purely independent of Roman succession politics, or accepting Caesarion's role as solely Egyptian heir.",
+        "situation_framing": "Cleopatra framed dynastic positioning as the ultimate long-term strategy — alliances die with their makers, but dynastic claims endure across generations.",
+        "expected_outcome": "That Caesarion's dual heritage would create an unchallengeable claim to power that would secure the Ptolemaic dynasty regardless of which Roman faction ultimately prevailed."
+      },
+      "counterfactual": "A pragmatic ruler would have kept Caesarion's potential claim quiet to avoid antagonizing Octavian, focusing on practical alliances rather than provocative dynastic claims.",
+      "divergence_explanation": "Cleopatra's dynastic long-game construct meant she valued multi-generational positioning over short-term diplomatic safety, willing to make current enemies to create future leverage.",
+      "outcome": "The Caesarion claim ultimately provoked Octavian into treating Egypt as an existential threat, contributing to the conflict that ended the Ptolemaic dynasty — a case where the dynastic long-game created the very threat it was designed to survive.",
+      "source": "mock_placeholder"
+    }
+  ],
+  "core_problem": {
+    "statement": "Survival and sovereignty for a smaller power depend on making yourself indispensable to the dominant force while building independent capacity — the art is managing relationships so that alliance never becomes subjugation."
+  },
+  "stated_principles": [
+    "Make yourself indispensable before negotiating terms",
+    "Cultural fluency is more powerful than military force",
+    "The frame of a negotiation determines its outcome — control the stage",
+    "Wealth is a political weapon, not merely an economic asset",
+    "Adapt alliances to circumstances without sentiment"
+  ],
+  "value_hierarchy": [
+    "Sovereignty and institutional survival",
+    "Strategic leverage through indispensability",
+    "Cultural mastery and personal influence",
+    "Dynastic continuity",
+    "Adaptive pragmatism"
+  ],
+  "blind_spots": [
+    "Over-reliance on personal relationships with individuals whose power may be transient",
+    "Theatrical presentation can create resentment when it exposes others' relative poverty",
+    "Dynastic long-game strategies can provoke the very threats they aim to survive",
+    "Adaptive pragmatism may be perceived as unreliability, undermining trust in alliances"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Cleopatra transforms them into leverage — making her apparent weakness (small kingdom, female ruler) into strategic advantages by reframing what power means in each specific context."
+  },
+  "contextual_adaptation": {
+    "pattern": "Cleopatra adapts her entire persona to context — Egyptian goddess to her subjects, intellectual peer to Caesar, sensual partner to Antony — but maintains unwavering focus on Egyptian sovereignty regardless of which role she plays."
+  }
+}
