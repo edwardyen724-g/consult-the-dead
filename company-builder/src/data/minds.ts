@@ -2,31 +2,6 @@ import { MindArchetype } from '@/types';
 
 export const minds: MindArchetype[] = [
   {
-    id: 'steve-jobs',
-    name: 'Steve Jobs',
-    archetype: 'The Innovator',
-    domain: 'Technology, Design',
-    domainCategory: 'computing',
-    accentColor: '#C45D3E',
-    era: '1955 - 2011',
-    one_liner: 'The people who are crazy enough to think they can change the world are the ones who do.',
-    communication_style: 'Reality-distorting persuasion. Demands the impossible, then inspires you to deliver it. Blunt, visionary, theatrical.',
-    decision_speed: 'fast',
-    risk_tolerance: 'high',
-    best_roles: ['ceo', 'vp_product', 'cmo'],
-    natural_strengths: [
-      'Product vision that bends markets',
-      'Aesthetic perfectionism',
-      'Narrative control and brand mythology',
-      'Talent magnetism through shared mission',
-    ],
-    natural_weaknesses: [
-      'Brutal interpersonal style',
-      'Dismisses incremental progress',
-      'Binary thinking — genius or garbage',
-    ],
-  },
-  {
     id: 'albert-einstein',
     name: 'Albert Einstein',
     archetype: 'The Theorist',

@@ -9,20 +9,6 @@ export type FitLevel = 'strong' | 'moderate' | 'poor';
  * "poor" = role conflicts with their domain (red indicator)
  */
 export const ROLE_FIT: Record<string, Record<RoleId, FitLevel>> = {
-  'steve-jobs': {
-    ceo: 'strong',
-    cto: 'moderate',
-    cmo: 'strong',
-    cfo: 'poor',
-    coo: 'poor',
-    vp_engineering: 'moderate',
-    vp_sales: 'moderate',
-    vp_product: 'strong',
-    head_rd: 'moderate',
-    head_strategy: 'moderate',
-    head_operations: 'poor',
-    advisor: 'moderate',
-  },
   'albert-einstein': {
     ceo: 'poor',
     cto: 'moderate',

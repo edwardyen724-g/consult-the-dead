@@ -24,7 +24,6 @@ Full frameworks (`framework.json` plus extracted `incidents/`):
 - marie-curie
 - niccolo-machiavelli
 - nikola-tesla
-- steve-jobs
 
 Minimal frameworks (`framework.json` only, incident extraction pending):
 

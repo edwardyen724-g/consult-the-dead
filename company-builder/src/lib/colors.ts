@@ -30,7 +30,6 @@ export function blendColors(color1: string, color2: string): string {
 
 /** Mind accent colors — canonical source */
 export const MIND_COLORS: Record<string, string> = {
-  'steve-jobs': '#C45D3E',
   'albert-einstein': '#6C63FF',
   'leonardo-da-vinci': '#D4A853',
   'sun-tzu': '#2D7A4F',
