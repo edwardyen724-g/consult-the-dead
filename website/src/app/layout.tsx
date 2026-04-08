@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Newsreader, Source_Sans_3 } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Newsreader, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -10,23 +8,20 @@ const newsreader = Newsreader({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500"],
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Great Minds \u2014 The Library",
-    template: "%s \u2014 Great Minds",
-  },
+  title: "Greatmind",
   description:
-    "A curated collection of cognitive frameworks derived from history's most distinctive decision-makers.",
+    "Multi-framework decision support, extracted from documented historical incidents. Not a persona. Not a clone.",
 };
 
 export default function RootLayout({
@@ -37,14 +32,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${sourceSans.variable}`}
+      className={`${newsreader.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col antialiased">
-        <ThemeProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          {children}
         </ThemeProvider>
       </body>
     </html>
