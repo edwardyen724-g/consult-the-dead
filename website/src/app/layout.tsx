@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Greatmind",
+  title: "Consult The Dead",
   description:
     "Multi-framework decision support, extracted from documented historical incidents. Not a persona. Not a clone.",
 };

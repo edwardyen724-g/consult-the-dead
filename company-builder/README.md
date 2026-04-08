@@ -1,4 +1,4 @@
-# Company Builder — Greatmind
+# Company Builder — Consult The Dead
 
 > Multi-framework decision support, extracted from documented historical incidents. Not a persona. Not a clone.
 

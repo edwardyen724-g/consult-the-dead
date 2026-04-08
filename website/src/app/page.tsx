@@ -25,7 +25,7 @@ export default function HomePage() {
               color: "var(--fg-dim)",
             }}
           >
-            Greatmind
+            Consult The Dead
           </div>
           <h1
             style={{
@@ -150,7 +150,7 @@ export default function HomePage() {
               color: "var(--fg-dim)",
             }}
           >
-            Greatmind. 2026.
+            Consult The Dead. 2026.
           </div>
           <FooterToggle />
         </div>

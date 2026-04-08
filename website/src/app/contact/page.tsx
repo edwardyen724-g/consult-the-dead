@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
-  title: "Custom framework extraction — Greatmind",
+  title: "Custom framework extraction — Consult The Dead",
   description:
     "Extract a decision framework from a figure not in the public set.",
 };
@@ -30,7 +30,7 @@ export default function ContactPage() {
             textDecoration: "none",
           }}
         >
-          &larr; Greatmind
+          &larr; Consult The Dead
         </Link>
 
         <h1

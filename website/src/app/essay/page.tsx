@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Consulting the Dead, Not Distilling the Living — Greatmind",
+  title: "Consulting the Dead, Not Distilling the Living — Consult The Dead",
   description: "The operation we are doing instead.",
 };
 
@@ -232,7 +232,7 @@ export default function EssayPage() {
             marginBottom: "64px",
           }}
         >
-          &larr; Greatmind
+          &larr; Consult The Dead
         </Link>
         <article>{renderMarkdown(md)}</article>
       </div>
