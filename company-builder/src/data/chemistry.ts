@@ -38,12 +38,6 @@ const RAW_CHEMISTRY: Record<string, ChemistryPair> = {
     hint: 'Cross-disciplinary visionaries bridging art and logic',
     detail: 'Lovelace sees algorithmic beauty in everything; da Vinci sees artistic pattern in nature. Both bridge abstraction and application, imagination and rigor. Their collaboration would produce designs that are both computationally sound and aesthetically transcendent.',
   },
-  'nikola-tesla|steve-jobs': {
-    score: 38,
-    warmth: 'tension',
-    hint: 'Both visionary but clash on product vs pure invention',
-    detail: 'Tesla invents for the sake of human progress; Jobs invents for market dominance. Tesla sees commercialization as a necessary evil; Jobs sees it as the art form itself. Tesla would be frustrated by Jobs\'s willingness to simplify; Jobs would be frustrated by Tesla\'s refusal to ship.',
-  },
   'catherine-the-great|cleopatra-vii': {
     score: 78,
     warmth: 'synergy',
@@ -74,12 +68,6 @@ const RAW_CHEMISTRY: Record<string, ChemistryPair> = {
     hint: 'Algorithmic elegance meets systemic invention',
     detail: 'Lovelace sees the computational potential in Tesla\'s electrical systems. Tesla sees engineering applications for Lovelace\'s algorithmic thinking. Together they would build systems that are both technically innovative and computationally optimized — true systems engineering.',
   },
-  'alexander-the-great|steve-jobs': {
-    score: 76,
-    warmth: 'synergy',
-    hint: 'Charismatic conquerors who reshape reality by force of will',
-    detail: 'Both possess a reality distortion field. Alexander conquers physical empires; Jobs conquers markets. Both inspire fanatical loyalty and demand excellence. Their combined charisma could move mountains — but two alpha personalities in one organization risk a power struggle.',
-  },
   'cleopatra-vii|niccolo-machiavelli': {
     score: 42,
     warmth: 'tension',
@@ -98,12 +86,6 @@ const RAW_CHEMISTRY: Record<string, ChemistryPair> = {
     hint: 'Mathematical foundations meet computational vision',
     detail: 'Newton built the calculus; Lovelace saw how computation could extend it. Newton\'s rigorous mathematical framework gives Lovelace\'s algorithmic thinking a solid foundation. Lovelace\'s vision of general-purpose computation would fascinate and challenge Newton\'s worldview.',
   },
-  'leonardo-da-vinci|steve-jobs': {
-    score: 87,
-    warmth: 'synergy',
-    hint: 'Aesthetic obsessives who merge form and function',
-    detail: 'Both believe beauty and function are inseparable. Da Vinci\'s Renaissance approach to integrating art and engineering mirrors Jobs\'s insistence on design as a core business strategy. Together they would create products that are both technically brilliant and visually stunning.',
-  },
   'alexander-the-great|cleopatra-vii': {
     score: 32,
     warmth: 'tension',
@@ -121,12 +103,6 @@ const RAW_CHEMISTRY: Record<string, ChemistryPair> = {
     warmth: 'synergy',
     hint: 'Tireless experimentalists with shared disregard for comfort',
     detail: 'Both sacrifice personal wellbeing for their work. Curie\'s methodical experimental approach complements Tesla\'s intuitive engineering. Both are driven by genuine curiosity rather than commercial gain. Together they would build a research lab of relentless, selfless innovation.',
-  },
-  'sun-tzu|steve-jobs': {
-    score: 40,
-    warmth: 'tension',
-    hint: 'Patient strategy clashes with reality-distortion urgency',
-    detail: 'Sun Tzu counsels patience, preparation, and winning through positioning. Jobs demands immediate action, impossible timelines, and market disruption. Sun Tzu would see Jobs\'s urgency as strategic weakness; Jobs would see Sun Tzu\'s patience as lack of ambition. The tension is real but both could learn.',
   },
   'albert-einstein|leonardo-da-vinci': {
     score: 86,
