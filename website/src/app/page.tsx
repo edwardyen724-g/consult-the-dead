@@ -103,9 +103,8 @@ export default function HomePage() {
       {/* SECTION 6 — Repo link */}
       <section style={{ padding: "0 24px", marginTop: "128px" }}>
         <div style={{ maxWidth: COL, margin: "0 auto" }}>
-          {/* TODO: replace with actual public repo URL once published */}
           <ArrowLink
-            href="https://github.com/"
+            href="https://github.com/edwardyen724-g/consult-the-dead"
             label="Company Builder — open source"
             sub="The debate engine. MIT licensed."
             external
