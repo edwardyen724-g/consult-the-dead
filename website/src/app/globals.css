@@ -8,6 +8,15 @@
   --hairline: #1F1F22;
   --amber: #D4A574;
 
+  /* Framework accent colors — desaturated, tuned for dark bg.
+     Use as ink in the margin: name labels, small accents, italic tags.
+     Never as borders, fills, or large blocks. */
+  --color-machiavelli: #B25A5E; /* deep crimson — blood, power */
+  --color-suntzu:      #5AA58C; /* jade/teal — strategy, distance */
+  --color-leonardo:    #C9A24A; /* ochre — notebooks, anatomy */
+  --color-newton:      #7B8FD4; /* cool blue-violet — prism, cold reason */
+  --color-curie:       #9BBE5A; /* pale radium green — the obvious choice */
+
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
@@ -18,6 +27,13 @@ html.light, .light {
   --fg-dim: #6B6560;
   --hairline: #E2DED8;
   --amber: #B8843F;
+
+  /* Slightly darkened tints for light bg readability. */
+  --color-machiavelli: #93363A;
+  --color-suntzu:      #2F7A5F;
+  --color-leonardo:    #8C6A1F;
+  --color-newton:      #4E63A8;
+  --color-curie:       #5E8128;
 }
 
 html {
@@ -58,4 +74,134 @@ body {
 .gm-fade.gm-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== Fan diagram draw-in ===== */
+.gm-fan path.gm-fan-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+}
+.gm-fan text.gm-fan-label {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}
+.gm-fan circle.gm-fan-node,
+.gm-fan path.gm-fan-node {
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+
+.gm-fan.gm-fan-play path.gm-fan-line {
+  animation: gm-fan-draw 900ms ease-out forwards;
+}
+.gm-fan.gm-fan-play path.gm-fan-line.gm-line-1 { animation-delay:    0ms; }
+.gm-fan.gm-fan-play path.gm-fan-line.gm-line-2 { animation-delay:  200ms; }
+.gm-fan.gm-fan-play path.gm-fan-line.gm-line-3 { animation-delay:  400ms; }
+.gm-fan.gm-fan-play path.gm-fan-line.gm-line-4 { animation-delay:  600ms; }
+.gm-fan.gm-fan-play path.gm-fan-line.gm-line-5 { animation-delay:  800ms; }
+
+.gm-fan.gm-fan-play text.gm-fan-label.gm-label-1 { transition-delay:  150ms; opacity: 1; }
+.gm-fan.gm-fan-play text.gm-fan-label.gm-label-2 { transition-delay:  350ms; opacity: 1; }
+.gm-fan.gm-fan-play text.gm-fan-label.gm-label-3 { transition-delay:  550ms; opacity: 1; }
+.gm-fan.gm-fan-play text.gm-fan-label.gm-label-4 { transition-delay:  750ms; opacity: 1; }
+.gm-fan.gm-fan-play text.gm-fan-label.gm-label-5 { transition-delay:  950ms; opacity: 1; }
+
+.gm-fan.gm-fan-play .gm-fan-node {
+  transition-delay: 1500ms;
+  opacity: 1;
+}
+
+@keyframes gm-fan-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ===== Streaming demo: name pulse ===== */
+@keyframes gm-name-pulse {
+  0%   { opacity: 0.35; }
+  50%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+.gm-name-pulse {
+  animation: gm-name-pulse 400ms ease-out;
+}
+
+/* Blinking caret while a block is streaming */
+.gm-caret {
+  display: inline-block;
+  width: 0.5ch;
+  margin-left: 1px;
+  animation: gm-caret-blink 900ms steps(2) infinite;
+}
+@keyframes gm-caret-blink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== Contact form ===== */
+.gm-input,
+.gm-textarea {
+  width: 100%;
+  background: transparent;
+  color: var(--fg);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.5;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  padding: 14px 0;
+  outline: none;
+  transition: border-color 200ms ease-out;
+}
+.gm-textarea {
+  resize: vertical;
+  min-height: 9em;
+  border: 1px solid var(--hairline);
+  padding: 16px;
+}
+.gm-input::placeholder,
+.gm-textarea::placeholder {
+  color: var(--fg-dim);
+  font-style: italic;
+}
+.gm-input:focus,
+.gm-textarea:focus {
+  border-color: var(--amber);
+}
+
+.gm-submit {
+  background: var(--amber);
+  color: #0A0A0B;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  padding: 18px 32px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.005em;
+  transition: transform 150ms ease-out, filter 150ms ease-out;
+}
+.gm-submit:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.gm-submit:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.gm-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gm-fade,
+  .gm-fan path.gm-fan-line,
+  .gm-fan text.gm-fan-label,
+  .gm-fan .gm-fan-node,
+  .gm-name-pulse,
+  .gm-caret {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
 }

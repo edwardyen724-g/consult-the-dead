@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { WorkedExample } from "./worked-example";
+import { StreamingDemo } from "./worked-example";
 import { FooterToggle } from "./footer-toggle";
+import { FanDiagram } from "./fan-diagram";
+import { CouncilForm } from "./council-form";
 
 const COL = "720px";
 
 export default function HomePage() {
   return (
     <div style={{ background: "var(--bg)", color: "var(--fg)" }}>
-      {/* SECTION 1 — Hero */}
+      {/* ACT 1 — HERO */}
       <section
         style={{
           minHeight: "100vh",
@@ -37,93 +39,94 @@ export default function HomePage() {
               marginTop: "32px",
             }}
           >
-            Multi-framework decision support, extracted from documented
-            historical incidents.
+            You have a decision. History has a council.
           </h1>
           <p
             style={{
               fontFamily: "var(--font-serif)",
               fontWeight: 400,
-              fontSize: "clamp(20px, 3vw, 44px)",
-              lineHeight: 1.15,
-              letterSpacing: "-0.01em",
+              fontSize: "clamp(18px, 2.2vw, 26px)",
+              lineHeight: 1.45,
+              letterSpacing: "-0.005em",
               color: "var(--fg-dim)",
-              marginTop: "32px",
+              marginTop: "40px",
+              maxWidth: "62ch",
             }}
           >
-            Not a persona. Not a clone.
+            Machiavelli on the politics. Sun Tzu on the terrain. Curie on the
+            evidence. Leonardo on what you&rsquo;re not seeing. Newton on what
+            must be proven. All at once. For your hardest question.
           </p>
         </div>
       </section>
 
-      {/* SECTION 2 — What it is */}
-      <section style={{ padding: "0 24px", marginTop: "64px" }}>
+      {/* ACT 2 — THE PROBLEM */}
+      <section style={{ padding: "0 24px", marginTop: "128px" }}>
         <div style={{ maxWidth: COL, margin: "0 auto" }}>
           <p
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "19px",
+              fontSize: "21px",
               lineHeight: 1.65,
               maxWidth: "62ch",
             }}
           >
-            Five historical decision-makers analyze one of your decisions in
-            parallel, then converge on a synthesis. Each framework is extracted
-            from documented critical incidents in the figure&rsquo;s life — not
-            scraped from speeches, not a style clone. When they agree,
-            that&rsquo;s high-confidence signal. When they disagree, those are
-            your real tradeoffs.
+            Most decisions get one voice: yours, or a single tool agreeing with
+            what you already think, or a friend who doesn&rsquo;t want to hurt
+            your feelings. When the stakes are real, one voice is never enough.
+            You already know this. That&rsquo;s why the decision is still on
+            your desk.
           </p>
         </div>
       </section>
 
-      {/* SECTION 3 — Hand-drawn SVG diagram */}
+      {/* ACT 3 — THE SVG */}
       <section style={{ padding: "0 24px", marginTop: "160px" }}>
         <div style={{ maxWidth: COL, margin: "0 auto" }}>
           <FanDiagram />
         </div>
       </section>
 
-      {/* SECTION 4 — Worked example */}
-      <section style={{ padding: "0 24px", marginTop: "160px" }}>
-        <WorkedExample />
+      {/* ACT 4 — THE DEMO */}
+      <section style={{ padding: "0 24px", marginTop: "192px" }}>
+        <StreamingDemo />
       </section>
 
-      {/* SECTION 5 — Essay link */}
-      <section style={{ padding: "0 24px", marginTop: "160px" }}>
+      {/* ACT 5 — THE CTA */}
+      <section style={{ padding: "0 24px", marginTop: "192px" }}>
         <div style={{ maxWidth: COL, margin: "0 auto" }}>
-          <ArrowLink
-            href="/essay"
-            label="Consulting the Dead, Not Distilling the Living"
-            sub="The operation we are doing instead"
-          />
+          <h2
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontWeight: 400,
+              fontSize: "clamp(36px, 5vw, 64px)",
+              lineHeight: 1.08,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            What decision are you carrying?
+          </h2>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "20px",
+              lineHeight: 1.5,
+              color: "var(--fg-dim)",
+              marginTop: "24px",
+              maxWidth: "62ch",
+            }}
+          >
+            Describe it below. A council will consider it. Edward will reply
+            within 24 hours.
+          </p>
+
+          <div style={{ marginTop: "56px" }}>
+            <CouncilForm />
+          </div>
         </div>
       </section>
 
-      {/* SECTION 6 — Repo link */}
-      <section style={{ padding: "0 24px", marginTop: "128px" }}>
-        <div style={{ maxWidth: COL, margin: "0 auto" }}>
-          <ArrowLink
-            href="https://github.com/edwardyen724-g/consult-the-dead"
-            label="Company Builder — open source"
-            sub="The debate engine. MIT licensed."
-            external
-          />
-        </div>
-      </section>
-
-      {/* SECTION 7 — Contact link */}
-      <section style={{ padding: "0 24px", marginTop: "128px" }}>
-        <div style={{ maxWidth: COL, margin: "0 auto" }}>
-          <ArrowLink
-            href="/contact"
-            label="Custom framework extraction"
-            sub="For domains or figures not in the public set"
-          />
-        </div>
-      </section>
-
-      {/* FOOTER */}
+      {/* ACT 6 — FOOTER */}
       <footer
         style={{
           padding: "0 24px",
@@ -138,206 +141,52 @@ export default function HomePage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: "16px",
+            gap: "24px",
+            flexWrap: "wrap",
           }}
         >
           <div
             className="font-mono uppercase"
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               letterSpacing: "0.08em",
               color: "var(--fg-dim)",
+              display: "flex",
+              gap: "28px",
+              flexWrap: "wrap",
             }}
           >
-            Consult The Dead. 2026.
+            <Link
+              href="/essay"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              &rarr; The essay
+            </Link>
+            <a
+              href="https://github.com/edwardyen724-g/consult-the-dead"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              &rarr; The open source
+            </a>
           </div>
-          <FooterToggle />
+          <div
+            className="font-mono uppercase"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.08em",
+              color: "var(--fg-dim)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "16px",
+            }}
+          >
+            <span>Consult The Dead. 2026.</span>
+            <FooterToggle />
+          </div>
         </div>
       </footer>
     </div>
-  );
-}
-
-function ArrowLink({
-  href,
-  label,
-  sub,
-  external,
-}: {
-  href: string;
-  label: string;
-  sub: string;
-  external?: boolean;
-}) {
-  const linkContent = (
-    <span
-      style={{
-        fontFamily: "var(--font-serif)",
-        fontSize: "24px",
-        color: "var(--fg)",
-        textDecoration: "none",
-        display: "inline-flex",
-        alignItems: "baseline",
-        gap: "12px",
-      }}
-    >
-      <span aria-hidden="true">&rarr;</span>
-      <span>{label}</span>
-    </span>
-  );
-
-  return (
-    <div>
-      {external ? (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          {linkContent}
-        </a>
-      ) : (
-        <Link href={href}>{linkContent}</Link>
-      )}
-      <div
-        className="font-mono uppercase"
-        style={{
-          fontSize: "12px",
-          letterSpacing: "0.08em",
-          color: "var(--fg-dim)",
-          marginTop: "10px",
-          marginLeft: "32px",
-        }}
-      >
-        {sub}
-      </div>
-    </div>
-  );
-}
-
-function FanDiagram() {
-  // One hand-drawn SVG: 5 labeled framework arrows fanning into a central decision node.
-  // Slight wobble in path coordinates — intentional, not a bug.
-  const stroke = "var(--fg)";
-  return (
-    <svg
-      viewBox="0 0 720 360"
-      width="100%"
-      height="auto"
-      role="img"
-      aria-label="Five frameworks fanning into one decision node"
-      style={{ display: "block", margin: "0 auto", maxWidth: "560px" }}
-    >
-      {/* central decision circle, slightly wobbly */}
-      <path
-        d="M 372 282 C 396 280, 414 296, 412 318 C 410 338, 388 348, 368 344 C 346 340, 336 320, 342 302 C 346 290, 358 282, 372 282 Z"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* 5 fan-in arrows */}
-      {/* Machiavelli (far left) */}
-      <path
-        d="M 72 56 C 130 110, 220 200, 348 304"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 340 296 L 360 308 L 338 312"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Sun Tzu (left) */}
-      <path
-        d="M 200 36 C 232 110, 282 200, 360 296"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 352 286 L 368 302 L 348 304"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Leonardo (center top) */}
-      <path
-        d="M 372 28 C 374 100, 376 184, 378 290"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 370 280 L 378 298 L 388 282"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Newton (right) */}
-      <path
-        d="M 540 38 C 506 112, 458 198, 392 296"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 400 286 L 388 302 L 408 304"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Curie (far right) */}
-      <path
-        d="M 668 60 C 612 116, 522 204, 404 304"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 412 296 L 400 312 L 422 312"
-        fill="none"
-        stroke={stroke}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* labels — mono, small, dim */}
-      <g
-        fontFamily="var(--font-mono)"
-        fontSize="11"
-        fill="var(--fg-dim)"
-        style={{ letterSpacing: "0.08em" }}
-      >
-        <text x="40" y="46" textAnchor="start">
-          MACHIAVELLI
-        </text>
-        <text x="200" y="22" textAnchor="middle">
-          SUN TZU
-        </text>
-        <text x="372" y="18" textAnchor="middle">
-          LEONARDO
-        </text>
-        <text x="540" y="24" textAnchor="middle">
-          NEWTON
-        </text>
-        <text x="680" y="50" textAnchor="end">
-          CURIE
-        </text>
-      </g>
-    </svg>
   );
 }
