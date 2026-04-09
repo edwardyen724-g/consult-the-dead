@@ -162,6 +162,12 @@ export default function HomePage() {
             >
               &rarr; The essay
             </Link>
+            <Link
+              href="/frameworks"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              &rarr; The frameworks
+            </Link>
             <a
               href="https://github.com/edwardyen724-g/consult-the-dead"
               target="_blank"
