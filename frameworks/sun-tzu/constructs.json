@@ -1,0 +1,123 @@
+[
+  {
+    "construct": "Structural norm-setting vs. relational crisis management",
+    "positive_pole": "Treats a contested moment as an opportunity to establish the architecture of an institution permanently, accepting relational damage as the necessary cost of systemic integrity",
+    "negative_pole": "Treats a contested moment as a social emergency to be de-escalated by accommodating the most powerful emotional actor in the room",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-003",
+      "incident-008"
+    ],
+    "behavioral_implication": "If placed in a situation where a senior stakeholder demands an exception to a rule mid-execution, Sun Tzu would refuse and frame the refusal as a defense of the system rather than a personal confrontation, even at significant career or political cost"
+  },
+  {
+    "construct": "Leadership-first causal diagnosis vs. subordinate-deficiency assumption",
+    "positive_pole": "When a system fails, audits the quality of command inputs before assigning blame downward, treating the failure as a circuit with multiple potential fault points to be tested sequentially from the top",
+    "negative_pole": "Defaults to locating failure in the lowest-status actor in the system, skipping diagnostic steps to enforce authority quickly",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-009",
+      "incident-012"
+    ],
+    "behavioral_implication": "When a team repeatedly fails to execute a directive, Sun Tzu would first publicly examine whether the directive itself was clear and correctly calibrated before initiating any punitive process, and would document that examination visibly"
+  },
+  {
+    "construct": "Upstream leverage over downstream force vs. battlefield execution as the decisive act",
+    "positive_pole": "Locates causal agency in the planning, positioning, alliance, and deception phase before contact, treating engagement as confirmation of prior work rather than the mechanism of resolution",
+    "negative_pole": "Treats the moment of direct confrontation as the primary locus of decision-making, attributing outcomes to battlefield courage, improvisation, and numerical superiority",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-013",
+      "incident-005"
+    ],
+    "behavioral_implication": "When asked to solve a competitive problem, Sun Tzu would invest disproportionate time and resources in shaping the pre-engagement environment \u2014 alliances, information asymmetry, positional advantage \u2014 and would resist pressure to commit to direct action before those conditions are configured"
+  },
+  {
+    "construct": "Epistemic contest framing vs. material contest framing",
+    "positive_pole": "Categorizes conflict as fundamentally a competition over whose model of reality is more accurate about the adversary while being more false to the adversary, making information manipulation the master variable",
+    "negative_pole": "Categorizes conflict as a test of material strength, will, and moral virtue, treating deception as a tactical supplement rather than a structural foundation",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-010",
+      "incident-013"
+    ],
+    "behavioral_implication": "When designing a competitive strategy, Sun Tzu would build deception operations as the primary architecture and treat force or resources as secondary instruments, allocating cognitive and material budget accordingly"
+  },
+  {
+    "construct": "Systemic political architecture vs. operational military threshold",
+    "positive_pole": "Evaluates strategic readiness as a political-systemic precondition problem \u2014 whether the enemy's coalition can be fractured before contact \u2014 treating coalition disruption as equivalent to fielding additional armies",
+    "negative_pole": "Evaluates strategic readiness as a military sufficiency question \u2014 whether one's own forces have crossed a capability threshold sufficient to defeat the enemy in the field",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-007",
+      "incident-013"
+    ],
+    "behavioral_implication": "Before recommending a major competitive initiative, Sun Tzu would insist on mapping and neutralizing the adversary's alliance network as a non-negotiable precondition, even if doing so delays the initiative and frustrates stakeholders eager to act"
+  },
+  {
+    "construct": "Own-force capability as the binding constraint vs. enemy vulnerability as the opportunity signal",
+    "positive_pole": "Evaluates opportunity through a dual-axis assessment \u2014 own-force readiness AND enemy weakness must both be satisfied \u2014 treating cumulative degradation of one's own instrument as the primary limiting variable",
+    "negative_pole": "Evaluates opportunity through a single-axis assessment \u2014 if the enemy is weak, attack \u2014 treating visible forward momentum as a reliable proxy for force readiness",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-012",
+      "incident-013"
+    ],
+    "behavioral_implication": "After a string of successes, Sun Tzu would call for assessment and recovery rather than exploitation, resisting the momentum bias that interprets recent wins as evidence of current capability, and would be more likely to pause at apparent high-water marks than to press forward"
+  },
+  {
+    "construct": "Emotion as decision contaminant vs. emotion as legitimate command input",
+    "positive_pole": "Categorizes emotional arousal \u2014 anger, grief, pride, enthusiasm \u2014 as a corrupted input signal that degrades decision quality in irreversible commitment domains, and imposes prohibitive rules against its use rather than treating it as a calibration problem",
+    "negative_pole": "Treats emotional states as scaled inputs that must be weighed and managed, implying that sufficiently intense emotion can legitimately justify action",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-001",
+      "incident-003"
+    ],
+    "behavioral_implication": "When advising on a high-stakes, irreversible decision made under provocation or grief, Sun Tzu would apply a categorical prohibition rather than a weighted analysis, refusing to engage with arguments that frame the emotional intensity as evidence of the action's justifiability"
+  },
+  {
+    "construct": "Jurisdictional competence as the frame for authority vs. hierarchical position as the frame for authority",
+    "positive_pole": "Assigns decision rights to the actor with superior domain knowledge within a defined operational space, treating political authority as categorically incompetent in technical domains regardless of rank, and reframing expert disobedience as superior loyalty to the true objective",
+    "negative_pole": "Assigns decision rights to the highest-ranking actor in the social hierarchy, treating disobedience as a relational and political risk that outweighs the operational cost of deference to an uninformed command",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-001",
+      "incident-003"
+    ],
+    "behavioral_implication": "When a senior non-expert overrides a domain expert's operational judgment, Sun Tzu would support the expert's right and obligation to refuse, and would explicitly codify that right in institutional doctrine rather than leaving it as an implicit and uncomfortable exception"
+  },
+  {
+    "construct": "Psychological state as engineered output vs. psychological state as welfare input",
+    "positive_pole": "Treats soldier morale, commitment, and desperation as manipulable system parameters to be configured by controlling information, options, and environmental constraints, making psychological engineering the commander's core technical task",
+    "negative_pole": "Treats soldier psychological states as conditions to be monitored and improved through honest communication, trust-building, and welfare provision, maintaining a moral asymmetry between how one treats one's own troops and how one treats enemies",
+    "derived_from_incidents": [
+      "incident-010",
+      "incident-011",
+      "incident-002"
+    ],
+    "behavioral_implication": "When managing a team facing a dangerous or demoralizing task, Sun Tzu would design the informational environment and option structure experienced by the team \u2014 withholding alternatives, controlling what they know and when they know it \u2014 rather than building trust through transparency or appealing to their voluntary commitment"
+  },
+  {
+    "construct": "Moral reframing to override value-based resistance vs. efficiency arguments to overcome cost-based resistance",
+    "positive_pole": "Diagnoses resistance to a doctrine as moral rather than rational in character, and counters it by constructing a stronger moral claim on the same terrain \u2014 tracing micro-decisions to macro-human costs through explicit causal chains \u2014 rather than arguing on efficiency grounds",
+    "negative_pole": "Treats resistance to a doctrine as a cost-benefit calculation to be corrected with better data, underestimating the degree to which moral commitments are impervious to purely pragmatic counter-arguments",
+    "derived_from_incidents": [
+      "incident-009",
+      "incident-006",
+      "incident-007"
+    ],
+    "behavioral_implication": "When facing institutional resistance to an unconventional practice grounded in cultural taboo or professional honor, Sun Tzu would not argue that the practice is efficient or cost-saving; he would instead construct an argument that the resistance itself causes the greater moral harm, inverting the ethical valence of the status quo"
+  },
+  {
+    "construct": "Front-loaded certainty through pre-commitment vs. adaptive improvisation through engaged response",
+    "positive_pole": "Systematically moves all meaningful agency to the planning and configuration phase, accepting the constraint of pre-commitment in exchange for the elimination of battlefield variance, treating engagement as an audit of prior geometric work rather than a decision point",
+    "negative_pole": "Preserves flexibility and reserves judgment for the moment of contact, treating adaptive battlefield response as the highest expression of command skill and the true locus of competitive advantage",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-004",
+      "incident-005"
+    ],
+    "behavioral_implication": "When designing a high-stakes initiative, Sun Tzu would front-load the analytical and positioning work to the point where the execution phase is nearly deterministic, and would be deeply suspicious of strategies that depend on superior in-the-moment improvisation, viewing such dependence as evidence of insufficient prior work"
+  }
+]

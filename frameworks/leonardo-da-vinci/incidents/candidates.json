@@ -1,226 +1,387 @@
 [
   {
-    "title": "Pursuing Anatomical Investigation Beyond Practical Need",
-    "description": "Leonardo performed over 30 human dissections, going far beyond what any artist needed, producing the world's most detailed anatomical work but never publishing it. This exemplifies his pattern of curiosity-driven investigation over practical application.",
-    "source_text_excerpt": "The anatomical work exemplifies Leonardo's core pattern -- investigation driven by curiosity rather than practical need, producing results far beyond what the original purpose required, yet remaining unpublished because the investigation felt perpetually incomplete.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Withhold the underwater breathing apparatus from publication",
+    "description": "Leonardo explicitly refused to describe his method for remaining underwater, anticipating it would be used for assassinations and sinking ships. He chose to publish only the less dangerous variant (breathing tube above water) and suppress the rest. This is a rare documented case of a Renaissance inventor performing ethical triage on his own research.",
+    "source_text_excerpt": "How by a certain machine many may stay some time under water. And how and wherefore I do not describe my method of remaining under water and how long I can remain without eating. And I do not publish nor divulge these, by reason of the evil nature of men, who would use them for assassinations at the bottom of the sea by destroying ships, and sinking them, together with the men in them. Nevertheless I will impart others, which are not dangerous because the mouth of the tube through which you breathe is above the water, supported on air sacks or cork.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "This is a clean decision under a real tradeoff: technical pride and completeness against anticipated misuse, with an explicit rule (publish only what cannot be weaponized)."
   },
   {
-    "title": "Choice to Pursue Dual Art-Science Motivation",
-    "description": "Leonardo explicitly pursued anatomical studies for both artistic accuracy and scientific understanding, wanting to know not just structure but also the source and expression of emotions. This reveals his refusal to compartmentalize knowledge domains.",
-    "source_text_excerpt": "He wanted to know not only how the body was constructed and how it worked, but also where the emotions came from and how they were expressed. This dual motivation -- understanding structure for painting accuracy AND understanding function for scientific knowledge -- exemplifies his cross-domain synthesis approach.",
-    "source_title": "anatomical_studies",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Accept disorder in the manuscripts rather than delay writing",
+    "description": "Beginning his 1508 Florentine notebook, Leonardo explicitly decided to write as a 'collection without order' from many papers, knowing he would repeat himself. He refused to reread everything each session to avoid repetition, treating the cost of cross-checking as higher than the cost of redundancy. He preemptively asks the reader not to blame him.",
+    "source_text_excerpt": "Begun at Florence, in the house of Piero di Braccio Martelli, on the 22nd day of March 1508. And this is to be a collection without order, taken from many papers which I have copied here, hoping to arrange them later each in its place, according to the subjects of which they may treat. But I believe that before I am at the end of this [task] I shall have to repeat the same things several times; for which, O reader! do not blame me, for the subjects are many and memory cannot retain them [all].",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "Reveals a deliberate prioritization: throughput of observation over cleanliness of structure — a productivity tradeoff he explicitly names and defends."
   },
   {
-    "title": "Choosing Investigation Over Recognition Through Non-Publication",
-    "description": "Leonardo filled over 7,200 pages of notebooks but published almost nothing, despite this costing him priority in multiple scientific fields and intellectual recognition. The process of investigation was more valuable to him than public acknowledgment.",
-    "source_text_excerpt": "His choice not to publish reveals that the process of investigation was more valuable to him than recognition, and that his holistic vision demanded a completeness that could never be achieved.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Refuse the authority of ancients in favor of direct experiment on the eye",
+    "description": "Leonardo deliberately rejected the inherited definitions of the eye's function from prior authors, announcing that experience contradicts them and that his treatment will start over from what can be demonstrated. He frames this as a choice to trust sensory demonstration over ancient consensus, explicitly naming the predecessors as falsely understood.",
+    "source_text_excerpt": "Behold here O reader! a thing concerning which we cannot trust our forefathers, the ancients, who tried to define what the Soul and Life are--which are beyond proof, whereas those things, which can at any time be clearly known and proved by experience, remained for many ages unknown or falsely understood. The eye, whose function we so certainly know by experience, has, down to my own time, been defined by an infinite number of authors as one thing; but I find, by experience, that it is quite another.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "This is a methodological choice to override received authority with personal experiment, stated at the moment he commits to a research program on optics."
   },
   {
-    "title": "Strategic self-presentation letter to Ludovico Sforza",
-    "description": "Around 1482, Leonardo wrote a detailed letter to Ludovico Sforza emphasizing his military engineering capabilities first, then mentioning his artistic skills almost as an afterthought. This reveals his strategic understanding of what would appeal to a ruler and his ability to reframe his diverse talents for maximum impact.",
-    "source_text_excerpt": "Having, most illustrious lord, seen and pondered over the experiments made by those who pass as masters in the art of inventing instruments of war... he offers to execute the proposed bronze equestrian statue of Francesco Sforza 'which shall bring glory and never-ending honour to that illustrious house.'",
-    "source_title": "brockwell_leonardo",
-    "reasoning_visible": true,
-    "evidence_type": "own_published_work"
+    "title": "Answer humanist critics by choosing experience over citation",
+    "description": "Facing anticipated attacks from lettered humanists who would dismiss him as unliterary, Leonardo decided not to compete on their terms. Instead of padding his work with quoted authorities, he explicitly adopts 'experience, the mistress of their Masters' as his sole citation. This is a strategic decision about how to defend the book's legitimacy.",
+    "source_text_excerpt": "Though I may not, like them, be able to quote other authors, I shall rely on that which is much greater and more worthy:--on experience, the mistress of their Masters. They go about puffed up and pompous, dressed and decorated with [the fruits], not of their own labours, but of those of others. And they will not allow me my own. They will scorn me as an inventor; but how much more might they--who are not inventors but vaunters and declaimers of the works of others--be blamed.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A positioning decision — he rejects a credible defensive strategy (quoting authorities) in favor of an epistemic one, accepting social cost for methodological purity."
   },
   {
-    "title": "Mirror writing as deliberate obfuscation strategy",
-    "description": "Leonardo consistently wrote from right to left in mirror script, which the text suggests was intentional to make his writings difficult for others to read. This reveals his secretive nature and desire to protect his intellectual property and ideas from casual observers.",
-    "source_text_excerpt": "proves a remarkable characteristic of Leonardo's handwriting--viz., that he wrote from right to left; indeed, it has been suggested that he did this in order to make it difficult for any one else to read the words",
-    "source_title": "brockwell_leonardo",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Restrict the readership of the treatise to mathematicians",
+    "description": "Leonardo wrote a one-line admonition gatekeeping his work: only mathematicians may read the elements. Rather than lowering the technical bar to reach more readers, he chose to cut the audience to those equipped to verify the reasoning. It is a small but revealing decision about the kind of reception he valued.",
+    "source_text_excerpt": "Let no man who is not a Mathematician read the elements of my work.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A single-sentence access-control decision that shows Leonardo prioritizing rigor of readership over reach — a rare explicit gatekeeping choice."
   },
   {
-    "title": "Disputed painting sale and replacement strategy",
-    "description": "When disputes arose over payment for the 'Virgin of the Rocks' commission, Leonardo and his collaborator sold the original work to an unknown buyer and created a replacement version for the chapel at a lower price. This shows his pragmatic business approach and willingness to compromise artistic integrity for financial resolution.",
-    "source_text_excerpt": "when it was ultimately sold by the artists for the full price asked to some unknown buyer, the National Gallery version was executed for a smaller price mainly by Ambrogio da Predis under the supervision, and with the help, of Leonardo to be placed in the Chapel of the Conception",
-    "source_title": "brockwell_leonardo",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Go to nature rather than copy the antique",
+    "description": "Asked to decide between drawing from the antique or from nature, Leonardo raises the question but answers it by practice: the editor notes that among Leonardo's enormous surviving drawings there is not one study from antique sculpture. He explicitly argues that imitating nature is the surer route, on the grounds that only a rare master is worth copying, so going straight to the source beats the intermediated version.",
+    "source_text_excerpt": "The Adversary says that to acquire practice and do a great deal of work it is better that the first period of study should be employed in drawing various compositions done on paper or on walls by divers masters, and that in this way practice is rapidly gained, and good methods; to which I reply that the method will be good, if it is based on works of good composition and by skilled masters. But since such masters are so rare that there are but few of them to be found, it is a surer way to go to natural objects, than to those which are imitated from nature with great deterioration, and so form bad methods; for he who can go to the fountain does not go to the water-jar.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A practiced decision — rejecting the dominant Florentine pedagogy of copying antiques and masters, with a defended rule (go to the fountain, not the jar)."
   },
   {
-    "title": "Decades-Long Pursuit of Flight Despite Impossibility",
-    "description": "Leonardo spent decades studying bird flight and designing flying machines despite recognizing human muscle power was insufficient. When flapping flight proved impossible, he adapted to study gliding rather than abandoning the research entirely.",
-    "source_text_excerpt": "Leonardo's willingness to pursue a problem he could not solve for decades demonstrates his process orientation. The shift to gliding shows adaptive thinking -- adjusting the approach while maintaining the fundamental goal.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Choose solitude as a working condition despite its social cost",
+    "description": "Leonardo decided explicitly that the painter must work alone, even at the cost of looking mad to his neighbors or being a poor companion. He frames the choice as unavoidable: 'one cannot serve two masters.' He anticipates the social penalty and accepts it, preferring to be thought strange over diluted in attention.",
+    "source_text_excerpt": "And if you say: \"I will withdraw so far that their words cannot reach me and they cannot disturb me\", I can tell you that you will be thought mad. But, you see, you will at any rate be alone. And if you must have companions ship find it in your studio.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A tradeoff of social standing for cognitive conditions, stated as a rule he has adopted for himself and prescribes to serious painters."
   },
   {
-    "title": "Pivoting from Powered Flight to Gliding When Faced with Power Limitations",
-    "description": "When Leonardo recognized that human muscle power was insufficient for sustained flight, he chose to shift his research toward gliding and thermal currents rather than abandon the project entirely. This demonstrates his ability to adapt methodology when empirical evidence contradicted assumptions.",
-    "source_text_excerpt": "Leonardo eventually recognized that human muscle power was insufficient to achieve sustained flight. Rather than abandoning the research, he shifted toward studying gliding and the possibility of using thermal air currents -- demonstrating his ability to adapt his approach when empirical evidence contradicted his initial assumptions.",
-    "source_title": "engineering_and_flight",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Demand anatomical dissection as a precondition for painting the nude",
+    "description": "Leonardo insisted that a painter must learn the sinews, bones, muscles and tendons personally, rather than relying on surface observation. He ridicules painters who skip this step as producing figures like 'a sack of walnuts' or 'a bundle of radishes,' and reorders the curriculum: first learn the limbs and their mechanism, then the actions, then composition.",
+    "source_text_excerpt": "It is indispensable to a Painter who would be thoroughly familiar with the limbs in all the positions and actions of which they are capable, in the nude, to know the anatomy of the sinews, bones, muscles and tendons so that, in their various movements and exertions, he may know which nerve or muscle is the cause of each movement and show those only as prominent and thickened, and not the others all over [the limb], as many do who, to seem great draughtsmen, draw their nude figures looking like wood, devoid of grace; so that you would think you were looking at a sack of walnuts rather than the human form, or a bundle of radishes rather than the muscles of figures.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A cross-domain methodological decision: importing anatomical dissection into the painter's required training, against the convention of learning limbs from the outside."
   },
   {
-    "title": "Prioritizing Theoretical Design Over Prototype Testing",
-    "description": "Leonardo consistently chose to move on to new design problems rather than build and test prototypes of his inventions. This reveals a tension between his stated commitment to empirical testing and his actual practice of theoretical exploration.",
-    "source_text_excerpt": "However, many of his designs remained theoretical -- he was more interested in solving the design problem than in building and testing prototypes. This pattern reveals a core tension in his approach: his commitment to empirical observation and testing coexisted with a tendency to move on to the next interesting problem before fully proving the current one worked.",
-    "source_title": "engineering_and_flight",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Reject specialization in favor of universality for painters",
+    "description": "Leonardo argued, against the prevailing workshop economics of specialization, that a painter who is only excellent at heads or draperies or landscapes is a poor master. He lists the full scope painting must cover and insists all parts should be treated as equally important. He is deciding, for himself and his students, to pay the cost of breadth.",
+    "source_text_excerpt": "Nor is the painter praiseworthy who does but one thing well, as the nude figure, heads, draperies, animals, landscapes or other such details, irrespective of other work; for there can be no mind so inept, that after devoting itself to one single thing and doing it constantly, it should fail to do it well.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A clear stance on a tradeoff — efficiency from specialization vs. the cognitive value of universality — with the explicit choice to pay the breadth tax."
   },
   {
-    "title": "Insisting on Unity of Theory and Practice Despite Personal Contradictions",
-    "description": "Leonardo took a strong philosophical stance that theory and practice must be unified, comparing those who favor practice without theory to pilots without navigation tools. This reveals his underlying belief system about knowledge, even though his own behavior sometimes contradicted this principle.",
-    "source_text_excerpt": "Leonardo insisted on the unity of theory and practice. He wrote that those who are enamored of practice without theory are like pilots who enter a ship without a helm or compass, and he advocated for experimentation as the pathway to understanding.",
-    "source_title": "engineering_and_flight",
-    "reasoning_visible": true,
-    "evidence_type": "own_published_work"
+    "title": "Carry a pocket notebook to capture street behavior in real time",
+    "description": "Leonardo decided that memory could not be trusted for the infinite variety of gesture, so he committed to a daily practice of carrying a tinted-paper sketchbook into the streets to record people quarreling, laughing, fighting. He specifies the medium (tinted paper so marks won't rub out) and a rule to replace rather than erase, treating the notebook as a permanent data store rather than a scratchpad.",
+    "source_text_excerpt": "When you have well learnt perspective and have by heart the parts and forms of objects, you must go about, and constantly, as you go, observe, note and consider the circumstances and behaviour of men in talking, quarrelling or laughing or fighting together: the action of the men themselves and the actions of the bystanders, who separate them or who look on. And take a note of them with slight strokes thus, in a little book which you should always carry with you. And it should be of tinted paper, that it may not be rubbed out, but change the old [when full] for a new one; since these things should not be rubbed out but preserved with great care; for the forms, and positions of objects are so infinite that the memory is incapable of retaining them.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "Reveals an explicit operational decision about how to substitute durable external storage for unreliable memory — a workflow choice with specified constraints."
   },
   {
-    "title": "Cross-Domain Knowledge Synthesis in Water Studies",
-    "description": "Leonardo made the deliberate choice to study water dynamics not just for hydraulic engineering, but as a foundation for understanding air flow, blood circulation, and geological processes. This reveals his pattern of seeking universal principles across disciplines.",
-    "source_text_excerpt": "The water studies demonstrate his cross-domain synthesis: observations of water informed his understanding of air (for flight), blood flow (for anatomy), and geological processes (for landscape painting).",
-    "source_title": "engineering_and_flight",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Market himself to Ludovico primarily as a military engineer, painter last",
+    "description": "In his famous application letter to Ludovico Sforza, Leonardo listed nine paragraphs on war machines (portable bridges, siege mining, covered chariots, novel mortars, naval weapons) before mentioning, almost as an afterthought in paragraph ten, that he could also do architecture, sculpture, and painting. This reveals a deliberate choice to subordinate his identity as an artist to whatever value proposition the patron actually needed, and a willingness to offer proof-by-experiment (\"I am most ready to make the experiment in your park\") rather than credentials.",
+    "source_text_excerpt": "Most illustrious Lord, Having now sufficiently considered the specimens of all those who proclaim themselves skilled contrivers of instruments of war, and that the invention and operation of the said instruments are nothing different to those in common use: I shall endeavour, without prejudice to any one else, to explain myself to your Excellency showing your Lordship my secrets... 10) In time of peace I believe I can give perfect satisfaction and to the equal of any other in architecture and the composition of buildings public and private... Item: I can carry out sculpture in marble, bronze or clay, and also in painting whatever may be done, and as well as any other, be he whom he may.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Shows Leonardo deliberately choosing which of his capabilities to foreground based on the patron's strategic needs rather than his own preferences, an explicit prioritization decision under uncertainty about what will land."
   },
   {
-    "title": "Embracing Workshop Breadth Over Artistic Specialization",
-    "description": "Leonardo chose to learn the full range of Verrocchio's workshop offerings - sculpture, metalwork, mechanics, engineering, and architecture - rather than focusing solely on painting. This early decision established his cross-disciplinary foundation that would define his entire career.",
-    "source_text_excerpt": "Leonardo embraced the breadth of the workshop's offerings rather than specializing in painting alone.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Abandon the galloping horse design for a pacing horse on the Sforza monument",
+    "description": "After competing to sculpt the Sforza equestrian statue with a galloping horse and fallen foe, Leonardo reversed course and substituted a pacing horse. A note in his own hand observes that figures in motion, when rendered standing, look as if they were falling forward. This is a decision to abandon a technically ambitious and dramatic scheme because direct observation of the physics of plastic figures exposed a flaw the conventional design could not survive.",
+    "source_text_excerpt": "Sculptured figures which appear in motion, will, in their standing position, actually look as if they were falling forward. [Footnote: ...this observation may be regarded as one of his arguments for abandoning the first scheme of the Sforza Monument, in which the horse was to be galloping...]",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A documented reversal of a concrete design commitment driven by observed structural/visual behavior rather than deference to the competition brief."
   },
   {
-    "title": "Abandoning Adoration of the Magi for Milan Opportunities",
-    "description": "Leonardo abandoned a commissioned work for the Augustinian monks, leaving only an underpainting, to pursue potential opportunities in Milan. This revealed his pattern of prioritizing intellectual stimulation over professional obligations.",
-    "source_text_excerpt": "Leonardo chose potential breadth of opportunity in Milan over professional obligation in Florence. The pattern of abandoning work when the most interesting problems were solved began here.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Dissect more than ten bodies rather than trust existing anatomical authority",
+    "description": "Leonardo justifies his drawn anatomy over the live observation of a single dissection by explaining that he personally dissected more than ten human bodies, destroying surrounding tissue to isolate each vein, and repeated the entire program twice to detect variation. This is a decision to replace received anatomical knowledge with exhaustive first-hand cataloging at enormous personal cost in time, endurance, and working conditions.",
+    "source_text_excerpt": "And you, who say that it would be better to watch an anatomist at work than to see these drawings, you would be right, if it were possible to observe all the things which are demonstrated in such drawings in a single figure... to obtain a true and perfect knowledge of which I have dissected more than ten human bodies, destroying all the other members, and removing the very minutest particles of the flesh by which these veins are surrounded... this I repeated twice, to learn the differences.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Explicit justification of the cost-benefit tradeoff of direct dissection over trusting written sources or observed demonstrations, revealing Leonardo's threshold for 'knowing'."
   },
   {
-    "title": "Choosing Impossible Scale for the Sforza Horse",
-    "description": "Leonardo proposed building the largest equestrian statue in the world, over 24 feet tall, creating unprecedented technical challenges. He chose ambition over achievability, demonstrating his willingness to tackle problems that had never been solved.",
-    "source_text_excerpt": "Leonardo chose an impossibly ambitious project over a more achievable one. His insistence on unprecedented scale (over 24 feet tall) created technical challenges no one had solved before.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Write anonymously to Piacenza to sabotage rival bronze commissioners",
+    "description": "Learning that Piacenza was choosing a sculptor for bronze cathedral doors, Leonardo drafted a letter (to be sent under another patron's name) warning the commission to slow their selection, mocking the rival candidates as \"a potter... a maker of cuirasses... a bell-founder... a bombardier,\" and explicitly naming himself as the only capable master. This reveals a willingness to deploy covert political maneuvering and reputation-smearing to influence commissions, while also hedging by ghostwriting under someone else's signature.",
+    "source_text_excerpt": "Magnificent Commissioners of Buildings I, understanding that your Magnificencies have made up your minds to make certain great works in bronze, will remind you of certain things: first that you should not be so hasty or so quick to give the commission... This one is a potter, that one a maker of cuirasses, this one is a bell-founder, another a bell ringer, and one is even a bombardier... There is no capable man,--and you may believe me,--except Leonardo the Florentine, who is making the equestrian statue in bronze of the Duke Francesco...",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A premeditated strategic intervention in a competitor's commission process, showing how Leonardo calculated when and how to lobby versus when to let work speak for itself."
   },
   {
-    "title": "Prioritizing Process Over Durability in The Last Supper",
-    "description": "Leonardo rejected the proven buon fresco method in favor of experimental oil-and-tempera technique that allowed slow, contemplative work with revisions. He chose his preferred working process over the longevity of the masterpiece.",
-    "source_text_excerpt": "Leonardo prioritized his working process (slow, contemplative, revisable) over the durability of the finished work. He chose innovation over reliability, and the masterpiece suffered as a consequence.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Design a two-tier city after witnessing pestilence from overcrowding",
+    "description": "Leonardo proposed a new town layout with separated high-level streets for gentlemen and low-level streets for carts, privies, and stables, explicitly citing the need to disperse dense populations that 'stand like goats one behind the other, filling every place with fetid smells and sowing seeds of pestilence and death.' This is a decision to use architectural design as an epidemiological intervention, pitched as politically useful to the prince.",
+    "source_text_excerpt": "10 towns, five thousand houses with thirty thousand inhabitants, and you will disperse this great congregation of people which stand like goats one behind the other, filling every place with fetid smells and sowing seeds of pestilence and death; And the city will gain beauty worthy of its name and to you it will be useful by its revenues, and the eternal fame of its aggrandizement.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Shows Leonardo proposing a multi-patron-benefit solution (public health, aesthetics, revenue, political fame all at once) as the selling frame for an urban redesign."
   },
   {
-    "title": "Repeating Experimental Failure in Battle of Anghiari",
-    "description": "Despite The Last Supper's technical failure, Leonardo again chose experimental encaustic technique over proven methods for the Battle of Anghiari mural. This suggests experimentation was a fundamental value, not a miscalculation.",
-    "source_text_excerpt": "Despite the lesson of The Last Supper, Leonardo chose experimentation over proven methods again. This suggests the experimental approach was not a miscalculation but a fundamental value -- he would rather attempt something unprecedented and fail than succeed with established techniques.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "value_conflict"
+    "title": "Persuade Florentines that the Baptistery could be lifted, then let them discover it could not",
+    "description": "Vasari records that Leonardo repeatedly showed citizens models and designs claiming he could lift the Battistero of San Giovanni without ruining it, arguing his case so persuasively that while he spoke the scheme seemed feasible, though listeners saw its impossibility once he departed. The choice to rhetorically commit to an audacious engineering feat without a demonstrable method reveals Leonardo's tactic of using in-person persuasion as its own currency.",
+    "source_text_excerpt": "And among these models and designs there was one by way of which he showed several times to many ingenious citizens who then governed Florence, his readiness to lift up without ruining it, the church of San Giovanni in Florence... in order to place under it the missing basement with steps; he supported his assertions with reasons so persuasive, that while he spoke the undertaking seemed feasable, although every one of his hearers, when he had departed, could see by himself the impossibility of so vast an undertaking.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Illustrates a deliberate choice to pursue reputation-building through spectacle-argument rather than committing to a finished engineering demonstration."
   },
   {
-    "title": "Serving Cesare Borgia Despite Moral Concerns",
-    "description": "Leonardo chose to work as military engineer for the ruthless Cesare Borgia, prioritizing access to interesting engineering problems over moral considerations about his employer. This revealed intellectual stimulation as his primary decision criterion.",
-    "source_text_excerpt": "Leonardo chose access to interesting engineering problems over moral considerations about his employer. This pragmatism about patronage reveals that intellectual stimulation was his primary decision criterion.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "value_conflict"
+    "title": "Use the inverted arch as the buttress for the Milan cathedral tiburio",
+    "description": "When competing alongside Bramante and others to design the central tower of the Milan Cathedral, Leonardo argued in writing that an inverted arch is structurally superior to a conventional one as a buttress, because it finds resisting wall beneath it, whereas a normal arch 'finds in its weak part nothing but air.' He chose to justify his structural proposal with a first-principles argument about load paths rather than with precedent or deference to Gothic tradition.",
+    "source_text_excerpt": "The inverted arch is better for giving a shoulder than the ordinary one, because the former finds below it a wall resisting its weakness, whilst the latter finds in its weak part nothing but air.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A specific technical choice argued from mechanics rather than precedent, made in a competitive design review against established architects."
   },
   {
-    "title": "Trusting Observation Over Religious Authority",
-    "description": "Leonardo correctly deduced from fossil evidence that mountains had been underwater, contradicting Church teaching and scientific wisdom. He documented but did not publicize these controversial findings, showing awareness of institutional constraints.",
-    "source_text_excerpt": "Leonardo trusted his own observation over established authority, a pattern consistent across all his work. His decision not to publicize controversial findings shows awareness of institutional constraints.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Refuse to be rushed: tell the Piacenza committee Leonardo 'doesn't need to care'",
+    "description": "In the same Piacenza letter, Leonardo (writing about himself in third person) claims that he has enough work for his whole lifetime and that, being so great a work, he doubts whether he will ever finish the Sforza horse. He chose to protect his leverage by openly signaling that the client depends on him more than he depends on the client, consciously trading short-term ingratiation for long-term negotiating position.",
+    "source_text_excerpt": "Believe me, Leonardo the Florentine, who has to do the equestrian bronze statue of the Duke Francesco that he does not need to care about it, because he has work for all his life time, and, being so great a work, I doubt whether he can ever finish it.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A deliberate signaling choice about scarcity and indifference as a negotiating posture, revealing how Leonardo managed patron power dynamics."
   },
   {
-    "title": "Systematic Redesign Over Incremental Plague Response",
-    "description": "After plague devastated Milan, Leonardo designed a complete utopian city with two-level streets and underground waste management rather than proposing incremental improvements. He chose to address root causes rather than symptoms.",
-    "source_text_excerpt": "Leonardo responded to a practical crisis with a systemic redesign rather than incremental improvements. His solution addressed the root causes (sanitation, population density) rather than symptoms.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Treat a river as something to be coaxed, not forced",
+    "description": "When diverting rivers, Leonardo writes that the river 'must be coaxed and not treated roughly or with violence,' proposing a sequence of stepped floodgates rather than a single massive barrier, and grounding his method in a reported success from Flanders relayed by Niccolo di Forsore. This is a decision to treat hydraulic engineering as negotiation with a living force rather than brute confrontation, and to import foreign empirical results over native assumptions.",
+    "source_text_excerpt": "That the river which is to be turned from one place to another must be coaxed and not treated roughly or with violence; and to do this a sort of floodgate should be made in the river, and then lower down one in front of it and in like manner a third, fourth and fifth, so that the river may discharge itself into the channel given to it, or that by this means it may be diverted from the place it has damaged, as was done in Flanders--as I was told by Niccolo di Forsore.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A concrete methodological choice (distributed coaxing over single-point force), justified by reported empirical precedent, that reflects a transferable cognitive posture."
   },
   {
-    "title": "Refusing Artistic Specialization Despite Financial Cost",
-    "description": "Leonardo consistently refused repeated urgings to focus on painting, his most commercially valuable skill, instead pursuing engineering, anatomy, geology, and mathematics. This choice preserved intellectual freedom at significant financial and reputational cost.",
-    "source_text_excerpt": "Leonardo's refusal to specialize was a deliberate choice that cost him financially and reputationally (he was known for not finishing things) but preserved his intellectual freedom.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "value_conflict"
+    "title": "Admit to Ludovico that earning a living forced him off the commissioned work",
+    "description": "In a draft letter to Ludovico il Moro, Leonardo openly confesses that he was unable to make progress on the Duke's commissioned work because he had to earn his living elsewhere, had to feed six men for fifty-six months on fifty ducats, and that the Duke was 'deceived' if he believed otherwise. Rather than fabricate progress or excuses, Leonardo chose radical financial transparency with his patron, trading pride for accurate expectations.",
+    "source_text_excerpt": "It vexes me greatly that having to earn my living has forced me to interrupt the work and to attend to small matters, instead of following up the work which your Lordship entrusted to me. But I hope in a short time to have earned so much that I may carry it out quietly to the satisfaction of your Excellency... I had to feed 6 men for 56 months, and have had 50 ducats.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A deliberate choice to expose the economic reality of his workshop to his principal patron rather than manage appearances, revealing how he handled the tradeoff between reputation and honesty."
   },
   {
-    "title": "Ethical Vegetarianism in Renaissance Italy",
-    "description": "Leonardo refused to eat meat and bought caged birds to release them, highly unusual behavior in Renaissance Italy. This ethical position derived from his deep study and respect for living systems, revealing his empathy for all creatures.",
-    "source_text_excerpt": "Leonardo's compassion for animals was connected to his deep observation of and respect for nature. His vegetarianism was an ethical position derived from his study of living systems.",
-    "source_title": "key_decisions_and_incidents",
-    "reasoning_visible": true,
-    "evidence_type": "critical_incident"
+    "title": "Propose a church form optimized for acoustics, not liturgy",
+    "description": "Leonardo designed a 'teatro da predicare' (theatre for preaching): a rectangular church with a semicircular tiered amphitheatre and the pulpit at the geometric centre, and a variant in which the interior is a portion of a sphere with the preacher's pulpit atop a central column. He prioritized the physical problem of carrying the human voice to every listener over the inherited symbolic requirements of ecclesiastical layout.",
+    "source_text_excerpt": "C. Studies for a form of a Church most proper for preaching. The problem as to what form of church might answer the requirements of acoustics seems to have engaged Leonardo's very particular attention. The designation of \"teatro\" given to some of these sketches, clearly shows which plan seemed to him most favourable for hearing the preacher's voice... A most singular plan for a building. The interior is a portion of a sphere, the centre of which is the summit of a column destined to serve as the preacher's pulpit.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A design decision that subordinated liturgical and architectural convention to a measurable physical function (audibility), showing Leonardo's hierarchy of values when conventions conflicted with physics."
   },
   {
-    "title": "Rejection of Systematic Organization in Note-Taking",
-    "description": "Despite recognizing the confusion in his manuscripts, Leonardo consistently chose to record observations on disparate subjects on the same page without logical organization. This reveals his preference for capturing thoughts as they occurred rather than following conventional scholarly methods.",
-    "source_text_excerpt": "on one and the same page, observations on the most dissimilar subjects follow each other without any connection. A page, for instance, will begin with some principles of astronomy, or the motion of the earth; then come the laws of sound, and finally some precepts as to colour",
-    "source_title": "notebooks_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Recall that while casting the horse, peasants brought him fossil shells",
+    "description": "While working on the great Sforza horse in Milan, Leonardo noted that peasants from the mountains of Parma and Piacenza brought him a sackful of fossil shells and corals still embedded in rock. He chose to document and pursue this incidental input, later using such observations as evidence against the Biblical Flood explanation of fossils, showing a habit of treating interruptions in a primary project as data for unrelated investigations.",
+    "source_text_excerpt": "There is to be seen, in the mountains of Parma and Piacenza, a multitude of shells and corals full of holes, still sticking to the rocks, and when I was at work on the great horse for Milan, a large sackful of them, which were found thereabout, was brought to me into my workshop, by certain peasants.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Reveals the decision to treat unsolicited field evidence from amateurs as legitimate data during an unrelated commission, showing how Leonardo ran parallel investigation streams opportunistically."
   },
   {
-    "title": "Analytical Method Over Synthetic Approach",
-    "description": "Leonardo consciously adopted an analytical, investigative method rather than building systematic treatises. This choice reflects his preference for exploration and discovery over conventional scholarly presentation, despite the resulting confusion.",
-    "source_text_excerpt": "Leonardos literary labours in various departments both of Art and of Science were those essentially of an enquirer, hence the analytical method is that which he employs in arguing out his investigations",
-    "source_title": "notebooks_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "scholarly_analysis"
+    "title": "Pitch Ludovico Sforza as an engineer, not a painter",
+    "description": "Stuck in Florence without Medici patronage and watching rivals get Roman commissions, Leonardo decided to leave and pursue Milan. He drafted a ten-paragraph letter to Ludovico Sforza emphasizing military, naval, hydraulic, and architectural skills, deliberately burying his painting and sculpting abilities as an afterthought in item ten. This reveals how he read a specific patron's needs and subordinated his strongest public reputation to the identity most likely to get him hired.",
+    "source_text_excerpt": "In it he set forth in ten numbered paragraphs his qualifications as military and naval engineer, architect, and hydraulics expert. Almost as an afterthought to the tenth item, he wrote: \"I can carry out sculpture in marble, bronze, or clay, and also I can do in painting whatever may be done, as well as any other, be he who he may.\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows Leonardo strategically reframing his identity to match a patron's war-footing rather than leading with his proven strength."
   },
   {
-    "title": "Leonardo's Secret Monster Shield Creation",
-    "description": "When given a simple shield-painting task, Leonardo chose to spend weeks secretly creating an elaborate, terrifying monster by studying and combining features from real creatures he collected. This reveals his drive to push beyond conventional assignments toward scientific observation and artistic innovation, even when working in isolation.",
-    "source_text_excerpt": "In the secrecy of his room, into which no one was allowed, Leonardo had smoothed and prepared the wood, and on it he was painting a monster... Leonardo had combined the features of these small forms of life to make a monster\u2014emerging from a dark grotto and breathing fire and smoke\u2014a thing more terrifying than if done from imagination, for each feature was a duplicate of a reality in nature.",
-    "source_title": "thoughts_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "firsthand_biography"
+    "title": "Withhold the submarine invention over fear of misuse",
+    "description": "While designing underwater attack devices for Venice against the Turks, Leonardo chose not to publish or share his air-supply invention for divers because he feared assassination at sea. Despite being in desperate need of patronage and recognition, he actively suppressed an invention on ethical grounds, a rare self-censorship of a weapon by its own inventor.",
+    "source_text_excerpt": "It is possible that Leonardo also invented an air chamber that could be used by the diver while under water—but he was very secretive about this invention for fear of how men might abuse such a discovery. He wrote, \"... and this I do not publish or divulge, on account of the evil nature of man, who would practice assassinations at the bottom of the seas....\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A rare case of an inventor refusing to disseminate work despite personal cost, revealing his values-based constraint on innovation."
   },
   {
-    "title": "Choosing Scientific Collection Over School Attendance",
-    "description": "Leonardo repeatedly skipped school to collect specimens and study nature firsthand, despite his father's concerns about neglecting formal subjects like Latin and writing. This decision prioritized direct observation and experiential learning over conventional education, revealing his fundamental approach to knowledge acquisition.",
-    "source_text_excerpt": "I saw Benedetto dell'Abbaco on the way in town and he tells me you haven't been to school as often as you should\u2014is that true? Yes, Papa\u2014but I'm not doing badly... Scrambling over rocks, through streams, and into caves, Leonardo had been in the habit of gathering all manner of creeping and crawling life.",
-    "source_title": "thoughts_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "firsthand_biography"
+    "title": "Refuse to hurry the Adoration of the Magi altarpiece",
+    "description": "Commissioned by the monks of San Donato a Scopeto on a strict thirty-month deadline, even required to pay for his own colors and gold, Leonardo chose thoroughness over speed. Despite mounting complaints he refused to rush, doing side work like repainting their clock to buy time. He ultimately never finished the painting, prioritizing research depth over contractual delivery.",
+    "source_text_excerpt": "Leonardo's researches for the altar painting took him almost a year. Although the monks began to grumble at his slowness, Leonardo would not be hurried. He was determined to produce a painting that was perfect in all respects. To quiet their impatience Leonardo did odd jobs for them in the cloister.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows his pattern of trading contractual obligation for investigative thoroughness, even at reputational and financial cost."
   },
   {
-    "title": "The Fossil Shell Discovery and Questioning",
-    "description": "Upon finding a fossil seashell high in the mountains, Leonardo immediately questioned religious explanations (Noah's flood) and began forming his own hypotheses about geological processes. This incident shows his willingness to challenge accepted doctrine through empirical observation.",
-    "source_text_excerpt": "the most extraordinary find of the day\u2014a fossil seashell found high on the slopes of a mountain! How did it get there? Was it a result of the flood about which his religion had taught him? Had an immense wave deposited this ancient sea-life high on the Albano mountains?",
-    "source_title": "thoughts_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "firsthand_biography"
+    "title": "Overturn Ptolemaic belief based on personal observation",
+    "description": "Having long accepted the geocentric Ptolemaic model the Church endorsed, Leonardo watched the 1485 solar eclipse and resolved to experiment on his own rather than trust authority. Years later, using pinhole observation and a small rooftop observatory, he concluded the sun does not move, writing it in large letters in his notes, a dangerous heresy in his time.",
+    "source_text_excerpt": "It seems certain that at about this time Leonardo became convinced of the heliocentric theory, the theory that states the sun is the center of our universe. On a sheet of mathematical notes Leonardo wrote in large letters, \"the sun does not move.\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Reveals how he deliberately privileged direct observation over received doctrine when the two conflicted, at risk of being called a pagan."
   },
   {
-    "title": "Choosing obsessive realism over comfort in shield painting",
-    "description": "Leonardo collected live animals in his apartment to create a terrifyingly realistic shield painting, enduring unbearable stench from dying creatures. This decision reveals his commitment to authentic observation over convenience, showing how his pursuit of artistic truth superseded physical comfort.",
-    "source_text_excerpt": "though in his apartment the stench of the animals that from time to time died there, was so strong as to be scarcely tolerable, he, through his love to the art, entirely disregarded it.",
-    "source_title": "treatise_excerpts",
-    "reasoning_visible": true,
-    "evidence_type": "firsthand_biography"
+    "title": "Walk off the castle decoration job when underpaid",
+    "description": "After Ludovico diverted the bronze meant for Leonardo's equestrian statue to cannons and stopped his payments, Leonardo was ordered to paint decorative rooms in the castle. Rather than accept the demotion from monument sculptor to decorator while unpaid, he walked off the job unfinished. This prioritized dignity and meaningful work over immediate security when finances were dire.",
+    "source_text_excerpt": "Moreover, because he was still court painter to Ludovico, he was ordered to paint the decorations of some rooms in the castle. But this was more than Leonardo could take—he walked off the job without finishing it.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A rare explicit refusal to accept degrading work under financial pressure, revealing where his tolerance threshold actually sat."
   },
   {
-    "title": "Threatening to use Prior's face for Judas",
-    "description": "When the importunate Prior continued pressuring him, Leonardo told the Duke he would use the Prior's face as the model for Judas if he couldn't find a sufficiently villainous face elsewhere. This shows Leonardo's willingness to use wit and implied threat to protect his artistic process.",
-    "source_text_excerpt": "He told the Duke he had been searching the city for a face villainous enough to serve as the model for Judas, and if he could not find one, he would use the face of the importunate Prior.",
-    "source_title": "vasari_leonardo_biography",
-    "reasoning_visible": true,
-    "evidence_type": "secondary_reporting"
+    "title": "Accept Cesare Borgia's offer despite moral reservations",
+    "description": "After reflecting on Ludovico's fall and his own record of uncompleted projects, Leonardo accepted a position as architect and military engineer to Cesare Borgia, a man he knew to have fought, murdered, and deceived his way to power. He rationalized the choice by comparing his incomplete life's work to Ludovico's lost state, choosing proximity to action over ethical purity.",
+    "source_text_excerpt": "He thought of Ludovico Sforza—defeated and captured at the battle of Novara just a year ago as he attempted to regain his dukedom. Now the duke was a prisoner at Loches in Touraine; Leonardo had written of him, \"The duke lost his State, his personal possessions and his liberty, and none of his enterprises have been completed.\" And Leonardo also thought of his equestrian monument still standing in the castle being used for target practice by the French archers. Like the duke, nothing of his own had been completed either. Perhaps this Borgia offer was an opportunity. Leonardo decided to accept it.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A visible tradeoff between Borgia's moral notoriety and Leonardo's hunger to finally complete something, revealing his prioritization logic under career pressure."
+  },
+  {
+    "title": "Propose diverting the Arno to defeat Pisa",
+    "description": "Asked by Machiavelli and the Signoria for a battlefield plan against Pisa, Leonardo refused to think in immediate tactical terms. Instead he proposed permanently diverting the Arno river into two canals to sea at Leghorn, cutting off Pisa's water and sea access forever. He chose a monumental, irreversible engineering solution over any quick military victory.",
+    "source_text_excerpt": "Never one to think in terms of an immediate battle or a temporary success, Leonardo put forth a daring and sweeping plan that would forever reduce the power of Pisa. The plan was as simple as it was monumental—divert the Arno river from its course into two canals that would empty into the sea at Leghorn south of Pisa.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows his habit of reframing tactical problems as infrastructural systems changes that eliminate the problem class entirely."
+  },
+  {
+    "title": "Heat the Battle of Anghiari mural to speed drying",
+    "description": "After his special wall-mixture for the Battle of Anghiari fresco failed to dry properly, Leonardo made a high-risk intervention. With spectators watching, he had a fire built to direct heat onto the painting, attempting to force-dry it. The colors melted and streaked down the wall in a public disaster, showing his willingness to gamble an almost-finished masterpiece on an untested technical fix rather than accept slow failure.",
+    "source_text_excerpt": "The colors were brilliant on the special mixture he had prepared for the wall—but they were not drying as they should have. Something was wrong. To speed the drying process, Leonardo had a special fire built in the room that directed the heat onto the painting. Spectators were allowed to watch as the waves of hot air rose against the wall. Then—disaster began slowly with a small trickle of paint from the top!",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A genuine failure decision revealing his willingness to experiment on high-stakes commissioned work rather than fall back on proven technique."
+  },
+  {
+    "title": "Stare at stained walls to unlock invention",
+    "description": "Leonardo deliberately adopted the unconventional practice of studying dirty walls, veined marble, and random stones as a creative tool, explicitly calling it 'apparently trifling, and almost laughable' yet insisting on its utility. He chose to treat noise and randomness as generative raw material rather than dismissing it, revealing a bias toward exploiting ambiguity to escape conventional composition.",
+    "source_text_excerpt": "I will not omit to introduce among these precepts a new kind of speculative invention, which though apparently trifling, and almost laughable, is nevertheless of great utility in assisting the genius to find variety for composition. By looking attentively at old and smeared walls, or stones and veined marble of various colours, you may fancy that you see in them several compositions, landscapes, battles, figures in quick motion, strange countenances, and dresses, with an infinity of other objects. By these confused lines the inventive genius is excited to new exertions.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Leonardo acknowledges the method looks ridiculous but defends it anyway, revealing he chooses effectiveness over respectability in his cognitive tools."
+  },
+  {
+    "title": "Use the mirror as a silent external critic",
+    "description": "Leonardo elevated the flat mirror to the status of 'true master of painters,' using it both to benchmark his imitation of nature and to view his own work reversed so it 'will appear as the work of another hand.' The choice reveals his solution to a specific cognitive problem: that the painter's judgment becomes blind to its own errors through familiarity, so he engineers a mechanical trick to restore objective perception.",
+    "source_text_excerpt": "It will be well also to have a looking-glass by him, when he paints, to look often at his work in it, which being seen the contrary way, will appear as the work of another hand, and will better shew his faults. It will be useful also to quit his work often, and take some relaxation, that his judgment may be clearer at his return; for too great application and sitting still is sometimes the cause of many gross errors.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Shows Leonardo choosing a de-biasing technique over willpower when he recognizes a systematic flaw in his own cognition."
+  },
+  {
+    "title": "Trust enemies over friends when judging your work",
+    "description": "Leonardo explicitly preferred criticism from enemies to praise from friends, arguing friends' judgments are corrupted by likeness to oneself. This inverts the conventional social intuition to seek supportive feedback and reveals a hard prioritization of truth-finding over comfort.",
+    "source_text_excerpt": "There is nothing more apt to deceive us than our own judgment, in deciding on our own works; and we should derive more advantage from having our faults pointed out by our enemies, than by hearing the opinions of our friends, because they are too much like ourselves, and may deceive us as much as our own judgment.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Demonstrates his explicit tradeoff accepting social pain for information gain when evaluating work."
+  },
+  {
+    "title": "Listen to the layman over the specialist on one's own defects",
+    "description": "Leonardo insisted painters should accept criticism from anyone, including non-painters, on the grounds that any person can judge natural human form. This departs from the guild-era convention that only trained peers could critique art, and reveals his epistemic rule: the relevant expertise is whatever matches the problem, not whatever matches the profession.",
+    "source_text_excerpt": "A painter ought not certainly to refuse listening to the opinion of any one; for we know that, although a man be not a painter, he may have just notions of the forms of men; whether a man has a hump on his back, a thick leg, or a large hand; whether he be lame, or have any other defect. Now, if we know that men are able to judge of the works of Nature, should we not think them more able to detect our errors?",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Reveals Leonardo's decision rule for routing feedback: match the judge to the object of judgment, not to the craft."
+  },
+  {
+    "title": "Pursue universality over mastery of a single specialty",
+    "description": "Leonardo explicitly condemned the safer career strategy of specializing in one subject (heads, figures, drapery, landscape) even though he admitted almost anyone could succeed that way. He chose the harder path of breadth because, in his logic, narrow mastery 'reflects no great honour,' accepting higher risk of failure in exchange for the dignity of generality.",
+    "source_text_excerpt": "It reflects no great honour on a painter to be able to execute only one thing well, such as a head, an academy figure, or draperies, animals, landscape, or the like, confining himself to some particular object of study; because there is scarcely a person so void of genius as to fail of success, if he apply earnestly to one branch of study, and practise it continually.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "A direct tradeoff between safety and honour where Leonardo explicitly rejects specialization as beneath him."
+  },
+  {
+    "title": "Guard against self-love by measuring your own body",
+    "description": "Leonardo noticed a systematic bias: painters unconsciously project their own physical defects into their figures because familiarity makes the defects invisible. His counter-measure was to measure his own proportions, note the flaws, and deliberately avoid them in composition. He chose structured self-audit over trusting taste.",
+    "source_text_excerpt": "Measure upon yourself the proportion of the parts, and, if you find any of them defective, note it down, and be very careful to avoid it in drawing your own compositions. For this is reckoned a common fault in painters, to delight in the imitation of themselves.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Shows Leonardo identifying a cognitive bias in himself and designing an explicit procedural countermeasure."
+  },
+  {
+    "title": "Sacrifice completion speed for sub-skill depth",
+    "description": "Leonardo advised the young painter to refuse progression to a new topic until the prior one was fully internalized, and to 'acquire accuracy before he attempts quickness.' He framed this as the only way to avoid wasted time, explicitly accepting slower short-term progress in exchange for permanent mastery.",
+    "source_text_excerpt": "In order to acquire a true notion of the form of things, he must begin by studying the parts which compose them, and not pass to a second till he has well stored his memory, and sufficiently practised the first; otherwise he loses his time, and will most certainly protract his studies. And let him remember to acquire accuracy before he attempts quickness.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Reveals his prioritization heuristic under the scarce resource of time: depth compounds, breadth without depth is a loss."
+  },
+  {
+    "title": "Refuse flattering colours in exchange for chiaroscuro truth",
+    "description": "Leonardo consciously chose the harder, less immediately pleasing pursuit of three-dimensional relief through light and shadow over the easier win of bright, flattering colours that please 'vulgar and ignorant admirers.' He was willing to accept lower popularity among naive viewers to preserve what 'real connoisseurs' would recognize as the glory of the art.",
+    "source_text_excerpt": "The first object of a painter is to make a simple flat surface appear like a relievo, and some of its parts detached from the ground; he who excels all others in that part of the art, deserves the greatest praise. This perfection of the art depends on the correct distribution of lights and shades, called _Chiaro-scuro_. If the painter then avoids shadows, he may be said to avoid the glory of the art, and to render his work despicable to real connoisseurs, for the sake of acquiring the esteem of vulgar and ignorant admirers of fine colours, who never have any knowledge of relievo.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Explicit market tradeoff: he ranks audiences and chooses to optimize for the discerning minority over the pleased majority."
+  },
+  {
+    "title": "Copy nature directly, never another master",
+    "description": "Leonardo forbade imitating the style of any living painter, insisting one must always return to Nature as the source. He framed copyists as grandchildren of Nature rather than children, explicitly choosing the harder path of direct observation over the efficient shortcut of stylistic inheritance.",
+    "source_text_excerpt": "One painter ought never to imitate the manner of any other; because in that case he cannot be called the child of Nature, but the grandchild. It is always best to have recourse to Nature, which is replete with such abundance of objects, than to the productions of other masters, who learnt every thing from her.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "A deliberate refusal of a cheaper source of learning in favor of the primary, more expensive source."
+  },
+  {
+    "title": "Cultivate productive self-doubt over confident execution",
+    "description": "Leonardo held that the painter whose work matches his own judgment is stagnating, and the painter whose work exceeds his judgment is corrupting himself. Only when judgment outruns skill does growth happen. He deliberately cultivated a gap between his taste and his ability, accepting the psychological cost of permanent dissatisfaction as the price of improvement.",
+    "source_text_excerpt": "The painter who entertains no doubt of his own ability, will attain very little. When the work succeeds beyond the judgment, the artist acquires nothing; but when the judgment is superior to the work, he never ceases improving, if the love of gain do not retard his progress.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Inverts the conventional preference for confidence, revealing Leonardo's choice to optimize for the improvement gradient rather than present satisfaction."
+  },
+  {
+    "title": "Transform a peasant's crude buckler into a terrifying Medusa",
+    "description": "Asked by his father to paint a rustic wooden shield for a peasant, Leonardo first reshaped and smoothed the crude object, then secretly filled a private room with lizards, bats, crickets and serpents, composing from them an imagined monster. He prioritized artistic ambition and the shock effect of the finished piece over the humble commission, even enduring the stench of rotting animals. The decision shows his willingness to redefine a trivial job into an experiment in terrifying realism.",
+    "source_text_excerpt": "Leonardo carried to a room of his own into which no one entered save himself alone, lizards great and small, crickets, serpents, butterflies, grasshoppers, bats, and other strange kinds of suchlike animals, out of the number of which, variously put together, he formed a great ugly creature, most horrible and terrifying... and so long did he labour over making it, that the stench of the dead animals in that room was past bearing, but Leonardo did not notice it, so great was the love that he bore towards art.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Reveals Leonardo's value hierarchy: artistic truth and sensory research outweigh comfort, scope, and the literal brief."
+  },
+  {
+    "title": "Abandon the Adoration of the Magi unfinished",
+    "description": "Leonardo began a panel of the Adoration of the Magi for Amerigo Benci containing many elaborate heads and compositional ideas, but left it incomplete like many of his works. Vasari attributes this to Leonardo conceiving difficulties so subtle that his hand could not match the imagined ideal. The decision to abandon a major commission rather than deliver something short of his vision recurs as a defining pattern.",
+    "source_text_excerpt": "He began a panel-picture of the Adoration of the Magi, containing many beautiful things, particularly the heads, which was in the house of Amerigo Benci, opposite the Loggia de' Peruzzi; and this, also, remained unfinished, like his other works.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Canonical example of Leonardo choosing abandonment over compromise when execution cannot match conception."
+  },
+  {
+    "title": "Bring a silver horse-skull lyre to the Sforza court",
+    "description": "When summoned to Milan by Lodovico Sforza, Leonardo chose to arrive not as a painter or engineer but as a musician, bearing a bizarre silver lyre he had built in the shape of a horse's skull to amplify its tone. He used this novel object to surpass the court's musicians and win the Duke's favor. The decision shows Leonardo designing his own self-introduction around invention rather than existing reputation.",
+    "source_text_excerpt": "Leonardo took with him that instrument which he had made with his own hands, in great part of silver, in the form of a horse's skull—a thing bizarre and new—in order that the harmony might be of greater volume and more sonorous in tone; with which he surpassed all the musicians who had come together there to play.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Reveals his strategy for patron acquisition through theatrical novelty rather than conventional credentials."
+  },
+  {
+    "title": "Leave the head of Christ unfinished in the Last Supper",
+    "description": "In the Last Supper, Leonardo deliberately stopped short of painting Christ's face, judging himself incapable of conceiving the divine beauty required. Rather than settle for an inadequate head, he left it unfinished even under pressure. The decision prioritizes metaphysical fidelity over completion and patron satisfaction.",
+    "source_text_excerpt": "he left the head of Christ unfinished, not believing that he was able to give it that divine air which is essential to the image of Christ. This work, remaining thus all but finished, has ever been held by the Milanese in the greatest veneration",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Shows Leonardo choosing principled incompletion over false resolution when he cannot meet his own conceptual bar."
+  },
+  {
+    "title": "Defend long contemplation as working, to the Prior and the Duke",
+    "description": "When the Prior of S. Maria delle Grazie complained that Leonardo would stand half a day lost in thought instead of painting, Leonardo argued directly to the Duke that men of lofty genius accomplish most when they appear to work least, since invention occurs first in the mind. He even suggested he might model Judas on the importunate Prior. The episode shows him openly defending a working method that violated contemporary labor expectations.",
+    "source_text_excerpt": "he reasoned much with him about art, and made him understand that men of lofty genius sometimes accomplish the most when they work the least, seeking out inventions with the mind, and forming those perfect ideas which the hands afterwards express and reproduce from the images already conceived in the brain.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Direct articulation of Leonardo's decision to prioritize conception time over visible output, defended to a patron."
+  },
+  {
+    "title": "Scale the Sforza horse beyond any castable size",
+    "description": "Leonardo proposed to Lodovico Sforza a bronze equestrian monument and committed to a model of such vast scale that casting in one piece became technically infeasible. Vasari reports some thought he never intended to finish it, but concludes the project stalled because Leonardo's desire for ever-greater perfection outran executability. The clay model was eventually destroyed by French soldiers.",
+    "source_text_excerpt": "he proposed to the Duke to make a horse in bronze, of a marvellous greatness, in order to place upon it, as a memorial, the image of the Duke. And on so vast a scale did he begin it and continue it, that it could never be completed... his vast and most excellent mind was hampered through being too full of desire, and that his wish ever to seek out excellence upon excellence, and perfection upon perfection, was the reason of it.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Shows how Leonardo's escalation of ambition against fixed physical constraints led to strategic failure."
+  },
+  {
+    "title": "Dissect human bodies and record anatomy in mirror script",
+    "description": "Leonardo pursued a systematic program of human dissection in collaboration with Marc' Antonio della Torre, recording findings in red chalk drawings and mirror-written left-handed annotations intended to be read only with a mirror. He chose a laborious private notation system that preserved his research while making it inaccessible to casual readers. This was a methodological decision that sacrificed dissemination for personal control.",
+    "source_text_excerpt": "Leonardo, who made a book drawn in red chalk, and annotated with the pen, of the bodies that he dissected with his own hand, and drew with the greatest diligence... and beside them, part by part, he wrote in letters of an ill-shaped character, which he made with the left hand, backwards; and whoever is not practised in reading them cannot understand them, since they are not to be read save with a mirror.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Captures Leonardo choosing private encoded research over public scholarly communication."
+  },
+  {
+    "title": "Take on and abandon the Servite high-altar commission",
+    "description": "Returning to Florence, Leonardo maneuvered Filippino Lippi out of the Servite friars' altar commission by expressing interest, then accepted the friars' full room and board while producing only a cartoon of the Madonna, Child, and S. Anne. He ultimately abandoned the work entirely, returning it to Filippino. The decision shows how Leonardo used commissions as cover for investigation rather than delivery.",
+    "source_text_excerpt": "Leonardo said that he would willingly have done such a work. Filippino, having heard this, like the amiable fellow that he was, retired from the undertaking; and the friars, to the end that Leonardo might paint it, took him into their house, meeting the expenses both of himself and of all his household; and thus he kept them in expectation for a long time, but never began anything... and abandoned the work for the friars, who restored it to Filippino",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Reveals Leonardo treating patronage as a means of subsidized freedom rather than a binding obligation."
+  },
+  {
+    "title": "Spend four years on the Mona Lisa and keep it",
+    "description": "Leonardo took on the portrait of Monna Lisa for Francesco del Giocondo, worked over it for four years, employed musicians and jesters to preserve her expression, and in the end left it \"unfinished\" and carried it with him to France rather than delivering it. He chose open-ended refinement over the conventional transactional completion of a private portrait.",
+    "source_text_excerpt": "Leonardo undertook to execute, for Francesco del Giocondo, the portrait of Monna Lisa, his wife; and after toiling over it for four years, he left it unfinished; and the work is now in the collection of King Francis of France... Monna Lisa being very beautiful, he always employed, while he was painting her portrait, persons to play or sing, and jesters, who might make her remain merry, in order to take away that melancholy which painters are often wont to give to the portraits that they paint.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Shows his decision to override the ordinary contract of portraiture in favor of perpetual refinement and environmental staging."
+  },
+  {
+    "title": "Experiment with an oil-binder on the Battle of Anghiari wall",
+    "description": "Commissioned by Piero Soderini to paint the Battle of Anghiari in the Great Council Chamber, Leonardo chose to experiment with a novel oil-based composition as a wall binder instead of using established fresco technique. When the paint began peeling, he abandoned the hall rather than revert to a safer method. The decision reveals his preference for technical experimentation even on high-stakes civic commissions.",
+    "source_text_excerpt": "And conceiving the wish to colour on the wall in oils, he made a composition of so gross an admixture, to act as a binder on the wall, that, going on to paint in the said hall, it began to peel off in such a manner that in a short time he abandoned it, seeing it spoiling.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Classic case of Leonardo betting a major commission on an unproven technique and walking away when it failed."
+  },
+  {
+    "title": "Refuse payment in copper pence from Soderini",
+    "description": "When the cashier at Piero Soderini's bank tried to pay Leonardo's monthly allowance in small paper-wrapped packets of pence, Leonardo refused the coins outright, declaring \"I am no penny-painter.\" Later, accused of cheating Soderini, he scraped together the full sum from friends and offered to repay it, which Soderini declined. The episode shows Leonardo enforcing a status boundary over money even at personal cost.",
+    "source_text_excerpt": "going to the bank for the allowance that he used to draw every month from Piero Soderini, the cashier wanted to give him certain paper-packets of pence; but he would not take them, saying in answer, \"I am no penny-painter.\" Having been blamed for cheating Piero Soderini, there began to be murmurings against him; wherefore Leonardo so wrought upon his friends, that he got the money together and took it to Piero to repay him",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Reveals a deliberate choice to treat symbolic dignity of payment as more important than the cash itself."
+  },
+  {
+    "title": "Spend papal commission time distilling oils instead of painting",
+    "description": "Given a commission by Pope Leo X, Leonardo immediately began distilling oils and herbs to prepare a new varnish, prompting the Pope's famous dismissal that he would never finish anything because he started with the end. Leonardo chose to invest in materials research first rather than begin execution, a method diametrically opposed to patron expectations at the Roman court.",
+    "source_text_excerpt": "It is related that, a work having been allotted to him by the Pope, he straightway began to distil oils and herbs, in order to make the varnish; at which Pope Leo said: \"Alas! this man will never do anything, for he begins by thinking of the end of the work, before the beginning.\"",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Shows Leonardo prioritizing systemic upstream research over delivery timelines even with the highest possible patron."
+  },
+  {
+    "title": "Leave Italy for France after friction with Michelangelo",
+    "description": "In the face of mounting rivalry and \"very great disdain\" between himself and Michelangelo, Leonardo chose to depart Italy entirely and accept the patronage of the French king rather than compete directly in Florence or Rome. He traded the center of Italian art for a more stable single-patron relationship abroad. The move reveals his preference for exit over sustained public rivalry.",
+    "source_text_excerpt": "There was very great disdain between Michelagnolo Buonarroti and him, on account of which Michelagnolo departed from Florence, with the excuse of Duke Giuliano, having been summoned by the Pope to the competition for the façade of S. Lorenzo. Leonardo, understanding this, departed and went into France, where the King, having had works by his hand, bore him great affection",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Shows Leonardo's choice to remove himself from rivalry dynamics and restructure his patronage situation through geographic exit."
+  },
+  {
+    "title": "Build mechanical marvels for Francis I and Leo X instead of paintings",
+    "description": "For the French King entering Milan, Leonardo built a walking mechanical lion that opened its breast to reveal lilies; in Rome under Pope Leo he shaped wax animals that flew on breath, rigged wings of lizard scales onto a live lizard, and inflated sheep-gut balloons to fill rooms. Instead of producing the paintings patrons wanted, he channeled commissioned time into spectacle, automata, and natural-philosophy experiments.",
+    "source_text_excerpt": "there came to Milan, in his time, the King of France, wherefore Leonardo being asked to devise some bizarre thing, made a lion which walked several steps and then opened its breast, and showed it full of lilies... forming a paste of a certain kind of wax, as he walked he shaped animals very thin and full of wind, and, by blowing into them, made them fly through the air",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "Reveals repeated decision to redirect patron attention toward invention and natural-philosophy play rather than expected painting output."
+  },
+  {
+    "title": "Buy caged birds in the market and set them free",
+    "description": "Although Leonardo \"possessed, one might say, nothing\" and earned little, he kept servants and horses and regularly paid sellers the asked price for caged birds in order to open the cages and release them. The decision shows him spending scarce resources on an ethical commitment to animal liberty that had no economic or reputational return.",
+    "source_text_excerpt": "he always kept servants and horses, in which latter he took much delight, and particularly in all other animals, which he managed with the greatest love and patience; and this he showed when often passing by the places where birds were sold, for, taking them with his own hand out of their cages, and having paid to those who sold them the price that was asked, he let them fly away into the air, restoring to them their lost liberty.",
+    "source_title": "vasari_lives_vol4",
+    "reasoning_for_candidacy": "A small, repeated private decision that exposes a value tradeoff between money, convention, and Leonardo's ethical regard for living creatures."
   }
 ]

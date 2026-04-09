@@ -116,8 +116,8 @@ export default function HomePage() {
               maxWidth: "62ch",
             }}
           >
-            Describe it below. A council will consider it. Edward will reply
-            within 24 hours.
+            Describe it below. A council will consider it. You&rsquo;ll get a
+            reply within 24 hours.
           </p>
 
           <div style={{ marginTop: "56px" }}>
@@ -161,6 +161,12 @@ export default function HomePage() {
               style={{ color: "inherit", textDecoration: "none" }}
             >
               &rarr; The essay
+            </Link>
+            <Link
+              href="/frameworks"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              &rarr; The frameworks
             </Link>
             <a
               href="https://github.com/edwardyen724-g/consult-the-dead"

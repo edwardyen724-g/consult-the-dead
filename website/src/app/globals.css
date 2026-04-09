@@ -16,6 +16,8 @@
   --color-leonardo:    #C9A24A; /* ochre — notebooks, anatomy */
   --color-newton:      #7B8FD4; /* cool blue-violet — prism, cold reason */
   --color-curie:       #9BBE5A; /* pale radium green — the obvious choice */
+  --color-einstein:    #C77DBA; /* dusty purple — relativity, thought experiments */
+  --color-tesla:       #4DB8CC; /* electric blue-cyan — AC current, electricity */
 
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -34,6 +36,8 @@ html.light, .light {
   --color-leonardo:    #8C6A1F;
   --color-newton:      #4E63A8;
   --color-curie:       #5E8128;
+  --color-einstein:    #9B5A93;
+  --color-tesla:       #2E8E9E;
 }
 
 html {

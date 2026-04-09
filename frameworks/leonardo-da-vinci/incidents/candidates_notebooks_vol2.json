@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Market himself to Ludovico primarily as a military engineer, painter last",
+    "description": "In his famous application letter to Ludovico Sforza, Leonardo listed nine paragraphs on war machines (portable bridges, siege mining, covered chariots, novel mortars, naval weapons) before mentioning, almost as an afterthought in paragraph ten, that he could also do architecture, sculpture, and painting. This reveals a deliberate choice to subordinate his identity as an artist to whatever value proposition the patron actually needed, and a willingness to offer proof-by-experiment (\"I am most ready to make the experiment in your park\") rather than credentials.",
+    "source_text_excerpt": "Most illustrious Lord, Having now sufficiently considered the specimens of all those who proclaim themselves skilled contrivers of instruments of war, and that the invention and operation of the said instruments are nothing different to those in common use: I shall endeavour, without prejudice to any one else, to explain myself to your Excellency showing your Lordship my secrets... 10) In time of peace I believe I can give perfect satisfaction and to the equal of any other in architecture and the composition of buildings public and private... Item: I can carry out sculpture in marble, bronze or clay, and also in painting whatever may be done, and as well as any other, be he whom he may.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Shows Leonardo deliberately choosing which of his capabilities to foreground based on the patron's strategic needs rather than his own preferences, an explicit prioritization decision under uncertainty about what will land."
+  },
+  {
+    "title": "Abandon the galloping horse design for a pacing horse on the Sforza monument",
+    "description": "After competing to sculpt the Sforza equestrian statue with a galloping horse and fallen foe, Leonardo reversed course and substituted a pacing horse. A note in his own hand observes that figures in motion, when rendered standing, look as if they were falling forward. This is a decision to abandon a technically ambitious and dramatic scheme because direct observation of the physics of plastic figures exposed a flaw the conventional design could not survive.",
+    "source_text_excerpt": "Sculptured figures which appear in motion, will, in their standing position, actually look as if they were falling forward. [Footnote: ...this observation may be regarded as one of his arguments for abandoning the first scheme of the Sforza Monument, in which the horse was to be galloping...]",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A documented reversal of a concrete design commitment driven by observed structural/visual behavior rather than deference to the competition brief."
+  },
+  {
+    "title": "Dissect more than ten bodies rather than trust existing anatomical authority",
+    "description": "Leonardo justifies his drawn anatomy over the live observation of a single dissection by explaining that he personally dissected more than ten human bodies, destroying surrounding tissue to isolate each vein, and repeated the entire program twice to detect variation. This is a decision to replace received anatomical knowledge with exhaustive first-hand cataloging at enormous personal cost in time, endurance, and working conditions.",
+    "source_text_excerpt": "And you, who say that it would be better to watch an anatomist at work than to see these drawings, you would be right, if it were possible to observe all the things which are demonstrated in such drawings in a single figure... to obtain a true and perfect knowledge of which I have dissected more than ten human bodies, destroying all the other members, and removing the very minutest particles of the flesh by which these veins are surrounded... this I repeated twice, to learn the differences.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Explicit justification of the cost-benefit tradeoff of direct dissection over trusting written sources or observed demonstrations, revealing Leonardo's threshold for 'knowing'."
+  },
+  {
+    "title": "Write anonymously to Piacenza to sabotage rival bronze commissioners",
+    "description": "Learning that Piacenza was choosing a sculptor for bronze cathedral doors, Leonardo drafted a letter (to be sent under another patron's name) warning the commission to slow their selection, mocking the rival candidates as \"a potter... a maker of cuirasses... a bell-founder... a bombardier,\" and explicitly naming himself as the only capable master. This reveals a willingness to deploy covert political maneuvering and reputation-smearing to influence commissions, while also hedging by ghostwriting under someone else's signature.",
+    "source_text_excerpt": "Magnificent Commissioners of Buildings I, understanding that your Magnificencies have made up your minds to make certain great works in bronze, will remind you of certain things: first that you should not be so hasty or so quick to give the commission... This one is a potter, that one a maker of cuirasses, this one is a bell-founder, another a bell ringer, and one is even a bombardier... There is no capable man,--and you may believe me,--except Leonardo the Florentine, who is making the equestrian statue in bronze of the Duke Francesco...",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A premeditated strategic intervention in a competitor's commission process, showing how Leonardo calculated when and how to lobby versus when to let work speak for itself."
+  },
+  {
+    "title": "Design a two-tier city after witnessing pestilence from overcrowding",
+    "description": "Leonardo proposed a new town layout with separated high-level streets for gentlemen and low-level streets for carts, privies, and stables, explicitly citing the need to disperse dense populations that 'stand like goats one behind the other, filling every place with fetid smells and sowing seeds of pestilence and death.' This is a decision to use architectural design as an epidemiological intervention, pitched as politically useful to the prince.",
+    "source_text_excerpt": "10 towns, five thousand houses with thirty thousand inhabitants, and you will disperse this great congregation of people which stand like goats one behind the other, filling every place with fetid smells and sowing seeds of pestilence and death; And the city will gain beauty worthy of its name and to you it will be useful by its revenues, and the eternal fame of its aggrandizement.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Shows Leonardo proposing a multi-patron-benefit solution (public health, aesthetics, revenue, political fame all at once) as the selling frame for an urban redesign."
+  },
+  {
+    "title": "Persuade Florentines that the Baptistery could be lifted, then let them discover it could not",
+    "description": "Vasari records that Leonardo repeatedly showed citizens models and designs claiming he could lift the Battistero of San Giovanni without ruining it, arguing his case so persuasively that while he spoke the scheme seemed feasible, though listeners saw its impossibility once he departed. The choice to rhetorically commit to an audacious engineering feat without a demonstrable method reveals Leonardo's tactic of using in-person persuasion as its own currency.",
+    "source_text_excerpt": "And among these models and designs there was one by way of which he showed several times to many ingenious citizens who then governed Florence, his readiness to lift up without ruining it, the church of San Giovanni in Florence... in order to place under it the missing basement with steps; he supported his assertions with reasons so persuasive, that while he spoke the undertaking seemed feasable, although every one of his hearers, when he had departed, could see by himself the impossibility of so vast an undertaking.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Illustrates a deliberate choice to pursue reputation-building through spectacle-argument rather than committing to a finished engineering demonstration."
+  },
+  {
+    "title": "Use the inverted arch as the buttress for the Milan cathedral tiburio",
+    "description": "When competing alongside Bramante and others to design the central tower of the Milan Cathedral, Leonardo argued in writing that an inverted arch is structurally superior to a conventional one as a buttress, because it finds resisting wall beneath it, whereas a normal arch 'finds in its weak part nothing but air.' He chose to justify his structural proposal with a first-principles argument about load paths rather than with precedent or deference to Gothic tradition.",
+    "source_text_excerpt": "The inverted arch is better for giving a shoulder than the ordinary one, because the former finds below it a wall resisting its weakness, whilst the latter finds in its weak part nothing but air.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A specific technical choice argued from mechanics rather than precedent, made in a competitive design review against established architects."
+  },
+  {
+    "title": "Refuse to be rushed: tell the Piacenza committee Leonardo 'doesn't need to care'",
+    "description": "In the same Piacenza letter, Leonardo (writing about himself in third person) claims that he has enough work for his whole lifetime and that, being so great a work, he doubts whether he will ever finish the Sforza horse. He chose to protect his leverage by openly signaling that the client depends on him more than he depends on the client, consciously trading short-term ingratiation for long-term negotiating position.",
+    "source_text_excerpt": "Believe me, Leonardo the Florentine, who has to do the equestrian bronze statue of the Duke Francesco that he does not need to care about it, because he has work for all his life time, and, being so great a work, I doubt whether he can ever finish it.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A deliberate signaling choice about scarcity and indifference as a negotiating posture, revealing how Leonardo managed patron power dynamics."
+  },
+  {
+    "title": "Treat a river as something to be coaxed, not forced",
+    "description": "When diverting rivers, Leonardo writes that the river 'must be coaxed and not treated roughly or with violence,' proposing a sequence of stepped floodgates rather than a single massive barrier, and grounding his method in a reported success from Flanders relayed by Niccolo di Forsore. This is a decision to treat hydraulic engineering as negotiation with a living force rather than brute confrontation, and to import foreign empirical results over native assumptions.",
+    "source_text_excerpt": "That the river which is to be turned from one place to another must be coaxed and not treated roughly or with violence; and to do this a sort of floodgate should be made in the river, and then lower down one in front of it and in like manner a third, fourth and fifth, so that the river may discharge itself into the channel given to it, or that by this means it may be diverted from the place it has damaged, as was done in Flanders--as I was told by Niccolo di Forsore.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A concrete methodological choice (distributed coaxing over single-point force), justified by reported empirical precedent, that reflects a transferable cognitive posture."
+  },
+  {
+    "title": "Admit to Ludovico that earning a living forced him off the commissioned work",
+    "description": "In a draft letter to Ludovico il Moro, Leonardo openly confesses that he was unable to make progress on the Duke's commissioned work because he had to earn his living elsewhere, had to feed six men for fifty-six months on fifty ducats, and that the Duke was 'deceived' if he believed otherwise. Rather than fabricate progress or excuses, Leonardo chose radical financial transparency with his patron, trading pride for accurate expectations.",
+    "source_text_excerpt": "It vexes me greatly that having to earn my living has forced me to interrupt the work and to attend to small matters, instead of following up the work which your Lordship entrusted to me. But I hope in a short time to have earned so much that I may carry it out quietly to the satisfaction of your Excellency... I had to feed 6 men for 56 months, and have had 50 ducats.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A deliberate choice to expose the economic reality of his workshop to his principal patron rather than manage appearances, revealing how he handled the tradeoff between reputation and honesty."
+  },
+  {
+    "title": "Propose a church form optimized for acoustics, not liturgy",
+    "description": "Leonardo designed a 'teatro da predicare' (theatre for preaching): a rectangular church with a semicircular tiered amphitheatre and the pulpit at the geometric centre, and a variant in which the interior is a portion of a sphere with the preacher's pulpit atop a central column. He prioritized the physical problem of carrying the human voice to every listener over the inherited symbolic requirements of ecclesiastical layout.",
+    "source_text_excerpt": "C. Studies for a form of a Church most proper for preaching. The problem as to what form of church might answer the requirements of acoustics seems to have engaged Leonardo's very particular attention. The designation of \"teatro\" given to some of these sketches, clearly shows which plan seemed to him most favourable for hearing the preacher's voice... A most singular plan for a building. The interior is a portion of a sphere, the centre of which is the summit of a column destined to serve as the preacher's pulpit.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "A design decision that subordinated liturgical and architectural convention to a measurable physical function (audibility), showing Leonardo's hierarchy of values when conventions conflicted with physics."
+  },
+  {
+    "title": "Recall that while casting the horse, peasants brought him fossil shells",
+    "description": "While working on the great Sforza horse in Milan, Leonardo noted that peasants from the mountains of Parma and Piacenza brought him a sackful of fossil shells and corals still embedded in rock. He chose to document and pursue this incidental input, later using such observations as evidence against the Biblical Flood explanation of fossils, showing a habit of treating interruptions in a primary project as data for unrelated investigations.",
+    "source_text_excerpt": "There is to be seen, in the mountains of Parma and Piacenza, a multitude of shells and corals full of holes, still sticking to the rocks, and when I was at work on the great horse for Milan, a large sackful of them, which were found thereabout, was brought to me into my workshop, by certain peasants.",
+    "source_title": "notebooks_vol2",
+    "reasoning_for_candidacy": "Reveals the decision to treat unsolicited field evidence from amateurs as legitimate data during an unrelated commission, showing how Leonardo ran parallel investigation streams opportunistically."
+  }
+]

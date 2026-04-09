@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Withhold the underwater breathing apparatus from publication",
+    "description": "Leonardo explicitly refused to describe his method for remaining underwater, anticipating it would be used for assassinations and sinking ships. He chose to publish only the less dangerous variant (breathing tube above water) and suppress the rest. This is a rare documented case of a Renaissance inventor performing ethical triage on his own research.",
+    "source_text_excerpt": "How by a certain machine many may stay some time under water. And how and wherefore I do not describe my method of remaining under water and how long I can remain without eating. And I do not publish nor divulge these, by reason of the evil nature of men, who would use them for assassinations at the bottom of the sea by destroying ships, and sinking them, together with the men in them. Nevertheless I will impart others, which are not dangerous because the mouth of the tube through which you breathe is above the water, supported on air sacks or cork.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "This is a clean decision under a real tradeoff: technical pride and completeness against anticipated misuse, with an explicit rule (publish only what cannot be weaponized)."
+  },
+  {
+    "title": "Accept disorder in the manuscripts rather than delay writing",
+    "description": "Beginning his 1508 Florentine notebook, Leonardo explicitly decided to write as a 'collection without order' from many papers, knowing he would repeat himself. He refused to reread everything each session to avoid repetition, treating the cost of cross-checking as higher than the cost of redundancy. He preemptively asks the reader not to blame him.",
+    "source_text_excerpt": "Begun at Florence, in the house of Piero di Braccio Martelli, on the 22nd day of March 1508. And this is to be a collection without order, taken from many papers which I have copied here, hoping to arrange them later each in its place, according to the subjects of which they may treat. But I believe that before I am at the end of this [task] I shall have to repeat the same things several times; for which, O reader! do not blame me, for the subjects are many and memory cannot retain them [all].",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "Reveals a deliberate prioritization: throughput of observation over cleanliness of structure — a productivity tradeoff he explicitly names and defends."
+  },
+  {
+    "title": "Refuse the authority of ancients in favor of direct experiment on the eye",
+    "description": "Leonardo deliberately rejected the inherited definitions of the eye's function from prior authors, announcing that experience contradicts them and that his treatment will start over from what can be demonstrated. He frames this as a choice to trust sensory demonstration over ancient consensus, explicitly naming the predecessors as falsely understood.",
+    "source_text_excerpt": "Behold here O reader! a thing concerning which we cannot trust our forefathers, the ancients, who tried to define what the Soul and Life are--which are beyond proof, whereas those things, which can at any time be clearly known and proved by experience, remained for many ages unknown or falsely understood. The eye, whose function we so certainly know by experience, has, down to my own time, been defined by an infinite number of authors as one thing; but I find, by experience, that it is quite another.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "This is a methodological choice to override received authority with personal experiment, stated at the moment he commits to a research program on optics."
+  },
+  {
+    "title": "Answer humanist critics by choosing experience over citation",
+    "description": "Facing anticipated attacks from lettered humanists who would dismiss him as unliterary, Leonardo decided not to compete on their terms. Instead of padding his work with quoted authorities, he explicitly adopts 'experience, the mistress of their Masters' as his sole citation. This is a strategic decision about how to defend the book's legitimacy.",
+    "source_text_excerpt": "Though I may not, like them, be able to quote other authors, I shall rely on that which is much greater and more worthy:--on experience, the mistress of their Masters. They go about puffed up and pompous, dressed and decorated with [the fruits], not of their own labours, but of those of others. And they will not allow me my own. They will scorn me as an inventor; but how much more might they--who are not inventors but vaunters and declaimers of the works of others--be blamed.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A positioning decision — he rejects a credible defensive strategy (quoting authorities) in favor of an epistemic one, accepting social cost for methodological purity."
+  },
+  {
+    "title": "Restrict the readership of the treatise to mathematicians",
+    "description": "Leonardo wrote a one-line admonition gatekeeping his work: only mathematicians may read the elements. Rather than lowering the technical bar to reach more readers, he chose to cut the audience to those equipped to verify the reasoning. It is a small but revealing decision about the kind of reception he valued.",
+    "source_text_excerpt": "Let no man who is not a Mathematician read the elements of my work.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A single-sentence access-control decision that shows Leonardo prioritizing rigor of readership over reach — a rare explicit gatekeeping choice."
+  },
+  {
+    "title": "Go to nature rather than copy the antique",
+    "description": "Asked to decide between drawing from the antique or from nature, Leonardo raises the question but answers it by practice: the editor notes that among Leonardo's enormous surviving drawings there is not one study from antique sculpture. He explicitly argues that imitating nature is the surer route, on the grounds that only a rare master is worth copying, so going straight to the source beats the intermediated version.",
+    "source_text_excerpt": "The Adversary says that to acquire practice and do a great deal of work it is better that the first period of study should be employed in drawing various compositions done on paper or on walls by divers masters, and that in this way practice is rapidly gained, and good methods; to which I reply that the method will be good, if it is based on works of good composition and by skilled masters. But since such masters are so rare that there are but few of them to be found, it is a surer way to go to natural objects, than to those which are imitated from nature with great deterioration, and so form bad methods; for he who can go to the fountain does not go to the water-jar.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A practiced decision — rejecting the dominant Florentine pedagogy of copying antiques and masters, with a defended rule (go to the fountain, not the jar)."
+  },
+  {
+    "title": "Choose solitude as a working condition despite its social cost",
+    "description": "Leonardo decided explicitly that the painter must work alone, even at the cost of looking mad to his neighbors or being a poor companion. He frames the choice as unavoidable: 'one cannot serve two masters.' He anticipates the social penalty and accepts it, preferring to be thought strange over diluted in attention.",
+    "source_text_excerpt": "And if you say: \"I will withdraw so far that their words cannot reach me and they cannot disturb me\", I can tell you that you will be thought mad. But, you see, you will at any rate be alone. And if you must have companions ship find it in your studio.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A tradeoff of social standing for cognitive conditions, stated as a rule he has adopted for himself and prescribes to serious painters."
+  },
+  {
+    "title": "Demand anatomical dissection as a precondition for painting the nude",
+    "description": "Leonardo insisted that a painter must learn the sinews, bones, muscles and tendons personally, rather than relying on surface observation. He ridicules painters who skip this step as producing figures like 'a sack of walnuts' or 'a bundle of radishes,' and reorders the curriculum: first learn the limbs and their mechanism, then the actions, then composition.",
+    "source_text_excerpt": "It is indispensable to a Painter who would be thoroughly familiar with the limbs in all the positions and actions of which they are capable, in the nude, to know the anatomy of the sinews, bones, muscles and tendons so that, in their various movements and exertions, he may know which nerve or muscle is the cause of each movement and show those only as prominent and thickened, and not the others all over [the limb], as many do who, to seem great draughtsmen, draw their nude figures looking like wood, devoid of grace; so that you would think you were looking at a sack of walnuts rather than the human form, or a bundle of radishes rather than the muscles of figures.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A cross-domain methodological decision: importing anatomical dissection into the painter's required training, against the convention of learning limbs from the outside."
+  },
+  {
+    "title": "Reject specialization in favor of universality for painters",
+    "description": "Leonardo argued, against the prevailing workshop economics of specialization, that a painter who is only excellent at heads or draperies or landscapes is a poor master. He lists the full scope painting must cover and insists all parts should be treated as equally important. He is deciding, for himself and his students, to pay the cost of breadth.",
+    "source_text_excerpt": "Nor is the painter praiseworthy who does but one thing well, as the nude figure, heads, draperies, animals, landscapes or other such details, irrespective of other work; for there can be no mind so inept, that after devoting itself to one single thing and doing it constantly, it should fail to do it well.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "A clear stance on a tradeoff — efficiency from specialization vs. the cognitive value of universality — with the explicit choice to pay the breadth tax."
+  },
+  {
+    "title": "Carry a pocket notebook to capture street behavior in real time",
+    "description": "Leonardo decided that memory could not be trusted for the infinite variety of gesture, so he committed to a daily practice of carrying a tinted-paper sketchbook into the streets to record people quarreling, laughing, fighting. He specifies the medium (tinted paper so marks won't rub out) and a rule to replace rather than erase, treating the notebook as a permanent data store rather than a scratchpad.",
+    "source_text_excerpt": "When you have well learnt perspective and have by heart the parts and forms of objects, you must go about, and constantly, as you go, observe, note and consider the circumstances and behaviour of men in talking, quarrelling or laughing or fighting together: the action of the men themselves and the actions of the bystanders, who separate them or who look on. And take a note of them with slight strokes thus, in a little book which you should always carry with you. And it should be of tinted paper, that it may not be rubbed out, but change the old [when full] for a new one; since these things should not be rubbed out but preserved with great care; for the forms, and positions of objects are so infinite that the memory is incapable of retaining them.",
+    "source_title": "notebooks_vol1",
+    "reasoning_for_candidacy": "Reveals an explicit operational decision about how to substitute durable external storage for unreliable memory — a workflow choice with specified constraints."
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Stare at stained walls to unlock invention",
+    "description": "Leonardo deliberately adopted the unconventional practice of studying dirty walls, veined marble, and random stones as a creative tool, explicitly calling it 'apparently trifling, and almost laughable' yet insisting on its utility. He chose to treat noise and randomness as generative raw material rather than dismissing it, revealing a bias toward exploiting ambiguity to escape conventional composition.",
+    "source_text_excerpt": "I will not omit to introduce among these precepts a new kind of speculative invention, which though apparently trifling, and almost laughable, is nevertheless of great utility in assisting the genius to find variety for composition. By looking attentively at old and smeared walls, or stones and veined marble of various colours, you may fancy that you see in them several compositions, landscapes, battles, figures in quick motion, strange countenances, and dresses, with an infinity of other objects. By these confused lines the inventive genius is excited to new exertions.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Leonardo acknowledges the method looks ridiculous but defends it anyway, revealing he chooses effectiveness over respectability in his cognitive tools."
+  },
+  {
+    "title": "Use the mirror as a silent external critic",
+    "description": "Leonardo elevated the flat mirror to the status of 'true master of painters,' using it both to benchmark his imitation of nature and to view his own work reversed so it 'will appear as the work of another hand.' The choice reveals his solution to a specific cognitive problem: that the painter's judgment becomes blind to its own errors through familiarity, so he engineers a mechanical trick to restore objective perception.",
+    "source_text_excerpt": "It will be well also to have a looking-glass by him, when he paints, to look often at his work in it, which being seen the contrary way, will appear as the work of another hand, and will better shew his faults. It will be useful also to quit his work often, and take some relaxation, that his judgment may be clearer at his return; for too great application and sitting still is sometimes the cause of many gross errors.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Shows Leonardo choosing a de-biasing technique over willpower when he recognizes a systematic flaw in his own cognition."
+  },
+  {
+    "title": "Trust enemies over friends when judging your work",
+    "description": "Leonardo explicitly preferred criticism from enemies to praise from friends, arguing friends' judgments are corrupted by likeness to oneself. This inverts the conventional social intuition to seek supportive feedback and reveals a hard prioritization of truth-finding over comfort.",
+    "source_text_excerpt": "There is nothing more apt to deceive us than our own judgment, in deciding on our own works; and we should derive more advantage from having our faults pointed out by our enemies, than by hearing the opinions of our friends, because they are too much like ourselves, and may deceive us as much as our own judgment.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Demonstrates his explicit tradeoff accepting social pain for information gain when evaluating work."
+  },
+  {
+    "title": "Listen to the layman over the specialist on one's own defects",
+    "description": "Leonardo insisted painters should accept criticism from anyone, including non-painters, on the grounds that any person can judge natural human form. This departs from the guild-era convention that only trained peers could critique art, and reveals his epistemic rule: the relevant expertise is whatever matches the problem, not whatever matches the profession.",
+    "source_text_excerpt": "A painter ought not certainly to refuse listening to the opinion of any one; for we know that, although a man be not a painter, he may have just notions of the forms of men; whether a man has a hump on his back, a thick leg, or a large hand; whether he be lame, or have any other defect. Now, if we know that men are able to judge of the works of Nature, should we not think them more able to detect our errors?",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Reveals Leonardo's decision rule for routing feedback: match the judge to the object of judgment, not to the craft."
+  },
+  {
+    "title": "Pursue universality over mastery of a single specialty",
+    "description": "Leonardo explicitly condemned the safer career strategy of specializing in one subject (heads, figures, drapery, landscape) even though he admitted almost anyone could succeed that way. He chose the harder path of breadth because, in his logic, narrow mastery 'reflects no great honour,' accepting higher risk of failure in exchange for the dignity of generality.",
+    "source_text_excerpt": "It reflects no great honour on a painter to be able to execute only one thing well, such as a head, an academy figure, or draperies, animals, landscape, or the like, confining himself to some particular object of study; because there is scarcely a person so void of genius as to fail of success, if he apply earnestly to one branch of study, and practise it continually.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "A direct tradeoff between safety and honour where Leonardo explicitly rejects specialization as beneath him."
+  },
+  {
+    "title": "Guard against self-love by measuring your own body",
+    "description": "Leonardo noticed a systematic bias: painters unconsciously project their own physical defects into their figures because familiarity makes the defects invisible. His counter-measure was to measure his own proportions, note the flaws, and deliberately avoid them in composition. He chose structured self-audit over trusting taste.",
+    "source_text_excerpt": "Measure upon yourself the proportion of the parts, and, if you find any of them defective, note it down, and be very careful to avoid it in drawing your own compositions. For this is reckoned a common fault in painters, to delight in the imitation of themselves.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Shows Leonardo identifying a cognitive bias in himself and designing an explicit procedural countermeasure."
+  },
+  {
+    "title": "Sacrifice completion speed for sub-skill depth",
+    "description": "Leonardo advised the young painter to refuse progression to a new topic until the prior one was fully internalized, and to 'acquire accuracy before he attempts quickness.' He framed this as the only way to avoid wasted time, explicitly accepting slower short-term progress in exchange for permanent mastery.",
+    "source_text_excerpt": "In order to acquire a true notion of the form of things, he must begin by studying the parts which compose them, and not pass to a second till he has well stored his memory, and sufficiently practised the first; otherwise he loses his time, and will most certainly protract his studies. And let him remember to acquire accuracy before he attempts quickness.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Reveals his prioritization heuristic under the scarce resource of time: depth compounds, breadth without depth is a loss."
+  },
+  {
+    "title": "Refuse flattering colours in exchange for chiaroscuro truth",
+    "description": "Leonardo consciously chose the harder, less immediately pleasing pursuit of three-dimensional relief through light and shadow over the easier win of bright, flattering colours that please 'vulgar and ignorant admirers.' He was willing to accept lower popularity among naive viewers to preserve what 'real connoisseurs' would recognize as the glory of the art.",
+    "source_text_excerpt": "The first object of a painter is to make a simple flat surface appear like a relievo, and some of its parts detached from the ground; he who excels all others in that part of the art, deserves the greatest praise. This perfection of the art depends on the correct distribution of lights and shades, called _Chiaro-scuro_. If the painter then avoids shadows, he may be said to avoid the glory of the art, and to render his work despicable to real connoisseurs, for the sake of acquiring the esteem of vulgar and ignorant admirers of fine colours, who never have any knowledge of relievo.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Explicit market tradeoff: he ranks audiences and chooses to optimize for the discerning minority over the pleased majority."
+  },
+  {
+    "title": "Copy nature directly, never another master",
+    "description": "Leonardo forbade imitating the style of any living painter, insisting one must always return to Nature as the source. He framed copyists as grandchildren of Nature rather than children, explicitly choosing the harder path of direct observation over the efficient shortcut of stylistic inheritance.",
+    "source_text_excerpt": "One painter ought never to imitate the manner of any other; because in that case he cannot be called the child of Nature, but the grandchild. It is always best to have recourse to Nature, which is replete with such abundance of objects, than to the productions of other masters, who learnt every thing from her.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "A deliberate refusal of a cheaper source of learning in favor of the primary, more expensive source."
+  },
+  {
+    "title": "Cultivate productive self-doubt over confident execution",
+    "description": "Leonardo held that the painter whose work matches his own judgment is stagnating, and the painter whose work exceeds his judgment is corrupting himself. Only when judgment outruns skill does growth happen. He deliberately cultivated a gap between his taste and his ability, accepting the psychological cost of permanent dissatisfaction as the price of improvement.",
+    "source_text_excerpt": "The painter who entertains no doubt of his own ability, will attain very little. When the work succeeds beyond the judgment, the artist acquires nothing; but when the judgment is superior to the work, he never ceases improving, if the love of gain do not retard his progress.",
+    "source_title": "treatise_on_painting",
+    "reasoning_for_candidacy": "Inverts the conventional preference for confidence, revealing Leonardo's choice to optimize for the improvement gradient rather than present satisfaction."
+  }
+]
