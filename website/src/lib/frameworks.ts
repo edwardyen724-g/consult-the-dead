@@ -117,7 +117,10 @@ export interface ValidationResult {
 /* ── Helpers ── */
 
 function frameworksDir(): string {
-  return path.resolve(process.cwd(), "..", "frameworks");
+  // Use bundled data inside website/data/frameworks/ so Vercel builds
+  // work (Vercel only has access to the website/ directory, not the
+  // monorepo root). The data is copied from frameworks/ at commit time.
+  return path.resolve(process.cwd(), "data", "frameworks");
 }
 
 function readJson<T>(filePath: string): T | null {
@@ -152,12 +155,18 @@ export function getFramework(slug: FrameworkSlug): Framework | null {
   const constructCount =
     meta.construct_count ?? constructs.length;
 
-  // Read incidents from separate file if it exists
+  // Read incidents: prefer inline critical_incident_database in framework.json,
+  // fall back to separate incidents/incidents.json file.
   let incidents: Incident[] = [];
-  const incidentsFile = path.join(dir, "incidents", "incidents.json");
-  const rawIncidents = readJson<Incident[]>(incidentsFile);
-  if (rawIncidents && Array.isArray(rawIncidents)) {
-    incidents = rawIncidents;
+  const inlineIncidents = raw.critical_incident_database;
+  if (Array.isArray(inlineIncidents) && inlineIncidents.length > 0) {
+    incidents = inlineIncidents;
+  } else {
+    const incidentsFile = path.join(dir, "incidents", "incidents.json");
+    const rawIncidents = readJson<Incident[]>(incidentsFile);
+    if (rawIncidents && Array.isArray(rawIncidents)) {
+      incidents = rawIncidents;
+    }
   }
 
   return {
