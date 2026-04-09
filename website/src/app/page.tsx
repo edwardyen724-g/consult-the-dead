@@ -116,8 +116,8 @@ export default function HomePage() {
               maxWidth: "62ch",
             }}
           >
-            Describe it below. A council will consider it. Edward will reply
-            within 24 hours.
+            Describe it below. A council will consider it. You&rsquo;ll get a
+            reply within 24 hours.
           </p>
 
           <div style={{ marginTop: "56px" }}>

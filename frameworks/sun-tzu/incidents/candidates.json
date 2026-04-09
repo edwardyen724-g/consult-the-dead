@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Executing the King's Favored Concubines Against Royal Command",
+    "description": "When King Ho Lu ordered Sun Tzu to halt the execution of his two favorite concubines who had failed to follow drill commands, Sun Tzu refused the royal pardon and proceeded with the beheading. This reveals Sun Tzu's core cognitive framework: military authority must be structurally insulated from sovereign emotional interference once a commission is granted, and discipline is meaningless unless consequences are absolute and predictable.",
+    "source_text_excerpt": "Having once received His Majesty's commission to be the general of his forces, there are certain commands of His Majesty which, acting in that capacity, I am unable to accept.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Assigning Blame to Himself Before Punishing Soldiers",
+    "description": "When the women laughed instead of obeying the first command, Sun Tzu publicly attributed the failure to himself (unclear orders), not the soldiers. Only after repeating clear instructions and observing continued disobedience did he shift blame to the officers and act. This reveals a two-stage causal model of failure: first diagnose leadership before punishing subordinates, a non-obvious cognitive pattern that contradicts authority-first military cultures.",
+    "source_text_excerpt": "If words of command are not clear and distinct, if orders are not thoroughly understood, then the general is to blame.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Dismissing the King's Refusal to Inspect Troops",
+    "description": "After successfully drilling the concubines into a disciplined unit, Sun Tzu responded to the King's refusal to come down and inspect by publicly remarking that the King was 'only fond of words, and cannot translate them into deeds.' Rather than deferring to royal face-saving, Sun Tzu openly characterized the sovereign's behavior as a gap between rhetoric and action. This reveals a values hierarchy in which demonstrated competence and practical consequence outrank ceremonial deference to rank.",
+    "source_text_excerpt": "Thereupon Sun Tz\u016d said: 'The King is only fond of words, and cannot translate them into deeds.'",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Counseling Strategic Patience Over Immediate Attack on Ying (512 BC)",
+    "description": "When King Ho Lu was eager to press his advantage and assault the Ch'u capital of Ying, Sun Tzu advised waiting because 'the army is exhausted.' This non-obvious restraint\u2014counseling delay at a moment of military momentum\u2014demonstrates Sun Tzu's systematic prioritization of resource state over opportunity, a pattern consistent with his written doctrine that prolonged campaigns exhaust states.",
+    "source_text_excerpt": "The general Sun Wu said: 'The army is exhausted. It is not yet possible. We must wait.'",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Advising Alliance with T'ang and Ts'ai as Precondition for Attacking Ch'u (506 BC)",
+    "description": "When asked years later whether the time was ripe to attack Ch'u, Sun Tzu (with Wu Tzu-hsu) prescribed a specific diplomatic precondition\u2014winning over T'ang and Ts'ai\u2014before military action. This reveals a cognitive pattern of treating coalition-building as a force multiplier that must precede kinetic operations, not follow them, reflecting the doctrine in Chapter III that the highest generalship prevents enemy concentration.",
+    "source_text_excerpt": "If Your Majesty has resolved to make a grand attack, you must win over T'ang and Ts'ai, and then you may succeed.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Framing War as Fundamentally Governed by Deception",
+    "description": "In Chapter I, Sun Tzu stakes out the foundational claim that 'all warfare is based on deception,' a philosophically provocative position that subordinates courage, strength, and righteousness to information manipulation. This is a non-obvious doctrinal stand that diverges sharply from contemporaries who emphasized virtue and direct confrontation, revealing a perceptual filter in which reality-management is more decisive than material force.",
+    "source_text_excerpt": "All warfare is based on deception. Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Prioritizing Non-Battle Victory Over Battlefield Excellence",
+    "description": "Sun Tzu explicitly ranks 'breaking the enemy's resistance without fighting' as supreme excellence, placing it above winning battles, even brilliantly. This inverts the warrior-culture value system of his era, revealing a cognitive framework that treats violence as evidence of strategic failure rather than success\u2014a position requiring courage to articulate in a martial context.",
+    "source_text_excerpt": "Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy's resistance without fighting.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Asserting the General Must Disobey the Sovereign When Militarily Necessary",
+    "description": "In Chapter X, Sun Tzu declares that a general must fight when fighting will produce victory even if the ruler forbids it, and must not fight when fighting will not produce victory even at the ruler's command. This is an explicit assertion of professional military autonomy over political authority\u2014an extraordinarily bold stand in a Confucian society premised on hierarchical obedience, revealing a values framework where operational reality trumps sovereign command.",
+    "source_text_excerpt": "If fighting is sure to result in victory, then you must fight, even though the ruler forbid it; if fighting will not result in victory, then you must not fight even at the ruler's bidding.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Treating Intelligence Expenditure as a Moral Imperative",
+    "description": "In Chapter XIII, Sun Tzu frames refusal to spend on spies not merely as strategic error but as 'the height of inhumanity' and a crime against the people. He reframes the cost-benefit calculus of espionage as a humanitarian obligation, revealing a cognitive pattern that connects tactical decisions to macro-level human suffering\u2014an unusual integration of ethics and operational doctrine.",
+    "source_text_excerpt": "To remain in ignorance of the enemy's condition simply because one grudges the outlay of a hundred ounces of silver in honours and emoluments, is the height of inhumanity.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Deliberately Withholding Plans from One's Own Troops",
+    "description": "Sun Tzu explicitly prescribes deceiving one's own soldiers about intentions, burning boats, and blocking retreat\u2014managing the army's information environment as aggressively as the enemy's. This reveals a commander-as-systems-designer cognitive model in which soldiers are manipulable components whose psychological state is engineered rather than consulted, a non-obvious stance that conflicts with loyalty-based leadership norms.",
+    "source_text_excerpt": "He must be able to mystify his officers and men by false reports and appearances, and thus keep them in total ignorance.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Placing Soldiers in Desperate Situations as a Performance Optimization Strategy",
+    "description": "Sun Tzu advocates deliberately placing troops in positions of no escape to maximize fighting performance, framing desperation as a managerial tool. This inverts conventional military welfare thinking and reveals a counterintuitive causal model: that removing options enhances capability, and that apparent cruelty to one's own forces serves their ultimate survival.",
+    "source_text_excerpt": "Throw your soldiers into positions whence there is no escape, and they will prefer death to flight. If they will face death, there is nothing they may not achieve.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Refusing to Fight in War Solely for Emotional Reasons",
+    "description": "In Chapter XII, Sun Tzu explicitly prohibits rulers and generals from initiating war or battle out of anger or wounded pride, insisting that emotional states are transient while destroyed kingdoms and dead soldiers are permanent. This reveals a temporal discounting framework in which short-cycle emotional triggers must be subordinated to long-cycle irreversible consequences\u2014a non-obvious discipline applied to the decision to use force.",
+    "source_text_excerpt": "No ruler should put troops into the field merely to gratify his own spleen; no general should fight a battle simply out of pique. Anger may in time change to gladness; vexation may be succeeded by content. But a kingdom that has once been destroyed can never come again into being.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Selecting Victory Through Position Over Victory Through Combat",
+    "description": "Sun Tzu's doctrine that 'the victorious strategist only seeks battle after the victory has been won' encodes a pre-commitment framework: all decisive action happens in planning and positioning, not in fighting. This reflects a deep cognitive pattern of treating the battlefield engagement as a confirmation of pre-established advantage rather than a contest of wills, diverging from peers who treated battle itself as the decisive act.",
+    "source_text_excerpt": "Thus it is that in war the victorious strategist only seeks battle after the victory has been won, whereas he who is destined to defeat first fights and afterwards looks for victory.",
+    "source_title": "art_of_war_giles_translation",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  }
+]

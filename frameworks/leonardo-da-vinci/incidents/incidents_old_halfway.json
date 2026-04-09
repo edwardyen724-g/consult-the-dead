@@ -1,0 +1,194 @@
+[
+  {
+    "id": "incident-001",
+    "decision": "Leonardo chose to continue anatomical dissections far beyond artistic necessity, pursuing comprehensive understanding of human structure without intent to publish.",
+    "context": "Leonardo initially began anatomical study to improve his artistic depiction of human forms, a common practice among Renaissance artists. However, he found himself drawn deeper into the investigation, eventually performing over 30 dissections and creating anatomical drawings of unprecedented detail and accuracy.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo noticed discrepancies between received anatomical knowledge and direct observation, gaps in understanding of organ function and structure, and patterns of interconnection between body systems that sparked further questions rather than providing closure.",
+      "active_goals": "His operative goal shifted from acquiring sufficient anatomical knowledge for artistic purposes to achieving complete understanding of human structure and function, driven by intellectual curiosity rather than practical application.",
+      "rejected_alternatives": "He rejected stopping at the level of anatomical knowledge sufficient for artistic rendering, rejected publishing incomplete work despite its revolutionary quality, and rejected focusing exclusively on externally visible structures that would serve artistic needs.",
+      "situation_framing": "Leonardo framed this not as artistic skill acquisition but as fundamental natural investigation, treating the human body as a complex mechanical system requiring comprehensive understanding rather than superficial knowledge.",
+      "expected_outcome": "He expected that continued investigation would eventually yield complete understanding worthy of publication, believing each new dissection would resolve existing questions rather than generate new ones."
+    },
+    "counterfactual": "A competent peer artist would have performed a few dissections to understand basic muscle and bone structure, sketched key anatomical features relevant to figure drawing, and moved on to other artistic studies once sufficient knowledge was gained.",
+    "divergence_explanation": "Leonardo's decision diverged because he experienced each anatomical discovery not as progress toward a practical goal but as revelation of deeper complexity requiring further investigation, reflecting his fundamental orientation toward understanding natural phenomena completely rather than instrumentally.",
+    "outcome": "Leonardo produced anatomical work centuries ahead of its time in accuracy and detail, but never published it because his standards for completeness could never be met, leaving this revolutionary knowledge largely unused during his lifetime.",
+    "source": "key_decisions_and_incidents"
+  },
+  {
+    "id": "incident-002",
+    "decision": "Leonardo decided to pursue anatomical studies with dual motivation for both artistic accuracy and scientific understanding of emotional expression.",
+    "context": "During the Renaissance, artistic and scientific knowledge were typically pursued as separate disciplines with distinct methodologies and purposes. Artists studied anatomy primarily for representational accuracy, while natural philosophers pursued anatomical knowledge for theoretical understanding. Leonardo faced the choice of how to approach his anatomical investigations.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo observed that emotional expressions had both visible surface manifestations and deeper structural origins that could not be captured through artistic observation alone, recognizing gaps between what artists typically studied (external form) and what natural philosophers studied (internal function).",
+      "active_goals": "To achieve unprecedented accuracy in depicting human emotion and expression while simultaneously advancing fundamental understanding of how anatomical structures generate and manifest emotional states.",
+      "rejected_alternatives": "Rejected the conventional approach of studying anatomy purely for artistic reference (dismissed as superficial), rejected purely scientific anatomical study without artistic application (dismissed as disconnected from human experience), and rejected accepting existing knowledge without direct investigation (dismissed as potentially inaccurate).",
+      "situation_framing": "Framed anatomical study not as a choice between art or science, but as an integrated investigation where artistic sensitivity could inform scientific discovery and scientific rigor could enhance artistic truth.",
+      "expected_outcome": "Expected that combining artistic observation with scientific method would yield superior understanding of human emotion and expression, leading to both more accurate artistic representations and new insights into the relationship between physical structure and emotional manifestation."
+    },
+    "counterfactual": "A competent peer would have specialized in either artistic anatomy (studying surface forms and proportions for painting) or scientific anatomy (studying internal structures for medical knowledge), following established disciplinary boundaries.",
+    "divergence_explanation": "Leonardo's unique perceptual framework refused to accept artificial boundaries between knowledge domains, recognizing that emotional expression was simultaneously an artistic challenge and a scientific phenomenon that required integrated investigation to fully understand.",
+    "outcome": "Leonardo developed unprecedented anatomical knowledge that enhanced both his artistic works and contributed to scientific understanding, creating detailed studies that revealed connections between physical structure and emotional expression that neither pure artists nor pure scientists of his time achieved.",
+    "source": "anatomical_studies"
+  },
+  {
+    "id": "incident-003",
+    "decision": "Leonardo chose to continue investigating and documenting across multiple fields in his private notebooks rather than publishing his discoveries for recognition and priority.",
+    "context": "Leonardo had accumulated over 7,200 pages of groundbreaking observations and discoveries across anatomy, engineering, optics, and natural philosophy. Publishing would have secured his priority in multiple scientific fields and brought significant intellectual recognition. However, his investigations felt incomplete to him, as each discovery revealed new questions and connections to other domains.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo perceived the interconnectedness between his anatomical studies, mechanical designs, and natural observations - seeing patterns and relationships that demanded deeper investigation. He noticed that each answer generated multiple new questions, creating an expanding web of inquiry that felt far from complete.",
+      "active_goals": "Leonardo's operative goal was to achieve a unified understanding of natural principles that connected all phenomena - anatomical, mechanical, optical, and philosophical. His priority was advancing his own comprehension and documentation of these universal patterns rather than establishing public priority or reputation.",
+      "rejected_alternatives": "He rejected publishing individual discoveries piecemeal, which would have secured priority in anatomy, optics, or engineering. He dismissed the conventional scholarly path of presenting conclusions before fully exploring their implications. He also rejected collaborating with other scholars who might have helped complete and publish his work.",
+      "situation_framing": "Leonardo framed this as a choice between premature disclosure of incomplete knowledge versus continued investigation toward a holistic understanding. He saw publication not as sharing knowledge but as prematurely closing inquiry - treating his discoveries as building blocks in a grand unified theory rather than discrete achievements.",
+      "expected_outcome": "Leonardo expected that continued investigation would eventually yield a complete, unified understanding of natural principles that would be far more valuable than any individual discovery. He believed the interconnected nature of knowledge meant that publishing partial insights would actually impede the larger investigation he was pursuing."
+    },
+    "counterfactual": "A competent peer would have published their most significant discoveries to establish priority and reputation, then continued investigating. They would have recognized that publication enhances rather than hinders scientific progress through peer review and collaboration, and would have balanced personal investigation with professional recognition.",
+    "divergence_explanation": "Leonardo's choice reflected his unique cognitive framework that prioritized synthesis over analysis and personal understanding over social recognition. His ability to perceive deep connections across disciplines created a perfectionist demand for completeness that conventional scholars would not have felt. His identity was as an investigator of universal principles rather than as a contributor to discrete fields of knowledge.",
+    "outcome": "Leonardo lost priority in multiple scientific discoveries to later scholars who published similar findings. However, his notebooks reveal an unprecedented scope of integrated investigation that influenced later polymaths and established him as a unique figure in intellectual history, albeit posthumously.",
+    "source": "key_decisions_and_incidents"
+  },
+  {
+    "id": "incident-004",
+    "decision": "Leonardo chose to emphasize his military engineering capabilities first and foremost in his letter to Ludovico Sforza, relegating his artistic talents to a brief mention at the end.",
+    "context": "Around 1482, Leonardo was seeking patronage from Ludovico Sforza, Duke of Milan, during a period of intense political instability and warfare in Northern Italy. This was a competitive environment where many artists and engineers were vying for prestigious court positions, and rulers prioritized practical military capabilities over cultural pursuits.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo perceived that Sforza was primarily concerned with military threats and territorial security, noting the duke's active involvement in warfare and alliance-building. He recognized that other applicants were likely emphasizing their artistic credentials, and observed that military engineering was a scarce and highly valued skill among Italian courts.",
+      "active_goals": "To secure a lucrative and stable position at the Sforza court by positioning himself as indispensable for the duke's most pressing concerns - military defense and conquest. His operative goal was differentiation from other candidates rather than comprehensive self-presentation.",
+      "rejected_alternatives": "Leonardo rejected the conventional approach of leading with his artistic achievements (paintings, sculptures) or his theoretical knowledge. He dismissed the strategy of presenting himself as a universal genius equally skilled in all areas, and avoided the scholarly approach of emphasizing his studies of anatomy, mathematics, or natural philosophy.",
+      "situation_framing": "Leonardo framed this as a strategic positioning challenge rather than a straightforward job application. He viewed Sforza not as a patron of the arts but as a military commander facing existential threats, and saw himself as offering solutions to the duke's most critical problems first, with artistic value as supplementary benefit.",
+      "expected_outcome": "Leonardo expected that by addressing Sforza's primary concerns first, he would be granted an audience and serious consideration, with his military utility serving as the 'hook' that would make the duke receptive to his broader capabilities, including the prestigious equestrian statue project."
+    },
+    "counterfactual": "A competent peer artist would have led with their most acclaimed artistic works, provided examples of successful commissions for other nobles, and emphasized the prestige and cultural elevation that artistic patronage would bring to the Sforza court.",
+    "divergence_explanation": "Leonardo's unique combination of engineering knowledge and strategic thinking allowed him to read the political situation more deeply than pure artists could. His divergent approach stemmed from his ability to empathize with a ruler's mindset and his recognition that scarcity creates value - military engineers were rare, while talented artists were relatively common.",
+    "outcome": "Leonardo successfully secured a position at the Sforza court where he served for nearly two decades, working on both military projects and artistic commissions including the famous 'The Last Supper' and preliminary work on the equestrian statue, though the bronze statue was never completed due to material being redirected to military use.",
+    "source": "brockwell_leonardo"
+  },
+  {
+    "id": "incident-005",
+    "decision": "Leonardo chose to consistently write from right to left in mirror script to deliberately obscure his writings from casual readers.",
+    "context": "Leonardo was developing groundbreaking ideas, inventions, and observations that represented significant intellectual property in Renaissance Italy. He faced the challenge of documenting his work while protecting it from competitors, thieves, or those who might misuse his knowledge. The political and commercial environment made intellectual secrecy a practical necessity.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo recognized the vulnerability of his written knowledge to theft or misappropriation by others who could easily access standard left-to-right text. He observed that his natural left-handedness made mirror writing more comfortable and efficient, creating a natural barrier to readability that he could exploit.",
+      "active_goals": "His primary operative goal was to create a documentation system that allowed him to record and develop his ideas while maintaining selective access control. He sought to balance personal productivity with intellectual security, ensuring his revolutionary concepts remained protected from casual observation.",
+      "rejected_alternatives": "He rejected standard left-to-right writing (too easily readable by others), coded writing systems (too complex and time-consuming), verbal-only knowledge transmission (too unreliable and limiting for complex technical concepts), and not documenting his work at all (would limit his ability to develop and refine ideas).",
+      "situation_framing": "Leonardo framed this as a strategic information warfare problem, where knowledge itself was a valuable asset requiring protection. He viewed his documentation method as a form of natural encryption that leveraged his physical advantages while serving his intellectual security needs.",
+      "expected_outcome": "He expected that mirror writing would deter casual readers while still allowing him rapid documentation and later review of his work. He anticipated that only determined scholars with mirrors and time would access his ideas, creating a natural filter for serious versus superficial interest."
+    },
+    "counterfactual": "A competent peer would have written in standard left-to-right script, perhaps using conventional abbreviations or Latin to limit accessibility, but would not have developed such an elaborate obfuscation system.",
+    "divergence_explanation": "Leonardo's choice diverged because he uniquely combined left-handedness (making mirror writing natural), revolutionary intellectual content (requiring protection), and a strategic mindset that saw documentation as requiring active security measures rather than passive recording.",
+    "outcome": "The mirror writing successfully protected his ideas for centuries, requiring scholars to use mirrors to decode his notebooks, while still preserving his revolutionary insights for posterity and allowing him to maintain detailed records of his work.",
+    "source": "brockwell_leonardo"
+  },
+  {
+    "id": "incident-006",
+    "decision": "Leonardo chose to sell the original 'Virgin of the Rocks' to an unknown buyer at full price and create a replacement version for the chapel at reduced cost.",
+    "context": "A payment dispute had emerged over the 'Virgin of the Rocks' commission for the Chapel of the Conception. The original commissioners were unwilling or unable to pay the full amount Leonardo demanded. Leonardo faced the choice between accepting reduced payment, engaging in prolonged legal battles, or finding an alternative solution that would satisfy both his financial needs and contractual obligations.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo noticed that there was a market willing to pay full price for his original work outside the original commission, while the chapel commissioners were price-sensitive but still needed the work completed for their religious setting.",
+      "active_goals": "Leonardo's operative goals were maximizing financial return from his artistic labor while maintaining his professional reputation and fulfilling contractual obligations, rather than preserving the singular artistic integrity of one specific work.",
+      "rejected_alternatives": "He rejected accepting the reduced payment from the original commissioners (financial loss), pursuing lengthy legal action (time cost and uncertain outcome), and abandoning the commission entirely (reputational damage and potential legal consequences).",
+      "situation_framing": "Leonardo framed this as a business optimization problem rather than an artistic integrity issue - he saw two distinct market opportunities that could be satisfied with differentiated products at appropriate price points.",
+      "expected_outcome": "Leonardo expected to achieve maximum financial return through the private sale while satisfying the chapel's needs through a supervised workshop production, maintaining all relationships and avoiding legal complications."
+    },
+    "counterfactual": "A typical artist of the period would have either accepted the reduced payment from the original commissioners or engaged in legal proceedings to enforce the original contract terms.",
+    "divergence_explanation": "Leonardo's entrepreneurial mindset and systematic approach to workshop production allowed him to see a market segmentation opportunity that others would miss - he recognized that his supervision could create acceptable religious art at lower cost while his personal execution commanded premium prices elsewhere.",
+    "outcome": "The strategy succeeded: Leonardo received full payment from the unknown buyer, the chapel received an acceptable replacement supervised by Leonardo and executed primarily by Ambrogio da Predis, and all parties avoided protracted legal disputes.",
+    "source": "brockwell_leonardo"
+  },
+  {
+    "id": "incident-007",
+    "decision": "Leonardo decided to continue flight research for decades by shifting from flapping wing mechanisms to gliding principles when human-powered flight proved impossible.",
+    "context": "In the late 15th and early 16th centuries, Leonardo faced the fundamental constraint that human muscle power was insufficient for sustained flapping flight. Most contemporaries would have abandoned such research after recognizing this physical impossibility. Leonardo had already invested significant time studying bird anatomy and designing elaborate wing mechanisms.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo attended to the nuanced differences between bird flight mechanics and human physiology, recognizing that birds had proportionally stronger flight muscles and lighter bone structure. He noticed that birds also employed gliding and soaring behaviors that required minimal muscular effort, observing how they exploited air currents and thermal updrafts.",
+      "active_goals": "Leonardo's operative goal was advancing fundamental understanding of flight principles rather than achieving immediate practical success. He was driven by the meta-goal of systematic knowledge acquisition about natural phenomena, treating each 'failure' as data rather than defeat.",
+      "rejected_alternatives": "He rejected abandoning flight research entirely despite recognizing flapping flight's impossibility. He also rejected purely theoretical approaches without empirical observation, and dismissed simplified mechanical analogies that ignored the complexity of aerodynamic principles.",
+      "situation_framing": "Leonardo framed this as a systematic investigation of natural principles rather than an engineering problem requiring immediate solution. He categorized it as part of his broader study of motion, force, and natural systems - viewing apparent 'impossibility' as revealing deeper truths about physical constraints.",
+      "expected_outcome": "Leonardo expected that sustained investigation would reveal fundamental principles of flight that could eventually be applied, even if not through direct replication of bird flight. He anticipated that understanding gliding mechanics would provide insights applicable to future technological capabilities."
+    },
+    "counterfactual": "A competent peer would have abandoned flight research after demonstrating human muscle power was insufficient, redirecting efforts toward achievable mechanical projects like improving existing siege engines or architectural innovations.",
+    "divergence_explanation": "Leonardo's decision differed because he operated with a research methodology focused on understanding natural principles rather than immediate practical application. His tolerance for long-term uncertainty and process-oriented thinking allowed him to reframe 'failure' as progress in understanding fundamental constraints.",
+    "outcome": "Leonardo developed unprecedented insights into aerodynamic principles, documented detailed observations of flight mechanics, and created glider designs that anticipated key principles later used in successful human flight, contributing foundational knowledge that informed aviation development centuries later.",
+    "source": "key_decisions_and_incidents"
+  },
+  {
+    "id": "incident-008",
+    "decision": "Leonardo decided to pivot from powered human flight to studying gliding and thermal currents when empirical evidence showed muscle power was insufficient.",
+    "context": "Leonardo had been pursuing sustained powered flight using human muscle power as the energy source. Through his mechanical studies and observations, he encountered mounting evidence that human muscular output could not generate the sustained power required for flight. Rather than face project failure, he needed to decide whether to abandon the research entirely or find an alternative approach.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo attended to the quantitative mismatch between human power output and flight power requirements, observed natural gliding behaviors in birds during soaring flight, and noticed thermal air currents that enabled effortless sustained flight in nature without continuous wing beating.",
+      "active_goals": "His operative goal was to achieve human flight through any viable means rather than being constrained to his original powered approach - he prioritized the fundamental objective of flight over attachment to a specific methodology.",
+      "rejected_alternatives": "He rejected abandoning flight research entirely (too much invested knowledge), rejected continuing to pursue muscle-powered flight despite evidence (would violate his empirical principles), and rejected seeking more powerful energy sources (likely recognizing technological limitations of his era).",
+      "situation_framing": "Leonardo reframed this from a 'research failure' requiring abandonment to a 'methodology refinement' problem - viewing it as natural scientific evolution where empirical evidence guides strategic pivots rather than invalidates the entire enterprise.",
+      "expected_outcome": "He expected that studying gliding and thermal dynamics would reveal alternative flight principles that could eventually enable human flight, and that this pivot would preserve his accumulated flight knowledge while opening new research directions."
+    },
+    "counterfactual": "A competent peer would likely have abandoned the flight research entirely after recognizing the power limitations, viewing the empirical contradiction as proof that human flight was impossible.",
+    "divergence_explanation": "Leonardo's scientific mindset enabled him to separate the core objective (flight) from the specific method (muscle power), allowing him to treat empirical contradictions as navigation aids rather than project terminators - his systematic approach to learning made methodology adaptation feel natural rather than like failure.",
+    "outcome": "Leonardo developed foundational insights into aerodynamics and gliding principles that would prove prescient, maintaining productive research momentum in flight studies despite the major methodological pivot.",
+    "source": "engineering_and_flight"
+  },
+  {
+    "id": "incident-011",
+    "decision": "Leonardo chose to study water dynamics as a universal principle applicable across multiple domains rather than limiting his investigation to immediate hydraulic applications.",
+    "context": "During the Renaissance, natural philosophy was becoming increasingly specialized, with scholars typically focusing on single domains of inquiry. Leonardo was engaged in multiple projects requiring understanding of fluid dynamics - from engineering water systems to designing flying machines to painting landscapes and studying human anatomy.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo observed that water exhibited consistent behavioral patterns - vortices, laminar flow, turbulence, and resistance dynamics - that appeared analogous to phenomena in other fluid systems like air currents and what he hypothesized about blood circulation. He noticed structural similarities in how fluids moved around obstacles, through channels, and under pressure across different contexts.",
+      "active_goals": "Leonardo's operative goal was to discover fundamental principles of nature that could serve as a unified theoretical foundation for multiple practical applications, rather than solving discrete technical problems in isolation.",
+      "rejected_alternatives": "He rejected the conventional approach of studying hydraulics solely for water management, anatomical circulation as purely medical, and aerodynamics as separate from fluid mechanics. He dismissed domain-specific explanations that couldn't account for cross-domain similarities he observed.",
+      "situation_framing": "Leonardo framed this as an opportunity to uncover universal natural laws through systematic observation of one accessible phenomenon (water) that could unlock understanding across multiple domains of inquiry and application.",
+      "expected_outcome": "Leonardo expected that deep understanding of water dynamics would provide transferable insights enabling breakthroughs in flight design, anatomical understanding of circulation, geological processes, and more accurate representation of natural phenomena in his art."
+    },
+    "counterfactual": "A competent peer would have studied water dynamics specifically for the hydraulic engineering project at hand, focusing on practical applications like canal design, water wheels, or irrigation systems without seeking broader theoretical connections.",
+    "divergence_explanation": "Leonardo's choice differed because he possessed an unusual capacity for pattern recognition across domains and operated under the Renaissance ideal of the universal scholar, combined with his unique position as both artist and engineer that required him to understand natural phenomena from multiple perspectives simultaneously.",
+    "outcome": "This approach yielded Leonardo's remarkably prescient insights into cardiovascular circulation, aerodynamic principles for flight, geological formation processes, and enhanced realism in depicting water and atmospheric effects in his paintings, though it also meant many of his specific technical projects remained incomplete.",
+    "source": "engineering_and_flight"
+  },
+  {
+    "id": "incident-012",
+    "decision": "Leonardo chose to pursue comprehensive training across all workshop disciplines rather than specializing exclusively in painting.",
+    "context": "As a young apprentice in Andrea del Verrocchio's Florentine workshop, Leonardo faced the typical career choice of Renaissance artists: focus intensively on mastering painting to achieve recognition, or diversify across multiple crafts. The workshop environment offered opportunities in sculpture, metalwork, mechanics, engineering, and architecture alongside painting instruction.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo observed the interconnectedness of different workshop disciplines - how engineering principles informed sculptural stability, how understanding materials affected both metalwork and painting techniques, how architectural knowledge enhanced spatial composition in art, and how mechanical understanding could solve practical artistic problems.",
+      "active_goals": "Leonardo was driven by an overarching goal to understand the fundamental principles underlying all forms of creation and representation, rather than achieving conventional artistic success through specialization.",
+      "rejected_alternatives": "He rejected the standard path of intensive painting focus that would have led to faster recognition as a master painter, dismissing this approach as artificially limiting and potentially shallow compared to deeper understanding of underlying principles.",
+      "situation_framing": "Leonardo framed his apprenticeship not as vocational training for a specific trade, but as an opportunity to decode the universal principles of how things work - treating the workshop as a laboratory for understanding nature's mechanisms.",
+      "expected_outcome": "Leonardo expected that mastering multiple disciplines would reveal fundamental connections between different domains of knowledge, ultimately making him a more capable creator who could innovate across boundaries rather than within them."
+    },
+    "counterfactual": "A competent peer would have focused primarily on painting with perhaps one complementary skill, following the established path to master painter status and workshop independence.",
+    "divergence_explanation": "Leonardo's choice diverged because he possessed an unusually intense curiosity about underlying mechanisms and patterns, viewing knowledge domains as interconnected rather than separate specialties, driven by a desire to understand 'how' rather than simply 'what'.",
+    "outcome": "This decision created Leonardo's signature interdisciplinary approach, enabling revolutionary innovations like sfumato (informed by his optical studies), anatomically precise art (from dissection work), and engineering designs that drew from artistic spatial reasoning.",
+    "source": "key_decisions_and_incidents"
+  },
+  {
+    "id": "incident-025",
+    "decision": "Leonardo chose to prioritize direct observation and specimen collection in nature over consistent school attendance, despite parental expectations.",
+    "context": "Young Leonardo faced the conventional educational path of his era, which emphasized rote learning of Latin, rhetoric, and established texts. His father expected him to follow traditional schooling, but Leonardo was drawn to firsthand investigation of natural phenomena through collecting specimens and exploring the physical world.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo attended to the richness of natural phenomena directly observable in his environment\u2014the movement of creatures, geological formations, water flow patterns, and the intricate details of living specimens that could only be accessed through direct fieldwork rather than textual study.",
+      "active_goals": "His operative goal was to build knowledge through direct sensory experience and empirical observation, seeking to understand natural principles through hands-on investigation rather than accepting received wisdom from authorities.",
+      "rejected_alternatives": "He rejected consistent classroom attendance focused on Latin grammar, rhetorical exercises, and memorization of classical texts, dismissing these as secondhand knowledge that would delay or substitute for direct engagement with natural phenomena.",
+      "situation_framing": "Leonardo framed this as a choice between authentic versus derivative knowledge acquisition\u2014viewing nature as the primary text to be read through observation, with formal schooling as a potentially misleading intermediary that could corrupt direct understanding.",
+      "expected_outcome": "He expected that sustained direct observation would yield deeper, more reliable knowledge than conventional education, believing that firsthand experience would provide insights unavailable through traditional academic methods."
+    },
+    "counterfactual": "A competent peer would have balanced both approaches, attending school regularly to gain literacy and classical knowledge while pursuing natural interests as a hobby, following the established path to social and professional advancement.",
+    "divergence_explanation": "Leonardo's choice diverged because he possessed an unusually strong conviction that direct empirical observation was epistemologically superior to textual authority, combined with an exceptional capacity for detailed visual analysis that made nature more informationally rich to him than it would be to others.",
+    "outcome": "This decision established Leonardo's lifelong methodology of learning through direct observation and experimentation, ultimately contributing to his revolutionary insights across multiple fields, though it also created gaps in his formal education that he later had to address independently.",
+    "source": "thoughts_excerpts"
+  },
+  {
+    "id": "incident-027",
+    "decision": "Leonardo chose to maintain live animals in his apartment despite the unbearable stench from dying creatures in order to achieve maximum observational accuracy for his shield painting.",
+    "context": "Leonardo was commissioned to create a shield painting and needed to study live animals to achieve the terrifying realism he envisioned. The animals he collected began dying in his confined apartment space, creating an overwhelming stench that most would find intolerable. He faced a clear choice between comfort and artistic authenticity.",
+    "cdm_probes": {
+      "cues_noticed": "Leonardo attended to the minute behavioral details, anatomical structures, and dynamic movements of living creatures that could only be observed from direct, sustained contact with live specimens rather than dead models or artistic conventions.",
+      "active_goals": "His operative goal was to achieve unprecedented naturalistic accuracy that would create genuine terror through authentic representation, prioritizing artistic truth over personal comfort or social acceptability.",
+      "rejected_alternatives": "He rejected using conventional artistic models, working from memory, copying other artists' representations, or removing the animals when they began dying - all of which would have eliminated the stench but compromised observational fidelity.",
+      "situation_framing": "Leonardo framed this as a fundamental test of artistic commitment where temporary physical discomfort was the necessary price for achieving revolutionary artistic breakthrough and authentic representation of nature.",
+      "expected_outcome": "He expected that enduring the stench would enable him to capture previously unachieved levels of naturalistic detail that would create a uniquely powerful and terrifying artistic effect, justifying the temporary suffering."
+    },
+    "counterfactual": "A competent peer would have used conventional artistic models, studied animals briefly then worked from sketches and memory, or removed dead animals immediately to maintain bearable working conditions.",
+    "divergence_explanation": "Leonardo's decision diverged because he operated from a fundamentally different epistemological framework - he believed direct, sustained observation was the only path to authentic artistic truth, making physical comfort irrelevant compared to the pursuit of naturalistic accuracy.",
+    "outcome": "Leonardo successfully created a shield painting of such terrifying realism that it achieved his artistic vision, though at considerable personal cost in terms of living conditions and physical comfort.",
+    "source": "treatise_excerpts"
+  }
+]

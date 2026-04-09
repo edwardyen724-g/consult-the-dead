@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Pitch Ludovico Sforza as an engineer, not a painter",
+    "description": "Stuck in Florence without Medici patronage and watching rivals get Roman commissions, Leonardo decided to leave and pursue Milan. He drafted a ten-paragraph letter to Ludovico Sforza emphasizing military, naval, hydraulic, and architectural skills, deliberately burying his painting and sculpting abilities as an afterthought in item ten. This reveals how he read a specific patron's needs and subordinated his strongest public reputation to the identity most likely to get him hired.",
+    "source_text_excerpt": "In it he set forth in ten numbered paragraphs his qualifications as military and naval engineer, architect, and hydraulics expert. Almost as an afterthought to the tenth item, he wrote: \"I can carry out sculpture in marble, bronze, or clay, and also I can do in painting whatever may be done, as well as any other, be he who he may.\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows Leonardo strategically reframing his identity to match a patron's war-footing rather than leading with his proven strength."
+  },
+  {
+    "title": "Withhold the submarine invention over fear of misuse",
+    "description": "While designing underwater attack devices for Venice against the Turks, Leonardo chose not to publish or share his air-supply invention for divers because he feared assassination at sea. Despite being in desperate need of patronage and recognition, he actively suppressed an invention on ethical grounds, a rare self-censorship of a weapon by its own inventor.",
+    "source_text_excerpt": "It is possible that Leonardo also invented an air chamber that could be used by the diver while under water—but he was very secretive about this invention for fear of how men might abuse such a discovery. He wrote, \"... and this I do not publish or divulge, on account of the evil nature of man, who would practice assassinations at the bottom of the seas....\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A rare case of an inventor refusing to disseminate work despite personal cost, revealing his values-based constraint on innovation."
+  },
+  {
+    "title": "Refuse to hurry the Adoration of the Magi altarpiece",
+    "description": "Commissioned by the monks of San Donato a Scopeto on a strict thirty-month deadline, even required to pay for his own colors and gold, Leonardo chose thoroughness over speed. Despite mounting complaints he refused to rush, doing side work like repainting their clock to buy time. He ultimately never finished the painting, prioritizing research depth over contractual delivery.",
+    "source_text_excerpt": "Leonardo's researches for the altar painting took him almost a year. Although the monks began to grumble at his slowness, Leonardo would not be hurried. He was determined to produce a painting that was perfect in all respects. To quiet their impatience Leonardo did odd jobs for them in the cloister.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows his pattern of trading contractual obligation for investigative thoroughness, even at reputational and financial cost."
+  },
+  {
+    "title": "Overturn Ptolemaic belief based on personal observation",
+    "description": "Having long accepted the geocentric Ptolemaic model the Church endorsed, Leonardo watched the 1485 solar eclipse and resolved to experiment on his own rather than trust authority. Years later, using pinhole observation and a small rooftop observatory, he concluded the sun does not move, writing it in large letters in his notes, a dangerous heresy in his time.",
+    "source_text_excerpt": "It seems certain that at about this time Leonardo became convinced of the heliocentric theory, the theory that states the sun is the center of our universe. On a sheet of mathematical notes Leonardo wrote in large letters, \"the sun does not move.\"",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Reveals how he deliberately privileged direct observation over received doctrine when the two conflicted, at risk of being called a pagan."
+  },
+  {
+    "title": "Walk off the castle decoration job when underpaid",
+    "description": "After Ludovico diverted the bronze meant for Leonardo's equestrian statue to cannons and stopped his payments, Leonardo was ordered to paint decorative rooms in the castle. Rather than accept the demotion from monument sculptor to decorator while unpaid, he walked off the job unfinished. This prioritized dignity and meaningful work over immediate security when finances were dire.",
+    "source_text_excerpt": "Moreover, because he was still court painter to Ludovico, he was ordered to paint the decorations of some rooms in the castle. But this was more than Leonardo could take—he walked off the job without finishing it.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A rare explicit refusal to accept degrading work under financial pressure, revealing where his tolerance threshold actually sat."
+  },
+  {
+    "title": "Accept Cesare Borgia's offer despite moral reservations",
+    "description": "After reflecting on Ludovico's fall and his own record of uncompleted projects, Leonardo accepted a position as architect and military engineer to Cesare Borgia, a man he knew to have fought, murdered, and deceived his way to power. He rationalized the choice by comparing his incomplete life's work to Ludovico's lost state, choosing proximity to action over ethical purity.",
+    "source_text_excerpt": "He thought of Ludovico Sforza—defeated and captured at the battle of Novara just a year ago as he attempted to regain his dukedom. Now the duke was a prisoner at Loches in Touraine; Leonardo had written of him, \"The duke lost his State, his personal possessions and his liberty, and none of his enterprises have been completed.\" And Leonardo also thought of his equestrian monument still standing in the castle being used for target practice by the French archers. Like the duke, nothing of his own had been completed either. Perhaps this Borgia offer was an opportunity. Leonardo decided to accept it.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A visible tradeoff between Borgia's moral notoriety and Leonardo's hunger to finally complete something, revealing his prioritization logic under career pressure."
+  },
+  {
+    "title": "Propose diverting the Arno to defeat Pisa",
+    "description": "Asked by Machiavelli and the Signoria for a battlefield plan against Pisa, Leonardo refused to think in immediate tactical terms. Instead he proposed permanently diverting the Arno river into two canals to sea at Leghorn, cutting off Pisa's water and sea access forever. He chose a monumental, irreversible engineering solution over any quick military victory.",
+    "source_text_excerpt": "Never one to think in terms of an immediate battle or a temporary success, Leonardo put forth a daring and sweeping plan that would forever reduce the power of Pisa. The plan was as simple as it was monumental—divert the Arno river from its course into two canals that would empty into the sea at Leghorn south of Pisa.",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "Shows his habit of reframing tactical problems as infrastructural systems changes that eliminate the problem class entirely."
+  },
+  {
+    "title": "Heat the Battle of Anghiari mural to speed drying",
+    "description": "After his special wall-mixture for the Battle of Anghiari fresco failed to dry properly, Leonardo made a high-risk intervention. With spectators watching, he had a fire built to direct heat onto the painting, attempting to force-dry it. The colors melted and streaked down the wall in a public disaster, showing his willingness to gamble an almost-finished masterpiece on an untested technical fix rather than accept slow failure.",
+    "source_text_excerpt": "The colors were brilliant on the special mixture he had prepared for the wall—but they were not drying as they should have. Something was wrong. To speed the drying process, Leonardo had a special fire built in the room that directed the heat onto the painting. Spectators were allowed to watch as the waves of hot air rose against the wall. Then—disaster began slowly with a small trickle of paint from the top!",
+    "source_title": "thoughts_on_art_and_life",
+    "reasoning_for_candidacy": "A genuine failure decision revealing his willingness to experiment on high-stakes commissioned work rather than fall back on proven technique."
+  }
+]

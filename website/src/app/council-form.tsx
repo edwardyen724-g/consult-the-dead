@@ -51,8 +51,8 @@ export function CouncilForm() {
           fontStyle: "italic",
         }}
       >
-        Noted. The council will convene. Edward will reply within 24 hours to
-        the email you provided.
+        Noted. The council will convene. You&rsquo;ll get a reply within 24
+        hours to the email you provided.
       </p>
     );
   }
