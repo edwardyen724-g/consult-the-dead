@@ -48,8 +48,7 @@ export default function HomePage() {
             }}
           >
             Machiavelli on the politics. Sun Tzu on the terrain. Curie on the
-            evidence. Leonardo on what you&rsquo;re not seeing. Newton on what
-            must be proven. All at once. For your hardest question.
+            evidence. All at once. For your hardest question.
           </p>
           {/* Demo — below the headline, above the fold */}
           <div style={{ marginTop: "64px" }}>

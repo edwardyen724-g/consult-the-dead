@@ -27,9 +27,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const fw = getFramework(slug as FrameworkSlug);
   if (!fw) return { title: "Not Found" };
+  const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
+  const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from documented historical incidents. ${fw.perceptual_lens.statement.slice(0, 100)}`;
   return {
-    title: `${fw.meta.person} \u2014 ${fw.meta.domain} \u2014 Consult The Dead`,
-    description: fw.perceptual_lens.statement.slice(0, 160),
+    title,
+    description,
+    openGraph: {
+      title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
+      description,
+      url: `https://www.consultthedead.com/frameworks/${slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title: `${fw.meta.person} — ${fw.meta.domain}`,
+      description,
+    },
   };
 }
 

@@ -10,21 +10,33 @@ export function Header() {
           className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
           style={{ minHeight: "44px" }}
         >
-          {/* Monogram mark — larger, more distinctive */}
-          <span className="relative w-10 h-10 flex items-center justify-center">
-            <span className="absolute inset-0 border-2 border-ink/20 rounded-sm rotate-45 group-hover:rotate-[50deg] transition-transform duration-500" />
-            <span className="font-serif text-base font-semibold text-ink tracking-tight relative z-10">
-              Gm
-            </span>
-          </span>
-          {/* Wordmark */}
-          <span className="font-serif text-lg text-ink" style={{ letterSpacing: "0.08em" }}>
-            <span className="font-semibold">Great</span>
-            <span className="font-light ml-0.5">Minds</span>
+          <span
+            className="font-mono text-xs uppercase tracking-widest text-ink"
+            style={{ letterSpacing: "0.18em" }}
+          >
+            Consult The Dead
           </span>
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
+          <Link
+            href="/essay"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
+          >
+            Essay
+          </Link>
+          <Link
+            href="/frameworks"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
+          >
+            Frameworks
+          </Link>
+          <Link
+            href="/insights"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
+          >
+            Insights
+          </Link>
           <ThemeToggle />
         </div>
       </div>

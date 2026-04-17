@@ -44,7 +44,7 @@ export function FanDiagram() {
         width="100%"
         height="auto"
         role="img"
-        aria-label="Five frameworks fanning into one decision node"
+        aria-label="Three frameworks fanning into one decision node"
         className={`gm-fan ${play ? "gm-fan-play" : ""}`}
         style={{ display: "block", margin: "0 auto", maxWidth: "560px" }}
       >
@@ -78,31 +78,12 @@ export function FanDiagram() {
           strokeLinejoin="round"
         />
 
-        {/* Sun Tzu (left) */}
-        <path
-          className="gm-fan-line gm-line-2"
-          d="M 200 36 C 232 110, 282 200, 360 296"
-          fill="none"
-          stroke="var(--color-suntzu)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <path
-          className="gm-fan-line gm-line-2"
-          d="M 352 286 L 368 302 L 348 304"
-          fill="none"
-          stroke="var(--color-suntzu)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Leonardo (center top) */}
+        {/* Sun Tzu (center top) */}
         <path
           className="gm-fan-line gm-line-3"
           d="M 372 28 C 374 100, 376 184, 378 290"
           fill="none"
-          stroke="var(--color-leonardo)"
+          stroke="var(--color-suntzu)"
           strokeWidth="1.5"
           strokeLinecap="round"
         />
@@ -110,26 +91,7 @@ export function FanDiagram() {
           className="gm-fan-line gm-line-3"
           d="M 370 280 L 378 298 L 388 282"
           fill="none"
-          stroke="var(--color-leonardo)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Newton (right) */}
-        <path
-          className="gm-fan-line gm-line-4"
-          d="M 540 38 C 506 112, 458 198, 392 296"
-          fill="none"
-          stroke="var(--color-newton)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <path
-          className="gm-fan-line gm-line-4"
-          d="M 400 286 L 388 302 L 408 304"
-          fill="none"
-          stroke="var(--color-newton)"
+          stroke="var(--color-suntzu)"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -170,31 +132,13 @@ export function FanDiagram() {
             MACHIAVELLI
           </text>
           <text
-            className="gm-fan-label gm-label-2"
-            x="200"
-            y="22"
-            textAnchor="middle"
-            fill="var(--color-suntzu)"
-          >
-            SUN TZU
-          </text>
-          <text
             className="gm-fan-label gm-label-3"
             x="372"
             y="18"
             textAnchor="middle"
-            fill="var(--color-leonardo)"
+            fill="var(--color-suntzu)"
           >
-            LEONARDO
-          </text>
-          <text
-            className="gm-fan-label gm-label-4"
-            x="540"
-            y="24"
-            textAnchor="middle"
-            fill="var(--color-newton)"
-          >
-            NEWTON
+            SUN TZU
           </text>
           <text
             className="gm-fan-label gm-label-5"
@@ -218,7 +162,7 @@ export function FanDiagram() {
           marginTop: "32px",
         }}
       >
-        Five frameworks. One decision. Yours.
+        Three frameworks. One decision. Yours.
       </div>
     </div>
   );
