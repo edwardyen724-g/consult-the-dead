@@ -75,6 +75,9 @@ const ORBIT_R = 95;
 const CENTER_R = 30;
 const NODE_R = 16;
 
+// Labels for the 5 outer nodes, clockwise from top
+const NODE_LABELS = ["POINTS", "TENSIONS", "ACTION", "STEPS", "RISKS"];
+
 // =================== UTILITIES ===================
 
 function tokenize(text: string): string[] {
@@ -245,6 +248,7 @@ function ConsensusGraph({ started }: { started: boolean }) {
       height={GRAPH_SIZE}
       className={`gm-consensus-graph${started ? " gm-consensus-play" : ""}`}
       aria-hidden="true"
+      overflow="visible"
     >
       {outerNodes.map((node, i) => {
         const dx = CX - node.x;
@@ -282,6 +286,32 @@ function ConsensusGraph({ started }: { started: boolean }) {
           }
         />
       ))}
+
+      {outerNodes.map((node, i) => {
+        const ux = (node.x - CX) / ORBIT_R;
+        const uy = (node.y - CY) / ORBIT_R;
+        const lx = node.x + ux * (NODE_R + 7);
+        const ly = node.y + uy * (NODE_R + 7);
+        const anchor = ux > 0.3 ? "start" : ux < -0.3 ? "end" : "middle";
+        return (
+          <text
+            key={i}
+            x={lx}
+            y={ly}
+            textAnchor={anchor}
+            dominantBaseline="middle"
+            className="font-mono gm-consensus-node"
+            fill="var(--fg-dim)"
+            fontSize="7"
+            letterSpacing="0.06em"
+            style={
+              { transitionDelay: `${i * 120}ms` } as React.CSSProperties
+            }
+          >
+            {NODE_LABELS[i]}
+          </text>
+        );
+      })}
 
       <circle
         cx={CX}
