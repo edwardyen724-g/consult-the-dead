@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ConsensusGraph } from "@/components/ConsensusGraph";
 
 // =================== CONTENT ===================
 
@@ -65,18 +66,6 @@ IMMEDIATE NEXT STEPS
 • Map the 3 tasks in your work that still require judgment only you can provide
 • Spend 4 hours/week building AI fluency in tools specific to your domain
 • Produce one concrete output combining both — share it publicly this month`;
-
-// =================== GRAPH CONSTANTS ===================
-
-const GRAPH_SIZE = 260;
-const CX = 130;
-const CY = 130;
-const ORBIT_R = 95;
-const CENTER_R = 30;
-const NODE_R = 16;
-
-// Labels for the 5 outer nodes, clockwise from top
-const NODE_LABELS = ["POINTS", "TENSIONS", "ACTION", "STEPS", "RISKS"];
 
 // =================== UTILITIES ===================
 
@@ -228,123 +217,6 @@ function ProgressHeader({ stage }: { stage: DemoStage }) {
         );
       })}
     </div>
-  );
-}
-
-// =================== CONSENSUS GRAPH ===================
-
-function ConsensusGraph({ started }: { started: boolean }) {
-  const outerNodes = Array.from({ length: 5 }).map((_, i) => {
-    const angle = -Math.PI / 2 + (2 * Math.PI * i) / 5;
-    return {
-      x: CX + ORBIT_R * Math.cos(angle),
-      y: CY + ORBIT_R * Math.sin(angle),
-    };
-  });
-
-  return (
-    <svg
-      width={GRAPH_SIZE}
-      height={GRAPH_SIZE}
-      className={`gm-consensus-graph${started ? " gm-consensus-play" : ""}`}
-      aria-hidden="true"
-      overflow="visible"
-    >
-      {outerNodes.map((node, i) => {
-        const dx = CX - node.x;
-        const dy = CY - node.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const ux = dx / dist;
-        const uy = dy / dist;
-        return (
-          <line
-            key={i}
-            x1={node.x + ux * NODE_R}
-            y1={node.y + uy * NODE_R}
-            x2={CX - ux * CENTER_R}
-            y2={CY - uy * CENTER_R}
-            stroke="var(--amber)"
-            strokeWidth="1"
-            className={`gm-consensus-line gm-cline-${i}`}
-            opacity="0.65"
-          />
-        );
-      })}
-
-      {outerNodes.map((node, i) => (
-        <circle
-          key={i}
-          cx={node.x}
-          cy={node.y}
-          r={NODE_R}
-          fill="var(--bg)"
-          stroke="var(--fg-dim)"
-          strokeWidth="1"
-          className="gm-consensus-node"
-          style={
-            { transitionDelay: `${i * 120}ms` } as React.CSSProperties
-          }
-        />
-      ))}
-
-      {outerNodes.map((node, i) => {
-        const ux = (node.x - CX) / ORBIT_R;
-        const uy = (node.y - CY) / ORBIT_R;
-        const lx = node.x + ux * (NODE_R + 7);
-        const ly = node.y + uy * (NODE_R + 7);
-        const anchor = ux > 0.3 ? "start" : ux < -0.3 ? "end" : "middle";
-        return (
-          <text
-            key={i}
-            x={lx}
-            y={ly}
-            textAnchor={anchor}
-            dominantBaseline="middle"
-            className="font-mono gm-consensus-node"
-            fill="var(--fg-dim)"
-            fontSize="7"
-            letterSpacing="0.06em"
-            style={
-              { transitionDelay: `${i * 120}ms` } as React.CSSProperties
-            }
-          >
-            {NODE_LABELS[i]}
-          </text>
-        );
-      })}
-
-      <circle
-        cx={CX}
-        cy={CY}
-        r={CENTER_R}
-        fill="var(--bg)"
-        stroke="var(--amber)"
-        strokeWidth="1.5"
-        className="gm-consensus-center"
-      />
-      <text
-        x={CX}
-        y={CY - 4}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        className="font-mono gm-consensus-center"
-        fill="var(--amber)"
-        fontSize="7"
-      >
-        CON-
-      </text>
-      <text
-        x={CX}
-        y={CY + 6}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        className="font-mono gm-consensus-center"
-        fill="var(--amber)"
-        fontSize="7"
-      >
-        SENSUS
-      </text>
-    </svg>
   );
 }
 
