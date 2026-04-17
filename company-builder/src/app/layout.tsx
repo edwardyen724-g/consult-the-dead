@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Newsreader } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -16,8 +17,8 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: 'Great Mind Company Builder',
-  description: 'Orchestrate virtual organizations staffed by history\'s greatest minds.',
+  title: 'The Agora — Consult The Dead',
+  description: 'Run your decisions through cognitive frameworks extracted from history\'s greatest minds. Structured disagreement, not artificial consensus.',
 };
 
 export default function RootLayout({
@@ -32,6 +33,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', background: '#0a0a0f', color: '#e4e4e7' }}
       >
         {children}
+        <Analytics />
         <div className="noise-overlay" />
       </body>
     </html>
