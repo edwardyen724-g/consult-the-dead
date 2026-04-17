@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Meditations (Meric Casaubon translation)",
+    "url": "https://www.gutenberg.org/files/2680/2680-0.txt",
+    "source_type": "own_published_work",
+    "description": "Marcus Aurelius's private philosophical notebook, 12 books. Primary source for his decision-making principles, value hierarchy, and Stoic framework. Public domain Casaubon translation from Project Gutenberg.",
+    "evidence_layers": ["layer1", "layer2"],
+    "fetched": true,
+    "text_path": "meditations-long.txt"
+  },
+  {
+    "title": "Historia Augusta: Life of Marcus Antoninus",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Historia_Augusta/Marcus_Aurelius/",
+    "source_type": "firsthand_biography",
+    "description": "Sections 1-29 covering Marcus's full biography: birth, education, Stoic training, adoption, co-rule with Verus, the Marcomannic and Parthian wars, administrative reforms, the Avidius Cassius revolt, and death. Public domain Loeb-era translation.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": true,
+    "text_path": "historia-augusta-marcus.txt"
+  },
+  {
+    "title": "Cassius Dio, Roman History — Epitome of Books 71-72",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/72*.html",
+    "source_type": "firsthand_biography",
+    "description": "Contemporaneous historian's account of Marcus's reign, covering the German wars, barbarian diplomacy, the Rain Miracle, the Avidius Cassius revolt, and character assessment. Loeb 1927 translation. Public domain.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": true,
+    "text_path": "cassius-dio-book72.txt"
+  },
+  {
+    "title": "Fronto-Marcus Aurelius Correspondence: Synthesized Context",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Synthesized context file covering key incidents from the Fronto-Marcus letters (c. 138-166 CE): the rhetoric-vs-philosophy decision, self-criticism practices, Lorium retreat letters, Verus campaign correspondence, and structural insights. Based on Haines Loeb 1919 (public domain).",
+    "evidence_layers": ["layer2"],
+    "fetched": true,
+    "text_path": "fronto-correspondence-context.txt"
+  }
+]

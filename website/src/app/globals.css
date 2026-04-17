@@ -18,6 +18,7 @@
   --color-curie:       #9BBE5A; /* pale radium green — the obvious choice */
   --color-einstein:    #C77DBA; /* dusty purple — relativity, thought experiments */
   --color-tesla:       #4DB8CC; /* electric blue-cyan — AC current, electricity */
+  --color-aurelius:    #9C7D50; /* warm bronze — Stoic iron, Roman leather */
 
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -38,6 +39,7 @@ html.light, .light {
   --color-curie:       #5E8128;
   --color-einstein:    #9B5A93;
   --color-tesla:       #2E8E9E;
+  --color-aurelius:    #7A5C2E; /* darkened bronze for light bg */
 }
 
 html {
@@ -195,13 +197,48 @@ body {
   cursor: not-allowed;
 }
 
+/* ===== Consensus node graph ===== */
+/* Line length = ORBIT_R - NODE_R - CENTER_R = 95 - 16 - 30 = 49 */
+.gm-consensus-line {
+  stroke-dasharray: 49;
+  stroke-dashoffset: 49;
+}
+.gm-consensus-node,
+.gm-consensus-center {
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+
+.gm-consensus-play .gm-consensus-line {
+  animation: gm-line-draw 700ms ease-out forwards;
+}
+.gm-consensus-play .gm-cline-0 { animation-delay: 350ms; }
+.gm-consensus-play .gm-cline-1 { animation-delay: 550ms; }
+.gm-consensus-play .gm-cline-2 { animation-delay: 750ms; }
+.gm-consensus-play .gm-cline-3 { animation-delay: 950ms; }
+.gm-consensus-play .gm-cline-4 { animation-delay: 1150ms; }
+
+.gm-consensus-play .gm-consensus-node { opacity: 1; }
+.gm-consensus-play .gm-consensus-center {
+  opacity: 1;
+  transition-delay: 1400ms;
+}
+
+@keyframes gm-line-draw {
+  from { stroke-dashoffset: 49; }
+  to   { stroke-dashoffset: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gm-fade,
   .gm-fan path.gm-fan-line,
   .gm-fan text.gm-fan-label,
   .gm-fan .gm-fan-node,
   .gm-name-pulse,
-  .gm-caret {
+  .gm-caret,
+  .gm-consensus-line,
+  .gm-consensus-node,
+  .gm-consensus-center {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;

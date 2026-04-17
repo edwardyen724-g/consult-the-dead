@@ -1,0 +1,102 @@
+Marcus Aurelius and Fronto: Correspondence Context
+SYNTHESIZED CONTEXT FILE — written summary and analysis, not verbatim translation
+(Fronto's letters survive in fragmentary form; the Haines Loeb translation, 1919, is public domain
+ but not easily accessible in full text form. This file synthesizes the key decision-relevant
+ content from the letters for pipeline use.)
+
+== BACKGROUND ==
+
+Marcus Cornelius Fronto (c. 100-166 CE) was the foremost Latin orator of his age, appointed by
+Emperor Hadrian as Marcus's rhetoric tutor around 138-139 CE. He and Marcus exchanged letters for
+over twenty years — during Marcus's years as heir, and continuing into his reign. The surviving
+fragments (discovered 1815 in a palimpsest by Cardinal Mai) cover roughly 161-166 CE, though
+internal evidence shows the relationship began much earlier.
+
+The correspondence is remarkable: it is genuinely private, not polished for publication. Marcus
+writes to Fronto as a beloved older mentor, while Fronto increasingly writes to Marcus as his
+emperor — yet the intimacy never fully disappears. Crucially, the letters document a pivotal
+intellectual struggle: Marcus's gradual shift from rhetoric (Fronto's domain) to Stoic philosophy
+(Rusticus's domain), and what this conflict reveals about how Marcus made irreversible commitments.
+
+== KEY INCIDENTS DOCUMENTED IN THE LETTERS ==
+
+1. THE RHETORIC-VS-PHILOSOPHY DECISION (~138-145 CE)
+Fronto repeatedly tries to draw Marcus back to oratory, arguing that rhetoric is the proper art
+of the statesman — that without eloquence, even the wisest emperor cannot lead. Marcus's responses
+are affectionate but increasingly firm: he is drawn to philosophy, not rhetoric. He does not argue
+with Fronto; he simply reports his inner state. In one famous passage Marcus writes that he loves
+Fronto "as I love myself" and values his teaching, yet "I have given myself over to philosophy."
+The decision signal here: Marcus does not debate the choice; he announces an internal orientation
+that is already settled. He feels gratitude for Fronto's concern while being unmoved by it.
+
+2. MARCUS'S SELF-CRITICISM IN LETTERS (~143-145 CE)
+Several letters show Marcus writing to Fronto about his own failures and shortcomings — not
+performatively, but with the tone of a man conducting genuine self-examination. He describes
+struggling with temper, with vanity, with the desire for praise. He writes candidly about having
+been petulant toward a slave or having felt pride in his own speeches. This self-disclosure to
+a mentor reveals a practice of regular moral inventory that directly parallels the structure of
+the Meditations: the goal is not confession but recalibration.
+
+3. THE LORIUM ESTATE LETTERS (c. 143-147 CE)
+A series of domestic letters describe Marcus at his family estate at Lorium, spending time with
+his mother, doing physical exercise, reading, and engaging in simple pleasures. Fronto apparently
+chided him for spending too much time in retreat from court duties. Marcus's responses explain
+his need for periodic withdrawal — not from laziness but as deliberate restoration. He describes
+being happier in simple country life than in the imperial palace, and wonders whether this
+preference is itself a moral failing. The tension: is withdrawal self-indulgence or wisdom?
+Marcus's conclusion appears to be that withdrawal for the purpose of returning better is justified;
+withdrawal as permanent escape is not.
+
+4. LETTERS DURING THE VERUS CAMPAIGNS (161-165 CE)
+When Lucius Verus was sent east for the Parthian War, Marcus and Fronto exchanged letters about
+military strategy and the appropriate degree of credit to give Verus for victories won by his
+generals. Fronto wrote a history of the Parthian War that attributed victories to Verus. The
+letters reveal Marcus's private view: he understood that Verus was nominally in command but
+operationally idle, yet he endorsed Fronto's attribution. This reveals a pattern: Marcus accepted
+reputational unfairness as a cost of maintaining institutional legitimacy — the co-emperorship
+had to appear functional even when it was largely ceremonial.
+
+5. MARCUS ON PUBLIC ORATORY VS. PRIVATE CONVICTION (~163-166 CE)
+Late letters show Fronto urging Marcus to speak more in the senate, to use his rhetorical training
+to lead opinion rather than merely issue written rulings. Marcus deflects: he prefers written
+deliberation to spoken persuasion. He distrusts his own ability to remain consistent under
+the pressure of live debate. This is a revealing self-limitation: Marcus chose formats that
+constrained his own impulsiveness, not formats that maximized his power.
+
+6. FRONTO ON MARCUS'S CHARACTER
+In a letter to Antoninus Pius (while Marcus was still heir), Fronto writes that Marcus has "a
+rare combination of qualities: exceptional intelligence joined with unusual modesty." Fronto notes
+that Marcus never argues with teachers; he asks questions. He observes that Marcus "absorbs
+instruction as ground absorbs rain — silently, entirely, and usefully." Fronto worries that this
+receptiveness is itself a risk: a man who defers to teachers so naturally may be manipulated
+by bad ones. The pattern: Marcus consciously chose teachers whose character he trusted, then
+submitted fully to their influence.
+
+== STRUCTURAL INSIGHTS FROM THE CORRESPONDENCE ==
+
+The Fronto letters reveal several decision patterns not visible in the Meditations:
+
+A. FRAMEWORK ADOPTION: When Marcus commits to a framework (Stoic philosophy), he does not weigh
+   it constantly against alternatives. He reports the commitment as an internal fact and proceeds.
+   The deliberation precedes the commitment; after commitment, deliberation ends.
+
+B. RELATIONAL MAINTENANCE UNDER DISAGREEMENT: Marcus never breaks with Fronto over the
+   rhetoric-philosophy divide. He holds the relationship and the disagreement simultaneously.
+   This models his later treatment of Avidius Cassius, enemies in the German wars, and even
+   his son Commodus: attachment to person, non-attachment to the person's choices.
+
+C. SELF-DISCLOSURE AS DISCIPLINE: Marcus uses private letters (like the Meditations) for
+   moral inventory rather than policy communication. His public communications are careful and
+   impersonal; his private ones are where the actual cognitive work happens.
+
+D. PREFERENCE FOR WRITTEN OVER ORAL: A consistent pattern — Marcus trusts written deliberation
+   over oral performance. He reads documents at gladiatorial games (earning public ridicule).
+   He prefers written edicts to senate speeches. This is not shyness; it is a deliberate
+   design choice for more reflective decision-making.
+
+== SOURCES CONSULTED FOR THIS SYNTHESIS ==
+- C.R. Haines, trans., "The Correspondence of Marcus Cornelius Fronto," Loeb Classical Library,
+  2 vols. (1919-1920). Public domain.
+- Birley, Anthony R., "Marcus Aurelius: A Biography" (1987) — framing only, no verbatim text used.
+- McLynn, Frank, "Marcus Aurelius: A Life" (2009) — framing only, no verbatim text used.
+- Internal analysis of the Meditations for corroboration.

@@ -2,14 +2,18 @@ import fs from "fs";
 import path from "path";
 
 /* ── Allowed slugs (public, validated frameworks only) ── */
+// HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
+// "albert-einstein" removed until Hebrew University trademark question is resolved.
+// To re-enable: restore "albert-einstein" to ALLOWED_SLUGS, SLUG_COLOR_VAR, ERA_FALLBACK, DISPLAY_ORDER.
 export const ALLOWED_SLUGS = [
   "isaac-newton",
-  "albert-einstein",
+  // "albert-einstein", // HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
   "marie-curie",
   "niccolo-machiavelli",
   "nikola-tesla",
   "leonardo-da-vinci",
   "sun-tzu",
+  "marcus-aurelius",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -17,34 +21,37 @@ export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
 /* ── Slug → CSS custom-property name ── */
 export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "isaac-newton": "var(--color-newton)",
-  "albert-einstein": "var(--color-einstein)",
+  // "albert-einstein": "var(--color-einstein)", // HIDDEN 2026-04-16
   "marie-curie": "var(--color-curie)",
   "niccolo-machiavelli": "var(--color-machiavelli)",
   "nikola-tesla": "var(--color-tesla)",
   "leonardo-da-vinci": "var(--color-leonardo)",
   "sun-tzu": "var(--color-suntzu)",
+  "marcus-aurelius": "var(--color-aurelius)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
 const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "isaac-newton": "1643\u20131727",
-  "albert-einstein": "1879\u20131955",
+  // "albert-einstein": "1879\u20131955", // HIDDEN 2026-04-16
   "marie-curie": "1867\u20131934",
   "niccolo-machiavelli": "1469\u20131527",
   "nikola-tesla": "1856\u20131943",
   "leonardo-da-vinci": "1452\u20131519",
   "sun-tzu": "c.\u2009544\u2013496 BC",
+  "marcus-aurelius": "121\u2013180 AD",
 };
 
 /* ── Display order for the index page ── */
 export const DISPLAY_ORDER: FrameworkSlug[] = [
   "isaac-newton",
-  "albert-einstein",
+  // "albert-einstein", // HIDDEN 2026-04-16
   "marie-curie",
   "niccolo-machiavelli",
   "nikola-tesla",
   "leonardo-da-vinci",
   "sun-tzu",
+  "marcus-aurelius",
 ];
 
 /* ── Types ── */

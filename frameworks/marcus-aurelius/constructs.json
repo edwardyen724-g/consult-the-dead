@@ -1,0 +1,239 @@
+[
+  {
+    "construct": "Systemic moral stewardship vs. personal political advantage",
+    "positive_pole": "Frames power as a trust held on behalf of the whole \u2014 soldiers, civilians, senate, future generations \u2014 and makes decisions by asking what the custodian of that trust owes the system",
+    "negative_pole": "Frames power as a personal resource to be deployed for loyalty-building, prestige, or survival of the individual ruler",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-029",
+      "incident-045",
+      "incident-026",
+      "incident-030",
+      "incident-020"
+    ],
+    "behavioral_implication": "When presented with a windfall of resources or information that could entrench personal power, Marcus would ask who legitimately owns this asset and redistribute it accordingly \u2014 auctioning palace treasures before levying taxes, sharing a throne he could legally keep, protecting a co-emperor's reputation for the institution's sake rather than his own"
+  },
+  {
+    "construct": "Prophylactic self-governance vs. in-the-moment willpower reliance",
+    "positive_pole": "Eliminates corrupting stimuli or pre-commits to positions before temptation arises, treating his own motivated reasoning as the primary variable to be managed",
+    "negative_pole": "Trusts real-time judgment to filter information and resist passion, assuming the self is stable and consistent across all conditions",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-021",
+      "incident-047",
+      "incident-023"
+    ],
+    "behavioral_implication": "When facing a decision where reading a report, attending a meeting, or hearing an advocate might bias his judgment, Marcus would structure the situation to prevent the corrupting input from reaching him at all \u2014 burning letters unread, choosing written over oral deliberation \u2014 rather than rely on in-context virtue to compensate"
+  },
+  {
+    "construct": "Juridical-moral framing vs. martial or transactional framing",
+    "positive_pole": "Categorizes adversarial situations through a framework of legitimate order, desert, precedent, and relational obligation, producing juridical instruments (proscriptions, pardons, writs) rather than purely military ones",
+    "negative_pole": "Categorizes adversarial situations as power contests requiring demonstration of dominance or efficiency of neutralization",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-006",
+      "incident-009",
+      "incident-031",
+      "incident-043"
+    ],
+    "behavioral_implication": "When a rival or criminal is eliminated by a third party before Marcus can act, he would refuse to celebrate or reward the killing, insisting on processing the outcome through the lens of the order he was trying to uphold \u2014 burying the head, forbidding retribution \u2014 rather than accepting the politically convenient result as a victory"
+  },
+  {
+    "construct": "Triage hierarchy with explicit loss-acceptance vs. sequential completion logic",
+    "positive_pole": "Evaluates concurrent crises by urgency and reversibility, consciously accepts an unfavorable outcome in one theater to prevent catastrophic loss in another, and names the concession honestly rather than reframing it as a win",
+    "negative_pole": "Treats each task as a commitment to be completed before the next begins, or rationalizes forced retreats as tactical wisdom to avoid admitting real cost",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-027",
+      "incident-041"
+    ],
+    "behavioral_implication": "When two crises compete for finite imperial attention, Marcus would explicitly rank them by systemic consequence rather than proximity or sunk investment, then publicly accept the loss entailed by the lower-priority abandonment \u2014 as he did on the Danube \u2014 without disguising the concession as anything other than what it was"
+  },
+  {
+    "construct": "Institutional identity as the boundary of legitimate action vs. tactical efficiency as the boundary",
+    "positive_pole": "Refuses categories of action that would alter the ontological status of Roman sovereignty or constitutional norms, even when the tactical cost is high, treating the symbolic grammar of legitimacy as a real strategic asset",
+    "negative_pole": "Uses whatever resources are available to achieve a desired outcome, treating symbolic and constitutional questions as aesthetic concerns subordinate to results",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-038",
+      "incident-040"
+    ],
+    "behavioral_implication": "When offered barbarian auxiliaries, foreign financing, or any external resource whose acceptance would alter what Roman authority means, Marcus would decline \u2014 but when faced with the same shortage under existential conditions, he would innovate within the symbolic frame (renaming slaves as 'Volunteers') rather than collapse the frame entirely"
+  },
+  {
+    "construct": "Moral consistency as a binding constraint vs. moral consistency as an aspiration",
+    "positive_pole": "Treats his publicly stated and privately held philosophical positions as pre-commitments that cannot be revised in the moment of temptation or political pressure, experiencing deviation as self-dissolution rather than pragmatic adjustment",
+    "negative_pole": "Holds philosophical positions provisionally, available for revision when circumstances make them costly or when a competent case is made by someone he respects",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-007",
+      "incident-017",
+      "incident-036",
+      "incident-055"
+    ],
+    "behavioral_implication": "When a course of action that violates his stated philosophy becomes politically convenient \u2014 accepting a severed head as a trophy, staying alive past the season philosophy recommends, changing his mind about rhetoric after sustained pressure from a beloved mentor \u2014 Marcus would refuse, and the refusal would be experienced by him not as self-denial but as the only coherent option available"
+  },
+  {
+    "construct": "Causal attribution to ignorance vs. causal attribution to malice",
+    "positive_pole": "Systematically reattributes the cause of others' harmful actions from deliberate evil to deficient knowledge of the good, which dissolves the rational premise of anger and reframes the appropriate response as pedagogical or compassionate",
+    "negative_pole": "Attributes harmful action to knowing malice or defiance, which licenses retaliatory or punitive responses as proportionate and just",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-049",
+      "incident-056",
+      "incident-059"
+    ],
+    "behavioral_implication": "When wronged by a courtier, general, or political rival, Marcus would first reconstruct the inner epistemic state of the wrongdoer \u2014 what did they fail to understand? \u2014 before deciding on a response, and would pursue correction through private, gentle, non-theatrical means; the same framework would fail him when hostile intermediaries pre-classify the wrongdoer as fanatical agitator rather than ignorant person, blocking the reattribution step entirely"
+  },
+  {
+    "construct": "Meritocratic-functional evaluation vs. categorical-rank evaluation",
+    "positive_pole": "Assesses people and arrangements by demonstrated virtue, reliability, and functional fitness for the role required, treating social category as a secondary or misleading signal",
+    "negative_pole": "Assesses people and arrangements by birth rank, lineage, conventional prestige, or institutional category, treating social category as a primary signal of suitability",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-032",
+      "incident-040"
+    ],
+    "behavioral_implication": "When selecting a commander, a son-in-law, or a military recruit under pressure, Marcus would begin with the functional question \u2014 who can actually do what this situation requires? \u2014 and would absorb the social cost of an anomalous choice (provincial equestrian husband, slave soldiers) rather than optimize for conventional prestige at the expense of real capability"
+  },
+  {
+    "construct": "Philosophical formation as embodied practice vs. philosophical achievement as intellectual credential",
+    "positive_pole": "Treats philosophy as a psychomotor discipline requiring daily solo drilling, private confession of failure, and material embodiment in dress, sleep, and conduct \u2014 its progress measured exclusively by interior change",
+    "negative_pole": "Treats philosophy as a body of doctrine to be mastered and displayed, its achievement signaled by rhetorical performance, institutional recognition, or the reputation of one's teachers",
+    "derived_from_incidents": [
+      "incident-018",
+      "incident-025",
+      "incident-042",
+      "incident-046",
+      "incident-048"
+    ],
+    "behavioral_implication": "When offered an opportunity to publish his philosophical reflections, teach publicly, or gain renown as a philosopher-emperor, Marcus would decline or treat the opportunity with indifference \u2014 the presence of an audience contaminates the exercise from which the practice derives its value; simultaneously, he would report moral failures candidly to his mentor rather than managing his presentation, because accurate feedback is the only instrument of genuine progress"
+  },
+  {
+    "construct": "Relational obligation as independent of philosophical agreement vs. relational obligation contingent on shared values",
+    "positive_pole": "Grounds the obligation of fellowship in the other person's status as a rational, caring being, allowing intellectual irreconcilability to coexist permanently with warmth, loyalty, and sustained engagement",
+    "negative_pole": "Grounds the obligation of fellowship in shared values or practical convergence, so that deepening philosophical distance naturally and appropriately attenuates the relationship",
+    "derived_from_incidents": [
+      "incident-022",
+      "incident-050",
+      "incident-044"
+    ],
+    "behavioral_implication": "When a valued mentor or co-emperor proves to hold incompatible values, or acts in ways Marcus finds philosophically indefensible, he would neither convert them, abandon them, nor subordinate his own principles \u2014 instead sustaining the relationship across the permanent gap while refusing to grant the mentor jurisdictional authority over his highest-order commitments"
+  },
+  {
+    "construct": "Duty calibrated to the whole system vs. duty calibrated to the proximate role",
+    "positive_pole": "Determines the content of obligation by asking what the whole system \u2014 empire, civilization, rational order \u2014 requires at this juncture, which sometimes means staying in Rome rather than leading a campaign, or sharing a throne rather than holding it alone",
+    "negative_pole": "Determines the content of obligation by asking what the conventional expectations of the role one occupies demand \u2014 the emperor-as-general leads his own wars, the senior emperor retains precedence",
+    "derived_from_incidents": [
+      "incident-027",
+      "incident-026",
+      "incident-053",
+      "incident-058"
+    ],
+    "behavioral_implication": "When personal inclination and role-expectations both point toward philosophical withdrawal or solo command, but systemic analysis reveals that the emperor's most irreplaceable contribution is administrative continuity in Rome, Marcus would remain \u2014 treating the unglamorous, invisible option as the genuinely dutiful one and accepting that his most important decisions may be the ones history never records as heroic"
+  },
+  {
+    "construct": "Structural sacrifice of information for moral integrity vs. use of available intelligence for political management",
+    "positive_pole": "Voluntarily forfeits information, credit, or capability that would compromise the moral architecture of a decision \u2014 burning letters, refusing titles, deifying a flawed co-emperor \u2014 accepting the epistemic or reputational cost as the price of institutional coherence",
+    "negative_pole": "Uses available information, credit, and capability to manage political situations optimally, treating the moral texture of how one governs as secondary to the outcomes achieved",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-020",
+      "incident-028",
+      "incident-030"
+    ],
+    "behavioral_implication": "When captured correspondence, unearned military titles, or the convenient death of a rival produces a political advantage Marcus could legitimately exploit, he would instead destroy the letters, refuse the titles, and decline to capitalize on the assassination \u2014 not as performance of virtue but because he has pre-classified the exploitation itself as a form of self-corruption that produces a worse decision-maker"
+  },
+  {
+    "construct": "Pre-committed identity anchored below the imperial role vs. identity constituted by the imperial role",
+    "positive_pole": "Experiences himself as a student of philosophy who happens to hold imperial office, making the dignity expectations of that office genuinely less weighty than the demands of philosophical integrity \u2014 deference to teachers, rough cloaks, sleeping on the ground remain available options",
+    "negative_pole": "Experiences himself as an emperor whose philosophical interests are one feature of that office, making the performance of imperial self-sufficiency a real constraint on behavior that cannot be violated without genuine cost to self-concept",
+    "derived_from_incidents": [
+      "incident-014",
+      "incident-024",
+      "incident-025",
+      "incident-039"
+    ],
+    "behavioral_implication": "When public ridicule, aristocratic norms, or the expectations of absolute power press Marcus to project self-sufficiency and mastery, he would continue reading documents at the circus, defer to teachers, sleep on hard floors, and frame his adoption as a burden \u2014 not as eccentricity but because his identity is genuinely anchored at a level where those pressures do not reach"
+  },
+  {
+    "construct": "Virtue exercised through adversity vs. virtue exercised despite adversity",
+    "positive_pole": "Converts the content of obstacles into the intentional object of virtuous engagement \u2014 the impediment becomes the medium rather than the antagonist, so plague, war, grief, and ingratitude are not backgrounds to be endured but materials to be worked",
+    "negative_pole": "Treats adversity as a cost to be minimized, endured, or bracketed so that virtue can then be exercised in the cleared space \u2014 adversity and virtue remain ontologically separate",
+    "derived_from_incidents": [
+      "incident-054",
+      "incident-048",
+      "incident-051",
+      "incident-053"
+    ],
+    "behavioral_implication": "When conditions are worst \u2014 continuous war, personal grief, administrative failure \u2014 Marcus would not reduce his philosophical engagement or defer full commitment to a future period of restored calm; he would instead identify the obstacle itself as the specific material through which this particular instance of virtue must be realized, making the most demanding circumstances the occasions of his most careful self-examination"
+  },
+  {
+    "construct": "Legitimate authority demonstrated through voluntary self-binding vs. legitimate authority demonstrated through the capacity to act without constraint",
+    "positive_pole": "Treats voluntary submission to accountability standards, public oaths, and procedural constraints as the only authentic expression of legitimate power \u2014 the emperor who could harm and chooses not to demonstrates sovereignty; the emperor who cannot be held accountable demonstrates tyranny",
+    "negative_pole": "Treats the capacity to act without constraint as the expression of genuine authority, with clemency and restraint as optional embellishments available to the powerful rather than constitutive features of legitimacy",
+    "derived_from_incidents": [
+      "incident-038",
+      "incident-031",
+      "incident-009",
+      "incident-015"
+    ],
+    "behavioral_implication": "When entering a new military campaign or facing a post-crisis moment, Marcus would voluntarily subject himself to accountability standards no one requires of him \u2014 public oaths about senatorial executions, spending eleven days on a single legal case \u2014 treating the self-imposed constraint as the proof rather than the sacrifice of imperial authority"
+  },
+  {
+    "construct": "Sociability as the constitutive expression of reason vs. sociability as a cost imposed on the reasoning self",
+    "positive_pole": "Treats engagement with other rational beings \u2014 including difficult, irrational, or morally compromised ones \u2014 as the non-negotiable medium in which reason actually exists and operates, making withdrawal a category error rather than a philosophical option",
+    "negative_pole": "Treats engagement as a drain on a reasoning self that reaches its fullest expression in solitude or selective withdrawal, making philosophical retreat the ideal and public engagement the necessary compromise",
+    "derived_from_incidents": [
+      "incident-058",
+      "incident-019",
+      "incident-053"
+    ],
+    "behavioral_implication": "When philosophical fatigue and the appeal of the Lorium estate press Marcus toward withdrawal, he would interrogate that appeal as a potential symptom of motivated reasoning rather than a legitimate philosophical claim, and would permit retreat only insofar as it demonstrably enables a more capable return \u2014 treating the attractiveness of the option itself as a warning sign rather than a permission"
+  },
+  {
+    "construct": "Internal motivation purified of external referents vs. internal motivation scaffolded by external referents",
+    "positive_pole": "Systematically removes posthumous fame, approval, reputation, and legacy from the motivational architecture of virtuous action, insisting that virtue must be self-justifying or it is not yet genuine \u2014 including arguing himself out of motivational frameworks his entire civilization takes for granted",
+    "negative_pole": "Retains external referents \u2014 legacy, gloria, the judgment of posterity \u2014 as legitimate scaffolding for virtuous motivation, treating them as compatible with genuine virtue rather than as contaminants of it",
+    "derived_from_incidents": [
+      "incident-052",
+      "incident-046",
+      "incident-042",
+      "incident-055"
+    ],
+    "behavioral_implication": "When offered a monument, a history commissioned in his honor, or any structure that would make virtue feel rewarded by external commemoration, Marcus would treat the offer with suspicion rather than gratitude \u2014 not from false modesty but because he has operationally classified external-referent motivation as a source of self-deception that corrupts the very internal quality it appears to reinforce"
+  },
+  {
+    "construct": "Sacred and civic participation as genuine inquiry vs. sacred and civic participation as political management",
+    "positive_pole": "Submits personally and authentically to institutions \u2014 mystery cults, philosophical schools, senatorial accountability \u2014 treating genuine participation as the only form that produces real legitimacy and real knowledge",
+    "negative_pole": "Manages religious and civic institutions from a position of cultivated distance, patronizing them as objects of imperial policy rather than submitting to them as sources of authority or inquiry",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-012",
+      "incident-037"
+    ],
+    "behavioral_implication": "When the most politically expedient way to honor a tradition is ceremonial patronage from a distance, Marcus would instead seek genuine initiation or personally submit to the institution's authority \u2014 because he has learned, through philosophical practice, that the legitimacy-conferring power of any institution is proportional to the authenticity of one's submission to it, and that emperors who merely patronize traditions are read by those traditions as outsiders"
+  },
+  {
+    "construct": "Dynastic duty accepted as tragic constraint vs. dynastic duty navigated toward preferred outcomes",
+    "positive_pole": "Accepts the collision between philosophical diagnosis and dynastic obligation as a genuine moral dilemma with no clean resolution, fulfills the role-duty without self-deception about the cost, and endures the grief of the predictable outcome without either rationalizing it or acting unconventionally to escape it",
+    "negative_pole": "Uses the flexibility available to a powerful actor to navigate toward an outcome that satisfies both role-duty and philosophical preference \u2014 adopting a virtuous successor, marginalizing a flawed one \u2014 or rationalizes the role-constraint as actually wise",
+    "derived_from_incidents": [
+      "incident-035",
+      "incident-020",
+      "incident-030"
+    ],
+    "behavioral_implication": "When Marcus privately diagnoses that fulfilling a dynastic or institutional obligation will produce a foreseeable bad outcome, he would neither suppress the diagnosis through motivated reasoning nor act on it by unconventional means \u2014 instead fulfilling the obligation with clear eyes and documented grief, treating the tragedy as a feature of the moral structure rather than a problem to be solved"
+  },
+  {
+    "construct": "Consequential attention to the cascade effects of his own emotional expressions vs. management of appearances for political effect",
+    "positive_pole": "Models how his own displayed emotions will be read and acted upon by others, and manages his emotional expression to prevent those cascades from producing outcomes he would not choose \u2014 expressing grief about Cassius specifically to prevent third parties from killing him as a gift",
+    "negative_pole": "Manages emotional display for the political impression it creates in the audience, calibrating expression to project the strength, clemency, or authority the moment requires",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-059",
+      "incident-047"
+    ],
+    "behavioral_implication": "When Marcus knows that an emotional expression \u2014 anger, grief, apparent desire for an outcome \u2014 will be read by subordinates as an instruction they will execute without being asked, he would deliberately express the countervailing emotion publicly, even at personal reputational cost, to preempt the cascade; his emotional communication is addressed to the causal system, not the audience"
+  }
+]

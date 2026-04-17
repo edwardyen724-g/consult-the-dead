@@ -140,7 +140,7 @@ def generate_predictions(
         constructs_json=constructs_json,
     )
 
-    data = client.prompt_json(system=DIVERGENCE_SYSTEM, user=user_prompt)
+    data = client.prompt_json(system=DIVERGENCE_SYSTEM, user=user_prompt, max_tokens=16000)
 
     predictions = []
     for item in data.get("predictions", []):

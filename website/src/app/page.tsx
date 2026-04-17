@@ -9,16 +9,9 @@ const COL = "720px";
 export default function HomePage() {
   return (
     <div style={{ background: "var(--bg)", color: "var(--fg)" }}>
-      {/* ACT 1 — HERO */}
-      <section
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          padding: "0 24px",
-        }}
-      >
-        <div style={{ width: "100%", maxWidth: COL, margin: "0 auto" }}>
+      {/* ACT 1 — HERO + DEMO */}
+      <section style={{ padding: "80px 24px 160px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto" }}>
           <div
             className="font-mono uppercase"
             style={{
@@ -37,6 +30,7 @@ export default function HomePage() {
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
               marginTop: "32px",
+              maxWidth: "720px",
             }}
           >
             You have a decision. History has a council.
@@ -57,6 +51,10 @@ export default function HomePage() {
             evidence. Leonardo on what you&rsquo;re not seeing. Newton on what
             must be proven. All at once. For your hardest question.
           </p>
+          {/* Demo — below the headline, above the fold */}
+          <div style={{ marginTop: "64px" }}>
+            <StreamingDemo />
+          </div>
         </div>
       </section>
 
@@ -87,13 +85,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ACT 4 — THE DEMO */}
-      <section style={{ padding: "0 24px", marginTop: "192px" }}>
-        <StreamingDemo />
-      </section>
-
       {/* ACT 5 — THE CTA */}
-      <section style={{ padding: "0 24px", marginTop: "192px" }}>
+      <section id="council" style={{ padding: "0 24px", marginTop: "192px" }}>
         <div style={{ maxWidth: COL, margin: "0 auto" }}>
           <h2
             style={{

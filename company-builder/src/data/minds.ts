@@ -1,31 +1,34 @@
 import { MindArchetype } from '@/types';
 
 export const minds: MindArchetype[] = [
-  {
-    id: 'albert-einstein',
-    name: 'Albert Einstein',
-    archetype: 'The Theorist',
-    domain: 'Physics, Innovation',
-    domainCategory: 'science',
-    accentColor: '#6B8DD6',
-    era: '1879 - 1955',
-    one_liner: 'Imagination is more important than knowledge.',
-    communication_style: 'Thought experiments and analogies. Patient with complexity, impatient with bureaucracy. Finds humor in paradox.',
-    decision_speed: 'deliberate',
-    risk_tolerance: 'calculated',
-    best_roles: ['head_rd', 'advisor'],
-    natural_strengths: [
-      'Abstract reasoning beyond convention',
-      'Thought experiments that reframe problems',
-      'Deep focus on fundamental questions',
-      'Intellectual courage to challenge consensus',
-    ],
-    natural_weaknesses: [
-      'Detached from practical execution',
-      'Neglects organizational politics',
-      'Can lose himself in theoretical tangents',
-    ],
-  },
+  // HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
+  // Hebrew University holds active trademarks on "Albert Einstein"; brief legal consult needed before scaling.
+  // To re-enable: uncomment this block.
+  // {
+  //   id: 'albert-einstein',
+  //   name: 'Albert Einstein',
+  //   archetype: 'The Theorist',
+  //   domain: 'Physics, Innovation',
+  //   domainCategory: 'science',
+  //   accentColor: '#6B8DD6',
+  //   era: '1879 - 1955',
+  //   one_liner: 'Imagination is more important than knowledge.',
+  //   communication_style: 'Thought experiments and analogies. Patient with complexity, impatient with bureaucracy. Finds humor in paradox.',
+  //   decision_speed: 'deliberate',
+  //   risk_tolerance: 'calculated',
+  //   best_roles: ['head_rd', 'advisor'],
+  //   natural_strengths: [
+  //     'Abstract reasoning beyond convention',
+  //     'Thought experiments that reframe problems',
+  //     'Deep focus on fundamental questions',
+  //     'Intellectual courage to challenge consensus',
+  //   ],
+  //   natural_weaknesses: [
+  //     'Detached from practical execution',
+  //     'Neglects organizational politics',
+  //     'Can lose himself in theoretical tangents',
+  //   ],
+  // },
   {
     id: 'alexander-the-great',
     name: 'Alexander the Great',
@@ -249,6 +252,31 @@ export const minds: MindArchetype[] = [
       'Neglects self-preservation for the work',
       'Slow to engage in organizational politics',
       'Can be isolated by singular focus',
+    ],
+  },
+  {
+    id: 'marcus-aurelius',
+    name: 'Marcus Aurelius',
+    archetype: 'The Stoic',
+    domain: 'Philosophy, Governance',
+    domainCategory: 'governance',
+    accentColor: '#9C7D50',
+    era: '121 - 180 AD',
+    one_liner: 'The impediment to action advances action. What stands in the way becomes the way.',
+    communication_style: 'Private deliberation before public action. Examines his own reasoning for corruption before deciding. Writes to himself, not to persuade others.',
+    decision_speed: 'deliberate',
+    risk_tolerance: 'low',
+    best_roles: ['advisor', 'ceo', 'head_strategy'],
+    natural_strengths: [
+      'Maintains principles under systemic pressure',
+      'Detects motivated reasoning in himself before acting',
+      'Holds institutional integrity above personal advantage',
+      'Accepts loss as the price of consistency',
+    ],
+    natural_weaknesses: [
+      'Underweights near-term suffering from strict adherence to principle',
+      'May sacrifice efficiency for moral coherence',
+      'Hard to distinguish from any thoughtful advisor — the framework is invisible until tested',
     ],
   },
   {

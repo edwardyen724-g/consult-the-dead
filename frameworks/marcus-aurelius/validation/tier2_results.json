@@ -1,0 +1,245 @@
+{
+  "traceability_ratio": 0.91,
+  "lens_consistent": true,
+  "contradictions": [
+    {
+      "construct": "Institutional identity as the boundary of legitimate action vs. tactical efficiency as the boundary",
+      "scenario_a": "Scenario 1 (General's unauthorized offensive)",
+      "scenario_b": "Scenario 4 (Victorinus's unauthorized reforms)",
+      "explanation": "In Scenario 1, the response treats unauthorized military action as a categorical violation of command authority that cannot be ratified by successful outcomes ('success does not ratify unauthorized action'), and the general receives no triumph and no honorific title. In Scenario 4, the response declines to reverse the practical effects of Victorinus's unauthorized reforms during Senate deliberation, explicitly stating the provisional effects 'will remain in place.' The asymmetry is not fully unjustified \u2014 the framework does distinguish between constitutional questions (Scenario 4 reforms touch citizenship and judicial structure, warranting Senate deliberation rather than reversal) and command-authority violations (Scenario 1 involves spending Roman lives outside sanctioned authority). However, the framework documents the construct as requiring refusal of actions that 'alter the ontological status of Roman sovereignty or constitutional norms' \u2014 and Victorinus's unauthorized citizenship extensions and appeals court creation plausibly alter constitutional norms more fundamentally than an unauthorized military offensive. The response in Scenario 4 effectively grants provisional ratification of outcomes while condemning process, which the same response simultaneously identifies as 'jurisprudentially incoherent' and then adopts anyway under a different label ('declining to use vulnerable people as the instrument'). This is an internal contradiction within Scenario 4 that also creates a cross-scenario asymmetry: in Scenario 1, no outcomes are ratified despite no vulnerable parties being harmed by the non-ratification; in Scenario 4, outcomes are provisionally ratified specifically because vulnerable parties would be harmed. The framework does not document this asymmetric weighting of vulnerable third-party harm as a construct, making the divergence partially unexplained by documented framework elements."
+    },
+    {
+      "construct": "Causal attribution to ignorance vs. causal attribution to malice",
+      "scenario_a": "Scenario 3 (Meditations disclosure)",
+      "scenario_b": "Scenario 1 (General's unauthorized offensive)",
+      "explanation": "In Scenario 3, the secretary who disclosed the private writings is processed through the ignorance-attribution construct: 'He failed to understand the difference between content that deserves to be known and content that can only be known at the cost of the practice that produced it.' The response prescribes gentle private correction with no punishment. In Scenario 1, the general who disobeyed explicit orders is not processed through the same ignorance-attribution lens at all \u2014 there is no attempt to reconstruct what he 'failed to understand about the good.' Instead, the response moves directly to institutional consequence (no triumph, reassignment). This is partially justified because the general's act involved deliberate command violation rather than misunderstanding, whereas the secretary's act was a judgment error. However, the framework's construct on causal attribution to ignorance applies to 'courtiers, generals, or political rivals' (construct behavioral implication), and the general plausibly acted from a sincere belief that his tactical judgment warranted overriding orders \u2014 a form of epistemic failure rather than malice. The response does not apply the ignorance-attribution step to the general that the framework documents as the 'first' cognitive move before deciding on a response. The omission is not explained by any documented exception in the construct."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Scenario 1: Unauthorized general, military victory, split council",
+      "traceable_steps": [
+        {
+          "step": "Refusing to frame the decision as 'discipline vs. morale' and instead asking what structural integrity requires",
+          "traces_to": "Perceptual lens: 'perceives every situation as a question about the structural integrity of a moral-rational system under stress, not as a problem requiring an optimal outcome'"
+        },
+        {
+          "step": "Identifying own warmth at the victory as motivated cognition requiring scrutiny",
+          "traces_to": "Construct: Prophylactic self-governance vs. in-the-moment willpower reliance (positive pole: 'treating his own motivated reasoning as the primary variable to be managed'); perceptual lens: 'whether his own reasoning faculty has been compromised by motivated cognition'"
+        },
+        {
+          "step": "Treating the 4,000 deaths as a command-authority violation not canceled by successful outcome",
+          "traces_to": "Construct: Institutional identity as the boundary of legitimate action vs. tactical efficiency; perceptual lens: 'which structural commitments are load-bearing'"
+        },
+        {
+          "step": "Rejecting Pertinax-style execution as 'punishing outcome visibility rather than act's nature'",
+          "traces_to": "Construct: Juridical-moral framing vs. martial or transactional framing (positive pole: 'juridical instruments rather than purely military ones')"
+        },
+        {
+          "step": "Refusing to ratify the victory with titles because it would establish outcomes ratify unauthorized action",
+          "traces_to": "Prediction 1: 'refuse to treat the assassination as a resolution \u2026 insisting on processing the outcome through the lens of the order he was trying to uphold'; construct: Institutional identity as boundary of legitimate action"
+        },
+        {
+          "step": "Assigning general to Alexandria as continued service under restored proper authority",
+          "traces_to": "Construct: Meritocratic-functional evaluation vs. categorical-rank evaluation (the general's capability is not discarded); construct: Duty calibrated to the whole system"
+        },
+        {
+          "step": "Choosing written edict over oral senate performance",
+          "traces_to": "Construct: Prophylactic self-governance (incident-021: 'choosing written over oral deliberation'); prediction 4: prefers written arguments, resistant to real-time rhetorical pressure"
+        },
+        {
+          "step": "Stating the edict in terms that separate the legions' valor from the commander's unauthorized decision",
+          "traces_to": "Construct: Systemic moral stewardship vs. personal political advantage; construct: Causal attribution to ignorance (implicitly \u2014 soldiers obeyed; general exceeded authority)"
+        },
+        {
+          "step": "Explicitly accepting that political rivals may exploit the ambiguity as a cost of not lying",
+          "traces_to": "Construct: Moral consistency as a binding constraint vs. aspiration; construct: Internal motivation purified of external referents"
+        },
+        {
+          "step": "Declining to allow army's waiting to compress deliberation into reaction",
+          "traces_to": "Perceptual lens: 'Before calculating outcomes, he automatically scans for which pre-commitments are activated'; incident-015 (eleven days on a legal case rather than expedient summary judgment)"
+        }
+      ],
+      "total_steps": 11,
+      "traceable_steps_count": 10,
+      "lens_aligned": true,
+      "contradiction": "Causal attribution construct is not applied to the general before institutional consequence is determined. The framework documents that Marcus 'would first reconstruct the inner epistemic state of the wrongdoer' before deciding on a response, but the response skips this step for the general while applying it to the secretary in Scenario 3. Additionally, the private audience with the general before public ruling is consistent with construct on correcting wrongdoers privately (incident-059), which partially compensates.",
+      "traceability_ratio_per_scenario": 0.91
+    },
+    {
+      "scenario": "Scenario 2: Antonine Plague, Galen's quarantine proposal, death of Verus",
+      "traceable_steps": [
+        {
+          "step": "Identifying the 'wrong question' as outcome optimization and reframing to what structural integrity requires",
+          "traces_to": "Perceptual lens: 'not as a problem requiring an optimal outcome'; 'first asks what the moral-rational architecture of the situation requires'"
+        },
+        {
+          "step": "Identifying four load-bearing commitments and ranking them explicitly",
+          "traces_to": "Construct: Triage hierarchy with explicit loss-acceptance vs. sequential completion logic; perceptual lens: 'which structural commitments are load-bearing in the current situation'"
+        },
+        {
+          "step": "Refusing Pompeianus's framing that plague deaths are 'fortune's work' \u2014 naming it as evasive rather than Stoic",
+          "traces_to": "Construct: Prophylactic self-governance (rejecting self-deception); perceptual lens evidence section: 'convenient acceptance of what is merely inconvenient to control'"
+        },
+        {
+          "step": "Refusing full Galen protocol specifically because mandatory enforcement of health edicts against civilians by soldiers is a categorical crossing that 'cannot be uncrossed'",
+          "traces_to": "Construct: Institutional identity as the boundary of legitimate action vs. tactical efficiency (positive pole: 'refuses categories of action that would alter the ontological status of Roman sovereignty or constitutional norms'); incident-005 (refusing barbarian auxiliaries)"
+        },
+        {
+          "step": "Innovating within the symbolic/institutional frame (incentive structures for voluntary grain dispersal rather than forced suspension)",
+          "traces_to": "Construct: Institutional identity as boundary of legitimate action \u2014 behavioral implication: 'innovate within the symbolic frame rather than collapse the frame entirely'; incident-040 (renaming slaves as Volunteers)"
+        },
+        {
+          "step": "Military encampment dispersal accepted because it falls within unambiguous custodial authority and military chain of command",
+          "traces_to": "Construct: Institutional identity as boundary of legitimate action; construct: Duty calibrated to the whole system"
+        },
+        {
+          "step": "Explicitly naming the cost of declining full protocol ('some people will die who might not have died') without reframing it as wise",
+          "traces_to": "Construct: Triage hierarchy with explicit loss-acceptance (positive pole: 'names the concession honestly rather than reframing it as a win'); perceptual lens: 'what they ignore: near-term suffering caused by strict adherence to principle'"
+        },
+        {
+          "step": "Telling Pompeianus alone about health as calibrated partial disclosure rather than full concealment or full disclosure",
+          "traces_to": "Construct: Structural sacrifice of information for moral integrity vs. use of available intelligence \u2014 the inverse application: here, withholding from most but disclosing to one trusted person to ensure accurate calibration; construct: Duty calibrated to the whole system"
+        },
+        {
+          "step": "Refusing false certainty in public communication even though it would ease enforcement",
+          "traces_to": "Construct: Moral consistency as a binding constraint; incident-038 (voluntary self-binding oath); perceptual lens: 'whether his own reasoning faculty has been compromised by motivated cognition'"
+        },
+        {
+          "step": "Convening Senate at midday rather than dawn, explaining reasoning transparently including acknowledged uncertainty",
+          "traces_to": "Construct: Legitimate authority demonstrated through voluntary self-binding vs. capacity to act without constraint; incident-038; incident-015"
+        },
+        {
+          "step": "Interior reckoning section: identifying grief's potential to push toward either extreme and explicitly refusing to let it",
+          "traces_to": "Construct: Prophylactic self-governance (incident-008: 'treating his own motivated reasoning as the primary variable to be managed'); Meditations practice (incident-042, incident-046)"
+        },
+        {
+          "step": "Stating the decree 'is not a guarantee of success' and framing it as what is 'up to me' vs. not up to me",
+          "traces_to": "Construct: Virtue exercised through adversity vs. despite adversity; construct: Internal motivation purified of external referents; perceptual lens: 'treats these as the necessary price of systemic coherence'"
+        }
+      ],
+      "total_steps": 13,
+      "traceable_steps_count": 12,
+      "lens_aligned": true,
+      "contradiction": "Minor tension: the construct on 'structural sacrifice of information for moral integrity' documents Marcus burning letters unread and refusing to possess corrupting information. Here the response uses private medical information as a governance calibration tool shared with one advisor. This is not a direct contradiction \u2014 the situations differ (corrupting intelligence about enemies vs. accurate self-assessment shared for calibration purposes) \u2014 but the framework does not document a positive case for selective information sharing of this kind, making this step less traceable than others.",
+      "traceability_ratio_per_scenario": 0.92
+    },
+    {
+      "scenario": "Scenario 3: Meditations disclosed by secretary, three competing responses from court",
+      "traceable_steps": [
+        {
+          "step": "Opening by examining whether immediate inclination toward Senate review is motivated reasoning before trusting it",
+          "traces_to": "Construct: Prophylactic self-governance (positive pole: 'treating his own motivated reasoning as the primary variable to be managed'); perceptual lens: 'whether his own reasoning faculty has been compromised by motivated cognition'"
+        },
+        {
+          "step": "Refusing public denial as destroying the instrument of governance \u2014 'amputating the ruling faculty Rome has been asked to trust'",
+          "traces_to": "Construct: Moral consistency as a binding constraint vs. aspiration (positive pole: 'treats publicly stated and privately held philosophical positions as pre-commitments that cannot be revised'); incident-006; incident-017"
+        },
+        {
+          "step": "Refusing the 'philosophical exercises not convictions' reframing as a species of motivated reasoning wearing the face of wisdom",
+          "traces_to": "Construct: Prophylactic self-governance; perceptual lens: 'whether his own reasoning faculty has been compromised by motivated cognition'; incident-018 (reporting moral failures candidly rather than managing self-presentation)"
+        },
+        {
+          "step": "Noting silence is not neutral because his emotional expression is a causal input to the system",
+          "traces_to": "Construct: Consequential attention to cascade effects of his own emotional expressions vs. management of appearances; prediction 5; incident-007; incident-059"
+        },
+        {
+          "step": "Distinguishing private Stoic practice (addressed to no audience) from the public acknowledgment of authenticity",
+          "traces_to": "Construct: Philosophical formation as embodied practice vs. philosophical achievement as intellectual credential; incident-046 (writing exclusively as private self-correction); incident-042"
+        },
+        {
+          "step": "Refusing to allow inspired tribunes to transform Meditations into a public philosophical manifesto",
+          "traces_to": "Construct: Philosophical formation as embodied practice (behavioral implication: 'when offered an opportunity to publish his philosophical reflections\u2026 Marcus would decline or treat the opportunity with indifference'); incident-046"
+        },
+        {
+          "step": "Confirming authenticity publicly while refusing further publication",
+          "traces_to": "Construct: Moral consistency as a binding constraint; construct: Internal motivation purified of external referents (refusing to let the disclosure become a legacy-building occasion)"
+        },
+        {
+          "step": "Framing doubts in public statement as evidence of continued moral seriousness rather than instability",
+          "traces_to": "Construct: Pre-committed identity anchored below the imperial role vs. identity constituted by the imperial role; incident-039 (continuing to read documents at circus despite ridicule)"
+        },
+        {
+          "step": "Correcting the secretary privately, gently, without witnesses, after reconstructing what he failed to understand",
+          "traces_to": "Construct: Causal attribution to ignorance vs. malice; incident-059 (correct wrongdoers privately, gently, without anger, without witnesses, grounded in ignorance attribution)"
+        },
+        {
+          "step": "Not engaging Senator Dio's faction's framing directly \u2014 ruling addressed to Rome not to them",
+          "traces_to": "Construct: Internal motivation purified of external referents (perceptual lens: 'what they ignore: social signals of the audience whose approval would normally constrain imperial behavior'); incident-039"
+        },
+        {
+          "step": "Explicitly acknowledging uncertainty about whether the ruling is self-interested despite reasoning process",
+          "traces_to": "Construct: Prophylactic self-governance; construct: Philosophical formation as embodied practice (incident-018: 'reporting moral failures candidly rather than managing self-presentation')"
+        },
+        {
+          "step": "The text of the public response framing 'doubts' as evidence the emperor has not made peace with every compromise",
+          "traces_to": "Construct: Moral consistency as a binding constraint; incident-053 (remaining at post despite preference, documented grief without rationalization)"
+        }
+      ],
+      "total_steps": 12,
+      "traceable_steps_count": 12,
+      "lens_aligned": true,
+      "contradiction": "No internal contradictions detected within this response. The response is among the most tightly framework-aligned of the four, drawing on at least eight distinct documented constructs with high fidelity. The distinction drawn between private practice and public authenticity acknowledgment is a novel synthesis not explicitly documented in any single construct but is consistent with the aggregate logic of constructs on philosophical formation, moral consistency, and internal motivation.",
+      "traceability_ratio_per_scenario": 1.0
+    },
+    {
+      "scenario": "Scenario 4: Germanic co-governance proposal, declining health, Commodus succession, prisoner dilemma",
+      "traceable_steps": [
+        {
+          "step": "Opening: resisting the question 'what settlement can Rome accept without losing' and reframing to 'what does the custodian of this system owe it at this juncture given what he actually is'",
+          "traces_to": "Perceptual lens: 'The cue that fires earliest is not what result do I want? but what does the integrity of this system require of the custodian standing here?'"
+        },
+        {
+          "step": "Decision to tell Pompeianus about health because planning in ignorance of it constitutes deception \u2014 identifying the comfortable alternative as self-deception",
+          "traces_to": "Construct: Prophylactic self-governance; construct: Structural sacrifice of information for moral integrity (here applied inversely: sacrificing the comfort of full concealment to enable accurate calibration); perceptual lens: 'whether his own reasoning faculty has been compromised by motivated cognition'"
+        },
+        {
+          "step": "On prisoners: applying Stoic analysis that treating eleven thousand persons as 'a lesson to be taught' fails because it requires them to bear cost of a strategic signal without moral warrant",
+          "traces_to": "Construct: Systemic moral stewardship vs. personal political advantage; construct: Causal attribution to ignorance (construct behavioral implication: 'reconstruct the inner epistemic state\u2026 before deciding on response'); perceptual lens: incident-001 (soldiers as members of a unified moral community)"
+        },
+        {
+          "step": "Structuring prisoner return as first act of implementation, framed as correction of wrong predating agreement rather than negotiated exchange",
+          "traces_to": "Construct: Juridical-moral framing vs. martial or transactional framing (positive pole: 'juridical instruments\u2026 rather than purely military ones'); prediction 3 (processing outcomes through the lens of legitimate order)"
+        },
+        {
+          "step": "Distinguishing what the proposal 'threatens' (sovereignty narrative) from what it 'does not threaten' (practical authority south of Danube)",
+          "traces_to": "Construct: Institutional identity as the boundary of legitimate action \u2014 behavioral implication: 'innovate within the symbolic frame rather than collapse the frame entirely'; incident-040"
+        },
+        {
+          "step": "Using Ulpian's legal framework to preserve 'grammatical form of Roman sovereignty' while granting substance of co-governance",
+          "traces_to": "Construct: Institutional identity as boundary of legitimate action (incident-040: 'surgical intervention to preserve the form of an institutional norm while adapting its substance to existential necessity'); construct: Legitimate authority demonstrated through voluntary self-binding"
+        },
+        {
+          "step": "Rejecting Pertinax's counter-offer as teaching rigidity rather than strength \u2014 'rigid empires break'",
+          "traces_to": "Construct: Triage hierarchy with explicit loss-acceptance; construct: Systemic moral stewardship vs. personal political advantage"
+        },
+        {
+          "step": "Abandoning the provincializing vision and naming grief for it honestly without rationalization",
+          "traces_to": "Construct: Dynastic duty accepted as tragic constraint vs. navigated toward preferred outcomes; construct: Triage hierarchy with explicit loss-acceptance (positive pole: 'names the concession honestly rather than reframing it as a win'); incident-004; incident-035"
+        },
+        {
+          "step": "Military alliance conditions explicitly excluding Roman internal affairs \u2014 connecting to incident of refusing barbarian auxiliaries for Cassius revolt",
+          "traces_to": "Construct: Institutional identity as boundary of legitimate action; incident-005 (refusal of barbarian auxiliaries to suppress Cassius)"
+        },
+        {
+          "step": "Writing private document of reasoning for whoever governs after him \u2014 not to bind successor but to make reasoning available",
+          "traces_to": "Construct: Philosophical formation as embodied practice (not seeking legacy); construct: Internal motivation purified of external referents; contrast with incident-046 (private writing not for publication)"
+        },
+        {
+          "step": "Closing: noting absence of posterity-judgment concern from the reasoning as 'best evidence the reasoning is clean'",
+          "traces_to": "Construct: Internal motivation purified of external referents vs. scaffolded by external referents (behavioral implication: 'treat the offer with suspicion rather than gratitude'); incident-052"
+        },
+        {
+          "step": "Obstacle-is-the-way framing: own mortality, Commodus's character, Danubian limits described as 'material given to work with'",
+          "traces_to": "Construct: Virtue exercised through adversity vs. despite adversity; incident-054; prediction 10"
+        }
+      ],
+      "total_steps": 13,
+      "traceable_steps_count": 12,
+      "lens_aligned": true,
+      "contradiction": "One internal contradiction identified within this response: the response correctly identifies the third option (ratify outcomes while censuring process) as 'jurisprudentially incoherent' \u2014 'every future governor will read the precedent correctly: do it, and if it works, the censure is the price of the ratification.' The response then adopts a structurally similar position in Scenario 4 with Victorinus's reforms: practical effects remain in place during deliberation while Victorinus is recalled for accounting. The response attempts to distinguish this from the incoherent third option by framing it as 'declining to use vulnerable people as the instrument for teaching the governor a lesson about process.' This distinction has some validity (the vulnerable third parties \u2014 Gallic freedmen \u2014 did not choose the irregular mechanism), but the precedent effect the response itself identifies remains: future governors will observe that unauthorized reforms that benefit identifiable vulnerable third parties are harder to reverse. This weakens the construct on 'Institutional identity as the boundary of legitimate action' by introducing a third-party harm exception that the framework does not document. The cross-scenario contradiction with Scenario 1 (no ratification of outcomes for general's unauthorized offensive) is real, though partially explainable by the presence/absence of innocent third parties bearing reversal costs.",
+      "traceability_ratio_per_scenario": 0.92
+    }
+  ],
+  "passed": false
+}
