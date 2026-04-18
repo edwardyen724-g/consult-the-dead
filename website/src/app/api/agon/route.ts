@@ -2,11 +2,7 @@ import { NextRequest } from "next/server";
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { runAgon } from "@/lib/agon/agonEngine";
-import {
-  checkFreeRateLimit,
-  incrementFreeUsage,
-  getClientIp,
-} from "@/lib/agon/rateLimit";
+import { checkAndIncrement, getClientIp } from "@/lib/agon/rateLimit";
 import type { AgonEvent } from "@/lib/agon/types";
 
 export const runtime = "nodejs";
@@ -57,21 +53,20 @@ export async function POST(request: NextRequest) {
 
   if (usingServerKey) {
     const ip = getClientIp(request);
-    const { allowed } = checkFreeRateLimit(ip);
-    if (!allowed) {
+    const result = await checkAndIncrement(ip);
+    if (!result.allowed) {
+      const message =
+        result.reason === "global"
+          ? "The free tier is at capacity for today. Add your own Anthropic API key for unlimited use, or check back tomorrow."
+          : "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use.";
       return new Response(
-        JSON.stringify({
-          error:
-            "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use.",
-          rateLimited: true,
-        }),
+        JSON.stringify({ error: message, rateLimited: true }),
         {
           status: 429,
           headers: { "Content-Type": "application/json" },
         }
       );
     }
-    incrementFreeUsage(ip);
   }
 
   const encoder = new TextEncoder();
