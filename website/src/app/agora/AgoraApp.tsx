@@ -798,8 +798,8 @@ function CouncilStage({
           maxWidth: "58ch",
         }}
       >
-        Choose {MIND_MIN}&ndash;{MIND_MAX} minds. We&rsquo;ve pre-selected a
-        council that looks right for your question. Swap anyone in or out.
+        Choose {MIND_MIN}&ndash;{MIND_MAX}&nbsp;minds. We&rsquo;ve pre-selected
+        a council that looks right for your question. Swap anyone in or out.
       </p>
 
       <div
