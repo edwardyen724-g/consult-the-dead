@@ -30,6 +30,11 @@ export async function POST(request: NextRequest) {
   if (topic.length < 10) {
     return jsonError(400, "Topic must be at least 10 characters");
   }
+  if (topic.length > 2000) {
+    // Cap input size — long topics inflate per-turn token cost and can
+    // be used to drain budget. 2k chars is plenty for any real decision.
+    return jsonError(400, "Topic must be 2000 characters or fewer");
+  }
 
   const allowedSet = new Set<string>(ALLOWED_SLUGS);
   const mindSlugs = mindSlugsRaw.filter((s): s is FrameworkSlug =>
