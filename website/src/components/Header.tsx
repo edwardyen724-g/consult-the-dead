@@ -37,6 +37,17 @@ export function Header() {
           >
             Insights
           </Link>
+          <Link
+            href="/agora"
+            className="font-mono text-[11px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors"
+            style={{
+              background: "var(--amber)",
+              color: "var(--bg)",
+              letterSpacing: "0.14em",
+            }}
+          >
+            Enter The Agora
+          </Link>
           <ThemeToggle />
         </div>
       </div>

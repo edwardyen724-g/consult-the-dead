@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 
 export interface MindOption {
   slug: string;
@@ -28,6 +29,8 @@ const STAGE_LABELS: Record<Stage, string> = {
 const MIND_MIN = 2;
 const MIND_MAX = 5;
 const DEFAULT_COUNCIL_SIZE = 3;
+const TOTAL_ROUNDS = 3;
+const API_KEY_STORAGE = "ctd-anthropic-key";
 
 const EXAMPLE_TOPICS = [
   "Should I raise VC or bootstrap?",
@@ -35,11 +38,48 @@ const EXAMPLE_TOPICS = [
   "My industry is being automated — pivot into AI, or double down on domain depth?",
 ];
 
-// Cheap keyword heuristic to suggest a starting council.
+interface RoundTurn {
+  mindSlug: string;
+  mindName: string;
+  round: number;
+  text: string;
+  done: boolean;
+}
+
+interface AgonState {
+  stage: Stage;
+  topic: string;
+  apiKey: string;
+  researchEnabled: boolean;
+  council: string[];
+  turns: RoundTurn[];
+  activeRound: number | null;
+  activeMindSlug: string | null;
+  consensus: ConsensusResult | null;
+  consensusLoading: boolean;
+  consensusNode: ConsensusNodeKey | null;
+  error: string | null;
+  rateLimited: boolean;
+}
+
+const INITIAL_STATE: AgonState = {
+  stage: "topic",
+  topic: "",
+  apiKey: "",
+  researchEnabled: false,
+  council: [],
+  turns: [],
+  activeRound: null,
+  activeMindSlug: null,
+  consensus: null,
+  consensusLoading: false,
+  consensusNode: null,
+  error: null,
+  rateLimited: false,
+};
+
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   const t = topic.toLowerCase();
-  const hits: Record<string, number> = {};
-
   const keywords: Record<string, string[]> = {
     "niccolo-machiavelli": ["power", "politics", "negotiate", "leverage", "competitor", "rival"],
     "sun-tzu": ["strategy", "compete", "terrain", "market", "timing", "win"],
@@ -50,15 +90,11 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
     "marcus-aurelius": ["duty", "virtue", "stoic", "long term", "integrity", "reputation"],
   };
 
-  for (const mind of minds) {
-    const kws = keywords[mind.slug] ?? [];
-    let score = 0;
-    for (const kw of kws) if (t.includes(kw)) score += 1;
-    hits[mind.slug] = score;
-  }
-
   const scored = minds
-    .map((m) => ({ slug: m.slug, score: hits[m.slug] ?? 0 }))
+    .map((m) => ({
+      slug: m.slug,
+      score: (keywords[m.slug] ?? []).reduce((acc, kw) => acc + (t.includes(kw) ? 1 : 0), 0),
+    }))
     .sort((a, b) => b.score - a.score);
 
   const topScoring = scored.filter((s) => s.score > 0).map((s) => s.slug);
@@ -66,13 +102,10 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
     return topScoring.slice(0, DEFAULT_COUNCIL_SIZE);
   }
 
-  const fallback: string[] = [...topScoring];
-  const defaults = ["niccolo-machiavelli", "sun-tzu", "marie-curie"];
-  for (const d of defaults) {
+  const fallback = [...topScoring];
+  for (const d of ["niccolo-machiavelli", "sun-tzu", "marie-curie"]) {
     if (fallback.length >= DEFAULT_COUNCIL_SIZE) break;
-    if (!fallback.includes(d) && minds.some((m) => m.slug === d)) {
-      fallback.push(d);
-    }
+    if (!fallback.includes(d) && minds.some((m) => m.slug === d)) fallback.push(d);
   }
   while (fallback.length < DEFAULT_COUNCIL_SIZE && fallback.length < minds.length) {
     const next = minds.find((m) => !fallback.includes(m.slug));
@@ -83,55 +116,195 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
 }
 
 export function AgoraApp({ minds }: { minds: MindOption[] }) {
-  const [stage, setStage] = useState<Stage>("topic");
-  const [topic, setTopic] = useState("");
-  const [researchEnabled, setResearchEnabled] = useState(true);
-  const [council, setCouncil] = useState<string[]>([]);
-  const [consensusNode, setConsensusNode] = useState<ConsensusNodeKey | null>(null);
+  const [state, setState] = useState<AgonState>(INITIAL_STATE);
+  const abortRef = useRef<AbortController | null>(null);
+
+  // Restore API key from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(API_KEY_STORAGE);
+      if (saved) setState((s) => ({ ...s, apiKey: saved }));
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // Cancel any in-flight stream when component unmounts
+  useEffect(() => {
+    return () => abortRef.current?.abort();
+  }, []);
 
   const visibleStages: Stage[] = useMemo(() => {
-    return researchEnabled
+    return state.researchEnabled
       ? STAGE_ORDER
       : STAGE_ORDER.filter((s) => s !== "research");
-  }, [researchEnabled]);
+  }, [state.researchEnabled]);
 
-  function beginAgon() {
-    const trimmed = topic.trim();
+  function setApiKey(key: string) {
+    setState((s) => ({ ...s, apiKey: key }));
+    try {
+      if (key) localStorage.setItem(API_KEY_STORAGE, key);
+      else localStorage.removeItem(API_KEY_STORAGE);
+    } catch {
+      // ignore
+    }
+  }
+
+  function beginFromTopic() {
+    const trimmed = state.topic.trim();
     if (trimmed.length < 10) return;
     const suggested = suggestCouncil(trimmed, minds);
-    setCouncil(suggested);
-    setStage(researchEnabled ? "research" : "council");
-  }
-
-  function advanceFromResearch() {
-    setStage("council");
-  }
-
-  function advanceFromCouncil() {
-    if (council.length < MIND_MIN || council.length > MIND_MAX) return;
-    setStage("agon");
-  }
-
-  function advanceFromAgon() {
-    setStage("consensus");
-  }
-
-  function reset() {
-    setStage("topic");
-    setTopic("");
-    setCouncil([]);
-    setConsensusNode(null);
+    setState((s) => ({
+      ...s,
+      council: suggested,
+      stage: s.researchEnabled ? "research" : "council",
+    }));
   }
 
   function toggleMind(slug: string) {
-    setCouncil((curr) => {
-      if (curr.includes(slug)) return curr.filter((s) => s !== slug);
-      if (curr.length >= MIND_MAX) return curr;
-      return [...curr, slug];
+    setState((s) => {
+      if (s.council.includes(slug)) {
+        return { ...s, council: s.council.filter((x) => x !== slug) };
+      }
+      if (s.council.length >= MIND_MAX) return s;
+      return { ...s, council: [...s.council, slug] };
     });
   }
 
-  const selectedMinds = council
+  async function startAgon() {
+    if (state.council.length < MIND_MIN || state.council.length > MIND_MAX) return;
+
+    setState((s) => ({
+      ...s,
+      stage: "agon",
+      turns: [],
+      activeRound: null,
+      activeMindSlug: null,
+      consensus: null,
+      consensusLoading: false,
+      error: null,
+      rateLimited: false,
+    }));
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (state.apiKey.trim()) headers["x-api-key"] = state.apiKey.trim();
+
+      const res = await fetch("/api/agon", {
+        method: "POST",
+        headers,
+        signal: controller.signal,
+        body: JSON.stringify({
+          topic: state.topic.trim(),
+          mindSlugs: state.council,
+          rounds: TOTAL_ROUNDS,
+          research: false,
+        }),
+      });
+
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        setState((s) => ({
+          ...s,
+          error: errBody.error ?? `Request failed: ${res.status}`,
+          rateLimited: !!errBody.rateLimited,
+          stage: "council",
+        }));
+        return;
+      }
+
+      if (!res.body) {
+        setState((s) => ({ ...s, error: "No response stream", stage: "council" }));
+        return;
+      }
+
+      await consumeSse(res.body, (event) => handleAgonEvent(event));
+    } catch (err) {
+      if ((err as { name?: string }).name === "AbortError") return;
+      setState((s) => ({
+        ...s,
+        error: err instanceof Error ? err.message : "Network error",
+      }));
+    }
+  }
+
+  function handleAgonEvent(event: AgonEvent) {
+    setState((s) => {
+      switch (event.type) {
+        case "round_start":
+          return { ...s, activeRound: event.round };
+        case "turn_start": {
+          const turns = [
+            ...s.turns,
+            {
+              mindSlug: event.mindSlug,
+              mindName: event.mindName,
+              round: event.round,
+              text: "",
+              done: false,
+            },
+          ];
+          return {
+            ...s,
+            turns,
+            activeMindSlug: event.mindSlug,
+            activeRound: event.round,
+          };
+        }
+        case "turn_chunk": {
+          const turns = [...s.turns];
+          const last = turns[turns.length - 1];
+          if (last && last.mindSlug === event.mindSlug && !last.done) {
+            turns[turns.length - 1] = { ...last, text: last.text + event.text };
+          }
+          return { ...s, turns };
+        }
+        case "turn_done": {
+          const turns = s.turns.map((t) =>
+            t.round === event.round && t.mindSlug === event.mindSlug && !t.done
+              ? { ...t, text: event.content, done: true }
+              : t
+          );
+          return { ...s, turns, activeMindSlug: null };
+        }
+        case "consensus_started":
+          return { ...s, consensusLoading: true, stage: "consensus" };
+        case "consensus_done":
+          return {
+            ...s,
+            consensus: event.consensus,
+            consensusLoading: false,
+          };
+        case "agon_done":
+          return s;
+        case "error":
+          return {
+            ...s,
+            error: event.message,
+            rateLimited: !!event.rateLimited,
+            consensusLoading: false,
+          };
+        default:
+          return s;
+      }
+    });
+  }
+
+  function reset() {
+    abortRef.current?.abort();
+    setState((s) => ({
+      ...INITIAL_STATE,
+      apiKey: s.apiKey,
+    }));
+  }
+
+  const selectedMinds = state.council
     .map((slug) => minds.find((m) => m.slug === slug))
     .filter((m): m is MindOption => !!m);
 
@@ -169,46 +342,75 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
           What decision are you carrying?
         </h1>
 
-        <ProgressBar stage={stage} visibleStages={visibleStages} />
+        <ProgressBar stage={state.stage} visibleStages={visibleStages} />
+
+        {state.error && (
+          <div
+            style={{
+              marginTop: "32px",
+              border: "1px solid #c75a5a",
+              padding: "12px 16px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "#e8a5a5",
+              lineHeight: 1.5,
+            }}
+          >
+            <span style={{ marginRight: "10px", color: "#c75a5a" }}>
+              {state.rateLimited ? "RATE LIMIT" : "ERROR"}
+            </span>
+            {state.error}
+          </div>
+        )}
 
         <div style={{ marginTop: "40px" }}>
-          {stage === "topic" && (
+          {state.stage === "topic" && (
             <TopicStage
-              topic={topic}
-              setTopic={setTopic}
-              researchEnabled={researchEnabled}
-              setResearchEnabled={setResearchEnabled}
-              onSubmit={beginAgon}
+              topic={state.topic}
+              setTopic={(t) => setState((s) => ({ ...s, topic: t }))}
+              apiKey={state.apiKey}
+              setApiKey={setApiKey}
+              onSubmit={beginFromTopic}
             />
           )}
 
-          {stage === "research" && (
-            <ResearchStage topic={topic} onContinue={advanceFromResearch} />
+          {state.stage === "research" && (
+            <ResearchPlaceholder
+              topic={state.topic}
+              onContinue={() => setState((s) => ({ ...s, stage: "council" }))}
+            />
           )}
 
-          {stage === "council" && (
+          {state.stage === "council" && (
             <CouncilStage
               minds={minds}
-              council={council}
+              council={state.council}
               toggleMind={toggleMind}
-              onContinue={advanceFromCouncil}
+              onContinue={startAgon}
             />
           )}
 
-          {stage === "agon" && (
+          {state.stage === "agon" && (
             <AgonStage
-              topic={topic}
+              topic={state.topic}
               selectedMinds={selectedMinds}
-              onContinue={advanceFromAgon}
+              turns={state.turns}
+              activeMindSlug={state.activeMindSlug}
+              activeRound={state.activeRound}
             />
           )}
 
-          {stage === "consensus" && (
+          {state.stage === "consensus" && (
             <ConsensusStage
-              topic={topic}
+              topic={state.topic}
               selectedMinds={selectedMinds}
-              consensusNode={consensusNode}
-              setConsensusNode={setConsensusNode}
+              consensus={state.consensus}
+              loading={state.consensusLoading}
+              consensusNode={state.consensusNode}
+              setConsensusNode={(n) =>
+                setState((s) => ({ ...s, consensusNode: n }))
+              }
+              turns={state.turns}
               onReset={reset}
             />
           )}
@@ -234,7 +436,7 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
               color: "var(--fg-dim)",
             }}
           >
-            Phase 1 preview — the agon engine is wired in Phase 2
+            Free tier: 3 agons / day · BYO key for unlimited
           </div>
           <Link
             href="/"
@@ -253,7 +455,43 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
   );
 }
 
-/* ── Progress bar ── */
+/* ────────────── SSE consumer ────────────── */
+
+async function consumeSse(
+  body: ReadableStream<Uint8Array>,
+  onEvent: (event: AgonEvent) => void
+) {
+  const reader = body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+
+    let idx;
+    while ((idx = buffer.indexOf("\n\n")) !== -1) {
+      const block = buffer.slice(0, idx);
+      buffer = buffer.slice(idx + 2);
+
+      for (const line of block.split("\n")) {
+        if (!line.startsWith("data:")) continue;
+        const json = line.slice(5).trim();
+        if (!json) continue;
+        try {
+          const event = JSON.parse(json) as AgonEvent;
+          onEvent(event);
+        } catch {
+          // Ignore malformed lines
+        }
+      }
+    }
+  }
+}
+
+/* ────────────── Progress bar ────────────── */
 
 function ProgressBar({
   stage,
@@ -304,22 +542,24 @@ function ProgressBar({
   );
 }
 
-/* ── Stage 1: Topic ── */
+/* ────────────── Stage 1: Topic ────────────── */
 
 function TopicStage({
   topic,
   setTopic,
-  researchEnabled,
-  setResearchEnabled,
+  apiKey,
+  setApiKey,
   onSubmit,
 }: {
   topic: string;
   setTopic: (t: string) => void;
-  researchEnabled: boolean;
-  setResearchEnabled: (v: boolean) => void;
+  apiKey: string;
+  setApiKey: (k: string) => void;
   onSubmit: () => void;
 }) {
+  const [showKey, setShowKey] = useState(false);
   const valid = topic.trim().length >= 10;
+
   return (
     <div>
       <label
@@ -354,35 +594,6 @@ function TopicStage({
         }}
       />
 
-      <div
-        style={{
-          marginTop: "24px",
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-        }}
-      >
-        <input
-          type="checkbox"
-          id="research-toggle"
-          checked={researchEnabled}
-          onChange={(e) => setResearchEnabled(e.target.checked)}
-          style={{ accentColor: "var(--amber)" }}
-        />
-        <label
-          htmlFor="research-toggle"
-          className="font-mono"
-          style={{
-            fontSize: "12px",
-            letterSpacing: "0.04em",
-            color: "var(--fg-dim)",
-            cursor: "pointer",
-          }}
-        >
-          Gather external research before the agon
-        </label>
-      </div>
-
       <div style={{ marginTop: "32px" }}>
         <button
           onClick={onSubmit}
@@ -400,7 +611,7 @@ function TopicStage({
             transition: "all 200ms ease-out",
           }}
         >
-          Begin the Agon
+          Pick the Council →
         </button>
       </div>
 
@@ -444,13 +655,64 @@ function TopicStage({
           ))}
         </div>
       </div>
+
+      <div style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}>
+        <button
+          onClick={() => setShowKey((v) => !v)}
+          className="font-mono"
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "var(--fg-dim)",
+            fontSize: "11px",
+            letterSpacing: "0.08em",
+            cursor: "pointer",
+            textTransform: "uppercase",
+            padding: 0,
+          }}
+        >
+          {showKey ? "− hide" : "+ "}your own anthropic key {apiKey ? " (saved)" : "(optional)"}
+        </button>
+        {showKey && (
+          <div style={{ marginTop: "12px" }}>
+            <input
+              type="password"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              placeholder="sk-ant-..."
+              style={{
+                width: "100%",
+                maxWidth: "480px",
+                background: "transparent",
+                border: "1px solid var(--hairline)",
+                color: "var(--fg)",
+                fontFamily: "var(--font-mono)",
+                fontSize: "13px",
+                padding: "10px 12px",
+              }}
+            />
+            <div
+              className="font-mono"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.04em",
+                color: "var(--fg-dim)",
+                marginTop: "8px",
+                lineHeight: 1.5,
+              }}
+            >
+              Stored only in your browser. Skips the daily free-tier limit.
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-/* ── Stage 2: Research (Phase 1 placeholder) ── */
+/* ────────────── Stage 2: Research (Phase 3 placeholder) ────────────── */
 
-function ResearchStage({
+function ResearchPlaceholder({
   topic,
   onContinue,
 }: {
@@ -460,36 +722,22 @@ function ResearchStage({
   return (
     <div>
       <PreviewBanner>
-        Phase 2 will stream real Tavily results scoped to your topic. For this
-        preview, skip ahead to pick your council.
+        Research-against-real-sources lands in Phase 3. For now, jump straight
+        to the council.
       </PreviewBanner>
-
+      <p
+        style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "17px",
+          lineHeight: 1.55,
+          color: "var(--fg-dim)",
+          marginTop: "32px",
+          fontStyle: "italic",
+        }}
+      >
+        &ldquo;{topic}&rdquo;
+      </p>
       <div style={{ marginTop: "32px" }}>
-        <div
-          className="font-mono uppercase"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.08em",
-            color: "var(--fg-dim)",
-            marginBottom: "12px",
-          }}
-        >
-          Researching
-        </div>
-        <p
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "18px",
-            lineHeight: 1.55,
-            color: "var(--fg-dim)",
-            fontStyle: "italic",
-          }}
-        >
-          &ldquo;{topic}&rdquo;
-        </p>
-      </div>
-
-      <div style={{ marginTop: "48px" }}>
         <button
           onClick={onContinue}
           className="font-mono"
@@ -504,14 +752,14 @@ function ResearchStage({
             cursor: "pointer",
           }}
         >
-          Summon the Council →
+          Pick the Council →
         </button>
       </div>
     </div>
   );
 }
 
-/* ── Stage 3: Council ── */
+/* ────────────── Stage 3: Council ────────────── */
 
 function CouncilStage({
   minds,
@@ -526,7 +774,6 @@ function CouncilStage({
 }) {
   const count = council.length;
   const valid = count >= MIND_MIN && count <= MIND_MAX;
-
   return (
     <div>
       <div
@@ -673,50 +920,77 @@ function CouncilStage({
   );
 }
 
-/* ── Stage 4: Agon (Phase 1 placeholder) ── */
+/* ────────────── Stage 4: Agon (live streaming) ────────────── */
 
 function AgonStage({
   topic,
   selectedMinds,
-  onContinue,
+  turns,
+  activeMindSlug,
+  activeRound,
 }: {
   topic: string;
   selectedMinds: MindOption[];
-  onContinue: () => void;
+  turns: RoundTurn[];
+  activeMindSlug: string | null;
+  activeRound: number | null;
 }) {
+  const colorBySlug = useMemo(() => {
+    const map: Record<string, string> = {};
+    for (const m of selectedMinds) map[m.slug] = m.colorVar;
+    return map;
+  }, [selectedMinds]);
+
+  const turnsByRound = useMemo(() => {
+    const map = new Map<number, RoundTurn[]>();
+    for (const t of turns) {
+      if (!map.has(t.round)) map.set(t.round, []);
+      map.get(t.round)!.push(t);
+    }
+    return map;
+  }, [turns]);
+
+  const sortedRounds = Array.from(turnsByRound.keys()).sort((a, b) => a - b);
+
   return (
     <div>
-      <PreviewBanner>
-        Phase 2 will stream real 150&ndash;250-word turns with
-        position&nbsp;→&nbsp;warrant&nbsp;→&nbsp;engagement&nbsp;→&nbsp;implication
-        structure, per the AGORA_PLAN §3 spec.
-      </PreviewBanner>
+      <div
+        className="font-mono uppercase"
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.08em",
+          color: "var(--fg-dim)",
+          marginBottom: "10px",
+        }}
+      >
+        The Decision
+      </div>
+      <p
+        style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "18px",
+          lineHeight: 1.5,
+          color: "var(--fg)",
+          fontStyle: "italic",
+          marginBottom: "36px",
+        }}
+      >
+        &ldquo;{topic}&rdquo;
+      </p>
 
-      <div style={{ marginTop: "32px" }}>
+      {turns.length === 0 && (
         <div
-          className="font-mono uppercase"
+          className="font-mono"
           style={{
-            fontSize: "11px",
+            fontSize: "12px",
             letterSpacing: "0.08em",
             color: "var(--fg-dim)",
-            marginBottom: "10px",
+            marginBottom: "24px",
           }}
         >
-          The Decision
+          Convening the council…
         </div>
-        <p
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "18px",
-            lineHeight: 1.5,
-            color: "var(--fg)",
-            fontStyle: "italic",
-            marginBottom: "36px",
-          }}
-        >
-          &ldquo;{topic}&rdquo;
-        </p>
-      </div>
+      )}
 
       <div
         style={{
@@ -725,14 +999,15 @@ function AgonStage({
           gap: "36px",
         }}
       >
-        {[1, 2, 3].map((round) => (
+        {sortedRounds.map((round) => (
           <div key={round}>
             <div
               className="font-mono uppercase"
               style={{
                 fontSize: "11px",
                 letterSpacing: "0.15em",
-                color: "var(--fg-dim)",
+                color:
+                  round === activeRound ? "var(--amber)" : "var(--fg-dim)",
                 marginBottom: "20px",
               }}
             >
@@ -745,168 +1020,144 @@ function AgonStage({
                 gap: "24px",
               }}
             >
-              {selectedMinds.map((mind) => (
-                <div key={mind.slug}>
+              {turnsByRound.get(round)!.map((turn) => {
+                const isActive = activeMindSlug === turn.mindSlug && !turn.done;
+                return (
                   <div
-                    className="font-mono uppercase"
+                    key={`${turn.round}-${turn.mindSlug}`}
                     style={{
-                      fontSize: "11px",
-                      letterSpacing: "0.1em",
-                      color: mind.colorVar,
+                      opacity: turn.done ? 0.85 : 1,
+                      transition: "opacity 400ms ease-out",
                     }}
                   >
-                    {mind.name}
+                    <div
+                      className="font-mono uppercase"
+                      style={{
+                        fontSize: "11px",
+                        letterSpacing: "0.1em",
+                        color: colorBySlug[turn.mindSlug] ?? "var(--fg)",
+                      }}
+                    >
+                      {turn.mindName}
+                    </div>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-serif)",
+                        fontSize: "16px",
+                        lineHeight: 1.65,
+                        marginTop: "10px",
+                        whiteSpace: "pre-wrap",
+                      }}
+                    >
+                      {turn.text}
+                      {isActive && (
+                        <span className="gm-caret" aria-hidden="true">
+                          {" "}▍
+                        </span>
+                      )}
+                    </p>
                   </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-serif)",
-                      fontSize: "14px",
-                      fontStyle: "italic",
-                      color: mind.colorVar,
-                      opacity: 0.6,
-                      marginTop: "3px",
-                    }}
-                  >
-                    {mind.lens.length > 90
-                      ? mind.lens.slice(0, 90) + "…"
-                      : mind.lens}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-serif)",
-                      fontSize: "16px",
-                      lineHeight: 1.6,
-                      color: "var(--fg-dim)",
-                      marginTop: "10px",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    [Turn streams here — Phase 2 wires this to the agon engine]
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
-      </div>
-
-      <div style={{ marginTop: "48px" }}>
-        <button
-          onClick={onContinue}
-          className="font-mono"
-          style={{
-            background: "var(--amber)",
-            color: "var(--bg)",
-            border: "1px solid var(--amber)",
-            fontSize: "12px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            padding: "14px 28px",
-            cursor: "pointer",
-          }}
-        >
-          Surface the Consensus →
-        </button>
       </div>
     </div>
   );
 }
 
-/* ── Stage 5: Consensus (Phase 1 placeholder with interactive graph) ── */
+/* ────────────── Stage 5: Consensus (real data) ────────────── */
 
 function ConsensusStage({
   topic,
   selectedMinds,
+  consensus,
+  loading,
   consensusNode,
   setConsensusNode,
+  turns,
   onReset,
 }: {
   topic: string;
   selectedMinds: MindOption[];
+  consensus: ConsensusResult | null;
+  loading: boolean;
   consensusNode: ConsensusNodeKey | null;
   setConsensusNode: (k: ConsensusNodeKey | null) => void;
+  turns: RoundTurn[];
   onReset: () => void;
 }) {
-  const placeholderSummaries: Partial<Record<ConsensusNodeKey, string>> = {
-    POINTS:
-      "What all the minds converged on. Phase 2 extracts this from actual agreement in the agon.",
-    TENSIONS:
-      "Where the minds split. The load-bearing disagreements the user must decide between.",
-    ACTION:
-      "The single concrete move the consensus recommends.",
-    STEPS:
-      "The 3&ndash;5 immediate next steps to test or enact the recommendation.",
-    RISKS:
-      "What could go wrong, flagged by each mind&apos;s known blind spots.",
-  };
+  const summaries = consensus
+    ? {
+        POINTS: consensus.pointsSummary,
+        TENSIONS: consensus.tensionsSummary,
+        ACTION: consensus.actionSummary,
+        STEPS: consensus.stepsSummary,
+        RISKS: consensus.risksSummary,
+      }
+    : undefined;
 
   return (
     <div>
-      <PreviewBanner>
-        Phase 2 produces real consensus from the agon. Hover the nodes now to
-        see what each will contain.
-      </PreviewBanner>
-
-      <div style={{ marginTop: "32px" }}>
-        <div
-          className="font-mono uppercase"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.08em",
-            color: "var(--fg-dim)",
-            marginBottom: "10px",
-          }}
-        >
-          Council
-        </div>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            flexWrap: "wrap",
-            marginBottom: "28px",
-          }}
-        >
-          {selectedMinds.map((mind) => (
-            <div
-              key={mind.slug}
-              className="font-mono uppercase"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                color: mind.colorVar,
-              }}
-            >
-              {mind.name}
-            </div>
-          ))}
-        </div>
-
-        <div
-          className="font-mono uppercase"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.08em",
-            color: "var(--fg-dim)",
-            marginBottom: "10px",
-          }}
-        >
-          The Decision
-        </div>
-        <p
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "17px",
-            lineHeight: 1.5,
-            color: "var(--fg)",
-            fontStyle: "italic",
-            marginBottom: "48px",
-            maxWidth: "58ch",
-          }}
-        >
-          &ldquo;{topic}&rdquo;
-        </p>
+      <div
+        className="font-mono uppercase"
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.08em",
+          color: "var(--fg-dim)",
+          marginBottom: "10px",
+        }}
+      >
+        Council
       </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          flexWrap: "wrap",
+          marginBottom: "28px",
+        }}
+      >
+        {selectedMinds.map((mind) => (
+          <div
+            key={mind.slug}
+            className="font-mono uppercase"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              color: mind.colorVar,
+            }}
+          >
+            {mind.name}
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="font-mono uppercase"
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.08em",
+          color: "var(--fg-dim)",
+          marginBottom: "10px",
+        }}
+      >
+        The Decision
+      </div>
+      <p
+        style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "17px",
+          lineHeight: 1.5,
+          color: "var(--fg)",
+          fontStyle: "italic",
+          marginBottom: "48px",
+          maxWidth: "58ch",
+        }}
+      >
+        &ldquo;{topic}&rdquo;
+      </p>
 
       <div
         style={{
@@ -919,38 +1170,96 @@ function ConsensusStage({
         <div style={{ flexShrink: 0 }}>
           <ConsensusGraph
             started={true}
-            summaries={placeholderSummaries}
+            summaries={summaries}
             onNodeSelect={setConsensusNode}
             selected={consensusNode}
           />
         </div>
         <div style={{ flex: 1, minWidth: "260px" }}>
-          <div
+          {loading && (
+            <div
+              className="font-mono"
+              style={{
+                fontSize: "12px",
+                letterSpacing: "0.08em",
+                color: "var(--fg-dim)",
+              }}
+            >
+              Synthesizing the consensus…
+            </div>
+          )}
+          {!loading && !consensus && (
+            <div
+              className="font-mono"
+              style={{
+                fontSize: "12px",
+                letterSpacing: "0.08em",
+                color: "var(--fg-dim)",
+              }}
+            >
+              Waiting for the agon to finish…
+            </div>
+          )}
+          {consensus && (
+            <ConsensusDoc consensus={consensus} active={consensusNode} />
+          )}
+        </div>
+      </div>
+
+      {turns.length > 0 && (
+        <details style={{ marginTop: "64px" }}>
+          <summary
             className="font-mono uppercase"
             style={{
               fontSize: "11px",
               letterSpacing: "0.08em",
-              color: "var(--amber)",
-              marginBottom: "12px",
-            }}
-          >
-            Council Consensus
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "16px",
-              lineHeight: 1.65,
               color: "var(--fg-dim)",
-              fontStyle: "italic",
+              cursor: "pointer",
+              padding: "8px 0",
             }}
           >
-            [The full synthesis streams here in Phase 2 — points of agreement,
-            live tensions, recommended action, next steps, and risks. Click any
-            node on the graph to jump to that section.]
-          </p>
-        </div>
-      </div>
+            ▸ Re-read the full agon transcript
+          </summary>
+          <div
+            style={{
+              marginTop: "16px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            {turns.map((t, i) => {
+              const mind = selectedMinds.find((m) => m.slug === t.mindSlug);
+              return (
+                <div key={i}>
+                  <div
+                    className="font-mono uppercase"
+                    style={{
+                      fontSize: "10px",
+                      letterSpacing: "0.1em",
+                      color: mind?.colorVar ?? "var(--fg)",
+                    }}
+                  >
+                    {t.mindName} · Round {t.round}
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "15px",
+                      lineHeight: 1.6,
+                      marginTop: "6px",
+                      color: "var(--fg-dim)",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
+                    {t.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </details>
+      )}
 
       <div style={{ marginTop: "64px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
         <button
@@ -974,7 +1283,76 @@ function ConsensusStage({
   );
 }
 
-/* ── Shared preview banner ── */
+/* ────────────── Consensus document ────────────── */
+
+function ConsensusDoc({
+  consensus,
+  active,
+}: {
+  consensus: ConsensusResult;
+  active: ConsensusNodeKey | null;
+}) {
+  const sections: { key: ConsensusNodeKey; title: string; body: React.ReactNode }[] = [
+    { key: "POINTS", title: "Consensus Points", body: <p>{consensus.points}</p> },
+    { key: "TENSIONS", title: "Live Tensions", body: <p>{consensus.tensions}</p> },
+    { key: "ACTION", title: "Recommended Action", body: <p>{consensus.action}</p> },
+    {
+      key: "STEPS",
+      title: "Immediate Next Steps",
+      body: (
+        <ul style={{ paddingLeft: "20px", margin: 0 }}>
+          {consensus.steps.map((s, i) => (
+            <li key={i} style={{ marginBottom: "6px" }}>{s}</li>
+          ))}
+        </ul>
+      ),
+    },
+    { key: "RISKS", title: "Risks", body: <p>{consensus.risks}</p> },
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      {sections.map((s) => {
+        const highlighted = active === s.key;
+        return (
+          <div
+            key={s.key}
+            id={`consensus-${s.key.toLowerCase()}`}
+            style={{
+              borderLeft: `2px solid ${highlighted ? "var(--amber)" : "transparent"}`,
+              paddingLeft: highlighted ? "16px" : "0",
+              transition: "all 300ms ease-out",
+            }}
+          >
+            <div
+              className="font-mono uppercase"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                color: "var(--amber)",
+                marginBottom: "8px",
+              }}
+            >
+              {s.title}
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "16px",
+                lineHeight: 1.65,
+                color: "var(--fg)",
+              }}
+            >
+              {s.body}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ────────────── Shared ────────────── */
 
 function PreviewBanner({ children }: { children: React.ReactNode }) {
   return (
