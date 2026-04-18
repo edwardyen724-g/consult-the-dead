@@ -246,3 +246,56 @@ body {
     stroke-dashoffset: 0 !important;
   }
 }
+
+/* ===== Print / PDF export ===== */
+@media print {
+  /* Force light tokens so it reads well on paper */
+  :root, html.light, html {
+    --bg: #ffffff !important;
+    --fg: #111111 !important;
+    --fg-dim: #555555 !important;
+    --hairline: #c8c8c8 !important;
+    --amber: #8a6028 !important;
+  }
+
+  html, body, main {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  /* Hide site chrome and any element explicitly marked no-print */
+  header,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Force the agon transcript open in print */
+  details > *:not(summary) {
+    display: block !important;
+  }
+  details summary {
+    display: none !important;
+  }
+
+  /* Remove caret, hide motion-only flourishes */
+  .gm-caret,
+  .gm-consensus-graph .gm-cline-0,
+  .gm-consensus-graph .gm-cline-1,
+  .gm-consensus-graph .gm-cline-2,
+  .gm-consensus-graph .gm-cline-3,
+  .gm-consensus-graph .gm-cline-4 {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  /* Tighter, page-friendly margins */
+  @page {
+    margin: 12mm 14mm;
+  }
+
+  /* Avoid awkward breaks inside a single turn */
+  details > div > div,
+  [data-print-block] {
+    break-inside: avoid;
+  }
+}

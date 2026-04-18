@@ -417,6 +417,7 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
         </div>
 
         <div
+          data-print="hide"
           style={{
             marginTop: "96px",
             paddingTop: "24px",
@@ -671,7 +672,7 @@ function TopicStage({
             padding: 0,
           }}
         >
-          {showKey ? "− hide" : "+ "}your own anthropic key {apiKey ? " (saved)" : "(optional)"}
+          {showKey ? "− hide " : "+ "}your own anthropic key {apiKey ? "(saved)" : "(optional)"}
         </button>
         {showKey && (
           <div style={{ marginTop: "12px" }}>
@@ -1261,7 +1262,29 @@ function ConsensusStage({
         </details>
       )}
 
-      <div style={{ marginTop: "64px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
+      <div
+        data-print="hide"
+        style={{ marginTop: "64px", display: "flex", gap: "16px", flexWrap: "wrap" }}
+      >
+        <button
+          onClick={() => downloadReport()}
+          disabled={!consensus}
+          className="font-mono"
+          style={{
+            background: consensus ? "var(--amber)" : "transparent",
+            color: consensus ? "var(--bg)" : "var(--fg-dim)",
+            border: consensus
+              ? "1px solid var(--amber)"
+              : "1px solid var(--hairline)",
+            fontSize: "12px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            padding: "14px 28px",
+            cursor: consensus ? "pointer" : "not-allowed",
+          }}
+        >
+          Download Report (PDF)
+        </button>
         <button
           onClick={onReset}
           className="font-mono"
@@ -1281,6 +1304,27 @@ function ConsensusStage({
       </div>
     </div>
   );
+}
+
+/* Triggers the browser print dialog. The print stylesheet hides nav and
+   force-expands the agon transcript so the saved PDF contains the full
+   council, the consensus, and every turn. The user picks "Save as PDF"
+   in the print dialog (or sends to a real printer). */
+function downloadReport() {
+  if (typeof window === "undefined") return;
+  const detailsEls = Array.from(document.querySelectorAll("details"));
+  const priorOpen = detailsEls.map((d) => d.open);
+  detailsEls.forEach((d) => {
+    d.open = true;
+  });
+  // Give the browser a tick to apply the open state before opening the
+  // print dialog — some browsers snapshot the DOM synchronously.
+  window.requestAnimationFrame(() => {
+    window.print();
+    detailsEls.forEach((d, i) => {
+      d.open = priorOpen[i] ?? d.open;
+    });
+  });
 }
 
 /* ────────────── Consensus document ────────────── */
