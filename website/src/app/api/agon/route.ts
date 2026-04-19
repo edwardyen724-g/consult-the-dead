@@ -15,7 +15,36 @@ interface AgonRequestBody {
   research?: boolean;
 }
 
+const ALLOWED_ORIGINS = new Set<string>([
+  "https://consultthedead.com",
+  "https://www.consultthedead.com",
+  "https://agora.consultthedead.com",
+  // Local dev — Next default port and common alternates.
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  "http://localhost:3001",
+]);
+
+function isAllowedOrigin(req: NextRequest): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return false;
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  // Allow Vercel preview deployments under our team so we can test
+  // before promoting to prod.
+  if (/^https:\/\/website-[a-z0-9-]+-edwardyen724-gs-projects\.vercel\.app$/.test(origin)) {
+    return true;
+  }
+  return false;
+}
+
 export async function POST(request: NextRequest) {
+  if (!isAllowedOrigin(request)) {
+    return jsonError(
+      403,
+      "This API is only available from consultthedead.com. If you'd like to integrate with the Agora directly, please reach out."
+    );
+  }
+
   let body: AgonRequestBody;
   try {
     body = await request.json();
