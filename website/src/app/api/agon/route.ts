@@ -3,6 +3,7 @@ import type { FrameworkSlug } from "@/lib/frameworks";
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { runAgon } from "@/lib/agon/agonEngine";
 import { checkAndIncrement, getClientIp } from "@/lib/agon/rateLimit";
+import { bumpCounter, bumpMind, logTopic } from "@/lib/agon/metrics";
 import type { AgonEvent } from "@/lib/agon/types";
 
 export const runtime = "nodejs";
@@ -89,6 +90,9 @@ export async function POST(request: NextRequest) {
     const ip = getClientIp(request);
     const result = await checkAndIncrement(ip);
     if (!result.allowed) {
+      bumpCounter(
+        result.reason === "global" ? "rate_limited_global" : "rate_limited_ip"
+      );
       const message =
         result.reason === "global"
           ? "The free tier is at capacity for today. Add your own Anthropic API key for unlimited use, or check back tomorrow."
@@ -103,6 +107,12 @@ export async function POST(request: NextRequest) {
     }
   }
 
+  // Past validation + rate limit. Record an "agon started" event.
+  bumpCounter("agons_started");
+  if (!usingServerKey) bumpCounter("byo_key_used");
+  for (const slug of mindSlugs) bumpMind(slug);
+  logTopic({ topic, minds: mindSlugs, byo: !usingServerKey, ts: Date.now() });
+
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
     async start(controller) {
@@ -111,6 +121,7 @@ export async function POST(request: NextRequest) {
         controller.enqueue(encoder.encode(payload));
       };
 
+      let completed = false;
       try {
         for await (const event of runAgon({
           apiKey,
@@ -120,8 +131,11 @@ export async function POST(request: NextRequest) {
           research: null, // research wiring lands in Phase 3
         })) {
           send(event);
+          if (event.type === "agon_done") completed = true;
         }
+        if (completed) bumpCounter("agons_completed");
       } catch (err) {
+        bumpCounter("agons_errored");
         send({
           type: "error",
           message: err instanceof Error ? err.message : "Unknown error",

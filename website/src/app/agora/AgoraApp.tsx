@@ -595,6 +595,20 @@ function TopicStage({
         }}
       />
 
+      <div
+        className="font-mono"
+        style={{
+          marginTop: "10px",
+          fontSize: "11px",
+          letterSpacing: "0.04em",
+          color: "var(--fg-dim)",
+          lineHeight: 1.6,
+        }}
+      >
+        We log your decision and council selection so we can learn what to
+        build next. We do <em>not</em> store your name, email, or IP.
+      </div>
+
       <div style={{ marginTop: "32px" }}>
         <button
           onClick={onSubmit}
