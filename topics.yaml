@@ -1,0 +1,294 @@
+# Consult The Dead — content topic queue
+# Hand-curated initial backlog. Trends-API discovery added in Phase 4.
+# See CONTENT_PIPELINE.md §6 for article types and §8 for queue rules.
+
+# ─────────────────────────────────────────────────────────────────────
+# Type "decision" — pain-state queries, highest commercial intent.
+# Each gets a /decisions/{slug} page that drops user into a pre-loaded agon.
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: should-i-raise-vc-or-bootstrap
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise VC or bootstrap"
+  secondary_queries:
+    - "VC vs bootstrap pros and cons"
+    - "when to raise venture capital"
+    - "is bootstrapping better than VC"
+  recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-quit-my-job-to-start-a-company
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I quit my job to start a company"
+  secondary_queries:
+    - "when is the right time to start a company"
+    - "should I quit my job to be an entrepreneur"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: should-i-fire-my-cofounder
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I fire my cofounder"
+  secondary_queries:
+    - "how to fire a cofounder"
+    - "cofounder conflict resolution"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-we-open-source-our-core-product
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should we open source our product"
+  secondary_queries:
+    - "open source vs closed source business"
+    - "is open source good for startups"
+  recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-pivot-or-persist
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I pivot my startup"
+  secondary_queries:
+    - "when to pivot vs persist"
+    - "startup pivot signs"
+  recommended_council: [marie-curie, isaac-newton, marcus-aurelius]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-take-this-job-offer
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take this job offer"
+  secondary_queries:
+    - "how to evaluate a job offer"
+    - "should I accept a counter offer"
+  recommended_council: [marcus-aurelius, niccolo-machiavelli, marie-curie]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: should-i-pivot-to-ai-or-double-down-on-domain
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I pivot career to AI"
+  secondary_queries:
+    - "AI replacing my job what to do"
+    - "should I learn AI or specialize"
+  recommended_council: [sun-tzu, marie-curie, leonardo-da-vinci]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-hire-or-outsource
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "hire vs outsource"
+  secondary_queries:
+    - "when to hire your first employee"
+    - "freelancer vs full time employee"
+  recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
+  hook_angles: [proof, shortcut]
+  status: queued
+
+- slug: should-i-take-the-money-or-the-equity
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "salary vs equity"
+  secondary_queries:
+    - "is startup equity worth it"
+    - "how to negotiate equity"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: should-i-shut-down-my-startup
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I shut down my startup"
+  secondary_queries:
+    - "when to give up on a startup"
+    - "signs your startup is failing"
+  recommended_council: [marcus-aurelius, marie-curie, sun-tzu]
+  hook_angles: [identity, tension]
+  status: queued
+
+# ─────────────────────────────────────────────────────────────────────
+# Type "insight" — "what would X say about Y" pop-philosophy queries.
+# Each is /insights/{slug}. We already have ~6 of these — extending the set.
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: what-would-marcus-aurelius-say-about-burnout
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Marcus Aurelius on burnout"
+  secondary_queries:
+    - "stoic advice for burnout"
+    - "Marcus Aurelius founder advice"
+  recommended_council: [marcus-aurelius]
+  hook_angles: [identity, shortcut]
+  status: queued
+
+- slug: what-would-sun-tzu-say-about-tariffs-and-trade-wars
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Sun Tzu on trade war"
+  secondary_queries:
+    - "Art of War tariff strategy"
+    - "Sun Tzu economics"
+  recommended_council: [sun-tzu]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: what-would-machiavelli-say-about-firing-someone-you-respect
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Machiavelli on firing employees"
+  secondary_queries:
+    - "Machiavelli leadership advice"
+    - "how would Machiavelli handle conflict"
+  recommended_council: [niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: what-would-marie-curie-say-about-when-to-trust-the-data
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Marie Curie scientific method"
+  secondary_queries:
+    - "how to know when you have enough data"
+    - "when to stop researching and decide"
+  recommended_council: [marie-curie]
+  hook_angles: [shortcut, identity]
+  status: queued
+
+- slug: what-would-newton-say-about-rebuilding-from-first-principles
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Newton first principles"
+  secondary_queries:
+    - "first principles thinking examples"
+    - "how to think from first principles"
+  recommended_council: [isaac-newton]
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: what-would-tesla-say-about-shipping-vs-perfecting
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Tesla on perfectionism"
+  secondary_queries:
+    - "Nikola Tesla decision making"
+    - "when to ship vs when to wait"
+  recommended_council: [nikola-tesla]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: what-would-leonardo-say-about-the-thing-youre-not-noticing
+  type: insight
+  search_volume_estimate: low
+  primary_query: "Leonardo da Vinci observation"
+  secondary_queries:
+    - "Leonardo da Vinci decision making"
+    - "how to notice what others miss"
+  recommended_council: [leonardo-da-vinci]
+  hook_angles: [identity, shortcut]
+  status: queued
+
+- slug: what-would-machiavelli-say-about-startup-cap-tables
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Machiavelli on power dynamics"
+  secondary_queries:
+    - "cap table power dynamics"
+    - "startup founder leverage"
+  recommended_council: [niccolo-machiavelli]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: what-would-sun-tzu-say-about-entering-saturated-markets
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Sun Tzu market entry strategy"
+  secondary_queries:
+    - "how to enter a saturated market"
+    - "Art of War startup competition"
+  recommended_council: [sun-tzu]
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: what-would-marcus-aurelius-say-about-imposter-syndrome
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Marcus Aurelius imposter syndrome"
+  secondary_queries:
+    - "stoic advice for self-doubt"
+    - "stoicism for founders"
+  recommended_council: [marcus-aurelius]
+  hook_angles: [identity, shortcut]
+  status: queued
+
+# ─────────────────────────────────────────────────────────────────────
+# Type "method" — definitive long-form on real frameworks (CDM, Toulmin, OODA, Cynefin).
+# Evergreen. AI-citability plays. Slower cadence.
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: critical-decision-method-explained
+  type: method
+  search_volume_estimate: medium
+  primary_query: "critical decision method"
+  secondary_queries:
+    - "CDM cognitive task analysis"
+    - "Klein critical decision method"
+  recommended_council: []  # methodology page, no council
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: first-principles-thinking-the-honest-version
+  type: method
+  search_volume_estimate: high
+  primary_query: "first principles thinking"
+  secondary_queries:
+    - "Elon Musk first principles"
+    - "first principles examples"
+  recommended_council: []
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: the-ooda-loop-vs-the-cynefin-framework
+  type: method
+  search_volume_estimate: medium
+  primary_query: "OODA loop vs Cynefin"
+  secondary_queries:
+    - "decision frameworks compared"
+    - "when to use OODA"
+  recommended_council: []
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: trendslop-why-all-llms-give-the-same-strategic-advice
+  type: method
+  search_volume_estimate: medium
+  primary_query: "AI trendslop"
+  secondary_queries:
+    - "why does ChatGPT give generic advice"
+    - "HBR trendslop study"
+  recommended_council: []  # this is the positioning piece
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: bipolar-constructs-how-experts-actually-categorize-decisions
+  type: method
+  search_volume_estimate: low
+  primary_query: "personal construct theory"
+  secondary_queries:
+    - "Kelly construct theory"
+    - "how experts make decisions"
+  recommended_council: []
+  hook_angles: [shortcut, identity]
+  status: queued
