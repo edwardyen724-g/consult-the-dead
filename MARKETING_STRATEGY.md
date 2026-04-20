@@ -85,16 +85,16 @@ The full operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md).
 
 ---
 
-## 5. The concierge offer (optional revenue stream)
+## 5. Concierge — out of scope for now
 
-Not part of the launch event. A passive line on the landing page for users who want a hand-curated, deeper synthesis from Edward.
+The "Submit your decision" form on the landing page stays as-is: free, manual fulfillment by Edward within 24h, Discord webhook for notification. That's been there from day one and continues.
 
-- **Offer:** "Submit your decision. Get a hand-written council debate back in 24 hours."
-- **Price:** $29/decision (test point)
-- **Delivery:** Edward runs the agon manually with extra rigor, writes a 1-page synthesis, emails as PDF
-- **Purpose:** revenue from day one + signals what decisions people are actually bringing + builds testimonials
+**Explicitly NOT doing for Phase 0-4:**
+- $29 paid concierge offer
+- Stripe payment link
+- Promoting any paid manual service
 
-The form already exists on the landing page. Stripe payment link can be wired in 10 min when Edward decides to turn it on.
+Reason: focus is the content engine. A paid service before we have organic traction adds operational load (fulfillment, support, refunds) without proven demand. Revisit at Day 90 evaluation only if the metrics report shows clear demand signal.
 
 ---
 
@@ -201,7 +201,7 @@ These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PI
 2. **Email provider:** ConvertKit / Beehiiv / Resend / build-our-own?
 3. **`/decisions/` slug pattern:** want pre-loaded agons, or just landing pages with "run yours" CTAs?
 4. **Instagram handle:** @consultthedead, @councilofthedead, or alternative?
-5. **Concierge offer:** ship the Stripe link with launch, or wait until we have first 50 visitors/week?
+5. ~~Concierge offer~~ — resolved 2026-04-20: out of scope until Day 90 evaluation.
 
 ---
 

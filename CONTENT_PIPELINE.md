@@ -48,11 +48,9 @@ The Verdict Reel wins because **the product output IS the most cinematic asset w
 - Voiceover MANDATORY. Sound-on vertical video has 34.5% lower CPA than image; voiceover Reels deliver up to 13% higher incremental conversion.
 - CTA at end-card AND in pinned comment AND bio link — never mid-roll (kills retention).
 
-### The voiceover question
+### The voiceover question — resolved 2026-04-20
 
-Research recommends **real human voiceover** (Edward's voice). Voiceover ≠ on camera — Edward's identity stays brand-level, only voice is exposed. If Edward refuses voiceover too, fallback is **ElevenLabs cloning of Edward's voice from a 5-min sample** (~99% indistinguishable from real on short clips, no Meta penalty since Meta only flags visual deepfakes). Avoid generic stock voices — they trigger the "AI slop" reaction.
-
-**Decision needed:** Edward voiceover (preferred) OR ElevenLabs clone of Edward's voice. Not generic AI voice.
+**Open-source clone of Edward's voice using F5-TTS.** Picked over ElevenLabs (cost) and other open-source options (license issues — XTTS-v2 and Fish-Speech are non-commercial). F5-TTS is MIT licensed, ~30s reference audio is enough, runs at 5-10× real-time on a single GPU. Fallback if F5 is rough: **Chatterbox** (Resemble AI, also MIT). Avoid generic AI voices — they trigger the "AI slop" reaction.
 
 ### Visual style commitment
 
@@ -172,7 +170,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 | Need | Tool | Why |
 |---|---|---|
-| **Voice (recommended: real)** | Edward's voiceover OR ElevenLabs voice clone | Real voice is key signal vs AI slop |
+| **Voice clone** | F5-TTS (open source, MIT, ~30s ref) — fallback Chatterbox | Both MIT, both free; avoids ElevenLabs cost. **Skip XTTS-v2 and Fish-Speech — non-commercial license** |
 | **Video editing** | CapCut Pro (~$8/mo) OR Descript ($16/mo) | Both have AI-assist but ship human-edited result |
 | **Captions on-screen** | CapCut auto-captions OR Captions.ai | Either works |
 | **B-roll: agon UI captures** | Built — screen rec the live product on agora.consultthedead.com | Native, on-brand |
@@ -185,8 +183,10 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 - **Stock voiceovers** — triggers AI-slop reaction
 - **Generic stock footage** — kills our visual differentiation
 
-### Open / TBD
-- **Email capture provider** — ConvertKit, Beehiiv, or Resend. Need to add to consensus stage. Big lever per case studies.
+### Email — resolved 2026-04-20: Beehiiv
+- Newsletter platform, not transactional. Free up to 2,500 subs.
+- Built-in growth tools (recommendations, monetization).
+- Resend stays in the toolkit for future transactional needs (agon completion notifications, etc.) — different category.
 
 ---
 
@@ -243,14 +243,15 @@ If a Reel hits 3× our typical reach AND the topic has search volume:
 
 ---
 
-## 10. Open decisions
+## 10. Open decisions — resolved 2026-04-20
 
-These shape the build, not just the doc. Edward needs to call:
+1. ~~Voice~~ → **F5-TTS** (open source clone of Edward's voice). Fallback: Chatterbox.
+2. ~~Email~~ → **Beehiiv** (newsletter, free 2.5k subs). Resend reserved for future transactional.
+3. ~~`/decisions/` slug pattern~~ → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
+4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
+5. ~~First topic batch~~ → seeded in [topics.yaml](topics.yaml). Edward to review and adjust before Phase 1 starts publishing.
 
-1. **Voice approach:** Edward voiceover OR ElevenLabs clone of Edward's voice? (Generic AI voice = no.)
-2. **Email capture:** ConvertKit / Beehiiv / Resend / build-our-own? Affects whether we add it pre-launch or post-launch.
-3. **`/decisions/` slug pattern:** want pre-loaded agons or just pages with "run yours" CTAs? (Pre-loaded = higher conversion, more work to build.)
-4. **First topic batch:** approve the seeded `topics.yaml` once it's drafted, or want to revise it first?
+The remaining unresolved item is Edward's review of the topics.yaml seed list before we start auto-generating articles from it.
 
 ---
 
