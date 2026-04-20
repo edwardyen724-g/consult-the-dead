@@ -77,6 +77,94 @@ export function bumpMind(slug: string): void {
   bumpCounter(`mind:${slug}`);
 }
 
+/* ─────────────── Pageview tracking ───────────────
+   Client-side beacon POSTs to /api/ingest/pageview on every page load
+   + SPA route change. We aggregate into Redis hashes keyed by day, so
+   the biweekly report can read top paths + top referrers without
+   depending on Vercel Analytics (which has no Hobby-tier API). */
+
+const PV_PATHS_CAP = 200; // keep top 200 paths per day
+const PV_REFERRERS_CAP = 100;
+
+function pvTotalKey(date: string): string {
+  return `metrics:${date}:pv:total`;
+}
+function pvPathsKey(date: string): string {
+  return `metrics:${date}:pv:paths`;
+}
+function pvReferrersKey(date: string): string {
+  return `metrics:${date}:pv:referrers`;
+}
+
+export function bumpPageview(path: string, referrerHost: string | null): void {
+  void (async () => {
+    const client = await getClient();
+    if (!client) return;
+    try {
+      const d = today();
+
+      const total = await client.incr(pvTotalKey(d));
+      if (total === 1) await client.expire(pvTotalKey(d), TTL_SECONDS);
+
+      const pathsK = pvPathsKey(d);
+      await client.hIncrBy(pathsK, path.slice(0, 200), 1);
+      await client.expire(pathsK, TTL_SECONDS);
+
+      if (referrerHost) {
+        const refK = pvReferrersKey(d);
+        await client.hIncrBy(refK, referrerHost.slice(0, 200), 1);
+        await client.expire(refK, TTL_SECONDS);
+      }
+    } catch {
+      // swallow
+    }
+  })();
+}
+
+export interface DayTraffic {
+  date: string;
+  totalPageviews: number;
+  topPaths: Array<{ path: string; count: number }>;
+  topReferrers: Array<{ host: string; count: number }>;
+}
+
+export async function readTraffic(days: number): Promise<DayTraffic[]> {
+  const client = await getClient();
+  if (!client) return [];
+
+  const dates: string[] = [];
+  for (let i = days - 1; i >= 0; i--) dates.push(dateNDaysAgo(i));
+
+  const out: DayTraffic[] = [];
+  for (const date of dates) {
+    let totalPageviews = 0;
+    let topPaths: Array<{ path: string; count: number }> = [];
+    let topReferrers: Array<{ host: string; count: number }> = [];
+
+    try {
+      const totalStr = await client.get(pvTotalKey(date));
+      totalPageviews = totalStr ? parseInt(totalStr, 10) || 0 : 0;
+
+      const paths = await client.hGetAll(pvPathsKey(date));
+      topPaths = Object.entries(paths)
+        .map(([path, n]) => ({ path, count: parseInt(n, 10) || 0 }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, Math.min(PV_PATHS_CAP, 20));
+
+      const refs = await client.hGetAll(pvReferrersKey(date));
+      topReferrers = Object.entries(refs)
+        .map(([host, n]) => ({ host, count: parseInt(n, 10) || 0 }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, Math.min(PV_REFERRERS_CAP, 10));
+    } catch {
+      // leave zeros
+    }
+
+    out.push({ date, totalPageviews, topPaths, topReferrers });
+  }
+  return out;
+}
+
 interface TopicLogEntry {
   topic: string;
   minds: string[];

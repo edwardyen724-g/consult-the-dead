@@ -1,11 +1,12 @@
 import { NextRequest } from "next/server";
-import { readMetrics } from "@/lib/agon/metrics";
+import { readMetrics, readTraffic } from "@/lib/agon/metrics";
 
 export const runtime = "nodejs";
 
 /* Admin-only metrics endpoint. Protected by ADMIN_TOKEN env var so the
    scheduled reporter (and you) can pull aggregate usage data without
-   exposing it publicly. */
+   exposing it publicly. Returns both agon engagement metrics and
+   pageview traffic. */
 export async function GET(request: NextRequest) {
   const adminToken = process.env.ADMIN_TOKEN;
   if (!adminToken) {
@@ -21,7 +22,10 @@ export async function GET(request: NextRequest) {
   const daysParam = url.searchParams.get("days");
   const days = Math.max(1, Math.min(30, parseInt(daysParam ?? "7", 10) || 7));
 
-  const metrics = await readMetrics(days);
+  const [metrics, traffic] = await Promise.all([
+    readMetrics(days),
+    readTraffic(days),
+  ]);
 
   return new Response(
     JSON.stringify(
@@ -29,6 +33,7 @@ export async function GET(request: NextRequest) {
         days,
         generatedAt: new Date().toISOString(),
         metrics,
+        traffic,
       },
       null,
       2

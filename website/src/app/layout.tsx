@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { OrganizationJsonLd, WebAppJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { PageviewTracker } from "@/components/PageviewTracker";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -84,6 +85,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
+        <PageviewTracker />
       </body>
     </html>
   );
