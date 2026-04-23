@@ -47,6 +47,14 @@ export function Header() {
           >
             Pricing
           </Link>
+          {isSignedIn && (
+            <Link
+              href="/library"
+              className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
+            >
+              Library
+            </Link>
+          )}
           <Link
             href="/agora"
             className="font-mono text-[11px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors"

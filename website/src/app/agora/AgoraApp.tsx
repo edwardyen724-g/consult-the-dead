@@ -1129,6 +1129,29 @@ function ConsensusStage({
   onReset: () => void;
   isPro: boolean;
 }) {
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+
+  async function handleSave() {
+    if (!consensus) return;
+    setSaveState("saving");
+    try {
+      const res = await fetch("/api/library", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          topic,
+          mindSlugs: selectedMinds.map((m) => m.slug),
+          rounds: TOTAL_ROUNDS,
+          turns,
+          consensus,
+        }),
+      });
+      setSaveState(res.ok ? "saved" : "error");
+    } catch {
+      setSaveState("error");
+    }
+  }
+
   const summaries = consensus
     ? {
         POINTS: consensus.pointsSummary,
@@ -1344,6 +1367,66 @@ function ConsensusStage({
             PDF Export — Pro only →
           </Link>
         )}
+        {isPro ? (
+          saveState === "saved" ? (
+            <Link
+              href="/library"
+              className="font-mono"
+              style={{
+                display: "inline-block",
+                border: "1px solid var(--hairline)",
+                color: "var(--amber)",
+                fontSize: "12px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                padding: "14px 28px",
+                textDecoration: "none",
+              }}
+            >
+              Saved to Library ✓
+            </Link>
+          ) : (
+            <button
+              onClick={handleSave}
+              disabled={!consensus || saveState === "saving"}
+              className="font-mono"
+              style={{
+                background: "transparent",
+                color: !consensus || saveState === "saving" ? "var(--fg-dim)" : "var(--fg)",
+                border: "1px solid var(--hairline)",
+                fontSize: "12px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                padding: "14px 28px",
+                cursor: !consensus || saveState === "saving" ? "not-allowed" : "pointer",
+              }}
+            >
+              {saveState === "saving"
+                ? "Saving…"
+                : saveState === "error"
+                  ? "Save failed — retry"
+                  : "Save to Library"}
+            </button>
+          )
+        ) : (
+          <Link
+            href="/pricing"
+            className="font-mono"
+            style={{
+              display: "inline-block",
+              border: "1px solid var(--hairline)",
+              color: "var(--fg-dim)",
+              fontSize: "12px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "14px 28px",
+              textDecoration: "none",
+            }}
+          >
+            Save to Library — Pro only →
+          </Link>
+        )}
+
         <button
           onClick={onReset}
           className="font-mono"
