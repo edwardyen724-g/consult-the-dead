@@ -414,6 +414,7 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
               }
               turns={state.turns}
               onReset={reset}
+              isPro={isPro}
             />
           )}
         </div>
@@ -1116,6 +1117,7 @@ function ConsensusStage({
   setConsensusNode,
   turns,
   onReset,
+  isPro,
 }: {
   topic: string;
   selectedMinds: MindOption[];
@@ -1125,6 +1127,7 @@ function ConsensusStage({
   setConsensusNode: (k: ConsensusNodeKey | null) => void;
   turns: RoundTurn[];
   onReset: () => void;
+  isPro: boolean;
 }) {
   const summaries = consensus
     ? {
@@ -1303,25 +1306,44 @@ function ConsensusStage({
         data-print="hide"
         style={{ marginTop: "64px", display: "flex", gap: "16px", flexWrap: "wrap" }}
       >
-        <button
-          onClick={() => downloadReport()}
-          disabled={!consensus}
-          className="font-mono"
-          style={{
-            background: consensus ? "var(--amber)" : "transparent",
-            color: consensus ? "var(--bg)" : "var(--fg-dim)",
-            border: consensus
-              ? "1px solid var(--amber)"
-              : "1px solid var(--hairline)",
-            fontSize: "12px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            padding: "14px 28px",
-            cursor: consensus ? "pointer" : "not-allowed",
-          }}
-        >
-          Download Report (PDF)
-        </button>
+        {isPro ? (
+          <button
+            onClick={() => downloadReport()}
+            disabled={!consensus}
+            className="font-mono"
+            style={{
+              background: consensus ? "var(--amber)" : "transparent",
+              color: consensus ? "var(--bg)" : "var(--fg-dim)",
+              border: consensus
+                ? "1px solid var(--amber)"
+                : "1px solid var(--hairline)",
+              fontSize: "12px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "14px 28px",
+              cursor: consensus ? "pointer" : "not-allowed",
+            }}
+          >
+            Download Report (PDF)
+          </button>
+        ) : (
+          <Link
+            href="/pricing"
+            className="font-mono"
+            style={{
+              display: "inline-block",
+              border: "1px solid var(--hairline)",
+              color: "var(--fg-dim)",
+              fontSize: "12px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "14px 28px",
+              textDecoration: "none",
+            }}
+          >
+            PDF Export — Pro only →
+          </Link>
+        )}
         <button
           onClick={onReset}
           className="font-mono"
