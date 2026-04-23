@@ -1,8 +1,9 @@
 import { NextRequest } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { runAgon } from "@/lib/agon/agonEngine";
-import { checkAndIncrement, getClientIp } from "@/lib/agon/rateLimit";
+import { checkRateLimit, getClientIp } from "@/lib/agon/rateLimit";
 import { bumpCounter, bumpMind, logTopic } from "@/lib/agon/metrics";
 import type { AgonEvent } from "@/lib/agon/types";
 
@@ -87,16 +88,27 @@ export async function POST(request: NextRequest) {
   }
 
   if (usingServerKey) {
+    const { userId, sessionClaims } = await auth();
+    const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
+    const isPro = publicMetadata?.subscription_tier === "pro";
     const ip = getClientIp(request);
-    const result = await checkAndIncrement(ip);
+
+    const result = await checkRateLimit({ userId, isPro, ip });
     if (!result.allowed) {
-      bumpCounter(
-        result.reason === "global" ? "rate_limited_global" : "rate_limited_ip"
-      );
+      const metricKey =
+        result.reason === "global" ? "rate_limited_global" :
+        result.reason === "pro"    ? "rate_limited_pro" :
+        result.reason === "user"   ? "rate_limited_user" :
+                                     "rate_limited_ip";
+      bumpCounter(metricKey);
+
       const message =
         result.reason === "global"
           ? "The free tier is at capacity for today. Add your own Anthropic API key for unlimited use, or check back tomorrow."
+          : result.reason === "pro"
+          ? "You've reached your 100 agon monthly limit. Manage your subscription from your account page."
           : "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use.";
+
       return new Response(
         JSON.stringify({ error: message, rateLimited: true }),
         {

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Newsreader, JetBrains_Mono } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd, WebAppJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { PageviewTracker } from "@/components/PageviewTracker";
 import "./globals.css";
@@ -73,19 +75,22 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <OrganizationJsonLd />
-        <WebAppJsonLd />
-        <FAQJsonLd />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <Header />
-          {children}
-        </ThemeProvider>
-        <Analytics />
-        <PageviewTracker />
+        <ClerkProvider>
+          <OrganizationJsonLd />
+          <WebAppJsonLd />
+          <FAQJsonLd />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+          >
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+          <Analytics />
+          <PageviewTracker />
+        </ClerkProvider>
       </body>
     </html>
   );

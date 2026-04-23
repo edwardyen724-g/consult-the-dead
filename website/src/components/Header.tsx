@@ -1,7 +1,11 @@
+'use client'
 import Link from "next/link";
+import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
+  const { isSignedIn } = useAuth()
+
   return (
     <header className="border-b border-border relative z-50">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -38,6 +42,12 @@ export function Header() {
             Insights
           </Link>
           <Link
+            href="/pricing"
+            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
+          >
+            Pricing
+          </Link>
+          <Link
             href="/agora"
             className="font-mono text-[11px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors"
             style={{
@@ -48,6 +58,15 @@ export function Header() {
           >
             Enter The Agora
           </Link>
+          {!isSignedIn ? (
+            <SignInButton mode="redirect">
+              <button className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors">
+                Sign in
+              </button>
+            </SignInButton>
+          ) : (
+            <UserButton />
+          )}
           <ThemeToggle />
         </div>
       </div>

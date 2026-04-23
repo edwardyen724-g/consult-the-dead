@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="mt-auto">
@@ -27,6 +29,25 @@ export function Footer() {
             connected to any individual whose public decisions may have informed
             these frameworks.
           </p>
+        </div>
+
+        {/* Legal links */}
+        <div className="pb-8 flex items-center gap-5">
+          <Link
+            href="/terms"
+            className="font-mono text-[10px] uppercase tracking-widest text-muted/60 hover:text-muted transition-colors"
+          >
+            Terms
+          </Link>
+          <Link
+            href="/privacy"
+            className="font-mono text-[10px] uppercase tracking-widest text-muted/60 hover:text-muted transition-colors"
+          >
+            Privacy
+          </Link>
+          <span className="font-mono text-[10px] text-muted/40">
+            © {new Date().getFullYear()} Consult The Dead
+          </span>
         </div>
       </div>
     </footer>

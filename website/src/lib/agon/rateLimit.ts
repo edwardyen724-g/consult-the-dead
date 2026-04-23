@@ -1,21 +1,21 @@
 import { createClient, type RedisClientType } from "redis";
 
 /* ───────────────────────────── Limits ─────────────────────────────
- * Per-IP daily cap: how many free agons a single IP can run in a day.
- *   Tuned with the principle that a curious visitor should be able to
- *   run a few different decisions before having to add a key.
- *
- * Global daily budget: a hard ceiling on free-tier agons across ALL
- *   IPs in a given UTC day. Protects the server-side Anthropic key
- *   from being drained by an attacker rotating IPs (VPN, proxy pool).
- *   At ~$0.30/agon, 60 agons ≈ $18/day worst case.
+ * IP daily cap     — anonymous visitors, scoped by IP + UTC date.
+ * User daily cap   — authenticated free users, scoped by userId + date.
+ * Pro monthly cap  — pro subscribers, scoped by userId + YYYY-MM.
+ * Global daily     — hard ceiling across all free-tier agons per day;
+ *                    protects the server key from IP-rotation attacks.
+ *                    Pro agons do not consume from this budget.
  * ────────────────────────────────────────────────────────────────── */
 const FREE_LIMIT_PER_DAY = 3;
+const PRO_LIMIT_PER_MONTH = 100;
 const GLOBAL_DAILY_BUDGET = 60;
 
-const TTL_SECONDS = 36 * 3600; // safe margin past midnight UTC
+const TTL_DAILY = 36 * 3600;       // safe margin past midnight UTC
+const TTL_MONTHLY = 35 * 24 * 3600; // safe margin past end of month
 
-export type RateRejectReason = "ip" | "global";
+export type RateRejectReason = "ip" | "user" | "pro" | "global";
 
 export interface RateCheck {
   allowed: boolean;
@@ -23,12 +23,30 @@ export interface RateCheck {
   reason?: RateRejectReason;
 }
 
+export interface RateLimitContext {
+  userId?: string | null;
+  isPro: boolean;
+  ip: string;
+}
+
 function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function thisMonth(): string {
+  return new Date().toISOString().slice(0, 7); // YYYY-MM
+}
+
 function ipKey(ip: string, date: string): string {
   return `agon:rl:ip:${ip}:${date}`;
+}
+
+function userKey(userId: string, date: string): string {
+  return `agon:rl:user:${userId}:${date}`;
+}
+
+function proKey(userId: string, month: string): string {
+  return `agon:rl:pro:${userId}:${month}`;
 }
 
 function globalKey(date: string): string {
@@ -36,14 +54,9 @@ function globalKey(date: string): string {
 }
 
 function redisUrl(): string | undefined {
-  // Vercel's Redis Cloud marketplace integration sets this var when
-  // the prefix is KV_REST_API. Falls back to bare REDIS_URL for local
-  // dev / other Redis providers.
   return process.env.KV_REST_API_REDIS_URL || process.env.REDIS_URL;
 }
 
-/* Cached client across serverless warm invocations. We only attempt
-   to connect once per process; on cold starts a new connect is paid. */
 let cachedClient: RedisClientType | null = null;
 let cachedClientPromise: Promise<RedisClientType | null> | null = null;
 
@@ -59,14 +72,11 @@ async function getClient(): Promise<RedisClientType | null> {
       const client: RedisClientType = createClient({
         url,
         socket: {
-          // Don't retry forever — fail fast so we fall back to memory.
           reconnectStrategy: (retries) => (retries > 2 ? false : 250 * retries),
           connectTimeout: 3000,
         },
       });
-      client.on("error", () => {
-        // Swallow; getClient() returns null on failed connect.
-      });
+      client.on("error", () => {});
       await client.connect();
       cachedClient = client;
       return client;
@@ -80,74 +90,106 @@ async function getClient(): Promise<RedisClientType | null> {
   return cachedClientPromise;
 }
 
-/* In-memory fallback used when Redis is unavailable (local dev or
-   transient outage). Resets on process restart. */
+/* In-memory fallback for when Redis is unavailable. Resets on cold start. */
 const memMap = new Map<string, number>();
 
-function memIncrement(key: string): number {
-  const next = (memMap.get(key) ?? 0) + 1;
-  memMap.set(key, next);
-  return next;
+function memInc(key: string): number {
+  const v = (memMap.get(key) ?? 0) + 1;
+  memMap.set(key, v);
+  return v;
 }
 
-function memDecrement(key: string): void {
-  const curr = memMap.get(key) ?? 0;
-  memMap.set(key, Math.max(0, curr - 1));
+function memDec(key: string): void {
+  memMap.set(key, Math.max(0, (memMap.get(key) ?? 0) - 1));
 }
 
-async function checkAndIncrementMem(ip: string): Promise<RateCheck> {
-  const date = today();
-  const ipK = ipKey(ip, date);
-  const gK = globalKey(date);
-
-  const ipCount = memIncrement(ipK);
-  if (ipCount > FREE_LIMIT_PER_DAY) {
-    memDecrement(ipK);
-    return { allowed: false, remaining: 0, reason: "ip" };
-  }
-  const globalCount = memIncrement(gK);
-  if (globalCount > GLOBAL_DAILY_BUDGET) {
-    memDecrement(gK);
-    memDecrement(ipK);
-    return { allowed: false, remaining: 0, reason: "global" };
-  }
-  return { allowed: true, remaining: FREE_LIMIT_PER_DAY - ipCount };
+async function redisIncExpire(
+  client: RedisClientType,
+  key: string,
+  ttl: number
+): Promise<number> {
+  const n = await client.incr(key);
+  if (n === 1) await client.expire(key, ttl);
+  return n;
 }
 
-/* Atomic check-and-increment for both per-IP and global counters.
-   Returns { allowed: false } and rolls back the counter if the cap
-   would be exceeded. */
-export async function checkAndIncrement(ip: string): Promise<RateCheck> {
-  const date = today();
-  const ipK = ipKey(ip, date);
-  const gK = globalKey(date);
-
+/* ── Pro path: monthly cap only, no global budget consumed ── */
+async function checkProLimit(userId: string): Promise<RateCheck> {
+  const pk = proKey(userId, thisMonth());
   const client = await getClient();
+
   if (!client) {
-    return checkAndIncrementMem(ip);
+    const n = memInc(pk);
+    if (n > PRO_LIMIT_PER_MONTH) { memDec(pk); return { allowed: false, remaining: 0, reason: "pro" }; }
+    return { allowed: true, remaining: PRO_LIMIT_PER_MONTH - n };
   }
 
   try {
-    const ipCount = await client.incr(ipK);
-    if (ipCount === 1) await client.expire(ipK, TTL_SECONDS);
-    if (ipCount > FREE_LIMIT_PER_DAY) {
-      await client.decr(ipK);
-      return { allowed: false, remaining: 0, reason: "ip" };
+    const n = await redisIncExpire(client, pk, TTL_MONTHLY);
+    if (n > PRO_LIMIT_PER_MONTH) {
+      await client.decr(pk);
+      return { allowed: false, remaining: 0, reason: "pro" };
     }
+    return { allowed: true, remaining: PRO_LIMIT_PER_MONTH - n };
+  } catch {
+    const n = memInc(pk);
+    if (n > PRO_LIMIT_PER_MONTH) { memDec(pk); return { allowed: false, remaining: 0, reason: "pro" }; }
+    return { allowed: true, remaining: PRO_LIMIT_PER_MONTH - n };
+  }
+}
 
-    const globalCount = await client.incr(gK);
-    if (globalCount === 1) await client.expire(gK, TTL_SECONDS);
-    if (globalCount > GLOBAL_DAILY_BUDGET) {
+/* ── Free path: per-subject daily limit + global budget ── */
+async function checkFreeLimit(
+  limitKey: string,
+  rejectReason: "ip" | "user"
+): Promise<RateCheck> {
+  const date = today();
+  const gK = globalKey(date);
+  const client = await getClient();
+
+  if (!client) {
+    const n = memInc(limitKey);
+    if (n > FREE_LIMIT_PER_DAY) { memDec(limitKey); return { allowed: false, remaining: 0, reason: rejectReason }; }
+    const g = memInc(gK);
+    if (g > GLOBAL_DAILY_BUDGET) { memDec(gK); memDec(limitKey); return { allowed: false, remaining: 0, reason: "global" }; }
+    return { allowed: true, remaining: FREE_LIMIT_PER_DAY - n };
+  }
+
+  try {
+    const n = await redisIncExpire(client, limitKey, TTL_DAILY);
+    if (n > FREE_LIMIT_PER_DAY) {
+      await client.decr(limitKey);
+      return { allowed: false, remaining: 0, reason: rejectReason };
+    }
+    const g = await redisIncExpire(client, gK, TTL_DAILY);
+    if (g > GLOBAL_DAILY_BUDGET) {
       await client.decr(gK);
-      await client.decr(ipK);
+      await client.decr(limitKey);
       return { allowed: false, remaining: 0, reason: "global" };
     }
-
-    return { allowed: true, remaining: FREE_LIMIT_PER_DAY - ipCount };
+    return { allowed: true, remaining: FREE_LIMIT_PER_DAY - n };
   } catch {
-    // Redis hiccup — fall back to memory rather than blocking the user.
-    return checkAndIncrementMem(ip);
+    const n = memInc(limitKey);
+    if (n > FREE_LIMIT_PER_DAY) { memDec(limitKey); return { allowed: false, remaining: 0, reason: rejectReason }; }
+    const g = memInc(gK);
+    if (g > GLOBAL_DAILY_BUDGET) { memDec(gK); memDec(limitKey); return { allowed: false, remaining: 0, reason: "global" }; }
+    return { allowed: true, remaining: FREE_LIMIT_PER_DAY - n };
   }
+}
+
+/* ── Main export ── */
+export async function checkRateLimit(ctx: RateLimitContext): Promise<RateCheck> {
+  const { userId, isPro, ip } = ctx;
+
+  if (isPro && userId) {
+    return checkProLimit(userId);
+  }
+
+  const date = today();
+  if (userId) {
+    return checkFreeLimit(userKey(userId, date), "user");
+  }
+  return checkFreeLimit(ipKey(ip, date), "ip");
 }
 
 export function getClientIp(request: Request): string {

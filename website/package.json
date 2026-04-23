@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
+    "@clerk/nextjs": "^7.2.5",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.38.0",
     "next": "16.2.2",
     "next-themes": "^0.4.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "redis": "^5.12.1"
+    "redis": "^5.12.1",
+    "resend": "^6.12.2",
+    "stripe": "^22.0.2",
+    "svix": "^1.91.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
