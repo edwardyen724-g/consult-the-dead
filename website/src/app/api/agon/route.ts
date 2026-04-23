@@ -67,13 +67,18 @@ export async function POST(request: NextRequest) {
     return jsonError(400, "Topic must be 2000 characters or fewer");
   }
 
+  const { userId, sessionClaims } = await auth();
+  const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
+  const isPro = publicMetadata?.subscription_tier === "pro";
+
   const allowedSet = new Set<string>(ALLOWED_SLUGS);
   const mindSlugs = mindSlugsRaw.filter((s): s is FrameworkSlug =>
     allowedSet.has(s)
   );
 
-  if (mindSlugs.length < 2 || mindSlugs.length > 5) {
-    return jsonError(400, "Pick 2 to 5 minds");
+  const mindMax = isPro ? 5 : 3;
+  if (mindSlugs.length < 2 || mindSlugs.length > mindMax) {
+    return jsonError(400, isPro ? "Pick 2 to 5 minds" : "Pick 2 to 3 minds");
   }
 
   const clientKey = request.headers.get("x-api-key");
@@ -88,9 +93,6 @@ export async function POST(request: NextRequest) {
   }
 
   if (usingServerKey) {
-    const { userId, sessionClaims } = await auth();
-    const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
-    const isPro = publicMetadata?.subscription_tier === "pro";
     const ip = getClientIp(request);
 
     const result = await checkRateLimit({ userId, isPro, ip });
@@ -140,7 +142,8 @@ export async function POST(request: NextRequest) {
           topic,
           mindSlugs,
           rounds,
-          research: null, // research wiring lands in Phase 3
+          research: null,
+          isPro,
         })) {
           send(event);
           if (event.type === "agon_done") completed = true;

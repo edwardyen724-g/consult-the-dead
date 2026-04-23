@@ -115,7 +115,7 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
-export function AgoraApp({ minds }: { minds: MindOption[] }) {
+export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -162,17 +162,18 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
   }
 
   function toggleMind(slug: string) {
+    const mindMax = isPro ? MIND_MAX : 3;
     setState((s) => {
       if (s.council.includes(slug)) {
         return { ...s, council: s.council.filter((x) => x !== slug) };
       }
-      if (s.council.length >= MIND_MAX) return s;
+      if (s.council.length >= mindMax) return s;
       return { ...s, council: [...s.council, slug] };
     });
   }
 
   async function startAgon() {
-    if (state.council.length < MIND_MIN || state.council.length > MIND_MAX) return;
+    if (state.council.length < MIND_MIN || state.council.length > (isPro ? MIND_MAX : 3)) return;
 
     setState((s) => ({
       ...s,
@@ -385,6 +386,7 @@ export function AgoraApp({ minds }: { minds: MindOption[] }) {
             <CouncilStage
               minds={minds}
               council={state.council}
+              isPro={isPro}
               toggleMind={toggleMind}
               onContinue={startAgon}
             />
@@ -779,16 +781,19 @@ function ResearchPlaceholder({
 function CouncilStage({
   minds,
   council,
+  isPro,
   toggleMind,
   onContinue,
 }: {
   minds: MindOption[];
   council: string[];
+  isPro: boolean;
   toggleMind: (slug: string) => void;
   onContinue: () => void;
 }) {
+  const mindMax = isPro ? MIND_MAX : 3;
   const count = council.length;
-  const valid = count >= MIND_MIN && count <= MIND_MAX;
+  const valid = count >= MIND_MIN && count <= mindMax;
   return (
     <div>
       <div
@@ -812,7 +817,7 @@ function CouncilStage({
           maxWidth: "58ch",
         }}
       >
-        Choose {MIND_MIN}&ndash;{MIND_MAX}&nbsp;minds. We&rsquo;ve pre-selected
+        Choose {MIND_MIN}&ndash;{mindMax}&nbsp;minds. We&rsquo;ve pre-selected
         a council that looks right for your question. Swap anyone in or out.
       </p>
 
@@ -893,6 +898,24 @@ function CouncilStage({
         })}
       </div>
 
+      {!isPro && (
+        <div
+          className="font-mono"
+          style={{
+            marginTop: "20px",
+            fontSize: "11px",
+            letterSpacing: "0.06em",
+            color: "var(--fg-dim)",
+          }}
+        >
+          Free plan: up to 3 minds.{" "}
+          <Link href="/pricing" style={{ color: "var(--amber)", textDecoration: "none" }}>
+            Upgrade to Pro
+          </Link>{" "}
+          for all 5.
+        </div>
+      )}
+
       <div
         style={{
           marginTop: "40px",
@@ -928,7 +951,7 @@ function CouncilStage({
             color: "var(--fg-dim)",
           }}
         >
-          {count} selected · {MIND_MIN}&ndash;{MIND_MAX} required
+          {count} selected · {MIND_MIN}&ndash;{mindMax} required
         </div>
       </div>
     </div>

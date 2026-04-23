@@ -16,12 +16,13 @@ interface RunAgonArgs {
   mindSlugs: FrameworkSlug[];
   rounds: number;
   research?: string | null;
+  isPro?: boolean;
 }
 
 export async function* runAgon(
   args: RunAgonArgs
 ): AsyncGenerator<AgonEvent, void, unknown> {
-  const { apiKey, topic, mindSlugs, rounds, research } = args;
+  const { apiKey, topic, mindSlugs, rounds, research, isPro } = args;
 
   const anthropic = new Anthropic({ apiKey });
 
@@ -116,7 +117,7 @@ export async function* runAgon(
   });
 
   const convergenceMsg = await anthropic.messages.create({
-    model: CONVERGENCE_MODEL,
+    model: isPro ? "claude-opus-4-6" : CONVERGENCE_MODEL,
     max_tokens: CONVERGENCE_MAX_TOKENS,
     system:
       "You are a strategic synthesis analyst. You distill multi-perspective debates into structured, actionable JSON. You never hedge. You always return valid JSON with no surrounding prose.",
