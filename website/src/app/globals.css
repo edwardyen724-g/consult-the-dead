@@ -1,45 +1,73 @@
 @import "tailwindcss";
 
-/* ===== Greatmind landing — design tokens ===== */
+/* ===== Reading Room — design tokens ===== */
+
+@theme {
+  --font-serif: var(--font-cormorant), 'EB Garamond', Georgia, serif;
+  --font-body: var(--font-eb-garamond), Georgia, serif;
+  --font-sc: var(--font-cormorant-sc), 'EB Garamond', Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-ink: var(--fg);
+  --color-muted: var(--fg-dim);
+  --color-faint: var(--fg-faint);
+  --color-border: var(--hairline);
+  --color-accent: var(--amber);
+  --color-paper: var(--bg);
+}
+
+/* ── Late Study — warm dark (default / dark mode) ── */
 :root {
-  --bg: #0A0A0B;
-  --fg: #EDEDEC;
-  --fg-dim: #8A8A88;
-  --hairline: #1F1F22;
-  --amber: #D4A574;
+  --bg: #1f1812;
+  --bg-deep: #171108;
+  --bg-edge: #0e0904;
+  --fg: #ecdbb6;
+  --fg-dim: #bca57a;
+  --fg-faint: #8a7a62;
+  --hairline: #3d3020;
+  --amber: #d4a574;
+  --red: #c9664e;
+  --green: #4a7a4a;
 
-  /* Framework accent colors — desaturated, tuned for dark bg.
-     Use as ink in the margin: name labels, small accents, italic tags.
-     Never as borders, fills, or large blocks. */
-  --color-machiavelli: #B25A5E; /* deep crimson — blood, power */
-  --color-suntzu:      #5AA58C; /* jade/teal — strategy, distance */
-  --color-leonardo:    #C9A24A; /* ochre — notebooks, anatomy */
-  --color-newton:      #7B8FD4; /* cool blue-violet — prism, cold reason */
-  --color-curie:       #9BBE5A; /* pale radium green — the obvious choice */
-  --color-einstein:    #C77DBA; /* dusty purple — relativity, thought experiments */
-  --color-tesla:       #4DB8CC; /* electric blue-cyan — AC current, electricity */
-  --color-aurelius:    #9C7D50; /* warm bronze — Stoic iron, Roman leather */
+  /* Framework accent colors — tuned for warm dark bg */
+  --color-machiavelli: #c9664e; /* warm red */
+  --color-suntzu:      #5aa58c; /* jade/teal */
+  --color-leonardo:    #c9a24a; /* ochre */
+  --color-newton:      #7b8fd4; /* cool blue-violet */
+  --color-curie:       #9bbe5a; /* radium green */
+  --color-einstein:    #c77dba; /* dusty purple */
+  --color-tesla:       #4db8cc; /* electric teal */
+  --color-aurelius:    #9c7d50; /* warm bronze */
 
-  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-cormorant), 'EB Garamond', Georgia, "Times New Roman", serif;
+  --font-body: var(--font-eb-garamond), Georgia, serif;
+  --font-sc: var(--font-cormorant-sc), 'EB Garamond', Georgia, serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
+/* ── Reading Room — parchment (light mode) ── */
 html.light, .light {
-  --bg: #FAF8F5;
-  --fg: #1A1A1A;
-  --fg-dim: #6B6560;
-  --hairline: #E2DED8;
-  --amber: #B8843F;
+  --bg: #f1e6cf;
+  --bg-deep: #e8dbbf;
+  --bg-edge: #dccfaf;
+  --fg: #2a2018;
+  --fg-dim: #5a4a38;
+  --fg-faint: #8a7a62;
+  --hairline: #c9b896;
+  --amber: #8b2e23;
+  --red: #8b2e23;
+  --red-deep: #6e2419;
+  --green: #3e5e3e;
 
-  /* Slightly darkened tints for light bg readability. */
-  --color-machiavelli: #93363A;
-  --color-suntzu:      #2F7A5F;
-  --color-leonardo:    #8C6A1F;
-  --color-newton:      #4E63A8;
-  --color-curie:       #5E8128;
-  --color-einstein:    #9B5A93;
-  --color-tesla:       #2E8E9E;
-  --color-aurelius:    #7A5C2E; /* darkened bronze for light bg */
+  /* Framework accent colors — tuned for parchment bg */
+  --color-machiavelli: #8b2e23; /* red-ink */
+  --color-suntzu:      #3e5e3e; /* forest green */
+  --color-leonardo:    #8c6a1f; /* ochre */
+  --color-newton:      #4e63a8; /* blue-slate */
+  --color-curie:       #6b7c3a; /* olive/radium */
+  --color-einstein:    #9b5a93; /* dusty purple */
+  --color-tesla:       #2a7a8a; /* teal */
+  --color-aurelius:    #7a5a2a; /* bronze */
 }
 
 html {
@@ -176,7 +204,7 @@ body {
 
 .gm-submit {
   background: var(--amber);
-  color: #0A0A0B;
+  color: var(--bg);
   font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 500;
@@ -249,18 +277,18 @@ body {
 
 /* ===== Print / PDF export ===== */
 @media print {
-  /* Force light tokens so it reads well on paper */
+  /* Reading Room palette for print — warm but near-white */
   :root, html.light, html {
-    --bg: #ffffff !important;
-    --fg: #111111 !important;
-    --fg-dim: #555555 !important;
-    --hairline: #c8c8c8 !important;
-    --amber: #8a6028 !important;
+    --bg: #faf7f0 !important;
+    --fg: #1a120a !important;
+    --fg-dim: #4a3a28 !important;
+    --hairline: #c9b896 !important;
+    --amber: #8b2e23 !important;
   }
 
   html, body, main {
-    background: #ffffff !important;
-    color: #111111 !important;
+    background: #faf7f0 !important;
+    color: #1a120a !important;
   }
 
   /* Hide site chrome and any element explicitly marked no-print */

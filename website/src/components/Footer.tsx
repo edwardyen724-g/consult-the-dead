@@ -2,26 +2,43 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-auto">
-      <div className="max-w-5xl mx-auto px-6">
-        {/* Crafted horizontal rule */}
-        <div className="hr-crafted" />
+    <footer style={{ marginTop: "auto", borderTop: "1px solid var(--hairline)" }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
 
-        <div className="py-10 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          {/* Site identity */}
-          <div className="flex items-center gap-2">
-            <span className="font-serif text-sm text-muted" style={{ letterSpacing: "0.06em" }}>
-              <span className="font-medium">Great</span>
-              <span className="font-light ml-0.5">Minds</span>
+        <div style={{
+          padding: "40px 0 24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: "12px", flexWrap: "wrap" }}>
+            <span style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              fontSize: "16px",
+              color: "var(--fg-dim)",
+              letterSpacing: "0.01em",
+            }}>
+              Consult The Dead
             </span>
-            <span className="text-border mx-1">/</span>
-            <span className="text-[11px] text-muted italic">
+            <span style={{ color: "var(--hairline)" }}>/</span>
+            <span style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "13px",
+              color: "var(--fg-faint)",
+              fontStyle: "italic",
+            }}>
               A Library of Living Minds
             </span>
           </div>
 
-          {/* Disclaimer */}
-          <p className="text-[11px] leading-[1.7] text-muted/70 max-w-lg" style={{ letterSpacing: "0.01em" }}>
+          <p style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "12px",
+            lineHeight: 1.7,
+            color: "var(--fg-faint)",
+            maxWidth: "560px",
+          }}>
             The frameworks presented on this site are analytical models derived
             from publicly available information. They represent one
             interpretation of documented decisions and behaviors, not definitive
@@ -31,21 +48,47 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Legal links */}
-        <div className="pb-8 flex items-center gap-5">
+        <div style={{
+          paddingBottom: "32px",
+          display: "flex",
+          alignItems: "center",
+          gap: "24px",
+        }}>
           <Link
             href="/terms"
-            className="font-mono text-[10px] uppercase tracking-widest text-muted/60 hover:text-muted transition-colors"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "12px",
+              fontVariant: "small-caps",
+              letterSpacing: "0.06em",
+              color: "var(--fg-faint)",
+              textDecoration: "none",
+              transition: "color 200ms ease-out",
+            }}
           >
             Terms
           </Link>
           <Link
             href="/privacy"
-            className="font-mono text-[10px] uppercase tracking-widest text-muted/60 hover:text-muted transition-colors"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "12px",
+              fontVariant: "small-caps",
+              letterSpacing: "0.06em",
+              color: "var(--fg-faint)",
+              textDecoration: "none",
+              transition: "color 200ms ease-out",
+            }}
           >
             Privacy
           </Link>
-          <span className="font-mono text-[10px] text-muted/40">
+          <span style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "10px",
+            letterSpacing: "0.06em",
+            color: "var(--fg-faint)",
+            opacity: 0.6,
+          }}>
             © {new Date().getFullYear()} Consult The Dead
           </span>
         </div>
