@@ -33,7 +33,7 @@ export default async function AccountPage({
             borderRadius: '6px',
             padding: '16px 20px',
             marginBottom: '40px',
-            background: 'rgba(212,165,116,0.08)',
+            background: 'var(--amber-wash)',
             fontFamily: 'var(--font-serif)',
             fontSize: '0.95rem',
             color: 'var(--fg)',
@@ -105,7 +105,7 @@ export default async function AccountPage({
               textTransform: 'uppercase',
               padding: '3px 10px',
               borderRadius: '3px',
-              background: isPro ? 'rgba(212,165,116,0.15)' : 'rgba(255,255,255,0.06)',
+              background: isPro ? 'var(--amber-wash)' : 'var(--surface)',
               color: isPro ? 'var(--amber)' : 'var(--fg-dim)',
             }}>
               {isPro ? '★ Pro' : 'Free'}

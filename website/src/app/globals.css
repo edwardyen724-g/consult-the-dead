@@ -1,45 +1,76 @@
 @import "tailwindcss";
 
-/* ===== Greatmind landing — design tokens ===== */
-:root {
-  --bg: #0A0A0B;
-  --fg: #EDEDEC;
-  --fg-dim: #8A8A88;
-  --hairline: #1F1F22;
-  --amber: #D4A574;
+/* ===== Reading Room — design tokens ===== */
 
-  /* Framework accent colors — desaturated, tuned for dark bg.
-     Use as ink in the margin: name labels, small accents, italic tags.
-     Never as borders, fills, or large blocks. */
-  --color-machiavelli: #B25A5E; /* deep crimson — blood, power */
-  --color-suntzu:      #5AA58C; /* jade/teal — strategy, distance */
-  --color-leonardo:    #C9A24A; /* ochre — notebooks, anatomy */
-  --color-newton:      #7B8FD4; /* cool blue-violet — prism, cold reason */
-  --color-curie:       #9BBE5A; /* pale radium green — the obvious choice */
-  --color-einstein:    #C77DBA; /* dusty purple — relativity, thought experiments */
-  --color-tesla:       #4DB8CC; /* electric blue-cyan — AC current, electricity */
-  --color-aurelius:    #9C7D50; /* warm bronze — Stoic iron, Roman leather */
-
-  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+/* Make Tailwind's font-serif / font-mono classes use our custom fonts */
+@theme inline {
+  --font-serif: var(--font-cormorant), 'EB Garamond', Georgia, serif;
+  --font-body:  var(--font-eb-garamond), Georgia, serif;
+  --font-mono:  var(--font-jetbrains-mono), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-sc:    'Cormorant SC', Georgia, serif;
 }
 
-html.light, .light {
-  --bg: #FAF8F5;
-  --fg: #1A1A1A;
-  --fg-dim: #6B6560;
-  --hairline: #E2DED8;
-  --amber: #B8843F;
+/* ─── Late Study (dark default) ─── */
+:root {
+  --bg:       #1f1812;
+  --bg-deep:  #171108;
+  --bg-edge:  #0e0904;
+  --fg:       #ecdbb6;
+  --fg-dim:   #bca57a;
+  --fg-faint: #8a7a62;
+  --hairline: #3d3020;
+  --amber:    #c9664e;
+  --red:      #c9664e;
+  --red-deep: #a84a37;
+  --green:    #5a8a5a;
 
-  /* Slightly darkened tints for light bg readability. */
-  --color-machiavelli: #93363A;
-  --color-suntzu:      #2F7A5F;
-  --color-leonardo:    #8C6A1F;
-  --color-newton:      #4E63A8;
-  --color-curie:       #5E8128;
-  --color-einstein:    #9B5A93;
-  --color-tesla:       #2E8E9E;
-  --color-aurelius:    #7A5C2E; /* darkened bronze for light bg */
+  /* Amber tint washes — used for Pro highlights, selected states */
+  --amber-wash: rgba(201, 102, 78, 0.12);
+  --amber-mist: rgba(201, 102, 78, 0.06);
+  --surface:    rgba(255, 255, 255, 0.03);
+
+  /* Mind accent colors — luminous enough for dark parchment */
+  --color-machiavelli: #c9664e;
+  --color-suntzu:      #5a8a5a;
+  --color-curie:       #8a9a4a;
+  --color-newton:      #6a7abf;
+  --color-tesla:       #4aadbd;
+  --color-leonardo:    #b09040;
+  --color-einstein:    #a87aad;
+  --color-aurelius:    #b08050;
+
+  --font-serif: var(--font-cormorant), 'EB Garamond', Georgia, serif;
+  --font-body:  var(--font-eb-garamond), Georgia, serif;
+  --font-mono:  var(--font-jetbrains-mono), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* ─── Reading Room (light) ─── */
+html.light {
+  --bg:       #f1e6cf;
+  --bg-deep:  #e8dbbf;
+  --bg-edge:  #dccfaf;
+  --fg:       #2a2018;
+  --fg-dim:   #5a4a38;
+  --fg-faint: #8a7a62;
+  --hairline: #c9b896;
+  --amber:    #8b2e23;
+  --red:      #8b2e23;
+  --red-deep: #6e2419;
+  --green:    #3e5e3e;
+
+  --amber-wash: rgba(139, 46, 35, 0.09);
+  --amber-mist: rgba(139, 46, 35, 0.045);
+  --surface:    rgba(0, 0, 0, 0.03);
+
+  /* Mind accent colors — deep enough for parchment */
+  --color-machiavelli: #8b2e23;
+  --color-suntzu:      #3e5e3e;
+  --color-curie:       #6b7c3a;
+  --color-newton:      #4a5a8a;
+  --color-tesla:       #2a7a8a;
+  --color-leonardo:    #8a6a2a;
+  --color-einstein:    #7a5a9a;
+  --color-aurelius:    #7a5a2a;
 }
 
 html {
@@ -55,7 +86,7 @@ body {
   color: var(--fg);
   font-family: var(--font-serif);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
   font-weight: 400;
 }
 
@@ -69,14 +100,13 @@ body {
   outline-offset: 3px;
 }
 
-/* Fade-in for worked example speakers */
+/* ===== Fade-in for worked example speakers ===== */
 .gm-fade {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 400ms ease-out, transform 400ms ease-out;
   will-change: opacity, transform;
 }
-
 .gm-fade.gm-visible {
   opacity: 1;
   transform: translateY(0);
@@ -96,7 +126,6 @@ body {
   opacity: 0;
   transition: opacity 600ms ease-out;
 }
-
 .gm-fan.gm-fan-play path.gm-fan-line {
   animation: gm-fan-draw 900ms ease-out forwards;
 }
@@ -105,21 +134,16 @@ body {
 .gm-fan.gm-fan-play path.gm-fan-line.gm-line-3 { animation-delay:  400ms; }
 .gm-fan.gm-fan-play path.gm-fan-line.gm-line-4 { animation-delay:  600ms; }
 .gm-fan.gm-fan-play path.gm-fan-line.gm-line-5 { animation-delay:  800ms; }
-
 .gm-fan.gm-fan-play text.gm-fan-label.gm-label-1 { transition-delay:  150ms; opacity: 1; }
 .gm-fan.gm-fan-play text.gm-fan-label.gm-label-2 { transition-delay:  350ms; opacity: 1; }
 .gm-fan.gm-fan-play text.gm-fan-label.gm-label-3 { transition-delay:  550ms; opacity: 1; }
 .gm-fan.gm-fan-play text.gm-fan-label.gm-label-4 { transition-delay:  750ms; opacity: 1; }
 .gm-fan.gm-fan-play text.gm-fan-label.gm-label-5 { transition-delay:  950ms; opacity: 1; }
-
 .gm-fan.gm-fan-play .gm-fan-node {
   transition-delay: 1500ms;
   opacity: 1;
 }
-
-@keyframes gm-fan-draw {
-  to { stroke-dashoffset: 0; }
-}
+@keyframes gm-fan-draw { to { stroke-dashoffset: 0; } }
 
 /* ===== Streaming demo: name pulse ===== */
 @keyframes gm-name-pulse {
@@ -127,9 +151,7 @@ body {
   50%  { opacity: 1; }
   100% { opacity: 1; }
 }
-.gm-name-pulse {
-  animation: gm-name-pulse 400ms ease-out;
-}
+.gm-name-pulse { animation: gm-name-pulse 400ms ease-out; }
 
 /* Blinking caret while a block is streaming */
 .gm-caret {
@@ -170,13 +192,11 @@ body {
   font-style: italic;
 }
 .gm-input:focus,
-.gm-textarea:focus {
-  border-color: var(--amber);
-}
+.gm-textarea:focus { border-color: var(--amber); }
 
 .gm-submit {
   background: var(--amber);
-  color: #0A0A0B;
+  color: var(--bg-deep, #f1e6cf);
   font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 500;
@@ -186,19 +206,11 @@ body {
   letter-spacing: -0.005em;
   transition: transform 150ms ease-out, filter 150ms ease-out;
 }
-.gm-submit:hover:not(:disabled) {
-  filter: brightness(1.08);
-}
-.gm-submit:active:not(:disabled) {
-  transform: translateY(1px);
-}
-.gm-submit:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
+.gm-submit:hover:not(:disabled) { filter: brightness(1.08); }
+.gm-submit:active:not(:disabled) { transform: translateY(1px); }
+.gm-submit:disabled { opacity: 0.55; cursor: not-allowed; }
 
 /* ===== Consensus node graph ===== */
-/* Line length = ORBIT_R - NODE_R - CENTER_R = 95 - 16 - 30 = 49 */
 .gm-consensus-line {
   stroke-dasharray: 49;
   stroke-dashoffset: 49;
@@ -208,22 +220,19 @@ body {
   opacity: 0;
   transition: opacity 400ms ease-out;
 }
-
 .gm-consensus-play .gm-consensus-line {
   animation: gm-line-draw 700ms ease-out forwards;
 }
-.gm-consensus-play .gm-cline-0 { animation-delay: 350ms; }
-.gm-consensus-play .gm-cline-1 { animation-delay: 550ms; }
-.gm-consensus-play .gm-cline-2 { animation-delay: 750ms; }
-.gm-consensus-play .gm-cline-3 { animation-delay: 950ms; }
+.gm-consensus-play .gm-cline-0 { animation-delay:  350ms; }
+.gm-consensus-play .gm-cline-1 { animation-delay:  550ms; }
+.gm-consensus-play .gm-cline-2 { animation-delay:  750ms; }
+.gm-consensus-play .gm-cline-3 { animation-delay:  950ms; }
 .gm-consensus-play .gm-cline-4 { animation-delay: 1150ms; }
-
 .gm-consensus-play .gm-consensus-node { opacity: 1; }
 .gm-consensus-play .gm-consensus-center {
   opacity: 1;
   transition-delay: 1400ms;
 }
-
 @keyframes gm-line-draw {
   from { stroke-dashoffset: 49; }
   to   { stroke-dashoffset: 0; }
@@ -249,53 +258,23 @@ body {
 
 /* ===== Print / PDF export ===== */
 @media print {
-  /* Force light tokens so it reads well on paper */
   :root, html.light, html {
     --bg: #ffffff !important;
     --fg: #111111 !important;
     --fg-dim: #555555 !important;
     --hairline: #c8c8c8 !important;
-    --amber: #8a6028 !important;
+    --amber: #8b2e23 !important;
   }
-
-  html, body, main {
-    background: #ffffff !important;
-    color: #111111 !important;
-  }
-
-  /* Hide site chrome and any element explicitly marked no-print */
-  header,
-  [data-print="hide"] {
-    display: none !important;
-  }
-
-  /* Force the agon transcript open in print */
-  details > *:not(summary) {
-    display: block !important;
-  }
-  details summary {
-    display: none !important;
-  }
-
-  /* Remove caret, hide motion-only flourishes */
+  html, body, main { background: #ffffff !important; color: #111111 !important; }
+  header, [data-print="hide"] { display: none !important; }
+  details > *:not(summary) { display: block !important; }
+  details summary { display: none !important; }
   .gm-caret,
   .gm-consensus-graph .gm-cline-0,
   .gm-consensus-graph .gm-cline-1,
   .gm-consensus-graph .gm-cline-2,
   .gm-consensus-graph .gm-cline-3,
-  .gm-consensus-graph .gm-cline-4 {
-    opacity: 1 !important;
-    animation: none !important;
-  }
-
-  /* Tighter, page-friendly margins */
-  @page {
-    margin: 12mm 14mm;
-  }
-
-  /* Avoid awkward breaks inside a single turn */
-  details > div > div,
-  [data-print-block] {
-    break-inside: avoid;
-  }
+  .gm-consensus-graph .gm-cline-4 { opacity: 1 !important; animation: none !important; }
+  @page { margin: 12mm 14mm; }
+  details > div > div, [data-print-block] { break-inside: avoid; }
 }

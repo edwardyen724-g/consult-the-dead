@@ -186,7 +186,7 @@ export default function PricingPage() {
             padding: '20px 24px',
             borderBottom: '1px solid var(--hairline)',
             borderLeft: '1px solid var(--hairline)',
-            background: 'rgba(212,165,116,0.06)',
+            background: 'var(--amber-wash)',
             position: 'relative',
           }}>
             <div style={{
@@ -244,7 +244,7 @@ export default function PricingPage() {
                 fontSize: '0.95rem',
                 color: 'var(--fg)',
                 fontWeight: f.free === '—' ? 500 : 400,
-                background: 'rgba(212,165,116,0.03)',
+                background: 'var(--amber-mist)',
                 display: 'flex',
                 alignItems: 'center',
               }}>
@@ -276,7 +276,7 @@ export default function PricingPage() {
               Start thinking — no signup
             </a>
           </div>
-          <div style={{ padding: '24px', borderTop: '1px solid var(--hairline)', borderLeft: '1px solid var(--hairline)', background: 'rgba(212,165,116,0.06)' }}>
+          <div style={{ padding: '24px', borderTop: '1px solid var(--hairline)', borderLeft: '1px solid var(--hairline)', background: 'var(--amber-wash)' }}>
             <button
               onClick={handleProCheckout}
               disabled={loading}
@@ -309,7 +309,7 @@ export default function PricingPage() {
           borderRadius: '6px',
           padding: '20px 28px',
           marginBottom: '72px',
-          background: 'rgba(212,165,116,0.04)',
+          background: 'var(--amber-mist)',
         }}>
           <p style={{
             fontFamily: 'var(--font-serif)',

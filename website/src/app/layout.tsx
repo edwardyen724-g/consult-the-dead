@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
@@ -9,8 +9,16 @@ import { OrganizationJsonLd, WebAppJsonLd, FAQJsonLd } from "@/components/JsonLd
 import { PageviewTracker } from "@/components/PageviewTracker";
 import "./globals.css";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
@@ -71,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={`${cormorantGaramond.variable} ${ebGaramond.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <body>

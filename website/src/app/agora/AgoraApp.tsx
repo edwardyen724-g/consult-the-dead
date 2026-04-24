@@ -837,7 +837,7 @@ function CouncilStage({
               onClick={() => toggleMind(mind.slug)}
               style={{
                 textAlign: "left",
-                background: selected ? "rgba(255, 180, 77, 0.08)" : "transparent",
+                background: selected ? "var(--amber-wash)" : "transparent",
                 border: `1px solid ${selected ? "var(--amber)" : "var(--hairline)"}`,
                 padding: "18px",
                 cursor: "pointer",
