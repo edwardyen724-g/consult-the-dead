@@ -1,20 +1,19 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import type { Metadata } from 'next'
 
-const FEATURES = [
-  { label: 'Agons per period',   free: '3 / day',       pro: '100 / month' },
-  { label: 'Council size',       free: '2–3 minds',     pro: 'Up to 5 minds' },
-  { label: 'Synthesis quality',  free: 'Sonnet',        pro: 'Opus ★' },
-  { label: 'Debate library',     free: 'Device only',   pro: 'Persistent + searchable' },
-  { label: 'PDF export',         free: '—',             pro: '✓' },
-  { label: 'Extended research',  free: '—',             pro: '✓' },
-  { label: 'Founder support',    free: '—',             pro: '48h email' },
-  { label: 'Account',            free: 'Anonymous',     pro: 'Private, synced' },
+const FEATURES: { label: string; free: string; pro: string }[] = [
+  { label: 'Agons per period',   free: '3 / day',                 pro: '100 / month' },
+  { label: 'Council size',       free: '2–3 minds',               pro: 'Up to 5 minds' },
+  { label: 'Synthesis quality',  free: 'Sonnet',                  pro: 'Opus ★' },
+  { label: 'Debate library',     free: 'Device only',             pro: 'Persistent + searchable' },
+  { label: 'PDF export',         free: '—',                       pro: '✓' },
+  { label: 'Extended research',  free: '—',                       pro: '✓' },
+  { label: 'Founder support',    free: '—',                       pro: '48h email' },
+  { label: 'Account',            free: 'Anonymous',               pro: 'Private, synced' },
 ]
 
-const FAQ = [
+const FAQ: { q: string; a: string }[] = [
   {
     q: 'What happens when I hit the free limit?',
     a: "You'll see a prompt to upgrade. Nothing gets deleted — your work stays. Upgrade anytime, or come back tomorrow for 3 more.",
@@ -66,249 +65,321 @@ export default function PricingPage() {
   }
 
   const monthlyDisplay = billing === 'annual' ? '$25' : '$30'
-  const annualSavings = billing === 'annual'
 
   return (
     <main style={{ background: 'var(--bg)', color: 'var(--fg)', minHeight: '100vh' }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '80px 24px 120px' }}>
+      <div style={{ maxWidth: '860px', margin: '0 auto', padding: '80px 24px 120px' }}>
 
         {/* Hero */}
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            marginBottom: '20px',
+          }}>
+            Pricing
+          </p>
           <h1 style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.2rem)',
             fontWeight: 400,
             letterSpacing: '-0.02em',
-            lineHeight: 1.15,
+            lineHeight: 1.12,
             marginBottom: '20px',
           }}>
             Get Better Counsel
           </h1>
           <p style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: '1.15rem',
+            fontSize: '1.1rem',
             color: 'var(--fg-dim)',
-            maxWidth: '520px',
+            maxWidth: '480px',
             margin: '0 auto',
             lineHeight: 1.6,
           }}>
-            Think through your hardest decisions with historical minds. Unbiased, rigorous, immediate.
+            Think through your hardest decisions with historical minds.
+            Unbiased, rigorous, immediate.
           </p>
         </div>
 
         {/* Billing toggle */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '48px', gap: '0' }}>
-          <button
-            onClick={() => setBilling('monthly')}
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              padding: '8px 20px',
-              border: '1px solid var(--hairline)',
-              borderRight: 'none',
-              borderRadius: '4px 0 0 4px',
-              background: billing === 'monthly' ? 'var(--fg)' : 'transparent',
-              color: billing === 'monthly' ? 'var(--bg)' : 'var(--fg-dim)',
-              cursor: 'pointer',
-              transition: 'all 150ms',
-            }}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setBilling('annual')}
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              padding: '8px 20px',
-              border: '1px solid var(--hairline)',
-              borderRadius: '0 4px 4px 0',
-              background: billing === 'annual' ? 'var(--fg)' : 'transparent',
-              color: billing === 'annual' ? 'var(--bg)' : 'var(--fg-dim)',
-              cursor: 'pointer',
-              transition: 'all 150ms',
-              position: 'relative',
-            }}
-          >
-            Annual
-            {annualSavings && (
-              <span style={{
-                position: 'absolute',
-                top: '-10px',
-                right: '-4px',
-                background: 'var(--amber)',
-                color: 'var(--bg)',
-                fontSize: '9px',
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', border: '1px solid var(--hairline)', borderRadius: '4px', overflow: 'hidden' }}>
+            <button
+              onClick={() => setBilling('monthly')}
+              style={{
                 fontFamily: 'var(--font-mono)',
-                letterSpacing: '0.08em',
-                padding: '2px 5px',
-                borderRadius: '3px',
+                fontSize: '10px',
+                letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-              }}>
-                −2 mo
-              </span>
-            )}
-          </button>
+                padding: '9px 22px',
+                border: 'none',
+                borderRight: '1px solid var(--hairline)',
+                background: billing === 'monthly' ? 'var(--fg)' : 'transparent',
+                color: billing === 'monthly' ? 'var(--bg)' : 'var(--fg-dim)',
+                cursor: 'pointer',
+                transition: 'all 150ms',
+              }}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBilling('annual')}
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '10px',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                padding: '9px 22px',
+                border: 'none',
+                background: billing === 'annual' ? 'var(--fg)' : 'transparent',
+                color: billing === 'annual' ? 'var(--bg)' : 'var(--fg-dim)',
+                cursor: 'pointer',
+                transition: 'all 150ms',
+                position: 'relative',
+              }}
+            >
+              Annual
+              {billing === 'annual' && (
+                <span style={{
+                  position: 'absolute',
+                  top: '-9px',
+                  right: '-6px',
+                  background: 'var(--amber)',
+                  color: 'var(--bg)',
+                  fontSize: '8px',
+                  fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.08em',
+                  padding: '2px 5px',
+                  borderRadius: '3px',
+                  textTransform: 'uppercase',
+                }}>
+                  −2 mo
+                </span>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Comparison table */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
           border: '1px solid var(--hairline)',
           borderRadius: '8px',
           overflow: 'hidden',
-          marginBottom: '48px',
+          marginBottom: '40px',
         }}>
           {/* Header row */}
-          <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--hairline)', background: 'rgba(255,255,255,0.02)' }} />
-          <div style={{
-            padding: '20px 24px',
-            borderBottom: '1px solid var(--hairline)',
-            borderLeft: '1px solid var(--hairline)',
-            background: 'rgba(255,255,255,0.02)',
-          }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-dim)', marginBottom: '6px' }}>
-              Agora Free
-            </div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--fg)' }}>
-              $0
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--fg-dim)', marginTop: '2px' }}>
-              always free
-            </div>
-          </div>
-          <div style={{
-            padding: '20px 24px',
-            borderBottom: '1px solid var(--hairline)',
-            borderLeft: '1px solid var(--hairline)',
-            background: 'var(--amber-wash)',
-            position: 'relative',
-          }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
             <div style={{
-              position: 'absolute', top: '12px', right: '12px',
-              background: 'var(--amber)', color: 'var(--bg)',
-              fontFamily: 'var(--font-mono)', fontSize: '9px',
-              letterSpacing: '0.1em', textTransform: 'uppercase',
-              padding: '2px 6px', borderRadius: '3px',
+              padding: '22px 24px',
+              borderBottom: '1px solid var(--hairline)',
+              borderRight: '1px solid var(--hairline)',
+              background: 'var(--surface)',
+            }} />
+            <div style={{
+              padding: '22px 24px',
+              borderBottom: '1px solid var(--hairline)',
+              borderRight: '1px solid var(--hairline)',
+              background: 'var(--surface)',
             }}>
-              ★ Pro
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '10px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--fg-dim)',
+                marginBottom: '8px',
+              }}>
+                Agora Free
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.8rem',
+                fontWeight: 400,
+                color: 'var(--fg)',
+                lineHeight: 1,
+              }}>
+                $0
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                letterSpacing: '0.1em',
+                color: 'var(--fg-faint)',
+                marginTop: '4px',
+              }}>
+                always free
+              </div>
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '6px' }}>
-              Agora Pro
-            </div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--fg)' }}>
-              {monthlyDisplay}<span style={{ fontSize: '0.9rem', color: 'var(--fg-dim)' }}>/mo</span>
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--fg-dim)', marginTop: '2px' }}>
-              {billing === 'annual' ? 'billed $300/year' : 'billed monthly'}
+            <div style={{
+              padding: '22px 24px',
+              borderBottom: '1px solid var(--hairline)',
+              background: 'var(--amber-wash)',
+              position: 'relative',
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '14px',
+                right: '14px',
+                background: 'var(--amber)',
+                color: 'var(--bg)',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '8px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                padding: '3px 7px',
+                borderRadius: '3px',
+              }}>
+                ★ Pro
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '10px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--amber)',
+                marginBottom: '8px',
+              }}>
+                Agora Pro
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.8rem',
+                fontWeight: 400,
+                color: 'var(--fg)',
+                lineHeight: 1,
+              }}>
+                {monthlyDisplay}
+                <span style={{ fontSize: '1rem', color: 'var(--fg-dim)', fontWeight: 400 }}>/mo</span>
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                letterSpacing: '0.1em',
+                color: 'var(--fg-faint)',
+                marginTop: '4px',
+              }}>
+                {billing === 'annual' ? 'billed $300/year' : 'billed monthly'}
+              </div>
             </div>
           </div>
 
           {/* Feature rows */}
-          {FEATURES.map((f, i) => (
-            <>
-              <div key={`label-${i}`} style={{
-                padding: '14px 24px',
-                borderBottom: i < FEATURES.length - 1 ? '1px solid var(--hairline)' : undefined,
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.08em',
-                color: 'var(--fg-dim)',
-                display: 'flex',
-                alignItems: 'center',
-              }}>
-                {f.label}
+          {FEATURES.map((f, i) => {
+            const isLast = i === FEATURES.length - 1
+            return (
+              <div key={f.label} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+                <div style={{
+                  padding: '13px 24px',
+                  borderBottom: isLast ? 'none' : '1px solid var(--hairline)',
+                  borderRight: '1px solid var(--hairline)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.1em',
+                  color: 'var(--fg-dim)',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}>
+                  {f.label}
+                </div>
+                <div style={{
+                  padding: '13px 24px',
+                  borderBottom: isLast ? 'none' : '1px solid var(--hairline)',
+                  borderRight: '1px solid var(--hairline)',
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '0.95rem',
+                  color: f.free === '—' ? 'var(--fg-faint)' : 'var(--fg)',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}>
+                  {f.free}
+                </div>
+                <div style={{
+                  padding: '13px 24px',
+                  borderBottom: isLast ? 'none' : '1px solid var(--hairline)',
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '0.95rem',
+                  color: 'var(--fg)',
+                  fontWeight: f.free === '—' ? 500 : 400,
+                  background: 'var(--amber-mist)',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}>
+                  {f.pro}
+                </div>
               </div>
-              <div key={`free-${i}`} style={{
-                padding: '14px 24px',
-                borderBottom: i < FEATURES.length - 1 ? '1px solid var(--hairline)' : undefined,
-                borderLeft: '1px solid var(--hairline)',
-                fontFamily: 'var(--font-serif)',
-                fontSize: '0.95rem',
-                color: f.free === '—' ? 'var(--fg-dim)' : 'var(--fg)',
-                display: 'flex',
-                alignItems: 'center',
-              }}>
-                {f.free}
-              </div>
-              <div key={`pro-${i}`} style={{
-                padding: '14px 24px',
-                borderBottom: i < FEATURES.length - 1 ? '1px solid var(--hairline)' : undefined,
-                borderLeft: '1px solid var(--hairline)',
-                fontFamily: 'var(--font-serif)',
-                fontSize: '0.95rem',
-                color: 'var(--fg)',
-                fontWeight: f.free === '—' ? 500 : 400,
-                background: 'var(--amber-mist)',
-                display: 'flex',
-                alignItems: 'center',
-              }}>
-                {f.pro}
-              </div>
-            </>
-          ))}
+            )
+          })}
 
           {/* CTA row */}
-          <div style={{ padding: '24px', borderTop: '1px solid var(--hairline)', background: 'rgba(255,255,255,0.02)' }} />
-          <div style={{ padding: '24px', borderTop: '1px solid var(--hairline)', borderLeft: '1px solid var(--hairline)', background: 'rgba(255,255,255,0.02)' }}>
-            <a
-              href="/agora"
-              style={{
-                display: 'block',
-                textAlign: 'center',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                padding: '10px 16px',
-                border: '1px solid var(--hairline)',
-                borderRadius: '4px',
-                color: 'var(--fg)',
-                textDecoration: 'none',
-                transition: 'border-color 150ms',
-              }}
-            >
-              Start thinking — no signup
-            </a>
-          </div>
-          <div style={{ padding: '24px', borderTop: '1px solid var(--hairline)', borderLeft: '1px solid var(--hairline)', background: 'var(--amber-wash)' }}>
-            <button
-              onClick={handleProCheckout}
-              disabled={loading}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: 'center',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                padding: '10px 16px',
-                borderRadius: '4px',
-                background: 'var(--amber)',
-                color: 'var(--bg)',
-                border: 'none',
-                cursor: loading ? 'wait' : 'pointer',
-                opacity: loading ? 0.7 : 1,
-                transition: 'opacity 150ms',
-              }}
-            >
-              {loading ? 'Redirecting…' : 'Try Pro free for 7 days'}
-            </button>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: '1px solid var(--hairline)' }}>
+            <div style={{
+              padding: '20px 24px',
+              borderRight: '1px solid var(--hairline)',
+              background: 'var(--surface)',
+            }} />
+            <div style={{
+              padding: '20px 24px',
+              borderRight: '1px solid var(--hairline)',
+              background: 'var(--surface)',
+            }}>
+              <a
+                href="/agora"
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  padding: '11px 16px',
+                  border: '1px solid var(--hairline)',
+                  borderRadius: '4px',
+                  color: 'var(--fg)',
+                  textDecoration: 'none',
+                }}
+              >
+                Start thinking — no signup
+              </a>
+            </div>
+            <div style={{ padding: '20px 24px', background: 'var(--amber-wash)' }}>
+              <button
+                onClick={handleProCheckout}
+                disabled={loading}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  padding: '11px 16px',
+                  borderRadius: '4px',
+                  background: 'var(--amber)',
+                  color: 'var(--bg)',
+                  border: 'none',
+                  cursor: loading ? 'wait' : 'pointer',
+                  opacity: loading ? 0.7 : 1,
+                  transition: 'opacity 150ms',
+                }}
+              >
+                {loading ? 'Redirecting…' : 'Try Pro free for 7 days'}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Founding member callout */}
         <div style={{
-          border: '1px solid var(--amber)',
-          borderRadius: '6px',
-          padding: '20px 28px',
-          marginBottom: '72px',
+          border: '1px solid var(--hairline)',
+          borderLeft: '3px solid var(--amber)',
+          borderRadius: '0 6px 6px 0',
+          padding: '20px 24px',
+          marginBottom: '64px',
           background: 'var(--amber-mist)',
         }}>
           <p style={{
@@ -319,26 +390,29 @@ export default function PricingPage() {
             lineHeight: 1.65,
           }}>
             <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
-            Early subscribers lock in <strong>$300/year for life</strong>. After Q3 2026, annual plans go to $360.
-            Monthly stays at $30.
+            Early subscribers lock in <strong>$300/year for life</strong>. After Q3 2026,
+            annual plans go to $360. Monthly stays at $30.
           </p>
         </div>
 
         {/* FAQ */}
         <div style={{ marginBottom: '80px' }}>
-          <h2 style={{
+          <p style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            letterSpacing: '0.2em',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            color: 'var(--fg-dim)',
+            color: 'var(--fg-faint)',
             marginBottom: '32px',
           }}>
             Questions
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {FAQ.map((item, i) => (
-              <div key={i}>
+              <div key={i} style={{
+                padding: '24px 0',
+                borderTop: '1px solid var(--hairline)',
+              }}>
                 <p style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: '1rem',
@@ -359,6 +433,7 @@ export default function PricingPage() {
                 </p>
               </div>
             ))}
+            <div style={{ borderTop: '1px solid var(--hairline)' }} />
           </div>
         </div>
 
@@ -370,12 +445,13 @@ export default function PricingPage() {
           color: 'var(--fg-dim)',
           lineHeight: 1.7,
           textAlign: 'center',
-          maxWidth: '560px',
+          maxWidth: '520px',
           margin: '0 auto',
         }}>
-          Good decisions are harder with unlimited options and no outside view. Agora is your sparring
-          partner — not a therapist, not a calculator, not a consensus machine. Historical minds who've
-          already thought through the problem you're facing, arguing it out on your behalf.
+          Good decisions are harder with unlimited options and no outside view.
+          Agora is your sparring partner — not a therapist, not a calculator,
+          not a consensus machine. Historical minds who've already thought
+          through the problem you're facing, arguing it out on your behalf.
         </p>
 
       </div>
