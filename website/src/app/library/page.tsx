@@ -134,7 +134,7 @@ async function ProLibrary({ userId }: { userId: string }) {
           maxWidth: "560px",
         }}
       >
-        <span style={{ color: "#c75a5a", marginRight: "10px" }}>DB ERROR</span>
+        <span style={{ color: "var(--red)", marginRight: "10px" }}>DB ERROR</span>
         {dbError}
       </div>
     );

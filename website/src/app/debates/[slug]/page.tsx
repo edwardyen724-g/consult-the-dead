@@ -258,7 +258,7 @@ export default async function DebatePage({
           borderRadius: '8px',
           padding: '32px',
           textAlign: 'center',
-          background: 'rgba(255,255,255,0.02)',
+          background: 'var(--surface)',
         }}>
           <p style={{
             fontFamily: 'var(--font-serif)',

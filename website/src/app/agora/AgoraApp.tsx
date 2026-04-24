@@ -349,15 +349,16 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
           <div
             style={{
               marginTop: "32px",
-              border: "1px solid #c75a5a",
+              border: "1px solid var(--red)",
+              borderRadius: "4px",
               padding: "12px 16px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
-              color: "#e8a5a5",
+              color: "var(--fg-dim)",
               lineHeight: 1.5,
             }}
           >
-            <span style={{ marginRight: "10px", color: "#c75a5a" }}>
+            <span style={{ marginRight: "10px", color: "var(--red)" }}>
               {state.rateLimited ? "RATE LIMIT" : "ERROR"}
             </span>
             {state.error}
@@ -589,13 +590,17 @@ function TopicStage({
           width: "100%",
           background: "transparent",
           border: "1px solid var(--hairline)",
+          borderRadius: "4px",
           color: "var(--fg)",
           fontFamily: "var(--font-serif)",
           fontSize: "18px",
           lineHeight: 1.5,
           padding: "16px",
           resize: "vertical",
+          outline: "none",
         }}
+        onFocus={(e) => { e.currentTarget.style.borderColor = "var(--amber)"; }}
+        onBlur={(e) => { e.currentTarget.style.borderColor = "var(--hairline)"; }}
       />
 
       <div
@@ -621,6 +626,7 @@ function TopicStage({
             background: valid ? "var(--amber)" : "transparent",
             color: valid ? "var(--bg)" : "var(--fg-dim)",
             border: valid ? "1px solid var(--amber)" : "1px solid var(--hairline)",
+            borderRadius: "4px",
             fontSize: "12px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
@@ -703,10 +709,12 @@ function TopicStage({
                 maxWidth: "480px",
                 background: "transparent",
                 border: "1px solid var(--hairline)",
+                borderRadius: "4px",
                 color: "var(--fg)",
                 fontFamily: "var(--font-mono)",
                 fontSize: "13px",
                 padding: "10px 12px",
+                outline: "none",
               }}
             />
             <div
@@ -763,6 +771,7 @@ function ResearchPlaceholder({
             background: "var(--amber)",
             color: "var(--bg)",
             border: "1px solid var(--amber)",
+            borderRadius: "4px",
             fontSize: "12px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
@@ -837,23 +846,38 @@ function CouncilStage({
               onClick={() => toggleMind(mind.slug)}
               style={{
                 textAlign: "left",
-                background: selected ? "var(--amber-wash)" : "transparent",
+                background: selected ? "var(--amber-wash)" : "var(--surface)",
                 border: `1px solid ${selected ? "var(--amber)" : "var(--hairline)"}`,
-                padding: "18px",
+                borderRadius: "6px",
+                padding: "16px",
                 cursor: "pointer",
                 transition: "all 200ms ease-out",
                 color: "var(--fg)",
                 fontFamily: "inherit",
                 display: "flex",
                 flexDirection: "column",
-                gap: "8px",
-                minHeight: "160px",
+                gap: "6px",
               }}
             >
+              {/* Portrait initials */}
+              <div style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "4px",
+              }}>
+                <svg width="56" height="56" viewBox="0 0 56 56" style={{ display: "block" }}>
+                  <rect width="56" height="56" fill="transparent" />
+                  <rect x="2" y="2" width="52" height="52" fill="none" stroke={mind.colorVar} strokeWidth="0.5" opacity="0.4" />
+                  <text x="28" y="34" textAnchor="middle" fill={mind.colorVar}
+                    style={{ fontFamily: "var(--font-serif)", fontSize: "20px", fontWeight: 300 }}>
+                    {mind.name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase()}
+                  </text>
+                </svg>
+              </div>
               <div
                 className="font-mono uppercase"
                 style={{
-                  fontSize: "12px",
+                  fontSize: "11px",
                   letterSpacing: "0.12em",
                   color: mind.colorVar,
                 }}
@@ -863,18 +887,19 @@ function CouncilStage({
               <div
                 className="font-mono"
                 style={{
-                  fontSize: "10px",
-                  letterSpacing: "0.06em",
-                  color: "var(--fg-dim)",
+                  fontSize: "9px",
+                  letterSpacing: "0.08em",
+                  color: "var(--fg-faint)",
                   textTransform: "uppercase",
                 }}
               >
-                {mind.era} · {mind.domain}
+                {mind.era}
               </div>
               <div
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "14px",
+                  fontSize: "13px",
+                  fontStyle: "italic",
                   lineHeight: 1.45,
                   color: "var(--fg-dim)",
                   flex: 1,
@@ -885,11 +910,13 @@ function CouncilStage({
               <div
                 className="font-mono"
                 style={{
-                  fontSize: "10px",
-                  letterSpacing: "0.06em",
-                  color: selected ? "var(--amber)" : "var(--fg-dim)",
+                  fontSize: "9px",
+                  letterSpacing: "0.1em",
+                  color: selected ? "var(--amber)" : "var(--fg-faint)",
                   textTransform: "uppercase",
                   marginTop: "4px",
+                  borderTop: "1px solid var(--hairline)",
+                  paddingTop: "6px",
                 }}
               >
                 {selected ? "✓ On the council" : `${mind.incidentCount} incidents`}
@@ -934,6 +961,7 @@ function CouncilStage({
             background: valid ? "var(--amber)" : "transparent",
             color: valid ? "var(--bg)" : "var(--fg-dim)",
             border: valid ? "1px solid var(--amber)" : "1px solid var(--hairline)",
+            borderRadius: "4px",
             fontSize: "12px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
@@ -1337,9 +1365,8 @@ function ConsensusStage({
             style={{
               background: consensus ? "var(--amber)" : "transparent",
               color: consensus ? "var(--bg)" : "var(--fg-dim)",
-              border: consensus
-                ? "1px solid var(--amber)"
-                : "1px solid var(--hairline)",
+              border: consensus ? "1px solid var(--amber)" : "1px solid var(--hairline)",
+              borderRadius: "4px",
               fontSize: "12px",
               letterSpacing: "0.14em",
               textTransform: "uppercase",
@@ -1356,6 +1383,7 @@ function ConsensusStage({
             style={{
               display: "inline-block",
               border: "1px solid var(--hairline)",
+              borderRadius: "4px",
               color: "var(--fg-dim)",
               fontSize: "12px",
               letterSpacing: "0.14em",
@@ -1374,7 +1402,8 @@ function ConsensusStage({
               className="font-mono"
               style={{
                 display: "inline-block",
-                border: "1px solid var(--hairline)",
+                border: "1px solid var(--amber)",
+                borderRadius: "4px",
                 color: "var(--amber)",
                 fontSize: "12px",
                 letterSpacing: "0.14em",
@@ -1391,9 +1420,10 @@ function ConsensusStage({
               disabled={!consensus || saveState === "saving"}
               className="font-mono"
               style={{
-                background: "transparent",
-                color: !consensus || saveState === "saving" ? "var(--fg-dim)" : "var(--fg)",
-                border: "1px solid var(--hairline)",
+                background: consensus && saveState !== "saving" ? "var(--amber)" : "transparent",
+                color: !consensus || saveState === "saving" ? "var(--fg-dim)" : "var(--bg)",
+                border: consensus && saveState !== "saving" ? "1px solid var(--amber)" : "1px solid var(--hairline)",
+                borderRadius: "4px",
                 fontSize: "12px",
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
@@ -1415,6 +1445,7 @@ function ConsensusStage({
             style={{
               display: "inline-block",
               border: "1px solid var(--hairline)",
+              borderRadius: "4px",
               color: "var(--fg-dim)",
               fontSize: "12px",
               letterSpacing: "0.14em",
@@ -1434,6 +1465,7 @@ function ConsensusStage({
             background: "transparent",
             color: "var(--fg)",
             border: "1px solid var(--hairline)",
+            borderRadius: "4px",
             fontSize: "12px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",

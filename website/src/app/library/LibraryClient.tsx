@@ -165,7 +165,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                   fontSize: "10px",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: isDeleting ? "var(--fg-dim)" : "#c75a5a",
+                  color: isDeleting ? "var(--fg-dim)" : "var(--red)",
                   cursor: isDeleting ? "not-allowed" : "pointer",
                   padding: "4px 0",
                 }}
