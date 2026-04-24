@@ -1,15 +1,5 @@
-import { neon } from '@neondatabase/serverless';
+import { sql } from '@vercel/postgres';
 import type { ConsensusResult } from '@/lib/agon/types';
-
-function getSql() {
-  const url = process.env.DATABASE_URL;
-  if (!url || url.includes('PLACEHOLDER')) {
-    throw new Error(
-      'DATABASE_URL is not configured. Create a Neon database at neon.tech and add the connection string to your environment variables.'
-    );
-  }
-  return neon(url);
-}
 
 export interface AgonRecord {
   id: string;
@@ -34,13 +24,15 @@ export const db = {
     consensus: ConsensusResult | null;
     research?: string | null;
   }): Promise<string> {
-    const sql = getSql();
-    const rows = await sql`
+    // TEXT[] must be passed as a PostgreSQL array literal string — @vercel/postgres
+    // only accepts Primitive values in tagged template slots.
+    const mindSlugsLiteral = `{${params.mindSlugs.join(',')}}`;
+    const result = await sql`
       INSERT INTO agons (clerk_user_id, topic, mind_slugs, rounds, turns, consensus, research)
       VALUES (
         ${params.userId},
         ${params.topic},
-        ${params.mindSlugs},
+        ${mindSlugsLiteral}::text[],
         ${params.rounds},
         ${JSON.stringify(params.turns)},
         ${params.consensus ? JSON.stringify(params.consensus) : null},
@@ -48,38 +40,35 @@ export const db = {
       )
       RETURNING id
     `;
-    return (rows[0] as { id: string }).id;
+    return result.rows[0].id as string;
   },
 
   async getUserAgons(userId: string, limit = 20, offset = 0): Promise<AgonRecord[]> {
-    const sql = getSql();
-    const rows = await sql`
+    const result = await sql`
       SELECT id, clerk_user_id, topic, mind_slugs, rounds, consensus, research, created_at, updated_at
       FROM agons
       WHERE clerk_user_id = ${userId}
       ORDER BY created_at DESC
       LIMIT ${limit} OFFSET ${offset}
     `;
-    return rows as AgonRecord[];
+    return result.rows as AgonRecord[];
   },
 
   async getAgon(id: string, userId: string): Promise<AgonRecord | null> {
-    const sql = getSql();
-    const rows = await sql`
+    const result = await sql`
       SELECT *
       FROM agons
       WHERE id = ${id} AND clerk_user_id = ${userId}
     `;
-    return (rows[0] as AgonRecord) ?? null;
+    return (result.rows[0] as AgonRecord) ?? null;
   },
 
   async deleteAgon(id: string, userId: string): Promise<boolean> {
-    const sql = getSql();
-    const rows = await sql`
+    const result = await sql`
       DELETE FROM agons
       WHERE id = ${id} AND clerk_user_id = ${userId}
       RETURNING id
     `;
-    return rows.length > 0;
+    return result.rows.length > 0;
   },
 };

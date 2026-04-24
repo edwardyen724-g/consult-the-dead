@@ -1,3 +1,4 @@
+-- Run this once in the Vercel dashboard: Storage → your database → Query tab
 CREATE TABLE agons (
   id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
   clerk_user_id TEXT NOT NULL,
