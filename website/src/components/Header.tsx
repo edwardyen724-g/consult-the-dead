@@ -7,77 +7,137 @@ export function Header() {
   const { isSignedIn } = useAuth()
 
   return (
-    <header className="border-b border-border relative z-50">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
-          style={{ minHeight: "44px" }}
-        >
-          <span
-            className="font-mono text-xs uppercase tracking-widest text-ink"
-            style={{ letterSpacing: "0.18em" }}
-          >
-            Consult The Dead
-          </span>
+    <header style={{
+      borderBottom: '1px solid var(--hairline)',
+      position: 'relative',
+      zIndex: 50,
+      background: 'var(--bg)',
+    }}>
+      <div style={{
+        maxWidth: '1100px',
+        margin: '0 auto',
+        padding: '0 24px',
+        height: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '24px',
+      }}>
+
+        {/* Left: brand */}
+        <Link href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
+          <div style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '1rem',
+            fontWeight: 400,
+            color: 'var(--fg)',
+            letterSpacing: '-0.01em',
+            lineHeight: 1.1,
+          }}>
+            The Agora
+          </div>
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '9px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            marginTop: '2px',
+          }}>
+            Consult the Dead
+          </div>
         </Link>
 
-        <div className="flex items-center gap-5">
-          <Link
-            href="/essay"
-            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
-          >
-            Essay
-          </Link>
-          <Link
-            href="/frameworks"
-            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
-          >
-            Frameworks
-          </Link>
-          <Link
-            href="/insights"
-            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
-          >
-            Insights
-          </Link>
-          <Link
-            href="/pricing"
-            className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
-          >
-            Pricing
+        {/* Center: nav */}
+        <nav style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '28px',
+          flex: 1,
+          justifyContent: 'center',
+        }}>
+          <Link href="/agora" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-dim)',
+            textDecoration: 'none',
+          }}>
+            The Agora
           </Link>
           {isSignedIn && (
-            <Link
-              href="/library"
-              className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors"
-            >
+            <Link href="/library" style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+              textDecoration: 'none',
+            }}>
               Library
             </Link>
           )}
-          <Link
-            href="/agora"
-            className="font-mono text-[11px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors"
-            style={{
-              background: "var(--amber)",
-              color: "var(--bg)",
-              letterSpacing: "0.14em",
-            }}
-          >
-            Enter The Agora
+          <Link href="/pricing" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-dim)',
+            textDecoration: 'none',
+          }}>
+            Pricing
           </Link>
+          <Link href="/essay" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-dim)',
+            textDecoration: 'none',
+          }}>
+            About
+          </Link>
+        </nav>
+
+        {/* Right: auth + CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
           {!isSignedIn ? (
             <SignInButton mode="redirect">
-              <button className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-ink transition-colors">
+              <button style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '10px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--fg-dim)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0,
+              }}>
                 Sign in
               </button>
             </SignInButton>
           ) : (
             <UserButton />
           )}
+          <Link href="/agora" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            padding: '8px 16px',
+            borderRadius: '4px',
+            background: 'var(--amber)',
+            color: 'var(--bg)',
+            textDecoration: 'none',
+            whiteSpace: 'nowrap',
+          }}>
+            Enter
+          </Link>
           <ThemeToggle />
         </div>
       </div>
     </header>
-  );
+  )
 }

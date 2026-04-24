@@ -3,14 +3,14 @@
   "configurations": [
     {
       "name": "website",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "website"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /c/projects/greatminds/website && npx next dev"],
       "port": 3000
     },
     {
       "name": "company-builder",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "company-builder", "--", "-p", "3001"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /c/projects/greatminds/company-builder && npx next dev -p 3001"],
       "port": 3001
     }
   ]
