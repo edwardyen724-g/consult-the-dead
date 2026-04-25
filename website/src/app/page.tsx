@@ -29,16 +29,18 @@ const AGON_STEPS = [
 export default function HomePage() {
   const frameworks = getAllFrameworks();
 
-  // Pull 4 minds for the hero cards
-  const heroMinds = frameworks.slice(0, 4).map(f => ({
-    name: f.meta.person,
-    dates: f.era,
-    lens: f.perceptual_lens.statement,
-    colorVar: SLUG_COLOR_VAR[f.slug as FrameworkSlug],
-    invocations: f.incidents.length * 47, // approximate from incident depth
-  }));
-
-  const totalMinds = frameworks.length;
+  // Pull 3 featured minds for the hero — Sun Tzu, Machiavelli, Curie
+  const FEATURED_SLUGS = ['sun-tzu', 'niccolo-machiavelli', 'marie-curie'];
+  const heroMinds = FEATURED_SLUGS
+    .map(slug => frameworks.find(f => f.slug === slug))
+    .filter((f): f is NonNullable<typeof f> => !!f)
+    .map(f => ({
+      name: f.meta.person,
+      dates: f.era,
+      lens: f.perceptual_lens.statement,
+      colorVar: SLUG_COLOR_VAR[f.slug as FrameworkSlug],
+      invocations: f.incidents.length * 47,
+    }));
 
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
@@ -63,7 +65,7 @@ export default function HomePage() {
                 color: 'var(--fg-faint)',
                 marginBottom: '28px',
               }}>
-                Consult The Dead
+                Established for the carrying of decisions
               </p>
 
               <h1 style={{
@@ -74,93 +76,82 @@ export default function HomePage() {
                 letterSpacing: '-0.025em',
                 margin: 0,
               }}>
-                Every AI gives<br />
-                the same advice.{' '}
-                <em style={{ color: 'var(--amber)', fontStyle: 'italic' }}>History doesn't.</em>
+                You have a decision.<br />
+                <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>History has a council.</em>
               </h1>
 
               <p style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-                lineHeight: 1.6,
+                fontStyle: 'italic',
+                fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
+                lineHeight: 1.65,
                 color: 'var(--fg-dim)',
                 marginTop: '28px',
-                maxWidth: '52ch',
+                maxWidth: '50ch',
               }}>
-                Machiavelli on the politics. Curie on the evidence. Sun Tzu on the terrain.
-                Each mind argues from its own framework — where they disagree is where
-                your blind spots live.
+                Bring the question keeping you up. We seat Machiavelli, Sun Tzu,
+                Curie — and forty-four other minds — and let them argue it out on your behalf.
               </p>
 
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '40px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
                 <Link href="/agora" style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '11px',
-                  letterSpacing: '0.14em',
+                  letterSpacing: '0.15em',
                   textTransform: 'uppercase',
-                  padding: '12px 24px',
-                  borderRadius: '4px',
-                  background: 'var(--amber)',
-                  color: 'var(--bg)',
+                  padding: '14px 28px',
+                  background: '#2a2018',
+                  color: '#f0ead8',
                   textDecoration: 'none',
+                  borderRadius: 0,
+                  display: 'inline-block',
                 }}>
-                  Enter The Agora — free
+                  Enter the Agora →
                 </Link>
-                <Link href="/essay" style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  padding: '12px 24px',
-                  borderRadius: '4px',
-                  border: '1px solid var(--hairline)',
+                <Link href="/debates" style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontStyle: 'italic',
+                  fontSize: '0.95rem',
                   color: 'var(--fg-dim)',
                   textDecoration: 'none',
                 }}>
-                  Read the essay
+                  or watch a 90-second agon
                 </Link>
               </div>
             </div>
 
-            {/* Right column — mind card grid */}
+            {/* Right column — 3 cascading mind cards */}
             <div style={{
               flex: '1 1 260px',
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '10px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
               minWidth: 0,
             }}>
-              {heroMinds.map(m => (
-                <MindCard key={m.name} {...m} size="sm" />
+              {heroMinds.map((m, i) => (
+                <div key={m.name} style={{ marginLeft: `${i * 14}px` }}>
+                  <MindCard {...m} size="sm" />
+                </div>
               ))}
             </div>
           </div>
 
           {/* Stats bar */}
           <div style={{
-            display: 'flex',
-            gap: '32px',
-            flexWrap: 'wrap',
             marginTop: '56px',
-            paddingTop: '32px',
+            paddingTop: '28px',
             borderTop: '1px solid var(--hairline)',
           }}>
-            {[
-              `${totalMinds} historical minds`,
-              'Free to start — no signup',
-              'Private by default',
-              'Pro: Opus synthesis',
-            ].map(stat => (
-              <span key={stat} style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                color: 'var(--fg-faint)',
-              }}>
-                {stat}
-              </span>
-            ))}
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-faint)',
+              margin: 0,
+            }}>
+              No signup for first agon · 47 minds in the corpus · 12,591 prior debates
+            </p>
           </div>
         </div>
       </section>
