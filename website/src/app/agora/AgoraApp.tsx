@@ -26,6 +26,20 @@ const STAGE_LABELS: Record<Stage, string> = {
   consensus: "CONSENSUS",
 };
 
+const STAGE_ROMAN: Record<Stage, string> = {
+  topic: "I", research: "II", council: "III", agon: "IV", consensus: "V",
+};
+const STAGE_SUBTITLE: Record<Stage, string> = {
+  topic: "The Question", research: "Research", council: "Council Selection",
+  agon: "The Agon", consensus: "Consensus",
+};
+
+function toRoman(n: number): string {
+  const map: [number, string][] = [[3,"III"],[2,"II"],[1,"I"]];
+  for (const [v, s] of map) if (n >= v) return s;
+  return String(n);
+}
+
 const MIND_MIN = 2;
 const MIND_MAX = 5;
 const DEFAULT_COUNCIL_SIZE = 3;
@@ -318,37 +332,13 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
         color: "var(--fg)",
       }}
     >
-      <div style={{ maxWidth: "920px", margin: "0 auto" }}>
-        <div
-          className="font-mono uppercase"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.18em",
-            color: "var(--fg-dim)",
-            marginBottom: "8px",
-          }}
-        >
-          Consult The Dead — the Agora
-        </div>
-        <h1
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 400,
-            fontSize: "clamp(28px, 4vw, 44px)",
-            lineHeight: 1.15,
-            letterSpacing: "-0.015em",
-            marginBottom: "36px",
-          }}
-        >
-          What decision are you carrying?
-        </h1>
-
-        <ProgressBar stage={state.stage} visibleStages={visibleStages} />
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <StageHeader stage={state.stage} />
 
         {state.error && (
           <div
             style={{
-              marginTop: "32px",
+              marginBottom: "32px",
               border: "1px solid var(--red)",
               borderRadius: "4px",
               padding: "12px 16px",
@@ -365,7 +355,7 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
           </div>
         )}
 
-        <div style={{ marginTop: "40px" }}>
+        <div>
           {state.stage === "topic" && (
             <TopicStage
               topic={state.topic}
@@ -385,6 +375,7 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
 
           {state.stage === "council" && (
             <CouncilStage
+              topic={state.topic}
               minds={minds}
               council={state.council}
               isPro={isPro}
@@ -496,53 +487,42 @@ async function consumeSse(
   }
 }
 
-/* ────────────── Progress bar ────────────── */
+/* ────────────── Stage header ────────────── */
 
-function ProgressBar({
-  stage,
-  visibleStages,
-}: {
-  stage: Stage;
-  visibleStages: Stage[];
-}) {
-  const activeIdx = visibleStages.indexOf(stage);
+function StageHeader({ stage }: { stage: Stage }) {
   return (
-    <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
-      {visibleStages.map((s, i) => {
-        const isActive = i === activeIdx;
-        const isPast = i < activeIdx;
-        const opacity = isActive ? 1 : isPast ? 0.55 : 0.35;
-        return (
-          <div
-            key={s}
-            style={{ opacity, transition: "opacity 400ms ease-out" }}
-          >
-            <div
-              className="font-mono"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                color: isActive ? "var(--fg)" : "var(--fg-dim)",
-              }}
-            >
-              {STAGE_LABELS[s]}
-            </div>
-            <div
-              style={{
-                height: "2px",
-                width: isActive ? "100%" : isPast ? "100%" : "0%",
-                background: isActive
-                  ? "var(--amber)"
-                  : isPast
-                    ? "var(--fg-dim)"
-                    : "transparent",
-                marginTop: "3px",
-                transition: "width 400ms ease-out, background 400ms ease-out",
-              }}
-            />
-          </div>
-        );
-      })}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "baseline",
+        paddingBottom: "16px",
+        borderBottom: "1px solid var(--hairline)",
+        marginBottom: "48px",
+      }}
+    >
+      <span
+        className="font-mono"
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--fg-faint)",
+        }}
+      >
+        The Agora · Vol. I
+      </span>
+      <span
+        className="font-mono"
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--fg-dim)",
+        }}
+      >
+        Stage {STAGE_ROMAN[stage]} — {STAGE_SUBTITLE[stage]}
+      </span>
     </div>
   );
 }
@@ -564,122 +544,195 @@ function TopicStage({
 }) {
   const [showKey, setShowKey] = useState(false);
   const valid = topic.trim().length >= 10;
+  const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
   return (
     <div>
-      <label
-        htmlFor="agora-topic"
-        className="font-mono uppercase"
-        style={{
-          fontSize: "11px",
-          letterSpacing: "0.08em",
-          color: "var(--fg-dim)",
-          display: "block",
-          marginBottom: "10px",
-        }}
-      >
-        The Decision
-      </label>
-      <textarea
-        id="agora-topic"
-        value={topic}
-        onChange={(e) => setTopic(e.target.value)}
-        placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
-        rows={4}
-        style={{
-          width: "100%",
-          background: "transparent",
-          border: "1px solid var(--hairline)",
-          borderRadius: "4px",
-          color: "var(--fg)",
-          fontFamily: "var(--font-serif)",
-          fontSize: "18px",
-          lineHeight: 1.5,
-          padding: "16px",
-          resize: "vertical",
-          outline: "none",
-        }}
-        onFocus={(e) => { e.currentTarget.style.borderColor = "var(--amber)"; }}
-        onBlur={(e) => { e.currentTarget.style.borderColor = "var(--hairline)"; }}
-      />
+      {/* Centered editorial heading */}
+      <div style={{ textAlign: "center", marginBottom: "48px" }}>
+        <p
+          className="font-mono"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "var(--fg-faint)",
+            margin: "0 0 20px",
+          }}
+        >
+          Consult the Dead
+        </p>
+        <h1
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontWeight: 400,
+            fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
+            fontStyle: "italic",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            color: "var(--fg)",
+            margin: 0,
+          }}
+        >
+          What decision are you carrying?
+        </h1>
+      </div>
+
+      {/* Textarea with red left border */}
+      <div style={{ position: "relative", marginBottom: "10px" }}>
+        <textarea
+          id="agora-topic"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+          placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
+          rows={5}
+          style={{
+            width: "100%",
+            background: "var(--surface)",
+            border: "none",
+            borderLeft: "3px solid var(--red)",
+            color: "var(--fg)",
+            fontFamily: "var(--font-serif)",
+            fontSize: "18px",
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            padding: "20px 20px 44px",
+            resize: "vertical",
+            outline: "none",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          className="font-mono"
+          style={{
+            position: "absolute",
+            bottom: "12px",
+            right: "14px",
+            fontSize: "9px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "var(--fg-faint)",
+            pointerEvents: "none",
+          }}
+        >
+          {wordCount} Words · Draft 1
+        </div>
+      </div>
 
       <div
         className="font-mono"
         style={{
-          marginTop: "10px",
           fontSize: "11px",
           letterSpacing: "0.04em",
-          color: "var(--fg-dim)",
+          color: "var(--fg-faint)",
           lineHeight: 1.6,
+          marginBottom: "32px",
         }}
       >
         We log your decision and council selection so we can learn what to
         build next. We do <em>not</em> store your name, email, or IP.
       </div>
 
-      <div style={{ marginTop: "32px" }}>
-        <button
-          onClick={onSubmit}
-          disabled={!valid}
-          className="font-mono"
-          style={{
-            background: valid ? "var(--amber)" : "transparent",
-            color: valid ? "var(--bg)" : "var(--fg-dim)",
-            border: valid ? "1px solid var(--amber)" : "1px solid var(--hairline)",
-            borderRadius: "4px",
-            fontSize: "12px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            padding: "14px 28px",
-            cursor: valid ? "pointer" : "not-allowed",
-            transition: "all 200ms ease-out",
-          }}
-        >
-          Pick the Council →
-        </button>
-      </div>
+      <button
+        onClick={onSubmit}
+        disabled={!valid}
+        className="font-mono"
+        style={{
+          background: valid ? "#2a2018" : "transparent",
+          color: valid ? "#f0ead8" : "var(--fg-dim)",
+          border: valid ? "none" : "1px solid var(--hairline)",
+          borderRadius: 0,
+          fontSize: "12px",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          padding: "16px 36px",
+          cursor: valid ? "pointer" : "not-allowed",
+          transition: "all 200ms ease-out",
+        }}
+      >
+        Begin the Agon →
+      </button>
 
-      <div style={{ marginTop: "48px" }}>
+      {/* Example questions */}
+      <div style={{ marginTop: "56px" }}>
         <div
-          className="font-mono uppercase"
           style={{
-            fontSize: "11px",
-            letterSpacing: "0.08em",
-            color: "var(--fg-dim)",
-            marginBottom: "12px",
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            marginBottom: "28px",
           }}
         >
-          Or try an example
+          <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
+          <span
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--fg-faint)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            ◆ Or borrow a question from another querent
+          </span>
+          <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          {EXAMPLE_TOPICS.map((ex) => (
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "16px",
+          }}
+        >
+          {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
               onClick={() => setTopic(ex)}
               style={{
-                background: "transparent",
-                border: "none",
-                color: "var(--fg-dim)",
-                fontFamily: "var(--font-serif)",
-                fontSize: "16px",
+                background: "var(--surface)",
+                border: "1px solid var(--hairline)",
+                borderRadius: 0,
                 textAlign: "left",
                 cursor: "pointer",
-                padding: "6px 0",
-                transition: "color 200ms ease-out",
+                padding: "20px",
+                color: "var(--fg)",
+                fontFamily: "inherit",
+                transition: "border-color 200ms ease-out",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--fg)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--fg-dim)";
-              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--fg-dim)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--hairline)"; }}
             >
-              → {ex}
+              <div
+                className="font-mono"
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "0.18em",
+                  color: "var(--fg-faint)",
+                  marginBottom: "10px",
+                }}
+              >
+                {["I", "II", "III"][i]}
+              </div>
+              <p
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "15px",
+                  fontStyle: "italic",
+                  lineHeight: 1.5,
+                  color: "var(--fg-dim)",
+                  margin: 0,
+                }}
+              >
+                {ex}
+              </p>
             </button>
           ))}
         </div>
       </div>
 
+      {/* API key */}
       <div style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}>
         <button
           onClick={() => setShowKey((v) => !v)}
@@ -789,12 +842,14 @@ function ResearchPlaceholder({
 /* ────────────── Stage 3: Council ────────────── */
 
 function CouncilStage({
+  topic,
   minds,
   council,
   isPro,
   toggleMind,
   onContinue,
 }: {
+  topic: string;
   minds: MindOption[];
   council: string[];
   isPro: boolean;
@@ -804,51 +859,77 @@ function CouncilStage({
   const mindMax = isPro ? MIND_MAX : 3;
   const count = council.length;
   const valid = count >= MIND_MIN && count <= mindMax;
+  const unselected = minds.filter((m) => !council.includes(m.slug));
+
   return (
     <div>
-      <div
-        className="font-mono uppercase"
-        style={{
-          fontSize: "11px",
-          letterSpacing: "0.08em",
-          color: "var(--fg-dim)",
-          marginBottom: "10px",
-        }}
-      >
-        Your Council
+      {/* Topic display */}
+      <div style={{ marginBottom: "40px" }}>
+        <p
+          className="font-mono"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--fg-faint)",
+            margin: "0 0 10px",
+          }}
+        >
+          The Question
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "18px",
+            fontStyle: "italic",
+            lineHeight: 1.5,
+            color: "var(--fg)",
+            margin: 0,
+            maxWidth: "60ch",
+          }}
+        >
+          &ldquo;{topic}&rdquo;
+        </p>
       </div>
-      <p
+
+      <h2
         style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "17px",
-          lineHeight: 1.5,
-          color: "var(--fg-dim)",
-          marginBottom: "32px",
-          maxWidth: "58ch",
+          fontWeight: 400,
+          fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)",
+          letterSpacing: "-0.01em",
+          lineHeight: 1.2,
+          color: "var(--fg)",
+          margin: "0 0 36px",
         }}
       >
-        Choose {MIND_MIN}&ndash;{mindMax}&nbsp;minds. We&rsquo;ve pre-selected
-        a council that looks right for your question. Swap anyone in or out.
-      </p>
+        Summon the council.
+      </h2>
 
+      {/* Horizontal mind card row */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+          display: "flex",
           gap: "16px",
+          overflowX: "auto",
+          paddingBottom: "8px",
+          marginBottom: "20px",
         }}
       >
         {minds.map((mind) => {
           const selected = council.includes(mind.slug);
+          const initials = mind.name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
           return (
             <button
               key={mind.slug}
               onClick={() => toggleMind(mind.slug)}
               style={{
+                flexShrink: 0,
+                width: "176px",
                 textAlign: "left",
                 background: selected ? "var(--amber-wash)" : "var(--surface)",
                 border: `1px solid ${selected ? "var(--amber)" : "var(--hairline)"}`,
-                borderRadius: "6px",
+                borderRadius: 0,
                 padding: "16px",
                 cursor: "pointer",
                 transition: "all 200ms ease-out",
@@ -856,51 +937,65 @@ function CouncilStage({
                 fontFamily: "inherit",
                 display: "flex",
                 flexDirection: "column",
-                gap: "6px",
+                gap: "8px",
+                position: "relative",
               }}
             >
-              {/* Portrait initials */}
-              <div style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "4px",
-              }}>
-                <svg width="56" height="56" viewBox="0 0 56 56" style={{ display: "block" }}>
-                  <rect width="56" height="56" fill="transparent" />
-                  <rect x="2" y="2" width="52" height="52" fill="none" stroke={mind.colorVar} strokeWidth="0.5" opacity="0.4" />
-                  <text x="28" y="34" textAnchor="middle" fill={mind.colorVar}
-                    style={{ fontFamily: "var(--font-serif)", fontSize: "20px", fontWeight: 300 }}>
-                    {mind.name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase()}
+              {selected && (
+                <div
+                  className="font-mono"
+                  style={{
+                    position: "absolute",
+                    top: "8px",
+                    right: "8px",
+                    fontSize: "8px",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--amber)",
+                    background: "var(--amber-wash)",
+                    padding: "2px 6px",
+                    border: "1px solid var(--amber)",
+                  }}
+                >
+                  Seated
+                </div>
+              )}
+
+              {/* Engraved portrait */}
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "4px" }}>
+                <svg width="80" height="80" viewBox="0 0 80 80" style={{ display: "block" }}>
+                  <rect width="80" height="80" fill="var(--bg)" />
+                  <line x1="0" y1="20" x2="20" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="0" y1="40" x2="40" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="0" y1="60" x2="60" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="0" y1="80" x2="80" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="20" y1="80" x2="80" y2="20" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="40" y1="80" x2="80" y2="40" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <line x1="60" y1="80" x2="80" y2="60" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
+                  <rect x="2" y="2" width="76" height="76" fill="none" stroke={mind.colorVar} strokeWidth="0.8" opacity="0.5" />
+                  <rect x="6" y="6" width="68" height="68" fill="none" stroke={mind.colorVar} strokeWidth="0.3" opacity="0.3" />
+                  <text x="40" y="48" textAnchor="middle" fill={mind.colorVar}
+                    style={{ fontFamily: "var(--font-serif)", fontSize: "26px", fontWeight: 300 }}>
+                    {initials}
                   </text>
                 </svg>
               </div>
-              <div
-                className="font-mono uppercase"
-                style={{
-                  fontSize: "11px",
-                  letterSpacing: "0.12em",
-                  color: mind.colorVar,
-                }}
-              >
+
+              <div style={{ fontFamily: "var(--font-serif)", fontSize: "14px", color: "var(--fg)", lineHeight: 1.2 }}>
                 {mind.name}
               </div>
               <div
                 className="font-mono"
-                style={{
-                  fontSize: "9px",
-                  letterSpacing: "0.08em",
-                  color: "var(--fg-faint)",
-                  textTransform: "uppercase",
-                }}
+                style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--fg-faint)", textTransform: "uppercase" }}
               >
                 {mind.era}
               </div>
               <div
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "13px",
+                  fontSize: "12px",
                   fontStyle: "italic",
-                  lineHeight: 1.45,
+                  lineHeight: 1.4,
                   color: "var(--fg-dim)",
                   flex: 1,
                 }}
@@ -912,25 +1007,44 @@ function CouncilStage({
                 style={{
                   fontSize: "9px",
                   letterSpacing: "0.1em",
-                  color: selected ? "var(--amber)" : "var(--fg-faint)",
+                  color: "var(--fg-faint)",
                   textTransform: "uppercase",
-                  marginTop: "4px",
                   borderTop: "1px solid var(--hairline)",
                   paddingTop: "6px",
                 }}
               >
-                {selected ? "✓ On the council" : `${mind.incidentCount} incidents`}
+                {mind.incidentCount} invocations
               </div>
             </button>
           );
         })}
       </div>
 
+      {/* Also available */}
+      {unselected.length > 0 && (
+        <p
+          className="font-mono"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.1em",
+            color: "var(--fg-faint)",
+            textTransform: "uppercase",
+            margin: "0 0 8px",
+          }}
+        >
+          Also available:{" "}
+          <span style={{ color: "var(--fg-dim)" }}>
+            {unselected.map((m) => m.name).join(", ")}
+          </span>
+        </p>
+      )}
+
       {!isPro && (
         <div
           className="font-mono"
           style={{
-            marginTop: "20px",
+            marginTop: "12px",
+            marginBottom: "8px",
             fontSize: "11px",
             letterSpacing: "0.06em",
             color: "var(--fg-dim)",
@@ -946,10 +1060,10 @@ function CouncilStage({
 
       <div
         style={{
-          marginTop: "40px",
+          marginTop: "32px",
           display: "flex",
           alignItems: "center",
-          gap: "20px",
+          gap: "24px",
           flexWrap: "wrap",
         }}
       >
@@ -958,19 +1072,19 @@ function CouncilStage({
           disabled={!valid}
           className="font-mono"
           style={{
-            background: valid ? "var(--amber)" : "transparent",
-            color: valid ? "var(--bg)" : "var(--fg-dim)",
-            border: valid ? "1px solid var(--amber)" : "1px solid var(--hairline)",
-            borderRadius: "4px",
+            background: valid ? "#2a2018" : "transparent",
+            color: valid ? "#f0ead8" : "var(--fg-dim)",
+            border: valid ? "none" : "1px solid var(--hairline)",
+            borderRadius: 0,
             fontSize: "12px",
-            letterSpacing: "0.14em",
+            letterSpacing: "0.15em",
             textTransform: "uppercase",
-            padding: "14px 28px",
+            padding: "16px 36px",
             cursor: valid ? "pointer" : "not-allowed",
             transition: "all 200ms ease-out",
           }}
         >
-          Begin the Agon
+          Call the Council →
         </button>
         <div
           className="font-mono"
@@ -980,7 +1094,7 @@ function CouncilStage({
             color: "var(--fg-dim)",
           }}
         >
-          {count} selected · {MIND_MIN}&ndash;{mindMax} required
+          {count} selected · {MIND_MIN}–{mindMax} required
         </div>
       </div>
     </div>
@@ -1063,11 +1177,11 @@ function AgonStage({
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "36px",
+          gap: "0",
         }}
       >
-        {sortedRounds.map((round) => (
-          <div key={round}>
+        {sortedRounds.map((round, idx) => (
+          <div key={round} style={{ borderTop: idx > 0 ? "1px solid var(--hairline)" : "none", paddingTop: idx > 0 ? "36px" : "0", marginBottom: "36px" }}>
             <div
               className="font-mono uppercase"
               style={{
@@ -1078,7 +1192,7 @@ function AgonStage({
                 marginBottom: "20px",
               }}
             >
-              Round {round}
+              Round {toRoman(round)}
             </div>
             <div
               style={{
