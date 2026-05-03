@@ -17,8 +17,8 @@ const AGON_STEPS = [
   },
   {
     n: "03",
-    label: "Agon",
-    body: "The council debates across three rounds. Each mind challenges the others from its own framework.",
+    label: "Debate",
+    body: "The council argues across three rounds. Each mind challenges the others from its own framework.",
   },
   {
     n: "04",
@@ -26,7 +26,6 @@ const AGON_STEPS = [
     body: "Consensus distilled into a concrete recommendation — with the dissent preserved.",
   },
 ] as const;
-
 export default function HomePage() {
   const frameworks = getAllFrameworks();
   const frameworkBySlug = new Map(frameworks.map((f) => [f.slug, f] as const));
@@ -53,8 +52,7 @@ export default function HomePage() {
     const liveMembers = getActivePackMembers(pack, liveSlugs)
       .map((slug) => frameworkBySlug.get(slug as FrameworkSlug))
       .filter((f): f is NonNullable<typeof f> => !!f);
-    return {
-      id: pack.id,
+    return {      id: pack.id,
       name: pack.name,
       tagline: pack.tagline,
       description: pack.description,
@@ -81,8 +79,7 @@ export default function HomePage() {
             <div style={{ flex: '1.4 1 340px', minWidth: 0 }}>
               <p style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
-                letterSpacing: '0.22em',
+                fontSize: '10px',                letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 color: 'var(--fg-faint)',
                 marginBottom: '28px',
@@ -111,8 +108,7 @@ export default function HomePage() {
                 marginTop: '28px',
                 maxWidth: '50ch',
               }}>
-                Bring the question keeping you up. We seat {totalMinds} minds —
-                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
+                Bring the question keeping you up. We seat {totalMinds} minds —                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
@@ -122,13 +118,13 @@ export default function HomePage() {
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   padding: '14px 28px',
-                  background: '#2a2018',
-                  color: '#f0ead8',
+                  background: 'var(--amber)',
+                  color: 'var(--bg)',
                   textDecoration: 'none',
-                  borderRadius: 0,
+                  borderRadius: '4px',
                   display: 'inline-block',
                 }}>
-                  Enter the Agora →
+                  Ask Your Question →
                 </Link>
                 <Link href="/essay" style={{
                   fontFamily: 'var(--font-serif)',
@@ -137,11 +133,10 @@ export default function HomePage() {
                   color: 'var(--fg-dim)',
                   textDecoration: 'none',
                 }}>
-                  or read how it works
+                  or see how it works
                 </Link>
               </div>
             </div>
-
             {/* Right column — 3 mind cards in a row */}
             <div style={{
               flex: '1 1 340px',
@@ -170,8 +165,7 @@ export default function HomePage() {
               color: 'var(--fg-faint)',
               margin: 0,
             }}>
-              No signup for first agon · {totalMinds} minds in the corpus · {packCards.length} themed packs
-            </p>
+              No signup for your first debate · {totalMinds} minds in the corpus · {packCards.length} themed packs            </p>
           </div>
         </div>
       </section>
@@ -201,8 +195,7 @@ export default function HomePage() {
               color: 'var(--fg-dim)',
               textDecoration: 'none',
             }}>
-              Browse all minds →
-            </Link>
+              Browse all minds →            </Link>
           </div>
           <h2 style={{
             fontFamily: 'var(--font-serif)',
@@ -231,8 +224,7 @@ export default function HomePage() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '20px',
-          }}>
+            gap: '20px',          }}>
             {packCards.map((pack) => (
               <Link
                 key={pack.id}
@@ -261,8 +253,7 @@ export default function HomePage() {
                   color: pack.colorVar,
                   marginBottom: '10px',
                 }}>
-                  {pack.members.length} of {pack.totalRoster} seated
-                </div>
+                  {pack.members.length} of {pack.totalRoster} seated                </div>
                 <div style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: '1.4rem',
@@ -291,8 +282,7 @@ export default function HomePage() {
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: '6px 10px',
-                }}>
-                  {pack.members.map((m) => (
+                }}>                  {pack.members.map((m) => (
                     <span
                       key={m.slug}
                       className="font-mono uppercase"
@@ -322,7 +312,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* ── HOW AN AGON UNFOLDS ── */}
       <section style={{ padding: '96px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -344,22 +333,24 @@ export default function HomePage() {
             lineHeight: 1.1,
             marginBottom: '56px',
           }}>
-            How an Agon unfolds
+            How a debate unfolds
           </h2>
 
-          <div style={{
+          <div className="gm-steps-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1px',
             border: '1px solid var(--hairline)',
             borderRadius: '6px',
-            overflow: 'hidden',
-          }}>
+            overflow: 'hidden',          }}>
+            <style>{`
+              .gm-steps-grid { grid-template-columns: repeat(4, 1fr); }
+              @media (max-width: 768px) { .gm-steps-grid { grid-template-columns: 1fr !important; } }
+            `}</style>
             {AGON_STEPS.map((step, i) => (
               <div key={step.n} style={{
                 padding: '32px 28px',
                 background: i % 2 === 0 ? 'var(--surface)' : 'transparent',
-                borderRight: i < AGON_STEPS.length - 1 ? '1px solid var(--hairline)' : 'none',
+                borderBottom: i < AGON_STEPS.length - 1 ? '1px solid var(--hairline)' : 'none',
               }}>
                 <div style={{
                   fontFamily: 'var(--font-mono)',
@@ -378,8 +369,7 @@ export default function HomePage() {
                   letterSpacing: '-0.01em',
                 }}>
                   {step.label}
-                </div>
-                <div style={{
+                </div>                <div style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: '0.9rem',
                   lineHeight: 1.6,
@@ -408,8 +398,7 @@ export default function HomePage() {
           </p>
           <h2 style={{
             fontFamily: 'var(--font-serif)',
-            fontWeight: 400,
-            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+            fontWeight: 400,            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
             marginBottom: '48px',
@@ -439,8 +428,7 @@ export default function HomePage() {
             background: 'var(--surface)',
             border: '1px solid var(--hairline)',
             padding: '28px 26px',
-            textDecoration: 'none',
-            color: 'var(--fg)',
+            textDecoration: 'none',            color: 'var(--fg)',
           }}>
             <div style={{
               fontFamily: 'var(--font-mono)',
@@ -469,8 +457,7 @@ export default function HomePage() {
               flex: 1,
             }}>
               Hypothetical decisions debated across three rounds by historical minds.
-            </div>
-            <div style={{
+            </div>            <div style={{
               marginTop: '14px',
               fontFamily: 'var(--font-mono)',
               fontSize: '10px',
@@ -500,8 +487,7 @@ export default function HomePage() {
               color: 'var(--amber)',
               marginBottom: '10px',
             }}>
-              {totalMinds} Frameworks
-            </div>
+              {totalMinds} Frameworks            </div>
             <div style={{
               fontFamily: 'var(--font-serif)',
               fontSize: '1.1rem',
@@ -533,12 +519,83 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      {/* ── FAQ ── */}
+      <section style={{
+        padding: '96px 24px',
+        borderTop: '1px solid var(--hairline)',
+      }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            marginBottom: '16px',
+          }}>
+            Common questions
+          </p>
+          <h2 style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 400,
+            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            marginBottom: '48px',
+          }}>
+            Before you ask the council
+          </h2>
+
+          {([
+            {              q: 'Is this just ChatGPT with a costume?',
+              a: 'No. Each mind runs on a cognitive framework extracted from documented historical decisions using the Critical Decision Method — the same technique used in military and aviation research. The council doesn\'t generate generic "what would X say" — it applies specific constructs that made each thinker\'s decisions distinctive.',
+            },
+            {
+              q: 'What kinds of questions work best?',
+              a: 'Strategic dilemmas where reasonable people disagree. Pricing decisions, market entry timing, whether to pivot, how to handle a difficult negotiation. The more specific and real your situation, the more useful the debate.',
+            },
+            {
+              q: 'How is this different from just reading their books?',
+              a: 'Books give you their conclusions. We extracted their decision-making patterns — the cognitive dimensions they actually weighed when the stakes were real. You get their reasoning process applied to your specific situation, not a famous quote.',
+            },
+            {
+              q: 'Is my question private?',
+              a: 'Yes. Your debates are stored in your personal library and never shared or used for training. You can export or delete them at any time.',
+            },
+            {
+              q: 'What does free include?',
+              a: 'Three full debates with up to three minds each. No signup required for your first debate. Pro unlocks unlimited debates, larger councils, PDF exports, and priority processing.',
+            },          ] as const).map((faq, i) => (
+            <div key={i} style={{
+              borderTop: '1px solid var(--hairline)',
+              padding: '24px 0',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.05rem',
+                lineHeight: 1.4,
+                color: 'var(--fg)',
+                marginBottom: '10px',
+              }}>
+                {faq.q}
+              </div>
+              <div style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '0.92rem',
+                lineHeight: 1.65,
+                color: 'var(--fg-dim)',
+              }}>
+                {faq.a}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── CTA FOOTER ── */}
       <section style={{
         padding: '80px 24px 120px',
-        borderTop: '1px solid var(--hairline)',
-      }}>
+        borderTop: '1px solid var(--hairline)',      }}>
         <div style={{
           maxWidth: '640px',
           margin: '0 auto',
@@ -561,13 +618,12 @@ export default function HomePage() {
             color: 'var(--fg-dim)',
             marginBottom: '36px',
           }}>
-            The council convenes immediately. No signup required. The first three agons are free.
+            The council convenes immediately. No signup required. Your first three debates are free.
           </p>
           <Link href="/agora" style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '11px',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
+            letterSpacing: '0.14em',            textTransform: 'uppercase',
             padding: '14px 32px',
             borderRadius: '4px',
             background: 'var(--amber)',
@@ -575,7 +631,7 @@ export default function HomePage() {
             textDecoration: 'none',
             display: 'inline-block',
           }}>
-            Enter The Agora
+            Ask Your Question →
           </Link>
         </div>
       </section>

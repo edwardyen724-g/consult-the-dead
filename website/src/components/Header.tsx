@@ -1,10 +1,42 @@
 'use client'
+import { useState } from "react";
 import Link from "next/link";
 import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "./ThemeToggle";
 
+const NAV_LINK_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.16em',
+  textTransform: 'uppercase' as const,
+  color: 'var(--fg-dim)',
+  textDecoration: 'none',
+};
+
 export function Header() {
   const { isSignedIn } = useAuth()
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const navLinks = (
+    <>
+      <Link href="/agora" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        The Agora
+      </Link>
+      <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        The Council
+      </Link>      {isSignedIn && (
+        <Link href="/library" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+          Library
+        </Link>
+      )}
+      <Link href="/pricing" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        Pricing
+      </Link>
+      <Link href="/essay" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        About
+      </Link>
+    </>
+  )
 
   return (
     <header style={{
@@ -13,6 +45,17 @@ export function Header() {
       zIndex: 50,
       background: 'var(--bg)',
     }}>
+      <style>{`
+        .gm-nav-desktop { display: flex; }
+        .gm-nav-hamburger { display: none; }
+        .gm-nav-mobile-overlay { display: none; }
+        .gm-right-signin { display: inline; }        @media (max-width: 768px) {
+          .gm-nav-desktop { display: none !important; }
+          .gm-nav-hamburger { display: flex !important; }
+          .gm-nav-mobile-overlay[data-open="true"] { display: flex !important; }
+          .gm-right-signin { display: none !important; }
+        }
+      `}</style>
       <div style={{
         maxWidth: '1100px',
         margin: '0 auto',
@@ -35,8 +78,7 @@ export function Header() {
             lineHeight: 1.1,
           }}>
             The Agora
-          </div>
-          <div style={{
+          </div>          <div style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '9px',
             letterSpacing: '0.2em',
@@ -48,89 +90,38 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Center: nav */}
-        <nav style={{
-          display: 'flex',
+        {/* Center: nav (desktop) */}
+        <nav className="gm-nav-desktop" style={{
           alignItems: 'center',
           gap: '28px',
           flex: 1,
           justifyContent: 'center',
         }}>
-          <Link href="/agora" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: 'var(--fg-dim)',
-            textDecoration: 'none',
-          }}>
-            The Agora
-          </Link>
-          <Link href="/frameworks" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: 'var(--fg-dim)',
-            textDecoration: 'none',
-          }}>
-            The Council
-          </Link>
-          {isSignedIn && (
-            <Link href="/library" style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '10px',
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: 'var(--fg-dim)',
-              textDecoration: 'none',
-            }}>
-              Library
-            </Link>
-          )}
-          <Link href="/pricing" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: 'var(--fg-dim)',
-            textDecoration: 'none',
-          }}>
-            Pricing
-          </Link>
-          <Link href="/essay" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: 'var(--fg-dim)',
-            textDecoration: 'none',
-          }}>
-            About
-          </Link>
+          {navLinks}
         </nav>
 
-        {/* Right: auth + CTA */}
+        {/* Right: auth + CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-          {!isSignedIn ? (
-            <SignInButton mode="redirect">
-              <button style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: 'var(--fg-dim)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0,
-              }}>
-                Sign in
-              </button>
-            </SignInButton>
-          ) : (
-            <UserButton />
-          )}
+          <span className="gm-right-signin">
+            {!isSignedIn ? (
+              <SignInButton mode="redirect">
+                <button style={{                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-dim)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                }}>
+                  Sign in
+                </button>
+              </SignInButton>
+            ) : (
+              <UserButton />
+            )}
+          </span>
           <Link href="/agora" style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
@@ -144,9 +135,71 @@ export function Header() {
             whiteSpace: 'nowrap',
           }}>
             Enter
-          </Link>
-          <ThemeToggle />
+          </Link>          <ThemeToggle />
+
+          {/* Hamburger button (mobile only) */}
+          <button
+            className="gm-nav-hamburger"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '4px',
+              color: 'var(--fg-dim)',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              {mobileOpen ? (
+                <>
+                  <line x1="4" y1="4" x2="16" y2="16" />
+                  <line x1="16" y1="4" x2="4" y2="16" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="5" x2="17" y2="5" />                  <line x1="3" y1="10" x2="17" y2="10" />
+                  <line x1="3" y1="15" x2="17" y2="15" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
+      </div>
+
+      {/* Mobile nav overlay */}
+      <div
+        className="gm-nav-mobile-overlay"
+        data-open={mobileOpen ? "true" : "false"}
+        style={{
+          flexDirection: 'column',
+          gap: '20px',
+          padding: '24px',
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--hairline)',
+          position: 'absolute',
+          top: '60px',
+          left: 0,
+          right: 0,
+          zIndex: 49,
+        }}
+      >
+        {navLinks}
+        {!isSignedIn && (
+          <SignInButton mode="redirect">            <button style={{
+              ...NAV_LINK_STYLE,
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              textAlign: 'left',
+            }}>
+              Sign in
+            </button>
+          </SignInButton>
+        )}
       </div>
     </header>
   )
