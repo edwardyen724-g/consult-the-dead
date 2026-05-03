@@ -8,13 +8,14 @@ const VALID_PACK_IDS = new Set<PackId>(PACKS.map((p) => p.id));
 export default async function AgoraPage({
   searchParams,
 }: {
-  searchParams: Promise<{ pack?: string }>;
+  searchParams: Promise<{ pack?: string; minds?: string }>;
 }) {
   const { sessionClaims } = await auth();
   const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
   const isPro = publicMetadata?.subscription_tier === "pro";
 
   const frameworks = getAllFrameworks();
+  const validSlugs = new Set<string>(frameworks.map((f) => f.slug));
 
   const minds: MindOption[] = frameworks.map((f) => ({
     slug: f.slug,
@@ -33,5 +34,11 @@ export default async function AgoraPage({
       ? (sp.pack as PackId)
       : null;
 
-  return <AgoraApp minds={minds} isPro={isPro} initialPack={initialPack} />;
+  // Parse ?minds=slug1,slug2,slug3 from quiz results
+  const initialMinds: string[] | null =
+    sp?.minds
+      ? sp.minds.split(",").filter((s): s is string => validSlugs.has(s))
+      : null;
+
+  return <AgoraApp minds={minds} isPro={isPro} initialPack={initialPack} initialMinds={initialMinds} />;
 }

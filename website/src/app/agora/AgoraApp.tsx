@@ -144,10 +144,12 @@ export function AgoraApp({
   minds,
   isPro,
   initialPack = null,
+  initialMinds = null,
 }: {
   minds: MindOption[];
   isPro: boolean;
   initialPack?: PackId | null;
+  initialMinds?: string[] | null;
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
@@ -187,9 +189,12 @@ export function AgoraApp({
     const trimmed = state.topic.trim();
     if (trimmed.length < 10) return;
 
+    // If arriving via quiz (?minds=), pre-seat those minds
     // If arriving via a pack link, pre-seat that pack's live members
     let suggested: string[];
-    if (initialPack) {
+    if (initialMinds && initialMinds.length >= MIND_MIN) {
+      suggested = initialMinds.slice(0, isPro ? MIND_MAX : 3);
+    } else if (initialPack) {
       const pack = getPack(initialPack);
       const liveSlugs = new Set(minds.map((m) => m.slug));
       const packMembers = pack ? getActivePackMembers(pack, liveSlugs) : [];

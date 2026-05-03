@@ -506,7 +506,7 @@ export default function QuizPage() {
                 Bring your question. These three will argue it from every angle &mdash; where they disagree is where your blind spots live.
               </p>
               <Link
-                href={`/agora`}
+                href={`/agora?minds=${tension.slugs.join(",")}`}
                 style={{
                   display: "inline-block",
                   fontFamily: "var(--font-mono)",

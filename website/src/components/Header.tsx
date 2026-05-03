@@ -53,7 +53,8 @@ export function Header() {
         .gm-nav-desktop { display: flex; }
         .gm-nav-hamburger { display: none; }
         .gm-nav-mobile-overlay { display: none; }
-        .gm-right-signin { display: inline; }        @media (max-width: 768px) {
+        .gm-right-signin { display: inline; }
+        @media (max-width: 768px) {
           .gm-nav-desktop { display: none !important; }
           .gm-nav-hamburger { display: flex !important; }
           .gm-nav-mobile-overlay[data-open="true"] { display: flex !important; }
@@ -82,7 +83,8 @@ export function Header() {
             lineHeight: 1.1,
           }}>
             The Agora
-          </div>          <div style={{
+          </div>
+          <div style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '9px',
             letterSpacing: '0.2em',
@@ -136,7 +138,8 @@ export function Header() {
             whiteSpace: 'nowrap',
           }}>
             Enter
-          </Link>          <ThemeToggle />
+          </Link>
+          <ThemeToggle />
 
           {/* Hamburger button (mobile only) */}
           <button
@@ -161,7 +164,8 @@ export function Header() {
                 </>
               ) : (
                 <>
-                  <line x1="3" y1="5" x2="17" y2="5" />                  <line x1="3" y1="10" x2="17" y2="10" />
+                  <line x1="3" y1="5" x2="17" y2="5" />
+                  <line x1="3" y1="10" x2="17" y2="10" />
                   <line x1="3" y1="15" x2="17" y2="15" />
                 </>
               )}

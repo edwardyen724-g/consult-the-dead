@@ -140,6 +140,15 @@ export default function HomePage() {
                 }}>
                   Not sure who to ask? →
                 </Link>
+                <Link href="/essay" style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontStyle: 'italic',
+                  fontSize: '0.95rem',
+                  color: 'var(--fg-dim)',
+                  textDecoration: 'none',
+                }}>
+                  or see how it works
+                </Link>
               </div>
             </div>
             {/* Right column — 3 mind cards in a row */}
