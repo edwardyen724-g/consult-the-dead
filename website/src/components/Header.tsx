@@ -54,11 +54,15 @@ export function Header() {
         .gm-nav-hamburger { display: none; }
         .gm-nav-mobile-overlay { display: none; }
         .gm-right-signin { display: inline; }
+        .gm-theme-desktop { display: block; }
+        .gm-theme-mobile { display: none; }
         @media (max-width: 768px) {
           .gm-nav-desktop { display: none !important; }
           .gm-nav-hamburger { display: flex !important; }
           .gm-nav-mobile-overlay[data-open="true"] { display: flex !important; }
           .gm-right-signin { display: none !important; }
+          .gm-theme-desktop { display: none !important; }
+          .gm-theme-mobile { display: block !important; }
         }
       `}</style>
       <div style={{
@@ -139,7 +143,9 @@ export function Header() {
           }}>
             Enter
           </Link>
-          <ThemeToggle />
+          <span className="gm-theme-desktop">
+            <ThemeToggle />
+          </span>
 
           {/* Hamburger button (mobile only) */}
           <button
@@ -202,6 +208,9 @@ export function Header() {
               textAlign: 'left' as const,
             }}>Sign in</button></SignInButton>
         )}
+        <span className="gm-theme-mobile">
+          <ThemeToggle />
+        </span>
       </div>
     </header>
   )
