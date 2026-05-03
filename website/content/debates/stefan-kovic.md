@@ -1,5 +1,5 @@
-# Agora Debate: Romàn Czerny
-**For:** Romàn Czerny (Growth tool ($27K MRR))
+# Agora Debate: Stefan Kovic
+**For:** Stefan Kovic (Growth tool ($27K MRR))
 **Topic:** I had a successful exit before and used the same growth tactic to build a new product to $27K MRR. But I'm essentially repeating my old playbook. Should I keep running the proven playbook even though the market has changed, or innovate on my approach at the risk of breaking what works?
 **Council:** Sun Tzu, Marie Curie, Marcus Aurelius
 **Generated:** 2026-04-22

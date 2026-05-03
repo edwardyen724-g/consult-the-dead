@@ -1,5 +1,5 @@
-# Agora Debate: Mattia Pomelli
-**For:** Mattia Pomelli (AI design tool ($10K MRR))
+# Agora Debate: Marco Vitale
+**For:** Marco Vitale (AI design tool ($10K MRR))
 **Topic:** I built my AI design tool in 3 weeks and hit $10K MRR in 6 weeks. The explosive launch is over and growth is normalizing. Should I double down on marketing to capture more of this initial wave, or invest in product depth and retention before the hype fades?
 **Council:** Sun Tzu, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

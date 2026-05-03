@@ -1,5 +1,5 @@
-# Agora Debate: Fernando Pessagno
-**For:** Fernando Pessagno (Design products portfolio)
+# Agora Debate: André Costa
+**For:** André Costa (Design products portfolio)
 **Topic:** I got fired from my corporate job and built a portfolio of design products that's generated $500K over three years. But some products in the portfolio are underperforming. Should I prune aggressively and focus on the top 1-2, or maintain the full portfolio since the diversification protects me from single-product risk?
 **Council:** Marcus Aurelius, Sun Tzu, Marie Curie
 **Generated:** 2026-04-22

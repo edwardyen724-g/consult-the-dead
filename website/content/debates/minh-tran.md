@@ -1,5 +1,5 @@
-# Agora Debate: Phuc Le
-**For:** Phuc Le (Two SaaS products ($15.8K/mo))
+# Agora Debate: Minh Tran
+**For:** Minh Tran (Two SaaS products ($15.8K/mo))
 **Topic:** I'm running two SaaS products at a combined $15.8K/month. Both are growing slowly but neither is breaking out. Should I pick one and invest everything in growth, or keep both as a diversified portfolio at the cost of slower growth on each?
 **Council:** Marie Curie, Niccolò Machiavelli, Marcus Aurelius
 **Generated:** 2026-04-22

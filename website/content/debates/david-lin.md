@@ -1,5 +1,5 @@
-# Agora Debate: Alex Van Le
-**For:** Alex Van Le (AI app portfolio ($20K/mo))
+# Agora Debate: David Lin
+**For:** David Lin (AI app portfolio ($20K/mo))
 **Topic:** My VC-backed startup failed and I pivoted to bootstrapping a portfolio of AI apps. I'm at $20K/month across multiple apps. But I'm spread thin. Should I raise funding again for the best-performing app, or stay bootstrapped and keep the portfolio approach?
 **Council:** Marcus Aurelius, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

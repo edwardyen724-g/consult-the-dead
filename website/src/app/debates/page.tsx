@@ -82,8 +82,8 @@ export default function DebatesIndexPage() {
           margin: '0 0 56px',
           maxWidth: '55ch',
         }}>
-          Each debate below was run for a real person&apos;s real decision.
-          Read how the council argued — then bring your own.
+          Hypothetical decisions, real frameworks. See how the council
+          argues from different angles — then bring your own question.
         </p>
 
         <div style={{

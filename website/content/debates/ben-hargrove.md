@@ -1,5 +1,5 @@
-# Agora Debate: Rob Hallam
-**For:** Rob Hallam (Leadgen tool ($23K MRR))
+# Agora Debate: Ben Hargrove
+**For:** Ben Hargrove (Leadgen tool ($23K MRR))
 **Topic:** After five failures, my leadgen tool hit $23K MRR in six months. I built it by spotting a pattern in my agency's workflows and partnering up. Now my partner wants to go in a different direction with the product. Should I buy them out, compromise on vision, or split the product?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

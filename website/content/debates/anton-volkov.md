@@ -1,5 +1,5 @@
-# Agora Debate: Arsen Ibragimov
-**For:** Arsen Ibragimov (SaaS tool ($10K+/mo))
+# Agora Debate: Anton Volkov
+**For:** Anton Volkov (SaaS tool ($10K+/mo))
 **Topic:** I built a SaaS tool on top of my agency's workflows and it's now at $10K/month. But I'm still running the agency alongside it. When is the right time to fully decouple the product from the agency and go standalone — or should I keep the agency as a built-in distribution channel?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marie Curie
 **Generated:** 2026-04-22

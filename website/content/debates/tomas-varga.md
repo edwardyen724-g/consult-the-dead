@@ -1,5 +1,5 @@
-# Agora Debate: Natty Zola
-**For:** Natty Zola (Solo GP / Early-stage)
+# Agora Debate: Tomas Varga
+**For:** Tomas Varga (Solo GP / Early-stage)
 **Topic:** I'm an emerging manager trying to build a track record and raise from LPs who are skeptical of solo GPs. Should I focus on proving returns from my current fund before raising the next, or start fundraising for Fund II now while momentum is fresh — even if the portfolio hasn't had time to mature?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

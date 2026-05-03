@@ -268,7 +268,7 @@ export default async function DebatePage({
             margin: '0 0 24px',
             lineHeight: 1.6,
           }}>
-            This debate was run for {debate.name.split(' ')[0]}'s specific decision.
+            This is a sample debate on a hypothetical decision.
             Bring your own — the council argues differently every time.
           </p>
           <Link

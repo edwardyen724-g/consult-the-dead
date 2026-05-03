@@ -1,5 +1,5 @@
-# Agora Debate: Arjun Jain
-**For:** Arjun Jain (Agentic engineer tool ($500K ARR))
+# Agora Debate: Priya Mehta
+**For:** Priya Mehta (Agentic engineer tool ($500K ARR))
 **Topic:** I spun my internal dev agency tool out as a standalone product and it's at $500K ARR. But I'm still running the agency alongside it. The agency funds the product but also distracts from it. When and how do I shut down the agency and go full product?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

@@ -1,0 +1,8 @@
+anonymize all 30 debate samples — replace real names with fictional
+
+Real people's names, companies, and revenue figures replaced with
+fictional equivalents to avoid implying endorsement or customer
+relationship. Also updated page copy to frame debates as hypothetical
+demonstrations rather than implying they were run for real users.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>

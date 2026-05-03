@@ -1,5 +1,5 @@
-# Agora Debate: Neil Murray
-**For:** Neil Murray (Nordic Web Ventures (Fund III, $6M))
+# Agora Debate: Lars Eriksen
+**For:** Lars Eriksen (Nordic Ventures (Fund III, $6M))
 **Topic:** I deliberately capped my Fund III at $6M instead of raising a much larger fund. Bigger fund means more management fees but also more portfolio companies to manage solo. As a solo GP, should I raise a larger Fund IV to capture more of the Nordic opportunity, or keep funds deliberately small to maintain quality and personal bandwidth?
 **Council:** Marcus Aurelius, Niccolò Machiavelli, Sun Tzu
 **Generated:** 2026-04-22

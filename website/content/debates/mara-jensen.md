@@ -1,5 +1,5 @@
-# Agora Debate: Ali Rohde
-**For:** Ali Rohde (Outset Capital / VCSheet)
+# Agora Debate: Mara Jensen
+**For:** Mara Jensen (Venture advisory / deal analytics)
 **Topic:** I'm running both a VC fund (Outset Capital) and a platform business (VCSheet). Both are growing but competing for my time. Should I merge them into one entity where the platform feeds the fund, or keep them separate so each can optimize independently? And which deserves more of my attention right now?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

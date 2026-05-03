@@ -1,5 +1,5 @@
-# Agora Debate: Sarah Chen
-**For:** Sarah Chen (Banana Capital)
+# Agora Debate: Lily Tsang
+**For:** Lily Tsang (Seed-stage venture fund)
 **Topic:** As a solo GP running a small emerging fund, I'm trying to build a track record with limited capital. Should I make more, smaller bets to diversify my portfolio, or concentrate in fewer companies where I can add the most value and own more of the outcome?
 **Council:** Sun Tzu, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

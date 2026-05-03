@@ -1,5 +1,5 @@
-# Agora Debate: Daniel Peris
-**For:** Daniel Peris (GEO tool ($30K-$50K MRR))
+# Agora Debate: Tomás Herrera
+**For:** Tomás Herrera (GEO tool ($30K-$50K MRR))
 **Topic:** I built a GEO (generative engine optimization) tool and it's growing fast — mid-five-figure MRR within a year. But GEO is an emerging category. Should I define the category aggressively and risk being wrong about the market, or wait for the category to mature and risk competitors catching up?
 **Council:** Sun Tzu, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

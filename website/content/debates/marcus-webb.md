@@ -1,5 +1,5 @@
-# Agora Debate: Charles Hudson
-**For:** Charles Hudson (Precursor Ventures)
+# Agora Debate: Marcus Webb
+**For:** Marcus Webb (Early-stage venture fund)
 **Topic:** I make 75-100 investment decisions per fund as a solo GP. Each decision gets less time and attention than it would at a multi-partner firm. Should I reduce my deal volume to increase decision quality per investment, or is the high-volume approach the correct strategy at pre-seed where outcomes are inherently more random?
 **Council:** Marie Curie, Marcus Aurelius, Sun Tzu
 **Generated:** 2026-04-22

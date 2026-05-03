@@ -1,5 +1,5 @@
-# Agora Debate: Piotr Kulpinski
-**For:** Piotr Kulpinski (Open-source directory + boilerplate ($13K/mo))
+# Agora Debate: Pavel Nowak
+**For:** Pavel Nowak (Open-source directory + boilerplate ($13K/mo))
 **Topic:** I turned an open-source directory into a paid boilerplate product at $13K/month. But my community expects things to stay free. Should I gate more features behind the paid tier to grow revenue, or keep the open-source goodwill that drives my distribution?
 **Council:** Niccolò Machiavelli, Marcus Aurelius, Sun Tzu
 **Generated:** 2026-04-22

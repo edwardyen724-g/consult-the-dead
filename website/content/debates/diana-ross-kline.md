@@ -1,6 +1,6 @@
-# Agora Debate: Julian Shapiro
-**For:** Julian Shapiro (Julian Capital)
-**Topic:** I'm known primarily as a writer and educator, but I also run Julian Capital as a solo GP. The writing builds my brand and deal flow, but the investing takes time away from creating content. How should I balance content creation (which feeds deal flow) with active investing (which requires deep engagement with portfolio companies)?
+# Agora Debate: Diana Ross-Kline
+**For:** Diana Ross-Kline (Venture capital fund)
+**Topic:** I'm known primarily as a writer and educator, but I also run Kline Capital as a solo GP. The writing builds my brand and deal flow, but the investing takes time away from creating content. How should I balance content creation (which feeds deal flow) with active investing (which requires deep engagement with portfolio companies)?
 **Council:** Marcus Aurelius, Leonardo da Vinci, Niccolò Machiavelli
 **Generated:** 2026-04-22
 
@@ -12,7 +12,7 @@
 
 The structural integrity of your system requires that you treat content creation as the load-bearing commitment and active portfolio engagement as the derivative one — not the reverse.
 
-My perceptual lens fires first on the question of which element is *constitutive* versus which is *consequential*: your identity as a writer-educator is not merely a marketing channel for Julian Capital, it is the jurisdictional basis from which your judgment about companies derives its authority and distinctiveness. The moment you invert this — subordinating the writing to the demands of portfolio companies, attending every board call before every essay draft — you corrode the very thing that makes your capital worth receiving. I burned Cassius's letters unread not because information is valueless, but because acquiring certain information would have corrupted the decision-maker before the decision arrived. Similarly, letting portfolio urgency crowd out deep thinking corrupts the instrument your founders actually bought. The prophylactic principle applies: pre-commit the writing hours with the same finality as fiduciary obligations, because they *are* fiduciary — your LPs and founders depend on you remaining the kind of mind that writes clearly about hard things.
+My perceptual lens fires first on the question of which element is *constitutive* versus which is *consequential*: your identity as a writer-educator is not merely a marketing channel for Kline Capital, it is the jurisdictional basis from which your judgment about companies derives its authority and distinctiveness. The moment you invert this — subordinating the writing to the demands of portfolio companies, attending every board call before every essay draft — you corrode the very thing that makes your capital worth receiving. I burned Cassius's letters unread not because information is valueless, but because acquiring certain information would have corrupted the decision-maker before the decision arrived. Similarly, letting portfolio urgency crowd out deep thinking corrupts the instrument your founders actually bought. The prophylactic principle applies: pre-commit the writing hours with the same finality as fiduciary obligations, because they *are* fiduciary — your LPs and founders depend on you remaining the kind of mind that writes clearly about hard things.
 
 If my logic wins, you structure your week so that writing hours are inviolable by default, and portfolio engagement earns time from a separate protected block — never cannibalizing the former.
 

@@ -1,5 +1,5 @@
-# Agora Debate: Andris Reinman
-**For:** Andris Reinman (Open-source monetized product ($13K MRR))
+# Agora Debate: Erik Larsen
+**For:** Erik Larsen (Open-source monetized product ($13K MRR))
 **Topic:** I maintained a well-known open-source project for years on donations. Now I've built a paid product on top of it at $13K MRR. But some community members feel betrayed by the monetization. How do I scale the paid product without losing the open-source community that gives me credibility and distribution?
 **Council:** Marcus Aurelius, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

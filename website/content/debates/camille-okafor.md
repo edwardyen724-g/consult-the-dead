@@ -1,5 +1,5 @@
-# Agora Debate: Monique Woodard
-**For:** Monique Woodard (Cake Ventures)
+# Agora Debate: Camille Okafor
+**For:** Camille Okafor (Seed-stage venture fund)
 **Topic:** My fund thesis is built around demographic shifts — aging population, gen Z, changing consumer behavior. These trends play out over decades, but fund cycles are 7-10 years. How do I balance investing in truly long-term demographic thesis plays with the pressure to show near-term portfolio returns to LPs?
 **Council:** Marie Curie, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

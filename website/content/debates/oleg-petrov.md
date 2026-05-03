@@ -1,5 +1,5 @@
-# Agora Debate: Dmytro Krasun
-**For:** Dmytro Krasun (Screenshot tools portfolio ($25K+ MRR))
+# Agora Debate: Oleg Petrov
+**For:** Oleg Petrov (Screenshot tools portfolio ($25K+ MRR))
 **Topic:** I've hit $25K MRR by deliberately building small, unglamorous tools instead of chasing big ideas. But I'm now running a portfolio of these tools solo. Should I consolidate into fewer products and go deeper, or keep diversifying with more small bets?
 **Council:** Sun Tzu, Marcus Aurelius, Marie Curie
 **Generated:** 2026-04-22

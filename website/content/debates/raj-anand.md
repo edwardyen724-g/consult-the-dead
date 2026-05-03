@@ -1,5 +1,5 @@
-# Agora Debate: Abhishek Chakravarty
-**For:** Abhishek Chakravarty (Youform ($18K MRR))
+# Agora Debate: Raj Anand
+**For:** Raj Anand (FormStack ($18K MRR))
 **Topic:** I've been competing on price in a crowded form-builder market. My product is gaining traction at $18K MRR, but I'm worried that price competition is a race to the bottom. Should I start raising prices and repositioning as a premium product, or keep the low-price strategy that's working?
 **Council:** Niccolò Machiavelli, Marie Curie, Sun Tzu
 **Generated:** 2026-04-22

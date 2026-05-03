@@ -1,5 +1,5 @@
-# Agora Debate: Val Sopi
-**For:** Val Sopi (First SaaS (5-figure ARR))
+# Agora Debate: Darius Novak
+**For:** Darius Novak (First SaaS (5-figure ARR))
 **Topic:** I left my service company to build a product. I built it in 20 hours and it's now at a 5-figure ARR. But it's still bare-bones. Should I invest heavily in features to compete with established players, or stay lean and find a niche where the minimal product is enough?
 **Council:** Sun Tzu, Leonardo da Vinci, Marie Curie
 **Generated:** 2026-04-22

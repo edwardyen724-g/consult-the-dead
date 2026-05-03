@@ -1,5 +1,5 @@
-# Agora Debate: Cameron Trew
-**For:** Cameron Trew (Kleo ($62K MRR))
+# Agora Debate: Sophie Parker
+**For:** Sophie Parker (Social analytics tool ($62K MRR))
 **Topic:** I rebuilt my product from scratch after LinkedIn sent a cease-and-desist on v1. The rebuild worked — $62K MRR. But I'm still dependent on LinkedIn's platform. Should I diversify to other platforms now while I have momentum, or keep riding LinkedIn since that's where the proven demand is?
 **Council:** Sun Tzu, Niccolò Machiavelli, Marie Curie
 **Generated:** 2026-04-22

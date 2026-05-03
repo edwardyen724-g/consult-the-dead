@@ -1,5 +1,5 @@
-# Agora Debate: Jason Chapman
-**For:** Jason Chapman (Solo GP / Early-stage)
+# Agora Debate: Michael Torres
+**For:** Michael Torres (Solo GP / Early-stage)
 **Topic:** As a solo GP, I don't have partners to challenge my thinking on deals. I rely on my own judgment for every investment decision. How do I build systematic safeguards against my own blind spots and confirmation bias when there's no investment committee to push back?
 **Council:** Marie Curie, Marcus Aurelius, Niccolò Machiavelli
 **Generated:** 2026-04-22

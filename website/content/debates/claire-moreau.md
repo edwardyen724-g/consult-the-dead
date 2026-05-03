@@ -1,5 +1,5 @@
-# Agora Debate: Pauline Clavelloux
-**For:** Pauline Clavelloux (Product portfolio ($100K+/yr))
+# Agora Debate: Claire Moreau
+**For:** Claire Moreau (Product portfolio ($100K+/yr))
 **Topic:** After nearly 10 years of not building, I finally took the leap and now have a portfolio generating over $100K/year. But I'm a solo operator managing multiple products. At what point do I hire my first person — and for which role? Or do I stay solo and cap my growth?
 **Council:** Niccolò Machiavelli, Marcus Aurelius, Marie Curie
 **Generated:** 2026-04-22

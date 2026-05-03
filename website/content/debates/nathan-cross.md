@@ -1,5 +1,5 @@
-# Agora Debate: Harry Brodsky
-**For:** Harry Brodsky (SaaS tool ($500K ARR))
+# Agora Debate: Nathan Cross
+**For:** Nathan Cross (SaaS tool ($500K ARR))
 **Topic:** We pivoted from a niche market to a wider audience and hit $500K ARR. But going broad means we're now competing with bigger, better-funded tools. Should we keep expanding the addressable market, or re-niche into a defensible segment before a well-funded competitor squeezes us out?
 **Council:** Sun Tzu, Niccolò Machiavelli, Marcus Aurelius
 **Generated:** 2026-04-22

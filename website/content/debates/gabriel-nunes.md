@@ -1,5 +1,5 @@
-# Agora Debate: Louis Pereira
-**For:** Louis Pereira (AI tool ($20K MRR))
+# Agora Debate: Gabriel Nunes
+**For:** Gabriel Nunes (AI tool ($20K MRR))
 **Topic:** I built my product in a half-day hackathon and it's now at $20K MRR after two years. But the codebase reflects its hackathon origins — it's fragile. Should I rebuild the product from scratch with proper architecture, or keep shipping features on the shaky foundation while revenue is growing?
 **Council:** Leonardo da Vinci, Marie Curie, Sun Tzu
 **Generated:** 2026-04-22

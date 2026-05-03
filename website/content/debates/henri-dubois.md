@@ -1,5 +1,5 @@
-# Agora Debate: Pascal Levy-Garboua
-**For:** Pascal Levy-Garboua (Micro-SaaS portfolio ($120K MRR))
+# Agora Debate: Henri Dubois
+**For:** Henri Dubois (Micro-SaaS portfolio ($120K MRR))
 **Topic:** I've acquired 6 micro-SaaS companies. I shut one down, sold two, and run three at $120K MRR combined. I have capital to acquire more. Should I keep acquiring and growing the portfolio, or consolidate and optimize what I have? Each acquisition adds management complexity as a solo operator.
 **Council:** Niccolò Machiavelli, Marcus Aurelius, Marie Curie
 **Generated:** 2026-04-22

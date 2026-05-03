@@ -1,5 +1,5 @@
-# Agora Debate: Caleb Porzio
-**For:** Caleb Porzio (Open-source ecosystem (5-figure MRR))
+# Agora Debate: Lucas Grant
+**For:** Lucas Grant (Open-source ecosystem (5-figure MRR))
 **Topic:** I've built a five-figure MRR business around an open-source ecosystem. My community is my moat. But open-source contributors expect transparency and low prices. Should I introduce a higher-priced enterprise tier that might alienate the community, or stay accessible and grow slower?
 **Council:** Marcus Aurelius, Niccolò Machiavelli, Sun Tzu
 **Generated:** 2026-04-22

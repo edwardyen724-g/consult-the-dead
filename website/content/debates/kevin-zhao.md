@@ -1,5 +1,5 @@
-# Agora Debate: Jonathan Chan
-**For:** Jonathan Chan (Portfolio ($30K/mo))
+# Agora Debate: Kevin Zhao
+**For:** Kevin Zhao (Product portfolio ($30K/mo))
 **Topic:** I quit my $420K/year job eight months ago and my portfolio of two businesses is at $30K/month. But the two businesses compete for my attention. Should I kill the weaker one and go all-in on the stronger, or keep both running since the combined revenue provides safety?
 **Council:** Niccolò Machiavelli, Sun Tzu, Marcus Aurelius
 **Generated:** 2026-04-22

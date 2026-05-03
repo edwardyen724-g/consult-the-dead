@@ -1,5 +1,5 @@
-# Agora Debate: Brennan Dunn
-**For:** Brennan Dunn (Rebuilt SaaS ($30K MRR))
+# Agora Debate: James Calloway
+**For:** James Calloway (Rebuilt SaaS ($30K MRR))
 **Topic:** My original tool flopped and I bought out my co-founder and rebuilt from scratch. Now I'm at $30K MRR. But I'm carrying the psychological weight of the previous failure. How do I decide which features to build next without letting the trauma of the flop make me too conservative or too reactive?
 **Council:** Marcus Aurelius, Marie Curie, Leonardo da Vinci
 **Generated:** 2026-04-22
