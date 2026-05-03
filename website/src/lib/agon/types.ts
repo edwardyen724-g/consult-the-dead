@@ -22,7 +22,7 @@ export type AgonEvent =
   | { type: "turn_done"; mindSlug: FrameworkSlug; mindName: string; round: number; content: string }
   | { type: "consensus_started" }
   | { type: "consensus_done"; consensus: ConsensusResult }
-  | { type: "agon_done" }
+  | { type: "agon_done"; remaining?: number }
   | { type: "error"; message: string; rateLimited?: boolean };
 
 export interface ConsensusResult {

@@ -92,6 +92,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let quotaRemaining: number | undefined;
+
   if (usingServerKey) {
     const ip = getClientIp(request);
 
@@ -119,6 +121,8 @@ export async function POST(request: NextRequest) {
         }
       );
     }
+
+    quotaRemaining = result.remaining;
   }
 
   // Past validation + rate limit. Record an "agon started" event.
@@ -145,7 +149,12 @@ export async function POST(request: NextRequest) {
           research: null,
           isPro,
         })) {
-          send(event);
+          // Inject remaining quota into the agon_done event
+          if (event.type === "agon_done") {
+            send({ ...event, remaining: quotaRemaining });
+          } else {
+            send(event);
+          }
           if (event.type === "agon_done") completed = true;
         }
         if (completed) bumpCounter("agons_completed");

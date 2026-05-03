@@ -83,6 +83,7 @@ interface AgonState {
   consensusNode: ConsensusNodeKey | null;
   error: string | null;
   rateLimited: boolean;
+  quotaRemaining: number | undefined;
 }
 
 const INITIAL_STATE: AgonState = {
@@ -99,6 +100,7 @@ const INITIAL_STATE: AgonState = {
   consensusNode: null,
   error: null,
   rateLimited: false,
+  quotaRemaining: undefined,
 };
 
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
@@ -327,7 +329,7 @@ export function AgoraApp({
             consensusLoading: false,
           };
         case "agon_done":
-          return s;
+          return { ...s, quotaRemaining: event.remaining };
         case "error":
           return {
             ...s,
@@ -438,6 +440,7 @@ export function AgoraApp({
               turns={state.turns}
               onReset={reset}
               isPro={isPro}
+              quotaRemaining={state.quotaRemaining}
             />
           )}
         </div>
@@ -1343,6 +1346,7 @@ function ConsensusStage({
   turns,
   onReset,
   isPro,
+  quotaRemaining,
 }: {
   topic: string;
   selectedMinds: MindOption[];
@@ -1353,8 +1357,10 @@ function ConsensusStage({
   turns: RoundTurn[];
   onReset: () => void;
   isPro: boolean;
+  quotaRemaining: number | undefined;
 }) {
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
 
   async function handleSave() {
     if (!consensus) return;
@@ -1374,6 +1380,38 @@ function ConsensusStage({
       setSaveState(res.ok ? "saved" : "error");
     } catch {
       setSaveState("error");
+    }
+  }
+
+  function handleShare() {
+    if (!consensus) return;
+    const names = selectedMinds.map((m) => m.name).join(", ");
+    const text = [
+      `I asked: "${topic}"`,
+      ``,
+      `Council: ${names}`,
+      ``,
+      `Key action: ${consensus.actionSummary}`,
+      ``,
+      `Try it yourself at consultthedead.com`,
+    ].join("\n");
+
+    if (typeof navigator !== "undefined" && navigator.share) {
+      navigator.share({ title: "Consult The Dead — Debate Result", text }).catch(() => {
+        // User cancelled or share failed — fall back to clipboard
+        copyToClipboard(text);
+      });
+    } else {
+      copyToClipboard(text);
+    }
+  }
+
+  function copyToClipboard(text: string) {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        setShareState("copied");
+        setTimeout(() => setShareState("idle"), 2000);
+      });
     }
   }
 
@@ -1656,6 +1694,25 @@ function ConsensusStage({
         )}
 
         <button
+          onClick={handleShare}
+          disabled={!consensus}
+          className="font-mono"
+          style={{
+            background: "transparent",
+            color: consensus ? "var(--fg)" : "var(--fg-dim)",
+            border: "1px solid var(--hairline)",
+            borderRadius: "4px",
+            fontSize: "12px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            padding: "14px 28px",
+            cursor: consensus ? "pointer" : "not-allowed",
+          }}
+        >
+          {shareState === "copied" ? "Copied!" : "Share Result"}
+        </button>
+
+        <button
           onClick={onReset}
           className="font-mono"
           style={{
@@ -1673,6 +1730,51 @@ function ConsensusStage({
           Begin Another
         </button>
       </div>
+
+      {/* Quota display + upsell */}
+      {consensus && quotaRemaining !== undefined && !isPro && (
+        <div
+          style={{
+            marginTop: "24px",
+            padding: "16px 20px",
+            border: "1px solid var(--hairline)",
+            borderRadius: "4px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "12px",
+          }}
+        >
+          <div
+            className="font-mono"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.08em",
+              color: quotaRemaining === 0 ? "var(--red)" : "var(--fg-dim)",
+            }}
+          >
+            {quotaRemaining === 0
+              ? "You've used all 3 free debates for today"
+              : `${quotaRemaining} free debate${quotaRemaining === 1 ? "" : "s"} remaining today`}
+          </div>
+          <Link
+            href="/pricing"
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "var(--amber)",
+              textDecoration: "none",
+            }}
+          >
+            {quotaRemaining === 0
+              ? "Upgrade for unlimited debates →"
+              : "Go Pro for unlimited →"}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
