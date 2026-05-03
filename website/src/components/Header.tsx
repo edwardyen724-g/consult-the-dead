@@ -24,7 +24,11 @@ export function Header() {
       </Link>
       <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Council
-      </Link>      {isSignedIn && (
+      </Link>
+      <Link href="/quiz" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        Find Your Mind
+      </Link>
+      {isSignedIn && (
         <Link href="/library" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
           Library
         </Link>

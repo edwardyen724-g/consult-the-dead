@@ -126,14 +126,19 @@ export default function HomePage() {
                 }}>
                   Ask Your Question →
                 </Link>
-                <Link href="/essay" style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontStyle: 'italic',
-                  fontSize: '0.95rem',
-                  color: 'var(--fg-dim)',
+                <Link href="/quiz" style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  padding: '14px 28px',
+                  border: '1px solid var(--hairline)',
+                  color: 'var(--fg)',
                   textDecoration: 'none',
+                  borderRadius: '4px',
+                  display: 'inline-block',
                 }}>
-                  or see how it works
+                  Not sure who to ask? →
                 </Link>
               </div>
             </div>
