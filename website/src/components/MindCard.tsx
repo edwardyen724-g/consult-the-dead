@@ -1,14 +1,24 @@
+import Image from 'next/image'
+
+interface PackBadgeData {
+  name: string
+  colorVar: string
+}
+
 interface MindCardProps {
   name: string
+  slug?: string
   dates: string
   lens: string
   colorVar: string
   invocations?: number
   size?: 'sm' | 'md'
+  packs?: PackBadgeData[]
 }
 
-export function MindCard({ name, dates, lens, colorVar, invocations, size = 'md' }: MindCardProps) {
+export function MindCard({ name, slug, dates, lens, colorVar, invocations, size = 'md', packs }: MindCardProps) {
   const initials = name.split(' ').filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase()
+  const portraitSrc = slug ? `/portraits/${slug}-portrait.png` : null
   const pad = size === 'sm' ? '14px 16px' : '20px'
 
   return (
@@ -21,29 +31,47 @@ export function MindCard({ name, dates, lens, colorVar, invocations, size = 'md'
       gap: '10px',
       background: 'var(--surface)',
     }}>
-      {/* Engraved portrait */}
-      <svg width="100%" viewBox="0 0 72 72" style={{ display: 'block', maxHeight: '88px' }}>
-        <rect width="72" height="72" fill="transparent" />
-        <rect x="3" y="3" width="66" height="66" fill="none" stroke={colorVar} strokeWidth="0.6" opacity="0.4" />
-        <rect x="7" y="7" width="58" height="58" fill="none" stroke={colorVar} strokeWidth="0.3" opacity="0.25" />
-        <text
-          x="36" y="42"
-          textAnchor="middle"
-          fill={colorVar}
-          style={{ fontFamily: 'var(--font-serif)', fontSize: '26px', fontWeight: 300, letterSpacing: '-0.02em' }}
-        >
-          {initials}
-        </text>
-        <text
-          x="36" y="63"
-          textAnchor="middle"
-          fill={colorVar}
-          style={{ fontFamily: 'var(--font-mono)', fontSize: '6px', letterSpacing: '0.2em' }}
-          opacity="0.5"
-        >
-          PORTRAIT
-        </text>
-      </svg>
+      {/* Portrait or fallback initials */}
+      {portraitSrc ? (
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          aspectRatio: '1',
+          borderRadius: '4px',
+          overflow: 'hidden',
+        }}>
+          <Image
+            src={portraitSrc}
+            alt={`Portrait of ${name}`}
+            fill
+            sizes="(max-width: 640px) 45vw, 180px"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+      ) : (
+        <svg width="100%" viewBox="0 0 72 72" style={{ display: 'block', maxHeight: '88px' }}>
+          <rect width="72" height="72" fill="transparent" />
+          <rect x="3" y="3" width="66" height="66" fill="none" stroke={colorVar} strokeWidth="0.6" opacity="0.4" />
+          <rect x="7" y="7" width="58" height="58" fill="none" stroke={colorVar} strokeWidth="0.3" opacity="0.25" />
+          <text
+            x="36" y="42"
+            textAnchor="middle"
+            fill={colorVar}
+            style={{ fontFamily: 'var(--font-serif)', fontSize: '26px', fontWeight: 300, letterSpacing: '-0.02em' }}
+          >
+            {initials}
+          </text>
+          <text
+            x="36" y="63"
+            textAnchor="middle"
+            fill={colorVar}
+            style={{ fontFamily: 'var(--font-mono)', fontSize: '6px', letterSpacing: '0.2em' }}
+            opacity="0.5"
+          >
+            PORTRAIT
+          </text>
+        </svg>
+      )}
 
       {/* Info */}
       <div>
@@ -75,6 +103,31 @@ export function MindCard({ name, dates, lens, colorVar, invocations, size = 'md'
           {lens}
         </div>
       </div>
+
+      {packs && packs.length > 0 && (
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '4px',
+        }}>
+          {packs.map((p) => (
+            <span
+              key={p.name}
+              className="font-mono uppercase"
+              style={{
+                fontSize: '8px',
+                letterSpacing: '0.1em',
+                color: p.colorVar,
+                border: `1px solid ${p.colorVar}`,
+                padding: '1px 5px',
+                opacity: 0.75,
+              }}
+            >
+              {p.name}
+            </span>
+          ))}
+        </div>
+      )}
 
       {invocations !== undefined && (
         <div style={{

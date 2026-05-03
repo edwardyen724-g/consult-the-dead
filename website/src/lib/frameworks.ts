@@ -14,6 +14,17 @@ export const ALLOWED_SLUGS = [
   "leonardo-da-vinci",
   "sun-tzu",
   "marcus-aurelius",
+  "benjamin-franklin",
+  "cicero",
+  "epictetus",
+  "thomas-edison",
+  "archimedes",
+  "john-d-rockefeller",
+  "harriet-tubman",
+  "ada-lovelace",
+  "catherine-the-great",
+  "alexander-the-great",
+  "cleopatra-vii",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -28,6 +39,17 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "leonardo-da-vinci": "var(--color-leonardo)",
   "sun-tzu": "var(--color-suntzu)",
   "marcus-aurelius": "var(--color-aurelius)",
+  "benjamin-franklin": "var(--color-franklin)",
+  "cicero": "var(--color-cicero)",
+  "epictetus": "var(--color-epictetus)",
+  "thomas-edison": "var(--color-edison)",
+  "archimedes": "var(--color-archimedes)",
+  "john-d-rockefeller": "var(--color-rockefeller)",
+  "harriet-tubman": "var(--color-tubman)",
+  "ada-lovelace": "var(--color-lovelace)",
+  "catherine-the-great": "var(--color-catherine)",
+  "alexander-the-great": "var(--color-alexander)",
+  "cleopatra-vii": "var(--color-cleopatra)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -40,6 +62,17 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "leonardo-da-vinci": "1452\u20131519",
   "sun-tzu": "c.\u2009544\u2013496 BC",
   "marcus-aurelius": "121\u2013180 AD",
+  "benjamin-franklin": "1706\u20131790",
+  "cicero": "106\u201343 BC",
+  "epictetus": "c.\u200950\u2013135 AD",
+  "thomas-edison": "1847\u20131931",
+  "archimedes": "c.\u2009287\u2013212 BC",
+  "john-d-rockefeller": "1839\u20131937",
+  "harriet-tubman": "c.\u20091822\u20131913",
+  "ada-lovelace": "1815\u20131852",
+  "catherine-the-great": "1729\u20131796",
+  "alexander-the-great": "356\u2013323 BC",
+  "cleopatra-vii": "69\u201330 BC",
 };
 
 /* ── Display order for the index page ── */
@@ -52,6 +85,17 @@ export const DISPLAY_ORDER: FrameworkSlug[] = [
   "leonardo-da-vinci",
   "sun-tzu",
   "marcus-aurelius",
+  "benjamin-franklin",
+  "cicero",
+  "epictetus",
+  "thomas-edison",
+  "archimedes",
+  "john-d-rockefeller",
+  "harriet-tubman",
+  "ada-lovelace",
+  "catherine-the-great",
+  "alexander-the-great",
+  "cleopatra-vii",
 ];
 
 /* ── Types ── */

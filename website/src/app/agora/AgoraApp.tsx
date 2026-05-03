@@ -2,8 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
+import {
+  PACKS,
+  getActivePackMembers,
+  type Pack,
+  type PackId,
+} from "@/lib/packs";
 
 export interface MindOption {
   slug: string;
@@ -13,6 +20,7 @@ export interface MindOption {
   lens: string;
   incidentCount: number;
   colorVar: string;
+  packIds: PackId[];
 }
 
 type Stage = "topic" | "research" | "council" | "agon" | "consensus";
@@ -129,7 +137,15 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
-export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean }) {
+export function AgoraApp({
+  minds,
+  isPro,
+  initialPack = null,
+}: {
+  minds: MindOption[];
+  isPro: boolean;
+  initialPack?: PackId | null;
+}) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -381,6 +397,7 @@ export function AgoraApp({ minds, isPro }: { minds: MindOption[]; isPro: boolean
               isPro={isPro}
               toggleMind={toggleMind}
               onContinue={startAgon}
+              initialOpenPack={initialPack}
             />
           )}
 
@@ -848,6 +865,7 @@ function CouncilStage({
   isPro,
   toggleMind,
   onContinue,
+  initialOpenPack,
 }: {
   topic: string;
   minds: MindOption[];
@@ -855,11 +873,38 @@ function CouncilStage({
   isPro: boolean;
   toggleMind: (slug: string) => void;
   onContinue: () => void;
+  initialOpenPack?: PackId | null;
 }) {
   const mindMax = isPro ? MIND_MAX : 3;
   const count = council.length;
   const valid = count >= MIND_MIN && count <= mindMax;
-  const unselected = minds.filter((m) => !council.includes(m.slug));
+
+  // Build a slug → mind lookup so packs can render in their declared order.
+  const mindBySlug = useMemo(() => {
+    const map = new Map<string, MindOption>();
+    for (const m of minds) map.set(m.slug, m);
+    return map;
+  }, [minds]);
+
+  // Live slug set drives pack filtering — derived from the minds prop, which
+  // already reflects ALLOWED_SLUGS from the server.
+  const liveSlugs = useMemo<ReadonlySet<string>>(
+    () => new Set(minds.map((m) => m.slug)),
+    [minds],
+  );
+
+  // Active packs (those with at least one live member). The browse UI only
+  // shows packs that have something to show.
+  const activePacks = useMemo(() => {
+    return PACKS.filter((p) => getActivePackMembers(p, liveSlugs).length > 0);
+  }, [liveSlugs]);
+
+  const defaultOpen: PackId | null = initialOpenPack ?? activePacks[0]?.id ?? null;
+  const [openPack, setOpenPack] = useState<PackId | null>(defaultOpen);
+
+  function togglePack(id: PackId) {
+    setOpenPack((cur) => (cur === id ? null : id));
+  }
 
   return (
     <div>
@@ -900,144 +945,168 @@ function CouncilStage({
           letterSpacing: "-0.01em",
           lineHeight: 1.2,
           color: "var(--fg)",
-          margin: "0 0 36px",
+          margin: "0 0 12px",
         }}
       >
         Summon the council.
       </h2>
+      <p
+        className="font-mono"
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.06em",
+          color: "var(--fg-dim)",
+          margin: "0 0 28px",
+          lineHeight: 1.6,
+        }}
+      >
+        Browse by pack — open a section to see its members. Pick {MIND_MIN}–{mindMax} minds across any
+        packs.
+      </p>
 
-      {/* Horizontal mind card row */}
+      {/* Pack accordion */}
       <div
         style={{
-          display: "flex",
-          gap: "16px",
-          overflowX: "auto",
-          paddingBottom: "8px",
+          border: "1px solid var(--hairline)",
+          borderRadius: "4px",
+          overflow: "hidden",
           marginBottom: "20px",
         }}
       >
-        {minds.map((mind) => {
-          const selected = council.includes(mind.slug);
-          const initials = mind.name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
+        {activePacks.map((pack, idx) => {
+          const memberSlugs = getActivePackMembers(pack, liveSlugs);
+          const open = openPack === pack.id;
+          const seatedCount = memberSlugs.filter((s) => council.includes(s)).length;
           return (
-            <button
-              key={mind.slug}
-              onClick={() => toggleMind(mind.slug)}
+            <div
+              key={pack.id}
               style={{
-                flexShrink: 0,
-                width: "176px",
-                textAlign: "left",
-                background: selected ? "var(--amber-wash)" : "var(--surface)",
-                border: `1px solid ${selected ? "var(--amber)" : "var(--hairline)"}`,
-                borderRadius: 0,
-                padding: "16px",
-                cursor: "pointer",
-                transition: "all 200ms ease-out",
-                color: "var(--fg)",
-                fontFamily: "inherit",
-                display: "flex",
-                flexDirection: "column",
-                gap: "8px",
-                position: "relative",
+                borderTop: idx > 0 ? "1px solid var(--hairline)" : "none",
               }}
             >
-              {selected && (
-                <div
+              <button
+                onClick={() => togglePack(pack.id)}
+                style={{
+                  width: "100%",
+                  background: open ? "var(--surface)" : "transparent",
+                  border: "none",
+                  borderLeft: `3px solid ${open ? pack.colorVar : "transparent"}`,
+                  padding: "20px 22px",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  color: "var(--fg)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  transition: "all 180ms ease-out",
+                }}
+                aria-expanded={open}
+              >
+                <span
                   className="font-mono"
                   style={{
-                    position: "absolute",
-                    top: "8px",
-                    right: "8px",
-                    fontSize: "8px",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--amber)",
-                    background: "var(--amber-wash)",
-                    padding: "2px 6px",
-                    border: "1px solid var(--amber)",
+                    fontSize: "11px",
+                    letterSpacing: "0.18em",
+                    color: pack.colorVar,
+                    width: "1.1em",
+                    flexShrink: 0,
+                  }}
+                  aria-hidden="true"
+                >
+                  {open ? "▾" : "▸"}
+                </span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "1.1rem",
+                      letterSpacing: "-0.005em",
+                      color: "var(--fg)",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    {pack.name}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontStyle: "italic",
+                      fontSize: "0.85rem",
+                      lineHeight: 1.5,
+                      color: "var(--fg-dim)",
+                    }}
+                  >
+                    {pack.tagline}
+                  </div>
+                </div>
+                <span
+                  className="font-mono uppercase"
+                  style={{
+                    fontSize: "9px",
+                    letterSpacing: "0.14em",
+                    color: "var(--fg-faint)",
+                    flexShrink: 0,
                   }}
                 >
-                  Seated
+                  {memberSlugs.length} {memberSlugs.length === 1 ? "mind" : "minds"}
+                  {seatedCount > 0 && (
+                    <>
+                      {" · "}
+                      <span style={{ color: "var(--amber)" }}>
+                        {seatedCount} seated
+                      </span>
+                    </>
+                  )}
+                </span>
+              </button>
+
+              {open && (
+                <div
+                  style={{
+                    padding: "4px 22px 28px",
+                    borderLeft: `3px solid ${pack.colorVar}`,
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "0.92rem",
+                      lineHeight: 1.6,
+                      color: "var(--fg-dim)",
+                      maxWidth: "62ch",
+                      margin: "0 0 20px",
+                    }}
+                  >
+                    {pack.description}
+                  </p>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fill, minmax(176px, 1fr))",
+                      gap: "16px",
+                    }}
+                  >
+                    {memberSlugs.map((slug) => {
+                      const mind = mindBySlug.get(slug);
+                      if (!mind) return null;
+                      return (
+                        <PackMindCard
+                          key={`${pack.id}-${slug}`}
+                          mind={mind}
+                          selected={council.includes(slug)}
+                          onToggle={() => toggleMind(slug)}
+                          packs={PACKS.filter((p) => p.members.includes(slug))}
+                          currentPackId={pack.id}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               )}
-
-              {/* Engraved portrait */}
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: "4px" }}>
-                <svg width="80" height="80" viewBox="0 0 80 80" style={{ display: "block" }}>
-                  <rect width="80" height="80" fill="var(--bg)" />
-                  <line x1="0" y1="20" x2="20" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="0" y1="40" x2="40" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="0" y1="60" x2="60" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="0" y1="80" x2="80" y2="0" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="20" y1="80" x2="80" y2="20" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="40" y1="80" x2="80" y2="40" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <line x1="60" y1="80" x2="80" y2="60" stroke={mind.colorVar} strokeWidth="0.4" opacity="0.25" />
-                  <rect x="2" y="2" width="76" height="76" fill="none" stroke={mind.colorVar} strokeWidth="0.8" opacity="0.5" />
-                  <rect x="6" y="6" width="68" height="68" fill="none" stroke={mind.colorVar} strokeWidth="0.3" opacity="0.3" />
-                  <text x="40" y="48" textAnchor="middle" fill={mind.colorVar}
-                    style={{ fontFamily: "var(--font-serif)", fontSize: "26px", fontWeight: 300 }}>
-                    {initials}
-                  </text>
-                </svg>
-              </div>
-
-              <div style={{ fontFamily: "var(--font-serif)", fontSize: "14px", color: "var(--fg)", lineHeight: 1.2 }}>
-                {mind.name}
-              </div>
-              <div
-                className="font-mono"
-                style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--fg-faint)", textTransform: "uppercase" }}
-              >
-                {mind.era}
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "12px",
-                  fontStyle: "italic",
-                  lineHeight: 1.4,
-                  color: "var(--fg-dim)",
-                  flex: 1,
-                }}
-              >
-                {mind.lens}
-              </div>
-              <div
-                className="font-mono"
-                style={{
-                  fontSize: "9px",
-                  letterSpacing: "0.1em",
-                  color: "var(--fg-faint)",
-                  textTransform: "uppercase",
-                  borderTop: "1px solid var(--hairline)",
-                  paddingTop: "6px",
-                }}
-              >
-                {mind.incidentCount} invocations
-              </div>
-            </button>
+            </div>
           );
         })}
       </div>
-
-      {/* Also available */}
-      {unselected.length > 0 && (
-        <p
-          className="font-mono"
-          style={{
-            fontSize: "10px",
-            letterSpacing: "0.1em",
-            color: "var(--fg-faint)",
-            textTransform: "uppercase",
-            margin: "0 0 8px",
-          }}
-        >
-          Also available:{" "}
-          <span style={{ color: "var(--fg-dim)" }}>
-            {unselected.map((m) => m.name).join(", ")}
-          </span>
-        </p>
-      )}
 
       {!isPro && (
         <div
@@ -1681,6 +1750,147 @@ function ConsensusDoc({
         );
       })}
     </div>
+  );
+}
+
+/* ────────────── Pack mind card ────────────── */
+
+function PackMindCard({
+  mind,
+  selected,
+  onToggle,
+  packs,
+  currentPackId,
+}: {
+  mind: MindOption;
+  selected: boolean;
+  onToggle: () => void;
+  packs: Pack[];
+  currentPackId: PackId;
+}) {
+  const initials = mind.name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  const otherPacks = packs.filter((p) => p.id !== currentPackId);
+
+  return (
+    <button
+      onClick={onToggle}
+      style={{
+        textAlign: "left",
+        background: selected ? "var(--amber-wash)" : "var(--surface)",
+        border: `1px solid ${selected ? "var(--amber)" : "var(--hairline)"}`,
+        borderRadius: 0,
+        padding: "16px",
+        cursor: "pointer",
+        transition: "all 200ms ease-out",
+        color: "var(--fg)",
+        fontFamily: "inherit",
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        position: "relative",
+      }}
+      aria-pressed={selected}
+    >
+      {selected && (
+        <div
+          className="font-mono"
+          style={{
+            position: "absolute",
+            top: "8px",
+            right: "8px",
+            fontSize: "8px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "var(--amber)",
+            background: "var(--amber-wash)",
+            padding: "2px 6px",
+            border: "1px solid var(--amber)",
+          }}
+        >
+          Seated
+        </div>
+      )}
+
+      <div style={{ position: "relative", width: "80px", height: "80px", margin: "0 auto 4px", borderRadius: "4px", overflow: "hidden" }}>
+        <Image
+          src={`/portraits/${mind.slug}-portrait.png`}
+          alt={`Portrait of ${mind.name}`}
+          fill
+          sizes="80px"
+          style={{ objectFit: "cover" }}
+        />
+      </div>
+
+      <div style={{ fontFamily: "var(--font-serif)", fontSize: "14px", color: "var(--fg)", lineHeight: 1.2 }}>
+        {mind.name}
+      </div>
+      <div
+        className="font-mono"
+        style={{ fontSize: "9px", letterSpacing: "0.1em", color: "var(--fg-faint)", textTransform: "uppercase" }}
+      >
+        {mind.era}
+      </div>
+      <div
+        style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "12px",
+          fontStyle: "italic",
+          lineHeight: 1.4,
+          color: "var(--fg-dim)",
+          flex: 1,
+        }}
+      >
+        {mind.lens}
+      </div>
+
+      {otherPacks.length > 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "4px",
+            marginTop: "2px",
+          }}
+        >
+          {otherPacks.map((p) => (
+            <span
+              key={p.id}
+              className="font-mono uppercase"
+              title={`Also in ${p.name}`}
+              style={{
+                fontSize: "8px",
+                letterSpacing: "0.1em",
+                color: p.colorVar,
+                border: `1px solid ${p.colorVar}`,
+                padding: "1px 5px",
+                opacity: 0.7,
+              }}
+            >
+              {p.name}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div
+        className="font-mono"
+        style={{
+          fontSize: "9px",
+          letterSpacing: "0.1em",
+          color: "var(--fg-faint)",
+          textTransform: "uppercase",
+          borderTop: "1px solid var(--hairline)",
+          paddingTop: "6px",
+        }}
+      >
+        {mind.incidentCount} invocations
+      </div>
+    </button>
   );
 }
 

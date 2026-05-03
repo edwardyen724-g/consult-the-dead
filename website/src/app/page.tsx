@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllFrameworks, SLUG_COLOR_VAR, type FrameworkSlug } from "@/lib/frameworks";
+import { getActivePackMembers, getPacksForMind, PACKS } from "@/lib/packs";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
 
@@ -28,6 +29,9 @@ const AGON_STEPS = [
 
 export default function HomePage() {
   const frameworks = getAllFrameworks();
+  const frameworkBySlug = new Map(frameworks.map((f) => [f.slug, f] as const));
+  const liveSlugs: ReadonlySet<string> = new Set(frameworks.map((f) => f.slug));
+  const totalMinds = frameworks.length;
 
   // Pull 3 featured minds for the hero — Sun Tzu, Machiavelli, Curie
   const FEATURED_SLUGS = ['sun-tzu', 'niccolo-machiavelli', 'marie-curie'];
@@ -36,11 +40,29 @@ export default function HomePage() {
     .filter((f): f is NonNullable<typeof f> => !!f)
     .map(f => ({
       name: f.meta.person,
+      slug: f.slug,
       dates: f.era,
       lens: f.perceptual_lens.statement,
       colorVar: SLUG_COLOR_VAR[f.slug as FrameworkSlug],
-      invocations: f.incidents.length * 47,
+      invocations: f.incidents.length,
+      packs: getPacksForMind(f.slug).map((p) => ({ name: p.name, colorVar: p.colorVar })),
     }));
+
+  // Build pack cards with the live members of each pack.
+  const packCards = PACKS.map((pack) => {
+    const liveMembers = getActivePackMembers(pack, liveSlugs)
+      .map((slug) => frameworkBySlug.get(slug as FrameworkSlug))
+      .filter((f): f is NonNullable<typeof f> => !!f);
+    return {
+      id: pack.id,
+      name: pack.name,
+      tagline: pack.tagline,
+      description: pack.description,
+      colorVar: pack.colorVar,
+      members: liveMembers,
+      totalRoster: pack.members.length,
+    };
+  }).filter((p) => p.members.length > 0);
 
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
@@ -90,7 +112,7 @@ export default function HomePage() {
                 maxWidth: '50ch',
               }}>
                 Bring the question keeping you up. We seat Machiavelli, Sun Tzu,
-                Curie — and forty-four other minds — and let them argue it out on your behalf.
+                Curie — and five other minds — and let them argue it out on your behalf.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
@@ -150,8 +172,155 @@ export default function HomePage() {
               color: 'var(--fg-faint)',
               margin: 0,
             }}>
-              No signup for first agon · 47 minds in the corpus · 12,591 prior debates
+              No signup for first agon · {totalMinds} minds in the corpus · {packCards.length} themed packs · 30+ sample debates
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SIX COUNCILS / PACKS ── */}
+      <section style={{
+        padding: '96px 24px',
+        borderTop: '1px solid var(--hairline)',
+      }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '8px' }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-faint)',
+              margin: 0,
+            }}>
+              The Six Councils
+            </p>
+            <Link href="/agora" style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+              textDecoration: 'none',
+            }}>
+              Browse all minds →
+            </Link>
+          </div>
+          <h2 style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 400,
+            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            marginTop: '12px',
+            marginBottom: '16px',
+          }}>
+            Pick a council. Or <em style={{ fontStyle: 'italic', color: 'var(--red)' }}>build your own.</em>
+          </h2>
+          <p style={{
+            fontFamily: 'var(--font-serif)',
+            fontStyle: 'italic',
+            fontSize: '1.05rem',
+            lineHeight: 1.6,
+            color: 'var(--fg-dim)',
+            margin: '0 0 48px',
+            maxWidth: '60ch',
+          }}>
+            Each pack gathers minds with a shared instinct. Open one to seat
+            everyone in it — or pick across packs to assemble your own table.
+          </p>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '20px',
+          }}>
+            {packCards.map((pack) => (
+              <Link
+                key={pack.id}
+                href={`/agora?pack=${pack.id}`}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  background: 'var(--surface)',
+                  border: '1px solid var(--hairline)',
+                  borderLeft: `3px solid ${pack.colorVar}`,
+                  borderRadius: 0,
+                  padding: '28px 26px 22px',
+                  textDecoration: 'none',
+                  color: 'var(--fg)',
+                  transition: 'border-color 200ms ease-out, background 200ms ease-out',
+                  position: 'relative',
+                  minHeight: '230px',
+                }}
+                className="gm-pack-card"
+              >
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '9px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: pack.colorVar,
+                  marginBottom: '10px',
+                }}>
+                  {pack.members.length} of {pack.totalRoster} seated
+                </div>
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1.4rem',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.15,
+                  marginBottom: '8px',
+                  color: 'var(--fg)',
+                }}>
+                  {pack.name}
+                </div>
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontStyle: 'italic',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.5,
+                  color: 'var(--fg-dim)',
+                  marginBottom: '20px',
+                  flex: 1,
+                }}>
+                  {pack.tagline}
+                </div>
+
+                <div style={{
+                  borderTop: '1px solid var(--hairline)',
+                  paddingTop: '12px',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '6px 10px',
+                }}>
+                  {pack.members.map((m) => (
+                    <span
+                      key={m.slug}
+                      className="font-mono uppercase"
+                      style={{
+                        fontSize: '9px',
+                        letterSpacing: '0.1em',
+                        color: SLUG_COLOR_VAR[m.slug as FrameworkSlug],
+                      }}
+                    >
+                      {m.meta.person}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{
+                  marginTop: '14px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '10px',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  color: pack.colorVar,
+                }}>
+                  Enter the pack →
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

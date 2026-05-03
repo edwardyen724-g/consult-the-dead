@@ -38,6 +38,27 @@
   --color-leonardo:    #b09040;
   --color-einstein:    #a87aad;
   --color-aurelius:    #b08050;
+  --color-franklin:    #d4a017;
+
+  /* Roster expansion — 18-mind corpus */
+  --color-cicero:       #b03a3a;  /* deep crimson */
+  --color-epictetus:    #c8a878;  /* warm stone / tan */
+  --color-edison:       #e0a020;  /* amber / gold */
+  --color-archimedes:   #3a8ab0;  /* Mediterranean blue */
+  --color-rockefeller:  #2f6b4a;  /* dark emerald */
+  --color-tubman:       #7a4aa0;  /* deep purple */
+  --color-lovelace:     #a888d0;  /* violet / lavender */
+  --color-catherine:    #d4a830;  /* imperial gold */
+  --color-alexander:    #b07840;  /* bronze */
+  --color-cleopatra:    #2f8085;  /* royal teal */
+
+  /* Pack accent colors — used for pack cards, badges, headers */
+  --pack-stoic-council:        #b08050;
+  --pack-inventors-workshop:   #6a7abf;
+  --pack-war-room:             #c9664e;
+  --pack-republic:             #d4a017;
+  --pack-trailblazers:         #5a8a5a;
+  --pack-moguls:               #4a8a6a;
 
   --font-serif: var(--font-cormorant), 'EB Garamond', Georgia, serif;
   --font-body:  var(--font-eb-garamond), Georgia, serif;
@@ -71,6 +92,27 @@ html.light {
   --color-leonardo:    #8a6a2a;
   --color-einstein:    #7a5a9a;
   --color-aurelius:    #7a5a2a;
+  --color-franklin:    #9a7510;
+
+  /* Roster expansion — 18-mind corpus (parchment palette) */
+  --color-cicero:       #7a1f1f;  /* deep crimson */
+  --color-epictetus:    #8a6a40;  /* warm stone / tan */
+  --color-edison:       #9a6a10;  /* amber / gold */
+  --color-archimedes:   #1f5a7a;  /* Mediterranean blue */
+  --color-rockefeller:  #1f4a30;  /* dark emerald */
+  --color-tubman:       #4a2a70;  /* deep purple */
+  --color-lovelace:     #6a4a90;  /* violet / lavender */
+  --color-catherine:    #9a7510;  /* imperial gold */
+  --color-alexander:    #7a5028;  /* bronze */
+  --color-cleopatra:    #1f5a5f;  /* royal teal */
+
+  /* Pack accent colors */
+  --pack-stoic-council:        #7a5a2a;
+  --pack-inventors-workshop:   #4a5a8a;
+  --pack-war-room:             #8b2e23;
+  --pack-republic:             #9a7510;
+  --pack-trailblazers:         #3e5e3e;
+  --pack-moguls:               #2f5a44;
 }
 
 html {
@@ -98,6 +140,12 @@ body {
 *:focus-visible {
   outline: 1px solid var(--amber);
   outline-offset: 3px;
+}
+
+/* ===== Pack cards (homepage browse) ===== */
+.gm-pack-card:hover {
+  background: var(--amber-mist);
+  border-color: var(--fg-dim);
 }
 
 /* ===== Fade-in for worked example speakers ===== */
