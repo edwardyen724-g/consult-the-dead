@@ -8,6 +8,7 @@ import {
   getValidation,
 } from "@/lib/frameworks";
 import type { FrameworkSlug } from "@/lib/frameworks";
+import { getPacksForMind } from "@/lib/packs";
 
 /* ── Static generation ── */
 
@@ -28,7 +29,7 @@ export async function generateMetadata({
   const fw = getFramework(slug as FrameworkSlug);
   if (!fw) return { title: "Not Found" };
   const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
-  const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from documented historical incidents. ${fw.perceptual_lens.statement.slice(0, 100)}`;
+  const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from ${fw.meta.incident_count} documented historical incidents.`;
   return {
     title,
     description,
@@ -52,10 +53,11 @@ const COL = "720px";
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="font-mono uppercase"
       style={{
+        fontFamily: "var(--font-mono)",
         fontSize: "11px",
         letterSpacing: "0.1em",
+        textTransform: "uppercase",
         color: "var(--fg-dim)",
         marginBottom: "20px",
       }}
@@ -79,19 +81,10 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 
   const validation = getValidation(slug as FrameworkSlug);
   const color = SLUG_COLOR_VAR[slug as FrameworkSlug];
+  const packs = getPacksForMind(slug);
 
-  // Pick incident-001
-  const firstIncident = fw.incidents.find((i) => i.id === "incident-001") ??
-    fw.incidents[0] ?? null;
-
-  // Constructs: show up to 6
-  const maxConstructs = 6;
-  const shownConstructs = fw.bipolar_constructs.slice(0, maxConstructs);
-  const remainingConstructs =
-    fw.bipolar_constructs.length - maxConstructs;
-
-  // Synthesize "Best For" from behavioral_divergence_predictions
-  const bestForText = synthesizeBestFor(fw);
+  const constructCount = fw.meta.construct_count ?? fw.bipolar_constructs.length;
+  const incidentCount = fw.meta.incident_count;
 
   // Validation line
   const validationLine = formatValidation(validation);
@@ -108,46 +101,84 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
         {/* Back link */}
         <Link
           href="/frameworks"
-          className="font-mono uppercase"
           style={{
-            fontSize: "12px",
-            letterSpacing: "0.08em",
+            fontFamily: "var(--font-mono)",
+            fontSize: "11px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
             color: "var(--fg-dim)",
             textDecoration: "none",
           }}
         >
-          &larr; The Frameworks
+          &larr; The Council
         </Link>
 
-        {/* Name */}
-        <h1
-          className="font-mono uppercase"
-          style={{
-            fontSize: "clamp(28px, 5vw, 48px)",
-            letterSpacing: "0.04em",
-            color: color,
-            marginTop: "48px",
-            lineHeight: 1.15,
-          }}
-        >
-          {fw.meta.person}
-        </h1>
-
-        {/* Domain + era */}
-        <div
-          className="font-mono"
-          style={{
-            fontSize: "13px",
-            color: "var(--fg-dim)",
-            marginTop: "12px",
-          }}
-        >
-          {fw.meta.domain} &middot; {fw.era}
+        {/* Portrait + Name */}
+        <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "48px" }}>
+          <img
+            src={`/portraits/${slug}.webp`}
+            alt={fw.meta.person}
+            width={80}
+            height={80}
+            style={{
+              borderRadius: "50%",
+              objectFit: "cover",
+              border: `2px solid ${color}`,
+            }}
+          />
+          <div>
+            <h1
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "clamp(24px, 4vw, 36px)",
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                color: color,
+                margin: 0,
+                lineHeight: 1.15,
+              }}
+            >
+              {fw.meta.person}
+            </h1>
+            <div
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "12px",
+                color: "var(--fg-dim)",
+                marginTop: "6px",
+              }}
+            >
+              {fw.meta.domain} &middot; {fw.era}
+            </div>
+          </div>
         </div>
 
+        {/* Pack memberships */}
+        {packs.length > 0 && (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "20px" }}>
+            {packs.map((p) => (
+              <span
+                key={p.id}
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  padding: "3px 10px",
+                  border: `1px solid ${p.colorVar}`,
+                  borderRadius: "3px",
+                  color: p.colorVar,
+                }}
+              >
+                {p.name}
+              </span>
+            ))}
+          </div>
+        )}
+
         {/* ──────── PERCEPTUAL LENS ──────── */}
-        <section style={{ marginTop: "96px" }}>
-          <SectionLabel>Perceptual Lens</SectionLabel>
+        <section style={{ marginTop: "72px" }}>
+          <SectionLabel>How They See the World</SectionLabel>
           <p
             style={{
               fontFamily: "var(--font-serif)",
@@ -158,241 +189,156 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
           >
             {fw.perceptual_lens.statement}
           </p>
+        </section>
+
+        {/* ──────── DEPTH INDICATORS ──────── */}
+        <section style={{ marginTop: "72px" }}>
+          <SectionLabel>Framework Depth</SectionLabel>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+              gap: "16px",
+            }}
+          >
+            <div
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--hairline)",
+                padding: "20px",
+                textAlign: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "2rem",
+                  color: color,
+                  marginBottom: "4px",
+                }}
+              >
+                {constructCount}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--fg-dim)",
+                }}
+              >
+                Constructs
+              </div>
+            </div>
+            <div
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--hairline)",
+                padding: "20px",
+                textAlign: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "2rem",
+                  color: color,
+                  marginBottom: "4px",
+                }}
+              >
+                {incidentCount}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--fg-dim)",
+                }}
+              >
+                Incidents Analyzed
+              </div>
+            </div>
+            {fw.blind_spots.length > 0 && (
+              <div
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--hairline)",
+                  padding: "20px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "2rem",
+                    color: color,
+                    marginBottom: "4px",
+                  }}
+                >
+                  {fw.blind_spots.length}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "9px",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--fg-dim)",
+                  }}
+                >
+                  Blind Spots Mapped
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ──────── WHAT MAKES THEM DIFFERENT ──────── */}
+        <section style={{ marginTop: "72px" }}>
+          <SectionLabel>What Makes This Mind Different</SectionLabel>
           <p
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "16px",
-              lineHeight: 1.55,
+              lineHeight: 1.6,
               color: "var(--fg-dim)",
-              marginTop: "24px",
               maxWidth: "62ch",
             }}
           >
-            <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
-              What they notice first:
-            </strong>{" "}
-            {fw.perceptual_lens.what_they_notice_first}
+            This framework was extracted from {incidentCount} documented critical
+            decisions in {fw.meta.person}&rsquo;s life using the Critical Decision
+            Method. It captures the {constructCount} cognitive dimensions they
+            actually used to navigate high-stakes choices &mdash; the patterns
+            invisible to people who only read their biography.
           </p>
           <p
             style={{
               fontFamily: "var(--font-serif)",
               fontSize: "16px",
-              lineHeight: 1.55,
+              lineHeight: 1.6,
               color: "var(--fg-dim)",
               marginTop: "16px",
               maxWidth: "62ch",
             }}
           >
-            <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
-              What they ignore:
-            </strong>{" "}
-            {fw.perceptual_lens.what_they_ignore}
+            When you bring a question to {fw.meta.person.split(" ")[0]}, they
+            don&rsquo;t give generic advice. They apply these constructs to your
+            specific situation &mdash; noticing what others miss, ignoring what
+            others fixate on.
           </p>
         </section>
 
-        {/* ──────── BIPOLAR CONSTRUCTS ──────── */}
-        <section style={{ marginTop: "96px" }}>
-          <SectionLabel>Constructs</SectionLabel>
-          <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            {shownConstructs.map((c, i) => (
-              <div key={i}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontSize: "17px",
-                    fontWeight: 500,
-                    marginBottom: "12px",
-                    maxWidth: "62ch",
-                  }}
-                >
-                  {c.construct}
-                </div>
-                {/* Visual scale */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    maxWidth: "62ch",
-                  }}
-                >
-                  <span
-                    className="font-mono"
-                    style={{
-                      fontSize: "10px",
-                      color: color,
-                      letterSpacing: "0.02em",
-                      minWidth: 0,
-                      flex: "1 1 0",
-                      textAlign: "left",
-                    }}
-                  >
-                    {truncatePole(c.positive_pole, 60)}
-                  </span>
-                  <div
-                    style={{
-                      flex: "0 0 120px",
-                      height: "1px",
-                      background: "var(--hairline)",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "12px",
-                        top: "-3px",
-                        width: "7px",
-                        height: "7px",
-                        borderRadius: "50%",
-                        background: color,
-                      }}
-                    />
-                  </div>
-                  <span
-                    className="font-mono"
-                    style={{
-                      fontSize: "10px",
-                      color: "var(--fg-dim)",
-                      letterSpacing: "0.02em",
-                      minWidth: 0,
-                      flex: "1 1 0",
-                      textAlign: "right",
-                    }}
-                  >
-                    {truncatePole(c.negative_pole, 60)}
-                  </span>
-                </div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontSize: "14px",
-                    lineHeight: 1.5,
-                    color: "var(--fg-dim)",
-                    marginTop: "10px",
-                    maxWidth: "62ch",
-                  }}
-                >
-                  {c.behavioral_implication}
-                </p>
-              </div>
-            ))}
-          </div>
-          {remainingConstructs > 0 && (
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "14px",
-                color: "var(--fg-dim)",
-                marginTop: "24px",
-                fontStyle: "italic",
-              }}
-            >
-              and {remainingConstructs} more
-            </p>
-          )}
-        </section>
-
-        {/* ──────── ONE CRITICAL INCIDENT ──────── */}
-        {firstIncident && (
-          <section style={{ marginTop: "96px" }}>
-            <SectionLabel>A Documented Incident</SectionLabel>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "18px",
-                fontWeight: 500,
-                lineHeight: 1.5,
-                maxWidth: "62ch",
-              }}
-            >
-              {firstIncident.decision}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "15px",
-                lineHeight: 1.55,
-                color: "var(--fg-dim)",
-                marginTop: "16px",
-                maxWidth: "62ch",
-              }}
-            >
-              {firstIncident.context}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "16px",
-                lineHeight: 1.6,
-                marginTop: "20px",
-                maxWidth: "62ch",
-              }}
-            >
-              {firstIncident.divergence_explanation}
-            </p>
-          </section>
-        )}
-
-        {/* ──────── BEST FOR ──────── */}
-        {bestForText && (
-          <section style={{ marginTop: "96px" }}>
-            <SectionLabel>Best For</SectionLabel>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "17px",
-                lineHeight: 1.6,
-                maxWidth: "62ch",
-              }}
-            >
-              {bestForText}
-            </p>
-          </section>
-        )}
-
-        {/* ──────── BLIND SPOTS ──────── */}
-        {fw.blind_spots.length > 0 && (
-          <section style={{ marginTop: "96px" }}>
-            <SectionLabel>Known Limitations</SectionLabel>
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                margin: 0,
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-              }}
-            >
-              {fw.blind_spots.map((bs, i) => (
-                <li
-                  key={i}
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontSize: "15px",
-                    lineHeight: 1.55,
-                    color: "var(--fg-dim)",
-                    maxWidth: "62ch",
-                    paddingLeft: "16px",
-                    borderLeft: "2px solid var(--hairline)",
-                  }}
-                >
-                  {bs.description}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
         {/* ──────── VALIDATION ──────── */}
         {validationLine && (
-          <section style={{ marginTop: "96px" }}>
+          <section style={{ marginTop: "72px" }}>
             <SectionLabel>Validation</SectionLabel>
             <p
-              className="font-mono"
               style={{
-                fontSize: "13px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "12px",
                 lineHeight: 1.6,
                 color: "var(--fg-dim)",
                 maxWidth: "62ch",
@@ -403,22 +349,47 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
           </section>
         )}
 
-        {/* ──────── FOOTER ──────── */}
-        <div style={{ marginTop: "128px" }}>
-          <a
-            href={`https://github.com/edwardyen724-g/consult-the-dead/tree/master/frameworks/${slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono"
+        {/* ──────── CTA ──────── */}
+        <div
+          style={{
+            marginTop: "96px",
+            border: "1px solid var(--hairline)",
+            borderRadius: "8px",
+            padding: "32px",
+            textAlign: "center",
+            background: "var(--surface)",
+          }}
+        >
+          <p
             style={{
-              fontSize: "12px",
-              letterSpacing: "0.04em",
+              fontFamily: "var(--font-serif)",
+              fontSize: "1.05rem",
+              fontStyle: "italic",
               color: "var(--fg-dim)",
-              textDecoration: "none",
+              margin: "0 0 24px",
+              lineHeight: 1.6,
             }}
           >
-            &rarr; View the raw framework on GitHub
-          </a>
+            The best way to understand a framework is to use it.
+            Bring your decision &mdash; {fw.meta.person.split(" ")[0]} argues differently every time.
+          </p>
+          <Link
+            href={`/agora?mind=${slug}`}
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "12px 28px",
+              background: "var(--amber)",
+              color: "var(--bg)",
+              textDecoration: "none",
+              borderRadius: "4px",
+            }}
+          >
+            Consult {fw.meta.person.split(" ")[0]} &rarr;
+          </Link>
         </div>
       </div>
     </div>
@@ -426,28 +397,6 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 }
 
 /* ── Utility functions ── */
-
-function truncatePole(s: string, max: number): string {
-  if (s.length <= max) return s;
-  return s.slice(0, max).trimEnd() + "\u2026";
-}
-
-function synthesizeBestFor(
-  fw: NonNullable<ReturnType<typeof getFramework>>
-): string | null {
-  const preds = fw.behavioral_divergence_predictions;
-  if (preds.length === 0) return null;
-
-  // Extract situation types and synthesize
-  const types = preds
-    .slice(0, 5)
-    .map((p) => p.situation_type.toLowerCase())
-    .join("; ");
-
-  // Build a readable summary by looking at the themes
-  const person = fw.meta.person.split(" ").pop(); // Last name
-  return `This framework is most useful when facing situations involving ${types}. Use ${person}\u2019s lens when you need to see what a conventional approach would miss in these domains.`;
-}
 
 function formatValidation(
   v: ReturnType<typeof getValidation>
@@ -459,8 +408,8 @@ function formatValidation(
   const maxScore = Math.max(...scores);
 
   if (v.passed) {
-    return `Tier 1: PASSED \u2014 ${v.divergent_count}/${v.total_scenarios} scenarios divergent (scores ${minScore}\u2013${maxScore})`;
+    return `Tier 1 validated — ${v.divergent_count}/${v.total_scenarios} holdout scenarios produced divergent responses (scores ${minScore}–${maxScore}). This framework demonstrably thinks differently from a generic advisor.`;
   }
 
-  return `Tier 1: Floor reached \u2014 framework content is methodologically sound but baseline expertise overlaps heavily with this figure\u2019s documented thinking.`;
+  return `Tier 1: Methodologically sound — framework content is well-extracted but baseline expertise overlaps with this figure's documented thinking in some scenarios.`;
 }

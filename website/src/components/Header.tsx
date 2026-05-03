@@ -66,6 +66,16 @@ export function Header() {
           }}>
             The Agora
           </Link>
+          <Link href="/frameworks" style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-dim)',
+            textDecoration: 'none',
+          }}>
+            The Council
+          </Link>
           {isSignedIn && (
             <Link href="/library" style={{
               fontFamily: 'var(--font-mono)',
