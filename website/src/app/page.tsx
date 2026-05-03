@@ -193,7 +193,7 @@ export default function HomePage() {
             }}>
               The Six Councils
             </p>
-            <Link href="/agora" style={{
+            <Link href="/frameworks" style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '10px',
               letterSpacing: '0.14em',
@@ -417,6 +417,120 @@ export default function HomePage() {
             See it run
           </h2>
           <StreamingDemo />
+        </div>
+      </section>
+
+      {/* ── BROWSE SECTION ── */}
+      <section style={{
+        padding: '72px 24px',
+        borderTop: '1px solid var(--hairline)',
+      }}>
+        <div style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          display: 'flex',
+          gap: '24px',
+          flexWrap: 'wrap',
+        }}>
+          <Link href="/debates" style={{
+            flex: '1 1 280px',
+            display: 'flex',
+            flexDirection: 'column',
+            background: 'var(--surface)',
+            border: '1px solid var(--hairline)',
+            padding: '28px 26px',
+            textDecoration: 'none',
+            color: 'var(--fg)',
+          }}>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
+              marginBottom: '10px',
+            }}>
+              30 Sample Debates
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1.1rem',
+              lineHeight: 1.4,
+              marginBottom: '8px',
+            }}>
+              Read how the council argues
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-serif)',
+              fontStyle: 'italic',
+              fontSize: '0.9rem',
+              lineHeight: 1.5,
+              color: 'var(--fg-dim)',
+              flex: 1,
+            }}>
+              Hypothetical decisions debated across three rounds by historical minds.
+            </div>
+            <div style={{
+              marginTop: '14px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
+            }}>
+              Browse debates →
+            </div>
+          </Link>
+
+          <Link href="/frameworks" style={{
+            flex: '1 1 280px',
+            display: 'flex',
+            flexDirection: 'column',
+            background: 'var(--surface)',
+            border: '1px solid var(--hairline)',
+            padding: '28px 26px',
+            textDecoration: 'none',
+            color: 'var(--fg)',
+          }}>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
+              marginBottom: '10px',
+            }}>
+              {totalMinds} Frameworks
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1.1rem',
+              lineHeight: 1.4,
+              marginBottom: '8px',
+            }}>
+              Meet the council
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-serif)',
+              fontStyle: 'italic',
+              fontSize: '0.9rem',
+              lineHeight: 1.5,
+              color: 'var(--fg-dim)',
+              flex: 1,
+            }}>
+              Each mind&rsquo;s decision-making framework, extracted from documented historical incidents.
+            </div>
+            <div style={{
+              marginTop: '14px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
+            }}>
+              Browse the council →
+            </div>
+          </Link>
         </div>
       </section>
 
