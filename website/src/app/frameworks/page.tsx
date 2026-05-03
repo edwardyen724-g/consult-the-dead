@@ -214,7 +214,7 @@ export default function FrameworksPage() {
                       {/* Portrait + name row */}
                       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                         <img
-                          src={`/portraits/${slug}.webp`}
+                          src={`/portraits/${slug}-portrait.png`}
                           alt={fw.meta.person}
                           width={44}
                           height={44}

@@ -116,7 +116,7 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
         {/* Portrait + Name */}
         <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "48px" }}>
           <img
-            src={`/portraits/${slug}.webp`}
+            src={`/portraits/${slug}-portrait.png`}
             alt={fw.meta.person}
             width={80}
             height={80}
