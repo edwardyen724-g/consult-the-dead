@@ -111,8 +111,8 @@ export default function HomePage() {
                 marginTop: '28px',
                 maxWidth: '50ch',
               }}>
-                Bring the question keeping you up. We seat Machiavelli, Sun Tzu,
-                Curie — and five other minds — and let them argue it out on your behalf.
+                Bring the question keeping you up. We seat {totalMinds} minds —
+                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
@@ -130,30 +130,28 @@ export default function HomePage() {
                 }}>
                   Enter the Agora →
                 </Link>
-                <Link href="/debates" style={{
+                <Link href="/essay" style={{
                   fontFamily: 'var(--font-serif)',
                   fontStyle: 'italic',
                   fontSize: '0.95rem',
                   color: 'var(--fg-dim)',
                   textDecoration: 'none',
                 }}>
-                  or watch a 90-second agon
+                  or read how it works
                 </Link>
               </div>
             </div>
 
-            {/* Right column — 3 cascading mind cards */}
+            {/* Right column — 3 mind cards in a row */}
             <div style={{
-              flex: '1 1 260px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
+              flex: '1 1 340px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '12px',
               minWidth: 0,
             }}>
-              {heroMinds.map((m, i) => (
-                <div key={m.name} style={{ marginLeft: `${i * 14}px` }}>
-                  <MindCard {...m} size="sm" />
-                </div>
+              {heroMinds.map((m) => (
+                <MindCard key={m.name} {...m} size="sm" />
               ))}
             </div>
           </div>
@@ -172,7 +170,7 @@ export default function HomePage() {
               color: 'var(--fg-faint)',
               margin: 0,
             }}>
-              No signup for first agon · {totalMinds} minds in the corpus · {packCards.length} themed packs · 30+ sample debates
+              No signup for first agon · {totalMinds} minds in the corpus · {packCards.length} themed packs
             </p>
           </div>
         </div>
@@ -304,7 +302,7 @@ export default function HomePage() {
                         color: SLUG_COLOR_VAR[m.slug as FrameworkSlug],
                       }}
                     >
-                      {m.meta.person}
+                      {m.meta.person.split('(')[0].trim()}
                     </span>
                   ))}
                 </div>
@@ -351,7 +349,7 @@ export default function HomePage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1px',
             border: '1px solid var(--hairline)',
             borderRadius: '6px',

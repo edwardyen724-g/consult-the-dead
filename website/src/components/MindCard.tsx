@@ -19,7 +19,7 @@ interface MindCardProps {
 export function MindCard({ name, slug, dates, lens, colorVar, invocations, size = 'md', packs }: MindCardProps) {
   const initials = name.split(' ').filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase()
   const portraitSrc = slug ? `/portraits/${slug}-portrait.png` : null
-  const pad = size === 'sm' ? '14px 16px' : '20px'
+  const pad = size === 'sm' ? '10px 12px' : '20px'
 
   return (
     <div style={{
@@ -28,7 +28,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
       padding: pad,
       display: 'flex',
       flexDirection: 'column',
-      gap: '10px',
+      gap: size === 'sm' ? '6px' : '10px',
       background: 'var(--surface)',
     }}>
       {/* Portrait or fallback initials */}
@@ -36,7 +36,8 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         <div style={{
           position: 'relative',
           width: '100%',
-          aspectRatio: '1',
+          aspectRatio: size === 'sm' ? '3 / 2' : '1',
+          maxHeight: size === 'sm' ? '120px' : undefined,
           borderRadius: '4px',
           overflow: 'hidden',
         }}>
@@ -44,8 +45,8 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
             src={portraitSrc}
             alt={`Portrait of ${name}`}
             fill
-            sizes="(max-width: 640px) 45vw, 180px"
-            style={{ objectFit: 'cover' }}
+            sizes={size === 'sm' ? '120px' : '(max-width: 640px) 45vw, 180px'}
+            style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
           />
         </div>
       ) : (
@@ -92,19 +93,21 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         }}>
           {dates}
         </div>
-        <div style={{
-          fontFamily: 'var(--font-serif)',
-          fontSize: '0.78rem',
-          fontStyle: 'italic',
-          color: 'var(--fg-dim)',
-          marginTop: '6px',
-          lineHeight: 1.45,
-        }}>
-          {lens}
-        </div>
+        {size !== 'sm' && (
+          <div style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '0.78rem',
+            fontStyle: 'italic',
+            color: 'var(--fg-dim)',
+            marginTop: '6px',
+            lineHeight: 1.45,
+          }}>
+            {lens}
+          </div>
+        )}
       </div>
 
-      {packs && packs.length > 0 && (
+      {size !== 'sm' && packs && packs.length > 0 && (
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -129,7 +132,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         </div>
       )}
 
-      {invocations !== undefined && (
+      {size !== 'sm' && invocations !== undefined && (
         <div style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '9px',

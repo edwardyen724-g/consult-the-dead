@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Agora — Consult The Dead",
+  title: "The Agora",
   description:
     "Run your hard decision through a council of historical minds. Structured disagreement, real consensus, yours in under three minutes.",
   robots: {
