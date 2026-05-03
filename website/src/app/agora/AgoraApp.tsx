@@ -8,6 +8,7 @@ import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
   PACKS,
   getActivePackMembers,
+  getPack,
   type Pack,
   type PackId,
 } from "@/lib/packs";
@@ -183,7 +184,20 @@ export function AgoraApp({
   function beginFromTopic() {
     const trimmed = state.topic.trim();
     if (trimmed.length < 10) return;
-    const suggested = suggestCouncil(trimmed, minds);
+
+    // If arriving via a pack link, pre-seat that pack's live members
+    let suggested: string[];
+    if (initialPack) {
+      const pack = getPack(initialPack);
+      const liveSlugs = new Set(minds.map((m) => m.slug));
+      const packMembers = pack ? getActivePackMembers(pack, liveSlugs) : [];
+      suggested = packMembers.length >= MIND_MIN
+        ? packMembers.slice(0, isPro ? MIND_MAX : 3)
+        : suggestCouncil(trimmed, minds);
+    } else {
+      suggested = suggestCouncil(trimmed, minds);
+    }
+
     setState((s) => ({
       ...s,
       council: suggested,

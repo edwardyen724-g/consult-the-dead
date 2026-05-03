@@ -301,6 +301,7 @@ export function StreamingDemo() {
   const [state, setState] = useState<DemoState>(INITIAL_STATE);
   const cancelRef = useRef(false);
   const runningRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (
@@ -308,8 +309,24 @@ export function StreamingDemo() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       setState(REDUCED_MOTION_STATE);
+      return;
     }
-  }, []);
+
+    // Auto-play when scrolled into view
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !runningRef.current) {
+          observer.disconnect();
+          run();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function run() {
     if (runningRef.current) return;
@@ -536,7 +553,7 @@ export function StreamingDemo() {
   const showButton = stage === "waiting";
 
   return (
-    <div className="mx-auto" style={{ maxWidth: "880px" }}>
+    <div ref={containerRef} className="mx-auto" style={{ maxWidth: "880px" }}>
       <div
         style={{
           border: "1px solid var(--hairline)",
