@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "person": "Leonardo da Vinci",
+    "domain": "Polymath / Art + Science + Engineering",
+    "era": "1452-1519",
+    "slug": "leonardo-da-vinci",
+    "version": "2.0",
+    "extraction_date": "2026-04-10",
+    "model": "claude-sonnet-4-6",
+    "incident_count": 25,
+    "source_count": 5,
+    "extraction_method": "CDM-based framework extraction via agent pipeline"
+  },
+  "perceptual_lens": {
+    "statement": "Leonardo perceives every phenomenon as a mechanical system whose visible surface is merely the output of hidden internal structure, meaning nothing is understood until it has been physically or conceptually disassembled layer by layer and its causal architecture mapped.",
+    "what_they_notice_first": "Leonardo attends first to the gap between surface appearance and underlying causal mechanism: the difference between what a muscle looks like and why it has that shape, between what a river does and what hydraulic forces produce that behavior, between what a painting shows and what perceptual-optical principles make it convincing. He notices structural dependencies before tactical details, consistently asking what physical substrate sustains the observed phenomenon rather than how to interact with it at face value.",
+    "what_they_ignore": "Leonardo consistently underweights temporal constraints, patron expectations, and the ratio of effort to social importance. He does not register deadlines as hard boundaries, treats commissions of wildly different prestige as equally interesting research vehicles, and fails to notice when his investigation timeline has exceeded any reasonable delivery schedule. He also underweights the finality requirement: the point at which a project must be declared complete rather than further investigated.",
+    "derived_from": [
+      "incident-001", "incident-002", "incident-004", "incident-005",
+      "incident-006", "incident-007", "incident-008", "incident-009",
+      "incident-012", "incident-013", "incident-014", "incident-015",
+      "incident-016", "incident-018", "incident-019", "incident-022"
+    ],
+    "confidence": "high",
+    "validation_notes": "The lens predicts behavior across all 25 incidents with high accuracy: the disassembly-before-synthesis pattern explains the anatomical dissections, the Sforza horse redesign, the varnish-before-painting behavior, the notebook disorder, and the chronic non-completion. The only partial misfits are the political-maneuvering incidents (017, 023), which are better explained by the constructs than the lens."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "causal understanding vs. surface description",
+      "positive_pole": "Knowledge requires understanding the mechanical causes behind observed phenomena; knowing what something looks like is not knowing it at all. Only structural comprehension counts as real understanding.",
+      "negative_pole": "Adequate knowledge can be obtained through careful observation and description of external features without requiring full causal decomposition of the underlying system.",
+      "derived_from_incidents": ["incident-005", "incident-015", "incident-004", "incident-019"],
+      "behavioral_implication": "When encountering any new domain or problem, Leonardo will insist on disassembling the subject to its mechanical foundations before producing any output, even when surface-level knowledge would be sufficient for the task at hand."
+    },
+    {
+      "construct": "investigation fidelity vs. delivery obligation",
+      "positive_pole": "The quality of understanding embedded in a work must match the creator's current best knowledge; shipping a product that embodies less understanding than is achievable is a form of intellectual fraud.",
+      "negative_pole": "Professional obligations and patron contracts define the acceptable standard of completion; delivering on time at a competent level fulfills the maker's duty regardless of remaining research questions.",
+      "derived_from_incidents": ["incident-006", "incident-010", "incident-014", "incident-022", "incident-013"],
+      "behavioral_implication": "When a project reveals deeper problems than initially apparent, Leonardo will expand the scope of investigation indefinitely rather than simplify the output to meet the deadline, accepting abandonment as preferable to premature closure."
+    },
+    {
+      "construct": "direct experience vs. inherited authority",
+      "positive_pole": "Only personal empirical verification produces reliable knowledge; citation of established authorities is an epistemic failure mode that substitutes social proof for actual understanding.",
+      "negative_pole": "Established authorities represent accumulated wisdom that can be built upon efficiently; reinvestigating what predecessors have already established is wasteful duplication.",
+      "derived_from_incidents": ["incident-007", "incident-005", "incident-015", "incident-004"],
+      "behavioral_implication": "When confronted with established expertise or canonical knowledge, Leonardo will dismiss it in favor of personal investigation from scratch, even when the established knowledge is substantially correct and the reinvestigation costs hundreds of hours."
+    },
+    {
+      "construct": "infrastructural redesign vs. tactical intervention",
+      "positive_pole": "Problems should be solved by modifying the physical or systemic substrate that produces them, making the problem structurally impossible rather than managing its symptoms.",
+      "negative_pole": "Problems should be addressed at the level they present themselves, using targeted interventions that fix the immediate issue without requiring wholesale system redesign.",
+      "derived_from_incidents": ["incident-012", "incident-018", "incident-001", "incident-016"],
+      "behavioral_implication": "When asked to solve a specific tactical problem, Leonardo will propose a redesign of the entire system that contains the problem, producing solutions that are conceptually elegant but often impractically ambitious in scale."
+    },
+    {
+      "construct": "cross-domain integration vs. disciplinary specialization",
+      "positive_pole": "Every domain is a facet of a single unified reality; the boundaries between painting, engineering, anatomy, and hydraulics are artificial barriers that prevent understanding. The most powerful solutions come from importing methods across these boundaries.",
+      "negative_pole": "Domains have genuine structural differences that reward deep specialization; attempting to master everything produces shallow understanding across all fields.",
+      "derived_from_incidents": ["incident-003", "incident-020", "incident-024", "incident-015", "incident-019"],
+      "behavioral_implication": "When working in any single domain, Leonardo will import methods, analogies, and standards from other domains, treating every project as an opportunity for cross-domain transfer regardless of whether the client or audience values the integration."
+    },
+    {
+      "construct": "process optimization vs. visible progress",
+      "positive_pole": "The critical path of any production process must be identified and resolved first, even if the critical dependency appears to be the 'end' of the process from a naive observer's perspective. Mental conception and materials research are the rate-limiting steps, not execution.",
+      "negative_pole": "Work should proceed in the order that produces visible progress, maintaining stakeholder confidence and creating a sense of momentum even if the production sequence is not technically optimal.",
+      "derived_from_incidents": ["incident-009", "incident-022", "incident-006", "incident-014"],
+      "behavioral_implication": "When receiving a new commission or project, Leonardo will begin with the dependency he judges to be on the critical path (which may be materials research, conceptual development, or auxiliary investigation) rather than producing the visible progress stakeholders expect."
+    },
+    {
+      "construct": "perceptual truth vs. conventional expectation",
+      "positive_pole": "The artist's or engineer's own observation always outranks established convention, tradition, or client expectation; if direct perception contradicts inherited practice, the practice is wrong regardless of how entrenched it is.",
+      "negative_pole": "Proven conventions exist for good reasons and should be respected, especially on high-stakes projects where deviation risks catastrophic failure.",
+      "derived_from_incidents": ["incident-004", "incident-013", "incident-010", "incident-008"],
+      "behavioral_implication": "When Leonardo's own observation contradicts an established approach, he will abandon the established approach even mid-project, even at enormous cost in lost work and patron displeasure, because observed truth has absolute priority over convention."
+    },
+    {
+      "construct": "engineering cognitive tools vs. relying on willpower",
+      "positive_pole": "Human cognitive limitations are design flaws in the perceptual system that must be corrected through engineered external tools and procedures, not through trying harder.",
+      "negative_pole": "Self-discipline, practice, and deliberate effort are sufficient to overcome cognitive limitations; engineering workarounds is unnecessary and reflects lack of skill.",
+      "derived_from_incidents": ["incident-016", "incident-008", "incident-014"],
+      "behavioral_implication": "When encountering a cognitive limitation (perceptual bias, creative block, compositional stagnation), Leonardo will design an external tool or procedure to mechanically correct for it rather than attempting to overcome it through effort or practice."
+    },
+    {
+      "construct": "problem-access optimization vs. identity-preservation",
+      "positive_pole": "Career decisions should be optimized for access to interesting problems at sufficient scale, not for recognition within a fixed professional identity. The self is a portfolio of capabilities to be selectively deployed based on market conditions.",
+      "negative_pole": "Professional identity provides social legibility and trust; presenting yourself as what you are, rather than as whatever the patron needs, maintains credibility and long-term career coherence.",
+      "derived_from_incidents": ["incident-003", "incident-011", "incident-025", "incident-020"],
+      "behavioral_implication": "When seeking patronage or employment, Leonardo will reshape his self-presentation to match the patron's needs rather than his own established reputation, foregrounding whichever capability best secures access to the most interesting problems available."
+    },
+    {
+      "construct": "worst-case consequence modeling vs. intended-use evaluation",
+      "positive_pole": "Inventions and disclosures must be evaluated by their worst-case deployment across all possible future holders of the knowledge, not by their intended use in the current transaction.",
+      "negative_pole": "An inventor's responsibility ends at the point of delivery; evaluating every possible misuse of every innovation would paralyze all technological development.",
+      "derived_from_incidents": ["incident-001", "incident-018"],
+      "behavioral_implication": "When developing a powerful technology or capability, Leonardo will suppress or restrict publication if the worst-case misuse scenario is sufficiently catastrophic, even at the cost of personal recognition and patronage income."
+    },
+    {
+      "construct": "symbolic dignity vs. material pragmatism",
+      "positive_pole": "The symbolic terms of a relationship (how you are treated, paid, and addressed) define its actual nature; accepting degraded symbolic terms ratifies a degraded actual status that is nearly impossible to renegotiate upward.",
+      "negative_pole": "Material outcomes matter more than symbolic gestures; insisting on symbolic dignity when you desperately need the money is irrational self-sabotage.",
+      "derived_from_incidents": ["incident-023", "incident-021", "incident-009"],
+      "behavioral_implication": "When offered unfavorable terms that carry a status-diminishing signal, Leonardo will refuse even at severe material cost, because he perceives the symbolic dimension as the real transaction and the material dimension as secondary."
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "When offered a high-paying commission with rigid constraints on materials, timeline, and creative approach",
+      "conventional_response": "A competent peer would accept the constraints as the terms of the business transaction, produce excellent work within those boundaries, and deliver on schedule.",
+      "framework_response": "Leonardo's framework predicts he would accept the commission but immediately begin investigating whether the specified materials and methods are actually optimal, likely discovering reasons to substitute experimental alternatives and expanding the timeline as his investigation reveals deeper problems than the commission anticipated.",
+      "driving_constructs": ["investigation fidelity vs. delivery obligation", "perceptual truth vs. conventional expectation"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When asked to write a technical manual for a well-understood process",
+      "conventional_response": "A competent peer would document the process as currently practiced, organizing the material logically and producing a clear, deliverable manual within the agreed timeframe.",
+      "framework_response": "Leonardo's framework predicts he would begin by questioning whether the process is actually well-understood, personally re-deriving the causal principles behind each step, discovering that the conventional understanding is superficial, expanding the manual into a treatise on the underlying physics, and ultimately never delivering because the investigation keeps revealing new layers.",
+      "driving_constructs": ["causal understanding vs. surface description", "direct experience vs. inherited authority"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When a competitor publicly outperforms him in a shared domain",
+      "conventional_response": "A competent peer would study the competitor's methods, adopt what works, and redouble efforts to produce superior output within the same competitive framework.",
+      "framework_response": "Leonardo's framework predicts he would exit the competitive arena entirely rather than compete on unfavorable terms, seeking a new environment where his method is the singular standard rather than one approach among many being judged by metrics that penalize his working style.",
+      "driving_constructs": ["problem-access optimization vs. identity-preservation", "process optimization vs. visible progress"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When leading a team and discovering that a junior member has produced work based on incorrect assumptions",
+      "conventional_response": "A competent peer would correct the specific errors, explain the right approach, and have the junior member redo the work within the project timeline.",
+      "framework_response": "Leonardo's framework predicts he would use the error as evidence that the junior member lacks foundational understanding and insist they personally re-derive the underlying principles from scratch, potentially assigning them months of foundational study that delays the project but produces genuine comprehension.",
+      "driving_constructs": ["causal understanding vs. surface description", "direct experience vs. inherited authority"],
+      "confidence": "medium"
+    },
+    {
+      "situation_type": "When given a trivial maintenance task far below his skill level",
+      "conventional_response": "A competent peer would complete the trivial task quickly and efficiently, calibrating effort to the task's importance, and move on to more significant work.",
+      "framework_response": "Leonardo's framework predicts he would discover unexpected depth in the trivial task, invest wildly disproportionate effort investigating its underlying principles, and produce a result of extraordinary quality while neglecting higher-priority obligations, because his framework cannot calibrate effort to external importance.",
+      "driving_constructs": ["causal understanding vs. surface description", "investigation fidelity vs. delivery obligation"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When presenting credentials to a potential employer or client in an unfamiliar industry",
+      "conventional_response": "A competent peer would highlight their strongest relevant experience and qualifications, presenting themselves honestly within their established professional identity.",
+      "framework_response": "Leonardo's framework predicts he would research the employer's most urgent unmet need, then repackage his cross-domain capabilities as a direct solution to that need, burying his actual strongest credentials if they do not match the employer's primary anxiety, and arriving with a dramatic demonstration rather than a conventional portfolio.",
+      "driving_constructs": ["problem-access optimization vs. identity-preservation", "cross-domain integration vs. disciplinary specialization"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When a project fails due to an experimental technique and he must explain the failure to stakeholders",
+      "conventional_response": "A competent peer would acknowledge the failure, adopt proven methods for the next attempt, and reassure stakeholders that the problem has been identified and corrected.",
+      "framework_response": "Leonardo's framework predicts he would explain the failure as a necessary cost of pursuing a superior approach, defend the experimental technique as theoretically correct despite the practical failure, and refuse to revert to proven methods on the grounds that they embody inferior understanding, even if this costs him the project.",
+      "driving_constructs": ["perceptual truth vs. conventional expectation", "investigation fidelity vs. delivery obligation"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When developing a product with dual-use potential (beneficial primary use, dangerous secondary use)",
+      "conventional_response": "A competent peer would develop and release the product with appropriate warnings and legal disclaimers, treating downstream misuse as outside the inventor's responsibility.",
+      "framework_response": "Leonardo's framework predicts he would model the full tree of downstream consequences across all possible holders of the technology, and if the worst-case branch involves sufficiently catastrophic misuse, he would suppress the product entirely rather than rely on normative controls like warnings or restricted distribution.",
+      "driving_constructs": ["worst-case consequence modeling vs. intended-use evaluation", "infrastructural redesign vs. tactical intervention"],
+      "confidence": "high"
+    },
+    {
+      "situation_type": "When facing a bureaucratic problem that requires filling out forms and following established procedures",
+      "conventional_response": "A competent peer would follow the established procedures, even if tedious, as the most efficient path to the desired outcome.",
+      "framework_response": "Leonardo's framework predicts he would attempt to redesign the entire procedural system rather than comply with it, proposing a structurally different process that eliminates the need for the forms in the first place, and becoming frustrated when the institution is not interested in systemic redesign.",
+      "driving_constructs": ["infrastructural redesign vs. tactical intervention", "causal understanding vs. surface description"],
+      "confidence": "medium"
+    },
+    {
+      "situation_type": "When receiving harsh public criticism of his work from an established authority in his field",
+      "conventional_response": "A competent peer would engage with the substantive criticism, defend their work through evidence, and adapt their approach if the criticism has merit.",
+      "framework_response": "Leonardo's framework predicts he would reframe the criticism as evidence of the critic's epistemological confusion (reliance on authority rather than direct observation), refuse to engage on the critic's terms, and instead articulate why his method is categorically superior, accepting continued marginalization as preferable to conceding the critic's framework.",
+      "driving_constructs": ["direct experience vs. inherited authority", "symbolic dignity vs. material pragmatism"],
+      "confidence": "high"
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "Leonardo suppressed his underwater breathing apparatus from publication despite its technical brilliance, releasing only the safe variant.",
+      "context": "While developing diving technology for Venice's war with the Ottomans, Leonardo invented both a surface breathing tube and a fully submerged air-supply system. Publishing novel inventions was one of the few ways an unliterary polymath could build reputation and patronage.",
+      "divergence_explanation": "Leonardo operated from a causal model extending past the immediate patron-engineer transaction, evaluating inventions by their worst-case deployment across all possible future holders rather than by their intended use.",
+      "source": "notebooks_vol1"
+    },
+    {
+      "id": "incident-002",
+      "decision": "Leonardo chose to write his notebooks as disordered collections rather than delay writing to organize them properly.",
+      "context": "Facing the accumulated mass of hundreds of loose papers across dozens of fields, Leonardo judged that the cross-referencing cost per session would reduce his capture rate below acceptable levels. He was optimizing for observation-to-paper throughput against the constraint of his own mortality.",
+      "divergence_explanation": "Leonardo valued preservation of raw observations over presentation of finished thought, treating his notebooks as an extension of working memory rather than a publication medium, refusing to filter for coherence at the cost of lost data.",
+      "source": "notebooks_vol1"
+    },
+    {
+      "id": "incident-003",
+      "decision": "Leonardo marketed himself to Ludovico Sforza primarily as a military engineer, burying his painting abilities as an afterthought in paragraph ten of his application letter.",
+      "context": "Stuck in Florence without Medici patronage in the early 1480s, Leonardo needed a new patron. Ludovico Sforza in Milan was consolidating military power. Leonardo's established reputation was as a painter, but he instead pitched portable bridges, siege mines, and naval weapons.",
+      "divergence_explanation": "Leonardo operated from a patron-needs-first model, treating his own multi-domain capabilities as a portfolio to be selectively deployed based on market conditions, optimizing for access to problems rather than recognition within a discipline.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-004",
+      "decision": "Leonardo abandoned a galloping-horse design for the Sforza monument and substituted a pacing horse after observing that sculpted figures in motion appear to fall forward.",
+      "context": "His initial competition design featured a dramatically galloping horse. His own observation of how motion translates into static sculpture revealed a fundamental visual flaw: a figure sculpted in mid-gallop reads as falling forward rather than running.",
+      "divergence_explanation": "Leonardo applied direct observational testing to a design that conventional practice treated as settled, refusing inherited solutions when his own perception contradicted them, even at the cost of lost work and lost momentum.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-005",
+      "decision": "Leonardo dissected more than ten human bodies himself rather than trust existing anatomical authority or observed demonstrations.",
+      "context": "Renaissance anatomical knowledge derived from Galen's texts and occasional public dissections. Leonardo chose to personally dissect over ten corpses layer by layer, repeating the program twice to detect variation, requiring hundreds of hours and legally fraught cadaver access.",
+      "divergence_explanation": "Leonardo's threshold for 'knowing' was set at mechanical understanding, not visual familiarity. He needed to know why a muscle was shaped that way, treating every domain as an engineering problem where only structural comprehension counts as knowledge.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-006",
+      "decision": "Leonardo refused to hurry the Adoration of the Magi despite contractual deadlines and ultimately abandoned the painting unfinished.",
+      "context": "The monks of San Donato commissioned the altarpiece with a strict thirty-month deadline and punitive forfeiture clause. Leonardo spent nearly a year on research and preparatory studies, producing an extraordinarily complex composition. He did odd jobs for the monks to buy time but never delivered.",
+      "divergence_explanation": "Leonardo treated commissions as research programs rather than delivery contracts, letting investigation scope expand to match perceived complexity regardless of time constraints, accepting abandonment as preferable to premature closure.",
+      "source": "thoughts_on_art_and_life"
+    },
+    {
+      "id": "incident-007",
+      "decision": "Leonardo answered humanist critics by adopting experience as his sole citation rather than competing on their terms with quoted authorities.",
+      "context": "Renaissance intellectual culture established credibility through classical citations. Leonardo, largely self-taught and lacking formal Latin education, faced attacks from lettered scholars who would dismiss his work as unscholarly.",
+      "divergence_explanation": "Leonardo perceived the citation system not as a neutral tool for establishing truth but as a self-reinforcing authority structure that actively obstructed discovery, tracing credibility claims back to their epistemic foundations and rejecting any that did not terminate in direct observation.",
+      "source": "notebooks_vol1"
+    },
+    {
+      "id": "incident-008",
+      "decision": "Leonardo deliberately adopted the practice of staring at stained walls and random patterns to generate compositional ideas, despite acknowledging it looked ridiculous.",
+      "context": "Renaissance composition was taught through classical models and systematic perspective construction. Leonardo developed an alternative: studying dirty walls and random natural patterns to find figures in visual noise, a method with no precedent in workshop pedagogy.",
+      "divergence_explanation": "Leonardo understood creativity as a computational process that could be hacked through input manipulation, treating apparent randomness as information-rich and designing procedures that exploited the brain's involuntary pattern-recognition.",
+      "source": "treatise_on_painting"
+    },
+    {
+      "id": "incident-009",
+      "decision": "Leonardo defended extended contemplation as legitimate work to the Duke of Milan when the Prior complained about his apparent idleness on the Last Supper.",
+      "context": "The Prior complained Leonardo would stand before the painting for half a day without touching a brush. The Duke summoned Leonardo for an explanation. Instead of apologizing, Leonardo lectured the Duke on the nature of genius.",
+      "divergence_explanation": "Leonardo refused to separate the defense of his working method from the work itself, identifying the root cause of the threat (a false model of creative production) and correcting it directly rather than managing symptoms.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-010",
+      "decision": "Leonardo left the head of Christ unfinished in the Last Supper, judging himself incapable of conceiving the divine beauty required.",
+      "context": "Every other figure had been resolved through deep character study. The head of Christ remained the final challenge. Conventional iconographic formulas existed for Christ's face, but Leonardo's method demanded the same empirical approach used for every other figure.",
+      "divergence_explanation": "Leonardo applied his quality standard recursively: having raised the standard through deep character study for every other figure, he could not exempt the most important one. He insisted his empirical method applied universally, and when it reached its limit, he stopped rather than switch to a lesser method.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-011",
+      "decision": "Leonardo accepted Cesare Borgia's offer to serve as architect and military engineer despite knowing Borgia's reputation for murder and deception.",
+      "context": "After the fall of Ludovico Sforza, Leonardo was over fifty with a long record of unfinished projects. Borgia offered access to massive engineering challenges. Leonardo reflected that, like the duke, nothing of his own had been completed either.",
+      "divergence_explanation": "Leonardo evaluated patronage opportunities primarily by the scale and nature of the problems they offered access to, not by the moral character of the patron. The pressure of accumulated non-completion shifted his calculus toward any opportunity that might break the pattern.",
+      "source": "thoughts_on_art_and_life"
+    },
+    {
+      "id": "incident-012",
+      "decision": "Leonardo proposed permanently diverting the Arno River to defeat Pisa rather than offering any conventional military plan.",
+      "context": "Florence was at war with Pisa and unable to achieve decisive victory through conventional means. Machiavelli and the Signoria consulted Leonardo, who proposed a monumental hydraulic engineering project rather than tactical military advice.",
+      "divergence_explanation": "Leonardo habitually reframed tactical problems as infrastructure problems, identifying the systemic dependency that sustained the adversary's position and modifying it at the structural level rather than contesting it tactically.",
+      "source": "thoughts_on_art_and_life"
+    },
+    {
+      "id": "incident-013",
+      "decision": "Leonardo experimented with a novel oil-based wall binder on the Battle of Anghiari mural rather than using proven fresco technique, then abandoned the work when the experiment failed publicly.",
+      "context": "The most prestigious civic commission in Italy, with maximum public visibility. Established fresco technique was reliable but limited. Leonardo chose to experiment with a new oil-based binder. The paint melted and ran down the wall in front of spectators.",
+      "divergence_explanation": "Leonardo was constitutionally unable to accept a known technical limitation when he believed a better solution was theoretically possible. When the research component failed, the artistic component failed with it, because he refused to decouple investigation from delivery.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-014",
+      "decision": "Leonardo spent four years refining the Mona Lisa, employed musicians to maintain the sitter's expression, and ultimately kept the painting rather than delivering it to the patron.",
+      "context": "Francesco del Giocondo commissioned a portrait of his wife. Portraits were typically completed in weeks or months. Leonardo worked on it for four years, developing sfumato technique, and took the painting with him when he left Florence.",
+      "divergence_explanation": "Leonardo could not distinguish between completing a painting and exhausting the technical possibilities it revealed. Each painting was a window into unsolved technical problems, and he continued working as long as new problems kept appearing.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-015",
+      "decision": "Leonardo demanded that painters learn anatomy through personal dissection as a precondition for painting the nude, rejecting surface observation as insufficient.",
+      "context": "Renaissance painter training focused on drawing from live models and antique sculptures. Leonardo insisted painters must personally learn sinews, bones, and muscles through dissection, ridiculing painters who skipped this as producing figures like 'a sack of walnuts.'",
+      "divergence_explanation": "Leonardo applied his universal principle that understanding requires knowing causes rather than surfaces to artistic training, treating the human body as a machine that could only be drawn correctly if its operating principles were understood.",
+      "source": "notebooks_vol1"
+    },
+    {
+      "id": "incident-016",
+      "decision": "Leonardo chose to use the mirror as a systematic de-biasing tool for his own painting, treating it as a 'silent external critic' rather than a mere checking device.",
+      "context": "Painters routinely checked work by stepping back. Leonardo elevated the mirror to a systematic cognitive tool, exploiting the psychological effect of unfamiliarity to break through perceptual adaptation and habitual blindness to one's own errors.",
+      "divergence_explanation": "Leonardo treated his own cognitive limitations not as personal failings to overcome through effort but as design flaws in the human perceptual system that required engineering solutions, externalizing self-correction through mechanical tools.",
+      "source": "treatise_on_painting"
+    },
+    {
+      "id": "incident-017",
+      "decision": "Leonardo wrote a covert letter to the Piacenza cathedral commission under another patron's name to sabotage rival sculptors and nominate himself.",
+      "context": "The cathedral was selecting a sculptor for bronze doors. Leonardo drafted a ghost-written letter mocking rival candidates and naming himself as the only capable master while claiming he was too busy to care about the commission.",
+      "divergence_explanation": "Leonardo treated the commission market as a strategic game rather than a meritocratic competition, modeling decision-makers' psychology and designing covert interventions to shape perception before any artwork was evaluated.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-018",
+      "decision": "Leonardo designed a two-tiered city with separated traffic levels explicitly as an epidemiological intervention after witnessing plague conditions.",
+      "context": "Milan suffered recurrent plague. Conventional responses were quarantine, prayer, and flight. Leonardo proposed dispersing the population into ten satellite towns with high streets for pedestrians and low streets for carts and waste.",
+      "divergence_explanation": "Leonardo traced the plague problem back to its physical root cause (density and waste concentration) rather than accepting the conventional medical or divine framing, treating disease as an engineering failure of the built environment.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-019",
+      "decision": "Leonardo transformed a peasant's crude wooden buckler into a terrifying Medusa composition by filling a private room with decomposing animals and composing from them.",
+      "context": "His father brought him a rough wooden shield for a peasant. The conventional approach was a standard heraldic device. Leonardo locked himself in a room with lizards, bats, and serpents, composing an imaginary monster from real anatomical parts until the dead animals stank.",
+      "divergence_explanation": "Leonardo was unable to calibrate effort to the social importance of the commission. His framework responds to the intellectual interest of the problem rather than its commercial significance, producing massive overinvestment in trivial projects.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-020",
+      "decision": "Leonardo arrived at the Sforza court bearing a silver lyre he had built in the shape of a horse's skull, winning favor through musical-engineering spectacle rather than artistic credentials.",
+      "context": "Summoned to Milan, Leonardo could have arrived with paintings or engineering drawings. Instead he brought a bizarre silver lyre in the form of a horse's skull, designed for superior resonance, and used it to outperform all the court musicians.",
+      "divergence_explanation": "Leonardo understood that patronage was won through memorable experience rather than demonstrated competence, designing introductions as demonstrations of unique cross-domain integration that made him impossible to compare with any single-domain competitor.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-021",
+      "decision": "Leonardo openly confessed to Ludovico il Moro that financial necessity had forced him off the commissioned work, choosing radical transparency over reputation management.",
+      "context": "Leonardo had failed to make progress on the Duke's commissions. Rather than fabricate excuses, he drafted a letter admitting he had been forced to take other work to feed his household, telling the Duke directly he had been 'deceived' if he believed Leonardo had been working.",
+      "divergence_explanation": "Leonardo treated the patron relationship as a problem-solving partnership rather than a performance, prioritizing accurate shared models of reality over comfortable shared fictions, even when the truth was embarrassing.",
+      "source": "notebooks_vol2"
+    },
+    {
+      "id": "incident-022",
+      "decision": "Leonardo began distilling oils and herbs to prepare varnish the moment he received a papal commission, prompting Pope Leo X to despair that he would never finish anything.",
+      "context": "Given the most prestigious possible commission, Leonardo immediately began materials research rather than composition. The Pope's reaction: 'This man will never do anything, for he begins by thinking of the end of the work, before the beginning.'",
+      "divergence_explanation": "Leonardo applied an engineering process-optimization framework to artistic production, working backward from the desired end-state and resolving critical-path dependencies first, regardless of whether this ordering looked like 'beginning' to observers.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-023",
+      "decision": "Leonardo refused to accept payment in small copper coins from Soderini's bank, declaring 'I am no penny-painter,' then scraped together the full amount from friends to repay the advances.",
+      "context": "Despite chronic financial difficulty, Leonardo refused payment in copper pence because the denomination carried a status-diminishing signal. He borrowed from friends to repay all advances rather than accept degraded terms.",
+      "divergence_explanation": "Leonardo treated financial transactions as status communications rather than neutral value transfers, reading the symbolic content of practical interactions and responding to the symbol rather than the substance, sacrificing material security to preserve symbolic dignity.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-024",
+      "decision": "Leonardo built mechanical automata and conducted natural-philosophy experiments for patrons instead of producing the paintings they commissioned.",
+      "context": "For Francis I he built a walking mechanical lion. For Pope Leo X he shaped flying wax animals and inflated sheep-gut balloons to fill rooms. His patrons wanted paintings; Leonardo consistently redirected resources toward spectacle-engineering and experiments.",
+      "divergence_explanation": "Leonardo treated the patron relationship as a resource stream to be optimized for his own research agenda, finding the minimum viable patron-satisfaction output (spectacular entertainment) that freed the maximum research time.",
+      "source": "vasari_lives_vol4"
+    },
+    {
+      "id": "incident-025",
+      "decision": "Leonardo departed Italy entirely for France to escape the rivalry with Michelangelo, choosing geographic exit over sustained public competition.",
+      "context": "Over sixty, with major commissions failed or unfinished, and the Italian art market dominated by Michelangelo's completion-driven style, Leonardo accepted Francis I's offer of devoted single-patron support in France.",
+      "divergence_explanation": "Leonardo treated rivalry not as motivation to work harder but as a signal that the environment no longer fit his operating model, choosing strategic exit rather than competitive escalation: when the rules penalize your method, change the game rather than the method.",
+      "source": "vasari_lives_vol4"
+    }
+  ],
+  "core_problem": {
+    "statement": "Leonardo's framework is built to solve the problem of how to achieve genuine understanding of complex phenomena when the prevailing methods (inherited authority, surface observation, disciplinary specialization) produce only the illusion of knowledge by describing appearances rather than revealing causal structure."
+  },
+  "stated_principles": [
+    "Experience is the only reliable mistress; those who cite authority rather than experience 'are puffed up and pompous, dressed and decorated with the fruits not of their own labours but of those of others.'",
+    "The painter who draws by practice and judgment of the eye without reason is like a mirror which reproduces all things placed before it without cognizance of them.",
+    "Men of lofty genius accomplish the most when they work the least, for they are seeking out inventions with the mind and forming those perfect ideas which their hands afterwards express.",
+    "Anyone who conducts an argument by appealing to authority is not using his intelligence; he is just using his memory.",
+    "The supreme misfortune is when theory outstrips performance; the painter must study nature, not other painters."
+  ],
+  "value_hierarchy": [
+    "Causal-mechanical understanding of the phenomenon under investigation",
+    "Methodological integrity and consistency across all domains",
+    "Access to interesting problems at sufficient scale and complexity",
+    "Symbolic dignity and status congruent with the quality of one's work",
+    "Completion and delivery of contracted obligations"
+  ],
+  "blind_spots": [
+    {
+      "description": "Chronic non-completion: Leonardo's framework cannot generate a stopping rule for investigation. Because every project reveals deeper problems as understanding increases, and his standard requires the output to embody his current best knowledge, there is no principled moment at which the work is 'done.' This produces a career-defining pattern of abandoned commissions, undelivered paintings, and perpetually expanding manuscripts.",
+      "evidence": ["incident-006", "incident-010", "incident-013", "incident-014", "incident-022"]
+    },
+    {
+      "description": "Inability to calibrate effort to external importance: Leonardo applies the same depth of investigation to a peasant's buckler as to the most prestigious civic commission in Italy. His framework responds to the intellectual interest of the problem, not its social or commercial significance, producing massive overinvestment in trivial tasks and equal underdelivery on critical ones.",
+      "evidence": ["incident-019", "incident-024", "incident-006"]
+    },
+    {
+      "description": "Experimental overconfidence on high-stakes deliverables: Leonardo's commitment to perceptual truth over convention leads him to experiment with untested techniques on irreplaceable commissions rather than reserving experiments for lower-stakes projects. His framework has no risk-calibration mechanism that distinguishes between situations where experimental failure is recoverable and situations where it is catastrophic.",
+      "evidence": ["incident-013", "incident-022", "incident-004"]
+    },
+    {
+      "description": "Patron-expectation blindness: Leonardo's process-optimization approach makes him genuinely unable to understand why patrons are distressed by his working method. He sees himself as working on the critical path; they see idleness or evasion. His framework provides no mechanism for managing the perception gap between his internal process model and the patron's visible-progress model.",
+      "evidence": ["incident-009", "incident-022", "incident-006", "incident-014"]
+    },
+    {
+      "description": "Moral flexibility in service of problem-access: Leonardo's optimization for access to interesting problems can override moral judgment, as demonstrated by his willingness to serve Cesare Borgia and his use of covert manipulation to secure commissions. When the construct 'problem-access optimization vs. identity-preservation' conflicts with ethical considerations, problem-access wins.",
+      "evidence": ["incident-011", "incident-017"]
+    }
+  ],
+  "constraint_response": {
+    "description": "Leonardo characteristically responds to external constraints by either reframing them as research opportunities or routing around them entirely. When a constraint is intellectual (a technical limitation, a perceptual problem), he treats it as the most interesting part of the project and dives deeper. When a constraint is social or institutional (a deadline, a patron's expectations, a competitive dynamic that penalizes his method), he ignores it, subverts it through indirect means, or exits the environment altogether. He almost never accepts a constraint on its own terms and adjusts his approach accordingly, which is why he finishes so little: the only constraints he respects are the ones imposed by physical reality and his own perceptual observations."
+  },
+  "contextual_adaptation": {
+    "description": "Leonardo's framework shifts significantly across domains but retains its core structure. In art, the disassembly-before-synthesis pattern manifests as anatomical dissection, materials research, and perceptual experimentation that delays or prevents delivery. In engineering, the same pattern produces ambitious infrastructural redesigns (Arno diversion, two-tier city) that are conceptually brilliant but implementation-fragile. In patronage navigation, the cross-domain integration construct dominates: Leonardo reshapes his identity to match the patron's needs, deploys spectacle as a substitute for contracted output, and treats the patron relationship instrumentally as a research-funding mechanism. The framework is most productive in domains where open-ended investigation is valued (anatomy, natural philosophy) and least productive in domains where timely delivery is the primary measure of success (commissioned painting, contracted engineering)."
+  }
+}
