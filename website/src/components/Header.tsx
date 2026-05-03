@@ -104,8 +104,8 @@ export function Header() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
           <span className="gm-right-signin">
             {!isSignedIn ? (
-              <SignInButton mode="redirect">
-                <button style={{                  fontFamily: 'var(--font-mono)',
+              <SignInButton mode="redirect"><button style={{
+                  fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
                   letterSpacing: '0.16em',
                   textTransform: 'uppercase',
@@ -114,10 +114,7 @@ export function Header() {
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
-                }}>
-                  Sign in
-                </button>
-              </SignInButton>
+                }}>Sign in</button></SignInButton>
             ) : (
               <UserButton />
             )}
@@ -188,17 +185,14 @@ export function Header() {
       >
         {navLinks}
         {!isSignedIn && (
-          <SignInButton mode="redirect">            <button style={{
+          <SignInButton mode="redirect"><button style={{
               ...NAV_LINK_STYLE,
               background: 'none',
               border: 'none',
               cursor: 'pointer',
               padding: 0,
-              textAlign: 'left',
-            }}>
-              Sign in
-            </button>
-          </SignInButton>
+              textAlign: 'left' as const,
+            }}>Sign in</button></SignInButton>
         )}
       </div>
     </header>
