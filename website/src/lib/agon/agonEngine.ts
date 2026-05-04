@@ -58,7 +58,7 @@ Write a concise research brief (200-400 words). Cite specific sources. Focus on 
     }
     // Extract sources from server-side web search results
     if (block.type === "web_search_tool_result" && "content" in block) {
-      const results = (block as Record<string, unknown>).content;
+      const results = (block as unknown as Record<string, unknown>).content;
       if (Array.isArray(results)) {
         for (const r of results) {
           if (r && typeof r === "object" && "url" in r && "title" in r) {
