@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { runAgon } from "@/lib/agon/agonEngine";
@@ -67,9 +67,9 @@ export async function POST(request: NextRequest) {
     return jsonError(400, "Topic must be 2000 characters or fewer");
   }
 
-  const { userId, sessionClaims } = await auth();
-  const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
-  const isPro = publicMetadata?.subscription_tier === "pro";
+  const { userId } = await auth();
+  const user = await currentUser();
+  const isPro = user?.publicMetadata?.subscription_tier === "pro";
 
   const allowedSet = new Set<string>(ALLOWED_SLUGS);
   const mindSlugs = mindSlugsRaw.filter((s): s is FrameworkSlug =>

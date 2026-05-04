@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { getAllFrameworks, SLUG_COLOR_VAR, type FrameworkSlug } from "@/lib/frameworks";
 import { getPacksForMind, PACKS, type PackId } from "@/lib/packs";
 import { AgoraApp, type MindOption } from "./AgoraApp";
@@ -10,9 +10,8 @@ export default async function AgoraPage({
 }: {
   searchParams: Promise<{ pack?: string; minds?: string }>;
 }) {
-  const { sessionClaims } = await auth();
-  const publicMetadata = sessionClaims?.publicMetadata as Record<string, unknown> | undefined;
-  const isPro = publicMetadata?.subscription_tier === "pro";
+  const user = await currentUser();
+  const isPro = user?.publicMetadata?.subscription_tier === "pro";
 
   const frameworks = getAllFrameworks();
   const validSlugs = new Set<string>(frameworks.map((f) => f.slug));

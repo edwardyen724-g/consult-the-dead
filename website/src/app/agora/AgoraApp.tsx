@@ -493,10 +493,12 @@ export function AgoraApp({
               color: "var(--fg-dim)",
             }}
           >
-            Free tier: 3 agons / day · BYO key for unlimited
+            {isPro
+              ? "★ Pro · 5 minds · Opus synthesis · 100 agons / month"
+              : "Free tier: 3 agons / day · BYO key for unlimited"}
           </div>
           <Link
-            href="/"
+            href={isPro ? "/account" : "/"}
             style={{
               fontSize: "11px",
               letterSpacing: "0.08em",
@@ -504,7 +506,7 @@ export function AgoraApp({
               textDecoration: "none",
             }}
           >
-            ← back to the landing
+            {isPro ? "← account" : "← back to the landing"}
           </Link>
         </div>
       </div>
