@@ -2,6 +2,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ManageSubscriptionButton } from '@/components/ManageSubscriptionButton'
+import { getUsage } from '@/lib/agon/rateLimit'
 
 export const metadata = { title: 'Account' }
 
@@ -18,6 +19,8 @@ export default async function AccountPage({
 
   const tier = user.publicMetadata?.subscription_tier as string | undefined
   const isPro = tier === 'pro'
+
+  const usage = await getUsage({ userId: user.id, isPro, ip: '0.0.0.0' })
 
   const email = user.emailAddresses.find(e => e.id === user.primaryEmailAddressId)?.emailAddress
     ?? user.emailAddresses[0]?.emailAddress
@@ -157,6 +160,73 @@ export default async function AccountPage({
                 </Link>
               </>
             )}
+          </div>
+        </div>
+
+        {/* Usage meter */}
+        <div style={{
+          border: '1px solid var(--hairline)',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          marginBottom: '48px',
+        }}>
+          <div style={{
+            padding: '20px 24px',
+            borderBottom: '1px solid var(--hairline)',
+            background: 'rgba(255,255,255,0.02)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+            }}>
+              Usage
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.12em',
+              color: 'var(--fg-dim)',
+            }}>
+              {usage.used} / {usage.limit} this {usage.period}
+            </span>
+          </div>
+
+          <div style={{ padding: '24px' }}>
+            {/* Progress bar */}
+            <div style={{
+              height: '6px',
+              background: 'var(--surface)',
+              borderRadius: '3px',
+              overflow: 'hidden',
+              marginBottom: '16px',
+            }}>
+              <div style={{
+                height: '100%',
+                width: `${Math.min(100, (usage.used / usage.limit) * 100)}%`,
+                background: usage.remaining <= 0 ? 'var(--red)' : 'var(--amber)',
+                borderRadius: '3px',
+                transition: 'width 0.3s ease',
+              }} />
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '0.95rem',
+              color: 'var(--fg-dim)',
+              margin: 0,
+              lineHeight: 1.6,
+            }}>
+              {usage.remaining > 0
+                ? `${usage.remaining} debate${usage.remaining === 1 ? '' : 's'} remaining this ${usage.period}.`
+                : isPro
+                  ? 'You’ve used all 100 debates this month. Your quota resets at the start of next month.'
+                  : 'You’ve used all 3 free debates today. Add your own API key for unlimited use, or check back tomorrow.'}
+            </p>
           </div>
         </div>
 

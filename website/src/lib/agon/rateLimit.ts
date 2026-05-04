@@ -192,6 +192,51 @@ export async function checkRateLimit(ctx: RateLimitContext): Promise<RateCheck> 
   return checkFreeLimit(ipKey(ip, date), "ip");
 }
 
+/* ── Read-only usage query (does NOT increment) ── */
+export interface UsageInfo {
+  used: number;
+  limit: number;
+  remaining: number;
+  period: "month" | "day";
+}
+
+export async function getUsage(ctx: { userId?: string | null; isPro: boolean; ip: string }): Promise<UsageInfo> {
+  const { userId, isPro, ip } = ctx;
+
+  if (isPro && userId) {
+    const pk = proKey(userId, thisMonth());
+    const client = await getClient();
+    let used = 0;
+    if (client) {
+      try {
+        const val = await client.get(pk);
+        used = val ? parseInt(val, 10) : 0;
+      } catch {
+        used = memMap.get(pk) ?? 0;
+      }
+    } else {
+      used = memMap.get(pk) ?? 0;
+    }
+    return { used, limit: PRO_LIMIT_PER_MONTH, remaining: Math.max(0, PRO_LIMIT_PER_MONTH - used), period: "month" };
+  }
+
+  const date = today();
+  const key = userId ? userKey(userId, date) : ipKey(ip, date);
+  const client = await getClient();
+  let used = 0;
+  if (client) {
+    try {
+      const val = await client.get(key);
+      used = val ? parseInt(val, 10) : 0;
+    } catch {
+      used = memMap.get(key) ?? 0;
+    }
+  } else {
+    used = memMap.get(key) ?? 0;
+  }
+  return { used, limit: FREE_LIMIT_PER_DAY, remaining: Math.max(0, FREE_LIMIT_PER_DAY - used), period: "day" };
+}
+
 export function getClientIp(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();

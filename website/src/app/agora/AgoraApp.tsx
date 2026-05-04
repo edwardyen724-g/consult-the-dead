@@ -162,6 +162,15 @@ export function AgoraApp({
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
+  const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
+
+  // Fetch live usage on mount
+  useEffect(() => {
+    fetch("/api/usage")
+      .then((r) => r.json())
+      .then((data) => setUsageInfo(data))
+      .catch(() => {});
+  }, []);
 
   // Restore API key from localStorage on mount
   useEffect(() => {
@@ -354,6 +363,11 @@ export function AgoraApp({
             consensusLoading: false,
           };
         case "agon_done":
+          // Refresh usage count after debate completes
+          fetch("/api/usage")
+            .then((r) => r.json())
+            .then((data) => setUsageInfo(data))
+            .catch(() => {});
           return { ...s, quotaRemaining: event.remaining };
         case "error":
           return {
@@ -494,8 +508,10 @@ export function AgoraApp({
             }}
           >
             {isPro
-              ? "★ Pro · 5 minds · Opus synthesis · 100 agons / month"
-              : "Free tier: 3 agons / day · BYO key for unlimited"}
+              ? `★ Pro · ${usageInfo ? `${usageInfo.remaining} of ${usageInfo.limit} debates left this month` : "5 minds · Opus synthesis"}`
+              : usageInfo
+                ? `${usageInfo.remaining} of ${usageInfo.limit} free debates left today · BYO key for unlimited`
+                : "Free tier: 3 agons / day · BYO key for unlimited"}
           </div>
           <Link
             href={isPro ? "/account" : "/"}
