@@ -33,6 +33,11 @@ export function Header() {
           Library
         </Link>
       )}
+      {isSignedIn && (
+        <Link href="/account" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+          Account
+        </Link>
+      )}
       <Link href="/pricing" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         Pricing
       </Link>

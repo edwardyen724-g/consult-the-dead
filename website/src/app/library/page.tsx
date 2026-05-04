@@ -1,14 +1,15 @@
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import { db, type AgonRecord } from "@/lib/db/client";
 import { LibraryClient } from "./LibraryClient";
 
 export default async function LibraryPage() {
-  const { userId, sessionClaims } = await auth();
-  const publicMetadata = sessionClaims?.publicMetadata as
-    | Record<string, unknown>
-    | undefined;
-  const isPro = publicMetadata?.subscription_tier === "pro";
+  const user = await currentUser();
+  if (!user) redirect("/sign-in");
+
+  const userId = user.id;
+  const isPro = user.publicMetadata?.subscription_tier === "pro";
 
   return (
     <main
