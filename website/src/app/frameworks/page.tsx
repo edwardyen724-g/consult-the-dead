@@ -211,8 +211,11 @@ export default function FrameworksPage() {
                         minHeight: "240px",
                       }}
                     >
-                      {/* Portrait + name row */}
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      {/* Portrait + name row (links to profile) */}
+                      <Link
+                        href={`/frameworks/${slug}`}
+                        style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
+                      >
                         <img
                           src={`/portraits/${slug}-portrait.png`}
                           alt={fw.meta.person}
@@ -248,7 +251,7 @@ export default function FrameworksPage() {
                             {fw.era}
                           </div>
                         </div>
-                      </div>
+                      </Link>
 
                       {/* Domain */}
                       <div
@@ -277,16 +280,31 @@ export default function FrameworksPage() {
                         {lens}
                       </p>
 
-                      {/* Stats */}
+                      {/* Stats + profile link */}
                       <div
                         style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
                           fontFamily: "var(--font-mono)",
                           fontSize: "9px",
-                          color: "var(--fg-faint)",
                           letterSpacing: "0.06em",
                         }}
                       >
-                        {constructCount} constructs &middot; {incidentCount} incidents extracted
+                        <span style={{ color: "var(--fg-faint)" }}>
+                          {constructCount} constructs &middot; {incidentCount} incidents
+                        </span>
+                        <Link
+                          href={`/frameworks/${slug}`}
+                          style={{
+                            color: "var(--fg-dim)",
+                            textDecoration: "none",
+                            letterSpacing: "0.1em",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          Profile &rarr;
+                        </Link>
                       </div>
 
                       {/* Try asking teaser */}
