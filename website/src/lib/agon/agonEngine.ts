@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { tavily } from "@tavily/core";
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { loadFrameworkRaw, getMindName } from "./loadFramework";
 import { frameworkToSystemPrompt } from "./frameworkPrompt";
@@ -17,24 +18,111 @@ interface ResearchResult {
   sources: ResearchSource[];
 }
 
+/* ── Tavily helpers ── */
+
+function extractUrls(text: string): string[] {
+  // Match URLs with protocol, or bare domains like example.com
+  const urlRegex = /https?:\/\/[^\s"'<>]+/gi;
+  const domainRegex = /(?<!\w)([a-z0-9][-a-z0-9]*\.)+[a-z]{2,}(?:\/[^\s"'<>]*)?/gi;
+
+  const urls = new Set<string>();
+  for (const match of text.matchAll(urlRegex)) {
+    urls.add(match[0].replace(/[.,;:!?)]+$/, "")); // strip trailing punctuation
+  }
+  for (const match of text.matchAll(domainRegex)) {
+    const cleaned = match[0].replace(/[.,;:!?)]+$/, "");
+    // Skip common non-URL domains
+    if (!cleaned.match(/\.(js|ts|tsx|css|md|json)$/i)) {
+      urls.add(cleaned.startsWith("http") ? cleaned : `https://${cleaned}`);
+    }
+  }
+  return [...urls];
+}
+
+interface TavilyContext {
+  urlContent: string; // fetched page content from extracted URLs
+  searchContent: string; // search results for the topic
+  sources: ResearchSource[];
+}
+
+async function fetchTavilyContext(topic: string): Promise<TavilyContext | null> {
+  const tavilyKey = process.env.TAVILY_API_KEY;
+  if (!tavilyKey) return null;
+
+  const client = tavily({ apiKey: tavilyKey });
+  const urls = extractUrls(topic);
+  const sources: ResearchSource[] = [];
+  let urlContent = "";
+  let searchContent = "";
+
+  // 1. Extract content from any URLs mentioned in the question
+  if (urls.length > 0) {
+    try {
+      const extracted = await client.extract(urls);
+      if (extracted.results && extracted.results.length > 0) {
+        const parts: string[] = [];
+        for (const r of extracted.results) {
+          if (r.rawContent) {
+            parts.push(`=== Content from ${r.url} ===\n${r.rawContent.slice(0, 3000)}`);
+            sources.push({ title: r.url, url: r.url });
+          }
+        }
+        urlContent = parts.join("\n\n");
+      }
+    } catch {
+      // URL extraction failed — continue with search
+    }
+  }
+
+  // 2. Do a Tavily search for broader topic context
+  try {
+    const searchResult = await client.search(topic.slice(0, 400), {
+      searchDepth: "basic",
+      maxResults: 5,
+    });
+    if (searchResult.results && searchResult.results.length > 0) {
+      const parts: string[] = [];
+      for (const r of searchResult.results) {
+        if (r.content) {
+          parts.push(`"${r.title ?? r.url}" — ${r.content.slice(0, 400)}`);
+          if (r.url && r.title && !sources.some((s) => s.url === r.url)) {
+            sources.push({ title: r.title, url: r.url });
+          }
+        }
+      }
+      searchContent = parts.join("\n\n");
+    }
+  } catch {
+    // Search failed — continue without it
+  }
+
+  if (!urlContent && !searchContent) return null;
+  return { urlContent, searchContent, sources };
+}
+
+/* ── Main research function ── */
+
 async function performResearch(
   anthropic: Anthropic,
   topic: string
 ): Promise<ResearchResult> {
-  const response = await anthropic.messages.create({
-    model: RESEARCH_MODEL,
-    max_tokens: RESEARCH_MAX_TOKENS,
-    tools: [
-      {
-        type: "web_search_20250305" as const,
-        name: "web_search",
-        max_uses: 5,
-      },
-    ],
-    messages: [
-      {
-        role: "user",
-        content: `You are a research analyst preparing a factual brief for a panel of strategic advisors. The panel will debate the following decision:
+  // Run Tavily and Claude web_search in parallel
+  const [tavilyCtx, claudeResponse] = await Promise.all([
+    fetchTavilyContext(topic).catch(() => null),
+    anthropic.messages.create({
+      model: RESEARCH_MODEL,
+      max_tokens: RESEARCH_MAX_TOKENS,
+      tools: [
+        {
+          type: "web_search_20250305" as const,
+          name: "web_search",
+          max_uses: 5,
+        },
+      ],
+      messages: [
+        {
+          role: "user",
+          content: `You are a research analyst preparing a factual brief for a panel of strategic advisors. The panel will debate the following decision:
 
 "${topic}"
 
@@ -44,15 +132,21 @@ Search for relevant current data, market context, and factual background. Focus 
 - Any quantitative data points that would inform the analysis
 
 Write a concise research brief (200-400 words). Cite specific sources. Focus on facts, not opinions. The advisors will use this to ground their arguments in reality.`,
-      },
-    ],
-  });
+        },
+      ],
+    }),
+  ]);
 
-  // Extract text blocks for the summary
+  // Extract text blocks and sources from Claude's web search
   const textParts: string[] = [];
   const sources: ResearchSource[] = [];
 
-  for (const block of response.content) {
+  // Add Tavily sources first (they tend to be higher quality for mentioned URLs)
+  if (tavilyCtx) {
+    sources.push(...tavilyCtx.sources);
+  }
+
+  for (const block of claudeResponse.content) {
     if (block.type === "text") {
       textParts.push(block.text);
     }
@@ -72,8 +166,30 @@ Write a concise research brief (200-400 words). Cite specific sources. Focus on 
     }
   }
 
-  const summary = textParts.join("\n\n").trim();
-  return { summary, sources: sources.slice(0, 8) };
+  // Combine: Tavily deep context + Claude web search summary
+  const summaryParts: string[] = [];
+
+  if (tavilyCtx?.urlContent) {
+    summaryParts.push(
+      "=== SITE CONTENT (fetched from URLs mentioned in the question) ===\n" +
+        tavilyCtx.urlContent
+    );
+  }
+  if (tavilyCtx?.searchContent) {
+    summaryParts.push(
+      "=== ADDITIONAL WEB RESEARCH (Tavily) ===\n" + tavilyCtx.searchContent
+    );
+  }
+
+  const claudeSummary = textParts.join("\n\n").trim();
+  if (claudeSummary) {
+    summaryParts.push(
+      "=== WEB SEARCH ANALYSIS (Claude) ===\n" + claudeSummary
+    );
+  }
+
+  const summary = summaryParts.join("\n\n");
+  return { summary, sources: sources.slice(0, 12) };
 }
 
 interface RunAgonArgs {
