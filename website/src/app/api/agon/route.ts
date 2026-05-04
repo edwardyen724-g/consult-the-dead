@@ -146,7 +146,6 @@ export async function POST(request: NextRequest) {
           topic,
           mindSlugs,
           rounds,
-          research: null,
           isPro,
         })) {
           // Inject remaining quota into the agon_done event

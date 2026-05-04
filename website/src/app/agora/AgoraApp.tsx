@@ -69,6 +69,11 @@ interface RoundTurn {
   done: boolean;
 }
 
+interface ResearchData {
+  summary: string;
+  sources: { title: string; url: string }[];
+}
+
 interface AgonState {
   stage: Stage;
   topic: string;
@@ -84,6 +89,8 @@ interface AgonState {
   error: string | null;
   rateLimited: boolean;
   quotaRemaining: number | undefined;
+  researchLoading: boolean;
+  researchData: ResearchData | null;
 }
 
 const INITIAL_STATE: AgonState = {
@@ -101,6 +108,8 @@ const INITIAL_STATE: AgonState = {
   error: null,
   rateLimited: false,
   quotaRemaining: undefined,
+  researchLoading: false,
+  researchData: null,
 };
 
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
@@ -170,10 +179,8 @@ export function AgoraApp({
   }, []);
 
   const visibleStages: Stage[] = useMemo(() => {
-    return state.researchEnabled
-      ? STAGE_ORDER
-      : STAGE_ORDER.filter((s) => s !== "research");
-  }, [state.researchEnabled]);
+    return STAGE_ORDER;
+  }, []);
 
   function setApiKey(key: string) {
     setState((s) => ({ ...s, apiKey: key }));
@@ -208,7 +215,7 @@ export function AgoraApp({
     setState((s) => ({
       ...s,
       council: suggested,
-      stage: s.researchEnabled ? "research" : "council",
+      stage: "council",
     }));
   }
 
@@ -228,12 +235,14 @@ export function AgoraApp({
 
     setState((s) => ({
       ...s,
-      stage: "agon",
+      stage: "research",
       turns: [],
       activeRound: null,
       activeMindSlug: null,
       consensus: null,
       consensusLoading: false,
+      researchLoading: true,
+      researchData: null,
       error: null,
       rateLimited: false,
     }));
@@ -289,8 +298,19 @@ export function AgoraApp({
   function handleAgonEvent(event: AgonEvent) {
     setState((s) => {
       switch (event.type) {
+        case "research_started":
+          return { ...s, researchLoading: true };
+        case "research_done":
+          return {
+            ...s,
+            researchLoading: false,
+            researchData: {
+              summary: event.summary,
+              sources: event.sources,
+            },
+          };
         case "round_start":
-          return { ...s, activeRound: event.round };
+          return { ...s, activeRound: event.round, stage: "agon" };
         case "turn_start": {
           const turns = [
             ...s.turns,
@@ -404,8 +424,10 @@ export function AgoraApp({
           )}
 
           {state.stage === "research" && (
-            <ResearchPlaceholder
+            <ResearchStage
               topic={state.topic}
+              loading={state.researchLoading}
+              data={state.researchData}
               onContinue={() => setState((s) => ({ ...s, stage: "council" }))}
             />
           )}
@@ -830,32 +852,114 @@ function TopicStage({
 
 /* ────────────── Stage 2: Research (Phase 3 placeholder) ────────────── */
 
-function ResearchPlaceholder({
+function ResearchStage({
   topic,
+  loading,
+  data,
   onContinue,
 }: {
   topic: string;
+  loading: boolean;
+  data: ResearchData | null;
   onContinue: () => void;
 }) {
   return (
     <div>
-      <PreviewBanner>
-        Research-against-real-sources lands in Phase 3. For now, jump straight
-        to the council.
-      </PreviewBanner>
       <p
         style={{
           fontFamily: "var(--font-serif)",
           fontSize: "17px",
           lineHeight: 1.55,
           color: "var(--fg-dim)",
-          marginTop: "32px",
           fontStyle: "italic",
+          marginBottom: "32px",
         }}
       >
         &ldquo;{topic}&rdquo;
       </p>
-      <div style={{ marginTop: "32px" }}>
+
+      {loading && (
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
+          <div
+            style={{
+              width: "12px",
+              height: "12px",
+              borderRadius: "50%",
+              border: "2px solid var(--amber)",
+              borderTopColor: "transparent",
+              animation: "spin 0.8s linear infinite",
+            }}
+          />
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--fg-dim)",
+            }}
+          >
+            Searching the web for relevant data...
+          </span>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      )}
+
+      {data && data.summary && (
+        <div style={{ marginBottom: "32px" }}>
+          <div
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "9px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--amber)",
+              marginBottom: "12px",
+            }}
+          >
+            Research Brief
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "0.92rem",
+              lineHeight: 1.65,
+              color: "var(--fg-dim)",
+              borderLeft: "2px solid var(--hairline)",
+              paddingLeft: "16px",
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {data.summary}
+          </div>
+          {data.sources.length > 0 && (
+            <div style={{ marginTop: "16px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {data.sources.map((src, i) => (
+                <a
+                  key={i}
+                  href={src.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "9px",
+                    letterSpacing: "0.06em",
+                    color: "var(--fg-faint)",
+                    textDecoration: "none",
+                    padding: "4px 8px",
+                    border: "1px solid var(--hairline)",
+                    borderRadius: "2px",
+                  }}
+                >
+                  {src.title.length > 40 ? src.title.slice(0, 40) + "..." : src.title}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {!loading && (
         <button
           onClick={onContinue}
           className="font-mono"
@@ -873,7 +977,7 @@ function ResearchPlaceholder({
         >
           Pick the Council →
         </button>
-      </div>
+      )}
     </div>
   );
 }
