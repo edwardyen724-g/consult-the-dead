@@ -1,0 +1,216 @@
+{
+  "meta": {
+    "person": "Florence Nightingale",
+    "domain": "Healthcare Reform, Statistical Innovation, Institutional Design, Evidence-Based Advocacy",
+    "born": "1820-05-12",
+    "died": "1910-08-13",
+    "generated_utc": "2026-05-02T06:00:00.000000+00:00",
+    "primary_sources": [
+      "Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army (1858)",
+      "Notes on Hospitals (1859, expanded editions 1863)",
+      "Notes on Nursing: What It Is, and What It Is Not (1859)",
+      "Subsidiary Notes as to the Introduction of Female Nursing into Military Hospitals (1858)",
+      "Observations on the Sanitary State of the Army in India (1863)",
+      "Suggestions for Thought to the Searchers after Truth among the Artizans of England (1860)",
+      "Sanitary Statistics of Native Colonial Schools and Hospitals (1863)",
+      "Florence Nightingale Letters and Correspondence (British Library, Wellcome Library, Claydon House archives — approximately 14,000 letters)",
+      "Cook, Sir Edward — The Life of Florence Nightingale (1913) — authorized biography drawing on her papers"
+    ],
+    "secondary_sources": [],
+    "incident_count": 28,
+    "construct_count": 12,
+    "prediction_count": 0,
+    "packs": [
+      "the-trailblazers"
+    ],
+    "tags": [
+      "healthcare-reform",
+      "statistical-innovation",
+      "institutional-design",
+      "evidence-based-advocacy",
+      "public-health",
+      "nursing-profession",
+      "hospital-architecture",
+      "victorian-reform",
+      "women-in-public-life",
+      "remote-influence"
+    ],
+    "status": "live",
+    "packRoles": {
+      "the-trailblazers": "Trailblazer prototype of role-construction under categorical exclusion: institutional position-occupation by a person to whom no formally available role exists, achieved through the construction of parallel institutions (the Training School), the laundering of analytical authority through credentialed male collaborators (Farr, Sutherland, Stanmore), the engineering of public-facing communication channels that the institutional structure had not authorized for her use (statistical visualization for political audiences, popular publication for profession-construction), and the conversion of structurally constraining conditions (chronic illness, gender exclusion, lack of formal authority) into structurally enabling operating environments (bedridden mode, patron-channel architecture, document-centric reform infrastructure)."
+    }
+  },
+  "perceptual_lens": {
+    "statement": "Nightingale perceives every situation as a structural-engineering disclosure problem — asking 'what are the modifiable operational inputs of this institutional system, and what specifications, channels, and infrastructures would convert reform from continuing maintenance into structurally enforced output?' — not as a moral confrontation in which institutional resistance is an obstacle to be denounced or persuaded.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008",
+      "incident-009",
+      "incident-010",
+      "incident-011",
+      "incident-012",
+      "incident-013",
+      "incident-014",
+      "incident-015",
+      "incident-016",
+      "incident-017",
+      "incident-018",
+      "incident-019",
+      "incident-020",
+      "incident-021",
+      "incident-022"
+    ],
+    "holdout_validation": [
+      "incident-023",
+      "incident-024",
+      "incident-025",
+      "incident-026",
+      "incident-027",
+      "incident-028"
+    ],
+    "what_they_notice_first": "Nightingale's attention is automatically drawn to the engineering structure of institutions producing health and reform outcomes. She perceives: (1) the modifiable operational inputs of any institution — supply chain, sanitation, ventilation, organization, dimensional architecture, staff training, admission protocols — and the relationship of each input to the institution's output, regardless of whether the moral or theoretical questions surrounding the institution are resolved; (2) the structural difference between behavioral reforms (reversible, requiring continuing maintenance) and infrastructural reforms (durable, embedded in physical buildings or institutional regulations that persist across administrations); (3) the channel-bifurcated structure of communication — confidential institutional channels for expert evidence, public popular channels for profession-construction, statistical visualization channels for political audiences, closed-correspondence channels for operational continuity — each calibrated for its specific cognitive audience and operational purpose; (4) the structural value of pre-positioning — analytical foundations, written instructions, dimensional specifications, demonstration projects — in advance of the institutional deliberations that will adjudicate them, converting the deliberative task from constructing analysis to adopting or refuting one already constructed; (5) the operational utility of personal-position structural variables (personal capital, family allowance, gender-rule constraints, chronic illness, celebrity frame) as instruments to be optimized rather than as conditions to be accepted or denounced; and (6) the long-arc compounding architecture in which present operational interventions function as structural beachheads for subsequent reform that compounds across decades and across changes of administration.",
+    "what_they_ignore": "Nightingale systematically filters out information whose salience depends on collapsing operational and theoretical dimensions of a decision. She does not spontaneously register: (1) the moral-suasion attractiveness of advocacy whose persuasive value is uncoupled from operational mechanism for institutional reform — moral exhortation that produces no structural change is processed as cost without yield; (2) the theoretical-purity attractiveness of committing to specific etiological models (germ theory, miasma theory, contagion) whose operational implications she has already extracted at the engineering level — she remains operationally committed while the theoretical disputes remain unresolved; (3) the personal-credit attractiveness of authorial recognition whose institutional reception would be reduced by female authorship — credit is processed as a structural variable to be optimized for institutional impact rather than as a personal good to be preserved; (4) the celebrity-inhabitation attractiveness of public-facing recognition whose operational cost (filtering of subsequent work through public expectations, consumption of public-facing channel rarity) exceeds its reform value; (5) the social-coalition pressure to confront credentialed institutional opponents publicly when public confrontation would consume political capital and would be lost on credential grounds; and (6) the conventional time horizons of single-administration reform — she operates at decade-scale and thirty-year-scale time horizons that exceed the careers of most of her interlocutors, with operational continuity sustained across multiple administrations through document-centric reform architecture.",
+    "evidence": "Across all 22 derivation incidents, a single perceptual pattern recurs with striking invariance: Nightingale converts every decision domain — vocational construction, institutional appointment, hospital management, statistical analysis, architectural design, profession founding, chronic illness, remote influence, demonstration project — into a question about what the institutional system's modifiable inputs are and what specifications, channels, and infrastructures will convert reform into structurally enforced operational output. In incident-001, she reads marriage as a categorical operational foreclosure regardless of the individual husband's qualities. In incident-002, she reads fifteen years of family-imposed prohibition as a structural environment to be operated under while preparatory capacity is constructed. In incident-003, she reads English nursing's institutional vacuum as a problem solvable through foreign-jurisdiction parallel institution selection at Kaiserswerth. In incident-004, she reads the Harley Street Ladies' Committee's authorization process as a structural variable converted from authorization to ratification through pre-implementation. In incident-005, she reads Sidney Herbert's October 1854 commission offer as an opportunity to convert an emotional moment into a documented institutional appointment with negotiated written specifications. In incident-006, she reads the Purveyor's regulatory obstruction as a structural problem solvable through a parallel supply chain funded by Times Fund discretionary capital. In incident-007, she reads Scutari mortality as an engineering output of operational inputs (ventilation, sanitation, supply, organization) modifiable regardless of the etiological dispute. In incident-008, she reads the Hall conflict as a structural decoupling problem (operational defiance from public confrontation) optimizable for postwar settlement rather than for wartime vindication. In incident-009, she reads daily ward records as the empirical instrument of postwar political adjudication, constructed in real time as a structural investment. In incident-010, she reads political audiences' cognitive defenses as bypass-able through engineered statistical visualization (the polar area diagram). In incident-011, she reads female-authorship as a structural variable affecting institutional reception, optimizable through credentialed-male-collaborator laundering. In incident-012, she reads Royal Commission deliberations as structurable through pre-positioned analytical foundations distributed in advance of formal proceedings. In incident-013, she reads the same analytical content as differentially receivable across confidential and public publication channels, requiring channel-bifurcated design. In incident-014, she reads the post-Royal-Commission implementation phase as the structurally load-bearing reform stage, requiring pre-architected sub-commission infrastructure. In incident-015, she reads hospital architecture as the durable binding instrument of sanitary reform, embedding operational practice in physical structure that persists across administrations. In incident-016, she reads nursing-profession-construction as requiring channel-bifurcated effort (credentialing institution paired with popular publication) addressed to distinct audiences. In incident-017, she reads the Training School as a parallel institution outside the medical-school structure, capitalized through funds reserved against donor pressure. In incident-018, she reads personnel selection as institutional design, choosing Wardroper for structural fit rather than for individual alignment. In incident-019, she reads chronic illness as a structural setting whose operational advantages exceed the costs of public-facing capacity, converting bedridden mode into permanent operating environment. In incident-020, she reads the lack of physical access to India as a solvable instrument-design problem through standardized questionnaire substitution. In incident-021, she reads thirty-year time horizons as compatible with document-centric reform architecture sustained across multiple Viceroys. In incident-022, she reads single-site demonstration as the structural lever in domains where conventional advocacy has failed. The holdout incidents confirm the lens without exception: incident-023 (1856 anonymous return) is perceived as celebrity-frame refusal at the moment of peak public expectation, preserving closed-channel postwar latitude; incident-024 (Harley Street personal capital) is perceived as personal-capital-as-operational-lever pre-figuring the larger Times Fund deployment at Scutari; incident-025 (Scutari public underclaim) is perceived as bifurcated framing — documented authority preserved in writing, public underclaim for political protection; incident-026 (Kaiserswerth duration calibration) is perceived as structural-variable optimization between credential value and family tolerance; incident-027 (public-facing communication conservation) is perceived as rarity-as-structural-amplifier of weighting; incident-028 (Agnes Jones memoir) is perceived as operational/personal decoupling applied to events with both personal and structural-reform dimensions."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Engineering reframe of institutions producing outcomes vs. moralized or theoretical reframe of the same institutions",
+      "positive_pole": "Treats institutions producing health, reform, or social outcomes as engineering systems with modifiable operational inputs (supply, sanitation, ventilation, organization, dimensional architecture, staff training, admission protocols), addresses each input through specific operational interventions, and produces output changes regardless of whether the moral or theoretical questions surrounding the institution are resolved",
+      "negative_pole": "Treats institutions producing outcomes as moral, theoretical, or social objects requiring persuasion, theoretical commitment, or social engagement before operational interventions can be conducted; collapses operational and theoretical dimensions into a single category requiring resolution before action",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-015",
+        "incident-022"
+      ],
+      "behavioral_implication": "Faced with an institution producing catastrophic or substandard outcomes, Nightingale would identify the modifiable operational inputs (supply chain, sanitation, ventilation, organization, dimensional architecture, staff training) and intervene at the input level through specific operational interventions, regardless of whether the surrounding moral or theoretical disputes have been resolved — and would document the operational interventions and their effects in real time as the empirical foundation for subsequent institutional adjudication"
+    },
+    {
+      "construct": "Embedding reform in physical or specified infrastructure vs. embedding reform in administrative practice or moral exhortation",
+      "positive_pole": "Embeds operational reform in durable infrastructure (physical buildings, dimensional specifications, written institutional regulations) that structurally enforces the operational practice across administrations and generations, converting reform from continuing maintenance into one-time construction commitment whose operational consequences persist without further intervention",
+      "negative_pole": "Embeds operational reform in administrative practice or moral exhortation that requires continuing maintenance to sustain and that erodes under successor administrations or under shifts in moral attention; treats the maintenance burden as the natural cost of reform",
+      "derived_from_incidents": [
+        "incident-015",
+        "incident-017",
+        "incident-014"
+      ],
+      "behavioral_implication": "When designing a reform program, Nightingale would identify the most durable form in which the operational practice could be embedded — physical building structure when possible, written institutional regulations when not, pre-architected post-process implementation infrastructure as a third option — and would specify the embedding at the level of operational engineering detail (cubic feet of air, dimensions, hierarchy lines, curriculum specifications) rather than at the level of broad principles, on the recognition that broad principles will be implemented loosely while specific dimensional or regulatory specifications will be implemented precisely"
+    },
+    {
+      "construct": "Channel-bifurcated communication design vs. single-channel uniform communication",
+      "positive_pole": "Designs communication as channel-bifurcated structure — confidential institutional channels for expert evidence, public popular channels for profession-construction, statistical visualization channels for political audiences, closed-correspondence channels for operational continuity — each calibrated for its specific cognitive audience and operational purpose, with the channels coordinated for mutually reinforcing effect",
+      "negative_pole": "Designs communication as a single-channel uniform release that absorbs the structural cost of underserving one audience or another; treats publication channel as a neutral conveyance for content rather than as a structural determinant of how the content will be received and used",
+      "derived_from_incidents": [
+        "incident-013",
+        "incident-016",
+        "incident-010"
+      ],
+      "behavioral_implication": "When releasing analytical or reform work, Nightingale would identify the distinct audiences whose understanding or action the work requires, design separate communication products calibrated for each audience's cognitive structure and operational role, distribute through channels that position each product appropriately (confidential printing for expert evidence, popular publication for public understanding, statistical visualization for political decision-makers), and coordinate the products for mutually reinforcing effect — accepting the increased production cost as the structural investment required to address each audience appropriately"
+    },
+    {
+      "construct": "Pre-implementation and pre-positioning as forced commitment vs. proposal-and-authorization as standard process",
+      "positive_pole": "Pre-implements operational changes or pre-positions analytical foundations in advance of the formal authorization or institutional adjudication processes that would otherwise structure them, converting the formal process from authorization (which can be refused) to ratification (which is structurally costly to refuse once the operational fact or analytical foundation is in place)",
+      "negative_pole": "Operates within the formal authorization or institutional adjudication processes by proposing changes or submitting evidence and accepting the formal-process timeline, recognizing the formal authority's veto power as the operational constraint on what can be implemented",
+      "derived_from_incidents": [
+        "incident-004",
+        "incident-006",
+        "incident-012"
+      ],
+      "behavioral_implication": "When a formal authorization or institutional adjudication process would otherwise constrain the operational reform, Nightingale would pre-implement the changes (Harley Street reorganization, Scutari Times Fund supply chain) or pre-position the analytical foundation (800-page Notes distributed to Royal Commission members and Cabinet in advance of formal deliberations) and would let the formal process restructure around what is already in operation — preserving formal deference to the authority while operational substance is reorganized, on the recognition that authorization processes can refuse changes while ratification processes face structural cost in undoing what is already producing visible results"
+    },
+    {
+      "construct": "Parallel institution as structural-vacancy filler vs. reform-from-within of existing institutions",
+      "positive_pole": "Identifies institutional vacancies — domains in which no existing institutional form can produce the structural goal — and constructs parallel institutions (Kaiserswerth foreign-jurisdiction training, Royal Commissions outside the Army Medical Department's hierarchy, the Nightingale Training School outside the medical-school structure, demonstration projects outside Poor Law administration) whose operational independence from existing institutions is structurally load-bearing",
+      "negative_pole": "Treats existing institutions as the field of action and pursues reform through internal advocacy, internal credentialing, internal regulatory change, or internal organizational restructuring; accepts the structural ceiling that existing institutions impose as the operational constraint on what reform can achieve",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-017",
+        "incident-022"
+      ],
+      "behavioral_implication": "When confronting a structural reform problem in which no existing institutional form can produce the operational goal, Nightingale would construct a parallel institution whose specifications she controls (selecting the institutional partner, drafting the regulations, capitalizing through reserved funds, selecting personnel for structural fit, designing the diffusion architecture) — operating outside the existing institutional hierarchy while preserving formal cooperation with it where structurally necessary, and accepting the construction cost as the structural investment in operational independence"
+    },
+    {
+      "construct": "Personal-position variables (capital, illness, gender, celebrity) as operational instruments vs. personal-position variables as conditions to be accepted or denounced",
+      "positive_pole": "Treats personal-position structural variables — personal capital (family allowance, Times Fund discretion), chronic illness (Crimean fever post-1857), gender constraints (exclusion from formal authority), celebrity frame ('Lady with the Lamp'), authorial credit — as instruments to be optimized for operational impact, deployable in calibrated ways at structurally optimal moments, with the conventional preservation of each variable subordinated to the operational reform target",
+      "negative_pole": "Treats personal-position variables as conditions to be accepted (chronic illness as terminal incapacitation), denounced (gender constraints as injustice), or preserved (personal capital reserved for personal purposes, authorial credit for personal recognition) rather than as instruments whose optimization could produce structural reform",
+      "derived_from_incidents": [
+        "incident-019",
+        "incident-024",
+        "incident-011"
+      ],
+      "behavioral_implication": "Faced with a personal-position structural variable that would conventionally be accepted or denounced, Nightingale would analyze its operational potential as an instrument for the broader reform program — converting chronic illness into bedridden mode that filters engagement and constructs document-centric authority, converting personal capital into operational lever that bypasses authorization processes, converting authorial-credit cost into laundering of analysis through credentialed collaborators, converting celebrity frame avoidance into public-facing communication conservation — and would deploy each instrument at structurally optimal moments calibrated for maximal operational effect"
+    },
+    {
+      "construct": "Operational defiance with public formal courtesy vs. either operational deference or public confrontation",
+      "positive_pole": "Defies credentialed institutional authorities operationally on every dispute that operational outcomes require (purchasing supplies the Purveyor refused, instituting sanitation the medical staff questioned, deploying nurses to wards from which Hall excluded them) while maintaining scrupulous public formal courtesy in correspondence and never publishing or speaking against them, preserving the documentary evidentiary record for postwar institutional adjudication",
+      "negative_pole": "Either confronts credentialed authorities publicly (consuming political capital and inviting referendum on credentials that the unrecognized challenger will lose) or defers to them operationally (forfeiting the operational interventions that the structural reform requires), collapsing the decoupling that operational defiance with formal courtesy produces",
+      "derived_from_incidents": [
+        "incident-008",
+        "incident-005",
+        "incident-006"
+      ],
+      "behavioral_implication": "When credentialed institutional authorities oppose her operational interventions, Nightingale would defy them operationally on every dispute the reform requires — purchasing through parallel supply chains, instituting interventions through her own administrative chain, citing pre-negotiated written instructions when authority is challenged — while maintaining scrupulous public formal courtesy in correspondence and never publishing criticism of named individuals during the active period, preserving the documentary evidentiary record for the postwar institutional adjudication that will vindicate the operational positions on the basis of outcomes rather than credentials"
+    },
+    {
+      "construct": "Decade-scale and thirty-year-scale time horizons vs. single-administration reform horizons",
+      "positive_pole": "Operates at time horizons (decade-scale, thirty-year-scale) that exceed the careers of most interlocutors, with operational continuity sustained across multiple administrations through document-centric reform architecture, multi-channel correspondence networks, post-Commission sub-commission infrastructure, and demonstration-project diffusion across decades — investing in structural reforms whose operational benefits compound across multiple political dispensations",
+      "negative_pole": "Operates at single-administration time horizons, optimizing for reforms that can be consolidated within a single Cabinet's tenure and accepting the structural cost of reform interruption when administrations change",
+      "derived_from_incidents": [
+        "incident-021",
+        "incident-002",
+        "incident-014"
+      ],
+      "behavioral_implication": "When designing a reform program, Nightingale would project the operational architecture across decade-scale or thirty-year-scale time horizons, identifying the multi-channel correspondence networks, post-process implementation infrastructure, and diffusion architectures required to sustain operational continuity across multiple administrations — and would invest in long-arc preparation (1837–1851 vocational construction, 1859–1888 India correspondence network) whose deployment is indefinitely deferred but whose accumulated capacity is decisive when structural windows open"
+    },
+    {
+      "construct": "Statistical and visual instrument engineering for cognitive bypass vs. argumentative persuasion at audience's native cognitive level",
+      "positive_pole": "Engineers statistical visualizations (polar area diagrams), standardized questionnaires (India sanitary returns), and other empirical instruments specifically calibrated to bypass the cognitive defenses of audiences whose direct argumentative persuasion would fail — making structural conclusions visually or empirically unavoidable for political audiences (Cabinet, Queen, War Office) who could not parse tabular data in its native form",
+      "negative_pole": "Conducts persuasion at the audience's native cognitive level through argument, narrative, or testimonial — accepting the structural cost when the audience's cognitive defenses (unfamiliarity with statistics, defensive structures against advocacy framing) make direct persuasion ineffective",
+      "derived_from_incidents": [
+        "incident-010",
+        "incident-020",
+        "incident-009"
+      ],
+      "behavioral_implication": "When seeking to produce decision-changing effects in audiences whose cognitive structures or defensive postures resist direct argumentative persuasion, Nightingale would engineer statistical or empirical instruments (polar area diagrams, standardized questionnaire returns, comparative mortality tables, dimensional specifications) whose visual or empirical immediacy bypasses the audience's native cognitive level — coordinating instrument distribution with parallel political work to produce the cognitive conditions under which the structural conclusions become unavoidable"
+    },
+    {
+      "construct": "Single-site operational demonstration as structural lever vs. broad-spectrum advocacy across multiple sites",
+      "positive_pole": "Constructs single-site operational demonstrations (Liverpool Workhouse Infirmary under Agnes Jones, Scutari hospital reform, Harley Street superintendency) of sufficient scale and operational discipline to produce empirically unanswerable evidence on what reform can achieve, then deploys the documented evidence as the structural lever for broader policy change in domains where conventional advocacy has failed",
+      "negative_pole": "Pursues broad-spectrum advocacy across multiple sites simultaneously, accepting that no single demonstration will be operationally complete enough to produce decisive empirical evidence; relies on cumulative pressure rather than on demonstration force",
+      "derived_from_incidents": [
+        "incident-022",
+        "incident-007",
+        "incident-018"
+      ],
+      "behavioral_implication": "Faced with a structural reform problem in which conventional advocacy has failed for decades, Nightingale would identify a single site at which an operational demonstration can be conducted at sufficient scale and with sufficient operational discipline (place a trusted operational executive with appropriate institutional cover, design the demonstration's operational interventions, document the changes and outcomes in real time, accept personal-cost signaling that the demonstration may produce), and deploy the documented evidence as the structural lever for broader policy change through coordinated parliamentary or institutional advocacy by trusted intermediaries"
+    },
+    {
+      "construct": "Patron-channel and credentialed-collaborator architecture vs. direct public-office institutional engagement",
+      "positive_pole": "Operates through a network of patron-channel relationships (Sidney Herbert, Lord Stanmore, John Sutherland, Edwin Chadwick, William Farr, Benjamin Jowett) and credentialed male collaborators whose institutional standing carries her analytical work into channels she cannot directly access, with the network compounded across decades into a structural reform infrastructure independent of any single administration's commitment",
+      "negative_pole": "Pursues direct public-office institutional engagement through public-facing advocacy, lecture circuits, partisan endorsements, and personal authorial credit, accepting that female institutional exclusion will limit operational impact and treating the limitation as the unavoidable cost of female public engagement",
+      "derived_from_incidents": [
+        "incident-005",
+        "incident-011",
+        "incident-021"
+      ],
+      "behavioral_implication": "When pursuing institutional reform in domains where direct institutional access is structurally foreclosed (gender exclusion, lack of formal authority, geographic distance), Nightingale would cultivate patron-channel relationships with senior political figures who carry her analytical work into formal institutional processes, deploy credentialed male collaborators (Farr's statistical credential, Sutherland's medical credential) to launder analysis through channels that female authorship would not access, and sustain the network architecture across decades — accepting the personal-credit cost as the structural investment in operational impact"
+    },
+    {
+      "construct": "Calibration of structural variables (duration, scale, scope, public-facing rarity) as operational optimization vs. structural variables as emergent properties of personal preference",
+      "positive_pole": "Calibrates structural variables — duration of training visits, scale of demonstration projects, scope of reform programs, rarity of public-facing communication, timing of publications — as operational optimization problems with structural minimum and maximum bounds, selecting the operationally optimal value in each case rather than the personally preferred value",
+      "negative_pole": "Treats structural variables as emergent properties of personal preference, situational pressure, or institutional convention; selects values based on personal comfort, social expectation, or default convention rather than on operational optimization",
+      "derived_from_incidents": [
+        "incident-026",
+        "incident-027",
+        "incident-023"
+      ],
+      "behavioral_implication": "When facing decisions about duration, scale, scope, public-facing engagement, or timing, Nightingale would identify the structural variable's operational dependencies (e.g., duration affects credential value and family tolerance; public-facing rarity affects weight when deployed; scale of demonstration affects empirical force) and select the operationally optimal value within the constraints — refusing extensions that exceed the structural maximum, refusing abbreviations that fall short of the structural minimum, and conserving rare resources (public-facing communication channel) for maximal-weight deployments at structurally optimal moments"
+    }
+  ],
+  "critical_incident_database_ref": "See incidents/incidents.json for the full 28-incident database with CDM probes."
+}

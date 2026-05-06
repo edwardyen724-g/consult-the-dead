@@ -1,0 +1,73 @@
+Public Opinion as Operating Constraint: The Radius of Action Theory
+SYNTHESIZED CONTEXT — drawn from Donald (1995), Boritt (1978), and Lincoln's own
+statements on public opinion in speeches, letters, and the 1858 Lincoln-Douglas debates.
+
+== THE EXPLICIT THEORY ==
+
+In a December 1859 letter and again in his speeches, Lincoln articulated a position he
+would maintain throughout his presidency: "Public sentiment is everything. With public
+sentiment, nothing can fail; without it nothing can succeed. Consequently he who moulds
+public sentiment, goes deeper than he who enacts statutes or pronounces decisions. He
+makes statutes and decisions possible or impossible to be executed." This is not a
+descriptive observation. It is a strategic doctrine: public opinion is the upstream
+variable, and policy is the downstream consequence. The implication is that a leader
+who acts ahead of opinion succeeds only if he has already moved opinion, and a leader
+who waits for opinion always succeeds, but always too late on the issues that matter.
+
+== THE RADIUS OF ACTION ==
+
+David Donald's framing — that Lincoln operated within a "radius of action" set by public
+opinion and worked deliberately to expand it — captures the operational implication.
+Lincoln's pattern: identify the maximum distance opinion could be moved in a given period,
+move toward the policy preference but not past the radius, and use communication to
+expand the radius before the next move. Acting beyond the radius was not principled; it
+was politically destructive in a way that would set the cause back. Acting well inside
+the radius was a missed opportunity. The optimal action is at the edge of the achievable.
+
+== THE EMANCIPATION TIMING AS RADIUS MANAGEMENT ==
+
+The two-year delay before the Emancipation Proclamation reflected this theory directly.
+Lincoln did not need to be persuaded of slavery's wrong. He needed Northern public
+opinion to be persuaded that emancipation was a war necessity rather than a Radical
+demand. Each Confederate atrocity, each loss in battle, each Border State refusal to
+accept compensated emancipation, expanded the radius. By September 1862 the radius had
+expanded to the point where emancipation could be issued as a war measure without
+fracturing the Union coalition. The signal: he was tracking opinion movement against a
+mental threshold and acting when the threshold was crossed.
+
+== THE COSTS OF THE THEORY ==
+
+Acting on this theory imposes a moral cost: people remain enslaved longer than the
+president's preferences would dictate. Lincoln accepted this cost as the price of the
+larger goal. He did not pretend the cost was zero. To Horace Greeley in August 1862:
+"If I could save the Union without freeing any slave I would do it, and if I could save
+it by freeing all the slaves I would do it; and if I could save it by freeing some and
+leaving others alone I would also do that." Greeley took this as evidence Lincoln was
+indifferent to slavery. The careful reading: Lincoln is publicly anchoring himself to
+the legitimating frame (Union preservation) while preserving operational flexibility
+to do whatever the radius allows. He is teaching the public to accept emancipation as
+a Union-saving measure.
+
+== EXPANDING RADIUS THROUGH RHETORICAL POSITIONING ==
+
+The Gettysburg Address (November 19, 1863) is partly an exercise in radius expansion.
+By framing the war as a dedication to "the proposition that all men are created equal,"
+Lincoln retroactively redefined the war's purpose and shifted the public sentiment
+about what victory must include. The 272-word address did the work that policy could
+not: it moved opinion to a position from which the 13th Amendment could later be
+politically achievable. The Cooper Union speech (1860), the First Inaugural, the Annual
+Messages — each is a rhetorical instrument designed to expand the radius for the next
+policy step.
+
+== WHAT THE THEORY REVEALS AS A METHOD ==
+
+The radius doctrine has a structural implication for any decision: the question is never
+"what is right?" alone, nor "what is achievable?" alone, but "what is the maximum
+movement toward the right that is currently achievable, and what communication would
+expand that maximum next quarter?" Action and rhetoric are coupled instruments. Lincoln
+treated speeches as policy moves and policy moves as rhetorical setups for future
+action. The unit of analysis is never a single decision; it is a sequence of decisions
+inside a moving constraint that the leader is partially responsible for moving. This is
+a fundamentally different decision frame from utilitarian optimization or principled
+constancy. It is closer to a control theory of leadership: small adjustments at the edge
+of the feasible, with feedback through communication, sustained over time.

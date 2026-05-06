@@ -1,0 +1,85 @@
+The Marshalcy and the Legion of Honor: Hierarchy as a Loyalty Engine
+SYNTHESIZED CONTEXT — drawn from the decree creating the Legion of Honor
+(May 19, 1802), the marshalate creation (May 19, 1804), the marshals'
+correspondence with him (notably Davout, Soult, Murat, Ney), and McLynn's
+analysis of the imperial reward system.
+
+== THE PROBLEM AS HE FRAMED IT ==
+
+A Republic abolishes formal hierarchy; an empire requires it. Revolutionary
+France had proudly destroyed orders, ranks, and titles. He needed a
+mechanism that produced visible status differences without obviously
+restoring the ancien régime structure he had inherited. The decision
+problem: how to bind talented, ambitious, often jealous subordinates to
+the regime over their lifetime, when meritocratic Republican ideology
+denied that they should want such binding.
+
+== THE FRAMING DECISION ==
+
+He created the Legion of Honor as a "national" decoration available to
+soldiers and civilians, founded explicitly on merit, with a small annual
+pension attached. Republican opposition in the Tribunate denounced it as
+a return to nobility. He responded openly: "It is by baubles that men
+are led." Two years later he created the marshalcy: 18 marshals at the
+Empire's founding, expanded to 26 by 1815, drawn mostly from his ablest
+generals. Marshals received estates, titles, palaces, and seats in the
+Senate. The framing was meritocratic: anyone could rise to the top tier
+through performance. The reality was that the top tier was a fixed asset
+he distributed strategically.
+
+== THE PRINCIPLE BEHIND THE HIERARCHY ==
+
+The structural insight: ambition is a renewable resource if it is
+metered. A subordinate who has reached the top of available recognition
+has nothing further to gain from loyalty. A subordinate who is one rung
+below the next available reward has every reason to remain loyal. By
+keeping the top rungs (Prince of the Empire, sovereign king of an allied
+territory) available but sparse, he kept the marshalcy competing among
+itself for his favor. Murat was made King of Naples; Bernadotte became
+heir-apparent of Sweden; Berthier was Prince of Neufchâtel. Each
+distribution removed one competitor from the immediate court while
+binding him through a kingdom whose continued existence depended on
+the imperial system.
+
+== THE PRINCIPLE'S BREAKING POINT ==
+
+The system broke when subordinates' kingdoms gave them strategic
+alternatives. Bernadotte, once Crown Prince of Sweden, joined the
+Coalition in 1813. Murat, once King of Naples, betrayed him in 1814
+(then reversed and died trying to restore him in 1815). The marshals
+who had no kingdoms (Davout, who refused offers of multiple petty
+kingdoms; Soult, who was disliked at court) remained loyal longer than
+those who had been most rewarded. Excess reward had created
+independent power centers that could defect when the imperial system
+weakened.
+
+== THE PRINCIPLE'S DEEPER PATTERN ==
+
+Lower-tier rewards (the Legion of Honor, granted to ~38,000 by 1814)
+worked as he intended throughout: they bound the army to him at a cost
+the State could afford. The pattern is that hierarchy works as a
+loyalty engine when the hierarchy itself depends on you. Once any node
+in the hierarchy acquires standalone authority, that node becomes a
+political competitor. He understood this in principle but distributed
+crowns anyway because in 1807–1810 he needed to staff the conquered
+territories with familiar faces faster than he could train new
+administrators.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena he treated the Legion of Honor as a permanent
+contribution (it survived all subsequent regime changes; it persists
+in 2026) and the marshalcy as a flawed solution to the staffing
+problem. He recognized retrospectively that several of his crown-
+distributions had created competitors he could not control once
+distance and time gave them their own interests.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The marshalcy shows his consistent pattern of treating people as
+positions to be moved on a board where the board's structure is itself
+his design. The construct: design a hierarchy whose rewards bind upward
+and which renews competition at every layer. The failure mode: when
+external pressure forces you to over-reward (give away too much, too
+fast), the subordinates who absorb the over-reward become independent
+nodes whose loyalty is now contingent on your continued strength.

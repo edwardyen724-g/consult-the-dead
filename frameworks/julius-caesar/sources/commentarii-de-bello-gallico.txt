@@ -1,0 +1,77 @@
+Commentaries on the Gallic War: Self-Publication as Operational Infrastructure
+SYNTHESIZED CONTEXT — drawn from Caesar's Bellum Gallicum, Riggsby (Caesar in Gaul
+and Rome: War in Words), Goldsworthy (Caesar: Life of a Colossus), and the
+secondary tradition on the genocide debate (notably Plutarch's casualty figures).
+
+== THE PROBLEM AS HE INHERITED IT ==
+
+When Caesar took up the Gallic command in 58 BCE, he held a proconsular imperium
+whose continuation depended on Senate approval — a Senate dominated by enemies
+who would prosecute him the moment his command lapsed. Distance from Rome had
+historically been fatal to ambitious commanders: Lucullus, Pompey, even Marius had
+returned to political environments that had moved against them in their absence.
+The constraint was not just military success but political coverage of military
+success at maximum reading distance from Rome, where the only voice accessible to
+the Senate and the urban citizenry was whatever account he himself produced.
+
+== THE FRAMING DECISION (58–51 BCE) ==
+
+Rather than send routine dispatches and trust friends in Rome to manage his image,
+Caesar wrote and published the campaigns himself in real time, structured as a
+seven-book chronicle in spare third-person prose. Each year's installment was
+calibrated to land in Rome before the next campaigning season opened. The decision
+to publish narratively rather than dispatch operationally is the load-bearing
+move: dispatches are read by officials, narratives are read by the political class.
+He chose readership reach over reporting fidelity, and he chose his own voice over
+delegation to allies because he understood that the first version of an event in
+public circulation becomes the version against which all later accounts are read.
+
+== THE PRINCIPLE BEHIND THE PUBLICATION ==
+
+Each book treats his interventions as defensive responses to barbarian aggression,
+inverting the actual sequence in which Roman military movement preceded Gallic
+political reaction. The Helvetii migration is framed as an existential threat
+crossing into the province. The Suebi are introduced as a tide approaching from
+the German depths. The Veneti are recast as treaty-violators. Vercingetorix is a
+brilliant but treacherous rebel against a settlement Rome had supposedly
+established. The literary inversion was not vanity — it was the political
+prerequisite for the next year's escalation. A defensive war is renewable; an
+expansionist conquest is contestable. By publishing the war as defensive, he
+made each subsequent year's campaign a continuation of an obligation rather
+than a new act of aggression that the Senate could vote to terminate.
+
+== THE EXECUTION PATTERN ==
+
+Casualty figures in the Bellum Gallicum are systematically designed to register
+the war's scale to Rome without prompting moral revulsion. The defeat of the
+Helvetii is reported with specific population numbers (368,000 starting, 110,000
+returning) that Caesar attributes to documents found in their camp — sourcing the
+genocide to the victims' own accounting. The Usipetes and Tencteri are reported
+as having lost 430,000, with the slaughter framed as a legitimate response to
+treaty violation. The crossing into Britain is presented as a punitive measure
+against tribes who supported Gauls in arms, transforming an unprecedented act
+into a routine consequence. Each numerically extraordinary report is paired with
+a moral justification embedded in the same sentence.
+
+== POST-DECISION REASONING ==
+
+Caesar later, in the civil war Commentaries, applied the same template — narrative
+preemption — but with much less elaborate justification because the political
+audience was no longer just Rome but the soldiers and senators choosing sides in
+real time. The Gallic War is a slower, more carefully built rhetorical structure
+because its function was to authorize escalation incrementally. The civil-war
+narrative is faster and more transparent because by then the audience already had
+information from competing sources and the framing had to land before alternative
+accounts congealed.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The Commentaries show that Caesar treated public narrative as a category of
+operational action, not a description of action. The decision to invade was made
+inseparably from the decision about how the invasion would be reported. The
+campaign and its publication were a single integrated maneuver. The political
+acceptability of next year's escalation was an operational variable, and he
+managed it personally through writing the dominant account before any competing
+account could form. This is structurally identical to seizing terrain before the
+enemy recognizes it as decisive: he seized the interpretive ground that the
+Roman political class would stand on while reading about the war.

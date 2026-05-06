@@ -1,0 +1,135 @@
+[
+  {
+    "construct": "Vocabulary as cognitive infrastructure that shapes what questions can be formulated vs. Vocabulary as descriptive labeling of observed phenomena",
+    "positive_pole": "Treats naming as a primary scientific act\u2014a decision about what coordinate system future reasoning will use\u2014and selects terminology that embeds structural relationships and enables mathematical manipulation",
+    "negative_pole": "Treats naming as a secondary communicative act that records what has already been observed; inherits existing phenomenological taxonomy without examining its generative constraints",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-004",
+      "incident-024"
+    ],
+    "behavioral_implication": "When entering a new field or problem domain, Franklin would invest significant early effort in redesigning the vocabulary before producing substantive content, treating the choice of terms as a leverage point that compounds across all subsequent work in the domain"
+  },
+  {
+    "construct": "Audience's perceptual state as the primary variable to engineer before argument vs. Argument quality as the primary variable to optimize",
+    "positive_pole": "Asks 'what kind of source does this audience need to perceive before any argument can land?' and engineers that perception first\u2014through persona, costume, framing, or staging\u2014treating content as a payload that can only be delivered by a correctly designed carrier",
+    "negative_pole": "Optimizes the argument itself, assuming that a sufficiently well-reasoned case will overcome audience resistance through its own merits",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-022",
+      "incident-023",
+      "incident-013"
+    ],
+    "behavioral_implication": "Before any high-stakes persuasion encounter with a resistant audience, Franklin will invest more time in designing how he is perceived than in refining what he will say, and will change his apparent identity, affiliations, or positioning before he changes his substantive arguments"
+  },
+  {
+    "construct": "Scaling a validated prototype by relaxing the binding constraint vs. Designing a new institution from first principles to fill a recognized absence",
+    "positive_pole": "Looks for a working small-scale proof of concept already operating, identifies the single parametric constraint limiting it, and relaxes that constraint to reproduce the proven outcome at larger scale with minimal structural change",
+    "negative_pole": "Perceives an absence\u2014no institution of this type exists\u2014and designs a new one from scratch using theoretical blueprints rather than empirical precedent",
+    "derived_from_incidents": [
+      "incident-011",
+      "incident-020",
+      "incident-021"
+    ],
+    "behavioral_implication": "When asked to build a new civic or commercial institution, Franklin will first search for an existing informal practice that already achieves the desired outcome at small scale, and will propose formalization and expansion of that practice rather than a novel charter-based design, even when the novel design might appear more elegant"
+  },
+  {
+    "construct": "Structural interdependence engineering as a commitment mechanism vs. Sequential persuasion of independent parties as a funding or buy-in strategy",
+    "positive_pole": "Designs conditions in which two or more parties' willingness to act is mutually contingent, converting individually conditional commitments into simultaneous obligations through engineered interdependence rather than through argument",
+    "negative_pole": "Persuades each stakeholder independently on the merits, then aggregates their separate commitments, relying on content and relationship rather than structural binding",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-001",
+      "incident-010"
+    ],
+    "behavioral_implication": "When Franklin needs buy-in from two or more parties who each require the other to move first, he will design a conditional matching mechanism that makes their commitments simultaneous and self-reinforcing, rather than trying to persuade each party that the other will follow"
+  },
+  {
+    "construct": "Satirical structural reframing to expose the internal logic of a position vs. Direct rebuttal to contest a position on its own terms",
+    "positive_pole": "Diagnoses an opponent's argument as an algorithm that produces a recognizably absurd output when non-essential variables are substituted; constructs a persona or scenario that forces the audience to complete that inference themselves, making the refutation more persuasive and harder to counter than any direct argument",
+    "negative_pole": "Issues a stronger or more authoritative version of the same kind of counter-argument already in circulation, contesting the position on the terms the opponent has chosen",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-022",
+      "incident-023"
+    ],
+    "behavioral_implication": "When faced with an entrenched position defended by a resistant audience, Franklin will not produce a stronger direct argument; he will construct an indirect vehicle\u2014a satirical persona, a thought experiment, an analogy\u2014that displaces the audience's perspective and lets them arrive at the rebuttal themselves"
+  },
+  {
+    "construct": "Personal honor as a tradeable commodity to be strategically discounted vs. Personal honor as a non-negotiable asset requiring immediate defense",
+    "positive_pole": "Treats reputation for dignity as a position that can be deliberately marked down in the present to preserve higher-value strategic assets\u2014access, relationships, future influence\u2014over a longer time horizon; distinguishes between the social performance of dignity and the functional reality of influence",
+    "negative_pole": "Treats any public attack on personal character as a non-negotiable trigger for immediate counter-assertion; experiences silence or non-response as capitulation and reputational destruction",
+    "derived_from_incidents": [
+      "incident-015",
+      "incident-019",
+      "incident-025"
+    ],
+    "behavioral_implication": "When publicly attacked or humiliated in a high-stakes setting, Franklin will absorb the attack in silence if he calculates that the relationships and access preserved by restraint are worth more than the short-term reputational cost of apparent submission"
+  },
+  {
+    "construct": "Diplomatic engagement as an information-yield operation independent of agreement probability vs. Diplomatic engagement as a negotiation whose value depends on the probability of reaching a deal",
+    "positive_pole": "Evaluates participation in any encounter by information yield relative to cost of participation; adds a third category\u2014'informative regardless of outcome'\u2014to the binary of productive-or-counterproductive, making engagement rational even when agreement is structurally foreclosed",
+    "negative_pole": "Frames attendance at a meeting as either productive (agreement is possible) or counterproductive (agreement is impossible and attendance legitimizes the other party); refuses engagement when success probability is near zero",
+    "derived_from_incidents": [
+      "incident-016",
+      "incident-009",
+      "incident-014"
+    ],
+    "behavioral_implication": "Franklin will accept invitations to meetings, negotiations, or conferences that his peers refuse on the grounds that no agreement is possible, because he will have identified independent informational or relational value in participation that makes attendance rational under his utility function even when the stated purpose cannot be achieved"
+  },
+  {
+    "construct": "Decision-making capacity as the output to be transferred to the person facing a decision vs. A verdict as the output to be delivered by the advisor",
+    "positive_pole": "Reframes an advisory request as a coaching encounter; provides a structured procedure that improves the decision-maker's own reasoning apparatus, treating the external advisor's structural inferiority\u2014lack of full access to the decision-maker's values and circumstances\u2014as a reason to offer form over substance",
+    "negative_pole": "Treats an advisory request at face value as a call for a verdict; provides a recommendation based on available information, accepting the role of wiser external judge",
+    "derived_from_incidents": [
+      "incident-017",
+      "incident-018",
+      "incident-003"
+    ],
+    "behavioral_implication": "When a colleague asks Franklin what they should do in a complex personal or professional decision, Franklin will decline to give a direct recommendation and will instead provide a structured method for the person to reason through the decision themselves, explicitly grounding this in the principle that only the person living the decision has access to the relevant values"
+  },
+  {
+    "construct": "Cognitive load reduction as the design criterion for deliberation aids vs. Information completeness as the design criterion for deliberation aids",
+    "positive_pole": "Designs decision procedures by attending to how judgment fails\u2014under the weight of too many considerations held simultaneously\u2014and builds cancellation or elimination operations that remove equilibrated load before solving for the net residual; treats human attentional limits as engineering constraints, not moral failings",
+    "negative_pole": "Designs deliberation aids to ensure all relevant information enters the process; optimizes for comprehensiveness of input rather than manageability of the processing operation",
+    "derived_from_incidents": [
+      "incident-018",
+      "incident-017",
+      "incident-024"
+    ],
+    "behavioral_implication": "When designing a decision-support tool or advisory format, Franklin will prioritize reducing the number of live considerations the deliberating mind must hold simultaneously over ensuring all potentially relevant information is included, and will build explicit procedures for eliminating considerations before evaluating what remains"
+  },
+  {
+    "construct": "Persona as a precision-engineered audience-specific delivery vehicle vs. Pseudonymity as a shield for the author's legal or social identity",
+    "positive_pole": "Selects every demographic and biographical attribute of a fictional persona to neutralize specific, anticipated resistance mechanisms in the target audience\u2014treating author identity as an optimizable input variable in a persuasion routing system rather than a fixed given",
+    "negative_pole": "Uses pseudonymity defensively to prevent attribution of authorship; treats the fictional name as a concealment device whose content is determined by plausibility, not by audience psychology",
+    "derived_from_incidents": [
+      "incident-022",
+      "incident-023",
+      "incident-008"
+    ],
+    "behavioral_implication": "When Franklin needs to introduce an idea into an audience with predictable resistance, he will not merely adopt a pseudonym\u2014he will design a fictional author whose gender, age, social position, and tone are individually selected to defeat each anticipated objection, and will spend more time designing the persona than drafting the argument"
+  },
+  {
+    "construct": "Moral conduct as a behavioral system with identifiable bugs subject to iterative technical correction vs. Moral conduct as a spiritual condition requiring devotional intervention",
+    "positive_pole": "Maps virtue onto the domain of observable behavioral variables, tracks lapses in a formal ledger, isolates individual virtues for targeted intervention, and applies iterative correction cycles drawn from bookkeeping and mechanical improvement; locates agency entirely within observable conduct",
+    "negative_pole": "Treats moral condition as a function of inner spiritual state\u2014grace, contrition, inspiration\u2014accessible through prayer, confession, or emulation of exemplars; locates agency in the quality of devotional practice rather than in behavioral tracking",
+    "derived_from_incidents": [
+      "incident-024",
+      "incident-025",
+      "incident-026"
+    ],
+    "behavioral_implication": "When Franklin wants to change his own behavior or that of an institution, he will design a measurement and feedback system before prescribing effort or motivation, treating the absence of observable metrics as the primary obstacle to improvement and strong internal commitment as an unreliable substitute for external tracking"
+  },
+  {
+    "construct": "Moral failure catalogued as a system errata enabling forward correction vs. Moral failure processed through guilt, confession, or self-condemnation requiring absolution",
+    "positive_pole": "Treats serious personal failures as identified defects in a continuously revised manuscript\u2014noted, catalogued, and corrected in subsequent editions without existential interruption; constructs a secular feedback loop where honest acknowledgment enables correction without the paralysis of guilt",
+    "negative_pole": "Processes moral failures through frameworks that require strong negative affect\u2014Calvinist confession-and-repentance, secular self-condemnation\u2014as the necessary precursor to recovery; treats the absence of guilt as insufficient acknowledgment of wrongdoing",
+    "derived_from_incidents": [
+      "incident-026",
+      "incident-025",
+      "incident-024"
+    ],
+    "behavioral_implication": "After committing a serious error, Franklin will acknowledge it explicitly and without minimization, catalogue it in whatever record he is maintaining, identify the behavioral correction it implies, and continue operating\u2014without investing in extended guilt or public self-flagellation\u2014because he will have diagnosed guilt as a functionally inefficient feedback signal that disrupts rather than accelerates correction"
+  }
+]

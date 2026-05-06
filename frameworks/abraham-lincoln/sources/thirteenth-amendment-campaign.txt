@@ -1,0 +1,84 @@
+The 13th Amendment Campaign (1864-1865): Political Bargaining as Moral Instrument
+SYNTHESIZED CONTEXT — drawn from Vorenberg's "Final Freedom: The Civil War, the
+Abolition of Slavery, and the Thirteenth Amendment" (2001), Goodwin (2005), and the
+House of Representatives' record of the January 31, 1865 vote.
+
+== THE PROBLEM ==
+
+The Emancipation Proclamation was a war measure. It was vulnerable on three fronts:
+its constitutional standing depended on continued state of war; it covered only people
+held in rebel territory; and a future Supreme Court or future president could narrow
+or revoke it. Lincoln understood that ending slavery durably required a constitutional
+amendment. The Senate had passed the 13th Amendment in April 1864. The House had failed
+in June 1864 (93-65, short of the two-thirds required). Without House passage, the
+amendment died.
+
+== THE 1864 DECISION TO TRY AGAIN ==
+
+After his November 1864 reelection, Lincoln chose to push for House reconsideration
+in the lame-duck session before the new (more Republican-friendly) Congress was seated.
+This was not the obvious choice. The new Congress would have passed the amendment more
+easily. Lincoln chose the harder path because he wanted bipartisan symbolism — Democrats
+voting for abolition would foreclose post-war attempts to relitigate it as a Republican
+imposition. The reasoning visible here: he weighed the optics of how a victory was
+won against the ease of winning it, and chose the harder version because the harder
+version would prove more durable.
+
+== THE VOTE-COUNTING APPARATUS ==
+
+Lincoln deployed Secretary of State Seward to organize a small operation that worked
+with intermediaries (William Bilbo, Robert Latham, Seward's secretary Frederick Seward)
+to persuade individual House Democrats. The methods documented include patronage
+promises, post-war job offers, persuasive arguments tailored to specific congressmen's
+districts and constituents, and direct meetings with Lincoln himself. Lincoln also
+worked outgoing Democratic congressmen who would not face their constituents again,
+treating their lame-duck status as a freedom from local political constraint.
+
+== THE TRADE-OFFS LINCOLN ACCEPTED ==
+
+The 13th Amendment campaign required Lincoln to operate at the edge of what he was
+willing to do. The deals were transactional. Some involved ambiguous representations:
+to one congressman skeptical of the amendment, an intermediary suggested that a peace
+delegation from Richmond was approaching (which would have made the amendment less
+necessary). Lincoln, when asked directly about Confederate commissioners, gave a
+narrowly truthful answer ("there are no peace commissioners in the city, nor are
+there likely to be") that was technically true but operationally misleading because
+commissioners were known to be approaching from Hampton Roads. The episode shows
+Lincoln accepting a moral cost for the larger goal: the amendment was important
+enough to justify a level of tactical opacity he would not have accepted on lower
+stakes.
+
+== THE FINAL VOTE (JANUARY 31, 1865) ==
+
+The amendment passed 119-56. The bipartisan margin Lincoln wanted was achieved. He
+celebrated publicly that night and made a balcony speech to a torchlight crowd. The
+sequencing of his work over the prior months — public absences from the lobbying
+itself, plausible deniability of the specific deals, public claim of the moral
+victory — shows a deliberate separation between the morally serviceable public stance
+and the tactically necessary private operation. Both were components of the decision;
+both were owned; the public posture was the visible 90 percent and the tactical
+operation the structural 10 percent.
+
+== WHAT THE EPISODE REVEALS ==
+
+The 13th Amendment campaign is the cleanest example of Lincoln's pattern of escalating
+tactical means in proportion to the moral stake. He did not deploy intense political
+pressure on every issue. He deployed it when the stakes warranted and the window was
+narrow. He accepted personal moral cost (some of the deals would have been embarrassing
+if fully exposed) as the price of an irreversible structural change. He did not
+delegate the moral cost to subordinates while keeping his hands clean; he organized
+the operation, he met with congressmen, and he authorized the deals.
+
+== THE DURABILITY CRITERION ==
+
+The amendment campaign also reveals a recurring criterion in Lincoln's strategic
+thinking: prefer durable over expressive outcomes. The Emancipation Proclamation was
+expressive (immediately freeing many) but legally fragile. The 13th Amendment was
+less expressive (freeing nobody who was not already free under the Proclamation, in
+practice) but legally durable. Lincoln treated durability as a high-priority criterion
+in any political action whose effects he wanted to outlast his administration. The
+criterion shapes his policy choices on Reconstruction (he preferred procedural
+mechanisms that did not depend on his successor's will), on the army (he preferred
+selecting commanders who could continue his strategy), and on legal frameworks (he
+preferred constitutional anchors over executive orders). The 13th Amendment campaign
+is the most documented expression of this preference applied at the highest stakes.

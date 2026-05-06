@@ -1,0 +1,112 @@
+[
+  {
+    "construct": "exploits constraints as amplifiers vs. accepts constraints as limitations",
+    "positive_pole": "Transforms apparent limitations into experimental advantages and enhanced capabilities",
+    "negative_pole": "Views constraints as obstacles requiring accommodation or workaround solutions",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-002",
+      "incident-019"
+    ],
+    "behavioral_implication": "When facing resource limitations or environmental challenges, Tesla would redesign the entire approach to turn the constraint into a multiplicative advantage rather than seeking conventional workarounds"
+  },
+  {
+    "construct": "optimizes for theoretical perfection vs. adapts to practical constraints",
+    "positive_pole": "Designs solutions based on optimal physical principles and theoretical performance",
+    "negative_pole": "Modifies designs to accommodate current manufacturing limitations and market demands",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-013",
+      "incident-022"
+    ],
+    "behavioral_implication": "When choosing between a theoretically superior but impractical solution and a commercially viable compromise, Tesla would pursue the theoretically optimal path regardless of implementation difficulties"
+  },
+  {
+    "construct": "pursues systemic transformation vs. seeks incremental improvement",
+    "positive_pole": "Develops complete integrated systems that create new technological paradigms",
+    "negative_pole": "Creates individual components or improvements that can be gradually adopted",
+    "derived_from_incidents": [
+      "incident-011",
+      "incident-024",
+      "incident-028"
+    ],
+    "behavioral_implication": "When developing new technology, Tesla would design complete revolutionary systems rather than creating incremental improvements that could be easily integrated with existing infrastructure"
+  },
+  {
+    "construct": "prioritizes empirical honesty over social conformity vs. manages reputation over truth-telling",
+    "positive_pole": "Publicly discloses significant observations regardless of social acceptance or personal cost",
+    "negative_pole": "Withholds or modifies findings to maintain professional relationships and reputation",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-009",
+      "incident-017"
+    ],
+    "behavioral_implication": "When making a discovery that challenges established scientific consensus, Tesla would publicly announce his findings immediately rather than building social support or seeking peer validation first"
+  },
+  {
+    "construct": "frames problems as engineering challenges vs. treats them as social negotiations",
+    "positive_pole": "Converts social, political, or business problems into technical challenges requiring systematic solutions",
+    "negative_pole": "Addresses interpersonal and institutional problems through relationship management and compromise",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-007",
+      "incident-018"
+    ],
+    "behavioral_implication": "When facing resistance from stakeholders or institutions, Tesla would redesign the technical approach to eliminate the source of resistance rather than negotiate or compromise"
+  },
+  {
+    "construct": "commits absolutely to eliminate variables vs. manages competing demands through balance",
+    "positive_pole": "Makes complete binary commitments that eliminate ongoing decision costs and competing priorities",
+    "negative_pole": "Maintains multiple options and seeks balanced approaches to competing demands",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-016",
+      "incident-020"
+    ],
+    "behavioral_implication": "When identifying any practice or relationship that interferes with his primary mission, Tesla would eliminate it completely rather than seeking moderated compromises"
+  },
+  {
+    "construct": "trusts internal modeling over external validation vs. relies on peer consensus for truth",
+    "positive_pole": "Develops and acts on conclusions derived from personal analysis and mental simulation",
+    "negative_pole": "Seeks confirmation and validation from established authorities and peer networks before proceeding",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-014",
+      "incident-025"
+    ],
+    "behavioral_implication": "When his analysis contradicts established expert opinion, Tesla would proceed based on his internal models rather than deferring to authority or seeking additional external validation"
+  },
+  {
+    "construct": "reveals transformative potential vs. demonstrates practical applications",
+    "positive_pole": "Creates spectacular demonstrations designed to inspire and educate about future possibilities",
+    "negative_pole": "Focuses presentations on immediate practical benefits and marketable applications",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-021",
+      "incident-026"
+    ],
+    "behavioral_implication": "When presenting his work to audiences, Tesla would design experiences that reveal underlying principles and inspire breakthrough thinking rather than focusing on immediate commercial benefits"
+  },
+  {
+    "construct": "optimizes for civilizational impact vs. maximizes personal advantage",
+    "positive_pole": "Makes decisions based on long-term technological advancement and human progress",
+    "negative_pole": "Prioritizes personal financial gain and individual reputation over broader outcomes",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-010",
+      "incident-023"
+    ],
+    "behavioral_implication": "When choosing between personal financial benefit and advancing transformative technology, Tesla would sacrifice individual gain to ensure broader technological deployment and human benefit"
+  },
+  {
+    "construct": "maintains deceptive distance to protect revolutionary work vs. builds transparent partnerships",
+    "positive_pole": "Conceals true revolutionary intentions while securing resources for breakthrough innovations",
+    "negative_pole": "Builds relationships based on shared understanding and aligned expectations",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-027",
+      "incident-015"
+    ],
+    "behavioral_implication": "When seeking support for revolutionary technology, Tesla would present incremental applications while privately pursuing transformative breakthroughs, believing the eventual results would justify the initial deception"
+  }
+]

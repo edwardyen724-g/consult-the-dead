@@ -1,0 +1,75 @@
+The Grande Armée: Logistics as the Architecture of Speed
+SYNTHESIZED CONTEXT — drawn from Colin (L'éducation militaire), Chandler's analysis
+of the corps system, the orders for the 1805 Ulm campaign, the Correspondance with
+Berthier and Daru, and the official organizational manuals of the army.
+
+== THE PROBLEM AS HE INHERITED IT ==
+
+Eighteenth-century European armies moved at roughly 10 miles per day, tied to
+their supply trains, deployed for battle in a single mass that required several
+days to assemble or unwind. The constraint was not soldiers' legs but the column
+of wagons feeding them. He inherited from the late Republic a quartermaster
+system that already used local requisition more aggressively than the Bourbon
+army had, but the strategic implications had not been worked out.
+
+== THE FRAMING DECISION ==
+
+He restructured the army into corps — each one a 20,000–30,000 man combined-arms
+formation with its own infantry, cavalry, artillery, engineers, and staff —
+capable of fighting independently for one day against larger forces. The corps
+moved on parallel roads, requisitioned locally, and converged only at the moment
+of battle. The framing was that LOGISTICS DETERMINES STRATEGIC OPTIONS: if you
+move fast enough, you arrive before the opponent can concentrate; if the corps
+is self-sufficient for 24 hours, you don't need the road network to support a
+single mass; if multiple corps converge from different directions, the opponent
+cannot anticipate the point of decision until it is too late to redeploy.
+
+== THE PRINCIPLE BEHIND THE STRUCTURE ==
+
+The structural insight was that an army's speed equals the slowest necessary
+linkage. Old armies were slow because every unit waited for the supply train.
+The corps system distributed the supply problem so that the army's speed was
+the speed of independent self-sustaining columns. Speed compounded into
+strategic surprise: the 1805 march from the Channel to the Danube (over 400
+miles in five weeks) arrived before Mack at Ulm understood he was the target.
+The march was not faster than physics permitted; it was faster than the
+opponent's planning model allowed for.
+
+== THE PRINCIPLE'S DEPENDENCE ==
+
+Local requisition worked in fertile densely-populated Europe — the Rhineland,
+northern Italy, the German heartland. It failed in Spain (where the population
+fought back and burned supplies) and catastrophically in Russia (where the
+distances exceeded the corps' self-sustainment window and the country had been
+scorched). The corps system was not a universal solution; it was a method
+calibrated to a specific terrain and demographic profile. When the assumed
+context broke, the system broke with it. Russia in 1812 saw corps starve
+because they could not requisition where there were no farms.
+
+== THE STAFF MACHINE ==
+
+Berthier as Major-General translated his rapid verbal orders into written
+movement orders for each corps within hours. Daru as commissary organized the
+contracts, depots, and supply dumps. The decision-making structure was: he
+generated strategic intent, Berthier produced operational orders, corps
+commanders executed without waiting for further direction. The system made
+his cognitive bandwidth the army's speed limit. When Berthier was absent or
+exhausted (as in the 1813 campaign), the system slowed.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena he treated the corps system as one of his most important
+contributions, more durable than any single battle. Subsequent European armies
+adopted the structure within a generation. The construct survived him because
+it was a structural innovation in how forces relate to terrain and supply,
+not a personal tactical genius that died with him.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The Grande Armée's logistics show his pattern of solving battlefield problems
+by restructuring the layer beneath the battlefield. Don't win battles faster;
+arrive faster, so the battle is on your chosen ground at your chosen moment.
+The construct is: change the inputs to the problem before the problem requires
+solving. The failure mode appears when the inputs change in ways the
+restructured system cannot accommodate — Russia's emptiness defeated the
+system as effectively as Austrian density had enabled it.

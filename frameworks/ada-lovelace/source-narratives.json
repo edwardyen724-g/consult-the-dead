@@ -1,0 +1,231 @@
+{
+  "person": "Ada Lovelace (Augusta Ada King, Countess of Lovelace)",
+  "born": "1815-12-10",
+  "died": "1852-11-27",
+  "compiled_utc": "2026-05-02T00:00:00Z",
+  "narrative_count": 13,
+  "primary_sources": [
+    "Lovelace, A.A. (1843). 'Sketch of the Analytical Engine Invented by Charles Babbage by L.F. Menabrea... With Notes by the Translator,' Taylor's Scientific Memoirs, vol. 3.",
+    "Lovelace–Babbage correspondence, British Library Add MS 37190–37205 (esp. letters of June–August 1843).",
+    "Lovelace–De Morgan correspondence, Bodleian Library, Lovelace–Byron Papers, dep. Lovelace Byron 170–173.",
+    "Lady Byron Papers, Bodleian Library."
+  ],
+  "secondary_sources": [
+    "Toole, B.A. (1992). Ada, the Enchantress of Numbers: A Selection from the Letters of Lord Byron's Daughter and Her Description of the First Computer.",
+    "Hollings, Martin & Rice (2018). Ada Lovelace: The Making of a Computer Scientist (Bodleian Library).",
+    "Stein, D. (1985). Ada: A Life and a Legacy.",
+    "Essinger, J. (2014). Ada's Algorithm.",
+    "Hyman, A. (1982). Charles Babbage: Pioneer of the Computer.",
+    "Swade, D. (2000). The Cogwheel Brain.",
+    "Misa, T.J. (ed., 2010). Gender Codes."
+  ],
+  "narratives": [
+    {
+      "id": "N01",
+      "title": "Lady Byron's anti-poetic curriculum and the construction of the 'mathematical' daughter (1816–1832)",
+      "period": "1816–1832",
+      "summary": "Within weeks of Ada's birth in December 1815, Annabella Milbanke separated from Byron and never permitted father and daughter to meet again. Lady Byron — herself privately tutored in mathematics and mocked by Byron as the 'Princess of Parallelograms' — engineered Ada's education explicitly as a counter-program against the inherited 'Byronic' temperament: rigorous mathematics, formal logic, modern languages, geography, and the natural sciences, while poetry, fiction, and unsupervised imaginative play were systematically restricted. From age four Ada was tutored in arithmetic by William Frend (the Cambridge mathematician disciplined for Unitarianism), with later instruction from William King (Lady Byron's medical adviser, no relation to her future husband) and Arabella Lawrence. Discipline was severe: Lady Byron required mathematical exercises before play and used punishment, including being locked in a closet and being made to lie still on a board, to enforce stillness and concentration. Byron's portrait was kept curtained in the house. The structural intent was prophylactic — a lived experiment in which mathematics was deployed as the operational antidote to a feared hereditary disposition — and it produced in Ada a lifelong identification of mathematical work with both autonomy and self-control, while also producing the underlying tension she would later articulate as 'poetical science': the recognition that the imaginative inheritance her mother had tried to extinguish was, in fact, the source of her distinctive vision.",
+      "key_decisions": [
+        "Ada's internal reframe (visible from c. 1828) of mathematics not as her mother's prohibition-instrument but as her own chosen instrument of intellectual freedom.",
+        "Ada's covert preservation of Byronic identification despite the curtained portrait — visible in adolescent letters in which she identifies with her father's 'genius' while accepting the mathematical training."
+      ],
+      "sources": [
+        "Toole 1992, ch. 1–3",
+        "Hollings, Martin & Rice 2018, ch. 1",
+        "Stein 1985, ch. 1–2"
+      ]
+    },
+    {
+      "id": "N02",
+      "title": "The flying machine project and the 'Flyology' notebook (1828–1829, age 12–13)",
+      "period": "1828–1829",
+      "summary": "At age twelve Ada determined to construct a working flying machine. Rather than treat this as fantasy play she organized it as an engineering program: she dissected birds to study wing-to-body proportion, tested materials (paper, oilsilk, wires) for surface-to-weight ratio, drew scaled diagrams of wing geometry, considered steam power, and compiled the work into a manuscript she titled 'Flyology.' She wrote to her mother proposing to integrate the project with the study of geography (so she could fly to surveyed locations) and natural philosophy (so the design would have principled grounding). She sought, in correspondence, the advice of an unspecified instructor on the mechanical mathematics. The project was abandoned when she became seriously ill in 1829 with what was probably measles, leading to a near-three-year period of partial paralysis and confinement during which she resumed mathematical study from her sickbed. The episode is the earliest documented instance of her characteristic operational pattern: take a domain conventionally framed as imaginative or poetic (flight, the realm of birds), reframe it as a structural-engineering problem with measurable variables, document the program in writing as the primary thinking instrument, and pursue it with mathematical rigor while preserving the imaginative motivation that initiated it.",
+      "key_decisions": [
+        "Ada's decision to organize the flying-machine project as engineering rather than fantasy — the bird dissections, the material tests, the integration with formal geography.",
+        "Ada's decision to preserve the program in a written manuscript ('Flyology') rather than pursue it through unrecorded experiment."
+      ],
+      "sources": [
+        "Toole 1992, ch. 2",
+        "Stein 1985, pp. 25–32",
+        "Essinger 2014, ch. 4"
+      ]
+    },
+    {
+      "id": "N03",
+      "title": "Court presentation, the Mechanics' Institute, and the first encounter with Babbage's Difference Engine (May–June 1833, age 17)",
+      "period": "1833",
+      "summary": "Ada was presented at court on May 10, 1833. On the evening of June 5, 1833, accompanied by her mother and Mary Somerville, she attended one of Charles Babbage's Saturday-evening parties at his house in Dorset Street, where the partial Difference Engine No. 1 (Joseph Clement's working portion of about 2,000 parts, completed 1832) was on demonstration. Where the other guests treated the machine as a remarkable curiosity — 'gazed at the working of this beautiful instrument with the same sort of expression... that some savages are said to have shown on first seeing a looking-glass,' as Sophia De Morgan described the typical reaction — Ada's response, by Sophia De Morgan's later testimony, was structurally distinctive: 'Miss Byron, young as she was, understood its working, and saw the great beauty of the invention.' She returned for further demonstrations, requested the engineering drawings, and within a few months had begun the program of mathematical self-education (under Frend, then Augustus De Morgan) that the engagement with Babbage's machine made operationally necessary. The encounter is the structural pivot of her life: the conversion of the inherited mathematical training from her mother's prophylactic instrument into her own chosen operational program addressed at a specific machine.",
+      "key_decisions": [
+        "Ada's decision, after the June 1833 demonstration, to engage the Difference Engine as a serious technical and intellectual object rather than as a society curiosity.",
+        "Her decision to request the engineering drawings and pursue further demonstrations — converting the social occasion into an instrumented technical engagement.",
+        "Her subsequent decision (autumn 1833 onward) to pursue formal mathematical training oriented specifically toward the conceptual content the machine demanded."
+      ],
+      "sources": [
+        "Hollings, Martin & Rice 2018, ch. 2",
+        "Toole 1992, pp. 51–58",
+        "Sophia De Morgan, Memoir of Augustus De Morgan (1882), pp. 89–90"
+      ]
+    },
+    {
+      "id": "N04",
+      "title": "Mary Somerville as model and bridge (1833–1838)",
+      "period": "1833–1838",
+      "summary": "Mary Somerville — at this point the most distinguished woman scientist in Britain, author of The Mechanism of the Heavens (1831) and On the Connexion of the Physical Sciences (1834) — served as Ada's principal scientific mentor in the years following the Babbage introduction. Somerville taught Ada calculus in the geometric Newtonian style she had used in her own work on Laplace, supervised her reading of Herschel and Bowditch, and modelled the operational possibility of a woman conducting serious mathematical and scientific work within the constraints of Victorian domestic life. Somerville also enabled the social connection: it was she who had introduced Ada to Babbage in the first place, and her household became the principal venue at which Ada continued to encounter the scientific community. Crucially, Somerville's own working method — the synthesis of distinct sciences into structurally connected wholes, visible in the title of her 1834 book — provided Ada the operational template that distinguishes her later 'poetical science' formulation: connection across domains as an explicit intellectual program rather than an incidental feature of erudition. The relationship cooled somewhat after Ada's marriage in 1835 and the births of her three children, but Somerville remained the structural anchor of Ada's scientific self-conception.",
+      "key_decisions": [
+        "Ada's decision to take Somerville as principal model — adopting the cross-domain synthetic style rather than pure-mathematical specialization.",
+        "Ada's adoption of the Somerville-style geometric-Newtonian calculus rather than the newer continental analytical style that Cambridge was at this point importing."
+      ],
+      "sources": [
+        "Hollings, Martin & Rice 2018, ch. 2",
+        "Toole 1992, pp. 60–95",
+        "Patterson, E.C. (1983). Mary Somerville and the Cultivation of Science."
+      ]
+    },
+    {
+      "id": "N05",
+      "title": "Marriage, motherhood, and the structural problem of mathematical work in Victorian domestic life (1835–1840)",
+      "period": "1835–1840",
+      "summary": "Ada married William King, eighth Baron King (created Earl of Lovelace 1838), on July 8, 1835. The marriage was operationally successful in the Victorian sense — William supported Ada's mathematical interests, copied diagrams for her, and tolerated the long correspondence with male mathematicians that bourgeois conventions of the period would have made suspect — but produced in rapid succession three children: Byron (1836), Anne Isabella (1837), and Ralph Gordon (1839). The structural problem these years presented was the conflict between the round-the-clock demands of upper-class motherhood (which Ada experienced as suffocating) and the sustained, undisturbed concentration mathematical work requires. Her letters of this period document the conflict in operational detail: the inability to pursue a problem to completion before being interrupted, the loss of mathematical thread across nursing intervals, the social-conventional impossibility of straightforwardly delegating childcare to others to permit work. Ada's response was the construction of an operational schedule that compressed mathematical work into the early-morning hours and into trips away from home (to the Lovelace estates at Ockham Park and Ashley Combe), and the deployment of correspondence as a substitute for the in-person scientific conversation Cambridge men used as their principal working channel. By 1840 the structural decision had been taken: she would re-engage formal mathematics seriously, and would do so by correspondence-tutorial with Augustus De Morgan.",
+      "key_decisions": [
+        "Ada's decision (autumn 1840) to formally re-engage mathematics under De Morgan's tutelage despite the operational constraints of three young children.",
+        "Her construction of the compressed-schedule + correspondence-tutorial operational pattern as the structural workaround for the constraints of Victorian motherhood.",
+        "Her decision to use the Ockham and Ashley Combe estates as concentration-zones distinct from London, an explicit spatial separation of working and domestic regimes."
+      ],
+      "sources": [
+        "Hollings, Martin & Rice 2018, ch. 3",
+        "Toole 1992, pt. II",
+        "Stein 1985, ch. 6–8"
+      ]
+    },
+    {
+      "id": "N06",
+      "title": "The De Morgan tutorial and the calibration of mathematical capacity (1840–1842)",
+      "period": "1840–1842",
+      "summary": "Augustus De Morgan — professor of mathematics at University College London, married to Sophia (the daughter of William Frend, Ada's first tutor), and at this point the leading British logician of his generation — agreed in autumn 1840 to conduct a correspondence-tutorial with Ada in differential calculus. The surviving correspondence (Bodleian dep. Lovelace Byron 170) covers approximately eighteen months and contains exercises, worked solutions, conceptual questions from Ada about functional notation, the foundations of the calculus, the meaning of the differential, and the logical status of mathematical induction. De Morgan's letter to Lady Byron of 21 January 1844 — written after the Notes had been published — is the principal documentary evidence of his contemporary assessment of Ada's capacity: he writes that she would, if she had been a man and had pursued the work, have made an 'original mathematical investigator, perhaps of first-rate eminence,' but warns explicitly that the 'very great tension of mind' this would require was, in his clinical-paternalist judgment, dangerous to her health. Ada's letters in the same period document her own self-assessment in the same terms — she repeatedly tells De Morgan that she perceives mathematical capacities she cannot yet operationally exercise, and asks him to calibrate her trajectory in unsentimental terms. The tutorial structurally completed the foundations Ada would need for the Notes; it also installed De Morgan's logical-foundationalist style (visible in his Formal Logic, 1847) as part of her own analytical equipment.",
+      "key_decisions": [
+        "Ada's decision to seek formal calibration of her mathematical capacity from De Morgan, rather than rely on self-assessment or Babbage's encouragement.",
+        "Her choice to engage the foundational-logical questions (the meaning of the differential, the status of induction) rather than purely operational technique — the same foundational orientation that distinguishes the Notes."
+      ],
+      "sources": [
+        "De Morgan–Lovelace correspondence, Bodleian dep. Lovelace Byron 170",
+        "De Morgan to Lady Byron, 21 January 1844, Bodleian dep. Lovelace Byron 339",
+        "Hollings, Martin & Rice 2018, ch. 4"
+      ]
+    },
+    {
+      "id": "N07",
+      "title": "The Analytical Engine, the Babbage correspondence, and the operational reframe from calculation to general symbol manipulation (1834–1843)",
+      "period": "1834–1843",
+      "summary": "Babbage abandoned active development of the Difference Engine in 1834 and began work on the Analytical Engine, the structurally distinct successor whose architectural separation of 'store' (memory) and 'mill' (processor), conditional branching via the operation cards, and Jacquard-loom punched-card programming made it the first general-purpose computing machine in design (it was never built in his lifetime). Ada's encounter with the Analytical Engine — through the demonstrations at Dorset Street, through the engineering drawings, and through sustained correspondence with Babbage from c. 1839 onward — produced the conceptual reframe that distinguishes her contribution: the recognition that the Analytical Engine was not a more powerful Difference Engine but a categorically different kind of machine, capable in principle of operating on any symbolic system whose operations could be formally specified, not only on numbers. The famous formulation of Note A — that the Engine 'might act upon other things besides number,' that 'supposing, for instance, that the fundamental relations of pitched sounds in the science of harmony and of musical composition were susceptible of such expression and adaptations, the engine might compose elaborate and scientific pieces of music of any degree of complexity or extent' — is the structural articulation of the reframe, and is among the most extraordinary single conceptual leaps in the history of computing. The reframe was made operationally available by Ada's specific cross-domain disposition (the Somerville-style synthesis, the imaginative-Byronic component her mother had tried to extinguish, the De Morgan-trained logical-foundationalist style); it was not available to Babbage himself in the same form.",
+      "key_decisions": [
+        "Ada's reframe (visible by mid-1843) of the Engine as a general-purpose symbol-manipulator, not a calculating engine — the architectural-potential frame.",
+        "Her decision to articulate the reframe explicitly in published form (Note A) rather than only in correspondence with Babbage.",
+        "Her decision to ground the reframe in the Jacquard-loom analogy — the famous 'we may say most aptly that the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.'"
+      ],
+      "sources": [
+        "Lovelace 1843, Notes A–G",
+        "Lovelace–Babbage correspondence, British Library Add MS 37191–37192",
+        "Hyman 1982, ch. 12–14",
+        "Swade 2000, pt. III"
+      ]
+    },
+    {
+      "id": "N08",
+      "title": "The Menabrea translation as engineered occasion (1842–1843)",
+      "period": "1842–1843",
+      "summary": "In October 1842 Luigi Federico Menabrea, the Italian military engineer (and future prime minister), published in the Bibliothèque universelle de Genève a French-language exposition of Babbage's Analytical Engine based on Babbage's lectures at the Turin scientific congress of September 1840. Charles Wheatstone, the inventor of the telegraph and a friend of Ada's, suggested in early 1843 that she translate the article into English. Ada completed the translation but presented it to Babbage; in his account (Passages from the Life of a Philosopher, 1864), Babbage asked her why she had not written an original paper, since she knew the subject so thoroughly. Ada's response — 'the thought had not occurred to her' — and the subsequent decision to append extended Notes (eventually labeled A through G) to the translation rather than write a separate original paper is the structural decision-point of her career. The Notes, completed under intense pressure between February and August 1843, run approximately 19,000 words, more than twice the length of the original Menabrea article (8,000 words). The decision to embed her original work as Notes appended to a translation rather than as an independent paper — likely the joint product of her own self-presentational caution as a woman writing in 1843, of Babbage's strategic preference, and of the specific operational opportunity the translation already afforded — is the structural form on which the entire subsequent history of the work depends. The Notes are the result; the translation was the instrument.",
+      "key_decisions": [
+        "Ada's decision (April–May 1843) to append extended original Notes to the translation rather than confine herself to the translator's role.",
+        "Her decision to allow the Notes to grow to roughly twice the length of the source article rather than confine them to clarifying footnotes.",
+        "Her decision to publish under the initials 'A.A.L.' rather than under name or under the conventional anonymous form, calibrating signaling and authorial responsibility in a way the period made structurally complex."
+      ],
+      "sources": [
+        "Lovelace 1843",
+        "Babbage, Passages (1864), ch. 8",
+        "Hollings, Martin & Rice 2018, ch. 6",
+        "Essinger 2014, ch. 11–12"
+      ]
+    },
+    {
+      "id": "N09",
+      "title": "The Notes themselves — Note A's general-purpose machine and Note G's Bernoulli algorithm (June–August 1843)",
+      "period": "June–August 1843",
+      "summary": "Across the seven Notes, Ada constructs the conceptual armature that distinguishes the Analytical Engine from the Difference Engine and articulates what would later be recognized as the foundational concepts of computer programming. Note A frames the general-purpose-machine reframe (the Jacquard analogy, the music example, the architectural distinction between calculation and operation). Note B describes the variable-card mechanism (memory addressing). Note C addresses the looping mechanism (cycles of operation cards). Note D works through the solution of two simultaneous linear equations as a programming example. Note E generalizes to the solution of more complex systems. Note F discusses the multiplication of two polynomial expressions. Note G — the longest and most famous — presents the algorithm for computing the Bernoulli numbers using the Engine, in a tabular form that traces the contents of variable-cards across operation steps. The Bernoulli algorithm is the artifact most often described (in modern reception) as the 'first computer program,' though the historiographical literature is precise: the algorithm was developed jointly between Ada and Babbage (Babbage supplied the underlying mathematical method and corrected an early error; Ada constructed the program, the table form, and the surrounding exposition). The structural feature that is unambiguously Ada's is the explicit articulation that the Engine operates on operations themselves — the meta-level reframe — and the famous limitation principle of Note G: 'The Analytical Engine has no pretensions whatever to originate any thing. It can do whatever we know how to order it to perform... It can follow analysis; but it has no power of anticipating any analytical relations or truths,' the formulation Turing would identify a century later as 'Lady Lovelace's Objection.'",
+      "key_decisions": [
+        "Ada's choice of Bernoulli numbers as the programming example — a problem of sufficient complexity to demonstrate looping and conditional mechanics, and of sufficient mathematical prestige to credential the demonstration.",
+        "Her decision to present the algorithm in the famous tabular form rather than in narrative or symbolic-equation form — the table itself anticipates much later notations for program traces.",
+        "Her articulation of the limitation principle in Note G — the explicit statement of what the Engine cannot do, calibrated to forestall both over-claim and dismissal."
+      ],
+      "sources": [
+        "Lovelace 1843, Notes A–G",
+        "Hollings, Martin & Rice 2018, ch. 7–8",
+        "Bromley, A.G. (1990). 'Difference and Analytical Engines,' in Aspray (ed.) Computing Before Computers."
+      ]
+    },
+    {
+      "id": "N10",
+      "title": "The July 1843 row with Babbage and the contested preface (June–August 1843)",
+      "period": "1843",
+      "summary": "In late June 1843, as the Notes were going to press, Babbage wrote and proposed to attach to the publication a preface attacking the British government's withdrawal of funding for the Difference Engine project — a polemical attack that Ada (and the publisher) judged would damage the reception of the technical work and convert the volume into a political instrument. Ada refused to permit the preface to be attached anonymously to her work without her own authorial control. The conflict produced the most important surviving letter in their correspondence: Ada's letter to Babbage of August 14, 1843, in which she sets out — across approximately sixteen pages — the conditions on which she would continue the working partnership. The letter is operationally remarkable: Ada proposes that Babbage cede to her the strategic and political management of the Engine project, on the grounds that her capacity for sustained calibrated political-strategic engagement is greater than his (a claim the historical record largely vindicates), while preserving for him the technical-engineering direction. She offers in effect to become the project's chief of staff. Babbage rejected the proposal but the preface was withdrawn; the Notes were published in September 1843 in their finished form. The episode displays Ada's structural pattern at its sharpest: the calibrated separation of strategic-political work from technical-engineering work as distinct operational instruments, the willingness to take responsibility for the strategic instrument explicitly rather than by influence, and the willingness to risk a load-bearing professional relationship over the structural integrity of the publication.",
+      "key_decisions": [
+        "Ada's decision to refuse Babbage's proposed preface despite the cost to their working relationship.",
+        "Her construction, in the August 14 letter, of the explicit strategic-vs-technical role separation as a proposed operational structure.",
+        "Her willingness to articulate her own strategic capacity in unsentimental terms — a structural deviation from the period's conventional female self-presentation."
+      ],
+      "sources": [
+        "Lovelace to Babbage, 14 August 1843, British Library Add MS 37192",
+        "Toole 1992, ch. 7–8",
+        "Hyman 1982, ch. 14"
+      ]
+    },
+    {
+      "id": "N11",
+      "title": "'Poetical science' as articulated methodology (1841–1844)",
+      "period": "1841–1844",
+      "summary": "The phrase 'poetical science' (and the closely related 'metaphysical' and 'imaginative-mathematical' formulations) appears across Ada's correspondence from approximately 1841 onward and reaches its most explicit articulation in a series of letters to her mother (especially the letter of January 5, 1841, on imagination as 'the discovering faculty'), to Babbage, and to Andrew Crosse and his son in the period 1844–1845. The structural content is precise: Ada distinguishes 'imagination' (the faculty that 'penetrates into the unseen worlds around us, the worlds of Science') from mere 'fancy' (decorative or arbitrary association); she identifies imagination as the faculty by which scientific hypotheses are originated, and mathematics as the faculty by which they are verified and extended; and she names the integrated practice of the two — the deliberate combination of imaginative origination and mathematical verification — as 'poetical science,' the methodology that distinguishes the Note A reframe of the Analytical Engine. The articulation should be read against her biographical situation: it is a deliberate reclamation of the imaginative-Byronic inheritance her mother's pedagogy had tried to suppress, redeployed not as a return to the Byronic temperament but as a specifically methodological component of the analytical-mathematical work the same pedagogy had installed. 'Poetical science' is Ada's name for the operational method that her dual inheritance made structurally distinctive.",
+      "key_decisions": [
+        "Ada's articulation of 'poetical science' as a deliberate methodology rather than a temperamental description.",
+        "Her self-conscious reclamation of the imaginative-Byronic inheritance as a methodological component rather than as an alternative to the mathematical training."
+      ],
+      "sources": [
+        "Lovelace to Lady Byron, 5 January 1841",
+        "Lovelace–Babbage correspondence, 1843",
+        "Lovelace–Crosse correspondence, 1844–1845, Bodleian dep. Lovelace Byron 168",
+        "Toole 1992, pt. III"
+      ]
+    },
+    {
+      "id": "N12",
+      "title": "The post-Notes years — gambling, the betting system, opium, Mesmer, and the structural problem of the next project (1844–1851)",
+      "period": "1844–1851",
+      "summary": "After the September 1843 publication of the Notes, Ada faced the structural problem of what her next project should be. The Analytical Engine was not being built; Babbage had no operational vehicle to which she could attach further work. She considered, in correspondence with Faraday, Andrew Crosse, and others, projects on the mathematics of the nervous system ('a calculus of the nervous system'), on electromagnetic phenomena, and on the mathematical foundations of Mesmerism — the latter pursued through visits to Crosse's experimental laboratory at Fyne Court in 1844 and through experiments with opium, mesmeric trance, and what she called the 'molecular' theory of nervous action. None of these projects produced a publishable artifact. From approximately 1845 onward she became increasingly involved with horse-racing — initially as a social activity at Ascot and Epsom, then as a serious betting enterprise. By the late 1840s she had constructed, with John Crosse (Andrew's son, with whom she had what was probably a romantic involvement) and a small consortium, a mathematical betting system that she pursued with sustained operational rigor and that produced very large losses (probably £2,000–£3,200, in some accounts as much as £8,000) that she concealed from her husband and pawned the Lovelace family diamonds to cover. She also took increasing quantities of opium and laudanum, partly to manage what was probably uterine cancer (diagnosed by 1851), partly as part of the Mesmeric and 'molecular' experiments. The years are conventionally framed as decline; structurally they are better read as the failure-mode of the same operational pattern that produced the Notes: the systematic instrumentation of any domain whose structure could be mathematically modeled, with insufficient calibration of which domains the structural model was actually adequate to.",
+      "key_decisions": [
+        "Ada's decision (c. 1845–1851) to direct sustained operational rigor at the racing betting system as a quasi-mathematical project.",
+        "Her decision to pursue the Mesmeric and 'molecular nervous system' work as serious investigation rather than as social-hobby spiritualism.",
+        "Her decision to conceal the gambling losses from her husband — and the structural pattern, repeating the Babbage-row pattern, of separating strategic-personal management from external-collaborative management."
+      ],
+      "sources": [
+        "Stein 1985, ch. 11–14",
+        "Toole 1992, pt. IV",
+        "Essinger 2014, ch. 14–15"
+      ]
+    },
+    {
+      "id": "N13",
+      "title": "Diagnosis, the deathbed reconciliation with Lady Byron, the requested burial beside Byron, and the death of November 27, 1852",
+      "period": "1851–1852",
+      "summary": "By mid-1851 Ada was certainly dying of what was almost certainly uterine cancer. The medical regime — increasing doses of opium, occasional bloodletting, a brief experiment with cannabis — managed pain inadequately. Lady Byron took control of the household in the final months and supervised the medical care; Ada's husband William, by Lady Byron's direction and at Ada's apparent acquiescence, was largely excluded from the death-room. In an extended deathbed conversation in approximately August–September 1852 Ada confessed to William the gambling debts and the involvement with John Crosse, after which their relationship was effectively closed (William left the room and did not return for the final weeks). To her mother Ada confessed an unspecified matter — variously interpreted as either an admission of the affair with Crosse or some further information about her father's circle — that confirmed Lady Byron's structural account of the family. Ada requested, and Lady Byron permitted, burial in the Byron family vault at the Church of St Mary Magdalene, Hucknall, Nottinghamshire, beside the father she had never met. She died on November 27, 1852, aged 36 — the same age at which her father had died. The structural decisions of the deathbed period — the reconciliation with Lady Byron, the explicit confession to William, the requested burial beside Byron — represent her own final articulation of the dual inheritance: she settled with her mother on the mother's terms, and she settled her own posthumous identification on the father's terms, in the same act.",
+      "key_decisions": [
+        "Ada's confession to William of the gambling debts and the Crosse involvement.",
+        "Her reconciliation, on Lady Byron's terms, with her mother in the final months.",
+        "Her explicit request for burial beside Byron, in conscious symbolic settlement of the dual inheritance she had spent her career operationally synthesizing."
+      ],
+      "sources": [
+        "Stein 1985, ch. 15",
+        "Toole 1992, pt. V",
+        "Essinger 2014, ch. 16",
+        "Lady Byron's papers, Bodleian dep. Lovelace Byron"
+      ]
+    }
+  ]
+}

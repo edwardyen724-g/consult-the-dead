@@ -1,0 +1,174 @@
+{
+  "person": "John D. Rockefeller, Sr.",
+  "method": "Kelly Repertory Grid — bipolar constructs derived from 23 derivation incidents (001-023), to be validated against 5 holdout incidents (024-028)",
+  "construct_count": 12,
+  "constructs": [
+    {
+      "construct_id": "C01",
+      "construct": "Structural-position preservation as the operative decision variable vs. transaction-margin optimization as the operative decision variable",
+      "positive_pole": "Evaluates each potential transaction, position, or commitment by its first-order effect on continuing structural assets — network connections, information environments, cost-curve positions, asset-ownership stakes — rather than by the direct margin produced by the transaction itself, accepting present-period cost or compressed margins in exchange for permanent structural-position preservation or extension",
+      "negative_pole": "Evaluates each transaction, position, or commitment by its standalone direct return, treating structural-asset effects as soft secondary considerations subordinate to the immediate margin",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-004",
+        "incident-005",
+        "incident-008",
+        "incident-009",
+        "incident-011"
+      ],
+      "behavioral_implication": "When Rockefeller faces a commercial choice — job offer, partnership dissolution, business-line continuation, scheme participation, competitor acquisition, infrastructure threat — he will systematically discount immediate return in favor of the structural-asset effect, even when the structural asset has not yet manifested its concrete value. He will pursue door-to-door Job Day applications past initial refusals because the structural-trajectory differential outweighs immediate-employment value. He will commit pre-arranged credit lines to win the Clark auction at a price exceeding book value because the structural position is the operative variable. He will exit profitable produce-commission operations to commit fully to refining because parallel operation dilutes structural focus. He will sign Standard into the SIC scheme despite anticipating its political failure because the brief operational window enables structural acquisitions that survive the scheme's collapse. He will pursue all three Tidewater responses simultaneously because structural-cost-architecture preservation is existential and warrants redundant deployment.",
+      "holdout_predictions": "Predicts that Rockefeller will accept the 1911 dissolution's structural form rather than contest implementation, because the post-dissolution structural position (largest pro-rata holder in 34 successor companies) is preserved through cooperation; and that he will retain shareholding position in 1897 retirement rather than divest, preserving structural-economic alignment with the firm even after operational delegation."
+    },
+    {
+      "construct_id": "C02",
+      "construct": "Legal-corporate architecture as a tunable operational instrument requiring redesign across phases vs. legal architecture as relatively static commercial background",
+      "positive_pole": "Treats legal-corporate-architectural forms (partnership, corporation, federation, trust, holding company, foundation charter) as instruments whose specific form determines the operational moves available, periodically redesigning the architecture across the firm's growth phases to remove accumulated environmental constraints — accepting the legal-administrative cost and political-visibility cost of redesign as the price of preserving operational capacity",
+      "negative_pole": "Treats legal-corporate-architectural form as a relatively static commercial background that should be selected once and maintained through commercial growth, viewing architectural redesigns as exceptional events warranting maximum contestation rather than as routine responses to environmental change",
+      "derived_from_incidents": [
+        "incident-006",
+        "incident-010",
+        "incident-013",
+        "incident-018"
+      ],
+      "behavioral_implication": "When Rockefeller observes that an existing architectural form is reaching its operational limits (partnership form constraining stock-swap acquisitions, federation-of-named-firms straining at scale, Trust struck down in 1892, community-of-interest operationally strained by 1899), he will pursue architectural redesign rather than patch the existing form. The redesign will preserve operational substance (consolidated decision-making, stock-swap acquisition capacity, multi-state coordination) while changing the architectural form (incorporation, federation, trust, holding company). The pattern operates at intervals of roughly a decade across the active management period and is one of the most consistent signatures of his operational practice.",
+      "holdout_predictions": "Predicts the 1913 New York-vs-federal Foundation charter shift: when the federal-charter path is blocked, he will redesign by shifting to the structurally-equivalent New York alternative rather than persist with the blocked path, accepting prestige differential as secondary to operational-launch effect."
+    },
+    {
+      "construct_id": "C03",
+      "construct": "Pre-arranged structurally-decisive position before the visible competitive moment vs. real-time improvisation at the moment of contest",
+      "positive_pole": "Establishes the structurally-decisive position (capital availability, volume commitments, counterparty alignments, audited-book presentation, standardized acquisition method) before the visible competitive event, treating the visible event as a procedural execution of the prepared position; decides outcomes through preparation conducted invisibly in advance rather than through skillful-improvisation in the visible contest",
+      "negative_pole": "Approaches competitive moments as real-time contests requiring skill, judgment, and improvisation in the visible event, with preparation as background context rather than as the determining variable",
+      "derived_from_incidents": [
+        "incident-004",
+        "incident-007",
+        "incident-008",
+        "incident-009"
+      ],
+      "behavioral_implication": "When Rockefeller anticipates a competitive moment — partnership auction, rate negotiation, scheme launch, mass-acquisition operation — he will engineer the structurally-decisive position before the moment arrives. He will arrange credit lines before the Clark auction so that the bidding outcome is determined by his prepared capacity. He will negotiate volume commitments with the Lake Shore so that the rebate-rate is determined by the prepared volume rather than by the contemporary commercial bargaining. He will design the standardized Cleveland-Massacre acquisition method (audited books, sorted cash-or-stock terms) before the SIC window opens so that the six-week operation executes a prepared template rather than 26 separate negotiations. The pattern of preparation-as-determining-variable is consistent across his commercial career and prefigures the systematic-philanthropic-method's preference for systematic-method-design over ad-hoc engagement.",
+      "holdout_predictions": "Predicts that the 1897 retirement transition will be operationally smooth (Archbold and Executive Committee structure prepared in advance), and that the 1908 antitrust deposition posture will be pre-arranged with lawyers rather than improvised in the deposition room."
+    },
+    {
+      "construct_id": "C04",
+      "construct": "Long-horizon-asset preservation through deliberate operational discipline vs. present-period output maximization through operational intensity",
+      "positive_pole": "Treats personal-managerial capacity, family-succession capability, firm-architectural integrity, and philanthropic-institutional vehicles as long-horizon assets whose preservation across decades requires deliberate operational-discipline architecture (daily management routines, full-commitment-to-superior-trajectories, scheduled retirement, systematic-method delegation), accepting present-period output reduction as the price of multi-decade compounding",
+      "negative_pole": "Maximizes present-period output through operational intensity — long working hours, parallel-business operation, continued operational engagement past the personally-sustainable horizon, ad hoc engagement with each demand — treating long-horizon asset preservation as a soft secondary consideration",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-005",
+        "incident-015"
+      ],
+      "behavioral_implication": "When Rockefeller faces a choice between present-period intensity and long-horizon preservation, he will systematically choose preservation. He will hire substitutes during the Civil War and continue commercial operations because the multi-year position-accumulation horizon dominates the moral-immediate dimension. He will exit the produce-commission business entirely rather than run two firms in parallel because operational-attention focus is the binding long-horizon variable. He will install a daily management routine (9-to-4:30 with afternoon nap) that constrains present-period output but preserves multi-decade decision quality. He will treat health, family time, and structural pace as long-horizon investments whose returns manifest only across decades.",
+      "holdout_predictions": "Predicts the 1897 retirement at 58 (rather than continuing operational management until forced retirement) and the 1914-1915 full-delegation-to-Junior posture under Ludlow crisis (rather than direct intervention), both of which apply long-horizon-asset-preservation logic to family-succession and personal-management domains. Also predicts the post-retirement routine maintained substantially unchanged from 1897 through 1937."
+    },
+    {
+      "construct_id": "C05",
+      "construct": "Systematic-method delegation with category-specific principal authority vs. either ad-hoc principal attention or unconditional institutional discipline",
+      "positive_pole": "Designs systematic methods deployed by specialist delegates for routine decisions (Executive Committee for operational decisions, Gates for philanthropic evaluation, Junior for industrial-relations reform) while retaining principal authority for category-defining decisions (asymmetric-opportunity bets requiring personal guarantee, foundational architectural choices, religious-framework stewardship parameters); explicitly distinguishes decision categories and prescribes different mechanisms for each",
+      "negative_pole": "Either retains ad-hoc principal attention across all decisions (the personal-disbursement philanthropy pattern, the long-hours overwork pattern, the personal-attention-to-each-solicitation pattern) or defers unconditionally to institutional discipline (committee-decisions-on-everything pattern), without category-specific differentiation",
+      "derived_from_incidents": [
+        "incident-014",
+        "incident-015",
+        "incident-016"
+      ],
+      "behavioral_implication": "When Rockefeller faces a decision domain with high decision-volume, he will install systematic-method delegation (Gates-as-philanthropic-advisor, Executive Committee-as-operational-body), preserving personal attention for category-defining decisions only. When he faces a category-defining decision the institutional system would mishandle (the Lima asymmetric-opportunity bet that the risk-averse Committee would block), he will install a personal-guarantee mechanism that overrides the institutional discipline without undermining its normal authority. He will speak last in Committee discussions to allow the operating-partner experts' synthesis before his intervention, deliberately structuring meetings so that the institutional system produces its optimal output before principal-level engagement.",
+      "holdout_predictions": "Predicts the 1897 operational delegation to Archbold (category: operational management belongs to the Committee structure) and the 1914-1915 delegation of Ludlow reform to Junior (category: family-succession development requires the successor's full operational ownership of the crisis), both of which apply systematic-delegation logic to novel decision contexts."
+    },
+    {
+      "construct_id": "C06",
+      "construct": "Procedural-information-management under public attention vs. public-relations performance under public attention",
+      "positive_pole": "Treats legal-procedural events (investigations, depositions, court orders) and public-attention events (investigative-journalism attacks, congressional hearings, public-controversy phases) as procedural-information-management problems requiring narrow-truthful-answer-without-volunteered-synthesis posture, with silence as the operational default; preserves operational continuity through procedural-discipline rather than through engagement defense",
+      "negative_pole": "Treats public-attention events as public-relations performance opportunities requiring engagement, denial, partial-acknowledgment, or counter-attack; views silence as evidence of guilt and engagement as the prudential response under public scrutiny",
+      "derived_from_incidents": [
+        "incident-012",
+        "incident-021",
+        "incident-022",
+        "incident-023"
+      ],
+      "behavioral_implication": "When Rockefeller faces a public-attention event — Hepburn Committee testimony, Tarbell serialized journalistic attack, federal antitrust deposition, Supreme Court dissolution ruling — he will pursue a procedural-information-management posture: narrow truthful answers in legal forums, complete public silence on journalistic attacks, vague slow-recall posture in depositions, acceptance without contestation of forced-architectural events. He will maintain the silence-posture for the remainder of his life when warranted, accepting that the Tarbell narrative will define public-reputation history rather than engaging with marginal damage from response. He will train operating partners and family members in the same posture (Junior's later slow-spoken testimony in subsequent investigations).",
+      "holdout_predictions": "Predicts that during the 1914 Ludlow public-relations crisis, Senior will not engage publicly defending CF&I or counter-attacking critics, leaving public response to Junior's developmental work. Predicts post-1937 absence of public memoir defense beyond the 1909 Random Reminiscences, with the historical record left to Hidy and Hidy's later administrative history rather than to direct Senior engagement."
+    },
+    {
+      "construct_id": "C07",
+      "construct": "Asymmetric-structural-opportunity recognition with personal override of institutional risk-aversion vs. risk-aversion deference within institutional discipline",
+      "positive_pole": "Identifies asymmetric structural opportunities — large bounded-downside upside-unbounded positions — where systematic underinvestment by ordinary commercial or philanthropic flows produces marginal-return asymmetry, and overrides institutional risk-aversion (Committee, Board, peer-philanthropic-norms) through personal-guarantee mechanisms or category-distinction arguments to enable deployment",
+      "negative_pole": "Defers to institutional discipline (Committee judgment, Board majority, peer-philanthropic-norms) on speculative positions with bounded downside, accepting the institutional risk-aversion as a cost of disciplined operation and passing on asymmetric opportunities that the institution would block",
+      "derived_from_incidents": [
+        "incident-011",
+        "incident-014",
+        "incident-019",
+        "incident-020"
+      ],
+      "behavioral_implication": "When Rockefeller identifies an asymmetric structural opportunity (Lima sulfur-oil with parallel desulfurization research, Tidewater redundant-mechanism response, laboratory-medicine systematic underinvestment, Southern Black-education political-environment hostility), he will deploy capital and operational commitment regardless of Committee or Board risk-aversion, using personal-guarantee mechanisms (Lima) or category-distinction arguments (asymmetric-opportunity vs. incremental-decision) to enable deployment without undermining institutional discipline for ordinary decisions. The pattern is one of the most distinctive signatures of his framework and produces both the Lima upstream-production position and the foundational philanthropic vehicles.",
+      "holdout_predictions": "Predicts that in late-life decisions, Rockefeller will continue identifying structural-allocation opportunities for philanthropic capital deployment that peer-philanthropic-norms would not pursue (e.g., Southern Black education, international hookworm eradication), with the systematic-method's institutional vehicles providing the operational capacity for deployment."
+    },
+    {
+      "construct_id": "C08",
+      "construct": "Documented-instrument substrate for all transactions vs. relational-or-informal substrate for ordinary transactions",
+      "positive_pole": "Treats every financial transaction — boyhood neighbor loan, Civil War substitution, rebate contract, Trust certificate, philanthropic grant — as a documented instrument with explicit terms, recorded in continuing ledger discipline that integrates personal, commercial, and philanthropic accounts into a unified operational substrate; rejects relational, informal, or trust-based transactional substrates as failures of operational discipline",
+      "negative_pole": "Conducts ordinary transactions on relational, informal, or trust-based substrates (verbal agreements, family-cash-style favors, undocumented commitments), reserving formal-documented-instrument structures for legally-required or commercially-large transactions",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-003",
+        "incident-007"
+      ],
+      "behavioral_implication": "When Rockefeller faces any transaction — at any scale, in any domain — he will structure it as a documented instrument with explicit terms recorded in his continuing ledger framework. The age-seven $50 loan to a neighbor at 7% interest is documented in Ledger A; the Civil War substitution is conducted through the legal substitution provision rather than informal arrangement; the Lake Shore rebate is structured as a written contract with specified volume commitment rather than as ad hoc per-shipment grants. The pattern operates from boyhood through old age, with the same ledger-discipline framework operating at exponentially different scales (the $50 loan and the $50 million Foundation endowment recorded in the same operational substrate). Refuses gentleman's-handshake commercial culture in favor of documented instruments even when the documentation cost is socially friction-producing.",
+      "holdout_predictions": "Predicts that lifetime philanthropic disbursements will be recorded in the unified ledger framework alongside personal accounts, that the post-retirement silver-coin practice will be recorded as continuing ledger entries despite economic insignificance, and that the integrated personal-and-philanthropic ledger will be preserved as a documentary record across the full life arc."
+    },
+    {
+      "construct_id": "C09",
+      "construct": "Co-investment-forcing structure that sorts counterparties by alignment vs. unilateral grant or unilateral cash-purchase that does not sort",
+      "positive_pole": "Designs grant terms, acquisition terms, and contract terms with explicit co-investment requirements (matching-grant conditions, volume-commitment requirements, cash-or-stock sorted offerings) that force counterparties to demonstrate continuing alignment with the structural position before the transaction completes; uses the co-investment requirement as a sorting mechanism that segments counterparty behavior types and produces self-selected aligned populations",
+      "negative_pole": "Provides unilateral grants, unilateral cash purchases, or open-terms contracts that do not sort counterparties by alignment, treating structural-alignment as either pre-existing relationship or as not relevant to transaction terms",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-009",
+        "incident-017"
+      ],
+      "behavioral_implication": "When Rockefeller designs transaction terms, he will install co-investment-forcing mechanisms that sort counterparties by alignment. The Lake Shore rebate requires 60-carload-per-day volume commitment as the consideration, sorting railroads by their ability to commit volume infrastructure. The Cleveland Massacre acquisition terms offer cash-or-stock sorting, sorting acquired owners by their continuing belief in Standard's structural position (stock-takers became aligned shareholders, cash-takers exited). The University of Chicago matching-grant requirement forces the Baptist Education Society to raise $400,000 from other donors before his $600,000 commits, sorting institutions by constituency-construction capacity. The pattern produces self-selected aligned populations rather than externally-imposed alignment.",
+      "holdout_predictions": "Predicts that the Rockefeller Foundation's grants to operating institutions will continue the matching-grant template (which they did, with declining-grant structures common), and that Junior's industrial-representation plan post-Ludlow will incorporate worker-elected representation as a co-investment-style alignment mechanism rather than unilateral management-imposed structure."
+    },
+    {
+      "construct_id": "C10",
+      "construct": "Visibility-managed architectural pluralism that preserves operational substance vs. visible single-entity consolidation with public-relations defense",
+      "positive_pole": "Manages the visibility cost of consolidation through architectural pluralism — federation-of-named-firms operating publicly under separate identities while economically aligned, deniability about coordinating structures preserved until forced disclosure, principal-actor-deniability through operating-partner public roles — accepting the architectural complexity as the price of reduced political-target visibility",
+      "negative_pole": "Pursues visible single-entity consolidation as the operational form of choice, defending it through public-relations engagement when challenged; treats visible consolidation as more efficient than architectural pluralism even when the visibility produces political-target effects",
+      "derived_from_incidents": [
+        "incident-008",
+        "incident-010",
+        "incident-013",
+        "incident-018"
+      ],
+      "behavioral_implication": "When Rockefeller designs consolidation architecture, he will deliberately preserve public-appearance separation and principal-actor-deniability through architectural pluralism. The SIC role behind Tom Scott's visible leadership; the Pittsburgh Plan's stock-exchange agreements that preserved public-name operation under Lockhart, Frew, and Pratt; the Trust structure's underlying state-corporation separateness with the trustees' beneficial-ownership held secretly; the New Jersey holding company's pluralistic-jurisdiction preservation. Accepts the legal-architectural and operational-coordination cost of pluralism in exchange for reduced political-target visibility.",
+      "holdout_predictions": "Predicts that the post-1911 dissolution structure (34 successor companies) will be accepted rather than contested because it produces architectural pluralism that aligns with the visibility-management instinct; predicts that Foundation operations will be conducted under multiple institutional vehicles (Foundation, Institute, GEB, Sanitary Commission) rather than consolidated into a single visible entity."
+    },
+    {
+      "construct_id": "C11",
+      "construct": "Religious-framework stewardship disposition of accumulated wealth vs. dynastic-inheritance or consumption disposition",
+      "positive_pole": "Treats accumulated wealth as a flow requiring continuing operational disposition under religious-framework stewardship constraint (Baptist tithe baseline substantially exceeded), with systematic-philanthropic-method institutional vehicles as the deployment architecture and the unified ledger-discipline framework integrating accumulation and disposition phases; rejects the static-stock view of wealth in favor of the dynamic-flow view",
+      "negative_pole": "Treats accumulated wealth as static stock to be either consumed personally, transferred dynastically through family-trust structures, or dispersed through ad hoc charitable disbursement without systematic-method institutional vehicles",
+      "derived_from_incidents": [
+        "incident-016",
+        "incident-017",
+        "incident-019",
+        "incident-020"
+      ],
+      "behavioral_implication": "When Rockefeller faces wealth-disposition decisions, he will deploy systematic-philanthropic-method institutional vehicles rather than personal disbursement, dynastic-trust transfer, or consumption. The Gates hire installs systematic-evaluation as the disbursement substrate. The University of Chicago institutional grant deploys capital at scale through a multi-source-funded institution. The Rockefeller Institute deploys capital in the structurally-underinvested laboratory-medicine domain. The General Education Board deploys capital across decades in Southern education including politically-contested Black education. The pattern operates from the 1891 Gates hire forward and produces an institutional-vehicle architecture that absorbs capital at scale.",
+      "holdout_predictions": "Predicts that lifetime philanthropic disbursements will reach a substantial fraction of peak personal wealth (cumulative total approximately $530M, more than half of peak wealth in real terms), and that the institutional-vehicle architecture will operate for decades after Rockefeller's death (Foundation, Institute as Rockefeller University, GEB legacy continuing into late 20th century)."
+    },
+    {
+      "construct_id": "C12",
+      "construct": "Window-exploitation before structural collapse vs. commitment to arrangement permanence or stability",
+      "positive_pole": "Treats unstable competitive arrangements (legally-fragile schemes, transitional regulatory environments, technical-uncertainty windows, political-deadlock periods) as windows whose value lies in the operational moves available before collapse rather than as commitments whose value lies in their permanence; designs operations to capture the transitional-window value while remaining indifferent to the arrangement's ultimate stability",
+      "negative_pole": "Evaluates arrangements by their long-run stability and refuses to participate in arrangements whose ultimate failure is high-probability, treating arrangement-permanence as the precondition for legitimate participation",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-008",
+        "incident-009",
+        "incident-011"
+      ],
+      "behavioral_implication": "When Rockefeller observes an unstable arrangement that nonetheless creates a brief operational window — the Civil War commodity-supply boom and substitution-provision availability, the SIC scheme that will likely fail politically but offers a six-week acquisition window, the Tidewater pre-resolution period that allows redundant-mechanism deployment before the threat matures — he will design operations to capture the window's value regardless of the arrangement's ultimate fate. The Cleveland Massacre acquisitions are permanent even as the SIC vehicle collapses; the Lake Shore rebate's value is in the acquisition window it enables rather than in the rebate's permanence; the Tidewater three-pronged response captures multiple windows whose individual outcomes are uncertain but whose joint failure is unlikely.",
+      "holdout_predictions": "Predicts that during late-career architectural-redesign moments (1899 holding-company restructuring against likely federal action, 1913 Foundation NY-charter shift), Rockefeller will treat the available-arrangement as a window to be exploited before it closes rather than as a permanent commitment requiring stability assessment; the Foundation NY charter is taken when available rather than waiting for federal-charter stability."
+    }
+  ],
+  "perceptual_lens_summary": "Rockefeller perceives every situation as a system of structural positions, continuing flows, and architectural forms whose long-run integrity must be preserved through deliberate-architecture deployment of capital, contracts, and personal capacity, reading the immediate decision not as a transaction but as the architectural-engineering moment at which structural form determines decade-scale outcomes. The unifying perceptual act: read the situation as a system of continuing flows and structural positions; identify the architectural lever that preserves or extends the system's integrity across phases; install the lever through documented-instrument substrate before the visible competitive moment; let the structural position compound through ordinary processes; for legal-procedural and public-attention events that arrive, deploy procedural-information-management posture; for the disposition of accumulated wealth, deploy systematic-philanthropic-method institutional vehicles under religious-framework stewardship constraint."
+}

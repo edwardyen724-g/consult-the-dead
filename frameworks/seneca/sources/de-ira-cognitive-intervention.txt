@@ -1,0 +1,102 @@
+De Ira: The Architecture of Cognitive Intervention
+SYNTHESIZED CONTEXT — close reading of De Ira (three books, c. 41-52 CE), Seneca's
+most systematic treatment of the mechanics by which an emotion arises and how it can
+be interrupted, with reference to Long & Sedley and Inwood.
+
+== THE ANALYTICAL MOVE ==
+
+De Ira does what most ancient philosophy of emotion does not: it gives a sequential,
+mechanical account of how anger forms. The sequence has three stages. First: an
+involuntary impression — something happens, the body registers it. Second: an
+involuntary first movement — physical activation, racing heart, flushing. Third: a
+voluntary judgment — the mind ASSENTS to the impression that this is an outrage to
+be avenged. Without the third stage, no anger; only the impression and the body.
+The framework's intervention is at stage three: the assent.
+
+== WHY THE STAGED MODEL MATTERS ==
+
+The model tells you where intervention is possible and where it is not. The
+impression cannot be prevented; it arrives. The first movement cannot be prevented;
+it is autonomic. But the assent is a judgment, and judgments are within the agent's
+power. The framework reframes anger from something that happens to you into
+something you do — a voluntary endorsement that you can withhold. The locus of
+control narrows but is real.
+
+== THE PRACTICE: INTERPOSE TIME ==
+
+Seneca's primary technical recommendation is delay. When the first movement arises,
+do not respond. Wait. Most provocations look different ten minutes later, an hour
+later, a day later. The provocation is not changing; the perception is. Time allows
+the impression to be re-evaluated by faculties not yet activated by the first
+movement. The construct: TEMPORAL DISTANCE IS A FORM OF ANALYTIC DISTANCE. By
+positioning the response further from the stimulus in time, you allow the
+analytical faculty to engage before the emotional faculty has committed.
+
+== THE PRACTICE: NIGHTLY REVIEW ==
+
+In Book III Seneca records a practice he attributed to the Stoic Sextius: at the end
+of each day, review the day's actions. What did I do today? Was it well-judged?
+Where did I fail? The review is not a confession but an audit. Patterns become
+visible. Particular triggers recur. The audit's purpose is to identify the
+vulnerabilities BEFORE the next provocation, so the response is ready. The construct:
+SELF-KNOWLEDGE IS A LOG-DRIVEN PRACTICE. You cannot reason about yourself in real
+time as well as you can reason about a record of yourself.
+
+== THE PRACTICE: ANTICIPATION ==
+
+Seneca recommends anticipating provocations. The morning's mental work: today I will
+encounter the rude, the ungrateful, the dishonest, the hostile. I am not surprised
+by any of them. By pre-loading the expectation, the actual encounter does not
+surprise. Surprise is the trigger of the disproportionate response. Eliminate
+surprise, and the response calibrates. Marcus Aurelius famously absorbed this
+exercise in the Meditations.
+
+== THE COGNITIVE THEORY UNDERNEATH ==
+
+What De Ira articulates, in pre-modern language, is what cognitive behavioral
+therapy would later codify: that distress is largely produced by judgments
+about events rather than events themselves, and that judgments can be examined,
+challenged, and revised. The Stoic priority on judgment-control is the
+operational core of the framework Seneca applies across all decisions, not just to
+anger. His treatment of grief, fear, ambition, lust — all use the same machinery.
+De Ira is the engineering manual; the rest is application.
+
+== THE FRAMEWORK'S DOMAIN ==
+
+De Ira makes claims about emotions; Seneca extends the claims to all decisions
+under stress. The architecture is: stimulus → involuntary response → moment of
+choice → committed action. Most decisions follow this shape. The framework's
+intervention is always at the moment of choice. Whether the stimulus is an insult,
+a temptation, a setback, or a death threat, the operational pattern is the same:
+slow the response, expand the moment of choice, audit the assent before granting
+it.
+
+== THE LIMIT OF THE INTERVENTION ==
+
+The framework requires a working analytical faculty in the moment of stimulus. If
+the impression is overwhelming, or the body is in extreme stress, the agent may not
+be able to delay assent. Seneca's response: BUILD THE CAPACITY IN ADVANCE through
+practice. Daily review, anticipation, periodic adversity-rehearsal — these install
+the response when it is not needed, so it is available when it is. The framework's
+honesty: in-the-moment intervention will sometimes fail; the long preparation is
+what produces consistent results.
+
+== APPLICATION ACROSS THE LIFE ==
+
+De Ira's framework is visible in nearly every decision Seneca made under pressure.
+The composure during the Pisonian questioning. The calibration of the death scene.
+The careful incremental moves against Agrippina. The wealth-defense in De Vita
+Beata. Each is the same machinery applied to a different domain. The framework's
+power is its generality. Its weakness is that it requires a level of self-control
+the framework itself acknowledges most people will not achieve. De Ira does not
+claim everyone can do this. It claims it is the discipline of a life, and the
+benefits are commensurate with the investment.
+
+== METHOD EXTRACTABLE ==
+
+The De Ira method, in operational form: (1) Recognize that an emotion is a judgment,
+not a fact. (2) Slow the response by interposing time. (3) Use the slowed moment to
+audit the judgment: is this assent justified by what is in your control? (4) Build
+the capacity in advance through nightly review and daily anticipation. (5) Do not
+trust your in-the-moment self; trust the practiced self. The framework treats the
+practiced agent as a different and more reliable agent than the unpracticed one.

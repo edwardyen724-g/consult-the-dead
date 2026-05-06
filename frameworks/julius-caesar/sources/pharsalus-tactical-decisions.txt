@@ -1,0 +1,96 @@
+Pharsalus: Concentrated Force Against the Decisive Wing
+SYNTHESIZED CONTEXT — drawn from Caesar's Bellum Civile Book III, Plutarch
+(Caesar 42–46, Pompey 67–72), Appian (Civil Wars 2.65–82), Cassius Dio
+Book 41, Lucan (Pharsalia, retrospective but preserving traditional
+operational details), and Goldsworthy's military reconstruction.
+
+== THE PROBLEM AS HE INHERITED IT ==
+
+In August 48 BCE, Caesar's army of about 22,000 confronted Pompey's
+army of about 45,000 at Pharsalus in Thessaly. Caesar's force was
+recovering from a near-disaster at Dyrrachium (where Pompey had
+besieged him, broken his siege lines, and could have destroyed his army
+had he pressed the pursuit). Caesar had retreated south into Thessaly
+to rebuild morale and supplies; Pompey had pursued, against the
+advice of his more cautious staff officers (Afranius, Cato), under
+pressure from the senatorial exiles in his camp who were impatient for
+a decisive battle. The constraint was that Caesar's army was
+numerically inferior, had been recently defeated, and was operating in
+unfriendly terrain — but Pompey's army contained a senatorial-exile
+political class that was forcing premature engagement against the
+better military judgment of its commander.
+
+== THE FRAMING DECISION (PRE-BATTLE) ==
+
+Caesar identified the structural vulnerability of Pompey's deployment:
+Pompey had massed seven thousand cavalry on his left wing, planning to
+use his cavalry superiority to envelop Caesar's right and roll up the
+infantry line. The deployment was operationally sound — cavalry
+envelopment was the standard tactical solution to numerical superiority
+in flat terrain — but it depended on the cavalry charge succeeding.
+Caesar prepared a fourth, hidden line of six cohorts (about 2,000–3,000
+veterans) positioned obliquely behind his right wing. Their orders were
+specific: when Pompey's cavalry charged, they would advance against the
+cavalry's flank, using their javelins not to throw but to thrust at
+the riders' faces. Caesar reasoned that the young equestrians in
+Pompey's cavalry — concerned for their appearance — would flinch from
+facial wounds and break the charge.
+
+== THE PRINCIPLE BEHIND THE FOURTH LINE ==
+
+The fourth line was not a reserve. It was a counter-deployment whose
+function was to convert Pompey's prepared maneuver into a force
+multiplier for Caesar. Pompey's cavalry charge, if blunted, would
+force the cavalry to retire — and the cavalry's retreat would
+disrupt Pompey's left-wing infantry, opening the structural
+vulnerability of the larger force. Caesar's smaller army could not
+defeat Pompey's larger army by direct attrition; it could defeat
+Pompey's larger army by inducing the larger army's prepared maneuver
+to fail catastrophically at its decisive point. The fourth line is the
+spring that catches the trap; the trap is set by Pompey's own
+deployment.
+
+== THE EXECUTION MOMENT (9 AUGUST 48 BCE) ==
+
+The battle unfolded as Caesar designed. Pompey's cavalry charged the
+Caesarian right wing; the Caesarian cavalry retreated as planned,
+exposing the cavalry to the fourth line; the fourth line advanced
+under specific orders, and the cavalry — exactly as Caesar predicted —
+broke and fled. The exposed Pompeian left wing, now without cavalry
+cover, was rolled up by the fourth line's continued advance. Pompey's
+infantry, stable in front but suddenly threatened in flank and rear,
+disintegrated. Pompey himself fled the field, then the camp, then
+Greece. The numerically inferior Caesarian force had destroyed the
+Pompeian center of gravity in a battle that lasted under four hours.
+
+== POST-DECISION REASONING ==
+
+Caesar's own narrative emphasizes the operational specifics — the
+fourth line's orders, the timing, the structural identification of
+Pompey's plan — in unusual detail, suggesting he understood the
+battle as a specific implementation of a general principle: identify
+the enemy's prepared decisive maneuver, then pre-build the
+counter-deployment that converts the maneuver's success criteria into
+its failure mode. The reasoning is structurally identical to the
+deception architecture of better-known battles: rather than oppose
+Pompey's strength, Caesar designed the situation in which Pompey's
+strength would produce his own defeat. The cavalry was Pompey's
+decisive asset; Caesar made the cavalry the decisive vector of
+defeat.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+Pharsalus reveals Caesar's operational pattern: when facing a
+numerically superior force, identify the specific maneuver the larger
+force has prepared, build the counter that turns the maneuver into a
+trap, then induce the larger force to execute its plan. The decision
+rule is not 'find a way to match the enemy's numbers' but 'identify
+which of the enemy's prepared actions, if induced and then countered,
+collapses his structural coherence.' The fourth line is structurally
+identical to the strike onto the Pratzen Heights at Austerlitz (in
+Napoleonic terms) or to the cessation of attack at Cannae (in
+Hannibal's terms): a small, precisely positioned counter-deployment
+that converts the larger force's prepared action into the mechanism of
+its destruction. Pompey's superior numbers were a structural advantage
+only if Pompey could execute his plan; Caesar made the execution the
+defeat.

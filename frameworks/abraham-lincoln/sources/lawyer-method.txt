@@ -1,0 +1,103 @@
+The Lawyer's Method: Lincoln's Pre-Political Reasoning Discipline
+SYNTHESIZED CONTEXT — drawn from Steiner's "An Honest Calling: The Law Practice of
+Abraham Lincoln" (2006), Donald (1995), Herndon's recollections, and the documentary
+record of Lincoln's roughly 5,100 case files in the Lincoln Legal Papers project.
+
+== THE TWENTY-FIVE YEAR PRACTICE ==
+
+Lincoln practiced law in Illinois from 1837 to 1861, a span of twenty-four years
+broken only by his single congressional term and the 1858 senate campaign. He handled
+roughly 5,100 cases, ranging from minor debt collection to the Effie Afton riverboat
+case (1857) and the McCormick Reaper case (1855). The practice was the daily
+discipline that shaped his cognitive habits more durably than any other formative
+experience. By the time he became president, his method of analyzing problems had
+been calibrated for two decades against the test of court adjudication.
+
+== THE LAW-AS-LEARNED-METHOD ==
+
+Lincoln learned law largely on his own from Blackstone, Chitty, and case reports.
+The autodidact's discipline produced specific habits. He read slowly. He questioned
+every premise. He stopped when he encountered a term he did not understand and
+worked through it before continuing. Herndon described Lincoln walking the office
+with a book until he understood the principle. The reading method shaped a thinking
+method: stop when something is unclear; do not proceed until the unclear element
+is resolved; treat each principle as a load-bearing component that subsequent
+reasoning depends on.
+
+== CASE PREPARATION: THE OPPONENT-FIRST METHOD ==
+
+In case preparation, Lincoln's documented practice was to identify the strongest
+version of the opposing argument first, prepare a refutation of it, and only then
+construct his own affirmative case. Herndon noted that Lincoln "would often state
+the case for the other side as well as the lawyer who appeared in it" and that he
+prepared his cases by first satisfying himself that he could not win the opposite
+side. The method produced a specific cognitive habit: he would not advance an
+argument he could refute himself. The discipline was carried directly into political
+reasoning. The Cooper Union speech is preparation done in the same mode — Lincoln
+identifies the strongest counter-argument (Douglas's "original understanding" frame)
+and uses it to prove the opposite.
+
+== THE EFFIE AFTON CASE (1857) ==
+
+The Effie Afton case is the most analytically informative documented case in the
+practice. The case involved a steamboat that had hit a railroad bridge across the
+Mississippi at Rock Island, sinking. The boat owners sued the bridge owners. Lincoln
+represented the bridge. The legal issues touched on emerging questions of corporate
+infrastructure, the Mississippi as a federal navigation route, and the rights of
+railroads to span major rivers. Lincoln visited the bridge personally, studied the
+currents and flow rates, and constructed an argument that the steamboat pilot's
+operational error was the proximate cause, not the bridge. The case ended in a hung
+jury and was not retried. The preparation method — direct site investigation,
+empirical analysis of physical conditions, framing of the legal question through
+the operational facts — is the method he applied later as commander-in-chief.
+
+== STORYTELLING AS A LOGIC INSTRUMENT ==
+
+Lincoln's use of stories in legal practice is documented extensively. He used
+anecdotes in arguments to juries, in briefs, and in conversations with opposing
+counsel. The stories were not decoration. They functioned as analogical reasoning
+made memorable. A jury asked to evaluate a contract dispute would remember a story
+that mapped the structural features of the dispute to a familiar everyday situation.
+Lincoln's pattern was to identify the key structural feature he wanted the audience
+to perceive and to construct or recall a story whose structure exposed that feature
+clearly. The technique converted abstract analysis into accessible reasoning. He
+applied it in cabinet meetings, in messages to Congress, and in his correspondence
+with generals.
+
+== TRIAL CULTURE AND ADVERSARIAL EXPOSURE ==
+
+The Eighth Circuit practice in mid-century Illinois was adversarial in a particular
+way: lawyers traveled together from county courthouse to county courthouse, often
+opposing each other in the morning and dining together at night. This shaped Lincoln's
+disposition toward intellectual opponents. He treated opposition as a normal
+condition of the work, not as a personal affront. He developed close working
+relationships with men whose courtroom positions he was actively refuting. The
+disposition transferred directly to his political life. Stanton, who had insulted
+him in the McCormick case, became his War Secretary. Seward, his nomination rival,
+became his Secretary of State. The capacity to work with intellectual opponents
+without converting opposition into hostility was a habit cultivated over decades
+of trial practice.
+
+== WHAT THE LEGAL PRACTICE REVEALS ==
+
+Lincoln's legal career is the longest single training in disciplined reasoning he
+underwent. The habits visible in the practice — slow careful reading, opponent-first
+preparation, empirical investigation of facts on the ground, structural analogical
+reasoning, and the separation of intellectual opposition from personal hostility —
+are the same habits visible in his presidential decision-making. Any reconstruction
+of Lincoln's framework that omits the legal practice misses the source of the
+operational discipline. The framework was not assembled in the White House. It was
+assembled in twenty-four years of trial work and applied to a different problem
+domain when the war began.
+
+== THE LIMIT THE PRACTICE IMPOSED ==
+
+The legal training also constrained Lincoln's reasoning in identifiable ways. He
+preferred procedural mechanisms over substantive proclamations. He preferred narrow
+legal claims to broad moral ones. He preferred precedent-based reasoning to natural-
+right reasoning. These preferences produced the sometimes-frustrating cautiousness
+that even his allies criticized. The constraint was not separable from the discipline:
+the same habits that produced careful judgment also produced reluctance to act
+beyond what could be defended in the legal mode he had been trained in. The framework
+that emerged was the framework of a working trial lawyer applied to questions of
+state, with the trial lawyer's strengths and the trial lawyer's characteristic limits.

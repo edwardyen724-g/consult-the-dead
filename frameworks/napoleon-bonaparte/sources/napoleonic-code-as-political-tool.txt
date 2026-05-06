@@ -1,0 +1,66 @@
+The Napoleonic Code: Legal Reform as Permanent Political Infrastructure
+SYNTHESIZED CONTEXT — drawn from the proceedings of the Conseil d'État (1800–1804),
+Cambacérès' memoirs, Tronchet's correspondence, the Code Civil itself, and
+Tulard's analysis of the codification project.
+
+== THE PROBLEM AS HE INHERITED IT ==
+
+Revolutionary France in 1800 had inherited 14,000 decrees and a patchwork of
+customary laws (north) and Roman law (south) that produced inconsistent rulings
+across the country. Three previous attempts at codification under the Revolution
+(1793, 1794, 1796) had failed because they tried to solve the problem as a problem
+of legal philosophy. He treated it as a problem of political consolidation: a
+single Code, applied uniformly, would create a citizen whose legal identity was
+defined by France itself, not by his region, his guild, or his pre-revolutionary
+estate.
+
+== THE FRAMING DECISION (AUGUST 1800) ==
+
+He convened a four-man commission (Tronchet, Bigot de Préameneu, Maleville,
+Portalis) to draft, and presided personally over 57 of the 102 Conseil d'État
+sessions where the draft was debated. The framing was explicit: this was not
+to be a perfect law but a usable one, written in language a non-lawyer could
+read, and structured to be enforceable by a salaried magistracy that owed its
+position to the State. He intervened most often on questions of family law,
+property, and the legal status of women — the parts that touched daily life
+and therefore touched political loyalty.
+
+== THE PRINCIPLE BEHIND THE CODE ==
+
+He understood that military victories produced impermanent gains; conquered
+territory could be reconquered. But a legal architecture that survived him
+would convert his victories into infrastructure that subsequent regimes could
+not easily dismantle without destroying the social order that depended on the
+Code itself. Hardware over reputation: a code outlasts a man, a battle does not.
+The Code was a strategic move whose payoff scheduled itself for after his death.
+
+== THE PRINCIPLE'S EXPORT ==
+
+He imposed the Code in conquered territories — Italy, the Rhineland, the
+Netherlands, parts of Spain and Germany — not as a legal courtesy but as a
+form of permanent occupation. Local elites who built careers under the Code
+acquired interests in its preservation that outlasted the French armies. After
+his fall, restored monarchies retained substantial portions of the Code because
+removing it would have required dismantling property rights and family
+arrangements that had become economically embedded. The strategic move was to
+make abandonment of the Code costlier to a successor than retaining it.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena he said: "My true glory is not to have won forty battles;
+Waterloo will erase the memory of so many victories. What nothing can erase,
+what will live forever, is my Civil Code." The statement is often read as
+self-promotion. The more accurate reading is that he correctly identified
+which of his decisions had highest persistence: the Code is still law in
+substantial form across multiple jurisdictions in 2026; his battles are
+historical events.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The Code shows a different mode of operation than the battlefield decisions:
+patient assembly of a permanent structure, accepting imperfect drafting now
+in exchange for durable presence later. The constructs that govern this work
+are inverted from the campaigns: there is no opponent to be deceived, no
+single decisive moment, no force-on-force calculation. Instead the work is to
+create a load-bearing structure whose displacement cost compounds the longer
+it remains in place.

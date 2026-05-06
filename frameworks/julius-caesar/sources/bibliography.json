@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Caesar, Julius — Commentarii de Bello Gallico (Gallic War Commentaries, c. 58–50 BCE)",
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0001",
+    "source_type": "own_published_work",
+    "description": "Caesar's seven-book account of his Gallic campaigns, written in the third person and dispatched to Rome in installments while he was still proconsul. Far more than a chronicle, it is a strategically constructed narrative produced as an active operational instrument: Caesar was simultaneously commanding the army, conducting the campaigns, and writing the official version of them for the political audience that controlled his future. The Commentaries reveal his decision-making in two registers — the explicit operational reasoning he displays (terrain selection, force concentration, use of speed and surprise) and the implicit narrative engineering by which he justifies preemptive war, frames Gallic chiefs as treacherous, and converts each escalation into an obvious moral necessity. Reading the Commentaries against the gap between what Caesar reports and what later sources document about Gallic casualties and political reactions exposes how he weaponized self-publication as a decision-supporting infrastructure: the narrative shaped Roman political tolerance for further escalation, which in turn enabled the operational decisions documented inside it.",
+    "evidence_layers": ["layer1", "layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Caesar, Julius — Commentarii de Bello Civili (Civil War Commentaries, c. 49–48 BCE)",
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0075",
+    "source_type": "own_published_work",
+    "description": "Caesar's three-book account of the civil war from the Rubicon crossing through the immediate aftermath of Pharsalus. Less polished than the Gallic War — likely unfinished at his death — but invaluable because it shows Caesar reasoning under conditions of supreme political risk, with the existential outcome of the war still uncertain. He repeatedly displays a decision pattern of speed-over-mass, structural-target-selection over annihilation, and a deliberate framing of his own actions as legally and morally compelled responses to senatorial obstruction. The visible reasoning — why he marched on Brundisium, why he pursued Pompey to Greece without waiting for reinforcement, why he extended clementia to surrendered enemies — contains his argued justifications, but the strategic logic those justifications dress is what reveals his actual operational calculus.",
+    "evidence_layers": ["layer1", "layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Plutarch — Life of Caesar (Parallel Lives, c. 100 CE)",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Caesar*.html",
+    "source_type": "firsthand_biography",
+    "description": "Plutarch's Greek biography drew on now-lost contemporary sources including Asinius Pollio (a participant in the civil war), Caesar's own writings, and senatorial archives. Its value for decision analysis lies in the specific anecdotes Plutarch preserves with attributed reasoning: the moment of hesitation at the Rubicon and the quoted phrase 'iacta alea est'; the calculated theatre of accepting tribunician honors and refusing the diadem at the Lupercalia; the exchanges with Cicero, with Pompey's emissaries, and with his own troops at Placentia mutiny. Plutarch is moralizing but not hostile, and his juxtaposition of Caesar with Alexander the Great gives him a comparative framework that surfaces decisions a chronological narrator would gloss over. Cross-referenced with Suetonius and Appian, Plutarch's reported reasoning provides the closest available approximation of Caesar's stated decision criteria in private moments.",
+    "evidence_layers": ["layer1", "layer2"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Suetonius — De Vita Caesarum, Divus Iulius (Life of the Deified Julius, c. 121 CE)",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/12Caesars/Julius*.html",
+    "source_type": "firsthand_biography",
+    "description": "Suetonius, writing as imperial archivist, had direct access to documents and letters that have not survived independently — including private correspondence between Caesar and Cicero, Senate decrees, and the texts of laws Caesar passed as consul. His thematic rather than chronological organization (campaigns, then administrative reforms, then personal habits, then the assassination) catalogs Caesar's decisions across discrete domains and preserves bureaucratic specifics other narrators omit: the exact provisions of land laws, the calendar reform mechanics, the manumission policies, the colonial settlement scale. Suetonius is the source for many of the documented Caesar quotations, and his preservation of the early-career episodes (the pirate captivity, the Sulla confrontations, the Spanish Pompey-tomb anecdote) is essential for tracing how Caesar's decision habits were formed before he had the power to act on them at scale.",
+    "evidence_layers": ["layer1", "layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Cicero — Letters to Atticus and Letters to Friends (Epistulae ad Atticum, ad Familiares, 68–43 BCE)",
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0008",
+    "source_type": "private_writing",
+    "description": "Cicero's correspondence is the only large surviving body of contemporary private writing from Caesar's adult lifetime, and it documents the Roman political class processing Caesar's decisions in real time. The letters from January 49 BCE record the Senate's deliberations on the eve of the Rubicon crossing, Pompey's evacuation logic, and Cicero's own anguished reasoning about whether to join Pompey or remain neutral. Letters from 47–44 BCE record meetings with Caesar after his return, Caesar's stated reasoning about clementia, the political handling of the Senate, and the dictator-for-life question. Because Cicero opposed Caesar politically while maintaining personal correspondence with him, his letters preserve both Caesar's stated positions (often in quoted phrases) and the gap between what Caesar said publicly and what Cicero believed Caesar actually intended.",
+    "evidence_layers": ["layer1", "layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Appian of Alexandria — Roman History, Book 2 (The Civil Wars, c. 150 CE)",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Appian/Civil_Wars/2*.html",
+    "source_type": "scholarly_analysis",
+    "description": "Appian's Greek-language history covers the late Republic with detailed reconstruction of political maneuvering during the Triumvirate and the civil wars. His access to lost Pollio material and to Augustan-era senatorial records makes him the fullest narrative source for the political negotiations Caesar conducted from 60 BCE onwards: the formation of the First Triumvirate, the conference at Luca that renewed it, the legal maneuvers Caesar used to delay returning to Rome, and the post-Pharsalus settlements. Appian's analytical framing — focused on power blocs and their interlocking incentives — captures Caesar as a political negotiator and coalition-builder more clearly than either Plutarch or Suetonius. Particularly valuable for the dictatorship-consolidation phase when Caesar's decisions involved layered constitutional engineering rather than discrete military choices.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Cassius Dio — Roman History, Books 37–44 (early 3rd century CE)",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/home.html",
+    "source_type": "scholarly_analysis",
+    "description": "Dio's senatorial Greek history of Rome provides systematic coverage of Caesar's career with particular attention to constitutional and administrative decisions — the consulship of 59, the proconsular extensions, the dictatorial offices, the calendar reform, the Senate composition changes, the colonial program. Dio's institutional perspective complements Plutarch's biographical and Appian's political-bloc framings by showing how each Caesar decision propagated through Roman constitutional structures, what precedents it broke, and what new structural facts it established. Where Suetonius lists reforms, Dio reconstructs the procedural sequence by which they were enacted, exposing Caesar's tactical use of legislative timing, magisterial authority, and senatorial procedure.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Sallust — Bellum Catilinae and surviving fragments of Historiae (c. 42–35 BCE)",
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0125",
+    "source_type": "firsthand_biography",
+    "description": "Sallust served as one of Caesar's officers in the civil war and wrote political histories from a populares perspective. His Catilinarian Conspiracy preserves the speech Caesar delivered in the December 63 BCE Senate debate over the conspirators' fate — one of the few documented instances where Caesar's own voice as a political reasoner is reported nearly verbatim. The speech reveals Caesar's reasoning style: legal precedent argument, appeals to long-term institutional consequences, emotional restraint under hostile pressure. Sallust's lost Histories contained much more on the populares tradition that shaped Caesar's earlier political vocabulary, and the surviving fragments help reconstruct the ideological framework Caesar operated within during his rise from 70 to 60 BCE.",
+    "evidence_layers": ["layer1", "layer2"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Hirtius, Aulus — De Bello Gallico Book VIII; De Bello Alexandrino, De Bello Africo, De Bello Hispaniensi (continuations of Caesar's Commentaries, 51–45 BCE)",
+    "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0001",
+    "source_type": "firsthand_biography",
+    "description": "Hirtius served as one of Caesar's senior staff officers and continued the Gallic War narrative for 51–50 BCE; the three subsequent campaign-specific books were composed by close associates from the staff. These continuations are essential for the late-Gallic and post-Pharsalus campaigns where Caesar's own writings either don't survive or weren't completed. Book VIII covers the Uxellodunum siege and the systematic mutilation policy applied to its surrendered defenders — a deliberate departure from clementia that reveals Caesar's situational calibration of mercy and terror as alternative tools. The Bellum Alexandrinum covers the Alexandrian war and the Cleopatra alliance period; Bellum Africum covers Thapsus; Bellum Hispaniense covers Munda. The staff-level perspective preserves operational details Caesar's own narratives elide.",
+    "evidence_layers": ["layer1", "layer2"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Goldsworthy, Adrian — Caesar: Life of a Colossus (2006)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Goldsworthy's modern biography integrates the literary sources with archaeological evidence and military analysis, providing the most rigorously reconstructed operational accounts of Caesar's campaigns. Particularly valuable for the Gallic War (the genocide debate, the bridge-building decisions, the Vercingetorix campaign), the civil war (operational decisions at Brundisium, Dyrrachium, Pharsalus), and the dictatorship reforms. Goldsworthy resists both the heroic and the moralizing traditions, presenting Caesar's decisions as the choices of an exceptionally talented but distinctly Roman aristocratic politician operating within Republican institutional constraints he was simultaneously exploiting and exceeding. Essential for distinguishing decisions made under genuine constraint from decisions where Caesar had multiple options and chose deliberately.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Meier, Christian — Caesar: A Biography (1995, German original 1982)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Meier's German-tradition biography focuses on the structural-political dimensions of Caesar's career — the late-Republican constitutional crisis, the populares tradition, the dynamics of the patron-client system, the relationship between military command and political authority. Meier argues that Caesar increasingly perceived the Republican constitution itself as an unworkable structure and acted as an institutional designer rather than a conventional power-seeker. This framing surfaces decisions that traditional narrative biographies obscure — particularly the calendar reform, the Senate composition, the colonial program, and the dictatorship office structure as deliberate institutional engineering rather than incidental administration. Indispensable for the framework's perceptual lens analysis.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Gelzer, Matthias — Caesar: Politician and Statesman (1968, German original 1921)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "The foundational modern scholarly biography, originally written in 1921 and revised through the 1960s. Gelzer's prosopographical method reconstructs Caesar's political world through the network of patron-client relationships and senatorial alliances, exposing the specific calculations behind decisions like the Triumvirate negotiations, the marriage alliance with Pompey via Julia, and the consular elections. Gelzer's analysis of Caesar's first consulship (59 BCE) is unmatched: he reconstructs how the legislative program — agrarian law, Asia tax-farming relief, ratification of Pompey's Eastern settlements — was designed as a coalition-binding device rather than just policy. For understanding Caesar's coalition mechanics, this is the definitive text.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Riggsby, Andrew — Caesar in Gaul and Rome: War in Words (2006)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Riggsby's literary-historical study analyzes the Bellum Gallicum as a deliberately constructed political document, identifying how Caesar's rhetorical choices — the framing of preemptive war, the characterization of barbarian opponents, the third-person narrative voice, the casualty figures — functioned to shape Roman political acceptance of his decisions. This is the essential source for the 'narrative as operational front' aspect of Caesar's decision pattern: showing that publication choices were not separate from operational choices but were themselves a category of strategic action. Riggsby identifies specific instances where Caesar's narrative inversions (defensive presentation of offensive operations) enabled subsequent escalations that would have faced political resistance if framed accurately.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Yavetz, Zvi — Julius Caesar and His Public Image (1983)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Yavetz reconstructs Caesar's relationship to the Roman urban populace through coinage, public ceremonies, building programs, and direct popular distributions. The book exposes a domain of Caesar's decision-making — the calculated cultivation of plebeian and Italian-municipal support — that is underrepresented in elite literary sources but visible in numismatic and epigraphic evidence. Yavetz traces Caesar's decisions about the grain dole, the colonial settlements for the urban poor, the abolition of debt-related rents, the games and triumphs, and the Forum Iulium construction. These decisions reveal a coherent strategy of building a popular constituency independent of the senatorial class, which was indispensable as a counterweight throughout the dictatorship period.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tatum, W. Jeffrey — Always I Am Caesar (2008) and ancillary articles on Caesarian legislation",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Tatum's analytical study examines the specific legislative and administrative decisions of Caesar's career with attention to procedural detail: how laws were drafted, what coalitions enacted them, what precedents they cited or violated, how implementation was structured. Particularly valuable for the agrarian legislation of 59 BCE, the debt-relief measures of 49–48 and 46 BCE, the calendar reform mechanics, and the colonial assignment process. Tatum surfaces the trade-offs Caesar made between substantive policy ambition and procedural legitimacy, often choosing forms of legal action — passing laws through the comitia rather than the Senate, threatening tribunician veto rather than ignoring it, granting amnesty by senatus consultum rather than personal decree — that preserved the appearance of constitutional continuity while substantively changing power relations.",
+    "evidence_layers": ["layer2", "layer3"],
+    "fetched": false,
+    "text_path": null
+  }
+]

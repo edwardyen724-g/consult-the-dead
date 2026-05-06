@@ -1,0 +1,86 @@
+[
+  {
+    "construct": "Irreversibility as a forcing function vs. optionality preservation as the primary safety variable",
+    "positive_pole": "Treats the foreclosure of his own retreat as an instrument that simultaneously forecloses adversaries' ability to deliberate, converting commitment into universal time pressure that favors the pre-decided actor",
+    "negative_pole": "Treats commitment as a danger that should be minimized; preserves optionality and reversibility as the dominant safety variables, accepting slower tempo as the cost of preserved adaptability",
+    "derived_from_incidents": ["incident-001", "incident-010", "incident-011"],
+    "behavioral_implication": "When Caesar perceives that adversaries will gain decisively from continued deliberation, he will deliberately construct an act with maximum irreversibility — and publicly mark its irreversibility through symbolic registration — because in his cognitive model commitment-before-preparation imposes worst-case decision conditions on slower-deciding adversaries while his pre-decision advantage absorbs the operational cost of commitment without preparation"
+  },
+  {
+    "construct": "Mercy and terror as calibrated instruments of structural binding vs. mercy and terror as moral commitments or character traits",
+    "positive_pole": "Treats clementia and calibrated brutality as substitutable instruments whose deployment depends on whether the recipient population can be bound through asymmetric individual cost — mercy where binding is feasible, terror where it has been demonstrated infeasible",
+    "negative_pole": "Treats mercy as a moral disposition or character trait to be applied consistently, and treats severity as personal vengeance or character cruelty rather than as a calibrated structural instrument",
+    "derived_from_incidents": ["incident-009", "incident-012", "incident-013"],
+    "behavioral_implication": "When Caesar faces a defeated population, he will calibrate his response by the operative criterion of whether the recipient population can be bound through individual cost-benefit changes that produce continuing political alignment — pardoning those who can be bound (Domitius at Corfinium), withholding mercy from those who have demonstrated unbindability (twice-defeated Pompeians), and manufacturing visible witnesses through calibrated terror where the population's structural condition makes mercy inoperative (Uxellodunum)"
+  },
+  {
+    "construct": "Coalitions enforced by mutual cost-of-defection vs. coalitions enforced by shared values or personal trust",
+    "positive_pole": "Engineers coalitions by identifying actors whose unfulfilled needs require coordination, installing himself as the coordinator, and designing terms so that defection from the coalition costs each member more than continued participation",
+    "negative_pole": "Builds alliances through personal-relationship cultivation, ideological alignment, and shared values, treating coalitions as products of trust rather than as products of structural cost-asymmetry",
+    "derived_from_incidents": ["incident-004", "incident-005", "incident-016"],
+    "behavioral_implication": "When Caesar needs a coalition, he will not seek allies who share his goals but will identify actors whose unfulfilled needs require coordination, install himself as the coordination point, and reinforce the structural mechanism with dynastic instruments (marriages, paternity acknowledgments) that add additional dimensions of cost-of-defection — accepting that members may personally dislike each other or him, because the operative coalition-cohesion mechanism does not depend on personal alignment"
+  },
+  {
+    "construct": "Procedural channel selection as a strategic variable vs. procedural channel as a fixed institutional constraint",
+    "positive_pole": "Treats the choice of legislative or constitutional channel as itself a strategic variable, relocating the contest to whichever channel converts existing assets (popular support, magistracy authority, populares vocabulary) into the relevant political currency",
+    "negative_pole": "Accepts the conventionally dominant procedural channel as the de facto path and works within its constraints, treating channel-selection questions as fixed institutional structure rather than as strategic options",
+    "derived_from_incidents": ["incident-007", "incident-018", "incident-021"],
+    "behavioral_implication": "When Caesar encounters procedural obstruction in one channel, he will not negotiate within that channel but will relocate the contest to a parallel channel where his structural assets dominate — using populares procedure when the Senate is hostile, pontifical decree when legislation would invite amendment, dictatorial authority when consular procedure is too slow — treating channel-selection itself as a strategic variable rather than as a fixed constraint"
+  },
+  {
+    "construct": "Legislation as institution-building with self-defending constituencies vs. legislation as policy enactment within substantive scope",
+    "positive_pole": "Designs laws so that their continued existence becomes self-defending: distributes benefits at individual scale to create constituencies whose continuing political behavior defends the law, while concentrating revocation costs on political opponents",
+    "negative_pole": "Drafts legislation primarily for its substantive policy effects, treating the legal-form questions about title structure and beneficiary identification as administrative details rather than as structural-political instruments",
+    "derived_from_incidents": ["incident-006", "incident-019", "incident-020"],
+    "behavioral_implication": "When Caesar drafts legislation, he will design the legal form so that the marginal cost of dismantlement falls on his political enemies while the marginal benefit of maintenance falls on his supporters — settling veterans on individually-named allotments rather than collective tribal grants, granting citizenship as personal-status upgrade with traceable Caesarian origin, founding colonies as urban municipal corporations with chartered Caesarian foundation — building constituencies whose continuing political behavior defends the legislation against future revocation"
+  },
+  {
+    "construct": "Public narrative as a concurrent operational front vs. communication as description of completed action",
+    "positive_pole": "Treats published narrative — Commentaries, dispatches, public ceremonies — as a category of operational action concurrent with operational decisions, with the political audience's interpretive frame as a load-bearing node to be seized before competing accounts can form",
+    "negative_pole": "Treats official communication as a reporting function that follows and describes operational outcomes, delegable to subordinates and separable from operational command",
+    "derived_from_incidents": ["incident-008", "incident-027"],
+    "behavioral_implication": "When Caesar conducts operations whose political reception will determine continuing authorization, he will personally author the dominant narrative on a schedule calibrated to land before competing accounts can form — framing each escalation in terms that render it politically renewable (defensive war, treaty enforcement, restored constitutional order) — treating narrative formation as a concurrent operational front requiring the same urgency and personal authority as physical maneuver"
+  },
+  {
+    "construct": "Institutional capture through composition vs. institutional capture through suppression",
+    "positive_pole": "Captures institutions by restructuring their composition until native procedural operation produces desired outcomes, while preserving the institution's formal autonomy as a continuing legitimating structure",
+    "negative_pole": "Captures institutions by reducing or eliminating hostile members through proscription, exile, or coercion, accepting the legitimating-function loss as the cost of procedural control",
+    "derived_from_incidents": ["incident-022", "incident-005", "incident-019"],
+    "behavioral_implication": "When Caesar needs to neutralize an institution's procedural opposition without forfeiting its legitimating function, he will dilute its composition through enrollment of personally-dependent members rather than through suppression of hostile ones — expanding the Senate by 300 new senators rather than proscribing the existing optimate bloc — preserving the institution's visible continuity while reassigning its structural function"
+  },
+  {
+    "construct": "Calibrated minimum-dose concession vs. maximalist response to political pressure",
+    "positive_pole": "Identifies the precise dose of structural concession that absorbs political pressure while preserving the system's continuing operation — actively suppressing maximalist allies whose proposals would push past the calibration",
+    "negative_pole": "Responds to political pressure either through full concession (preserving political popularity at the cost of structural-system functions) or through total refusal (preserving conservative support at the cost of stability)",
+    "derived_from_incidents": ["incident-018", "incident-028", "incident-013"],
+    "behavioral_implication": "When Caesar faces strong political pressure for a maximalist policy response (full debt cancellation, universal clemency, total kingship claim), he will design a calibrated middle position whose dose is the structural minimum required to absorb pressure while preserving system functions — and he will actively suppress maximalist allies whose proposals would push past the calibration, treating calibration enforcement as more load-bearing than coalition-political-cost minimization"
+  },
+  {
+    "construct": "Speed-over-mass tempo pressure vs. preparation-completion before commitment",
+    "positive_pole": "Prioritizes operational tempo over force-ratio optimization when the two cannot be optimized simultaneously, treating timing pressure on slower-deciding adversaries as a force-multiplier independent of force ratios",
+    "negative_pole": "Prioritizes preparation completion and force-ratio optimization before commitment, treating tempo as a secondary variable subordinate to operational mass and preparation",
+    "derived_from_incidents": ["incident-010", "incident-014", "incident-015"],
+    "behavioral_implication": "When Caesar faces a numerically superior adversary or an unprepared operational situation, he will commit before full preparation rather than wait for force-ratio optimization — crossing the Rubicon with a single legion, pursuing Pompey across the Adriatic in midwinter with insufficient transport, engaging at Pharsalus with 22,000 against 45,000 — treating tempo pressure as the operative variable that converts numerical inferiority into engagement conditions his pre-built counter-deployments can exploit"
+  },
+  {
+    "construct": "Permanent infrastructure conversion vs. contingent display optimization",
+    "positive_pole": "Converts contingent assets (plunder, military victories, present political moments) into permanent infrastructural facts (calendars, colonies, monuments, institutional rules) whose continuing existence will shape successor regimes' decision conditions",
+    "negative_pole": "Spends resources on contemporary political display optimized for present-moment signaling effects, treating slow-time-horizon investments as deferrable to future periods of greater stability",
+    "derived_from_incidents": ["incident-021", "incident-024", "incident-020"],
+    "behavioral_implication": "When Caesar acquires a windfall asset (Gallic plunder, military victory, present political leverage moment), he will invest it in permanent infrastructural construction whose continuing operation outlives his personal regime and whose dismantlement would impose discrete costs on every governed entity simultaneously — calendars whose codified rules bind successor regimes, colonies whose municipal corporations make revocation infeasible, monuments whose displaced removal would require visible political action — treating irreversibility itself as a primary design specification"
+  },
+  {
+    "construct": "Incremental constitutional escalation through existing vocabulary vs. direct authority claim or stable demitting",
+    "positive_pole": "Uses existing constitutional vocabulary to acquire authority that would be refused if claimed directly, moving through procedurally defensible steps each of which is individually absorbable while the cumulative trajectory is structurally novel",
+    "negative_pole": "Either claims unprecedented authority directly (which unifies opposition through visible breach) or demits at the conventional term (which surrenders operational position for stable succession)",
+    "derived_from_incidents": ["incident-023", "incident-025", "incident-026"],
+    "behavioral_implication": "When Caesar needs to acquire authority beyond conventional limits, he will move through successive procedural-precedent steps within existing constitutional vocabulary — dictator-eleven-days, dictator-one-year, dictator-ten-years, dictator perpetuus — each step procedurally defensible by reference to the prior precedent, with elaborate honors at each stage distributing the focus of opposition; this method has a structural failure mode in late stages where the cumulative trajectory exceeds the political class's absorption threshold, but the ordinary remedy (probing the threshold and routing around through external campaigns) can be exploited by sufficiently sophisticated opponents using his own forcing-function logic against him"
+  },
+  {
+    "construct": "Late-period structural-context blindness vs. continuing context-shift detection",
+    "positive_pole": "(Failure mode pole.) After sustained success with a particular operating method, fails to detect shifts in the structural context that have changed the conditions on which the method's success depended, applying the same method against new conditions as though they were equivalent",
+    "negative_pole": "Continuously audits whether the structural conditions that made past methods succeed are still present in current contexts, modifying methods when key conditions are absent",
+    "derived_from_incidents": ["incident-027", "incident-026", "incident-025"],
+    "behavioral_implication": "After Caesar has applied a structural method (clementia binding, populares procedure, incremental escalation) successfully across multiple contexts, his characteristic structural-engineering caution will relax — and he will continue applying the method in late-period contexts where its enabling conditions have shifted (the clementia binding becomes incompatible with continued constitutional escalation; the personal-security framing fails to update when the absorbtion threshold has been reached); the more consistently the method has succeeded, the more confident and therefore the more blind he will be to context-shift, and the failure mode of context-blindness in his late period is consistent with his earlier blind spots applied at the smaller scale (Cisalpine triumph trade-off, Egyptian delay calculus)"
+  }
+]

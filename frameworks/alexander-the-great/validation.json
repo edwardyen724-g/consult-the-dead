@@ -1,0 +1,217 @@
+{
+  "framework": "Alexander III of Macedon (Alexander the Great)",
+  "validation_methodology": "Tier-2 validation operates across two layers. Layer 1: lens-consistency assessment on the six holdout incidents (incident-023 through incident-028), each traced step-by-step to specific constructs (by construct number 1–12) or to the perceptual lens, with each incident assessed as lens-aligned (the framework predicts the decision the historical Alexander made) or lens-divergent (the framework predicts a different decision). Layer 2: traceability assessment on five novel scenarios constructed in domains structurally distinct from Alexander's actual decision domains (technology-platform CEO facing dominant incumbent across multiple submarkets; turnaround chief executive of a culturally-mismatched cross-border acquisition; venture-capital general partner constructing a winner-take-all platform position; expedition leader engineering a record-setting traversal under deteriorating support conditions; political-campaign candidate-strategist facing entrenched incumbents in a new electoral coalition). For each scenario, a step-by-step Alexander-perspective response was generated, and each step was traced to either a specific construct (by id 1–12), a specific incident (by id), or a perceptual-lens item. Steps are 'traceable' if a direct or near-direct trace can be made; 'untraceable' if the step is a free extension into terrain the framework does not document. Contradictions are decisions in which two or more constructs would predict mutually-incompatible operational moves; the framework is contradiction-free if no holdout incident or novel scenario produces such a clash without one construct's pole-direction being clearly load-bearing relative to the other.",
+  "traceability_ratio": 0.86,
+  "lens_consistent": true,
+  "contradictions": [],
+  "holdout_incident_validation": [
+    {
+      "incident": "incident-023",
+      "title": "Opis mutiny — Persian-replacement threat and the 'Kinsmen' declaration (summer 324 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 5,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (announcement of the discharge of Macedonian veterans and the integration of 30,000 Persian Epigoni into the army units, deliberately staged to provoke the army-mutiny response): direct trace to construct 7 (dynastic-fusion absorption of conquered legitimacy) and to construct 8 (preemptive elimination of structural counter-nodes via the Epigoni's structural availability as replacement).",
+        "Step 2 (response to the mutiny by ordering the immediate arrest and summary execution of 13 ringleaders without trial, conducted at the speed of the Cleitus killing — hours rather than days): direct trace to construct 8 (preemptive elimination of structural counter-nodes) and to construct 11 (tempo as load-bearing operational variable applied to political crisis).",
+        "Step 3 (withdrawal into the royal tent for two days during which Persian noble units continued the operational rotation that the discharged Macedonians had previously performed, demonstrating the Persian-replacement infrastructure was operationally available): direct trace to construct 8 (the Persian-replacement threat as the load-bearing operational instrument that dissolves the mutiny).",
+        "Step 4 (the 'I make all of you my Kinsmen' declaration that absorbed the Macedonian troops back into the integrated army on the explicitly equal-rank terms previously reserved for Persian nobility): direct trace to construct 7 (dynastic-fusion absorption applied to the operational coalition itself) and to perceptual lens (the absorption of conquered legitimacy extended to the conquering force).",
+        "Step 5 (the reconciliation banquet of 9,000 Macedonians, Medes, Persians, Bactrians, and other peoples drinking from the same krater, with the explicit prayer for homonoia and shared rule between Macedonians and Persians): direct trace to construct 7 (dynastic-fusion absorption at empire-coalition scale) and to construct 5 (engineered symbolic-mandate registration through the krater-and-prayer ceremony)."
+      ],
+      "notes": "The Opis incident is a clean lens-aligned holdout: the construct-7 absorption discipline, the construct-8 preemptive-elimination discipline, and the construct-11 tempo discipline all converge in the prediction that Alexander would respond to the Macedonian mutiny by deploying the Persian-replacement instrument structurally rather than by accommodating the troops' grievances. The 'Kinsmen' declaration is the construct-7 absorption discipline operating at coalition-scale."
+    },
+    {
+      "incident": "incident-024",
+      "title": "Treatment of Sisygambis, Stateira, and Darius's family after Issus (November 333 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 4,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (refusal to take Darius's mother, wife, and daughters as concubines or hostages despite the conventional Greek-warlord default after capturing the enemy royal family): direct trace to construct 7 (dynastic-fusion absorption of conquered legitimacy — the conqueror absorbs the conquered structure's dignity rather than dishonoring it).",
+        "Step 2 (granting Sisygambis full Achaemenid royal honors, addressing her as 'Mother', and instructing the women to continue their ceremonial routine without disruption): direct trace to construct 7 and to construct 5 (engineered symbolic-mandate registration — the public treatment as load-bearing audience-instrument calibrated for Persian-nobility reception).",
+        "Step 3 (refusing to enter Sisygambis's tent without permission and taking detailed care that no Macedonian soldier approached the women's quarters): direct trace to construct 7 (the absorption discipline applied to operational protocol) and to perceptual lens (the conquered legitimacy is the load-bearing variable).",
+        "Step 4 (continuing to send Sisygambis royal-gift packages and family communications even after Darius's death — and after Sisygambis chose to die of grief at Alexander's own death, demonstrating the substantive emotional bond): trace to construct 7 (the absorption discipline produces relational outcomes that the dishonor-default cannot)."
+      ],
+      "notes": "Step 5 (Stateira's death in childbirth in Macedonian custody and Alexander's reported elaborate funeral honors) is partially traceable: the funeral-honor pattern matches construct 5 and construct 7, but the substantive cause of Stateira's death is contested in the sources and the framework cannot resolve which historical reading is correct. Counts as a partial trace at 80%."
+    },
+    {
+      "incident": "incident-025",
+      "title": "The Siwa Oracle visit and the divine-sonship cultivation (winter 332/331 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 5,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (deciding to undertake the 600-mile detour through the Libyan desert after Pharaonic accession at Memphis, when the Persian campaign waited in the east and operational opportunity-cost of the detour was substantial): direct trace to construct 5 (engineered oracular-mandate construction) and to construct 3 (limitless-objective horizon — the symbolic-mandate registration is itself an objective whose pursuit overrides operational opportunity-cost).",
+        "Step 2 (the journey through sandstorms and lost-water reportedly guided by ravens and miraculous rains, with the miracle-narratives carefully curated and disseminated through subsequent retellings): direct trace to construct 5 (symbolic-mandate construction includes the curation of journey-narratives as part of the instrument).",
+        "Step 3 (Alexander entering the inner sanctum alone to receive the oracle, with the contents released only through careful subsequent dissemination): direct trace to construct 5 and to perceptual lens (the symbolic-mandate construction's load-bearing variable is the selective public reception).",
+        "Step 4 (the Ammon-sonship claim's deployment as load-bearing legitimacy instrument across the subsequent campaign — Ammon-imagery on coinage, the 'Son of Zeus-Ammon' address by priests, the eventual horns of Ammon on portraits): direct trace to construct 5 (the symbolic-mandate registration as continuing operational instrument) and to construct 9 (heroic-narrative template — Achilles is descended from Zeus, and the Ammon-sonship registers Alexander in the same divine-genealogy template as his Iliad-model).",
+        "Step 5 (the proskynesis attempt of 327 BCE traceable in part to the Ammon-sonship's operational requirement that the king be ceremonially registered as semi-divine across the Persian-Macedonian integrated coalition): direct trace to construct 5 and to construct 7."
+      ],
+      "notes": "Siwa is the cleanest lens-aligned holdout for construct 5 (engineered oracular-mandate construction). The framework predicts the visit and the substantive deployment of the resulting Ammon-sonship as continuing legitimacy instrument across the subsequent campaign."
+    },
+    {
+      "incident": "incident-026",
+      "title": "The Persepolis palace burning — symbolic closure of the Greek revanche mandate (winter 330 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 4,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (Alexander's decision to burn the Apadana and adjacent royal-palace structures of Persepolis after the treasury had been systematically loaded onto pack animals, conducting the burning as a deliberate operational act rather than as troop indiscipline): direct trace to construct 5 (engineered symbolic-mandate registration — the burning as load-bearing public-action instrument calibrated for Greek-audience reception, signaling the completion of Xerxes-revanche).",
+        "Step 2 (the timing of the burning at the moment of strategic transition from Greek-revanche campaign to Asian-empire campaign, with the Hellenic League formally dissolved at Ecbatana shortly afterward): direct trace to construct 5 and to construct 3 (limitless-objective horizon — the burning closes one objective and opens the limitless-Asian one).",
+        "Step 3 (the Thaïs-instigation narrative, whether historically accurate or dramatized, served the same construct-5 instrument by registering the burning as enacted-revenge rather than as policy-decision, complicating the operational-policy reading and producing the multi-channel reception): direct trace to construct 5.",
+        "Step 4 (the subsequent shift toward dynastic-fusion absorption of Persian legitimacy structures — the burying of Darius in the royal tombs, the proskynesis attempt, the marriage to Roxana, the Susa weddings — only operationally feasible after the symbolic-closure of the Greek-revanche campaign): direct trace to construct 5 and to construct 7."
+      ],
+      "notes": "Step 5 (Alexander's reported subsequent regret at the burning, possibly authentic or possibly Macedonian-officer narrative-recovery) is partially traceable: regret is consistent with the calibrated-instrument framework, since the symbolic-closure once registered did not require continuing burning, but the regret itself is contested in the sources. Counts as a partial trace at 80%."
+    },
+    {
+      "incident": "incident-027",
+      "title": "The Mallian citadel personal assault — leading the wall-jump alone (autumn 326 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 5,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (during the descent of the Indus river system after the Hyphasis turn-back, encountering the Mallian fortified town and ordering the assault despite the army's deteriorated morale and Alexander's own accumulated wounds): direct trace to construct 3 (limitless-objective horizon applied to the post-Hyphasis return — the campaign's substantive objective has been foreclosed but the operational tempo is sustained) and to construct 11 (tempo as load-bearing operational variable).",
+        "Step 2 (Alexander personally scaling the siege ladder ahead of the troops and jumping over the wall alone with two companions when the ladder broke under the weight of following soldiers): direct trace to construct 2 (lead-from-front personal-risk as morale-multiplier) — the wall-jump is the construct-2 discipline's operational signature applied to the post-Hyphasis morale crisis.",
+        "Step 3 (continuing to fight inside the citadel with the two companions, sustaining the chest-wound from an arrow that punctured a lung — the Achilles-style wound the heroic-narrative template predicts): direct trace to construct 2 and to construct 9 (heroic-narrative template — the wound itself functions as Achilles-template completion).",
+        "Step 4 (the eventual rescue by the troops who scaled the wall in pursuit of Alexander, breaking the morale crisis through the same shame-mechanism that operated at Multan-style assaults): direct trace to construct 2 (the morale-multiplier discipline operating exactly as the framework predicts).",
+        "Step 5 (the recovery period in which Alexander's reported death-rumor produced near-collapse of army cohesion, demonstrating the construct-12 personal-pole-irreplaceability failure mode in real time): direct trace to construct 12 (personal-pole irreplaceability as force-multiplier and as structural fragility)."
+      ],
+      "notes": "The Mallian incident is the clearest lens-aligned holdout for construct 2 (lead-from-front discipline) and construct 12 (personal-pole irreplaceability failure mode). The framework predicts both the wall-jump itself and the structural-coalescence crisis the death-rumor produced, providing strong contradiction-free validation across both constructs simultaneously."
+    },
+    {
+      "incident": "incident-028",
+      "title": "Failure to designate a clear successor at Babylon — 'to the strongest' (June 11, 323 BCE)",
+      "lens_aligned": true,
+      "traceable_steps": 4,
+      "total_steps": 5,
+      "trace": [
+        "Step 1 (the absence of any pre-deathbed succession-engineering across the years following the Hephaestion death, with no formal designation of a successor or co-regent despite Alexander's own awareness of his accumulated wounds and Babylon-illness): direct trace to construct 12 (personal-pole irreplaceability as force-multiplier — the regime is structured as a personal-pole concentration with no engineered redundancy).",
+        "Step 2 (the deathbed exchange in which the assembled generals asked 'to whom do you leave the kingdom?' and Alexander reportedly replied 'to the strongest' or, in alternative tradition, gave his ring to Perdiccas without any formal succession-protocol): direct trace to construct 12 (the personal-pole concentration's failure mode operating exactly as the framework predicts) and to construct 8 (preemptive elimination of structural counter-nodes — Hephaestion was the closest candidate and his recent death foreclosed the succession-completion).",
+        "Step 3 (the immediate post-death partition of the empire across the Diadochi wars, with the empire's structural-incoherence at the personal-pole's removal exactly as construct 12 predicts): direct trace to construct 12.",
+        "Step 4 (the deathbed report of Alexander's expressed concern that 'I see a great funeral games' — registering the Diadochi wars as Iliad-template heroic competition rather than as institutional-failure): direct trace to construct 9 (heroic-narrative template organization of operational perception, applied to the dying king's perception of the post-death period itself)."
+      ],
+      "notes": "Step 5 (the unborn-child-of-Roxana succession claim and the immediate Macedonian-officer rejection of the Bactrian heir) is partially traceable: the rejection is consistent with construct 8 (preemptive elimination of structural counter-nodes, applied by the surviving officers against the heir), but the substantive claim itself is partially outside the framework's terrain. Counts as a partial trace at 80%."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Technology-Platform CEO Facing Dominant Incumbent Across Multiple Submarkets",
+      "summary": "A late-stage technology-platform CEO has assembled a $400M war chest, a 1,200-engineer team, and a working product across three adjacent submarkets where a single dominant incumbent (40-50% market share, $30B+ market cap, deep enterprise relationships) controls the customer base. Conventional strategic counsel: identify undefended niches and differentiate; avoid head-on confrontation. Question: what would Alexander do?",
+      "traceable_steps": 12,
+      "total_steps": 14,
+      "lens_aligned": true,
+      "notes": [
+        "Step 1 (refuse the niche-differentiation default and identify the structural-pivot point in the incumbent's customer base — the 8–12 enterprise accounts whose defection would cascade through the rest): direct trace to construct 1 (decisive cavalry strike at the structural-pivot point) and perceptual lens.",
+        "Step 2 (reorganize the platform's go-to-market organization to concentrate elite resources on those 8–12 accounts, accepting the opportunity cost in the broader market as the operational price of the concentration): direct trace to construct 1.",
+        "Step 3 (CEO personally leading the top-3 enterprise pursuits, including in-person multi-day customer visits and product co-design sessions, treating the personal-presence at the highest-stakes pursuit as the load-bearing morale-multiplier for the engineering team): direct trace to construct 2 (lead-from-front personal-risk).",
+        "Step 4 (refuse the 'consolidate the niche, raise prices, optimize for profitability' counsel that would consolidate substantial structural gains, instead expanding the objective to platform-dominance across all three submarkets): direct trace to construct 3 (limitless-objective horizon).",
+        "Step 5 (identify the claimed-impossible structural constraint — the incumbent's deep enterprise integration and switching costs — as the engineering-reduction target, mobilizing a 9–12 month coordinated migration-tooling project that converts the impossibility into structural reality): direct trace to construct 4 (engineering reduction of acclaimed impossibility) and incident-009.",
+        "Step 6 (engineer the symbolic-mandate registration of the platform's market position through coordinated public actions calibrated for industry-analyst, customer-base, and engineering-talent reception — keynote at the major industry conference, lighthouse-customer announcement, prominent former-employee hires from the incumbent): direct trace to construct 5.",
+        "Step 7 (calibrate the response to defectors-from-incumbent vs. holdouts-with-incumbent — public welcome and elevated roles for former incumbent personnel who join, public differentiation against incumbent customers who continue resisting): direct trace to construct 6 (calibrated terror as targeted policy instrument applied to competitive-market signaling).",
+        "Step 8 (absorb the incumbent's strongest legitimacy-instruments — open-source standards, industry-association leadership positions, technical-architecture conventions — into the platform's own operational repertoire, treating absorption of incumbent legitimacy as more powerful than direct displacement): direct trace to construct 7 (dynastic-fusion absorption).",
+        "Step 9 (preemptively eliminate structural counter-nodes within the platform's own coalition — the senior officer whose continuing relationships with the incumbent represent the most material counter-coalition risk — through reassignment or departure-engineering, accepting the substantive contribution loss as the operational price): direct trace to construct 8.",
+        "Step 10 (organize the team's perception of the campaign through heroic-narrative templates — 'David and Goliath', 'first commercial space launch', 'breaking the four-minute mile' — treating the narrative organization as load-bearing perceptual instrument that selects which operational situations register as load-bearing): direct trace to construct 9 (heroic-narrative template).",
+        "Step 11 (under conditions of strategic uncertainty about which submarket to attack first, isolate the single load-bearing variable — which submarket has the most structural-fragility in the incumbent's defense — and act on it regardless of advisor consensus that recommends a 'balanced portfolio' approach): direct trace to construct 10 (cue isolation under uncertainty).",
+        "Step 12 (calibrate the operational tempo to the upper edge of organizational feasibility — release cadence at 6-week intervals rather than quarterly, customer-onboarding at 2-week timeframes rather than monthly, hiring at 80–100/month rather than 30–40/month — accepting the engineering-debt and onboarding-quality costs as the operational price of the strategic-surprise outcomes): direct trace to construct 11 (tempo as load-bearing operational variable).",
+        "Steps 13–14 (concentrate executive authority in the founder-CEO with no engineered institutional redundancy, accepting that the platform's structural integrity depends entirely on continuing CEO operation; succession-engineering deferred): partial trace to construct 12 — the trace is direct on the concentration but the failure mode (succession-engineering deferral) is the framework's structural-blindspot signature, predictable but not guarded against."
+      ]
+    },
+    {
+      "scenario": "Turnaround Chief Executive of Culturally-Mismatched Cross-Border Acquisition",
+      "summary": "A US-based industrial conglomerate has acquired a German precision-engineering firm. The acquired firm's leadership team, works council, employees, supplier networks, and customer base resist the cultural integration; the parent board expects 18-month integration; the conglomerate's CEO has been parachuted in as the new GmbH Geschäftsführer. Question: what would Alexander do?",
+      "traceable_steps": 11,
+      "total_steps": 13,
+      "lens_aligned": true,
+      "notes": [
+        "Step 1 (refuse the binary frame of 'rapid integration to satisfy parent board' vs. 'preserve subsidiary autonomy to satisfy local stakeholders' and identify the structural-pivot point in the integration — the 4–6 senior German managers whose acceptance of the integration cascades through the rest): direct trace to construct 1.",
+        "Step 2 (CEO personally leading the most-difficult conversations with the works council, the union, and the senior managers, treating personal-presence at the highest-stakes integration moments as load-bearing morale-multiplier): direct trace to construct 2.",
+        "Step 3 (expand the objective beyond the parent-board's 'integration' specification to a continental-European-platform expansion that uses the German firm as foundation): direct trace to construct 3.",
+        "Step 4 (treat the claimed-impossible structural constraint — German labor law and works council co-determination — as engineering-reduction target by constructing a coordinated multi-month works-council partnership program that produces the integration outcomes within the legal framework): direct trace to construct 4 and incident-009.",
+        "Step 5 (engineer the symbolic-mandate registration of the new leadership through visible adoption of German manufacturing aesthetics, public commitments to the 25-year supplier relationships, photo-ops with retired German senior executives whose institutional positioning carries continuity-credibility): direct trace to construct 5.",
+        "Step 6 (calibrate the response to integration-supporters vs. integration-resisters — elevated roles and increased authority for former German managers who embrace the integration, public differentiation against managers who continue resisting): direct trace to construct 6.",
+        "Step 7 (absorb the German firm's strongest legitimacy-instruments — engineering quality standards, works-council practices, supplier-relationship norms — into the conglomerate's own operational repertoire, treating absorption of German legitimacy as the load-bearing instrument through which integrated rule becomes feasible): direct trace to construct 7 and incident-022.",
+        "Step 8 (preemptively replace the most-senior parent-company representative whose presence at the subsidiary signals continuing US dominance, accepting the parent-board political cost as the operational price): direct trace to construct 8.",
+        "Step 9 (organize the integration team's perception through heroic-narrative templates — 'Daimler-Chrysler done right', 'the Renault-Nissan model' — treating the narrative organization as load-bearing perceptual instrument): direct trace to construct 9.",
+        "Step 10 (under conditions of strategic uncertainty about integration sequencing, isolate the single load-bearing variable — works-council acceptance — and act on it regardless of MBA-advisor consensus that recommends a 'balanced workstream' approach): direct trace to construct 10.",
+        "Step 11 (calibrate the integration tempo to the upper edge of organizational feasibility — town-halls at 2-week intervals, joint-venture announcement within 90 days, supplier-renegotiation cycle compressed to 6 months from typical 18, accepting the disruption cost as the operational price of strategic-surprise): direct trace to construct 11.",
+        "Steps 12–13 (concentrate operational authority in the new GmbH Geschäftsführer with limited engineered institutional redundancy in the integration leadership): partial trace to construct 12 — the concentration is consistent with the framework but the failure-mode signature is also reproduced."
+      ]
+    },
+    {
+      "scenario": "Venture-Capital General Partner Constructing Winner-Take-All Platform Position",
+      "summary": "A senior VC general partner has identified an early-stage AI infrastructure category where 2-3 winners will eventually take 80%+ of the value. The fund has $2B in dry powder and a 4-year deployment window. Conventional VC counsel: build a portfolio of 12-15 bets across the category to ensure exposure to the eventual winners. Question: what would Alexander do?",
+      "traceable_steps": 11,
+      "total_steps": 13,
+      "lens_aligned": true,
+      "notes": [
+        "Step 1 (refuse the portfolio-diversification default and identify the structural-pivot point — the 2–3 highest-conviction founders whose winning would dominate the category): direct trace to construct 1.",
+        "Step 2 (GP personally leading the top conviction-bets including multi-day founder-immersions and product co-design sessions, accepting the personal-bandwidth concentration as load-bearing): direct trace to construct 2.",
+        "Step 3 (deploy 60-70% of the fund into 2-3 concentrated bets rather than spreading across 12-15, expanding the objective to category-defining position rather than risk-adjusted return): direct trace to construct 3.",
+        "Step 4 (treat the claimed-impossible structural constraint — the diversification mandate from LPs — as engineering-reduction target through a multi-quarter LP-communication and concentrated-portfolio narrative-construction project): direct trace to construct 4.",
+        "Step 5 (engineer the symbolic-mandate registration of the fund's category position through founder-conference appearances, technical-architecture white papers, prominent LP announcements, hiring of category-defining technical advisors): direct trace to construct 5.",
+        "Step 6 (calibrate the response to portfolio companies vs. competitors — elevated co-investment access and platform-services for portfolio companies, public differentiation against portfolio companies that pivot away from category): direct trace to construct 6.",
+        "Step 7 (absorb the legitimacy-instruments of established category-players — board observer rights at incumbents, advisor relationships with senior category researchers, conference-organizer roles): direct trace to construct 7.",
+        "Step 8 (preemptively eliminate structural counter-nodes within the fund — the partner whose portfolio-philosophy differs and who could lead a counter-coalition for diversification — through reassignment or departure-engineering): direct trace to construct 8.",
+        "Step 9 (organize the fund team's perception through heroic-narrative templates — 'Sequoia and Apple', 'Benchmark and Uber', 'Founders Fund and SpaceX' — treating the narrative organization as load-bearing perceptual instrument): direct trace to construct 9.",
+        "Step 10 (under conditions of strategic uncertainty about which 2–3 bets to make, isolate the single load-bearing variable — founder operational-tempo and conviction-clarity — and act on it regardless of investment-committee consensus that recommends technical-due-diligence as the load-bearing variable): direct trace to construct 10.",
+        "Step 11 (deploy the fund's capital at compressed-tempo cycles — diligence in 2 weeks rather than 8, term sheets within 72 hours of conviction, full deployment within 24 months rather than 4 years, accepting the diligence-quality cost as the operational price of strategic-surprise): direct trace to construct 11.",
+        "Steps 12–13 (concentrate fund authority in the lead GP with no engineered institutional redundancy across the partner team for the category-defining bets): partial trace to construct 12 — the concentration produces the force-multiplier the diversified-decision-making framework cannot match, with the structural-fragility signature also reproduced."
+      ]
+    },
+    {
+      "scenario": "Expedition Leader Engineering Record-Setting Traversal Under Deteriorating Support",
+      "summary": "A polar expedition leader has assembled an 8-person team for the first unsupported solo traversal of an Antarctic route never previously attempted. Halfway through the traversal, supply caches have been compromised, weather is deteriorating beyond seasonal norms, and three team members are showing early frostbite. Conventional expedition counsel: turn back, declare the expedition incomplete, preserve life. Question: what would Alexander do?",
+      "traceable_steps": 9,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "notes": [
+        "Step 1 (refuse the turn-back-and-declare-incomplete default; identify the structural-pivot point — the next 200km waypoint where weather modeling predicts a 5-day window — as the load-bearing operational variable): direct trace to construct 1 and construct 10.",
+        "Step 2 (leader personally taking the heaviest load and the lead position in the team formation, accepting the personal-exhaustion cost as load-bearing morale-multiplier): direct trace to construct 2 and incident-027.",
+        "Step 3 (refuse the 'partial completion' framing that would consolidate the substantial achievement of the first half, instead committing to the full unsupported-solo objective): direct trace to construct 3 (limitless-objective horizon) and incident-021 (Gedrosian Desert march).",
+        "Step 4 (treat the claimed-impossible structural constraint — compromised supply caches and frostbite cases — as engineering-reduction target through a multi-day re-supply-improvisation and frostbite-management protocol): direct trace to construct 4.",
+        "Step 5 (engineer the symbolic-mandate registration of the team's continued advance through coordinated communications with sponsors, media outlets, and the expedition-historical-record community, treating the public-positioning as load-bearing for team morale and post-expedition recognition): direct trace to construct 5.",
+        "Step 6 (calibrate the response to team-members showing frostbite — evacuation for the most-severe case, restricted load and protected position for the borderline cases, continued full-load for the unaffected — rather than uniform protocol): direct trace to construct 6.",
+        "Step 7 (organize the team's perception through heroic-narrative templates — 'Shackleton's open-boat journey', 'Amundsen's polar dash', 'Mawson's solo return' — treating the narrative organization as load-bearing morale instrument): direct trace to construct 9.",
+        "Step 8 (calibrate the daily march to the upper edge of physical feasibility — 18-hour days rather than 12, 35km daily rather than 22, accepting the casualty-and-exhaustion cost as the operational price of the strategic-surprise that early arrival before the next storm produces): direct trace to construct 11.",
+        "Step 9 (concentrate operational authority in the leader with no contingency-protocol for leader-incapacitation): direct trace to construct 12 — the concentration is the framework's signature and its failure mode is also the framework's structural-blindspot signature.",
+        "Steps 10–12 (construct 7 absorption discipline does not directly apply to a polar expedition; construct 8 preemptive-elimination does not directly apply to an 8-person volunteer team): untraceable extensions where construct 7 and construct 8 do not predict the scenario's operational moves directly. The 3 untraceable steps reflect the framework's domain-distance from polar exploration, where the absorption-of-conquered-legitimacy and counter-node-elimination disciplines do not naturally apply."
+      ]
+    },
+    {
+      "scenario": "Political Campaign Candidate-Strategist Facing Entrenched Incumbents",
+      "summary": "A first-time candidate has filed for a 14-candidate primary in a US presidential election, polling at 1% with $8M raised against a frontrunner polling at 32% with $80M raised. The candidate has 11 months until the first primary. Conventional campaign counsel: introduce yourself in the early states with retail politics, build name recognition gradually, position for the eventual VP slot or 2028 cycle. Question: what would Alexander do?",
+      "traceable_steps": 10,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "notes": [
+        "Step 1 (refuse the 'gradual name-recognition' default and identify the structural-pivot point — the 2-3 high-engagement issues where the frontrunner is structurally weakest with the primary electorate — and concentrate the entire campaign's communication on those issues): direct trace to construct 1.",
+        "Step 2 (candidate personally executing the high-stakes confrontation moments — debate-stage attacks on the frontrunner, town-hall confrontations on the structural-weakness issues, op-ed campaigns published under candidate's own byline): direct trace to construct 2.",
+        "Step 3 (expand the campaign objective from VP-positioning or 2028-positioning to the primary nomination itself, treating any objective short of the nomination as operationally equivalent to defeat): direct trace to construct 3 (limitless-objective horizon).",
+        "Step 4 (treat the claimed-impossible structural constraint — 32-point polling deficit — as engineering-reduction target through a coordinated 11-month strategic-surprise project that compresses the polling-shift timeline): direct trace to construct 4.",
+        "Step 5 (engineer the symbolic-mandate registration through coordinated high-visibility public actions calibrated for primary-electorate, donor, and media reception — major-policy announcements at calibrated moments, prominent endorsements engineered through pre-primary commitments, signature-event positioning): direct trace to construct 5.",
+        "Step 6 (calibrate the response to campaign-defectors-from-frontrunner vs. continued-frontrunner-loyalists — elevated roles and prominent media-positioning for defectors, public differentiation against loyalists): direct trace to construct 6.",
+        "Step 7 (absorb the frontrunner's strongest legitimacy-instruments — endorsement networks, policy-position frameworks, donor relationships — into the candidate's own operational repertoire through targeted defection-engineering): direct trace to construct 7.",
+        "Step 8 (preemptively eliminate structural counter-nodes within the campaign — the senior strategist whose continuing relationships with party-establishment represent the most material counter-coalition risk — through reassignment or departure-engineering): direct trace to construct 8.",
+        "Step 9 (organize the campaign team's perception through heroic-narrative templates — 'Obama 2008', 'Carter 1976', 'Reagan 1980' — treating the narrative organization as load-bearing morale instrument and load-bearing donor-pitch instrument): direct trace to construct 9.",
+        "Step 10 (calibrate the campaign tempo to the upper edge of organizational feasibility — 4-state-per-day campaign schedule rather than 1, weekly major-policy announcement rather than monthly, daily media confrontation rather than weekly): direct trace to construct 11.",
+        "Steps 11–12 (concentrate campaign authority in the candidate-strategist axis with limited engineered institutional redundancy in senior leadership): partial trace to construct 12 — the concentration is the framework's signature and the failure mode is also reproduced."
+      ]
+    }
+  ],
+  "summary": {
+    "total_scenarios": 5,
+    "total_steps_evaluated": 64,
+    "total_traceable_steps": 53,
+    "scenario_traceability_ratio": 0.83,
+    "holdout_incidents_evaluated": 6,
+    "holdout_incidents_lens_aligned": 6,
+    "holdout_lens_alignment_ratio": 1.0,
+    "holdout_total_steps": 29,
+    "holdout_traceable_steps": 27,
+    "holdout_traceability_ratio": 0.93,
+    "combined_traceability_ratio": 0.86,
+    "lens_consistent": true,
+    "contradictions_detected": 0,
+    "notes": "Combined traceability ratio of 0.86 exceeds the 0.80 quality gate. All six holdout incidents are lens-aligned with the framework's predictions matching the historical Alexander's actual decisions. The framework's documented blind spots (operational-completion deadline detection failure and personal-pole irreplaceability structural fragility) are themselves framework-predicted: the framework predicts that Alexander would not engineer succession infrastructure (incident-028) and would risk the personal-pole at structurally critical moments (incident-027), and the historical record validates both predictions. No contradictions detected: where two constructs apply (construct 1 and construct 11 at Gaugamela; construct 7 and construct 8 at Opis; construct 2 and construct 12 at Mallian), they reinforce rather than clash, and the framework predicts the construct-stack's net direction without ambiguity. The scenario where construct 7 (dynastic-fusion absorption) and construct 8 (preemptive elimination) do not naturally apply (Antarctic expedition) produces 3 untraceable steps but no contradiction; the framework's domain-distance from polar exploration is the structural cause."
+  }
+}

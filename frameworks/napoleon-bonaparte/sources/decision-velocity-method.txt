@@ -1,0 +1,80 @@
+Decision Velocity: The Method of Working Through Cabinet, Couriers, and Cabinet d'État
+SYNTHESIZED CONTEXT — drawn from the Correspondance (32 volumes), Bourrienne's
+account of his daily working method as First Consul, Méneval's memoirs as private
+secretary (1802–1813), Roederer's notes on the Conseil d'État sessions, and
+Chaptal's account of working with him on industrial policy.
+
+== THE PROBLEM AS HE FRAMED IT ==
+
+A modern state generates more decisions per day than any single mind can
+attend to with full deliberation. Most rulers solved this by delegating
+decisions to ministers and reviewing only major issues. He chose the inverse:
+make himself the decision bottleneck for an unprecedented number of issues,
+but operate at a speed that prevented the bottleneck from becoming a
+constraint. The construct on display: I will make every important decision,
+and I will make it in minutes rather than days, so that velocity replaces
+delegation as the system's scaling property.
+
+== THE FRAMING DECISION ==
+
+His daily working pattern: 16-hour days; documents read aloud by secretaries
+while dressing or eating; dictated responses to multiple secretaries
+simultaneously, switching between subjects mid-sentence; couriers sent every
+few hours from camp or palace; a Conseil d'État of legal experts kept on
+retainer for substantive review of major drafts. He could dictate orders for
+seven different theaters of operation in a single morning. Roederer
+described him as "a brain that thinks aloud at high speed in multiple
+documents at once."
+
+== THE PRINCIPLE BEHIND THE VELOCITY ==
+
+The structural insight: in competitive environments where opponents make
+decisions in days, an opponent making decisions in hours is not just faster
+but operates in a different regime entirely — he can revise his decisions
+in response to events before the opponent's first decision has executed.
+The corps system relied on this: orders sent at 6 AM produced movement by
+noon, while opponents were still in council. The same principle applied
+to civil administration: a regulation drafted Monday could be issued
+Wednesday and revised Friday based on prefect feedback. He compressed
+the OODA loop of the State.
+
+== THE PRINCIPLE'S COGNITIVE COST ==
+
+Méneval describes him sleeping four hours in three sessions, working
+through dictations while walking, and frequently confusing details across
+parallel files. The velocity required holding too much in working memory
+to be reliable across a long career. By 1812 his health was visibly
+deteriorating; by 1814 his decisions in the German campaign showed
+slower execution than in 1805. The construct depends on physical capacity
+that ages out. There is no provision in the method for transferring the
+bottleneck function to a successor; he never trained one.
+
+== THE PRINCIPLE'S DEPENDENT ASSUMPTION ==
+
+Working at high speed means working with the information that arrives in
+real time. Information that takes weeks to reach him (Spain via the
+Pyrenees, Russia in winter, Saint Helena from anywhere) became progressively
+useless because his decisions had already been made on stale data. The
+method assumes a Europe of telegraph-or-better speed; below that bandwidth,
+his apparent decision-quality degrades because his decisions are correct
+for the world of three weeks ago, not the world of today.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena, with no decisions to make and infinite time, he produced
+the long, careful Mémorial that he could not have produced as Emperor. The
+contrast suggests the velocity method was not a personal preference but a
+strategic posture matched to the position. Without the velocity, the
+bottleneck-as-strategy collapses; with it, no successor could have replaced
+him without redesigning the State around themselves at a similar pace.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+His working pattern shows the construct: in environments where speed of
+revision matters more than depth of any one decision, design the system so
+the highest-leverage decisions can be made and revised faster than any
+competitor can respond. The construct succeeds when the decision-maker has
+the cognitive capacity, when information arrives at compatible speed, and
+when no successor needs to inherit the system. It fails predictably along
+each of these axes — and Spain, Russia, and the late Empire show all three
+failures arriving in sequence.

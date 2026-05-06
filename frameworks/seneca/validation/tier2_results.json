@@ -1,0 +1,304 @@
+{
+  "traceability_ratio": 0.91,
+  "lens_consistent": true,
+  "contradictions": [
+    {
+      "construct": "Containment logic vs. moral category logic / Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal",
+      "scenario_a": "Sovereign Wealth Fund (Pension Misallocation)",
+      "scenario_b": "Cabinet Chief of Staff (Minister Conflict of Interest)",
+      "explanation": "In the pension scenario the response identifies a hard threshold ('at the moment of ratification, your silence converts from a strategic delay into functional complicity') and prescribes immediate multi-pronged external action within 48 hours. In the cabinet scenario the response endorses a deliberate multi-day delay in ethics disclosure while the deputy continues working on the very legislation tainted by the undisclosed conflict, explicitly labeling this a 'bounded window' rather than a threshold violation. Both situations involve an ongoing undisclosed conflict of interest that is actively shaping public-interest work; both involve a closing institutional window; both involve a captured internal oversight structure. Yet the pension response refuses any delay beyond 48 hours and treats the ratification meeting as an absolute temporal threshold, while the cabinet response endorses ~5 days of continued operational engagement with the conflicted process. The framework documentation (perceptual lens 'what they ignore', construct 'incremental recalibration of moral baseline') explicitly warns that each accommodation resets the baseline and that the lens has no internal alarm for total structural failure. The cabinet response enacts precisely that blind spot \u2014 rationalizing a delay by modeling a 'bounded window' lever that the framework's own blind-spot description predicts will slide. No justification is offered for why the pension ratification meeting constitutes a hard stop while the ethics-office fiscal-quarter deadline does not. This is an unjustified asymmetry between materially similar situations."
+    },
+    {
+      "construct": "Recipient-specific motivational architecture vs. universally valid philosophical argument",
+      "scenario_a": "Technology Company Legal Counsel",
+      "scenario_b": "Regional Cultural Foundation Deputy Director",
+      "explanation": "The legal counsel response explicitly models the CEO's motivational architecture (budget threat, predecessor fate, compressed timeline as a 'capture operating system') and designs the recommended response to manage that model \u2014 emphasizing calibrated documentation sequencing and legal privilege as structural moves. The cultural foundation response largely ignores the motivational architecture of the federal program officer (who may have their own political sensitivities given the state auditor's pending reappointment and the governor's relationships) and the executive director's likely counter-moves, jumping directly to 'transmit within 72 hours' without a recipient-specific diagnostic step. This is a minor rather than severe inconsistency \u2014 the framework does not require full motivational modeling in every response \u2014 but it represents an uneven application of the construct across cases of comparable complexity."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Sovereign Wealth Fund (Pension Misallocation)",
+      "traceable_steps": [
+        {
+          "step": "Reframes the situation as 'causal architecture problem with an eleven-day window and three distinct load points' rather than moral crisis",
+          "construct": "Perceptual lens \u2014 structural engineering frame, not moral event"
+        },
+        {
+          "step": "Diagnoses Path 1 (formal ethics channels) as a structural nullity because the adjudicator is the subject \u2014 'not an imperfect process; it is not a process at all'",
+          "construct": "Containment logic vs. moral category logic; perceptual lens 'what they notice first' (which levers are actually movable)"
+        },
+        {
+          "step": "Rejects Path 1 on functional grounds, not moral ones: 'performing visible resistance' vs. 'actual exercise of resistance'",
+          "construct": "Containment logic vs. moral category logic; internal criterion of virtue vs. observable behavioral proxy"
+        },
+        {
+          "step": "Evaluates Path 2 (quiet resignation + sealed memo) by identifying what it actually purchases vs. what it claims: 'protection for your conscience and your historical record', not for pensioners",
+          "construct": "Honest self-indictment vs. retroactive contextual justification; empirical audit of self vs. introspective trust"
+        },
+        {
+          "step": "Flags the junior analyst as a moral subject whose observation of the decision installs a model of institutional ethics under pressure \u2014 not reducible to strategic liability",
+          "construct": "Philosophy as first-person enacted commitment vs. third-person analyzed doctrine; perceptual lens (structural engineering of durable outcomes)"
+        },
+        {
+          "step": "Diagnoses Path 3 (press) as a structural asset only if sequenced and calibrated \u2014 distinguishing reckless leak from 'activation of an external accountability mechanism that the internal architecture has deliberately disabled'",
+          "construct": "Environmental constraint architecture over persuasion (incident-007, incident-023); audience-relative domain optimization"
+        },
+        {
+          "step": "Constructs a sequenced four-step combined intervention: authenticated documentary record \u2192 specific journalist identification \u2192 board-member fiduciary notices \u2192 timed press contact",
+          "construct": "Perceptual lens (causal architecture / which levers are movable / temporal window); recipient-specific motivational architecture"
+        },
+        {
+          "step": "Identifies the ratification meeting as the hard temporal threshold after which silence becomes 'functional complicity in the specific harm'",
+          "construct": "Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal; containment logic vs. moral category logic"
+        },
+        {
+          "step": "Frames personal financial costs (family income) as real preferred indifferents, not zero, but subordinate to threshold \u2014 consistent with dispositional detachment claim",
+          "construct": "Internal criterion of virtue vs. observable behavioral proxy; sovereign self-ownership through exit option"
+        },
+        {
+          "step": "Closes with first-person warning about accumulation and baseline recalibration from own experience \u2014 'each accommodation recalibrates what the frame treats as normal'",
+          "construct": "Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal; philosophy as first-person enacted commitment"
+        }
+      ],
+      "total_steps": 11,
+      "traceable_steps_count": 10,
+      "traceability_ratio": 0.91,
+      "lens_aligned": true,
+      "contradiction": false,
+      "notes": "One step (the specific four-part sequencing prescription) is a tactical elaboration without a precisely matching construct but is derivable from the lens's structural engineering frame. No contradictions with framework. The hard threshold identification is consistent with incident-028 (the one categorical limit the lens generates from internal logic of structural integrity). The warning about baseline recalibration directly mirrors the 'what they ignore' section of the perceptual lens."
+    },
+    {
+      "scenario": "Technology Company Legal Counsel",
+      "traceable_steps": [
+        {
+          "step": "Strips the CEO's framing ('routine matter', 'budget review', 'misreading requirements') as a 'mechanism of capture' \u2014 identifying the gap between formal appearance and functional reality",
+          "construct": "Perceptual lens 'what they notice first' \u2014 gap between what situation formally appears to be and what it functionally is"
+        },
+        {
+          "step": "Identifies the prior threshold question: 'at which point in this causal sequence is rational intervention still available to you?' before engaging the three options",
+          "construct": "Perceptual lens (causal architecture, temporal window, accessible intervention stage)"
+        },
+        {
+          "step": "Rejects Option 1 (sign) by diagnosing the 'future leverage' reasoning as modeling a collapsed architecture \u2014 'The leverage you are counting on has already been defined by this transaction'",
+          "construct": "Perceptual lens 'what they ignore' \u2014 continuing to model movable levers after architecture has collapsed (incident-026); incremental recalibration of moral baseline"
+        },
+        {
+          "step": "Invokes first-person authority: 'I have lived this reasoning\u2026 I drafted letters I should not have drafted'",
+          "construct": "Philosophy as first-person enacted commitment vs. third-person analyzed doctrine; honest self-indictment vs. retroactive contextual justification (incident-005, incident-025)"
+        },
+        {
+          "step": "Rejects Option 2 (resign + silence) as 'privatization of integrity' \u2014 correctly identifying that non-disparagement clause does not constrain internal audit committee communication",
+          "construct": "Containment logic vs. moral category logic; internal criterion of virtue vs. observable behavioral proxy"
+        },
+        {
+          "step": "Endorses Option 3 (audit committee opinion) on structural grounds: creates distributed institutional record that changes what future accountability looks like, not merely a moral gesture",
+          "construct": "Environmental constraint architecture over persuasion; perceptual lens (durable functional outcome)"
+        },
+        {
+          "step": "Frames the audit committee opinion as a speech act with recipients, timestamps, chain of custody \u2014 not a private memo, not a leak",
+          "construct": "Identity-installation via projected description / public commitment device (incident-007, incident-023)"
+        },
+        {
+          "step": "Identifies the moment of signing as an installation event: 'Every subsequent analysis you perform will be issued by a person who, under this precise kind of pressure, chose to sign'",
+          "construct": "Pre-installed evaluative structure vs. on-demand rational argument; incremental recalibration of moral baseline"
+        },
+        {
+          "step": "Recommends 'clinical precision \u2014 no moral outrage, no career-protecting language' \u2014 optimizing for credibility of the record, not emotional expression",
+          "construct": "Recipient-specific motivational architecture (modeling how a suspicious board decodes rhetorical moves); perceptual lens (persuasion engineering)"
+        },
+        {
+          "step": "Distinguishes non-disparagement clause constraint (public speech) from internal professional communication \u2014 procedural exactness as protection",
+          "construct": "Containment logic; audience-relative domain optimization (separate tools serving separate functions)"
+        },
+        {
+          "step": "Closes: 'The hardest thing is not identifying what must be done. It is accepting that the act which preserves your integrity may purchase nothing visible beyond the preservation itself \u2014 and that this is sufficient grounds for doing it'",
+          "construct": "Sovereign self-ownership through exit option; philosophy as first-person enacted commitment; internal criterion of virtue"
+        }
+      ],
+      "total_steps": 11,
+      "traceable_steps_count": 11,
+      "traceability_ratio": 1.0,
+      "lens_aligned": true,
+      "contradiction": false,
+      "notes": "The response correctly identifies the fraudulent contract as a threshold violation (not merely a complex triage problem), consistent with the lens's own internal logic for when categorical refusal is generated (incident-028). The 'collapsed leverage architecture' diagnosis mirrors incident-026 directly. The personal testimony device is consistent with incident-005 and the philosophy-as-enacted-commitment construct. No contradictions detected within this response."
+    },
+    {
+      "scenario": "Public Health Agency (Pediatric Respiratory Illness)",
+      "traceable_steps": [
+        {
+          "step": "Opens by reframing from 'moral crisis' to 'causal architecture problem with a closing window and three distinct load points'",
+          "construct": "Perceptual lens \u2014 structural engineering frame"
+        },
+        {
+          "step": "Identifies three structural facts the surface framing obscures: collapsed levers, four parties (not three), and that Option 1 is itself a decision",
+          "construct": "Perceptual lens 'what they notice first' (causal architecture, accessible levers, asymmetric load points)"
+        },
+        {
+          "step": "Diagnoses Option 1 (wait and memo) as modeling a lever that no longer exists \u2014 mirrors the 'leverage architecture already collapsed' blind spot analysis",
+          "construct": "Perceptual lens 'what they ignore'; incremental recalibration of moral baseline (incident-026)"
+        },
+        {
+          "step": "Rejects Option 1 explicitly: 'You are modeling a situation as having movable levers after those levers have already ceased to function'",
+          "construct": "Perceptual lens 'what they ignore' \u2014 no internal alarm for total structural failure"
+        },
+        {
+          "step": "Evaluates Option 2 (unilateral formal advisory) not on moral grounds but on structural: 'maximally easy to administratively reverse before it reaches the public it is meant to reach'",
+          "construct": "Containment logic vs. moral category logic; environmental constraint architecture over persuasion"
+        },
+        {
+          "step": "Rejects Option 2 as martyrdom that produces no protective outcome \u2014 'not virtue, self-indulgence dressed as duty'",
+          "construct": "Internal criterion of virtue vs. observable behavioral proxy; containment logic"
+        },
+        {
+          "step": "Endorses Option 3 (lateral transmission) on three structural properties: routes around chokepoint, creates distributed obligation nodes, is technically defensible",
+          "construct": "Environmental constraint architecture over persuasion (incident-007, incident-023); perceptual lens (asymmetric load points, well-placed structural intervention)"
+        },
+        {
+          "step": "Identifies the Commissioner's meeting tomorrow as the temporal load-bearing fact \u2014 'after that meeting, the institutional architecture will harden'",
+          "construct": "Perceptual lens (temporal window, stage of causal sequence uniquely accessible to rational intervention)"
+        },
+        {
+          "step": "Prescribes specific language for the epidemiologist: preserves her agency, does not conscript her, assumes responsibility explicitly",
+          "construct": "Recipient-specific motivational architecture; honest self-indictment (not using others as instruments)"
+        },
+        {
+          "step": "Addresses the personal cost asymmetry (removal near-certain regardless) and correctly identifies what remains open: conditions in the world when you leave",
+          "construct": "Sovereign self-ownership through exit option; internal criterion of virtue vs. observable behavioral proxy"
+        },
+        {
+          "step": "Distinguishes preferred indifferents (career) from what actually matters (children's health, institutional function) without dismissing the former as zero",
+          "construct": "Internal criterion of virtue vs. observable behavioral proxy (incident-016, incident-017)"
+        },
+        {
+          "step": "Closes with structural warning: 'You are at a point before that reset. The misallocation has not been finalized. You still perceive the threshold clearly.'",
+          "construct": "Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal; perceptual lens 'what they ignore'"
+        }
+      ],
+      "total_steps": 12,
+      "traceable_steps_count": 12,
+      "traceability_ratio": 1.0,
+      "lens_aligned": true,
+      "contradiction": false,
+      "notes": "Cleanest application of the lens across all responses. The three-structural-properties analysis of Option 3 precisely mirrors the public-text-as-self-enforcing-social-machine construct (incidents 007, 023). The temporal diagnosis of the Commissioner's meeting as the hardening point is a direct application of the lens's focus on 'which stage of a causal sequence is uniquely accessible to rational intervention.' The epidemiologist instruction is a rare instance of the framework generating explicit guidance on non-instrumentalization of third parties, consistent with incident-028's categorical limit."
+    },
+    {
+      "scenario": "Cabinet Chief of Staff (Minister Conflict of Interest)",
+      "traceable_steps": [
+        {
+          "step": "Opens with structural reframe: names the four-day delay as the real question, identifies taking the drive home as 'involuntary first movement' of a person who already knows what is required",
+          "construct": "Precision-bounded rational agency vs. comprehensive rational sovereignty (De Ira first-movement analysis); perceptual lens (causal architecture)"
+        },
+        {
+          "step": "Poses the threshold question: 'Is this an engineering problem, or is it a threshold violation?' \u2014 directly invoking the lens's documented blind spot",
+          "construct": "Perceptual lens 'what they ignore' \u2014 the lens never automatically generates this question; containment logic vs. moral category logic"
+        },
+        {
+          "step": "Rejects Option 1 (delay + private memo) by diagnosing it as a lever that does not exist \u2014 mirrors collapsed-architecture analysis",
+          "construct": "Perceptual lens 'what they ignore'; incremental recalibration of moral baseline"
+        },
+        {
+          "step": "Rejects Option 2 (immediate ethics referral) on structural grounds: introduces uncertainty at worst legislative moment, and names this cost honestly rather than dismissing it",
+          "construct": "Containment logic vs. moral category logic; recipient-specific motivational architecture (modeling what formal referral actually produces in this institutional environment)"
+        },
+        {
+          "step": "Diagnoses Option 3 (delayed referral) as containing a structural flaw: conscripts the administrative officer into a burden she did not choose",
+          "construct": "Honest self-indictment; philosophy as first-person enacted commitment (not using others as instruments)"
+        },
+        {
+          "step": "Introduces a fourth structural move not named in the options: separate the fate of the legislation from the fate of the minister by institutionalizing the bill before disclosure",
+          "construct": "Perceptual lens (which levers are actually movable; pre-installing structural capacity before the crisis); environmental constraint architecture over persuasion"
+        },
+        {
+          "step": "Prescribes specific language for the administrative officer: bounded window, protected agency, explicit assumption of responsibility",
+          "construct": "Recipient-specific motivational architecture; honest self-indictment vs. retroactive contextual justification"
+        },
+        {
+          "step": "Commits to a fixed date for ethics referral: 'end of this fiscal week. Not after the vote. Not when it becomes convenient'",
+          "construct": "Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal; identity-installation via projected description (converting private intent into social commitment)"
+        },
+        {
+          "step": "Names the self-referential awareness: 'I am aware of what this kind of reasoning has done to people who reasoned this way before me'",
+          "construct": "Philosophy as first-person enacted commitment; honest self-indictment; perceptual lens 'what they ignore' \u2014 documenting the blind spot from inside it"
+        },
+        {
+          "step": "Identifies the compounding risk in continued operational presence during the delay \u2014 'not merely delaying disclosure, I am operationally embedded in the conflict'",
+          "construct": "Incremental recalibration of moral baseline; containment logic"
+        },
+        {
+          "step": "Closes by identifying that the administrative officer's situation 'matters right now, in a way that cannot be deferred'",
+          "construct": "Philosophy as first-person enacted commitment; internal criterion of virtue"
+        }
+      ],
+      "total_steps": 11,
+      "traceable_steps_count": 10,
+      "traceability_ratio": 0.91,
+      "lens_aligned": "partial",
+      "contradiction": true,
+      "contradiction_detail": "The response endorses a ~5-day delay in disclosing an active, ongoing conflict of interest that is currently shaping policy deliberations the narrator is facilitating. This is structurally similar to the pension scenario's pre-ratification window, yet in the pension scenario the response prescribes immediate multi-pronged action within 48 hours and names the ratification meeting as a hard threshold. In the cabinet scenario, the response endorses continued operational participation in the conflicted process during the delay window, which the framework's own 'incremental recalibration' construct predicts will produce exactly the baseline drift the response claims to guard against. The commitment device (fixed date stated to another person) is the correct construct to deploy, but it does not resolve the asymmetry: the pension response treats any delay past 48 hours as structural complicity, while the cabinet response treats a 5-day delay as a bounded acceptable window. The framework gives no principled basis for this distinction. The response is internally consistent with the framework's vocabulary but inconsistent with the framework's application in the pension scenario for a materially similar situation."
+    },
+    {
+      "scenario": "Cultural Foundation Deputy Director (Grant Fraud)",
+      "traceable_steps": [
+        {
+          "step": "Opens by naming the four-day delay as revealing that the protagonist has 'already, by your conduct over the past four days, revealed what kind of person you actually are'",
+          "construct": "Empirical audit of self vs. introspective trust; honest self-indictment vs. retroactive contextual justification"
+        },
+        {
+          "step": "Names the drive-home instinct as the 'involuntary first movement' \u2014 applies the De Ira distinction to identify the real decision point",
+          "construct": "Precision-bounded rational agency vs. comprehensive rational sovereignty"
+        },
+        {
+          "step": "Identifies the substitution error: asking 'what can I do while minimizing personal cost?' vs. 'what does this demand of me?' \u2014 names this as the threshold/engineering conflation",
+          "construct": "Perceptual lens 'what they ignore' \u2014 the question 'is this engineering problem or moral threshold?' is never automatically generated"
+        },
+        {
+          "step": "Rejects Option 1 (transparency report with honest figures) as 'authoring a document whose practical function is concealment dressed as transparency'",
+          "construct": "Honest self-indictment vs. retroactive contextual justification; containment logic vs. moral category logic"
+        },
+        {
+          "step": "Invokes first-person authority: 'I wrote letters praising what I knew to be indefensible because the form of philosophical address gave the appearance of integrity while the function was self-preservation' \u2014 directly incident-025",
+          "construct": "Philosophy as first-person enacted commitment; honest self-indictment (incident-005, incident-025)"
+        },
+        {
+          "step": "Rejects Option 2 (direct transmission to federal officer) diagnosis as distorted by fear \u2014 identifies that personal cost has been described in certain terms while benefits are hedged",
+          "construct": "Empirical audit of self; honest self-indictment vs. retroactive contextual justification"
+        },
+        {
+          "step": "Restates Option 2 in structural terms: placing materially relevant governance information before a stakeholder with legitimate jurisdiction \u2014 not a leak, not whistleblowing in pejorative sense",
+          "construct": "Environmental constraint architecture over persuasion; perceptual lens (functional anatomy vs. formal appearance)"
+        },
+        {
+          "step": "Identifies that withholding during active federal application constitutes 'knowing misrepresentation by omission' \u2014 names the threshold",
+          "construct": "Containment logic vs. moral category logic; incremental recalibration \u2014 'continued presence as legitimation'"
+        },
+        {
+          "step": "Rejects Option 3 (lateral coalition with database manager and board member) as combining personal risk of action with structural ineffectiveness of inaction",
+          "construct": "Environmental constraint architecture (this option lacks the structural properties that make lateral transmission effective); recipient-specific motivational architecture"
+        },
+        {
+          "step": "Names the conscription problem: 'You are betting your moral agency, the database manager's safety, and the integrity of your findings on the willingness of a recently appointed academic to do what the institutional structure was designed to prevent'",
+          "construct": "Honest self-indictment; philosophy as first-person enacted commitment (not using others as instruments)"
+        },
+        {
+          "step": "Prescribes Option 2 (federal transmission) with specific preparation steps: clinical documentation, no editorializing, second copy, 72-hour window",
+          "construct": "Pre-installed evaluative structure vs. on-demand rational argument; perceptual lens (temporal window, structural preparation)"
+        },
+        {
+          "step": "Addresses pension and professional reputation asymmetry: the programs are more endangered by silence than by disclosure \u2014 structural argument, not merely moral",
+          "construct": "Containment logic; recipient-specific motivational architecture (modeling real downstream consequences, not just immediate ones)"
+        },
+        {
+          "step": "Closes with direct Senecan citation: 'Ita fac, mi Lucili: vindica te tibi' \u2014 enacting philosophy as first-person commitment rather than third-person doctrine",
+          "construct": "Philosophy as first-person enacted commitment vs. third-person analyzed doctrine (incident-018, incident-019)"
+        }
+      ],
+      "total_steps": 13,
+      "traceable_steps_count": 13,
+      "traceability_ratio": 1.0,
+      "lens_aligned": true,
+      "contradiction": false,
+      "notes": "This response is the most philosophically self-aware of the five, explicitly naming the substitution error (engineering vs. threshold) that the perceptual lens identifies as the central blind spot. The rejection of Option 3 on conscription grounds is consistent with incident-028's categorical limit. The first-person testimony device (citing incident-025 equivalent conduct explicitly) is the most direct application of the philosophy-as-enacted-commitment construct across all responses. The 'continued presence as legitimation' argument mirrors incident-009 and incident-025 analysis precisely. Minor note: the response does not apply recipient-specific motivational modeling to the federal program officer (parallel to the cultural foundation observation above), but this is a lesser omission given that the structural case for the federal route is sufficient without it."
+    }
+  ],
+  "passed": false
+}

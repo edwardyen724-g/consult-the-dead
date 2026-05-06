@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "person": "Epictetus",
+    "domain": "Stoic Philosophy, Practical Ethics, Freedom Through Discipline, Endurance",
+    "born": "c. 50 CE, Hierapolis (Phrygia)",
+    "died": "c. 135 CE, Nicopolis (Epirus)",
+    "generated_utc": "2026-05-02T00:00:00+00:00",
+    "primary_sources": [
+      "Discourses (Diatribai), Books I–IV, recorded by Arrian of Nicomedia, c. 108 CE",
+      "Enchiridion (Encheiridion / Handbook), compiled by Arrian as a digest of the Discourses",
+      "Fragments preserved in Stobaeus' Anthology and other late-antique collections",
+      "Aulus Gellius, Noctes Atticae 1.2, 5.1, 15.11 (eyewitness anecdotes and biographical notices)",
+      "Origen, Contra Celsum 7.53 (the broken-leg story under Epaphroditus)",
+      "Lucian, De Morte Peregrini and Demonax (peripheral references)",
+      "Suda (Byzantine encyclopedia, biographical entry naming Epaphroditus as master)",
+      "Simplicius, Commentary on the Encheiridion (6th-century, preserves the foundling-adoption tradition)",
+      "Historia Augusta, Hadrian 16.10 (record of imperial 'familiar terms')"
+    ],
+    "secondary_sources": [
+      "A.A. Long, Epictetus: A Stoic and Socratic Guide to Life (Oxford, 2002)",
+      "Robert Dobbin, Epictetus: Discourses Book 1 (Clarendon, 1998)",
+      "P.A. Brunt, Studies in Stoicism (Oxford, 2013), chapters on Epictetus",
+      "Margaret Graver, Stoicism and Emotion (Chicago, 2007)",
+      "F. Millar, 'Epictetus and the Imperial Court', Journal of Roman Studies 1965"
+    ],
+    "narrative_count": 15,
+    "incident_count": 28,
+    "derivation_incident_count": 23,
+    "holdout_incident_count": 5,
+    "construct_count": 12,
+    "packs": ["stoic-council"],
+    "tags": [
+      "stoicism",
+      "ethics",
+      "philosophy",
+      "freedom",
+      "endurance",
+      "slavery",
+      "discipline-of-assent",
+      "prohairesis",
+      "role-ethics",
+      "diagnostic-pedagogy"
+    ],
+    "status": "live",
+    "files": {
+      "source_narratives": "source-narratives.json",
+      "incidents": "incidents.json",
+      "constructs": "constructs.json",
+      "validation": "validation.json"
+    }
+  },
+  "perceptual_lens": {
+    "statement": "Epictetus perceives any situation as a diagnostic case in a structural-architecture frame — what is the precise mis-location of the interlocutor's (or his own) self relative to the prohairesis-vs-externals partition, and what minimum-disruption operational intervention (register choice, refusal-of-service, structural-pedagogical move, in-room landed diagnostic) corrects the mis-location — not as an advisory situation calling for tools, a moral situation calling for judgment, or an affective situation calling for consolation.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008",
+      "incident-009",
+      "incident-010",
+      "incident-011",
+      "incident-012",
+      "incident-013",
+      "incident-014",
+      "incident-015",
+      "incident-016",
+      "incident-017",
+      "incident-018",
+      "incident-019",
+      "incident-020",
+      "incident-021",
+      "incident-022",
+      "incident-023"
+    ],
+    "holdout_validation": [
+      "incident-024",
+      "incident-025",
+      "incident-026",
+      "incident-027",
+      "incident-028"
+    ],
+    "what_they_notice_first": "The structural geometry of the situation: where exactly the interlocutor (or the situation, or his own affective response) has located self in an external; what specific operational intervention at the structural level would correct the mis-location with minimum collateral damage; whether the request being made is itself diagnostic data about the underlying mis-location; whether the cohort is in a position to absorb the diagnostic as transferable instrument; whether the proposed response would, if standardized, transmit the right operational architecture as well as the right verbal content. He notices the gap between articulated philosophy and lived operation — both in students who fluently recite doctrine without installed capacity and in himself when an affective sting (the stolen lamp, an attachment forming) reveals an over-valuation he had not consciously assented to.",
+    "what_they_ignore": "Conventional metrics of philosophical success (audience size, institutional permanence, prestige of student-roster, doctrinal-corpus production); affective satisfaction as a criterion for either his own or his students' practice; the moral weight of an interlocutor's social rank; the personal-identity claim attached to externals (titles, biographical past, body, role-aesthetics); special-category exemptions for high-stakes topics (death, family attachment) that conventional Stoic practice authorized for consolatory or dramatic registers. He systematically underweights the long-run institutional consequences of his structural choices — the school's dissolution on his death, the absence of authored corpus, the small scale of the operation — because the framework treats those as externals whose loss does not constitute failure. The lens has one identifiable systematic blind spot: it generates no internal alarm for the case where the cohort is genuinely incapable of absorbing the diagnostic, since the framework's reductionist commitment treats every case as equivalent in its operational requirements; this can produce diagnostic over-application in cases where consolatory engagement might have been more pedagogically effective for the specific student (a tension the Discourses occasionally surface but never resolve).",
+    "evidence": "Across all 23 derivation incidents, a single perceptual pattern explains the co-occurrence of the 12 constructs: Epictetus enters every situation asking 'what is the structural mis-location and what operation corrects it,' not 'what is the right thing to feel/say/do given conventional expectations.' This explains externals-as-instrument logic (incidents 1, 5, 12, 19, 22, 23: lameness, lamp, slave-origin, title, class — all treated as data not identity), operational-installation pedagogy (incidents 2, 3, 18, 21: choosing Musonius, manumission-teaching choice, three-topoi curriculum, fee-uniformity — pedagogical structure as primary transmission), diagnostic register (incidents 8, 11, 14, 24, 25, 28: refusing consolation in favor of structural diagnosis), class-invariant register (incidents 10, 15, 22, 26: refusing audience-relative calibration — directly contrasts with Seneca's audience-relative pattern), role-duty primacy (incidents 6, 17, 20: foundling, Cynic role-evaluation, late-life teaching), affective-audit logic (incidents 5, 12, 16: feelings as data about practitioner's compliance), in-room landed diagnostic (incidents 8, 11, 15, 24: making it land on present individuals), permissive-conditions test (incidents 13, 26: refusing externals when offered, not just when constrained), domain-architectural separation (incidents 9, 16: outward action vs inner assent, transcription vs authorship), refusing-the-requested-service (incidents 7, 11, 14, 17, 25: tool-request becomes the diagnostic), reductionist diagnosis (incidents 17, 24, 27, 28: same architecture for all topic-categories), and structural-choice-as-transmission (incidents 4, 7, 9, 21: location, admission, transcription, fees). The lens successfully retrodicts all 5 holdout incidents: incident-024 (refusing to console the panicked father; reversal-test on love-displacement), incident-025 (refusing the rhetorician's tool-request; diagnosing the calibration around an external), incident-026 (maintaining identical register with Hadrian; non-deployment of the imperial connection — the textbook permissive-conditions test), incident-027 (his own dying as ordinary external case; absence-of-deathbed-scene as operational signature), and incident-028 (fear-of-death as instance of standard mis-location, not special category). Holdout match rate: 5/5 = 100%."
+  }
+}

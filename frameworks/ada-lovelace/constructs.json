@@ -1,0 +1,117 @@
+{
+  "person": "Ada Lovelace",
+  "method": "Kelly Repertory Grid — bipolar constructs elicited by triadic comparison across the derivation-set incidents",
+  "construct_count": 12,
+  "compiled_utc": "2026-05-02T00:00:00Z",
+  "elicitation_note": "Each construct was elicited by selecting triads of derivation-set incidents (incidents 001–023), identifying the bipolar dimension on which two incidents grouped against the third, and testing the dimension across the remaining derivation-set incidents. Constructs are reported as bipolar spectrums with positive and negative poles named in operational terms.",
+  "bipolar_constructs": [
+    {
+      "id": "C01",
+      "construct": "Architectural-form attention vs Implementation-detail attention",
+      "positive_pole": "Classifying any encountered system by its abstract architectural form (what the structure makes possible in principle) rather than by its current implementation specifics",
+      "negative_pole": "Classifying any encountered system by its current implementation specifics (what it does now, with the parts and configuration it currently has)",
+      "operational_signature": "On encountering a new system, the question 'what does its architecture make possible?' precedes and reorganizes the question 'what is it currently doing?'",
+      "derived_from_incidents": ["incident-003", "incident-007", "incident-008"],
+      "behavioral_implication": "Will undervalue current performance relative to architectural potential; will sometimes over-articulate what a system could become and under-attend to what it currently is. The disposition produced the Note A reframe of the Analytical Engine and is the structural source of her singular conceptual contribution."
+    },
+    {
+      "id": "C02",
+      "construct": "Engineering-reframe of imaginatively-motivated interest vs Acceptance of imaginative-vs-analytical type-categories",
+      "positive_pole": "Reframing any imaginatively-motivated interest as a bounded engineering problem with measurable variables and pursuing it with documented operational rigor",
+      "negative_pole": "Accepting the conventional categorization that imaginative interests belong in the imaginative-temperamental domain and analytical interests in the analytical-temperamental domain",
+      "operational_signature": "Imagination originates the project; engineering-rigor instruments it; the integration is the methodology rather than a contradiction to be resolved",
+      "derived_from_incidents": ["incident-001", "incident-011", "incident-013", "incident-014"],
+      "behavioral_implication": "Will pursue projects in domains conventionally categorized as imaginative (flight, music, mesmerism, racing) with the same operational rigor others reserve for credentialed scientific domains. The disposition produces both the Notes (where the structural fit is strong) and the late-1840s betting system (where it is not)."
+    },
+    {
+      "id": "C03",
+      "construct": "Operational-target alignment vs Conventional-channel credentialing",
+      "positive_pole": "Choosing preparation, model, and direction by alignment with the operational target of the actual work, even when the alignment requires refusal of conventionally-credentialing channels",
+      "negative_pole": "Choosing preparation, model, and direction by the conventional credentialing structure, accepting whatever operational direction the channels imply",
+      "operational_signature": "When the channel and the target diverge, the target wins; the channel is chosen for fit-to-target, not selected and then accommodated",
+      "derived_from_incidents": ["incident-004", "incident-018", "incident-022"],
+      "behavioral_implication": "Will refuse credentialing-anchored channels when they misalign with the operational target (the accomplishment-style alternative, Faraday's canonical interests, metropolitan distance from Crosse); will accept structural credentialing costs as the operational price of target-aligned direction."
+    },
+    {
+      "id": "C04",
+      "construct": "Documentation-as-thinking-instrument vs Documentation-as-record-of-thinking",
+      "positive_pole": "Treating writing as the operational thinking-instrument — the document and the conceptual content are inseparable, the writing-process is the working-out",
+      "negative_pole": "Treating writing as the record of thinking already completed — content is settled before the document is written, the document communicates the result",
+      "operational_signature": "Manuscripts grow during composition; tentative passages are preserved; autograph form is preferred over dictation when the conceptual content is exploratory",
+      "derived_from_incidents": ["incident-001", "incident-002", "incident-009"],
+      "behavioral_implication": "Will refuse productivity-modes (dictation, delegation) that separate writing from thinking even when the productivity cost is substantial. The disposition is visible from the 1828 Flyology manuscript through the autograph composition of the Notes."
+    },
+    {
+      "id": "C05",
+      "construct": "Cross-domain synthetic methodology vs Domain-specialist methodology",
+      "positive_pole": "Operating with explicit cross-domain methodology (imagination originates, mathematics verifies; one domain's structure informs another's) as the working method",
+      "negative_pole": "Operating within a single domain's methodological conventions, with cross-domain reference treated as ornamental rather than methodological",
+      "operational_signature": "The methodological articulation ('poetical science') is explicit and operationally specific, not metaphorical; the cross-domain combination is the method rather than incidental erudition",
+      "derived_from_incidents": ["incident-004", "incident-007", "incident-011", "incident-013"],
+      "behavioral_implication": "Will pursue work that requires cross-domain synthetic capacity (the Note A reframe, the calculus-of-the-nervous-system project) and will avoid pure-specialist channels even when they are credentialing-superior. The disposition is the structural enabling condition of the Note A reframe."
+    },
+    {
+      "id": "C06",
+      "construct": "Constructed-operational-identity vs Inherited-credentialing-identity",
+      "positive_pole": "Constructing public-scientific identity through operational work rather than through inherited family-political position; refusing inherited credentialing channels even when they are operationally available",
+      "negative_pole": "Accepting inherited credentialing position as the structural anchor of public identity; performing the inherited role to the extent operationally productive",
+      "operational_signature": "The Byron's-daughter role is refused in favor of the constructed scientific identity; Lady Byron's network is not mobilized for the Notes' credentialing; 'A.A.L.' is the calibrated authorial signal",
+      "derived_from_incidents": ["incident-012", "incident-023"],
+      "behavioral_implication": "Will refuse inherited credentialing channels, accept the credentialing costs, and construct calibrated signaling that anchors public identity in the operational work. The disposition coexists with strategic-symbolic invocation of the inheritance in specifically calibrated circumstances (the deathbed burial)."
+    },
+    {
+      "id": "C07",
+      "construct": "Structural-honesty calibration vs Persuasion-optimization",
+      "positive_pole": "Co-articulating capability and limitation claims as structurally mutually load-bearing on credibility; refusing operational pressure for short-term credentialing-strengthening that would damage long-term structural credibility",
+      "negative_pole": "Optimizing each claim for short-term persuasive effect; treating capability and limitation as separate rhetorical instruments to be deployed independently",
+      "operational_signature": "The principled limitation is articulated alongside the principled capability and is retained against operational pressure to dilute it; long-term structural credibility is the load-bearing variable",
+      "derived_from_incidents": ["incident-009", "incident-016"],
+      "behavioral_implication": "Will retain principled limitations against persuasive pressure (the Note G principle against Babbage's preference for stronger claims), make explicit disclosures when concealment is structurally unsustainable (the deathbed confession), and accept short-term credentialing costs as the price of long-term structural credibility."
+    },
+    {
+      "id": "C08",
+      "construct": "Operational-self-knowledge calibration vs Social-conventional self-presentation",
+      "positive_pole": "Treating one's own capacity, position, and trajectory as operational variables to be calibrated against external expert assessment; stating the calibration in unsentimental terms when operational consequences require it",
+      "negative_pole": "Treating self-presentation by social-conventional norms (modesty, encouragement-seeking, supportive role); leaving capacity and trajectory uncalibrated against external standards",
+      "operational_signature": "Asks for unsentimental calibration of capacity (De Morgan tutorial), states own strategic capacity in operational terms (August 14 letter), refuses conventional female-student or female-collaborator self-presentation when calibration is operationally load-bearing",
+      "derived_from_incidents": ["incident-006", "incident-010"],
+      "behavioral_implication": "Will request and accept unsentimental calibration even when conventional self-presentation would have produced encouragement; will state own capacity in operational terms when the structural decision requires it. The disposition is structurally distinctive for a Victorian woman in scientific partnership."
+    },
+    {
+      "id": "C09",
+      "construct": "Constraint-as-operational-structure vs Constraint-as-impediment",
+      "positive_pole": "Reframing structural constraints (illness, motherhood, terminal diagnosis, household conventions) as operational structures with workable variables, constructing explicit workarounds against the constraint's structure",
+      "negative_pole": "Accepting structural constraints as impediments to be deferred-around rather than re-engineered against",
+      "operational_signature": "Bed-rest period becomes concentrated study time; motherhood produces compressed-schedule + country-estate + correspondence-tutorial; terminal illness produces optimized-time-horizon work-vs-rest decisions",
+      "derived_from_incidents": ["incident-002", "incident-005", "incident-015"],
+      "behavioral_implication": "Will construct explicit operational workarounds for structural constraints rather than accept the conventional regimes the constraints imply. The disposition produces sustained operational work through periods conventionally categorized as hiatus."
+    },
+    {
+      "id": "C10",
+      "construct": "Calibrated-instrument-engineering vs Single-instrument-default",
+      "positive_pole": "Configuring multiple operational structures (signaling, partnerships, settlements) on different terms calibrated to each structure's load-bearing variables; treating apparent unity as decomposable into structurally distinct domains",
+      "negative_pole": "Configuring all operational structures on the same default terms; treating apparent unity as actual unity",
+      "operational_signature": "'A.A.L.' signaling is audience-asymmetric; the Babbage partnership is operationally disengaged while the personal correspondence is preserved; the deathbed contains structurally distinct relational and symbolic settlements on different terms",
+      "derived_from_incidents": ["incident-012", "incident-017", "incident-020"],
+      "behavioral_implication": "Will decompose apparent unities into structurally distinct domains and configure each on its load-bearing variables; will absorb apparent inconsistency between configurations as the structural cost of operationally-correct calibration."
+    },
+    {
+      "id": "C11",
+      "construct": "Operational-vehicle construction vs Direct-engagement default",
+      "positive_pole": "Recognizing that methodological work requires an operational vehicle (publication occasion, working partnership, project structure) and constructing the vehicle when one is not available by default",
+      "negative_pole": "Engaging available work directly through whatever channels present themselves; treating the absence of a vehicle as the absence of work",
+      "operational_signature": "The Wheatstone-translation suggestion is recognized as engineered occasion for original work; the absence of the Engine project produces the calculus-of-nervous-system project as candidate vehicle; the late-1840s betting system is constructed as operational vehicle in the absence of better alternatives",
+      "derived_from_incidents": ["incident-013", "incident-014", "incident-021"],
+      "behavioral_implication": "Will construct candidate operational vehicles when methodological direction requires them; the disposition produces both the Notes (where the vehicle's structural fit is strong) and the betting-system project (where the structural fit is inadequate)."
+    },
+    {
+      "id": "C12",
+      "construct": "Credentialing-instrument loading vs Distributed-effort default",
+      "positive_pole": "Investing disproportionate effort in the specific artifacts that will carry structural load in subsequent reception; absorbing reconstruction costs to preserve authorial control of load-bearing artifacts",
+      "negative_pole": "Distributing effort proportionally across all artifacts; ceding control of any single artifact when reconstruction would be costly",
+      "operational_signature": "Choice of Bernoulli numbers as the highest-complexity available programming example; rebuild of the Bernoulli table from foundations rather than ceding the corrected version; the Notes themselves grown to twice the length of the source article",
+      "derived_from_incidents": ["incident-008", "incident-019"],
+      "behavioral_implication": "Will identify the load-bearing credentialing artifact in any project and invest disproportionate effort in it; will absorb reconstruction costs to preserve authorial control of the load-bearing artifact. The disposition produced the singular load-bearing quality of the Bernoulli example."
+    }
+  ]
+}

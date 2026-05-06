@@ -1,0 +1,226 @@
+[
+  {
+    "title": "Drafting a Continental Federal Plan Without Commission",
+    "description": "Franklin arrived at the Albany Congress in 1754 with a fully drafted Plan of Union that exceeded the narrow mandate of the meeting. This was an independent judgment call to reframe the agenda around a permanent federal mechanism, not a response to any authority's request. It reveals his pattern of identifying structural solutions to coordination problems before anyone else framed them as structural problems.",
+    "source_text_excerpt": "The decision to draft a continental constitutional plan in 1754 was not commissioned by anyone... Franklin chose to broaden the agenda by arriving with a comprehensive proposal.",
+    "source_title": "albany_plan_and_constitutional_role",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Signing Speech Arguing for Acceptance Through Epistemic Humility Rather Than Substantive Endorsement",
+    "description": "On the final day of the Convention, Franklin argued delegates should sign the Constitution not because it was correct but because individual judgment was too unreliable to justify withholding assent from a collective deliberative outcome. This diverges sharply from peers like Madison who argued from substantive conviction. Franklin treated procedural legitimacy as the basis for commitment, not agreement with specific provisions.",
+    "source_text_excerpt": "He observed that the older he grew, the more he was inclined to doubt his own judgment and pay greater respect to the judgment of others. He proposed that each delegate doubt a little of his own infallibility and sign.",
+    "source_title": "albany_plan_and_constitutional_role",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Deliberate Abandonment of Argumentative Style at Age Twenty",
+    "description": "After a Quaker friend observed that his argumentative manner produced enemies and prevented agreement, Franklin made a conscious, procedural decision to eliminate direct contradiction and positive assertion from his conversational style. This is a critical incident because it represents a non-obvious choice \u2014 most ambitious young men in the eighteenth century would have doubled down on vigorous debate as a signal of intelligence \u2014 and reveals Franklin's willingness to subordinate ego to effectiveness. His reasoning is explicitly stated in the autobiography.",
+    "source_text_excerpt": "He resolved to forbear all direct contradiction of others' opinions and all positive assertion of his own... This was a learned discipline, not a temperamental disposition.",
+    "source_title": "conversational_method_and_humility",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Adopting the Single-Fluid Model and Inventing Conservation Framing",
+    "description": "Franklin chose a single-fluid model over the prevailing two-fluid model not because the data compelled it, but because it allowed him to import conservation as a structural constraint into electrical theory. This was a deliberate conceptual bet \u2014 sacrificing descriptive neutrality for theoretical parsimony and mathematical tractability. The choice reveals a cognitive preference for frameworks that constrain reasoning over those that merely accommodate observations.",
+    "source_text_excerpt": "Franklin's choice was motivated by the conceptual simplification it produced \u2014 the conservation principle followed directly from the single-fluid framing. He preferred the framework that imposed conservation as a structural constraint, because conservation was already a powerful tool in natural philosophy and he wanted to import it into a domain where it had not been used.",
+    "source_title": "electricity_and_lightning",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Inventing Quantitative Vocabulary (Positive, Negative, Charge)",
+    "description": "Franklin deliberately coined terms like positive, negative, and charge rather than preserving phenomenological labels like vitreous or resinous, treating naming itself as a primary research activity. By making the electrical fluid behave grammatically like a number, he pre-structured how subsequent researchers would think and what operations they would find thinkable. This reveals a meta-cognitive awareness that vocabulary choices constrain or enable entire programs of inquiry.",
+    "source_text_excerpt": "By naming the unobservable as positive and negative \u2014 quantities \u2014 Franklin made the electrical fluid behave grammatically like a number. Mathematical and bookkeeping operations became thinkable... Franklin chose names that abstracted the phenomena into manipulable symbols.",
+    "source_title": "electricity_and_lightning",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Designing the Sentry-Box Experiment as a Binary Verification Rather Than Measurement",
+    "description": "When proposing to test whether lightning was electrical, Franklin designed an experiment to yield only a yes/no answer rather than to measure any quantity, a deliberate departure from the quantitative ethos prevalent among contemporaries. This reflects his consistent preference for hypothesis verification over data collection, and for analogical reasoning \u2014 importing conclusions from laboratory charge behavior \u2014 over exploratory observation. The choice reveals a deductive rather than inductive experimental style.",
+    "source_text_excerpt": "He proposed an experiment that would produce a yes/no answer to a single question: is the cloud electrically charged... The experiments were not exploratory; they were verification procedures for a hypothesis already constructed by analogical reasoning.",
+    "source_title": "electricity_and_lightning",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Refusing to Patent the Lightning Rod (and the Franklin Stove)",
+    "description": "Franklin declined to patent the lightning rod despite its enormous practical value and a precedent of refusing to patent the Franklin stove as well, articulating a principle of free dissemination in his autobiography. The source reveals that this was not simple altruism but a strategic calculation: free dissemination maximized adoption, maximized safety benefit, and maximized his reputation as inventor \u2014 a non-monetary asset with downstream diplomatic and political returns. This incident exposes a cognitive framework that treats reputation and ecosystem growth as superior to monopoly rent extraction.",
+    "source_text_excerpt": "Free dissemination of the lightning rod was consistent with this pattern. It maximized adoption, which maximized the safety benefit, which maximized his reputation as the inventor \u2014 a non-monetary asset that paid in subsequent diplomatic and political contexts.",
+    "source_title": "electricity_and_lightning",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Constructing the Quaker Philosopher Persona",
+    "description": "Upon arriving in France, Franklin \u2014 a lifelong urban sophisticate with no Quaker affiliation \u2014 deliberately discarded wigs, adopted plain dress, and cultivated the image of a natural sage from the American wilderness. He diagnosed his French audience's ideological priming through Voltaire and Rousseau and engineered a persona calibrated to produce acceptance rather than dismissal. This reveals Franklin's meta-level awareness of how the apparent source of a message determines its reception, and his willingness to deploy identity as an instrumental tool.",
+    "source_text_excerpt": "Franklin was not a Quaker... The Quaker philosopher was a deliberate construction, calibrated to French Enlightenment assumptions about American virtue.",
+    "source_title": "france_diplomatic_mission",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Retaining Suspected Double Agent Edward Bancroft",
+    "description": "Franklin almost certainly suspected that his secretary Edward Bancroft was a paid British spy, yet chose to keep him on staff rather than purge him. His reasoning was counterintelligence sophistication: removing Bancroft would alert the British and force them to develop unknown sources, whereas retaining him allowed Franklin to control and selectively route information through a channel he understood to be compromised. This decision diverges sharply from the principled peer response and reveals Franklin's view that all channels leak and the practical question is how to manage leakage rather than eliminate it.",
+    "source_text_excerpt": "Retaining him allowed Franklin to control what passed through his channel... The compromised channel was more valuable than no channel.",
+    "source_title": "france_diplomatic_mission",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Founding the Junto with Procedural Rules Against Status Competition",
+    "description": "At twenty-one, Franklin chose to assemble peers and slight inferiors rather than social superiors, and enforced rules requiring tentative speech and forbidding direct contradiction. This reveals a cognitive model in which social status dynamics are treated as a corrupting variable in collective reasoning that must be structurally suppressed, not merely discouraged. The choice diverges from the obvious career-climbing move of joining or founding a club of his betters.",
+    "source_text_excerpt": "Franklin treated the suppression of status competition as a precondition for honest exchange. He had observed in earlier social contexts that direct disagreement converted intellectual disputes into reputational ones, and that participants then defended positions for status reasons rather than truth reasons.",
+    "source_title": "junto_and_civic_infrastructure",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Scaling the Junto Book Pool into the Library Company",
+    "description": "When the Junto's internal book-pooling proved insufficient, Franklin did not redesign from scratch but instead expanded the participant base while preserving the operational structure, producing the first lending library in the colonies. This incident crystallizes his iterative scaling heuristic: confirm the small case works, identify the binding constraint, relax the constraint by adding participants. He explicitly did not design the institution from first principles.",
+    "source_text_excerpt": "He did not design the Library Company as an institution from first principles. He observed that the small-scale pooling worked, identified its constraint (insufficient books), and modified the structure to relax the constraint by adding more participants.",
+    "source_title": "junto_and_civic_infrastructure",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Designing the Pennsylvania Hospital Matching Grant",
+    "description": "Rather than requesting direct Assembly funding or relying solely on private subscriptions \u2014 both of which he judged insufficient alone \u2014 Franklin engineered a matching grant that created two contingent commitments simultaneously, binding private donors and the Assembly to a shared outcome. He explicitly acknowledged calling this his 'cunning' and admitted he was not always scrupulous about using it, revealing a willingness to use structural manipulation in service of ends he judged durable and good.",
+    "source_text_excerpt": "Franklin called this his cunning, and noted that he was not always so honest as to scruple the use of it. The reasoning was that an institution with both public and private stake in its founding would be more durable than one funded by either alone.",
+    "source_title": "junto_and_civic_infrastructure",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Choosing Satirical Persona as His Final Abolitionist Argument",
+    "description": "In March 1790, weeks before his death, Franklin responded to a Southern congressman's defense of slavery not with direct rebuttal but with a satirical piece written in the persona of an Algerian potentate defending the enslavement of European Christians, mirroring the congressman's arguments to expose their logical structure. This was a non-obvious rhetorical choice given that he had just argued directly through the congressional petition; the decision to return to the indirect persona technique he had used since age sixteen reveals a deep and stable cognitive preference for structural reframing over direct confrontation.",
+    "source_text_excerpt": "He chose, for the closing argument, the same persona-based reframing technique he had used as a sixteen-year-old apprentice in the Silence Dogood letters. The structural method had not changed in seventy years; the cause to which it was applied had.",
+    "source_title": "late_life_reversal_on_slavery",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Two Decades of Institutionalist Advocacy Despite Radicalization",
+    "description": "From 1757 to 1775, Franklin consistently chose to work within British imperial institutions rather than defect from them, even as colonial opinion shifted toward revolution. This was a strategic calculation \u2014 he believed incremental gains inside a large, stable system outweighed uncertain transformative gains outside it. The choice reveals a preference for expected-value reasoning over emotional or ideological alignment with his constituents.",
+    "source_text_excerpt": "His decisions during these years reveal a preference for incremental gains within an existing structure over transformative gains from an uncertain new structure. He was an institutionalist by reasoning, not by temperament.",
+    "source_title": "lord_howe_negotiations",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Standing Silent During Wedderburn's Public Denunciation",
+    "description": "When Solicitor General Wedderburn attacked Franklin for over an hour before the Privy Council, calling him a thief and dishonorable man, Franklin chose complete public silence rather than self-defense. A peer would likely have responded to protect reputation; Franklin calculated that silence preserved his access to British political networks, allowing him to gather intelligence for another year. This decision subordinated self-expression and pride to informational utility.",
+    "source_text_excerpt": "Franklin stood silent throughout... Others might have responded to Wedderburn's attack with a public defense. Franklin stood silent and bore the humiliation, which preserved his information channels.",
+    "source_title": "lord_howe_negotiations",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Attending the Staten Island Conference as an Intelligence Probe",
+    "description": "In September 1776, Franklin agreed to meet Lord Howe despite knowing Howe's mandate extended only to offering pardons, not negotiating independence \u2014 making a diplomatic breakthrough essentially impossible. Rather than refusing attendance as legitimating or pointless, Franklin reframed the encounter as a low-cost, high-information probe to confirm Britain's actual position. The decision reveals his framework of treating diplomatic engagement as a sensor for gathering evidence rather than a medium for achieving outcomes.",
+    "source_text_excerpt": "He could see that Howe's mandate was almost certainly inadequate. The chance of breakthrough was near zero. But the cost of attending was low... He treated the meeting as a probe, not a negotiation. He went to gather information, not to deal.",
+    "source_title": "lord_howe_negotiations",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Refusing to Give Advice \u2014 Transmitting a Procedure Instead",
+    "description": "When Priestley asked Franklin for a recommendation on whether to accept Shelburne's offer, Franklin declined to offer a judgment and instead provided a structured decision-making procedure. This diverges sharply from what a competent peer would have done \u2014 offering an opinion \u2014 and reveals Franklin's settled belief that the questioner is always better positioned than the advisor to weigh the relevant considerations. The refusal is itself a meta-decision that encodes a deep epistemological stance about the limits of external judgment.",
+    "source_text_excerpt": "Franklin's decision was meta-procedural. Asked for a recommendation, he refused to give one and instead transmitted a procedure... He advised on form, not substance.",
+    "source_title": "moral_algebra_letter",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Designing the Cancellation Operation as the Core of the Algebra",
+    "description": "Rather than advising a simple weighted summation or ranking of pros and cons, Franklin built his method around a cancellation procedure \u2014 identifying pairs or triads of items of equal combined weight and eliminating them from consideration before judging what remains. This is a non-obvious cognitive design choice that treats working memory as the binding constraint in human decision-making. It reveals Franklin's underlying model of why judgment fails: not from lack of information, but from inability to hold the whole decision landscape in mind simultaneously.",
+    "source_text_excerpt": "Franklin's algebra requires identifying pairs of items of equal weight and removing them, then identifying triads of one-against-two, and removing those... This is not summation; it is a procedure for reducing the working memory load by eliminating already-balanced considerations.",
+    "source_title": "moral_algebra_letter",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Breaking the Indenture with James Franklin",
+    "description": "At seventeen, Franklin secretly arranged passage and fled his legally binding apprenticeship with his brother James, accepting serious legal and reputational risk rather than endure continued subordination. This reveals a cognitive pattern of diagnosing structural impasses and accepting known one-time costs to escape them, rather than tolerating an indefinite negative steady state. Notably, Franklin did not moralize the decision at the time but later catalogued it as an erratum, indicating clear-eyed instrumentalism over self-justification.",
+    "source_text_excerpt": "He weighed the personal cost of continued subordination to James against the legal and reputational cost of the break, and concluded that the future under James was foreclosed. He was not optimizing for short-term comfort; he was diagnosing a structural impasse and accepting one-time costs to escape it.",
+    "source_title": "printing_business_strategy",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Building a Franchise Partnership Network Instead of Expanding a Single Shop",
+    "description": "Rather than scaling his Philadelphia printing house directly or training successors who would compete, Franklin created a replicable franchise model \u2014 supplying capital, equipment, and his brand to junior partners across the colonies in exchange for a share of profits and eventual buyout rights. This was a non-obvious structural choice that revealed his belief that the value of a business lay in its reproducible system, not its physical operations. The network also served political and informational functions beyond pure revenue.",
+    "source_text_excerpt": "Franklin treated his shop as a template that could be replicated, with himself as the franchisor... He chose to capture value from the system across many shops rather than from a single shop.",
+    "source_title": "printing_business_strategy",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Retiring from Active Business at Forty-Two",
+    "description": "Franklin retired from operational management in 1748 at an age when most successful tradesmen continued working, betting his middle age on the reliability of his partnership income and redirecting his attention entirely to scientific, intellectual, and civic pursuits. The decision required deep confidence in the system he had built and expressed his core preference for structural ownership \u2014 compounding over time \u2014 over operational ownership, which was time-bounded. The bet proved correct and funded four decades of public service.",
+    "source_text_excerpt": "He chose not to be a printer who happened to own a print shop; he chose to be the architect of a printing network who could deploy his attention elsewhere.",
+    "source_title": "printing_business_strategy",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Constructing a Widow Persona Matched to Audience Resistance",
+    "description": "Franklin did not choose a pseudonym at random; he engineered the specific identity of Silence Dogood \u2014 a middle-aged, plain-spoken, rural widow \u2014 to neutralize each predictable resistance vector in his audience, including age skepticism, gender authority norms, and urban condescension. This reveals an audience-modeling cognition that treats readers as systems with mappable response patterns rather than as neutral arbiters of content quality. The persona was a technical solution to a persuasion routing problem.",
+    "source_text_excerpt": "A widow has social standing without political power; she can comment on civic matters without provoking the response that a young man's commentary would provoke... Each of these features defuses a different potential resistance from readers and from Boston authorities.",
+    "source_title": "silence_dogood_and_persona",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Using Pseudonyms to Engineer Cognitive Framing Rather Than Avoid Legal Risk",
+    "description": "While most eighteenth-century writers used pseudonyms to shield themselves from libel liability, Franklin's motive diverged: he used invented personas specifically to bypass anticipated cognitive resistance in his audiences, matching persona features to message type and expected audience reaction. This non-obvious divergence from peer practice reveals a settled meta-communicative framework \u2014 treating the author's apparent identity as an engineerable variable rather than a fixed given. The choice reflects a procedural systems mindset applied to rhetoric.",
+    "source_text_excerpt": "He used pseudonyms to bypass anticipated cognitive resistance in his audience... He treated communication as a routing problem \u2014 given the destination, what path through which sender achieves delivery.",
+    "source_title": "silence_dogood_and_persona",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Designing a Procedural Tracking System for Virtue",
+    "description": "Rather than pursuing moral improvement through prayer, contemplation, or imitation of admired models \u2014 the standard options available to a man of his time and class \u2014 Franklin built a notebook-based tracking apparatus that turned virtue into a measurable, observable quantity. This decision reveals a core cognitive pattern: he treated his own character as a system to be debugged rather than a soul to be saved. The choice of accounting vocabulary over theological vocabulary is the operative signal.",
+    "source_text_excerpt": "He treated his own conduct as a system to be debugged. The vocabulary of his project \u2014 table, columns, rows, examination, performance \u2014 is taken from accounting and bookkeeping, not from theology.",
+    "source_title": "virtues_project_and_errata",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Declaring a Speckled Axe Best \u2014 Revising the Target Rather Than Continuing to Fail",
+    "description": "When Franklin could not master the virtue of Order, he did not conclude that he was a sinner humbled by Providence or redouble his efforts; he performed an implicit cost-benefit calculation and decided the remaining defect was not worth its price of correction. This is a distinctive divergence from both religious and secular moral frameworks, which typically demand either ongoing struggle or confession of failure. Franklin instead priced his own defects actuarially and accepted partial results as the rational outcome.",
+    "source_text_excerpt": "He decided that complete success was either impossible or not worth its cost, and that a partial result was preferable to a failed total transformation. His self-assessment was actuarial.",
+    "source_title": "virtues_project_and_errata",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Adopting the Errata Frame for Personal Mistakes",
+    "description": "Franklin chose to describe his own moral failures \u2014 unpaid loans, seduction of a friend's companion, a harmful deistic pamphlet \u2014 using the printer's term 'errata,' framing them as correctable typographical errors in an otherwise readable document rather than as sins requiring guilt and absolution. This framing had practical consequences: it freed him to acknowledge mistakes openly without threatening his self-image, because his self-concept already incorporated the existence of defects. The choice of metaphor was deliberate and functionally differentiated from both religious confession and secular regret.",
+    "source_text_excerpt": "The errata frame separates the action from the actor. A misdeed becomes a typographical error in a generally readable document... It is closer to a software patch model \u2014 defects are catalogued, fixes are issued, the system continues operating.",
+    "source_title": "virtues_project_and_errata",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Decision to Politically Quarantine William Rather Than Reconcile",
+    "description": "Franklin made a deliberate, measured decision to sever his political relationship with William once he concluded William's loyalism was permanent, framing it as institutional rather than personal. This reveals his pattern of treating commitments as binary \u2014 once a decision point was identified, he implemented it completely rather than tolerating ambiguity. The decision diverged from most revolutionary leaders, who made quiet accommodations with loyalist relatives.",
+    "source_text_excerpt": "The break was not personal repudiation but political quarantine... He drew the line at his son specifically because his son specifically held political authority that mattered. The break was institutional, not familial.",
+    "source_title": "william_franklin_estrangement",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Calibrated Disinheritance with Explicit Moral Annotation in the Will",
+    "description": "Rather than simply disinheriting William, Franklin constructed a will that left him land of dubious value and forgave uncollectable debts, while documenting his reasoning explicitly within the will itself. This transformed a legal instrument into a formal moral judgment, revealing Franklin's tendency to use procedural and institutional mechanisms to deliver verdicts he regarded as settled.",
+    "source_text_excerpt": "Franklin documented his reasoning in the will itself: 'had not the part he acted against me in the late war, the share I might have left him would have been considerably greater.' The note makes the will an explicit statement of moral judgment, not merely a property transfer.",
+    "source_title": "william_franklin_estrangement",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  }
+]

@@ -1,0 +1,68 @@
+Emancipation Proclamation: Reconstruction of the Two-Year Decision Process
+SYNTHESIZED CONTEXT — analytical narrative drawn from Guelzo (2004), Goodwin (2005),
+the Collected Works (Basler, ed.), and contemporaneous cabinet diaries (Welles, Chase, Bates).
+
+== THE DECISION PROBLEM ==
+
+Between July 1861 and September 1862, Lincoln faced an interlocking set of constraints that
+made any move on slavery simultaneously a constitutional, military, diplomatic, and moral
+question. The constitutional axis: he had been elected on a platform that disclaimed any
+power to abolish slavery in the existing states. The military axis: emancipation might erode
+or consolidate the loyalty of the Border States (Kentucky, Maryland, Missouri, Delaware),
+and might or might not weaken Confederate war capacity. The diplomatic axis: France and
+Britain were close to recognizing the Confederacy, and a war fought visibly for slavery
+would change that calculus. The moral axis: Lincoln had stated repeatedly that slavery was
+wrong, and he held this conviction privately even longer.
+
+== EARLY MOVES THAT REVEAL THE METHOD ==
+
+In August 1861 Lincoln revoked General Frémont's emancipation order in Missouri. In May
+1862 he revoked General Hunter's similar order in the Department of the South. The decision
+pattern: he refused to let subordinates pre-empt his sequencing. The revocations are not
+evidence that Lincoln was anti-emancipation; they are evidence that he treated the decision
+as one whose timing and authorship had to be controlled at the executive level. Goodwin
+documents that Lincoln told Hunter privately the question of emancipation "I reserve to
+myself" — locating the decision in his hands precisely because he was not yet ready.
+
+== THE COMPENSATED EMANCIPATION ATTEMPTS (MARCH–JULY 1862) ==
+
+Lincoln tried four times in 1862 to convince Border State representatives to accept
+gradual, compensated emancipation. Each time they refused. Each refusal is decision-relevant:
+he was systematically narrowing the option space. By demonstrating that the gentle path
+was closed by their choice rather than his, he removed political claim that he had jumped
+to a radical option without exhausting moderates. This is a recurring Lincoln pattern:
+he forces opponents of his preferred route to take ownership of foreclosing the moderate
+alternatives, so the radical option becomes the only remaining one.
+
+== THE JULY 1862 DECISION POINT ==
+
+On July 13, 1862, in a carriage with Seward and Welles, Lincoln revealed he had decided on
+emancipation as a war measure. On July 22, he presented a draft to the cabinet. Seward
+counseled delay until a Union battlefield victory, lest the proclamation be read as "the
+last shriek on our retreat." Lincoln accepted this counsel and pocketed the draft. The
+sequence is revealing: the decision had been made internally before any cabinet consultation
+on whether to do it; what he sought from the cabinet was tactical advice about timing and
+form. He treated the moral-strategic decision as his to make and the operational sequencing
+as collegial. The two months between draft and issuance were spent waiting, not deliberating.
+
+== THE ANTIETAM TRIGGER ==
+
+On September 17 the Battle of Antietam ended in tactical stalemate but strategic Union
+gain. Lincoln treated this as sufficient — not because it was decisive, but because he had
+pre-committed to acting on the next plausible victory. On September 22 he issued the
+preliminary proclamation. The pre-commitment is key: he had defined a trigger condition
+in advance and then executed against it, rather than re-litigating the decision when the
+trigger arrived. This is consistent with his broader pattern of binding himself to action
+rules to prevent in-the-moment second-guessing.
+
+== WHAT THE DECISION REVEALS ==
+
+The Emancipation Proclamation as a decision shows Lincoln operating across multiple
+incommensurable value-systems simultaneously: constitutional, military, moral, diplomatic.
+He did not collapse them into a single metric. Instead he asked which framing made the
+action defensible across all of them simultaneously — and concluded that "war measure"
+under presidential war powers was the only such framing. The proclamation's narrow legal
+reasoning (it freed only enslaved people in rebel territory, not in loyal Border States)
+was not a moral compromise but the load-bearing legal predicate that made the act
+constitutionally defensible. He chose the form that maximized survivability, not the form
+that maximized moral expressiveness.

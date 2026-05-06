@@ -1,0 +1,578 @@
+[
+  {
+    "title": "Choosing Colorado Springs for Extreme Experimentation",
+    "description": "Tesla selected Colorado Springs specifically for its high altitude and frequent lightning storms, prioritizing experimental conditions over conventional laboratory safety or proximity to scientific institutions. This reveals his preference for pushing physical limits rather than working within established scientific frameworks.",
+    "source_text_excerpt": "He chose Colorado Springs for its high altitude (6,035 feet), which he believed would facilitate electrical experiments, and for the frequency of lightning storms, which he wanted to study as natural models of high-energy electrical discharge.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Continuing Full-Power Experiments After Generator Burnout",
+    "description": "When Tesla's experiments burned out the El Paso Power Company generator and caused a city-wide blackout, he chose to repair the generator and continue at full power rather than reduce the scale of his experiments. This demonstrates his unwillingness to compromise experimental intensity even when facing institutional pressure.",
+    "source_text_excerpt": "When the power company generator burned out, Tesla could have reduced the scale of his experiments. Instead, he repaired the generator and continued at full power.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Prioritizing Equipment Over Personal Needs",
+    "description": "Tesla economized his personal life to the extreme\u2014eating modestly and wearing the same clothes\u2014to maximize funds available for experimental equipment. This reveals his absolute subordination of personal comfort to research objectives.",
+    "source_text_excerpt": "When financial constraints threatened to limit his experiments, Tesla economized in every area of his personal life \u2014 eating modestly, wearing the same clothes \u2014 to maximize the funds available for equipment. His personal needs were always subordinate to the requirements of his research.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Maintaining Claims Despite Scientific Ridicule",
+    "description": "When Tesla announced receiving signals from Mars, the scientific establishment ridiculed him, but he refused to retract his claims and insisted on their validity until his death. This shows his pattern of trusting his own observations over peer consensus.",
+    "source_text_excerpt": "This announcement brought widespread ridicule, and the scientific establishment largely dismissed his claims. But Tesla was undeterred, insisting until the end of his life that the signals were real.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Choosing Exploratory Over Controlled Experimentation",
+    "description": "Tesla deliberately chose not to conduct controlled hypothesis-testing experiments, instead building the most powerful apparatus possible and exploring whatever phenomena emerged. This reveals his preference for discovery-driven research over methodical scientific validation.",
+    "source_text_excerpt": "He did not conduct controlled experiments designed to test specific hypotheses. Instead, he built the most powerful apparatus he could conceive and then explored the phenomena it produced.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Working in Isolation Rather Than Collaboration",
+    "description": "Tesla chose to work with minimal assistants and made all significant decisions himself, avoiding collaboration with other scientists or peer review of his methods. This demonstrates his preference for autonomous judgment over collective validation.",
+    "source_text_excerpt": "He had only a few assistants, and he made all significant decisions himself. He did not collaborate with other scientists or submit his methods for peer review. He trusted his own judgment and his own observations absolutely.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Extrapolating Global Conclusions from Limited Results",
+    "description": "Tesla used his Colorado Springs results to justify the massive Wardenclyffe project, extrapolating from short-distance wireless transmission to global-scale energy distribution. This reveals his pattern of making sweeping technological leaps based on limited experimental evidence.",
+    "source_text_excerpt": "Tesla left Colorado Springs in January 1900, convinced that wireless energy transmission was feasible... Tesla believed he had proven the principle; all that remained was to scale up the technology.",
+    "source_title": "colorado_springs_notes",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Mental Simulation Over Physical Experimentation",
+    "description": "Tesla chose to develop and test inventions entirely in his mind before building them, claiming this was superior to Edison's trial-and-error approach. This reveals his fundamental belief in theoretical understanding over empirical experimentation, which shaped his entire inventive methodology.",
+    "source_text_excerpt": "I do not rush into actual work. When I get a new idea, I start at once building it up in my imagination... The carrying out into practice of a crude idea as is being generally done is, I hold, nothing but a waste of energy, money and time.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Public Criticism of Edison's Methods",
+    "description": "Tesla chose to publicly criticize Edison's empirical approach despite professional risks, stating that theory and calculation could have saved Edison ninety percent of his labor. This decision reveals Tesla's conviction that intellectual superiority should be expressed regardless of diplomatic consequences.",
+    "source_text_excerpt": "If Edison had a needle to find in a haystack, he would proceed at once with the diligence of the bee to examine straw after straw until he found the object of his search... knowing that a little theory and calculation would have saved him ninety per cent of his labor.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Prioritizing Invention Over Material Wealth",
+    "description": "Tesla consistently chose to reinvest money into experiments rather than accumulate personal wealth, viewing money as less valuable than scientific discovery. This decision pattern reveals his fundamental value system that placed intellectual achievement above financial security.",
+    "source_text_excerpt": "Money does not represent such a value as men have placed upon it. All my money has been invested into experiments with which I have made new discoveries enabling mankind to have a little easier life.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Spectacle Over Product Demonstration",
+    "description": "At Columbia University, Tesla chose to create theatrical demonstrations of principles rather than showcase practical products, reflecting his belief that the inventor's role was to inspire and reveal possibilities rather than commercialize. This approach prioritized scientific education over immediate practical application.",
+    "source_text_excerpt": "He was not selling anything. He was showing what was possible, hoping to inspire others to pursue the practical applications... the inventor's role was to open doors, not to commercialize every innovation personally.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Escalating Birthday Conference Claims",
+    "description": "Tesla chose to make increasingly extravagant claims at his birthday press conferences despite knowing they damaged his scientific credibility. This reveals a conflict between his confidence in mental simulation and the need for experimental validation, showing how his cognitive strengths became weaknesses when applied beyond their limits.",
+    "source_text_excerpt": "These increasingly dramatic claims eroded Tesla's credibility among scientists while simultaneously building his mythology among the general public. Tesla seemed unable to moderate his claims or to present them with appropriate caveats.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": false,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Complete Subordination of Personal Life to Mental Clarity",
+    "description": "Tesla chose to eliminate normal human experiences (relationships, comfort, social interaction) and adopt extreme personal restrictions to maximize his mental productivity. This decision reveals his absolute prioritization of intellectual output over all other aspects of human experience.",
+    "source_text_excerpt": "They reflected Tesla's fundamental belief that the mind was the primary tool of invention and that everything else \u2014 physical comfort, social relationships, financial security \u2014 was subordinate to the mind's clarity and productivity.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Diplomatic Response About Nobel Prize Speculation",
+    "description": "When asked about sharing a Nobel Prize with Edison, Tesla chose a diplomatically neutral response while still asserting his methodological superiority. This reveals the tension between his need to maintain professional relationships and his conviction about the supremacy of theoretical approaches.",
+    "source_text_excerpt": "Mr. Edison has accomplished great things in life, but he has done it through tireless experimentation rather than the application of higher mathematical truths... I believe that the theoretical approach will prove more productive in the long run.",
+    "source_title": "interviews_and_public_statements",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Reaffirming the Westinghouse Contract Decision Despite Poverty",
+    "description": "Despite living in poverty and struggling with bill collectors, Tesla explicitly stated he did not regret tearing up his lucrative Westinghouse royalty contract. This reveals his prioritization of societal benefit over personal financial gain, even when facing the direct consequences of that choice.",
+    "source_text_excerpt": "I have been asked many times whether I regret tearing up the Westinghouse contract. I do not. The spread of alternating current has been the great work of my life, and anything that facilitated its adoption was worth any personal sacrifice. I would make the same decision again.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Maintaining Dignity and Work Habits Despite Financial Ruin",
+    "description": "Tesla chose to continue dressing immaculately and maintaining his rigorous daily routines even while moving between hotels and leaving unpaid bills. This decision reflects his belief that external appearances and disciplined habits were essential to his identity and work, regardless of circumstances.",
+    "source_text_excerpt": "Despite his poverty, Tesla maintained his dignity and his work habits. He continued to dress immaculately, wearing white gloves and a formal suit. He continued his daily walks of eight to ten miles.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": false,
+    "evidence_type": "secondary_reporting"
+  },
+  {
+    "title": "Emotional Investment in Pigeon Relationships Over Human Connections",
+    "description": "Tesla deliberately invested his emotional energy in caring for pigeons rather than pursuing human relationships. This choice reveals his strategy for maintaining emotional connection while protecting his solitary work life from the complications of human social demands.",
+    "source_text_excerpt": "I loved that pigeon as a man loves a woman, and she loved me. As long as I had her, there was a purpose to my life.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Offering Death Ray Technology to Multiple Governments",
+    "description": "Tesla chose to offer his particle beam weapon technology to various nations simultaneously, believing that universal access would prevent war through mutually assured destruction. This decision reflects his idealistic belief that technological solutions could solve geopolitical problems.",
+    "source_text_excerpt": "Tesla offered this technology to multiple governments, including the United States, Great Britain, the Soviet Union, and Yugoslavia. He believed that if all nations possessed such a weapon, war would become impossible.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": true,
+    "evidence_type": "secondary_reporting"
+  },
+  {
+    "title": "Refusing to Conform to Scientific Publication Norms",
+    "description": "Tesla deliberately continued announcing discoveries through press conferences rather than peer-reviewed journals, despite alienating the scientific community. This choice reflects his fundamental belief that operational truth superseded institutional validation processes.",
+    "source_text_excerpt": "He did not modify his behavior to conform to scientific norms. He continued to announce discoveries through press conferences, continued to claim priority for inventions without published proof, and continued to express absolute confidence in his mental simulations.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Expressing Core Conflict Between Invention and Commerce",
+    "description": "Tesla articulated his fundamental tension between his primary motivation (serving humanity) and the practical necessity of funding (making money). This reveals his cognitive framework where commercial success was instrumentally necessary but philosophically secondary.",
+    "source_text_excerpt": "The idea of making money out of my inventions has always been secondary to me. The primary purpose of an invention is to serve humanity. But I have learned that without money, I cannot build the machines that would serve humanity. It is a cruel paradox.",
+    "source_title": "later_years_and_personal_letters",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Tesla tears up Westinghouse royalty contract during financial crisis",
+    "description": "When Westinghouse faced bankruptcy in 1890-1891, Tesla immediately tore up his extremely lucrative royalty contract ($2.50 per horsepower) without negotiation. This decision prioritized the deployment of AC technology over personal financial gain, revealing Tesla's belief that technological progress transcended individual profit.",
+    "source_text_excerpt": "Tesla's decision to tear up the royalty contract was made without negotiation or hesitation. Tesla told Westinghouse that his technology would outlast any financial arrangement, and that the important thing was to get AC deployed worldwide.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Tesla accepts insufficient Morgan funding knowing it wasn't enough",
+    "description": "Tesla accepted Morgan's $150,000 investment for Wardenclyffe despite knowing it was inadequate for his vision. He gambled that initial progress would attract more funding, revealing his pattern of prioritizing immediate research capability over realistic project planning.",
+    "source_text_excerpt": "Morgan's initial investment of $150,000 in the Wardenclyffe project was substantial but insufficient. Tesla accepted it knowing it was not enough, believing that initial progress would attract additional investment.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Tesla conceals true scope of Wardenclyffe from Morgan initially",
+    "description": "Tesla initially presented Wardenclyffe to Morgan as a competitive wireless telegraph system while harboring much grander ambitions of worldwide wireless power transmission. This strategic deception backfired when Morgan discovered the full scope and realized there was no viable business model.",
+    "source_text_excerpt": "Tesla's early letters to Morgan are optimistic and businesslike. He describes the Wardenclyffe project as a wireless telegraph system competitive with Marconi's... But Tesla's true vision went far beyond telegraphy. He wanted to build a system for worldwide wireless power transmission.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Tesla's philosophical stance against money as primary goal",
+    "description": "Tesla explicitly rejected the conventional business approach of prioritizing financial returns, viewing money purely as a means to fund research. This principled stance shaped all his financial decisions but ultimately prevented him from building sustainable funding for his work.",
+    "source_text_excerpt": "I have never made money my primary goal. All of my money has been invested in my experiments. I believe in the future of my inventions and am willing to sacrifice everything for them.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Tesla's refusal to build business teams or seek commercial advice",
+    "description": "Throughout his career, Tesla chose to handle all aspects of his ventures alone, including business matters where he was demonstrably weak. This decision reflected his preference for solitary work but prevented him from compensating for his commercial blind spots.",
+    "source_text_excerpt": "Tesla's preference for solitary work extended to his financial relationships. He did not build teams that included business professionals, marketing experts, or financial advisors. He tried to handle everything himself, and his weakness in business matters was never compensated by the strengths of others.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Tesla's belief that commercialization corrupts invention",
+    "description": "Tesla maintained that prioritizing commercial considerations over technical excellence would produce inferior inventions. This philosophical position explained his consistent refusal to compromise his technical vision for market demands, even when it meant losing financial support.",
+    "source_text_excerpt": "He believed that the inventor who prioritized money over technical excellence would produce inferior inventions. He saw the commercialization of technology as a corruption of the inventive process.",
+    "source_title": "morgan_westinghouse_letters",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Commitment to Reading Voltaire's Complete Works Despite Overwhelming Volume",
+    "description": "Tesla discovered that Voltaire had written nearly 100 large volumes but made an unwavering commitment to read them all. This reveals his compulsive need for completion and systematic approach to knowledge acquisition, even when the task seemed impossibly large.",
+    "source_text_excerpt": "when I learned, to my dismay, that there were close on one hundred large volumes in small print which that monster had written, I made up my mind to read them all",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Defying Professor Poeschl's Declaration That Brushless Motors Were Impossible",
+    "description": "When his professor definitively stated that a motor without commutator brushes was impossible, Tesla chose to reject this expert authority and commit to solving the problem anyway. This decision reveals his willingness to challenge established scientific opinion and trust his own intuition over expert consensus.",
+    "source_text_excerpt": "Professor Poeschl... declared that a motor without commutator brushes was impossible. But I was certain that it could be done and resolved to solve the problem",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Six-Year Obsessive Focus on the Alternating Current Motor Problem",
+    "description": "Tesla chose to dedicate six years to solving the AC motor problem, working 20-hour days including weekends and holidays. This extreme commitment pattern shows his decision to prioritize breakthrough innovation over personal comfort or conventional work-life balance.",
+    "source_text_excerpt": "For six years I had thought unceasingly of the alternating current motor. I worked every day from 3 in the morning until 11 at night, Sundays and holidays not excepted",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Immediate Resignation After Edison's Broken Promise",
+    "description": "When Edison dismissed his promise of $50,000 as 'American humor' after Tesla had completed the work, Tesla chose to resign immediately rather than continue working under such conditions. This reveals his strong principles about fair dealing and unwillingness to tolerate deception, even from a powerful employer.",
+    "source_text_excerpt": "When I asked for the money, Edison laughed and said the offer had been a joke: 'Tesla, you don't understand our American humor.' I resigned immediately",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Maintaining Faith in AC System Despite Financial Hardship",
+    "description": "After leaving Edison, Tesla chose to dig ditches rather than abandon his alternating current system or compromise his principles. This decision shows his willingness to endure extreme personal hardship rather than abandon his technical convictions.",
+    "source_text_excerpt": "I had to dig ditches for a living. But I never lost faith in my alternating current system. I knew it was superior to direct current",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Public Announcement of Extraterrestrial Signal Detection Despite Ridicule",
+    "description": "Tesla chose to publicly announce his belief that he had detected signals from another planet, knowing it would bring ridicule from the scientific community. This reveals his commitment to reporting his observations regardless of social consequences or damage to his reputation.",
+    "source_text_excerpt": "During these experiments, I believe I detected signals from another planet. I announced this publicly, which brought ridicule from many. But I was convinced of what I had observed",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Vision of Machine-Based Warfare Leading to Peace",
+    "description": "Tesla chose to develop remote-controlled weapons technology with the counterintuitive goal of making war so terrible that it would become impractical. This reveals his complex moral reasoning where he believed advancing destructive capability could paradoxically lead to peace.",
+    "source_text_excerpt": "My vision was not merely for remote-controlled boats, but for a new form of warfare where nations would fight with machines rather than men. I believed this would eventually make war so terrible that it would become impractical and lead to lasting peace",
+    "source_title": "my_inventions_autobiography",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Transforming Mental Hallucinations into Controlled Visualization",
+    "description": "Rather than seeking to suppress his vivid, uncontrolled visual hallucinations as a child, Tesla chose to gradually learn to control and direct them toward constructive purposes. By his teenage years, he had transformed what could have been a debilitating condition into his most powerful inventive tool.",
+    "source_text_excerpt": "But rather than seeking to suppress it, he gradually learned to control it and direct it toward constructive purposes. By his teenage years, he could summon mental images at will and manipulate them \u2014 rotating objects in his mind, zooming in on details, assembling and disassembling machines.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Absolute Commitment to Stop Gambling",
+    "description": "After losing all his money to gambling addiction at university, Tesla made an instant, total decision to never gamble again. This reveals his characteristic pattern of absolute commitments rather than gradual moderation or compromise.",
+    "source_text_excerpt": "Tesla's response to this crisis was characteristic: absolute, total reversal. He decided to stop gambling and never gambled again in his life. When Tesla decided something, he decided it completely. There was no gradual reduction, no moderation, no partial measures.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Instantly Tearing Up the Westinghouse Royalty Contract",
+    "description": "When Westinghouse explained his company's financial crisis, Tesla immediately destroyed a contract worth millions without consulting lawyers or negotiating alternatives. He made this decision based solely on whether it would help Westinghouse survive.",
+    "source_text_excerpt": "Tesla asked one question: If I do not tear up this contract, will Westinghouse Electric survive? Westinghouse answered that survival was uncertain but that the royalty burden was a significant factor. Tesla immediately tore up the contract. He did not consult an attorney. He did not negotiate reduced terms.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Choosing Pure Mental Design Over Experimental Trial and Error",
+    "description": "Tesla deliberately rejected Edison's method of systematic experimentation in favor of extended periods of pure thought and visualization. He would perfect inventions entirely in his mind before building them, contrasting sharply with conventional engineering practice.",
+    "source_text_excerpt": "O'Neill contrasts this with Edison's method of systematic experimentation. Edison would try thousands of alternatives, keeping careful records of each attempt. Tesla would try one alternative \u2014 the one he had mentally determined to be correct \u2014 and it would work.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Maintaining Emotional Distance Despite Social Success",
+    "description": "Tesla deliberately managed his social life to avoid deep personal attachments, never marrying and maintaining friendships at a distance. He reserved his emotional energy exclusively for his work, choosing isolation over intimacy.",
+    "source_text_excerpt": "But O'Neill notes that Tesla's social life was carefully managed to avoid deep personal attachments. He never married. He maintained friendships at a distance. He was charming in public but guarded in private. His emotional energy was reserved for his work.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Defining Invention as Superior to Scientific Discovery",
+    "description": "Tesla explicitly chose to identify as an inventor rather than a scientist, arguing that invention was more important because it creates what never existed rather than merely discovering what already exists. This philosophical distinction guided his life's work.",
+    "source_text_excerpt": "Tesla distinguished between the inventor and the scientist. The scientist discovers what already exists in nature. The inventor creates what has never existed. The scientist describes reality. The inventor transforms reality. Tesla saw himself as an inventor first and a scientist second.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Pursuing Invention for Humanitarian Rather Than Academic Reasons",
+    "description": "Tesla explicitly chose to evaluate his work based on practical and humanitarian criteria rather than academic interest. He pursued AC power and wireless technology not because the physics was fascinating, but because they would transform civilization.",
+    "source_text_excerpt": "He chose to pursue AC not because the science was interesting but because it was a better invention \u2014 a better tool for humanity. His criteria for evaluating his work were always practical and humanitarian, not academic.",
+    "source_title": "oneill_biography",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Mental Simulation Over Physical Prototyping",
+    "description": "Tesla chose to develop his AC motor system entirely through mental simulation rather than building prototypes and experimenting iteratively. This decision reveals his fundamental trust in theoretical understanding over empirical testing, contrasting sharply with Edison's experimental approach.",
+    "source_text_excerpt": "He did not build prototypes first and discover principles from experimental results. He conceived the entire system mentally, working out every detail in his imagination before building anything physical.",
+    "source_title": "patents_and_inventions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Focusing on Fundamental Physics Over Commercial Practicality",
+    "description": "When developing radio technology, Tesla chose to pursue wireless power transmission rather than focusing on the commercially viable wireless telegraphy that Marconi developed. This decision prioritized long-term revolutionary potential over immediate practical applications.",
+    "source_text_excerpt": "Marconi saw radio as a means of point-to-point communication \u2014 wireless telegraphy. Tesla saw it as a stepping stone toward wireless power transmission. Marconi focused on making radio commercially practical. Tesla focused on understanding the fundamental physics.",
+    "source_title": "patents_and_inventions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Prioritizing the Bladeless Turbine Over AC Motor",
+    "description": "Tesla considered his bladeless turbine to be more important than his commercially successful AC motor, despite the turbine's material limitations. This reveals his tendency to value theoretical elegance and future potential over present-day practical success.",
+    "source_text_excerpt": "Tesla considered the bladeless turbine to be his most important invention, even more significant than the AC motor. He believed it would revolutionize power generation and transportation.",
+    "source_title": "patents_and_inventions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejecting Experimental Trial-and-Error Methods",
+    "description": "Tesla deliberately chose not to adopt Edison's experimental approach of testing thousands of variations, viewing it as primitive and wasteful. This decision reflects his belief in the superiority of mental modeling over physical experimentation.",
+    "source_text_excerpt": "He also made him resistant to experimental approaches, which he viewed as wasteful. Edison's method of trial and error struck Tesla as primitive and inefficient.",
+    "source_title": "patents_and_inventions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Designing for Physics Rather Than Manufacturing Constraints",
+    "description": "Tesla consistently chose to optimize his designs for theoretical performance rather than adapting them to the manufacturing and materials limitations of his time. This pattern reveals his preference for pure technical excellence over practical engineering compromises.",
+    "source_text_excerpt": "His designs were optimized for physics, not for the practical constraints of contemporary engineering.",
+    "source_title": "patents_and_inventions",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Choosing Wireless Energy Transmission Over Commercial Success",
+    "description": "Tesla consciously chose to pursue wireless energy transmission after Colorado Springs, knowing it was the most difficult path compared to his successful AC motor work. This decision reveals his prioritization of transformative innovation over incremental commercial success.",
+    "source_text_excerpt": "When I decided to pursue wireless energy transmission as my primary goal after the Colorado Springs experiments, I was consciously choosing the most difficult path. My AC motor and polyphase system had succeeded precisely because they solved an immediate practical problem \u2014 the efficient transmission of power by wire. Wireless transmission solved a problem that most people did not yet know they had.",
+    "source_title": "problem_of_increasing_human_energy",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Deceptive Presentation to J.P. Morgan",
+    "description": "Tesla deliberately misrepresented his Wardenclyffe project to Morgan as a wireless telegraphy system while his true ambition was global wireless power transmission. This reveals his willingness to use strategic deception to secure funding for his larger vision.",
+    "source_text_excerpt": "I approached J.P. Morgan for funding, initially presenting the Wardenclyffe project as a wireless telegraphy system that could compete with Marconi. Morgan invested $150,000. But my true ambition was far grander \u2014 wireless power transmission on a global scale.",
+    "source_title": "problem_of_increasing_human_energy",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Persisting Despite Morgan's Withdrawal",
+    "description": "When Morgan discovered Tesla's true plans and withdrew support, Tesla continued pleading for funding despite clear signals that the business model was untenable. This shows his commitment to his vision over practical business considerations.",
+    "source_text_excerpt": "Morgan's withdrawal of support was devastating. I wrote him numerous letters, pleading for continued funding. I appealed to his sense of legacy, to the humanitarian benefits, to the technical feasibility. But Morgan was unmoved. He saw no business model in giving away free energy.",
+    "source_title": "problem_of_increasing_human_energy",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Prioritizing Innovation Over Business Success",
+    "description": "Tesla contrasts his approach with Marconi's, revealing his value system that prioritizes breakthrough innovation over commercial application of existing technology. This choice pattern explains much of his career trajectory.",
+    "source_text_excerpt": "Marconi was a brilliant promoter and businessman. He took existing technology and made it commercially successful, while I kept reaching for the next breakthrough.",
+    "source_title": "problem_of_increasing_human_energy",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Accepting Material Poverty for Intellectual Legacy",
+    "description": "Tesla explicitly states his willingness to trade material rewards for the satisfaction of discovery and future recognition. This value conflict between present comfort and future impact shaped his entire career approach.",
+    "source_text_excerpt": "My own experience has taught me this bitter lesson. But I would not trade my life of invention for any other. The joy of discovery, the thrill of understanding nature's secrets \u2014 these are rewards beyond any material wealth. The present is theirs; the future, for which I really worked, is mine.",
+    "source_title": "problem_of_increasing_human_energy",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Transforming Mental Affliction into Inventive Tool",
+    "description": "Tesla made the critical decision to control and redirect his involuntary mental imagery disorder rather than seeking to eliminate it. This choice to embrace what others might consider a disability and transform it into his primary inventive methodology reveals his unique approach to turning perceived weaknesses into strengths.",
+    "source_text_excerpt": "What began as a perceptual disorder became his greatest inventive tool.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Rejection of Physical Experimentation Methodology",
+    "description": "Tesla chose to develop and rely on mental simulation rather than following the standard approach of physical prototyping used by virtually all contemporary inventors. This decision reflects his fundamental belief that mathematical and mental models were reliable representations of physical reality.",
+    "source_text_excerpt": "While most inventors of the late 19th century relied on physical experimentation and iterative prototyping, Tesla developed a mental simulation approach that allowed him to design, test, and refine inventions entirely within his mind before building anything physical.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Systems-Level Design Philosophy",
+    "description": "Tesla consistently chose to invent complete systems rather than individual components, despite this making his inventions more difficult to implement incrementally. This decision reveals his theoretical orientation and belief that inventions should be conceived as nodes in larger physical systems.",
+    "source_text_excerpt": "Tesla did not invent individual devices in isolation. He invented complete systems: generation, transmission, and utilization together... You could not adopt one piece of Tesla's AC system and leave the rest. The system worked as a whole or not at all.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Treating Investors as Obstacles Rather Than Partners",
+    "description": "Tesla deliberately approached financial relationships as necessary evils rather than cultivating genuine business partnerships. This choice reflects his fundamental philosophical difference about the purpose of invention - serving humanity rather than generating profit.",
+    "source_text_excerpt": "Tesla approached financial relationships as obstacles to be endured rather than partnerships to be cultivated... Tesla believed inventions should serve humanity, not generate profit. He saw the commercialization of technology as a necessary but distasteful process that corrupted the purity of the invention.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Maintaining Intellectual Isolation in Later Years",
+    "description": "Tesla chose to remain isolated from the scientific community rather than adapting to collaborate with peers or engage with rapid developments in physics. This decision reveals his absolute confidence in his own methods and conclusions, even when they became increasingly disconnected from advancing science.",
+    "source_text_excerpt": "As Tesla aged, he became increasingly isolated from the scientific community. He did not collaborate with other researchers, did not submit his ideas for peer review, and did not engage with the rapid developments in physics that were transforming science.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Fundamental Epistemological Stance on Theory vs. Reality",
+    "description": "Tesla chose to believe that mathematical and mental models were reliable representations of physical reality, in direct contrast to Edison's belief that only physical testing could reveal truth. This reflects competing worldviews about the relationship between theoretical understanding and empirical observation.",
+    "source_text_excerpt": "Tesla and Edison's methods reflected not just different techniques but different epistemologies \u2014 different beliefs about the relationship between theory and reality. Tesla believed that mathematical and mental models were reliable representations of physical reality. Edison believed that only physical testing could reveal truth.",
+    "source_title": "scholarly_analysis_carlson",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Commitment to AC Despite Edison's Opposition",
+    "description": "Tesla maintained unwavering belief in AC's technical superiority despite working for Edison, the most celebrated inventor in America who championed DC. His confidence was based purely on technical conviction rather than business considerations.",
+    "source_text_excerpt": "Tesla's commitment to AC was not a business decision. It was a technical conviction. He believed that the laws of physics clearly favored AC, and that any rational analysis would reach the same conclusion. The fact that Edison, the most celebrated inventor in America, disagreed did not shake Tesla's confidence.",
+    "source_title": "war_of_currents_testimony",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Immediate Resignation Over Edison's Broken Promise",
+    "description": "When Edison allegedly reneged on a $50,000 payment promise, claiming it was a joke about American humor, Tesla resigned immediately. This revealed Tesla's inability to comprehend what he saw as fundamentally dishonest business practices.",
+    "source_text_excerpt": "When Tesla completed the work and asked for payment, Edison reportedly told him he had been joking, saying that Tesla did not understand American humor. Tesla resigned immediately... Tesla could not understand how someone could promise payment and not deliver.",
+    "source_title": "war_of_currents_testimony",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Demonstration Over Propaganda Strategy",
+    "description": "While Edison used fear-based propaganda including public electrocutions of animals, Tesla chose to respond through spectacular safety demonstrations, passing high-voltage AC through his own body. This revealed his belief that wonder and demonstration were more powerful than argument.",
+    "source_text_excerpt": "Tesla's response to these attacks was characteristic. He did not engage in counter-propaganda or political maneuvering. Instead, he gave dramatic public demonstrations of AC's safety... Tesla understood that demonstration was more powerful than argument. While Edison used fear to fight AC, Tesla used wonder to promote it.",
+    "source_title": "war_of_currents_testimony",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Tearing Up the Westinghouse Royalty Contract",
+    "description": "Tesla immediately destroyed his royalty contract worth billions when Westinghouse explained financial difficulties, forfeiting personal wealth to ensure AC technology's advancement. This decision revealed his hierarchy of values placing technological progress above personal gain.",
+    "source_text_excerpt": "Tesla's decision was immediate and absolute. He tore up the contract on the spot, forfeiting royalties that would have made him one of the wealthiest men in the world. His reasoning, as he explained it later, was straightforward: Westinghouse was the company most capable of bringing AC to the world... No amount of personal wealth was worth that delay.",
+    "source_title": "war_of_currents_testimony",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Accepting Insufficient Funding from Morgan",
+    "description": "Tesla accepted Morgan's $150,000 investment knowing it was insufficient for his true vision. He believed he could demonstrate enough progress to secure additional funding, revealing his pattern of taking financial risks based on confidence in his technical abilities.",
+    "source_text_excerpt": "Morgan invested $150,000 \u2014 a substantial sum but far less than what Tesla needed. Tesla accepted the investment knowing it was insufficient, believing he could demonstrate enough progress to secure additional funding.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Concealing True Vision from Investor",
+    "description": "Tesla initially proposed a wireless telegraph system to Morgan but his true vision was worldwide wireless power transmission. This deception created a fundamental misalignment between investor expectations and Tesla's actual goals.",
+    "source_text_excerpt": "In his initial proposal to Morgan in 1900, Tesla described a wireless telegraph system that could send messages across the Atlantic... But Tesla's true vision was not wireless telegraphy. He wanted to build a system for the wireless transmission of electrical power to any point on the globe.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Physics-First Rather Than Market-First Approach",
+    "description": "Tesla designed Wardenclyffe starting with electromagnetic physics rather than market requirements. This reveals his fundamental cognitive pattern of prioritizing theoretical optimization over commercial viability.",
+    "source_text_excerpt": "He did not start with market requirements and work backward to a technical solution. He started with the fundamental physics of electromagnetic propagation and designed a system that was theoretically optimal.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Doubling Down Against Marconi's Success",
+    "description": "When Marconi achieved commercial success with wireless telegraphy in 1901, Tesla chose to pursue his more ambitious wireless power vision rather than compete directly. This decision exemplifies his pattern of choosing revolutionary over commercially achievable goals.",
+    "source_text_excerpt": "Rather than competing with Marconi on telegraphy, he doubled down on his more ambitious vision... when faced with a choice between a commercially achievable but technically limited goal and a commercially uncertain but technically revolutionary one, Tesla invariably chose the revolutionary option.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Desperate Appeals to Morgan's Legacy",
+    "description": "Tesla's increasingly desperate letters to Morgan reveal his attempt to appeal to the financier's ego and legacy when rational arguments failed. This shows his struggle to bridge the gap between technical vision and financial reality.",
+    "source_text_excerpt": "You are a big man, Mr. Morgan, but I am producing results which will make your accomplishments seem like child's play by comparison. The world is not prepared for this, and it will not come in your time, or mine, but it must come.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "private_writing"
+  },
+  {
+    "title": "Refusing to Compromise Vision for Commercial Viability",
+    "description": "Tesla refused to build a simple wireless telegraph system first to generate profits for funding wireless power research. This decision reveals his unwillingness to compromise his ultimate vision even when it meant project failure.",
+    "source_text_excerpt": "Tesla's refusal to compromise his vision \u2014 to build a simple wireless telegraph system first and use the profits to fund wireless power research \u2014 was both his greatest strength and his greatest weakness.",
+    "source_title": "wardenclyffe_documentation",
+    "reasoning_visible": true,
+    "evidence_type": "critical_incident"
+  },
+  {
+    "title": "Systems-Level Vision Over Individual Devices",
+    "description": "Tesla consistently chose to think about complete energy systems rather than individual components, revealing his cognitive framework of holistic rather than reductionist thinking. This approach led him to identify fundamental limitations of wired systems that component-focused engineers missed.",
+    "source_text_excerpt": "Tesla's thinking about energy consistently operated at the systems level. He did not think about individual devices or applications. He thought about the complete chain from energy source to end use.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Choosing Free Energy Despite Investor Concerns",
+    "description": "When confronted by J.P. Morgan about how wireless energy would be metered and monetized, Tesla maintained his vision of free energy, revealing his prioritization of humanitarian benefit over business viability. This decision ultimately contributed to the loss of funding for Wardenclyffe.",
+    "source_text_excerpt": "J.P. Morgan reportedly asked Tesla where the meter would go \u2014 how would energy consumption be measured and billed? Tesla's answer, that there would be no meter because energy would be free, was incompatible with Morgan's business model.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "value_conflict"
+  },
+  {
+    "title": "Moral Framing of Economic Resistance",
+    "description": "Tesla interpreted investor resistance to free energy as a moral failure rather than legitimate business concerns, revealing his cognitive framework that prioritized physical possibility and humanitarian benefit over economic reality. This shows his inability to model economic thinking patterns different from his own.",
+    "source_text_excerpt": "He saw the resistance of capital to free energy as a moral failure, not a legitimate business concern. He could not understand why anyone would prefer expensive energy over free energy simply because expensive energy was more profitable.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Fait Accompli Strategy for Wardenclyffe",
+    "description": "Tesla chose to pursue a strategy of creating a working wireless system so superior that resistance would be futile, rather than gradually building market acceptance. This reveals his pattern of seeking technological solutions to social and economic problems.",
+    "source_text_excerpt": "He knew that demonstrating the technical feasibility of wireless power would not be enough. He needed to create a fait accompli \u2014 a working system so clearly superior that resistance would be futile.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Peace Through Absolute Weapons",
+    "description": "Tesla designed his particle beam weapon concept as a defensive system to prevent war through deterrence rather than as an offensive weapon, revealing his counterintuitive thinking that absolute destructive power could create peace. This anticipated nuclear deterrence logic by decades.",
+    "source_text_excerpt": "The beam would simply annihilate them. If every country possessed such a weapon, war would become impossible.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Physics-Only Prediction Methodology",
+    "description": "Tesla consistently chose to base predictions solely on physical principles while dismissing practical constraints, economic limitations, or social resistance as irrelevant factors. This methodology produced accurate technical predictions but failures in socio-economic predictions.",
+    "source_text_excerpt": "He began with fundamental physical principles and extrapolated their logical implications to their ultimate conclusions. He did not consider practical constraints, economic limitations, or social resistance as relevant factors.",
+    "source_title": "wireless_energy_vision",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  }
+]

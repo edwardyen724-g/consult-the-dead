@@ -1,0 +1,112 @@
+[
+  {
+    "construct": "transforms constraints into opportunities vs. accepts constraints as limitations",
+    "positive_pole": "Reframes external obstacles as catalysts for breakthrough work, finding ways to leverage restrictions for deeper investigation",
+    "negative_pole": "Views constraints as impediments that prevent optimal performance or require workaround strategies",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-011",
+      "incident-022"
+    ],
+    "behavioral_implication": "When faced with budget cuts or resource limitations on a project, this person would redesign the entire approach to exploit the constraints rather than complain about inadequate support"
+  },
+  {
+    "construct": "demands complete systematic verification vs. accepts incremental validation",
+    "positive_pole": "Insists on rebuilding knowledge from first principles with total logical rigor before accepting any conclusion",
+    "negative_pole": "Builds upon established authorities and accepted practices, validating through standard peer review processes",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-003",
+      "incident-015"
+    ],
+    "behavioral_implication": "When joining a new organization with established procedures, this person would systematically audit and rebuild core processes rather than accepting existing workflows as adequate"
+  },
+  {
+    "construct": "withdraws to preserve control vs. engages to influence outcomes",
+    "positive_pole": "Removes oneself from situations where others might compromise one's standards or authority",
+    "negative_pole": "Participates in collaborative processes even when it means accepting imperfect compromises",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-007",
+      "incident-016"
+    ],
+    "behavioral_implication": "When facing criticism in a team meeting, this person would stop attending meetings altogether rather than defend their position through ongoing dialogue"
+  },
+  {
+    "construct": "seeks unified theoretical frameworks vs. pursues domain-specific solutions",
+    "positive_pole": "Connects seemingly separate problems to discover underlying mathematical or conceptual unity",
+    "negative_pole": "Develops specialized expertise within established disciplinary boundaries",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-012",
+      "incident-029"
+    ],
+    "behavioral_implication": "When consulting for multiple clients in different industries, this person would search for universal principles that apply across all sectors rather than developing industry-specific recommendations"
+  },
+  {
+    "construct": "prioritizes definitive resolution vs. accepts probabilistic evidence",
+    "positive_pole": "Designs experiments or analyses that provide conclusive, unambiguous answers to theoretical questions",
+    "negative_pole": "Uses statistical analysis and peer consensus to build confidence in provisional conclusions",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-013",
+      "incident-027"
+    ],
+    "behavioral_implication": "When evaluating competing business strategies, this person would demand a crucial test that definitively proves one approach superior rather than using market research data to estimate probabilities"
+  },
+  {
+    "construct": "treats knowledge as proprietary advantage vs. shares knowledge for collaborative progress",
+    "positive_pole": "Protects intellectual discoveries as competitive assets until strategic timing maximizes personal benefit",
+    "negative_pole": "Publishes findings promptly to advance collective understanding and invite peer collaboration",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-014",
+      "incident-026"
+    ],
+    "behavioral_implication": "When developing a breakthrough innovation at work, this person would keep the methodology secret while sharing only final results, even from close colleagues"
+  },
+  {
+    "construct": "applies systematic methodology universally vs. adapts methods to domain constraints",
+    "positive_pole": "Uses the same rigorous analytical approach across all domains, expecting universal applicability",
+    "negative_pole": "Recognizes that different fields require different methodological approaches and standards",
+    "derived_from_incidents": [
+      "incident-023",
+      "incident-025",
+      "incident-028"
+    ],
+    "behavioral_implication": "When moving from engineering to human resources, this person would apply quantitative optimization models to hiring decisions rather than adopting qualitative assessment approaches"
+  },
+  {
+    "construct": "pursues total victory over opponents vs. seeks diplomatic resolution of conflicts",
+    "positive_pole": "Escalates conflicts until achieving complete dominance and opponent's destruction",
+    "negative_pole": "Negotiates compromises that allow all parties to maintain dignity and continuing relationships",
+    "derived_from_incidents": [
+      "incident-017",
+      "incident-018",
+      "incident-019",
+      "incident-021",
+      "incident-024"
+    ],
+    "behavioral_implication": "When facing a competitor who challenges their market position, this person would orchestrate a comprehensive campaign to eliminate the competitor entirely rather than seeking market-sharing agreements"
+  },
+  {
+    "construct": "treats abstract patterns as fundamental reality vs. grounds understanding in physical mechanisms",
+    "positive_pole": "Accepts mathematical relationships as complete explanations without requiring mechanistic models",
+    "negative_pole": "Demands causal explanations showing how physical processes produce observed phenomena",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-030"
+    ],
+    "behavioral_implication": "When analyzing organizational performance, this person would be satisfied with predictive statistical models and would resist pressure to explain the psychological mechanisms behind the correlations"
+  },
+  {
+    "construct": "transforms mundane observations into universal principles vs. accepts surface-level explanations for routine events",
+    "positive_pole": "Sees everyday occurrences as manifestations of deeper laws requiring systematic investigation",
+    "negative_pole": "Takes common experiences at face value without seeking underlying theoretical significance",
+    "derived_from_incidents": [
+      "incident-030",
+      "incident-004"
+    ],
+    "behavioral_implication": "When noticing that some employees consistently arrive early while others are always late, this person would develop a comprehensive theory of workplace motivation rather than attributing it to individual personality differences"
+  }
+]

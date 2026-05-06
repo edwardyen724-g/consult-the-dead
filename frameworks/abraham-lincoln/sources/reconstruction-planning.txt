@@ -1,0 +1,98 @@
+Reconstruction Planning: Decision-Making Under Anticipated Conditions
+SYNTHESIZED CONTEXT — drawn from McPherson, Foner's "Reconstruction" (1988), the
+December 1863 Proclamation of Amnesty and Reconstruction, the July 1864 Wade-Davis
+veto, and the April 11, 1865 final speech.
+
+== THE PROBLEM ==
+
+By December 1863, with Vicksburg and Gettysburg won and the war's outcome no longer
+in doubt at major-power scale, Lincoln faced a new decision class: under what conditions
+should seceded states be readmitted, and under whose authority should that decision
+be made? The question was both legal (were they ever truly out of the Union?) and
+practical (what mechanism would produce stable post-war governance?). Congress and
+the executive each claimed primary authority. Radical Republicans wanted strict
+conditions; Lincoln wanted lenient ones. The decision was made under conditions of
+high uncertainty about what the post-war South would look like.
+
+== THE DECEMBER 1863 PROCLAMATION ==
+
+The Proclamation of Amnesty and Reconstruction offered pardon to most former Confederates
+who took an oath of loyalty, and authorized state governments to be reconstituted when
+10 percent of the 1860 voting population had taken the oath and ratified emancipation.
+The "ten percent plan" was deliberately lenient. Lincoln chose it because it was a
+threshold low enough that loyal minorities could plausibly cross it within a reasonable
+timeframe, providing a procedural anchor for re-incorporation. The criterion was
+not optimality. The criterion was achievability. Lincoln preferred a flawed but
+operational mechanism to an ideal but unworkable one.
+
+== THE WADE-DAVIS COLLISION (JULY 1864) ==
+
+Congress responded with the Wade-Davis Bill, which required 50 percent loyalty oaths,
+ironclad oaths from all officials, and stricter conditions on emancipation enforcement.
+Lincoln pocket-vetoed the bill — a nearly unprecedented use of pocket veto on major
+legislation. He then issued a proclamation explaining his veto: he was unwilling to
+commit himself "inflexibly" to a single restoration plan, preferring to retain
+flexibility to apply the most workable mechanism state by state. The decision pattern:
+preserve optionality across cases, refuse to bind himself to a uniform rule when the
+domain is heterogeneous.
+
+== THE TENNESSEE AND LOUISIANA CASES ==
+
+Lincoln applied the Reconstruction framework first in Tennessee (under Andrew Johnson
+as military governor) and Louisiana (where 10-percent governments formed in 1864).
+The Louisiana case was particularly contested because the new state government refused
+to extend voting rights to Black men. Lincoln's response, in the April 11, 1865 speech
+(his last public address), was characteristically careful: he supported the new
+government as imperfect but operational, while expressing his own preference that
+suffrage be extended at least to "the very intelligent, and on those who serve our
+cause as soldiers." This is the first public endorsement by an American president of
+limited Black suffrage. He did not impose it; he expressed a preference within a
+framework of state-level discretion.
+
+== THE METHOD VISIBLE IN THE LOUISIANA CASE ==
+
+The Louisiana decision illustrates a recurring Lincoln pattern. He accepts an
+imperfect outcome as a starting point. He publicly identifies the direction of further
+improvement. He uses his public stance to shift the radius of acceptable subsequent
+moves. He does not condition acceptance of the imperfect outcome on guarantees about
+the further improvement, because doing so would foreclose the imperfect-but-operational
+starting point. The pattern: act now on what is available, advocate for what should
+follow, accept the gap between the two as the working condition of political
+progress.
+
+== THE PRESIDENTIAL VS. CONGRESSIONAL AUTHORITY QUESTION ==
+
+A persistent feature of Lincoln's Reconstruction reasoning is his refusal to settle
+the legal question of whether seceded states had ever truly left the Union. He treated
+the question as analytically hopeless: any answer constrained policy in damaging ways.
+If states had legally left, Reconstruction was the rebuilding of foreign territory; if
+they had not, secession had been a nullity and the relevant authorities were the
+existing state governments (which had led the rebellion). Lincoln declined to answer.
+He treated the question as the kind of conceptual issue that a working framework can
+afford to leave open, and proceeded with case-by-case action that did not depend on
+the resolution.
+
+== THE SHORT TIME WINDOW ==
+
+Lincoln had forty-one days between his Second Inaugural and his death in which to
+articulate Reconstruction policy. The decisions visible in those weeks — the meetings
+with Confederate envoys at Hampton Roads in February (an attempt at negotiated peace),
+the conversations with Sherman about Sherman's lenient terms to Joseph Johnston, the
+April 11 speech, the cabinet meeting on April 14 in which Lincoln pressed for "no
+hangings" of Confederate leadership — are consistent. The pattern across them is
+that Lincoln treated the post-war as continuous with the war: the same decision
+method (preserve optionality, prefer durable over expressive outcomes, expand the
+radius gradually) applied across the transition.
+
+== WHAT THE PLANNING REVEALS ==
+
+Reconstruction planning is the cleanest example of Lincoln making decisions about
+conditions that did not yet exist. He was reasoning about a post-war South he could
+only partially anticipate, about congressional reactions he could only partially
+predict, and about a policy domain whose categories had not yet stabilized. The
+method he applied — start with achievable mechanisms, preserve optionality, accept
+imperfect first steps as platforms for further movement, refuse to bind himself to
+abstract rules when the domain is heterogeneous — is the same method visible in his
+wartime decisions, applied to a different problem. The continuity of method across
+problem types is the strongest evidence that he was operating from a coherent
+framework rather than improvising decision-by-decision.

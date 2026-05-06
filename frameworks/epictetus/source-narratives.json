@@ -1,0 +1,292 @@
+{
+  "person": "Epictetus",
+  "lifespan": "c. 50 CE – c. 135 CE",
+  "primary_sources": [
+    "Discourses (Diatribai), Books I–IV, recorded by Arrian of Nicomedia, c. 108 CE",
+    "Enchiridion (Encheiridion / Handbook), compiled by Arrian as a digest of the Discourses",
+    "Fragments preserved in Stobaeus' Anthology and other late-antique collections",
+    "Aulus Gellius, Noctes Atticae (eyewitness anecdotes from the Nicopolis period)",
+    "Origen, Contra Celsum (notes on Epictetus' authority and the lameness story)",
+    "Lucian, De Morte Peregrini and Demonax (4th-hand reports)",
+    "Suda (Byzantine encyclopedia, biographical entry)",
+    "Simplicius, Commentary on the Encheiridion (6th-century philosophical commentary preserving biographical traditions)"
+  ],
+  "secondary_sources": [
+    "A.A. Long, Epictetus: A Stoic and Socratic Guide to Life (2002)",
+    "P.A. Brunt, Studies in Stoicism (2013), chapters on Epictetus",
+    "Robert Dobbin, Epictetus: Discourses Book 1 (Clarendon, 1998)",
+    "Margaret Graver, Stoicism and Emotion (2007)",
+    "F. Millar, 'Epictetus and the Imperial Court' (JRS 1965)"
+  ],
+  "narratives": [
+    {
+      "id": "narrative-01",
+      "title": "Enslavement in the household of Epaphroditus",
+      "period": "c. 60s–80s CE, Rome",
+      "source_basis": "Suda, Origen Contra Celsum 7.53, scattered Discourses references (e.g., Discourses 1.1.20, 1.9.29, 1.19.19–23)",
+      "summary": "Born a slave in Hierapolis (Phrygia), Epictetus was acquired as a young man by Epaphroditus, a powerful freedman who served as Nero's administrative secretary (a libellis) and survived into Domitian's reign. The household placed him at the proximate edge of the imperial court without granting him any standing within it. Origen preserves the story (in tone reportorial rather than hagiographic) that Epictetus' master once twisted his leg as punishment or for amusement. Epictetus reportedly remarked calmly that the leg would break, and when it did, said only: 'I told you so.' The lameness was permanent. Beyond this incident, the household provided no formal education, no protection, and no path to status — only daily subjection to the arbitrary will of a master who himself served as an instrument of Nero's arbitrary will. Yet Epaphroditus, for reasons not preserved, permitted Epictetus to attend the lectures of Musonius Rufus, which became the formative intellectual experience of his life. Epaphroditus was eventually executed by Domitian for his role (decades earlier) in assisting Nero's suicide.",
+      "key_evidence": [
+        "Discourses 1.9.29: reference to himself as 'a poor old man, lame' (chōlos)",
+        "Origen, Contra Celsum 7.53: the broken leg anecdote attributed to Epictetus' master",
+        "Discourses 1.19.19–23: discussion of Epaphroditus' shoemaker selling his shoes back to him at a profit, illustrating the master's worldview from the inside",
+        "Suda: biographical entry naming Epaphroditus as master"
+      ],
+      "decision_points_likely_present": [
+        "How to respond to imminent or actual physical injury without psychological collapse",
+        "How to study philosophy in conditions where one's time, body, and attention are formally owned by another",
+        "How to interpret the master's behavior — as moral atrocity, as fate, or as a non-event for the inner self"
+      ]
+    },
+    {
+      "id": "narrative-02",
+      "title": "Apprenticeship under Musonius Rufus",
+      "period": "c. 70s CE, Rome",
+      "source_basis": "Discourses 1.7.32, 1.9.29, 3.6.10, 3.15.14, 3.23.29; Aulus Gellius NA 5.1; Stobaeus fragments of Musonius",
+      "summary": "Granted access (with Epaphroditus' apparent permission) to the lectures of Musonius Rufus — the leading Stoic teacher of the early Flavian period — Epictetus encountered a form of philosophy that did not treat doctrine as a curriculum to be memorized but as a method for transforming the student's daily judgments. Musonius was famous for testing students by interrupting their self-presentation and demanding they account, on the spot, for the values their behavior implied. Epictetus repeatedly cites Musonius as the model of the philosopher who refuses to let the student leave a lecture self-satisfied. Throughout the Discourses, he praises Musonius' diagnostic style: never letting an admiring student walk away pleased, instead identifying precisely the trait or assumption the student needed to confront. Musonius himself had been exiled twice (under Nero, under Vespasian) for political philosophizing, and Epictetus would have witnessed his teacher persist in the same teaching practices regardless of where he taught. This was the model from which Epictetus extracted his lifelong refusal to soothe his own students and his belief that philosophy is verified by what it changes in the practitioner, not by what it asserts in argument.",
+      "key_evidence": [
+        "Discourses 3.23.29: 'When Rufus said \"You have committed an error,\" anyone leaving felt he had been excoriated; for he so accurately diagnosed each man's trouble.'",
+        "Discourses 1.7.32: Musonius' practice of demanding students argue themselves into refutation",
+        "Discourses 1.9.29: Epictetus describes his own teaching role as continuing Musonius' work",
+        "Aulus Gellius NA 5.1: independent confirmation of Musonius' diagnostic teaching style"
+      ],
+      "decision_points_likely_present": [
+        "Whether to imitate Musonius' uncomforting method or develop a softer pedagogical style",
+        "Whether to replicate Musonius' political confrontation or remain teacher-only",
+        "What to extract as transferable method versus what was Musonius' personality"
+      ]
+    },
+    {
+      "id": "narrative-03",
+      "title": "Manumission and the years of teaching in Rome",
+      "period": "c. 80s–93 CE, Rome",
+      "source_basis": "Suda; Discourses passim; biographical reconstruction in A.A. Long (2002)",
+      "summary": "At some unrecorded date — likely after Epaphroditus' decline in influence under Domitian, but before the philosopher-banishment of c. 93 CE — Epictetus was manumitted. He immediately began teaching philosophy in Rome rather than pursuing any of the conventional advancement paths open to a freedman of imperial connection (administrative office, commerce, patronage networks). He took no fees of the customary kind, accepted no patrons, and made no effort to cultivate the senatorial audience that other philosophers (notably Seneca a generation earlier) had courted. His students were a mixed group of free-born youths, fellow freedmen, and visitors. He developed a reputation specifically for refusing to flatter wealthy auditors and for publicly correcting students of high rank when they delivered themselves into self-contradiction during lectures. By the time of the banishment edict, he was sufficiently visible to be swept up in it.",
+      "key_evidence": [
+        "Suda: biographical note on his teaching at Rome before exile",
+        "Discourses 1.10.2–13: criticism of intellectuals who chase patronage and imperial favor",
+        "Discourses 4.1.6–13: detailed account of how flatterers of Caesar are not free",
+        "Implicit evidence: by 93 CE he was prominent enough to be specifically affected by the banishment"
+      ],
+      "decision_points_likely_present": [
+        "How to set the terms of the teaching practice (audience, fees, register)",
+        "Whether to soften critique for high-status students",
+        "How to differentiate his philosophical practice from court-philosopher patterns"
+      ]
+    },
+    {
+      "id": "narrative-04",
+      "title": "Banishment of philosophers under Domitian",
+      "period": "c. 93–95 CE, expulsion from Rome and Italy",
+      "source_basis": "Aulus Gellius NA 15.11; Suetonius Domitian 10.3; Cassius Dio 67.13; Discourses 1.2.19–24",
+      "summary": "Domitian, in the wake of his execution of senators and philosophers (including the Stoic martyrs Helvidius the Younger, Junius Rusticus, and Senecio), issued an edict expelling all philosophers from Rome and Italy. Most of the named Stoics either fled into provincial obscurity, recanted, or were executed. Epictetus left Rome and traveled to Nicopolis, on the western coast of Greece (Epirus), founded by Augustus near the site of the Battle of Actium. The decision to go to Nicopolis specifically — rather than Athens (the prestige philosophical center), Alexandria (the intellectual capital), or Rhodes (a traditional refuge) — placed him on a major sea-route junction frequented by Roman travelers heading east, allowing him to teach Roman students in exile from Rome itself. He never returned. The Discourses contain explicit, lightly-veiled commentary on Domitian's tribunal, including the famous case of Helvidius Priscus refusing to attend the Senate at the emperor's order, knowing that attendance compromised his philosophical identity and absence would mean death.",
+      "key_evidence": [
+        "Aulus Gellius NA 15.11: confirms the banishment edict",
+        "Suetonius Domitian 10.3 and Dio 67.13: corroborating accounts of the philosopher purge",
+        "Discourses 1.2.19–24: the Helvidius–Vespasian dialogue, modelling refusal under tyranny",
+        "Discourses 4.1.123–131: extended treatment of how a tyrant cannot truly compel a philosopher"
+      ],
+      "decision_points_likely_present": [
+        "Whether to remain in Rome under cover, recant, flee, or be martyred",
+        "Where to relocate — choosing the strategic location that maximized continued teaching access",
+        "Whether to publicly criticize the regime from the new location or maintain philosophical-not-political register"
+      ]
+    },
+    {
+      "id": "narrative-05",
+      "title": "Founding and running the school at Nicopolis",
+      "period": "c. 95 CE – c. 135 CE, Nicopolis (Epirus)",
+      "source_basis": "Discourses passim, especially 1.10, 2.21, 3.21, 3.23; Aulus Gellius NA 1.2 (visitor's account); A.A. Long (2002) ch. 3",
+      "summary": "From a modest residence in Nicopolis, Epictetus ran a philosophical school for roughly four decades. The school had a curriculum of three topoi (fields of study): the discipline of desire, the discipline of action, and the discipline of assent. Students lodged near the school and attended morning lectures (the diatribai), followed by afternoon dialectical exercises and informal questioning. Aulus Gellius records visiting Nicopolis and observing Epictetus reduce a self-important young Stoic to silence by demonstrating that the student had memorized Chrysippus but never examined his own appetites. Epictetus refused to admit students who came primarily to learn rhetoric or to acquire credentials for public life; he reportedly turned away wealthy youths whose fathers wanted them educated for administrative office. He maintained the school on minimal income, lived in a small house with a single iron lamp (which was famously stolen, and which he replaced with a clay one — a moment recorded in the Discourses as a deliberate calibration of attachment), and adopted a single child — a foundling whose own parents had abandoned him — out of the conviction that a philosopher must not refuse a duty to a vulnerable being merely because it disrupts personal tranquility.",
+      "key_evidence": [
+        "Discourses 1.18.15: the iron lamp anecdote",
+        "Discourses 3.22: extended portrait of the philosophical life Epictetus models",
+        "Aulus Gellius NA 1.2: eyewitness portrait of teaching style at Nicopolis",
+        "Simplicius, Commentary on the Encheiridion: the foundling-child story"
+      ],
+      "decision_points_likely_present": [
+        "Whom to admit, whom to refuse",
+        "How to respond to small-scale theft and personal loss",
+        "Whether to take on dependents (the foundling) given Stoic detachment doctrine",
+        "How to structure the daily curriculum"
+      ]
+    },
+    {
+      "id": "narrative-06",
+      "title": "Arrian's recording of the Discourses",
+      "period": "c. 108 CE, Nicopolis",
+      "source_basis": "Arrian's prefatory letter to Lucius Gellius prefixed to the Discourses; Photius Bibliotheca 58",
+      "summary": "Flavius Arrianus — later a Roman consul, governor of Cappadocia under Hadrian, and a major historian — studied at Nicopolis as a young man, likely around 108 CE. He took extensive notes on Epictetus' lectures, claiming in his prefatory letter to have written down the master's words verbatim, in the colloquial Greek Epictetus actually spoke, in order to preserve 'the force and frankness' of his speech. Eight books reportedly existed; four survive. Arrian also produced the Encheiridion (Handbook), a condensed compilation of the most practically pointed teachings. Crucially, the prefatory letter denies that the Discourses are a 'literary work' in the formal sense; Arrian frames them as transcripts of conversations Epictetus had with students. The decision Epictetus implicitly made — to teach in extempore Greek, to be willing to be transcribed, but never to himself write — embedded his philosophical method in a particular form: the dialectical encounter, not the treatise.",
+      "key_evidence": [
+        "Arrian's preface to the Discourses (the letter to Lucius Gellius)",
+        "Photius Bibliotheca 58: confirms 8-book original, 4-book survival",
+        "Internal style: the Discourses preserve direct address, interruption, and dialogue with named students"
+      ],
+      "decision_points_likely_present": [
+        "Whether to write his own treatises or remain oral-only",
+        "Whether to permit transcription, and in what register",
+        "How to handle named students appearing in transcribed material"
+      ]
+    },
+    {
+      "id": "narrative-07",
+      "title": "The dichotomy of control as core operating system",
+      "period": "Doctrinal core, lectured throughout 95–135 CE",
+      "source_basis": "Enchiridion 1; Discourses 1.1, 1.22, 2.5, 4.1",
+      "summary": "Epictetus opened the Encheiridion — and presumably opened most teaching cycles — with a single distinction: some things are up to us (eph' hēmin) and some things are not. What is up to us: judgment (hupolēpsis), impulse (hormē), desire (orexis), aversion (ekklisis) — in short, the operations of our own prohairesis (faculty of moral choice). What is not up to us: body, property, reputation, office, anything not internal to choice. Every other doctrinal claim derives from this: emotional disturbance (pathos) is the result of treating something not-up-to-us as if it were up-to-us; freedom is the consistent restriction of desire to what is up-to-us; courage is the consistent recognition that loss in the not-up-to-us domain cannot harm the prohairesis. Epictetus made this division operational: when a student described a problem, his first move was almost invariably to demand the student sort the components into the two categories before any other analysis could proceed.",
+      "key_evidence": [
+        "Enchiridion 1: 'Of things some are in our power, and others are not.'",
+        "Discourses 1.1: 'On the things which are in our power, and not in our power'",
+        "Discourses 2.5: detailed application to evaluating circumstance",
+        "Discourses 4.1: the long treatise on freedom built entirely on this distinction"
+      ],
+      "decision_points_likely_present": [
+        "When applying the dichotomy to a specific case (one's body, one's children, one's reputation), where exactly to draw the line",
+        "How to handle borderline cases where action and outcome are entangled",
+        "Whether to teach the dichotomy abstractly first or always through concrete cases"
+      ]
+    },
+    {
+      "id": "narrative-08",
+      "title": "Prohairesis and the architecture of moral choice",
+      "period": "Doctrinal core, throughout teaching career",
+      "source_basis": "Discourses 1.17, 1.22, 2.16, 3.1, 4.1, 4.7; A.A. Long (2002) ch. 8",
+      "summary": "Epictetus' technical innovation within Stoicism — beyond his teacher Musonius and beyond Chrysippus — was placing the concept of prohairesis (the faculty of choice or moral commitment) at the absolute center of selfhood. The prohairesis is what one is, full stop; everything else (body, possessions, social roles, even thoughts that have not yet received assent) is property of the prohairesis or environmental fact, not the self. This let Epictetus make a series of radical moves: a tyrant cannot harm the prohairesis except by getting it to assent to its own corruption; a chained body is not a chained self; a 'good' or 'evil' event is a category mistake unless prohairesis is involved. Epictetus diagnosed nearly every student error as a mis-location of self — treating body, property, or reputation as part of the self when they are not. The model was so consequential that Marcus Aurelius (a generation later, having read Epictetus through the Stoic Junius Rusticus) restructured his own self-examination around the prohairesis–externals divide.",
+      "key_evidence": [
+        "Discourses 1.17.21–28: the prohairesis cannot be hindered except by itself",
+        "Discourses 2.16.1: the wrong placement of good and evil is the source of all disturbance",
+        "Discourses 4.7: 'On freedom from fear,' grounded in prohairesis-doctrine",
+        "Marcus Aurelius Meditations 1.7: gratitude to Rusticus for introducing him to Epictetus' lectures"
+      ],
+      "decision_points_likely_present": [
+        "How to respond when a student locates self in body, property, or reputation",
+        "How to handle the case of a student whose prohairesis is itself corrupted",
+        "How to teach this doctrine without it collapsing into solipsism or quietism"
+      ]
+    },
+    {
+      "id": "narrative-09",
+      "title": "Role ethics and the doctrine of social parts",
+      "period": "Doctrinal core, throughout teaching career",
+      "source_basis": "Enchiridion 17, 22, 24, 30; Discourses 1.2, 2.10, 3.7, 3.10, 3.21",
+      "summary": "Against the misreading of Stoicism as world-rejecting, Epictetus insisted that being a human entails playing assigned social roles — son, citizen, magistrate, brother, neighbor — and that the prohairesis is exercised precisely in performing those roles correctly, not in escaping them. The Enchiridion compares life to a play in which the role is given by the playwright (nature/God) and the actor's task is to act it well, not to choose it. He distinguished sharply between: (a) accepting that the role is given, and (b) accepting that the manner of performance is one's own responsibility. He also insisted on role-priority: when a senator complained that being a senator under Domitian was demeaning, Epictetus' reply traced through whether the role of philosopher and the role of senator could be performed simultaneously and where the conflict-points truly lay. This doctrine made him distinctive among ancient philosophers: he refused both the Cynic-style abandonment of conventional roles and the courtier-style accommodation that emptied roles of moral content.",
+      "key_evidence": [
+        "Enchiridion 17: 'Remember that you are an actor in a play...'",
+        "Discourses 1.2.30: 'How then am I to act?' depends on 'who am I?' — son, brother, citizen, philosopher",
+        "Discourses 3.7: detailed argument with an Epicurean magistrate on how role-duties bind",
+        "Discourses 3.21: the difference between a true philosopher and one performing the role for show"
+      ],
+      "decision_points_likely_present": [
+        "How to handle role-conflict (philosopher vs. senator under tyranny)",
+        "Whether to reject a role (the senator's case) or perform it under protest",
+        "How to teach role-ethics without collapsing into mere convention"
+      ]
+    },
+    {
+      "id": "narrative-10",
+      "title": "Discipline of assent: governing impressions",
+      "period": "Doctrinal core, throughout teaching career",
+      "source_basis": "Discourses 1.20, 2.18, 3.2, 3.8, 3.12; Enchiridion 1.5, 5, 20, 45",
+      "summary": "The third of Epictetus' three topoi was the discipline of assent (sunkatathesis): the practice of suspending automatic agreement with the appearances (phantasiai) one's mind generates. Epictetus taught that an impression — 'this is bad,' 'I am insulted,' 'this is unbearable' — arrives in the mind unbidden, but assent to the impression's evaluative content is voluntary and therefore one's own moral act. The practical drill was: when an impression arises, do not assent immediately; instead, examine it, ask 'is this within my prohairesis or outside?' and only then decide whether to ratify the evaluative content. He taught this via repeated drilling, including small-stakes rehearsals (the broken pot, the lost lamp, the rude porter) so that high-stakes situations (loss of a child, exile, condemnation) would find the discipline already installed. The architecture is identical in shape to what Aaron Beck and Albert Ellis would, two thousand years later, formalize as cognitive-behavioral therapy.",
+      "key_evidence": [
+        "Discourses 1.20.7–11: 'It is impressions, not things, that disturb us'",
+        "Enchiridion 5: the same maxim in compressed form",
+        "Discourses 2.18: the daily drill of 'I will withhold assent today'",
+        "Discourses 3.12: structured practice of small adversities to install large-adversity capacity"
+      ],
+      "decision_points_likely_present": [
+        "How to design the rehearsal sequence so that the discipline transfers",
+        "Whether to teach assent-discipline as a technique or as a metaphysical thesis",
+        "How to respond when a student conflates 'withhold assent' with 'feel nothing'"
+      ]
+    },
+    {
+      "id": "narrative-11",
+      "title": "Prokopē — the doctrine of the progressing learner",
+      "period": "Doctrinal core, throughout teaching career",
+      "source_basis": "Enchiridion 12, 13, 48, 51; Discourses 1.4, 4.4",
+      "summary": "Epictetus consistently refused to claim or describe sage-perfection as a realistic target for himself or his students. Instead, he made the prokoptōn — the one making progress — the actual subject of his pedagogy. Discourses 4.4 distinguishes the progressing student (who knows what they are doing wrong, why, and is actively correcting) from both the unphilosophical person (who does not see the error) and the supposed sage (a regulative ideal, not an empirical type). The Enchiridion advises the prokoptōn to expect to be ridiculed for trying, to be slow rather than fast, to accept setbacks as data rather than failure, and to not announce one's progress to outsiders. This commitment to a calibrated mid-state — neither pretending to perfection nor accepting one's current condition as permanent — shaped his entire pedagogical posture: he taught for the gradient of improvement, not the binary of success.",
+      "key_evidence": [
+        "Enchiridion 12: signs of progress",
+        "Enchiridion 48: 'When you see anyone weeping in grief... be ready to say [sympathetically]; but take care that you do not also grieve internally'",
+        "Discourses 1.4: 'On Progress'",
+        "Discourses 4.4.16–18: the progressing person versus the philosopher-by-name"
+      ],
+      "decision_points_likely_present": [
+        "Whether to model perfection or visible imperfection-in-progress for students",
+        "How to handle the student who claims to have already attained sage-state",
+        "How to handle the student who concludes from non-perfection that the practice is futile"
+      ]
+    },
+    {
+      "id": "narrative-12",
+      "title": "The body as 'not mine' — illness, age, lameness",
+      "period": "Lifelong, with concentrated late-period reflection (c. 120–135 CE)",
+      "source_basis": "Discourses 1.1, 1.18, 3.5, 3.10, 4.1; Enchiridion 9; Origen Contra Celsum 7.53",
+      "summary": "Epictetus' lameness (from the broken-leg incident under Epaphroditus) and his eventual frailty in old age provided a continuous empirical test-bed for his doctrine that the body is among the externals. He repeatedly drew on his own physical condition to illustrate that the prohairesis is not impeded by what happens to the body unless it consents to be impeded. He did not hide his condition; he made it pedagogically usable. When students objected that doctrine was easy for the able-bodied, he could point to himself. When students objected that age made philosophical work impossible, he could (in his sixties and seventies) counter from his own continued teaching. He also addressed end-of-life directly: the body wears out, and one's own death is among the things not up to us but the manner of meeting it (the assent one gives or withholds) is up to us. He did not romanticize illness or death; he denied that they were evil, which is a different and harder claim.",
+      "key_evidence": [
+        "Discourses 1.1.21–25: the Stoic prisoner whose leg the tyrant chains",
+        "Discourses 3.5: 'I am not eternal, but a man, a part of the whole...'",
+        "Discourses 1.18.17–23: the lamp incident, calibrated material attachment",
+        "Origen Contra Celsum 7.53: the 'I told you so' lameness story"
+      ],
+      "decision_points_likely_present": [
+        "Whether to instrumentalize his own lameness pedagogically",
+        "How to respond to students' fear of aging and dying",
+        "How to handle his own decline without the doctrine collapsing"
+      ]
+    },
+    {
+      "id": "narrative-13",
+      "title": "Socratic elenchus and the diagnostic-uncomforting style",
+      "period": "Throughout teaching career",
+      "source_basis": "Discourses 2.12, 3.21, 3.23, 2.26; Aulus Gellius NA 1.2",
+      "summary": "Epictetus modelled his teaching method on Socrates more explicitly than perhaps any other ancient philosopher, but with a crucial modification: where Plato's Socrates often allowed interlocutors to leave a dialogue uncertain, Epictetus consistently aimed for the moment of self-recognition, when the student understood the precise misalignment between his stated values and his behavior. He refused to make students feel philosophical without the corresponding work; he turned away rhetoricians who wanted technique without transformation; he was openly contemptuous of philosophy as performance. Discourses 3.23 contains his fullest attack on philosophy-as-show: a philosopher's lecture should be like a doctor's surgery, where one expects to suffer and to recover, not a theatre where one expects to be entertained. He did not, however, use cruelty as the diagnostic instrument; he used precision. The rhetorical tools were the focused question, the mock-syllogism that reduced the student's position to absurdity, and the staged role-play in which the student had to argue his actual life as a philosophical position.",
+      "key_evidence": [
+        "Discourses 3.23: 'A philosopher's school is a hospital'",
+        "Discourses 2.12.4–13: how Socrates' style differs from sophistic display",
+        "Aulus Gellius NA 1.2: eyewitness account of Epictetus reducing a Stoic name-dropper to silence",
+        "Discourses 2.26: detailed taxonomy of the kinds of error a student can make"
+      ],
+      "decision_points_likely_present": [
+        "When to use direct rebuke versus indirect questioning",
+        "How to handle students who came for performance training",
+        "Whether to admit the high-status auditor whose interest was prestige"
+      ]
+    },
+    {
+      "id": "narrative-14",
+      "title": "Encounters with the imperial court and prominent visitors",
+      "period": "c. 100–135 CE, Nicopolis",
+      "source_basis": "Historia Augusta Hadrian 16.10; Discourses 1.10, 3.7, 4.1; A.A. Long (2002)",
+      "summary": "Despite teaching from a provincial backwater, Epictetus had a steady stream of high-status visitors. The Historia Augusta records that Hadrian was 'on familiar terms' (familiariter usus est) with him, suggesting either a visit during Hadrian's eastern travels or sustained correspondence; the source is late and partly suspect, but consistent with the geographic logic (Nicopolis was on a major route). Discourses 3.7 records an extended exchange with an Epicurean who held office as a corrector of Greek cities, in which Epictetus refused to soften his diagnosis of the man's incoherence under the office's prestige. Discourses 1.10 mocks intellectuals who calibrate their philosophy to whomever is expected at dinner. Across these accounts, Epictetus is shown maintaining an identical register with the powerful as with the poor: he did not flatter, he did not sharpen — he diagnosed. This is structurally distinct from Seneca's audience-relative register, and Epictetus appears aware of the difference: parts of the Discourses can be read as implicit critique of the courtier-philosopher pattern.",
+      "key_evidence": [
+        "Historia Augusta Hadrian 16.10",
+        "Discourses 3.7: confrontation with the Epicurean magistrate",
+        "Discourses 1.10: criticism of court-philosophers",
+        "Discourses 4.1.6–13: 'flatterers of Caesar are not free'"
+      ],
+      "decision_points_likely_present": [
+        "Whether to soften critique for an emperor or magistrate",
+        "Whether to accept invitations into political-philosophical circles",
+        "How to respond when a powerful auditor wanted personal advice rather than philosophical examination"
+      ]
+    },
+    {
+      "id": "narrative-15",
+      "title": "The adoption of the foundling child",
+      "period": "Late period, exact date unknown, Nicopolis",
+      "source_basis": "Simplicius, Commentary on the Encheiridion 46.74–80; Lucian, Demonax (peripheral)",
+      "summary": "Late in life, Epictetus adopted a child whose own parents had abandoned it, taking on direct domestic responsibility for the first time. Simplicius preserves the story as an answered objection: a critic argued that Stoic detachment-doctrine implied refusing such burdens, and Epictetus replied that the doctrine did the opposite — the prohairesis-doctrine implied that one is not entitled to refuse a duty of care merely because the resulting attachment will produce affective vulnerability. The story is significant because it shows Epictetus willing to pay an explicit psychological price for a role-duty that no convention obligated him to accept (he had no biological children, no familial pressure, no political incentive). It is also one of the few preserved actions from the Nicopolis period that involves a major life-altering choice rather than the rolling daily practice of teaching. The child's fate, and even gender and name, are not preserved.",
+      "key_evidence": [
+        "Simplicius, Commentary on the Encheiridion 46.74–80",
+        "Discourses 1.23: argument against Epicureans who reject child-rearing on tranquility grounds",
+        "Internal consistency with Discourses 3.24: 'how should one act with regard to one's family?'"
+      ],
+      "decision_points_likely_present": [
+        "Whether the adoption was compatible with Stoic detachment doctrine — and answering critics",
+        "Whether to take on the open-ended cost of rearing a vulnerable child in late life",
+        "Whether to make the adoption pedagogically visible to students or to keep it private"
+      ]
+    }
+  ]
+}

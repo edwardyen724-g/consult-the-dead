@@ -1,0 +1,205 @@
+{
+  "person": "Harriet Tubman",
+  "born": "c.1822",
+  "died": "1913-03-10",
+  "primary_sources": [
+    "Sarah H. Bradford, Scenes in the Life of Harriet Tubman (1869)",
+    "Sarah H. Bradford, Harriet, the Moses of Her People (1886)",
+    "William Still, The Underground Rail Road (1872) — passenger records and correspondence",
+    "Franklin B. Sanborn, profiles in The Boston Commonwealth (1863) and The Liberator",
+    "Tubman's testimony in Civil War pension claims and supporting affidavits, 1865-1899 (Records of the Veterans Administration, NARA)",
+    "Tubman's interview with Ednah Dow Cheney, 'Moses,' Freedmen's Record (Mass.), January 1865",
+    "John Brown's correspondence (esp. April-May 1858) referring to Tubman as 'General Tubman'",
+    "Combahee River Raid contemporary accounts, esp. The Boston Commonwealth, July 10, 1863, and Wisconsin State Journal, July 4, 1863",
+    "Records of the Bureau of Refugees, Freedmen, and Abandoned Lands re: South Carolina Sea Islands",
+    "Auburn Citizen and Auburn Daily Advertiser obituaries and reminiscences (1913-1915)"
+  ],
+  "secondary_sources": [
+    "Kate Clifford Larson, Bound for the Promised Land: Harriet Tubman, Portrait of an American Hero (2004) — definitive scholarly biography establishing chronology, kinship network, and rescue counts",
+    "Catherine Clinton, Harriet Tubman: The Road to Freedom (2004)",
+    "Jean M. Humez, Harriet Tubman: The Life and the Life Stories (2003) — analysis of source provenance, layered narrative formation, and Tubman's own narrative agency",
+    "Milton C. Sernett, Harriet Tubman: Myth, Memory, and History (2007) — historiographical correction of inflated 19th-century numbers"
+  ],
+  "narratives": [
+    {
+      "id": "01_dorchester-county-childhood-and-headwound",
+      "title": "Dorchester County childhood, the head injury, and the formation of a covert operator",
+      "summary": "Araminta 'Minty' Ross was born around 1822 in Dorchester County, Maryland, on the plantation of Anthony Thompson and later inherited by Edward Brodess. From age six she was hired out — first to a woman named 'Miss Susan' who beat her for failed weaving and infant care, then to muskrat trappers in cold marsh water. Around age twelve or thirteen, in a country store in Bucktown, an overseer threw a two-pound iron weight at a fleeing enslaved boy; it struck Minty in the forehead instead. The injury fractured her skull, was untreated for days, and produced lifelong sleep seizures (probable temporal-lobe epilepsy) and visions she later interpreted within a Methodist providential framework. Three lines of decision-relevant disposition emerge from this period: (1) early conversion of the body — calloused, marsh-hardened, taught to disappear — into an operational instrument; (2) early conversion of religious imagery into a private command channel that bypassed the literacy she would never possess; (3) early reading of the Brodess household's economic precariousness (the family was indebted; sales of enslaved persons were how the household survived) as signaling her own and her family's eventual sale southward, which her own brothers' temporary sale to Georgia confirmed.",
+      "key_facts": [
+        "Brodess family's chronic debt repeatedly forced sales of enslaved persons; three of Tubman's older sisters were sold to the Deep South before 1849",
+        "Hired out from age six; principal employments included field labor, muskrat trapping, timbering, and household service",
+        "Head injury c.1834-35 at the Bucktown store; never fully healed",
+        "Sleep seizures and 'visions' continued for the rest of her life; she described them as direct providential communications",
+        "Married John Tubman, a free black man, around 1844; took his surname and her mother's first name (Harriet) thereafter"
+      ]
+    },
+    {
+      "id": "02_self-escape-1849-fall-from-poplar-neck",
+      "title": "The 1849 self-escape from Poplar Neck via Philadelphia",
+      "summary": "Edward Brodess died on March 7, 1849. His widow Eliza Brodess began arranging the sale of enslaved persons to settle the estate's debts. A first attempt to escape with two of her brothers — Ben and Henry — collapsed within days; the brothers turned back, fearing the consequences for themselves and their families, and Tubman, briefly, returned with them. She then escaped alone in the autumn of 1849, traveling roughly ninety miles north from Poplar Neck (Caroline County) through Delaware and into Pennsylvania, using Underground Railroad stations she had learned of through the free black sailing networks of the Chesapeake and through the Quaker informant network active in Caroline County. She arrived in Philadelphia and found work as a domestic and hotel cook. The decision-relevant features of the episode are: the architecture of solitary travel after the failure of the multi-person attempt; the use of pre-existing waterman and Quaker networks rather than any improvised route; and the immediate decision, made within months of arrival, to begin earning the funds required for a return.",
+      "key_facts": [
+        "Brodess died March 7, 1849; estate sale was anticipated within months",
+        "First escape attempt with brothers Ben and Henry collapsed; she returned",
+        "Solo escape in autumn 1849, route via Caroline County, Delaware, Wilmington, and on to Philadelphia",
+        "Encountered Thomas Garrett's Wilmington station — the most reliable single waypoint on the Eastern Shore route",
+        "In Philadelphia, joined the city's free black community and began saving wages for the rescues she had already decided to conduct"
+      ]
+    },
+    {
+      "id": "03_first-rescue-1850-baltimore-niece",
+      "title": "The December 1850 rescue of Kessiah Bowley and her children from Baltimore",
+      "summary": "In December 1850, Tubman returned to Baltimore — not to Dorchester County itself, where she was personally known to slaveholders — to rescue her niece Kessiah and Kessiah's two children. The operation used a strategy that would recur: Kessiah's free black husband John Bowley submitted the winning bid at her sale auction in Cambridge, Maryland; concealed her and the children until nightfall; sailed them across the Chesapeake to Baltimore; and there delivered them to Tubman, who conducted them onward to Philadelphia. The 1850 Fugitive Slave Act, passed three months earlier, had made Pennsylvania no longer a safe destination, and Tubman's subsequent operations would extend the route to St. Catharines in Canada West (Ontario). The decision-relevant features are: the use of free-black confederates and family kin as the in-place operatives; her own positioning at the Baltimore-side handoff rather than at the slave-state extraction point itself; and the immediate strategic adjustment to the Fugitive Slave Act by extending the operational route past the U.S. border.",
+      "key_facts": [
+        "Rescue conducted December 1850, three months after the Fugitive Slave Act",
+        "John Bowley, Kessiah's free husband, executed the in-place extraction by purchasing his own family at auction with funds raised in advance",
+        "Tubman positioned in Baltimore for the handoff, not in Dorchester County",
+        "Onward route now extended to Canada; Pennsylvania alone no longer offered legal safety",
+        "Confirmed the operational pattern: extraction by trusted local actors, conduction by Tubman, terminal handoff to Vigilance Committees and onward to Canada"
+      ]
+    },
+    {
+      "id": "04_st-catharines-base-and-canadian-period",
+      "title": "Relocation of the operational base to St. Catharines, Canada West (1851-1857)",
+      "summary": "Following the 1850 Act and a series of 1851-52 rescues, Tubman established her primary residence in St. Catharines, Ontario, where she lived with her brothers and a growing community of refugees from Maryland's Eastern Shore. From this base she conducted approximately eight to ten missions back to Maryland between 1851 and 1857, bringing out roughly fifty to sixty people in person and personally directing the routes of others. Her standard operational pattern: leave Canada in late autumn or winter, when long nights, bare trees, and frozen waterways favored the conductor; travel south by rail and on foot to Eastern Shore staging points; gather small parties (typically three to ten persons) in the woods over several days; move at night through Quaker stations (Garrett at Wilmington was the indispensable hub); reach Philadelphia, then on to New York, Albany, Rochester, and Niagara. By 1857 the route extended to Auburn, New York, where Senator William H. Seward sold her a small farm. The decision-relevant pattern is the deliberate use of the calendar (winter), the geography (waterway concealment, Quaker corridor), and base-rotation across jurisdictions, treating every operational variable as a parameter to be selected rather than a circumstance to be accepted.",
+      "key_facts": [
+        "Base established in St. Catharines, Ontario, by 1851",
+        "Approximately 8-10 missions to Maryland 1851-1857, freeing roughly 50-60 persons in person",
+        "Operations almost always conducted in winter (long nights, bare cover, cold-disinclined patrols)",
+        "William Still's Philadelphia Vigilance Committee was the primary terminus on the U.S. side",
+        "Auburn farm acquired from William H. Seward in 1857-1859, becoming the long-term family seat"
+      ]
+    },
+    {
+      "id": "05_thomas-garrett-and-wilmington-corridor",
+      "title": "The operational partnership with Thomas Garrett and the Wilmington corridor",
+      "summary": "Thomas Garrett, a Quaker iron merchant in Wilmington, Delaware, was the single most reliable individual in Tubman's operational network. Between 1851 and 1860 Garrett documented assisting at least eight Tubman parties through Wilmington — providing shoes, clothing, money, hiding places, and the next-step contacts toward Philadelphia. Garrett's letters to William Still and to Eliza Wigham of Edinburgh are the most precise contemporary record of Tubman's operational tempo. Garrett's house at 227 Shipley Street was the southernmost reliable waypoint outside slave territory, located in a slave state (Delaware) but with active anti-slavery legal infrastructure. The decision-relevant feature is Tubman's repeated reliance on a single trusted node — repeatedly, over years, rather than rotating through alternatives — which contradicts what a generic risk model would prescribe but reflects her assessment that Garrett's discretion, courage, and the stability of his Quaker community were more reliable than rotation through less-tested nodes.",
+      "key_facts": [
+        "Garrett documented at least eight Tubman parties between 1851 and 1860",
+        "Garrett's letters (esp. to Still and to Wigham) are the most precise contemporary record of Tubman's tempo",
+        "Garrett had been convicted in 1848 under the Fugitive Slave Act and fined to financial ruin; he continued anyway",
+        "Tubman repeatedly relied on the same Garrett station rather than rotating; the trade-off favored proven discretion over distributed risk",
+        "Garrett provided not only logistics but pre-purchased train tickets for the Philadelphia leg, reducing exposure at ticket counters"
+      ]
+    },
+    {
+      "id": "06_william-still-and-philadelphia-vigilance-committee",
+      "title": "William Still, the Philadelphia Vigilance Committee, and the post-extraction handoff network",
+      "summary": "William Still, a free black clerk for the Pennsylvania Anti-Slavery Society, headed the Philadelphia Vigilance Committee and maintained the records — names, ages, owners' names, escape routes, kin connections — that became the basis for his 1872 book The Underground Rail Road. Tubman delivered her parties to Still, who then arranged onward conveyance to New York, Albany, Rochester, and the Canadian border. Still's records are the principal independent verification of Tubman's specific named rescues. The decision-relevant pattern is Tubman's strict separation of operational phases: she controlled the extraction and the conduction phases tightly, and then delegated entirely to Still and his successors at the next handoff, never extending her span of control beyond the segment she could personally observe. She also did not, herself, participate in the documentation of her work; the records are Still's, not hers, by deliberate operational compartmentalization.",
+      "key_facts": [
+        "Still recorded Tubman's parties in his Vigilance Committee journal beginning in 1850",
+        "His 1872 book is the principal independent record of Tubman's named rescues",
+        "Tubman conducted parties to Still, then transferred operational control completely",
+        "She did not herself create or retain written documentation — illiteracy and operational compartmentalization both contributed",
+        "Onward conveyance was Still's network's responsibility, not hers; she returned south to begin the next rescue"
+      ]
+    },
+    {
+      "id": "07_dorchester-rescue-architecture-1854-1857",
+      "title": "Operational architecture of the Dorchester County rescues (1854-1857)",
+      "summary": "Tubman's Dorchester County rescues during this period — including the December 1854 Christmas rescue of her brothers Ben, Henry, and Robert; the 1856 rescue of Joe Bailey; and the 1857 rescue of her elderly parents Ben and Rit Ross — reveal a recurring architecture. (1) Pre-positioned communication: she sent coded messages (Bible-language letters dictated through free black or Quaker correspondents) to the targets, who then prepared themselves and waited for the staging window. (2) Staged rendezvous: she did not approach the plantations herself; she set rendezvous points in nearby woods and waited as her targets crossed the last mile under their own initiative, removing herself from the most surveilled zone. (3) Strict in-flight discipline: she carried a pistol whose primary purpose was to deter retreat among her own party — once on the route, no one was permitted to turn back, because a captured returnee could compromise the entire route. (4) Adaptive routing under detection: when a route was burned, she moved laterally rather than attempting the same path. (5) Adapted transport for elderly or injured: she rented a horse and improvised a wagon for her parents (1857) when they could not walk. The decision-relevant pattern is repeated optimization of each variable for the specific party.",
+      "key_facts": [
+        "Christmas Day 1854 rescue of brothers Ben, Henry, Robert and three others",
+        "Coded letters sent in advance via Jacob Jackson, a free black neighbor in Dorchester",
+        "Pistol carried both as deterrent against pursuers and against own party turning back",
+        "1856 Joe Bailey rescue with $1,500 reward posted on Bailey",
+        "June 1857 rescue of parents Ben and Rit Ross with hired horse and wagon"
+      ]
+    },
+    {
+      "id": "08_john-brown-1858-1859-planning",
+      "title": "John Brown, the 1858 Chatham planning, and Tubman as 'General Tubman'",
+      "summary": "In April 1858 John Brown traveled to St. Catharines and met Tubman; he subsequently referred to her in correspondence as 'General Tubman' and described her, with characteristic exaggeration, as 'one of the best and bravest persons on this continent.' Tubman provided Brown with operational intelligence about the Eastern Shore — geography, free black settlements, sympathetic Quaker contacts, river crossings — and pledged to recruit men for his planned insurrection. She participated in the May 1858 Chatham (Ontario) constitutional convention's planning environment and remained engaged through the spring of 1859. By the time of the October 1859 Harpers Ferry raid, however, she was not present — she was ill in New England, possibly with a recurrence of head-injury symptoms — and her absence may also have reflected the same operational misgivings that led Frederick Douglass to refuse Brown at Chambersburg two months earlier. The decision-relevant feature is her willingness to lend operational expertise to an armed insurrectionary plan when its strategic objective (mass enslaved liberation) aligned with her own; the limit of that willingness when the operational architecture became questionable; and the absence, rather than verbal refusal, as her chosen exit.",
+      "key_facts": [
+        "April 1858 meeting with Brown in St. Catharines",
+        "Brown's correspondence repeatedly refers to her as 'General Tubman'",
+        "Provided geographic and network intelligence, particularly on the Eastern Shore",
+        "Was not at Harpers Ferry in October 1859; was ill in New Bedford or Boston at the time",
+        "Continued to honor Brown's memory publicly after his execution; gave the closing speech at the 1860 Brown memorial in Boston"
+      ]
+    },
+    {
+      "id": "09_charles-nalle-rescue-troy-1860",
+      "title": "The April 1860 rescue of Charles Nalle in Troy, New York",
+      "summary": "On April 27, 1860, Tubman happened to be in Troy, New York, en route to a Boston anti-slavery convention, when Charles Nalle, a fugitive from Virginia, was arrested under the Fugitive Slave Act. A crowd gathered at the federal commissioner's office. Tubman, instantly recognizing the operational opportunity, joined the crowd, disguised herself as a stooped older woman to slip past the federal marshals, and physically led the crowd in seizing Nalle from custody on the courthouse steps. Nalle was forcibly transported across the Hudson by ferry; when re-arrested in West Troy, the crowd attacked the second jail and freed him a second time. He was conveyed to Niskayuna and ultimately to Canada. The decision-relevant feature is Tubman's transition from clandestine conduction to overt direct action when the operational opportunity favored mass mobilization rather than concealment, and the speed of the transition — minutes from arrival to action — under unrehearsed conditions.",
+      "key_facts": [
+        "Tubman happened upon the Nalle arrest while passing through Troy",
+        "Disguised herself as a frail elderly woman to penetrate the marshals' cordon",
+        "Personally led the crowd's seizure of Nalle from federal custody",
+        "Nalle was twice rescued (initial seizure, then again at the second jail)",
+        "The operation was overt and crowd-based, contrasting sharply with her clandestine rescue architecture"
+      ]
+    },
+    {
+      "id": "10_tilly-rescue-1856-and-late-rescues",
+      "title": "Tilly's rescue (1856) and the final pre-war rescues (1860)",
+      "summary": "In October 1856 Tubman conducted the rescue of 'Tilly,' a young woman to whom she was not related, from Baltimore. Unable to obtain papers for Tilly, Tubman improvised a route by Chesapeake steamer south to Seaford, Delaware, then north overland — choosing the apparent direction of recapture rather than escape, on the calculation that pursuit would not look south. Tubman bluffed her way past the captain's papers requirement by claiming to be returning to her owner. The improvisation was successful. In November and December 1860 Tubman conducted her last pre-war Eastern Shore rescue, bringing out the Ennals family and several others — her thirteenth and final mission. Subsequent attempts to rescue her sister Rachel and Rachel's children failed; Rachel had died before Tubman could reach her, and the children's whereabouts could not be determined. The decision-relevant pattern: directional misdirection as a deliberate route principle (going south to escape north); calibrated risk-acceptance late in the operational period when patrols and rewards had grown more aggressive; and the bounded acceptance of mission failure when intelligence was inadequate (the failed Rachel rescue).",
+      "key_facts": [
+        "October 1856 Tilly rescue used southbound Chesapeake steamer as misdirection",
+        "Bluff at the steamer ticket counter exploited the assumption that no fugitive would head south",
+        "November-December 1860 final Eastern Shore mission rescued the Ennals family",
+        "Failed attempt to rescue sister Rachel and her children; Rachel had died",
+        "Approximately 13 personally conducted missions; approximately 70 persons brought out by her own hand"
+      ]
+    },
+    {
+      "id": "11_civil-war-port-royal-scout-and-nurse",
+      "title": "Civil War service at Port Royal: nurse, scout, and intelligence operative (1862-1864)",
+      "summary": "In May 1862, with letters of introduction from Massachusetts Governor John Andrew, Tubman traveled to Port Royal, South Carolina, the headquarters of the Union's Department of the South in the Sea Islands. She was assigned initially to nursing duties at Beaufort and Hilton Head, treating Union soldiers and contraband refugees suffering from dysentery, smallpox, and infections. She was paid little or nothing — a status that would later require decades of pension fight. By 1863 she was operating in a second capacity: as the leader of a small group of black scouts and river pilots (Walter Plowden, Mott Blake, and others) who collected intelligence on Confederate troop locations, supply lines, and torpedo-mined river approaches. Her instrument was the same operational pattern she had used in Maryland: trusted local network, in-flight discipline, calibrated movement at night and through swamp terrain. She reported to Colonel James Montgomery and General David Hunter. The decision-relevant feature: she explicitly took only such pay as she could earn separately (selling pies and root beer to the troops), refusing the standard contraband ration so as to preserve standing as a paid operative — a status the Army repeatedly refused to formalize.",
+      "key_facts": [
+        "Arrived at Port Royal May 1862 with credentials from Gov. John Andrew",
+        "Initial nursing duties at Beaufort, Hilton Head, and Fortress Monroe contraband camps",
+        "By 1863, leading a unit of black scouts (~8 men) collecting intelligence",
+        "Refused contraband ration to preserve formal employee standing; sold pies and root beer to support self",
+        "Reported through Col. James Montgomery and Gen. David Hunter; later Gen. Rufus Saxton"
+      ]
+    },
+    {
+      "id": "12_combahee-river-raid-june-1863",
+      "title": "The Combahee River Raid, June 1-2, 1863",
+      "summary": "On the night of June 1-2, 1863, three Union gunboats — Harriet A. Weed, John Adams, and Sentinel — under the command of Colonel James Montgomery and carrying approximately 300 men of the 2nd South Carolina Volunteers (a regiment of formerly enslaved men), proceeded up the Combahee River in South Carolina. Tubman had spent weeks preparing: scouting Confederate torpedo placements with her river pilots; identifying the rice plantations to target; arranging signals to the enslaved population; positioning the timing for the lowest possible Confederate response. The raid destroyed a pontoon bridge, several plantations, and substantial stores; freed approximately 750 enslaved persons (the largest single liberation in U.S. history); and resulted in zero Union casualties. Tubman directed the river pilots through mined channels and personally helped marshal terrified plantation workers onto the gunboats. The decision-relevant pattern: the same architecture as her Eastern Shore rescues — pre-positioned intelligence, in-place confederates, coded signals, calibrated timing — at the scale of military combined arms.",
+      "key_facts": [
+        "Conducted June 1-2, 1863, on the Combahee River in South Carolina",
+        "Three Union gunboats and ~300 men of the 2nd South Carolina Volunteers",
+        "Approximately 750 enslaved persons liberated — largest single liberation in U.S. history",
+        "Zero Union casualties",
+        "Tubman is the first American woman known to have planned and led an armed military expedition; reported in The Boston Commonwealth, July 10, 1863"
+      ]
+    },
+    {
+      "id": "13_post-war-pension-fight-and-auburn",
+      "title": "The post-war pension fight, the Auburn farm, and the home for the aged (1865-1908)",
+      "summary": "After the war Tubman returned to Auburn, New York. She had received almost no pay for her three years of Union service. Beginning in 1865 and continuing for over thirty years, she pursued payment through congressional petition, supporting affidavits, and the testimony of officers who had commanded her. A bill granting her $20 per month for service as a 'nurse' was finally passed in 1899 — never recognizing her scout or military status, despite letters from generals attesting to it. She supported her parents, took in elderly and indigent black persons in her own home, married Nelson Davis (a Civil War veteran 22 years her junior) in 1869, and in 1903 deeded her property to the AME Zion Church to establish the Harriet Tubman Home for the Aged, which opened in 1908. She maintained ties to suffrage activism (speaking at the 1896 founding meeting of the National Association of Colored Women and at Susan B. Anthony's events), and to the AME Zion Church. The decision-relevant pattern: long-arc institutional persistence — three decades of pension petition, four decades of caregiving — at scales that matched her wartime patience but on terrain where the structural enemy was bureaucratic refusal rather than slaveholder power.",
+      "key_facts": [
+        "Returned to Auburn, New York, after the war",
+        "Pension fight 1865-1899; finally granted $20/month as 'nurse,' never as scout or soldier",
+        "Married Nelson Davis 1869",
+        "Deeded property to AME Zion Church in 1903 for Home for the Aged; opened 1908",
+        "Spoke at 1896 founding of National Association of Colored Women"
+      ]
+    },
+    {
+      "id": "14_suffrage-activism-and-public-narrative-construction",
+      "title": "Post-war public narrative construction, suffrage activism, and the Bradford biographies",
+      "summary": "Tubman herself was illiterate and authored no written record of her own life. Two principal mediated texts emerged in the post-war period: Sarah H. Bradford's Scenes in the Life of Harriet Tubman (1869) and the expanded Harriet, the Moses of Her People (1886). Both were undertaken at Tubman's initiative, principally as fundraising vehicles to pay her debts and support her caregiving. Tubman maintained narrative agency over the contents through dictation, selection of which episodes to include, and choice of which witnesses (Garrett, Sanborn, Frederick Douglass) would supply confirmatory letters. She similarly engaged the suffrage movement on her own terms — speaking at major conventions but maintaining base in the AME Zion Church and in the National Association of Colored Women rather than aligning with the white-led NAWSA factions that had ruptured over the Fifteenth Amendment. The decision-relevant pattern is her use of mediated narrative and selective coalition entry as the operational instruments of a person who could not author her own text and who refused to subordinate her work to coalitions whose priorities differed from hers.",
+      "key_facts": [
+        "Was illiterate; authored no first-person written record",
+        "Bradford's 1869 and 1886 biographies were undertaken as fundraising vehicles at Tubman's initiative",
+        "Tubman maintained narrative selection through dictation and witness curation",
+        "Spoke at suffrage conventions, including the 1896 founding of the NACW",
+        "Maintained operational base in AME Zion Church rather than in white-led suffrage organizations"
+      ]
+    },
+    {
+      "id": "15_visions-and-providential-decision-frame",
+      "title": "Visions, the Methodist providential frame, and the use of religious cognition as operational channel",
+      "summary": "Throughout her life Tubman experienced sleep seizures with vivid imagery, which she interpreted as direct providential communications from God. She used these communications operationally: to time departures (waiting for a vision before initiating a mission), to choose routes (changing planned paths after a vision warned her), and to maintain morale among her parties (declaring divine guarantee of safe arrival). Her contemporaries, including Frederick Douglass, Sarah Bradford, William Still, and Wendell Phillips, repeatedly attested to the operational effectiveness of these decisions, whatever the medical or theological interpretation of their source. The decision-relevant feature is the integration of an unusual cognitive-perceptual capacity into operational decision architecture: the visions did not replace planning, but they provided a heuristic supplement that her record suggests was at minimum non-detrimental and possibly substantially beneficial — and that, regardless of mechanism, gave her party a confident leader whose decisions were not visibly contestable.",
+      "key_facts": [
+        "Sleep seizures and visions originated with c.1834 head injury",
+        "Interpreted within Methodist providential framework as direct communication from God",
+        "Used operationally to time departures and choose routes",
+        "Maintained morale by declaring divine guarantee — never lost a passenger",
+        "Record across 13 missions: zero passengers lost, zero captured under her conduction"
+      ]
+    }
+  ]
+}

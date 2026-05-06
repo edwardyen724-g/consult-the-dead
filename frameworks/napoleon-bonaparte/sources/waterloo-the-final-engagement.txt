@@ -1,0 +1,77 @@
+Waterloo: The Decision-Making Failures of a Single Day
+SYNTHESIZED CONTEXT — drawn from Chandler (Campaigns of Napoleon), Houssaye's
+1815 reconstruction, the after-action reports of Soult, Ney, Drouot, Grouchy,
+the Wellington dispatches, and Schom's account of June 18, 1815.
+
+== THE PROBLEM AS HE FRAMED IT ==
+
+By June 16, 1815, with Ligny won against Blücher and Quatre Bras inconclusive
+against Wellington, his strategic position required defeating Wellington's
+Anglo-Allied army before Blücher could rejoin. The framing was straightforward:
+keep Blücher out of the engagement (Grouchy's task with 33,000 men) and
+destroy Wellington's smaller force at Waterloo. The window was narrow — perhaps
+24 hours — but the geometry was familiar: it was the same kind of
+center-of-gravity problem he had solved at Marengo, Austerlitz, and Friedland.
+
+== THE FRAMING DECISION'S DEPENDENCIES ==
+
+The framing assumed: (a) Grouchy could fix Blücher; (b) Wellington's army would
+collapse under sustained French attack; (c) the morning rain would dry enough
+by midday to permit artillery deployment; (d) his own capacity to coordinate
+had not degraded since 1813. Each assumption was independently reasonable;
+each was load-bearing; the campaign succeeded only if all four held. The
+construct's reliability depends on whether assumption-stacking is a method
+he had refined or a habit that was only safe when he had margin to absorb
+one failure.
+
+== THE PRINCIPLE THAT FAILED IN EXECUTION ==
+
+The Grand Battery did not open fire until 11:30 AM (later than usual,
+attributed to mud). The frontal assault on Hougoumont was a feint that
+absorbed more reserves than intended. Ney led massed cavalry charges
+without infantry or artillery support against unbroken British squares
+between 4 and 6 PM, costing the cavalry reserve. The Imperial Guard's
+attack at 7:30 PM was committed too late and unsupported. By that hour
+Blücher's Prussians had reached the field on the French right. Each
+operational failure on its own was within the range of normal Napoleonic
+day-of-battle adjustment. Stacked together, they exhausted his reserve
+before the decisive moment arrived.
+
+== THE PRINCIPLE OF "WHO IS DECIDING WHAT" ==
+
+A consistent feature of his late battles is that he delegated tactical
+execution to subordinates while remaining strategic commander. This worked
+when his subordinates were peers like Davout or Lannes. By 1815 several of
+his best marshals were dead (Lannes), in Russian service (Bernadotte),
+absent (Davout was Minister of War in Paris), or impaired (Berthier had
+died in suspicious circumstances on June 1). The man on the field directing
+tactical execution was Ney, who was brave but had a record of impulsive
+decisions. He let Ney run the cavalry charges because the system he had
+built required someone to run them and Ney was who was available. The
+construct of strategic-bandwidth-via-trusted-subordinates broke when the
+trusted subordinates were no longer present.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena he wrote multiple accounts of Waterloo, each blaming
+different subordinates: Grouchy for not fixing Blücher; Ney for the
+unsupported cavalry charges; Soult for staff incompetence after Berthier;
+the rain. Each blame is partially correct. The structural fact he did
+not fully address: the campaign required his full powers AND his full
+team simultaneously, and by 1815 he had only one of the two. He chose
+to fight anyway because the political alternative (slow degradation of
+the Hundred Days regime by foreign pressure) was certain defeat, while
+Waterloo offered a chance.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+Waterloo shows the construct's late-career failure mode: methods optimized
+for a specific organizational support system fail when the support system
+has decayed. He did not adapt his decision-making style to the depleted
+team; he ran 1815 the way he had run 1805. The construct is not
+transferable to a degraded version of itself — it requires the full
+infrastructure of high-quality marshals, reliable staff coordination, and
+trusted intelligence, and below a threshold of any of these, the entire
+construct underperforms. The decision to fight Waterloo was sound given
+the Hundred Days position; the decision to fight Waterloo with the team
+he had was not separately considered.

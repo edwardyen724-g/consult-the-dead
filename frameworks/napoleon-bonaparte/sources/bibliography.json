@@ -1,0 +1,186 @@
+[
+  {
+    "title": "Bourgogne, Adrien \u2014 Memoirs of Sergeant Bourgogne (1899) \u2014 cross-referenced with Napoleon's own Russia dispatches",
+    "url": "https://archive.org/details/memoirsofsergeant00bour",
+    "source_type": "critical_incident",
+    "description": "The 1812 Russia campaign is Napoleon's most documented failure, and cross-referencing Bourgogne's ground-level memoir with Napoleon's own dispatches and the Correspondance creates a rare failure analysis opportunity. Napoleon's dispatches during the retreat reveal his cognitive responses to disconfirming information: his persistent optimism, his reframing of defeats as tactical pauses, and the point at which he updated vs. doubled down. This is the richest source for understanding Napoleon's failure modes \u2014 his difficulty processing strategic retreat and his overweighting of will over logistics.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Metternich, Clemens von \u2014 Memoirs (1880), particularly the 1813 Dresden interview transcripts",
+    "url": "https://archive.org/details/memoirsofprince01mett",
+    "source_type": "critical_incident",
+    "description": "Metternich's detailed account of his eight-hour negotiation with Napoleon in Dresden in June 1813 \u2014 after Leipzig had turned against France \u2014 is one of the most documented value-conflict moments in Napoleon's career. Metternich records Napoleon's reasoning about why he could not accept negotiated peace, his explicit articulation of why he believed his political legitimacy depended on military success, and the exact point where Napoleon's reasoning became circular. This is a rare transcript of Napoleon under maximum diplomatic pressure, revealing how his political and military frameworks intersected and which he could not abandon.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Schom, Alan \u2014 One Hundred Days: Napoleon's Road to Waterloo (1992)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "A detailed reconstruction of Napoleon's decision-making during the Hundred Days, with particular emphasis on the Waterloo campaign. Schom worked from primary sources to reconstruct hour-by-hour decisions and the intelligence Napoleon received vs. ignored. The Waterloo analysis is the richest documented case of Napoleon's late-career cognitive patterns: his delayed start on June 18, his dismissal of Ney's warnings, his handling of the Imperial Guard. As a failure case with extensive documentation, it allows precise identification of which heuristics failed and why \u2014 particularly overconfidence in adversary predictability.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Correspondance de Napol\u00e9on Ier (32 volumes, 1858\u20131870)",
+    "url": "https://gallica.bnf.fr/ark:/12148/cb32731426s/date",
+    "source_type": "private_writing",
+    "description": "The official compilation of ~33,000 letters and orders Napoleon dictated or wrote, covering military campaigns, administrative decisions, diplomatic maneuvers, and personal matters. Crucially, many letters contain inline reasoning: why he chose one course of action over another, how he weighed risks, what variables he prioritized. His operational orders often include contingency logic ('if X then Y') that reveals his probabilistic reasoning and ability to model adversary behavior. The letters to marshals during the 1805\u20131807 campaigns are particularly rich in visible decision-tree reasoning.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Las Cases, Emmanuel de \u2014 M\u00e9morial de Sainte-H\u00e9l\u00e8ne (1823)",
+    "url": "https://gallica.bnf.fr/ark:/12148/bpt6k202100z",
+    "source_type": "private_writing",
+    "description": "Las Cases recorded Napoleon's extended monologues during his exile on Saint Helena, where Napoleon had both the time and motive to reconstruct and explain his reasoning across his career. While partially self-serving, the Memorial is irreplaceable because Napoleon explicitly theorizes about his own thinking: how he processed intelligence, why he trusted certain generals, how he understood the relationship between speed and mass, and how he reasoned about politics as an extension of war. Cross-referencing his explanations with documented outcomes reveals both genuine insight and motivated revision. The value lies in seeing Napoleon attempt metacognition about his own decision-making.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Gourgaud, Gaspard \u2014 Journal de Sainte-H\u00e9l\u00e8ne 1815\u20131818 (1899)",
+    "url": "https://archive.org/details/journaldesainthe01gour",
+    "source_type": "private_writing",
+    "description": "General Gourgaud's private diary of conversations with Napoleon on Saint Helena is arguably more candid than the M\u00e9morial because Gourgaud was not curating for publication and frequently recorded Napoleon in unguarded, irritable, or contradictory moods. Napoleon debates his own mistakes here (Russia 1812, Waterloo), argues against his own earlier positions, and reveals the emotional substrates of his decisions \u2014 his contempt for certain ministers, his genuine vs. performed confidence. This source shows the gap between Napoleon's public explanatory framework and his private second-guessing.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Napoleon \u2014 Pr\u00e9cis des guerres de C\u00e9sar (1836, dictated on Saint Helena)",
+    "url": "https://archive.org/details/prcisdesguerres00napogoog",
+    "source_type": "own_published_work",
+    "description": "Napoleon's analysis of Julius Caesar's campaigns, dictated late in life, is valuable precisely because it is Napoleon doing strategic criticism. The cognitive frameworks he applies to Caesar's decisions \u2014 why Caesar concentrated force, when he accepted risk, how he managed political and military imperatives simultaneously \u2014 are transparently Napoleon's own analytical categories projected onto ancient history. Reading this alongside his actual campaign decisions allows framework triangulation: the criteria he uses to praise or fault Caesar are the same criteria he applied to himself.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Napoleon \u2014 Military Maxims (Maximes de guerre, compiled ~1827, various editions)",
+    "url": "https://www.gutenberg.org/ebooks/1023",
+    "source_type": "own_published_work",
+    "description": "The 115 maxims attributed to Napoleon (compiled post-facto but drawn from his writings and dictations) represent his own articulated decision rules for warfare. These are his stated Layer 1 principles \u2014 explicit heuristics about concentration, speed, intelligence, logistics, and morale. Their limitation is that they are post-hoc rationalizations; their value is in revealing the conceptual vocabulary Napoleon used to frame problems. Cross-referencing with actual campaign decisions reveals which maxims were operative rules vs. rhetorical polish.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Napoleon \u2014 Notes sur l'art de la guerre / Notes on the Art of War (various editions, compiled from marginalia and dictations)",
+    "url": "https://archive.org/details/napoleonmilitary00napouoft",
+    "source_type": "own_published_work",
+    "description": "Napoleon's unpublished notes and marginalia on military theory, compiled from various sources including his annotations of Turpin de Criss\u00e9's 'Commentaires' and his own campaign notebooks. These are working documents, not polished outputs \u2014 they show Napoleon mid-thought, crossing out formulations and replacing them, quantifying his intuitions, and arguing with received doctrine. The marginalia reveal which theoretical frameworks he accepted, rejected, or modified from the military canon he inherited, making them irreplaceable for reconstructing his actual (vs. stated) analytical vocabulary.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "S\u00e9gur, Philippe-Paul de \u2014 History of the Expedition to Russia (Histoire de Napol\u00e9on et de la Grande Arm\u00e9e, 1824)",
+    "url": "https://archive.org/details/historyofexpedi00sgoog",
+    "source_type": "firsthand_biography",
+    "description": "S\u00e9gur served as Napoleon's aide-de-camp during the 1812 campaign and wrote the most influential eyewitness account of Napoleon's decision-making during the catastrophic retreat. He records specific moments where Napoleon was presented with options and chose \u2014 why he stayed in Moscow too long, how he processed the Cossack reports, the deliberations over retreat routes. S\u00e9gur's account provoked furious responses from other officers (especially Gourgaud) who disputed his interpretations, and this controversy itself illuminates which aspects of Napoleon's reasoning were contested even by those present.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Rapp, Jean \u2014 Memoirs of General Count Rapp (1823)",
+    "url": "https://archive.org/details/memoirsofgeneral00rapp",
+    "source_type": "firsthand_biography",
+    "description": "Rapp served as one of Napoleon's most trusted aides-de-camp for over a decade and records dozens of specific conversations in which Napoleon explained his reasoning in real time \u2014 before decisions, not in retrospective justification. Rapp's accounts of Napoleon's pre-battle thinking (particularly Austerlitz and Eylau) show Napoleon's method of reading terrain, estimating enemy intentions, and assigning probability weights to scenarios. Less self-serving than Napoleon's own Saint Helena accounts because Rapp had no motive to flatter his commander's intellect posthumously.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Chandler, David G. \u2014 The Campaigns of Napoleon (1966)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "The most comprehensive English-language analysis of Napoleon's military decision-making across all major campaigns. Chandler reconstructs Napoleon's operational reasoning at each critical juncture \u2014 not just what he decided but the intelligence available, the options he considered, and the logic he applied. The 1796 Italian campaign analysis is exceptionally detailed on Napoleon's risk calculus. Chandler identifies recurring decision patterns: the strategy of the central position, the corps system as an information-processing innovation, and the relationship between Napoleon's confidence and his willingness to accept strategic risk. Essential for Layer 2 pattern extraction.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tulard, Jean \u2014 Napoleon: The Myth of the Saviour (1984)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "French historian Tulard examines Napoleon's political decision-making with particular attention to how Napoleon understood legitimacy, public opinion, and the mechanics of power. Unlike military-focused studies, Tulard reconstructs Napoleon's reasoning about institutional design (the Civil Code, prefectural system, Concordat) \u2014 showing that Napoleon applied the same concentration-and-speed logic to administrative problems that he used militarily. Valuable for understanding how Napoleon's perceptual lens transferred across domains.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "McLynn, Frank \u2014 Napoleon: A Biography (1997)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "McLynn integrates psychological analysis with historical documentation, examining Napoleon's decision-making through the lens of his personality structure \u2014 particularly the relationship between his risk tolerance, his need for speed and action as anxiety management, and his difficulty delegating. McLynn's analysis of the 1814\u20131815 period (the Hundred Days) is especially valuable: Napoleon's decision to return from Elba and his operational choices at Waterloo show his reasoning under extreme stress and diminished resources, revealing which cognitive patterns were most hardwired.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Colin, Jean \u2014 The Transformations of War (L'\u00e9ducation militaire de Napol\u00e9on, 1900)",
+    "url": "https://archive.org/details/leducationmilit00coligoog",
+    "source_type": "scholarly_analysis",
+    "description": "French military historian Colin analyzed Napoleon's early reading and education to reconstruct how his intellectual frameworks were formed before he had power to act on them. Napoleon's marginalia in his copies of military histories and his early strategic notebooks (from the 1780s) reveal the source texts that shaped his decision frameworks \u2014 particularly his reading of Guibert, Bourcet, and ancient historians. This is foundational for Layer 3: understanding the perceptual lens Napoleon brought to problems before he became Napoleon.",
+    "evidence_layers": [
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

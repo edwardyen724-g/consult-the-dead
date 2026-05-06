@@ -1,0 +1,97 @@
+From Tutor to De Facto Regent: The Quinquennium and Its Decisions
+SYNTHESIZED CONTEXT — reconstruction from Tacitus (Annals XIII-XIV), Suetonius, Romm,
+and Griffin, of Seneca's role in governance during Nero's first five years (54-59 CE).
+
+== THE TRANSITION ==
+
+When Nero became emperor in October 54 CE at age sixteen, two men effectively ran the
+state: Seneca and Sextus Afranius Burrus, the praetorian prefect. Nero's mother
+Agrippina had imagined herself as the fourth power; Seneca and Burrus systematically
+displaced her over the first two years. The mechanism was administrative: they ran
+the imperial correspondence, drafted speeches, controlled access. Nero received their
+package of governance and signed it.
+
+== THE FIRST PUBLIC ACT ==
+
+Nero's accession speech, written by Seneca, made specific commitments: he would
+respect the Senate, restrict private trials, end the abuses of the Claudian regime.
+The speech was a contract. It bound Nero to a model of governance — the early
+"Augustan" emperor — that Seneca and Burrus could then enforce on him by appeal to
+his own promises. The technique is the De Clementia technique applied at the moment
+of maximum leverage. Set the public expectation; the public expectation becomes a
+political constraint.
+
+== THE DECISION ABOUT AGRIPPINA ==
+
+The first major test: what to do about Agrippina, who expected to share power. Tacitus
+records that Seneca and Burrus moved deliberately. They did not confront her openly.
+They reduced her access incrementally — moving Nero's audiences out of her presence,
+removing her praetorian guard, eventually exiling her from the palace. The reasoning
+visible in the gradualism: a direct break would have produced either civil war or
+Nero's collapse into his mother's orbit. Slow attrition kept Nero's psychological
+independence developing while not forcing him to choose. The construct: WHEN A
+DIRECT MOVE WILL FAIL, USE TIME AS THE LEVER.
+
+== THE BRITANNICUS DECISION ==
+
+In February 55 CE, Britannicus (Claudius's son and Nero's rival) was poisoned at
+dinner. The killing was likely Nero's, possibly with Agrippina's connivance. Seneca
+and Burrus were not consulted. What is documented is their response: they did
+nothing public. The killing was integrated into the regime's narrative without
+investigation. This is the first major moral compromise of the regency. They had two
+options — confront Nero (likely losing influence and probably their lives) or absorb
+the act and continue. They chose absorption.
+
+== THE REASONING EMBEDDED IN THE COMPROMISE ==
+
+The defense, reconstructable from later writings, runs as follows. The advisor's job
+is not to prevent every wrong, which is impossible, but to prevent more wrongs than
+would occur in their absence. If they resign in protest at the first murder, no
+voice will moderate the next. The arithmetic justifies remaining. The cost of the
+arithmetic is that the ledger gets longer over time, and at some point the accumulated
+compromises outweigh the prevented harms. Seneca seems to have known this. He spent
+the next decade trying to identify the line and failing to find one that he could
+stop on cleanly.
+
+== THE GOVERNANCE METHOD ==
+
+During the Quinquennium (the first five years), the actual operations of government
+ran better than they had under Claudius. Tax administration improved. The provinces
+were better managed. The Senate's nominal dignity was respected. This was the
+product of Seneca and Burrus running the bureaucracy while flattering Nero's sense
+of his own benevolence. The framework: SEPARATE THE COMPETENCE FROM THE FIGUREHEAD.
+Competent administration can run beneath an erratic ruler if the ruler is occupied
+elsewhere. Keep him occupied with image and pleasure; do the work where he is not
+looking.
+
+== THE LIMIT OF THE METHOD ==
+
+The method is sustainable only as long as the ruler remains content with the
+arrangement. When Nero began wanting actual decisional power — over his mother, over
+his marriages, over his entertainments and crimes — the bureaucratic insulation
+weakened. By 59 CE he was making his own decisions. Agrippina's murder that year
+forced Seneca into the position of writing the senate letter that justified it. He
+wrote the letter. The framework had now produced a public document defending a
+matricide. The cost ledger had reached the point where many philosophers would have
+exited. Seneca did not.
+
+== WHAT THE FAILURE TO EXIT REVEALS ==
+
+The clear conclusion from the years 59-62 CE is that Seneca's framework did not
+provide a clean exit ramp. It optimized for continued influence, accepting compounding
+moral cost, until the cost was no longer bearable. He attempted to retire formally in
+62 CE; Nero refused. He retired informally to his estates. The exit, when it came,
+was not a clean walk-away but an attenuated withdrawal that kept enough connection to
+court to remain a target. The framework's weakness: an entry strategy with no clean
+exit strategy.
+
+== METHOD EXTRACTABLE ==
+
+The years 54-62 CE provide a documented case of the framework operating in extended
+real time. The method that produced both the early successes and the late failures:
+(1) Use the moment of leverage (accession) to set durable constraints. (2) Run the
+bureaucracy beneath the ruler; do not contest the surface theater. (3) Absorb early
+moral compromises on the theory that influence preserved prevents larger harms.
+(4) Continue to absorb until the ledger crosses some threshold — but the threshold
+is not pre-specified, so it is recognized only retrospectively. (5) When you finally
+attempt exit, accept that the exit will not be clean.

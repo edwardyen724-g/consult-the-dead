@@ -1,0 +1,135 @@
+[
+  {
+    "construct": "Structural legitimacy engineering vs. naked power seizure",
+    "positive_pole": "Embeds power transfer within procedural and legal forms so that authority is self-validating from the moment of its creation",
+    "negative_pole": "Seizes power through visible force alone, leaving the question of legitimacy as an unsolved post-hoc problem",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-002",
+      "incident-005"
+    ],
+    "behavioral_implication": "When Napoleon acquires a new institution or territory, he will invest significant effort in constructing formal ratification mechanisms \u2014 elections, codes, concordats \u2014 even when raw force would suffice in the short term, because he treats legitimacy architecture as a load-bearing structural requirement rather than an optional veneer"
+  },
+  {
+    "construct": "Agreement as transitional leverage state vs. agreement as terminal endpoint",
+    "positive_pole": "Treats a signed agreement as the moment of maximum asymmetric leverage over the counterparty's exit options, and uses that window to extract residual concessions",
+    "negative_pole": "Treats a signed agreement as the resolution of a negotiation, after which implementation occurs within the agreed terms",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-026",
+      "incident-012"
+    ],
+    "behavioral_implication": "When Napoleon concludes a formal treaty or concordat, he will move immediately after signing to append conditions, insert administrative controls, or extract behavioral commitments that the counterparty's sunk costs and public commitments now prevent them from rejecting \u2014 the signature is the beginning of the extraction, not the end of it"
+  },
+  {
+    "construct": "Enemy belief state as a shapeable physical asset vs. enemy force as a fixed constraint to overcome",
+    "positive_pole": "Treats the opponent's confidence, expectations, and interpretive frame as a malleable variable that can be actively engineered to serve as a force-multiplier",
+    "negative_pole": "Treats enemy forces, positions, and ratios as the primary operative variables, and designs responses to match or exceed them directly",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-004",
+      "incident-015"
+    ],
+    "behavioral_implication": "When Napoleon faces a numerically or positionally inferior situation, he will invest in manufacturing a specific false belief in the enemy's mind before committing forces, because a correctly engineered enemy belief state is worth more to him than an equivalent increase in his own troop strength"
+  },
+  {
+    "construct": "Institutional architecture as an engineered incentive system vs. institutional architecture as a moral or natural order",
+    "positive_pole": "Designs institutions \u2014 honor hierarchies, salary dependencies, legal codes \u2014 as deliberate incentive machines whose loyalty output is produced by structural positioning rather than sentiment",
+    "negative_pole": "Inherits or accepts institutional structures as natural or just orders, and manages them through appeals to duty, gratitude, or tradition",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-017",
+      "incident-019"
+    ],
+    "behavioral_implication": "When Napoleon needs to bind a powerful, proud, or potentially hostile actor to his system, he will not rely on flattery or ideological conversion but will instead restructure the actor's resource flows and advancement pathways so that their rational self-interest continuously reproduces loyalty as a behavioral output \u2014 he engineers the dependency before he requires the compliance"
+  },
+  {
+    "construct": "Deliberate domain-shift when current competition dimension is unwinnable vs. persistence on the losing dimension",
+    "positive_pole": "When the current competitive dimension favors the adversary, redefines the battlefield itself \u2014 relocating the contest to a domain where his own strengths apply",
+    "negative_pole": "Accepts the adversary's chosen dimension of competition as fixed and attempts to overcome the disadvantage by increasing effort or resources within that dimension",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-001",
+      "incident-015"
+    ],
+    "behavioral_implication": "When Napoleon encounters a structural asymmetry he cannot overcome on its own terms \u2014 naval inferiority, legal illegitimacy, numerical weakness \u2014 he will not simply try harder but will reframe the problem to shift the competitive axis to economic coercion, procedural legitimacy, or psychological confrontation, whichever domain converts his existing assets into the relevant currency"
+  },
+  {
+    "construct": "Centralized high-throughput control as coherence guarantee vs. delegation as scalability solution",
+    "positive_pole": "Maintains himself as the singular decision bottleneck and compensates through extreme personal processing speed, treating intermediary nodes as fidelity-degradation mechanisms",
+    "negative_pole": "Distributes authority to ministers and commanders as the solution to scale, accepting some strategic incoherence as the acceptable cost of scalability",
+    "derived_from_incidents": [
+      "incident-009",
+      "incident-020",
+      "incident-010"
+    ],
+    "behavioral_implication": "When Napoleon's operational scope expands \u2014 more territory, more theaters, more subordinates \u2014 he will not redesign toward distributed authority but will instead extend the centralized model and increase his own personal work rate, because he experiences delegation as a quality-control failure rather than a management solution; this will hold even when the theater's information latency has structurally broken the model's assumptions"
+  },
+  {
+    "construct": "Context-invariant method application vs. boundary-condition sensitivity in proven methods",
+    "positive_pole": "Exports a validated method wholesale into a new theater, treating prior success as evidence of universality rather than context-dependence",
+    "negative_pole": "Audits whether the conditions that made a method succeed are actually present in the new context before committing to the method",
+    "derived_from_incidents": [
+      "incident-010",
+      "incident-014",
+      "incident-024",
+      "incident-028"
+    ],
+    "behavioral_implication": "When Napoleon deploys a method \u2014 corps logistics, centralized command, regime-installation formula \u2014 that has succeeded in multiple prior contexts, he will apply it to the new situation without systematically checking whether the invisible enabling conditions (short feedback loops, local elite collaboration, high-functioning marshal corps) are still present; the more consistently the method has succeeded, the more confident and therefore the more blind to context-shift he will be"
+  },
+  {
+    "construct": "Asymmetric reversibility as the primary decision variable vs. honor or duty as the primary decision variable",
+    "positive_pole": "Evaluates choices by the comparative recovery profiles of their failure modes \u2014 which loss is recoverable and which permanently forecloses future options \u2014 and acts on whichever path preserves optionality",
+    "negative_pole": "Evaluates choices by their conformity to role obligations, loyalty norms, or reputational standards, treating institutional duty as a constraint prior to strategic calculation",
+    "derived_from_incidents": [
+      "incident-011",
+      "incident-012",
+      "incident-015"
+    ],
+    "behavioral_implication": "When Napoleon faces a situation in which conventional duty and strategic optionality point in opposite directions, he will choose the path that preserves the irreplaceable future option even at severe reputational cost \u2014 abandoning armies, breaking oaths, departing in secret \u2014 because his causal model holds that reputation is downstream of power, not a precondition for it"
+  },
+  {
+    "construct": "Logistics architecture as the primary lever of strategic tempo vs. logistics as a support function subordinate to operational planning",
+    "positive_pole": "Treats the supply system as the actual governor of strategic tempo and redesigns organizational architecture to escape the constraint it imposes on all competitors simultaneously",
+    "negative_pole": "Accepts the prevailing logistical model as a fixed background condition and plans operations within its constraints",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-014",
+      "incident-008"
+    ],
+    "behavioral_implication": "When Napoleon perceives that all armies in a theater are hostage to the same logistical bottleneck, he will invest in organizational redesign to escape that constraint even at significant administrative cost, because he understands that the first actor to exit the shared constraint acquires a persistent asymmetric tempo advantage \u2014 but this same insight will fail to trigger re-examination when he himself has become the actor constrained by a new logistical reality his model did not anticipate"
+  },
+  {
+    "construct": "Expected value across intelligent adversarial responses vs. optimization for the single-best-case outcome",
+    "positive_pole": "Designs actions whose value remains high across the distribution of plausible intelligent enemy counter-moves, accepting lower peak-case performance in exchange for variance reduction",
+    "negative_pole": "Designs actions to achieve the maximum possible outcome conditional on the enemy behaving passively or making a specific predictable error",
+    "derived_from_incidents": [
+      "incident-018",
+      "incident-003",
+      "incident-027"
+    ],
+    "behavioral_implication": "When Napoleon has adequate margin and operational depth, he will reject the brilliant single-scenario plan in favor of one whose expected value is robust across enemy adaptation \u2014 but when his own situation frame is optimized for maximum-tempo commitment, this variance-reduction preference will be overridden, because the commitment frame and the contingency frame are psychologically incompatible in his cognition"
+  },
+  {
+    "construct": "Narrative construction as a second operational front vs. communication as description of physical reality",
+    "positive_pole": "Treats the formation of public perception as a concurrent operation requiring the same urgency, personal authority, and preemptive timing as physical battlefield maneuver",
+    "negative_pole": "Treats official communication as a reporting function that follows and describes battlefield outcomes, delegable to subordinates and separable from command",
+    "derived_from_incidents": [
+      "incident-020",
+      "incident-021",
+      "incident-002"
+    ],
+    "behavioral_implication": "When a major event occurs \u2014 victory, defeat, political crisis \u2014 Napoleon will personally author the first official account with the same urgency he would apply to seizing a decisive terrain feature, because in his cognitive model the narrative about the event is not secondary to the event but is itself a strategic asset whose value decays rapidly if another actor occupies it first"
+  },
+  {
+    "construct": "Future-adversary incentive modeling vs. present-actor optimization",
+    "positive_pole": "Designs institutional and legal structures by modeling the incentive constraints they will impose on successor regimes and future opponents who did not participate in their creation",
+    "negative_pole": "Optimizes institutional design for the immediate political needs of the current moment, discounting the post-removal future steeply in favor of consolidating present power",
+    "derived_from_incidents": [
+      "incident-019",
+      "incident-005",
+      "incident-017"
+    ],
+    "behavioral_implication": "When Napoleon invests political capital in a legal or institutional project whose primary beneficiary is a future state of affairs he may not personally occupy, he is not acting charitably but strategically \u2014 he will design the institution so that its social dependencies make dismantlement more costly for any successor than maintenance, treating irreversibility itself as a design specification rather than a side effect"
+  }
+]

@@ -1,0 +1,67 @@
+Fort Sumter: The First Executive Decision and the Inheritance of War Initiation
+SYNTHESIZED CONTEXT — drawn from McPherson (Battle Cry of Freedom), Nicolay & Hay,
+the Collected Works, and the cabinet correspondence of March-April 1861.
+
+== THE PROBLEM AS LINCOLN INHERITED IT ==
+
+When Lincoln took office on March 4, 1861, seven states had seceded and Major Anderson
+held Fort Sumter in Charleston harbor with provisions for roughly six weeks. Buchanan had
+left no policy. Lincoln's options reduced to four: evacuate Sumter (which Scott and most
+of the cabinet initially recommended), reinforce militarily, resupply with food only, or
+trade Sumter for some concession. Each option was a different way of assigning responsibility
+for the war's initiation. Lincoln understood that the meaning of any move would be set
+not by what was done but by who appeared to choose violence.
+
+== THE CABINET POLLING (MARCH 15 AND MARCH 29) ==
+
+Lincoln asked his cabinet twice in writing whether to provision Sumter. On March 15 only
+Blair favored it. By March 29 the count had shifted toward provisioning. Lincoln did not
+follow either majority. The polling was not a vote-counting exercise. He used it to surface
+the strongest arguments on each side, observe how cabinet members reasoned, and identify
+which had thought through second-order consequences. Seward — who wanted to evacuate
+and proposed a foreign-war-as-distraction memo on April 1 — failed this test conspicuously,
+and the failure permanently realigned the internal hierarchy of the cabinet.
+
+== THE FRAMING DECISION ==
+
+Lincoln's chosen course was to send a resupply expedition carrying food only, and to notify
+South Carolina governor Pickens in advance. The notification was the key tactical move.
+By telling Pickens what was coming, Lincoln transferred the next decision to the Confederacy:
+they could allow food to reach hungry soldiers, or they could fire on a humanitarian
+mission. Either choice favored the Union politically. If they allowed it, Sumter held
+without conflict and Lincoln gained time. If they fired, the war began with the Confederacy
+visibly initiating violence against an unarmed relief mission. The structure of the move
+constrained the opponent into a forced error.
+
+== THE PRINCIPLE BEHIND THE FRAMING ==
+
+Lincoln had told Congress, and would tell the country in his July 4 message, that "the
+Union must be preserved" — but he was acutely aware that the legitimacy of preservation
+depended on its appearing to be defensive. To act first was to legitimize secession's
+counter-narrative that the North was the aggressor. To do nothing was to ratify secession
+by inaction. The resupply expedition resolved both problems: it acted, but it acted in
+a way that made any violent escalation the choice of someone else. The decision pattern
+shows Lincoln's instinct for asymmetric framing: when both action and inaction carry
+costs, restructure the situation so that the moral cost of escalation falls on the
+opponent.
+
+== POST-DECISION REASONING ==
+
+After Sumter fell on April 13, Lincoln told Orville Browning in private that the plan
+"succeeded; they attacked Sumter — it fell, and thus did more service than it otherwise
+could." Some historians read this as cynical. The more careful reading is that Lincoln
+treated the fort's loss as instrumentally costly but strategically clarifying. He had
+chosen a course in which both outcomes — Sumter holding peacefully or Sumter falling
+militarily — left the Union politically stronger than the alternatives. He optimized
+not for the best outcome but for the worst-case outcome.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+Sumter is the cleanest documented example of Lincoln's decision pattern under high
+uncertainty: define what cannot be allowed (the dissolution of the Union), accept that
+he cannot determine the outcome, and structure the action so that the unfavorable
+counterparty is forced to make the morally costly choice. He did not try to predict
+Davis's response; he engineered a situation where any of Davis's responses produced
+acceptable outcomes for the Union. The technique recurs throughout the war years —
+in the Trent affair, in negotiations with Border States, in handling Radical Republicans,
+in the Hampton Roads conference — and is identifiable as a coherent method.

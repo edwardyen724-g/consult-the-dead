@@ -1,0 +1,142 @@
+{
+  "traceability_ratio": 0.87,
+  "lens_consistent": true,
+  "validation_method": "Tier-2 traceability audit: each holdout incident's decision and CDM probes were tested against the framework's perceptual lens and 12 bipolar constructs derived from incidents 1-22. For each step in the holdout decision narrative, traceability requires that the step be derivable from at least one explicit construct or from the perceptual lens 'what_they_notice_first' / 'what_they_ignore' fields. A step that requires importing reasoning not grounded in documented constructs counts as non-traceable. Quality gate: ≥80% of holdout steps must trace to documented constructs.",
+  "summary": {
+    "total_holdout_incidents": 6,
+    "traceable_steps": 145,
+    "total_steps": 167,
+    "non_traceable_steps": 22,
+    "traceability_ratio": 0.87,
+    "quality_gate_passed": true,
+    "lens_aligned_holdouts": 6,
+    "lens_inconsistent_holdouts": 0
+  },
+  "contradictions": [
+    {
+      "construct": "Operating-method domain-extension by problem-structure features vs. operating-method confinement to demonstrated-success domains",
+      "scenario_a": "Holdout incident-025 (Florida botanical rubber project, 1927-31)",
+      "scenario_b": "Derivation incident-016 (ore-milling commitment, 1887-98)",
+      "explanation": "Both incidents apply the operating-method-domain-extension logic of construct 11. In incident-016 the brute-force iteration method is applied to ore milling, where the structural feature of patentable asset output is absent, producing the failure mode. In incident-025 the same method is applied to rubber-source botany, where the structural features (theoretical underdetermination, rapid empirical test, patentable cultivation-and-extraction process, commercial-buyer adoption mechanism through Ford and Firestone) match — and the method validates. The construct's positive pole correctly predicts both: domain extension by structural-feature analysis. However, the construct does not specify the threshold of structural-feature match that should produce method-application versus rejection. The contradiction is mild: both incidents are correctly captured by the construct's bipolar structure, but the construct's articulation does not provide an operational decision rule for marginal cases. A reframed construct ('explicit problem-structure scoring against method-enabling conditions') would capture both cases more cleanly and would provide a more operational decision rule."
+    },
+    {
+      "construct": "Late-career operating-method failure-mode under structural-context shift vs. continuing structural-context audit across career phases",
+      "scenario_a": "Holdout incident-024 (Naval Consulting Board work, 1915-18)",
+      "scenario_b": "Holdout incident-027 (1892 GE merger acceptance)",
+      "explanation": "Both holdout incidents exemplify the late-career failure mode pole of construct 12 — applying the operating method without auditing whether its enabling conditions are present in the new context. The Naval work fails because institutional-buyer adoption mechanisms differ from commercial-buyer mechanisms; the GE merger acceptance fails because the structural-trajectory implications of the merger were not analyzed beyond immediate transaction terms. The construct correctly captures both as failure-mode cases. However, construct 12 was articulated specifically to capture this late-career failure mode, raising the question of whether it would have predicted these holdouts independently. Its articulation is partly post-hoc with respect to incidents 014, 016, 024, and 027, even though the failure-mode pattern is consistent across them. This is the canonical Tier-2 contradiction: a failure-mode construct is necessarily articulated against observed failure modes and so cannot fully predict the specific cases it was designed to capture, but the underlying pattern is structurally consistent across both derivation and holdout incidents."
+    },
+    {
+      "construct": "Master-patent attribution under Edison name as licensing-coordination instrument vs. per-inventor attribution by substantive contribution",
+      "scenario_a": "Holdout incident-023 (Motion Picture Patents Company patent-aggregation, 1908)",
+      "scenario_b": "Derivation incident-019 (Kinetoscope/Dickson attribution, 1891-94)",
+      "explanation": "Both incidents apply the attribution-as-commercial-instrument logic of construct 6, with construct 10 (patent-aggregation) extending the same logic across multiple firms. Incident-019 applies the master-patent attribution to staff engineering within the Edison laboratory; incident-023 extends the same logic to inter-firm patent-pool coordination. The constructs jointly capture the pattern. However, the constructs separately articulate the in-house and inter-firm versions of the attribution-as-commercial-instrument logic, where a single construct ('attribution and patent-position as commercial-coordination instruments deployable across firm boundaries') would capture both more cleanly. The contradiction is mild: both holdout and derivation incidents apply the underlying logic correctly, but the construct articulation could be more general."
+    }
+  ],
+  "per_holdout_details": [
+    {
+      "incident_id": "incident-023",
+      "incident_title": "Motion Picture Patents Company patent-aggregation, 1908",
+      "traceable_steps": 25,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of fragmented patent landscape as opportunity for industry-coordination authority traces to construct 10 ('Patent-aggregation for industry-coordination authority') directly.",
+        "Conversion of continuous per-patent litigation costs into coordinated licensing revenues traces to construct 7 ('Lump-sum capital convertibility') applied to licensing-revenue streams: prefer the structurally-efficient consolidated revenue over the operationally-fragmented per-patent revenues.",
+        "Cumulative patent leverage substantially exceeding sum of individual-patent leverages traces to construct 2 ('System-as-invention with components derived from system requirements') applied to the patent portfolio: the aggregated patent-pool is itself a system whose value exceeds the sum of components.",
+        "Industry-coordination authority shaping the early film industry's structure traces to construct 5 ('Capital-heavy installed infrastructure as patent-defense moat') applied to coordination-authority infrastructure: the patent pool functions analogously to installed-base infrastructure as a structural defense.",
+        "Edison-brand attribution on the consolidated licensing operation traces to construct 6 ('Master-patent attribution under Edison name') extended from in-house to inter-firm coordination.",
+        "Three steps not fully traceable: (a) the specific structural details of the Motion Picture Patents Company licensing terms (royalty rates, exclusion criteria, participating firm composition) are operationally specific without construct-grounded justification for those specific structures; (b) the engagement with Biograph and other major patent-holders required negotiating specifics that the framework does not derive; (c) the antitrust-risk anticipation is acknowledged but the framework does not specify the threshold at which coordination authority crosses into actionable antitrust violation."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-024",
+      "incident_title": "Naval Consulting Board work, 1915-18",
+      "traceable_steps": 22,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Application of brute-force iteration to wartime technical-engineering problems traces to construct 1 ('Brute-force systematic iteration') applied to a new domain.",
+        "Patriotic public-narrative function of the appointment traces to construct 4 ('Working-prototype-as-validation with calibrated press cadence') applied to public-character cultivation.",
+        "Failure to attend to institutional-buyer adoption mechanisms (vs. commercial-buyer adoption) traces to construct 12 ('Late-career operating-method failure-mode') failure-mode pole: the operating method's enabling conditions (commercial-buyer adoption mechanism) are not present in military procurement, but the perceptual lens does not generate the audit question.",
+        "45 inventions developed but very few adopted matches the construct 12 prediction: technically successful inventions whose adoption is constrained by the institutional-buyer barriers the operating method does not address.",
+        "Five steps not fully traceable: (a) the specific selection of submarine-detection and anti-torpedo work (rather than other Navy needs) is contextually specific; (b) the personal-engineering involvement vs. delegation pattern within the Naval work is operationally specific; (c) the political dynamics of the Naval Consulting Board's interaction with the existing Navy Bureau structure are institutionally specific without framework derivation; (d) the specific process by which Edison's inventions were evaluated within the Navy procurement structure is institutionally specific; (e) Daniels's appointment decision and Edison's acceptance involve political and personal factors that the framework does not address from either side."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-025",
+      "incident_title": "Florida botanical rubber project, 1927-31",
+      "traceable_steps": 25,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of structural features matching brute-force iteration enabling conditions (theoretical underdetermination plus rapid empirical test plus patentable asset output plus commercial-buyer adoption mechanism) traces to construct 1 ('Brute-force systematic iteration') and construct 11 ('Operating-method domain-extension by problem-structure features') jointly.",
+        "Re-validation of operating-method on a problem with appropriate structural features (after the ore-milling failure validated that incompatible structural features defeat the method) traces to construct 11 directly.",
+        "Ford-Firestone funding as commercial-buyer adoption mechanism traces to construct 11's commercial-buyer-adoption-mechanism enabling condition.",
+        "Late-career personal-time intensity on a project whose commercial completion exceeded Edison's lifetime traces to construct 12 ('Late-career operating-method failure-mode') applied to a milder failure mode than the other holdout cases: the project-completion timing was a structural-trajectory consideration that the operating-method analysis did not adequately weight.",
+        "Identification of goldenrod as the viable rubber source through systematic 17,000-species testing matches the brute-force iteration prediction.",
+        "Two steps not fully traceable: (a) the specific selection of Fort Myers, Florida as the project location is geographically specific (related to Edison's existing winter residence) without construct-grounded justification; (b) the specific commercial-deployment timing (deferred until after Edison's death) was contingent on Great Depression and World War II developments that the framework does not address."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-026",
+      "incident_title": "Edison Portland Cement Company founding, 1899",
+      "traceable_steps": 26,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Recovery of Ogdensburg ore-milling investment through transferable rotary-kiln technology traces to construct 8 ('Personal capital deployed into operating infrastructure') applied to investment-recovery: deploy the residual technology assets into operating infrastructure where structural features are appropriate.",
+        "Vertical-integration into cement manufacturing traces to construct 5 ('Capital-heavy installed infrastructure as patent-defense moat') applied to a new product domain.",
+        "Operating-method domain-extension by problem-structure features (transferable technology plus commercial-buyer adoption plus patentable production process) traces to construct 11 directly.",
+        "Diversification of Edison Manufacturing Company product range beyond electrical equipment traces to construct 8's operating-infrastructure deployment logic combined with construct 11's domain-extension by structural-features.",
+        "Edison-brand attribution on the cement product traces to construct 6 ('Master-patent attribution under Edison name') extended to product branding.",
+        "Two steps not fully traceable: (a) the specific selection of Stewartsville, New Jersey as the plant location is geographically specific (related to local limestone availability) without construct-grounded justification; (b) the specific scale of the cement plant (one of the larger US cement operations) is operationally specific without construct-grounded justification for that scale."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-027",
+      "incident_title": "1892 GE merger acceptance",
+      "traceable_steps": 21,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Focus on immediate financial terms and Edison-name continuity rather than long-term structural-trajectory analysis traces to construct 12 ('Late-career operating-method failure-mode') failure-mode pole: the structural-context audit that should precede method-application is relaxed under sustained success.",
+        "Acceptance of merger terms with substantial operational-role reduction traces to construct 7 ('Lump-sum capital convertibility') applied to corporate-position transactions: prefer the immediate-deployable lump sum over operational-control preservation.",
+        "Deployment of merger proceeds into ore-milling and West Orange operations traces to construct 8 ('Personal capital deployed into operating infrastructure').",
+        "Disengagement from electrical-equipment industry that had been captured by AC technology shift traces to construct 12's failure mode: the AC-opposition campaign of incident-014 had failed because public-narrative could not substitute for technical competition, and the merger acceptance failed because immediate-transaction-focus could not substitute for structural-trajectory analysis. Both are instances of the same late-career failure pattern.",
+        "Seven steps not fully traceable: (a) the specific Morgan-banking-coordinator interest in the consolidation is institutionally specific without framework derivation; (b) the specific Thomson-Houston firm composition and capabilities are competitor-specific; (c) the financial-coordinator dynamics that drove the consolidation are external to the Edison operating model; (d) the specific GE-corporate-trajectory after the merger (becoming one of the dominant US industrial corporations) involves post-merger management and capital decisions that the framework does not address; (e) the specific terms of the merger (cash, stock, name retention) are transaction-specific without construct-grounded justification for those specific structures; (f) the alternative-consolidation possibilities (e.g., Westinghouse partnership) involve counterfactual analysis that the framework does not develop; (g) the long-term structural-position cost (exclusion from one of the major US industrial corporations) is identified retrospectively but the framework does not specify the conditions under which Edison's perceptual lens would have detected the trajectory implications at the merger-decision moment."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-028",
+      "incident_title": "Continuing notebook discipline across decades",
+      "traceable_steps": 26,
+      "total_steps": 29,
+      "lens_aligned": true,
+      "notes": [
+        "Maintenance of patent-priority establishment function across the broader patent portfolio traces to construct 6 ('Master-patent attribution under Edison name') and construct 1 ('Brute-force systematic iteration') jointly: the notebooks both establish patent priority and document the iteration discipline that supports the operating method.",
+        "Operational-record continuity across staff turnover traces to construct 2 ('System-as-invention') applied to laboratory infrastructure: the notebook discipline is a component of the laboratory system whose value derives from system-level integration with patent and operating functions.",
+        "Institutional-discipline reinforcement of industrial-throughput character traces to construct 1's industrial-throughput conception of laboratory operation.",
+        "Eventual public-narrative-archival function (preservation as National Historical Park) traces to construct 9 ('Brand reputation as multi-product structural asset') applied to the laboratory's institutional-history asset.",
+        "Persistent application across decades despite operating-model evolution traces to construct 5 ('Capital-heavy installed infrastructure as patent-defense moat') applied to institutional-discipline infrastructure: the discipline is itself a structural asset whose preservation justifies continuing operational overhead.",
+        "Three steps not fully traceable: (a) the specific signed-witnessed format of the notebooks (vs. alternative documentation formats) is operationally specific without construct-grounded justification for that specific format; (b) the persistence of the discipline beyond Edison's lifetime is partly an organizational-momentum effect that the framework does not address from the institutional-momentum side; (c) the eventual archival significance (as the basis of the National Historical Park preservation) is contingent on subsequent historical-preservation decisions that the framework does not address."
+      ],
+      "contradiction_with_derivation": false
+    }
+  ],
+  "lens_assessment": {
+    "lens_statement_consistency": "All six holdout incidents are consistent with the perceptual lens statement. Each holdout decision can be derived from the lens's core perceptual move (identify the structural-engineering opportunity, apply the operating method whose enabling conditions match the problem structure, deploy laboratory throughput and capital infrastructure to convert the opportunity into patent-defensible commercial assets). The holdouts that test the late-career failure mode (incidents 024, 027) demonstrate the 'what_they_ignore' field cleanly: the lens does not naturally generate the question 'have the structural conditions that made this method succeed previously shifted in this new context?' and therefore fails to detect when the operating method's enabling conditions have shifted (institutional-buyer adoption mechanism in Naval work, structural-trajectory implications in the GE merger).",
+    "construct_coverage": "All 12 constructs are exercised by at least one holdout incident. Construct 1 (brute-force iteration) is exercised by incidents 024 and 025. Construct 2 (system-as-invention) is exercised by incidents 023 and 028. Construct 3 (public commitment as forcing function) is not directly exercised by holdouts but underlies the broader operating-method confidence that the failure-mode constructs critique. Construct 4 (working-prototype-as-validation) is exercised by incident 024. Construct 5 (capital-heavy installed infrastructure) is exercised by incidents 023, 026, and 028. Construct 6 (master-patent attribution) is exercised by incidents 023, 026, and 028. Construct 7 (lump-sum capital convertibility) is exercised by incidents 023 and 027. Construct 8 (personal capital deployed into operating infrastructure) is exercised by incidents 026 and 027. Construct 9 (brand reputation as multi-product asset) is exercised by incident 028. Construct 10 (patent-aggregation) is exercised heavily by incident 023. Construct 11 (operating-method domain-extension) is exercised by incidents 025 and 026. Construct 12 (late-career failure mode) is heavily exercised by incidents 024, 027, and (mildly) 025.",
+    "derivation_holdout_coherence": "The 22 derivation incidents and 6 holdout incidents form a coherent set. The derivation incidents establish the core operating method across multiple commercial domains (telegraph, lighting, manufacturing, phonograph, motion picture, battery); the holdouts test both confirming applications (incidents 023, 026, 028 — patent-aggregation, vertical integration in cement, institutional discipline maintenance) and failure-mode applications (incidents 024, 025, 027 — Naval procurement, late-career rubber, GE merger). The pattern is structurally similar to the Caesar and Florence Nightingale framework derivation/holdout splits: derivation incidents establish the lens, holdouts validate it including against its own failure modes."
+  },
+  "quality_gate_assessment": {
+    "minimum_required_traceability": 0.80,
+    "achieved_traceability": 0.87,
+    "passed": true,
+    "notes": "The 87% traceability ratio exceeds the 80% quality gate. The non-traceable steps are concentrated in: (1) operationally-specific details (specific plant locations, financial figures, transaction-specific terms) without construct-grounded justification for the specific values; (2) external-environment factors (Mesabi competition, Great Depression, World War II rubber developments, GE corporate trajectory after the merger) that the framework correctly identifies as relevant but does not internally derive; (3) institutional-buyer-adoption-mechanism details (Navy procurement bureaucracy specifics) that the framework correctly identifies as the structural barrier but does not internally model. Where the framework's constructs do not explicitly derive operational specifics, the framework's lens still aligns with the directional reasoning. The Tier-2 validation passes, with the caveat that construct 12 (late-career failure mode) is articulated partly post-hoc and would benefit from independent prediction validation through additional holdout incidents in subsequent framework iterations."
+  }
+}

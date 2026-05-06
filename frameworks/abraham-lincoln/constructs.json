@@ -1,0 +1,255 @@
+[
+  {
+    "construct": "Pre-emptive structural constraint of future compromised self vs. reactive management of present situation",
+    "positive_pole": "Designs binding mechanisms in the present that govern his own future behavior when he anticipates his future judgment will be emotionally degraded or institutionally unreliable",
+    "negative_pole": "Trusts his future self or future circumstances to navigate crises as they arise, relying on in-the-moment reasoning under duress",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-007",
+      "incident-008"
+    ],
+    "behavioral_implication": "Faced with a high-stakes decision whose execution will occur under foreseeable psychological or political pressure, Lincoln would take binding preparatory actions now \u2014 written commitments, structural constraints, pre-positioned public records \u2014 that remove discretion from his future compromised self, rather than leaving the decision open for re-evaluation at the moment of stress"
+  },
+  {
+    "construct": "Forcing structural resolution of foundational contradictions vs. purchasing stability through deferral",
+    "positive_pole": "Accepts near-term costs \u2014 continued war, political hostility, personal unpopularity \u2014 to permanently close off the failure mode that deferred compromises have historically reproduced",
+    "negative_pole": "Accepts expedient settlements that leave foundational contradictions unresolved, trading a larger future catastrophe for a smaller present relief",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-009",
+      "incident-028"
+    ],
+    "behavioral_implication": "When presented with a negotiated settlement or compromise that would end an immediate crisis but leave its structural cause intact, Lincoln would reject it and insist on terms that foreclose recurrence \u2014 even at the cost of prolonged suffering \u2014 because his historical mental model treats deferral as the mechanism that generates larger future crises"
+  },
+  {
+    "construct": "Constructing a decision environment that corrects for his own blind spots vs. protecting and amplifying his own judgment as the primary asset",
+    "positive_pole": "Deliberately introduces structurally adversarial, cognitively diverse actors into his inner circle, treating his rivals as epistemic resources whose inclusion improves decision quality under uncertainty",
+    "negative_pole": "Surrounds himself with loyal subordinates who amplify his existing views, treating his own judgment as the primary instrument to be protected from contradiction",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-017",
+      "incident-018"
+    ],
+    "behavioral_implication": "When assembling a team or advisory structure for a high-stakes, novel problem, Lincoln would deliberately seek out people who disagree with him, who have different epistemic frameworks, and who are capable of exposing his errors \u2014 even at the political and interpersonal cost of managing fractious, ambitious subordinates \u2014 rather than building a court of loyalists"
+  },
+  {
+    "construct": "Probabilistic, continuously updated sequential calculus vs. rule-based or emotionally triggered fixed policy",
+    "positive_pole": "Maintains an internal ledger of costs and benefits calibrated to current conditions, treating prior decisions as conditionally revisable under new evidence and tolerating apparent inconsistency as a coherent sequential strategy",
+    "negative_pole": "Applies a stable rule \u2014 'never reward threats,' 'retain indispensable talent at any cost' \u2014 uniformly across instances, treating consistency of policy as a value that supersedes situational updating",
+    "derived_from_incidents": [
+      "incident-004",
+      "incident-013",
+      "incident-014"
+    ],
+    "behavioral_implication": "When managing a recurring pattern of behavior in a subordinate, Lincoln would not apply a fixed rule but would maintain a running probabilistic assessment, accumulating evidence across episodes until an internal threshold is crossed \u2014 meaning he would appear to tolerate the same behavior multiple times before acting, and that action would be driven by a shift in his expected-value calculation rather than by a policy violation or emotional breaking point"
+  },
+  {
+    "construct": "Capability acquisition under lexically elevated functional criteria vs. composite personnel evaluation weighting competence alongside compatibility",
+    "positive_pole": "Decomposes an appointment into its specific functional requirements under crisis conditions, elevates the load-bearing variable to near-lexical priority, and acquires the person who maximally satisfies that criterion regardless of personal history, political affiliation, or interpersonal cost",
+    "negative_pole": "Evaluates candidates on a composite of competence and compatibility, allowing interpersonal grievance, political alignment, or social friction to remain as co-equal filters alongside functional excellence",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-003",
+      "incident-014"
+    ],
+    "behavioral_implication": "When filling a high-stakes role whose outcome is directly consequential to survival goals, Lincoln would appoint the most functionally capable available person even if that person had previously insulted him, belonged to an opposing faction, or was personally difficult \u2014 because he holds his own dignity and interpersonal comfort in a register entirely separate from institutional resource allocation"
+  },
+  {
+    "construct": "Adopting the adversary's frame as a positional trap when the evidentiary ground is secured vs. defending from a self-chosen frame to avoid the appearance of concession",
+    "positive_pole": "Stipulates the opponent's interpretive standard at the outset, having privately confirmed that the evidence under that standard defeats the opponent's conclusion \u2014 experiencing apparent rhetorical vulnerability as strategic positioning",
+    "negative_pole": "Insists on a self-chosen frame to avoid the short-term appearance of concession, foreclosing the deeper strategic payoff of operating inside the opponent's chosen terrain",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-016",
+      "incident-022"
+    ],
+    "behavioral_implication": "In a high-visibility debate or public argument, Lincoln would accept and even foreground the opponent's chosen evaluative standard if his prior research had confirmed that the evidence under that standard vindicates his conclusion \u2014 because he distinguishes between rhetorical ground, which can be yielded temporarily, and evidentiary ground, which he secures before the argument begins"
+  },
+  {
+    "construct": "Treating timing, authorship, and institutional source of a decision as inseparable from its substantive content and durability vs. separating what is decided from who decides it and when",
+    "positive_pole": "Fuses the substantive question with the procedural questions of who acts, at what moment, and under what institutional legitimacy \u2014 treating legitimacy as a load-bearing structural property that determines whether the act achieves durable effect",
+    "negative_pole": "Treats the policy content as the primary variable and the procedural dimensions as secondary, assuming that a correct decision issued by the wrong actor or at the wrong moment is still substantially the correct decision",
+    "derived_from_incidents": [
+      "incident-007",
+      "incident-008",
+      "incident-009"
+    ],
+    "behavioral_implication": "When a subordinate takes an action Lincoln substantively agrees with but through the wrong channel, at the wrong time, or without the correct authorizing source, Lincoln would override or rescind it \u2014 not to block the outcome but to reissue it under conditions that make it legally durable and politically unimpeachable, because he experiences procedural legitimacy as a real causal variable in whether the decision achieves its intended effect"
+  },
+  {
+    "construct": "Metabolizing emotion as an internal regulatory problem through deliberate technique vs. treating emotion as a signal requiring action toward the external world",
+    "positive_pole": "Treats his own anger and distress as internal variables to be processed and cleared through deliberate cognitive practice \u2014 writing unsent letters, adopting deterministic frameworks \u2014 rather than acted upon or suppressed",
+    "negative_pole": "Experiences strong emotion as a signal whose natural terminal act is external expression \u2014 confrontation, formal reprimand, venting \u2014 and moves toward that expression unless consciously restrained",
+    "derived_from_incidents": [
+      "incident-010",
+      "incident-011",
+      "incident-020"
+    ],
+    "behavioral_implication": "When provoked to genuine rage by a subordinate's incompetence or insubordination, Lincoln would write the furious letter in full and withhold it \u2014 treating the writing as the terminal act \u2014 rather than sending it, confronting the person, or suppressing the feeling, because he has developed a repeatable practice of discharging emotional pressure through expression without releasing it into the institutional environment"
+  },
+  {
+    "construct": "Engineering a bounded partition between what he controls and what he does not as an active cognitive load-bearing structure vs. applying willpower or emotional suppression to endure undifferentiated responsibility for outcomes",
+    "positive_pole": "Constructs a precise internal map of agency \u2014 'I am fully responsible for the quality of my deliberation; I am not responsible for outcomes shaped by variables outside my control' \u2014 and uses this partition as a structural mechanism for sustaining high-quality deliberation without paralytic rumination",
+    "negative_pole": "Holds ownership of all outcomes regardless of causal agency, producing either paralytic anxiety over uncontrollable variables or resort to willpower-based endurance strategies that deplete cognitive capacity over time",
+    "derived_from_incidents": [
+      "incident-011",
+      "incident-020",
+      "incident-010"
+    ],
+    "behavioral_implication": "When facing irreversible high-stakes decisions whose outcomes are partly determined by battlefield contingency, political opposition, or other uncontrollable variables, Lincoln would actively invoke his control-partition framework to focus deliberative energy on the quality of his decision process rather than on outcome guarantees \u2014 allowing him to decide and move on rather than continuing to ruminate"
+  },
+  {
+    "construct": "Exploiting the adversary's predictable response as a strategic resource vs. treating the adversary's likely aggressive response as a risk to be avoided",
+    "positive_pole": "Designs actions whose value derives from the adversary's predictable over-reaction, using the opponent's own political psychology and behavioral commitments as a force that does the strategic work",
+    "negative_pole": "Attempts to minimize or forestall the adversary's aggressive response through secrecy, conciliation, or tactical ambiguity \u2014 treating their likely reaction as a threat rather than a resource",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-019",
+      "incident-006"
+    ],
+    "behavioral_implication": "When facing an opponent whose political psychology makes an aggressive over-response highly predictable, Lincoln would design his action to be maximally transparent and formally documented \u2014 giving notice rather than acting covertly \u2014 because transparency creates a public record that converts the opponent's predictable aggression into political liability for the opponent and political legitimacy for Lincoln"
+  },
+  {
+    "construct": "Pattern-recurrence heuristic that distinguishes dispositional ceilings from correctable situational failures vs. threshold-based performance metrics that evaluate each instance discretely",
+    "positive_pole": "Accumulates observations across varying conditions to determine whether a failure mode is invariant and dispositional \u2014 a structural ceiling \u2014 or situational and correctable, and acts on that classification rather than on any single instance",
+    "negative_pole": "Evaluates each performance episode against a fixed threshold in isolation, treating failure as a discrete event to be remedied rather than as a data point in an ongoing probabilistic assessment of underlying character constraints",
+    "derived_from_incidents": [
+      "incident-013",
+      "incident-004",
+      "incident-014"
+    ],
+    "behavioral_implication": "When a subordinate fails in a high-stakes role, Lincoln would not immediately relieve or retain them based on the single failure but would ask whether this failure has now recurred across enough variation in conditions to confirm it is dispositional rather than situational \u2014 and would tolerate additional apparent failure while running the quasi-experimental replication necessary to answer that question with confidence"
+  },
+  {
+    "construct": "Calibrating supervision to the specific failure mode of the individual vs. applying uniform oversight as a role obligation",
+    "positive_pole": "Develops a differentiated theory of supervision in which the type and intensity of oversight is matched to the particular failure mode the individual is prone to \u2014 actively suppressing his own oversight instincts when those instincts would disrupt a self-correcting system",
+    "negative_pole": "Applies consistent supervisory pressure uniformly across subordinates as a matter of role obligation, treating oversight as inherently beneficial and reducing it as a form of abdication",
+    "derived_from_incidents": [
+      "incident-018",
+      "incident-013",
+      "incident-017"
+    ],
+    "behavioral_implication": "When assigning a mission to a commander with a demonstrated record of self-directed aggressive success, Lincoln would explicitly decline to be briefed on operational details and would write to that effect \u2014 because his meta-cognitive model tells him that his own well-established supervisory instincts are themselves a variable he needs to manage, and that the correct oversight level for this individual is near-zero"
+  },
+  {
+    "construct": "Sacrificing a near-term electoral or personal win to engineer a structural fracture in the longer-term strategic environment vs. optimizing within the current decision environment as the primary unit of analysis",
+    "positive_pole": "Treats the current contest as an instrument within a longer campaign, willing to accept personal defeat or loss in the immediate engagement when doing so inflicts a structurally decisive cost on the opponent's longer-term position",
+    "negative_pole": "Treats the current election, debate, or engagement as the primary decision environment, optimizing for the best available outcome within that horizon and treating sacrifice plays as irrational departures from the goal",
+    "derived_from_incidents": [
+      "incident-019",
+      "incident-002",
+      "incident-028"
+    ],
+    "behavioral_implication": "When facing a choice between maximizing his probability of winning the immediate contest and making a move that sacrifices that probability but structurally degrades the opponent's position in a larger future contest, Lincoln would make the sacrifice play \u2014 because his decision environment is the longer campaign and the immediate contest is merely one instrument within it"
+  },
+  {
+    "construct": "Acting with full commitment from acknowledged epistemic humility vs. requiring performed certainty as the psychological precondition for decisive action",
+    "positive_pole": "Disaggregates the confidence required for action from the certainty required for moral justification, treating them as independent variables \u2014 acting with full commitment while explicitly holding his moral conclusions conditionally and refusing the performance of certainty",
+    "negative_pole": "Conflates confidence for action with certainty for justification, either requiring the feeling of certainty before committing fully or performing certainty rhetorically to generate the psychological state needed to act",
+    "derived_from_incidents": [
+      "incident-020",
+      "incident-011",
+      "incident-027"
+    ],
+    "behavioral_implication": "When facing an irreversible high-stakes decision in genuine moral fog \u2014 where he cannot achieve certainty about whether his course is right \u2014 Lincoln would act with full commitment while publicly acknowledging the conditionality of his conclusions, because he has practiced holding beliefs conditionally through long experience with depression and is repelled by the performance of certainty he recognizes as self-deception in others"
+  },
+  {
+    "construct": "Scoping the public claim to the exact point where the logical foundation holds vs. advocating for the maximally morally ambitious position the moment demands",
+    "positive_pole": "Maps the boundary between what follows necessarily from available premises and what constitutes overreach, then commits publicly only to the claim the foundation will bear \u2014 treating logical vulnerability as a physical load constraint rather than a rhetorical preference",
+    "negative_pole": "Advocates for the most morally ambitious or emotionally resonant position the situation calls for, accepting logical vulnerability as the price of moral seriousness or audience engagement",
+    "derived_from_incidents": [
+      "incident-021",
+      "incident-009",
+      "incident-016"
+    ],
+    "behavioral_implication": "When preparing a public argument on a contested moral or political question, Lincoln would identify the most ambitious claim whose logical foundation he can make structurally invulnerable \u2014 and stop there, even if a more sweeping claim would be more emotionally persuasive \u2014 because he perceives the argument as a load-bearing structure that can fail under logical attack, and a failed argument is worse than a modest one"
+  },
+  {
+    "construct": "Building the legitimating narrative frame in advance of the decisive act vs. acting on moral or strategic imperative and managing the narrative afterward",
+    "positive_pole": "Treats public communication as a form of strategic architecture \u2014 constructing the interpretive frame within which a decisive act will be received before that act occurs, so that when it arrives it is perceived as the natural consequence of the established frame",
+    "negative_pole": "Acts when the moral or strategic imperative demands it and manages narrative framing reactively \u2014 explaining, justifying, or defending the act after it has been taken and received",
+    "derived_from_incidents": [
+      "incident-022",
+      "incident-008",
+      "incident-012"
+    ],
+    "behavioral_implication": "When preparing to take a decisive and potentially controversial action, Lincoln would make a prior public communication \u2014 a letter, an address, a formal notification \u2014 that establishes the legitimating frame and positions the action as the consistent expression of a publicly stated principle, rather than waiting until after the action to explain it"
+  },
+  {
+    "construct": "Minimum viable mechanism that will actually run vs. optimal specification that satisfies moral or political ideals but cannot function under real conditions",
+    "positive_pole": "Evaluates institutional designs by asking 'will this actually operate?' rather than 'does this produce the right result in principle?' \u2014 building around the smallest functional threshold that enables a working mechanism to bootstrap itself into operation",
+    "negative_pole": "Evaluates institutional designs by their fidelity to the morally or politically correct outcome, accepting non-operability as a cost worth paying for principled specification",
+    "derived_from_incidents": [
+      "incident-023",
+      "incident-024",
+      "incident-009"
+    ],
+    "behavioral_implication": "When designing a governance or institutional mechanism that must operate in a hostile or fragile real-world environment, Lincoln would set the threshold or standard at the lowest point that enables the mechanism to function \u2014 explicitly preferring an imperfect but operational instrument over a principled but unworkable one \u2014 because his model of institutional change treats operability as the precondition for any downstream improvement"
+  },
+  {
+    "construct": "Preserving adaptive executive discretion against uniform legislative formulas vs. accepting legislative uniformity to secure party unity and short-term political cooperation",
+    "positive_pole": "Frames complex, heterogeneous multi-front problems as requiring calibrated local judgment that cannot be reduced to a single statutory formula \u2014 and absorbs substantial political cost to protect the option value of executive adaptation",
+    "negative_pole": "Accepts uniform legislative formulas as a price of party unity and congressional cooperation, treating standardization as a simplification worth its cost in reduced flexibility",
+    "derived_from_incidents": [
+      "incident-024",
+      "incident-023",
+      "incident-015"
+    ],
+    "behavioral_implication": "When Congress produces a bill that would resolve a contested policy question through a uniform rule but would eliminate Lincoln's ability to calibrate that policy to varying local conditions, Lincoln would veto or block it even at significant political cost to his own coalition \u2014 because his mental model of complex adaptive problems tells him that uniform rules imposed on heterogeneous terrain produce predictable failures, and that preserving adaptive authority is worth more than the legislative win"
+  },
+  {
+    "construct": "Norm-migration through presidential articulation that shifts what is politically thinkable vs. mandate-only action that waits for sufficient legal or political authority before moving the normative horizon",
+    "positive_pole": "Uses presidential speech as a lever-setting act \u2014 articulating a moral preference or direction at the presidential register to shift the boundaries of legitimate political possibility, understanding that naming a norm is a consequential act distinct from and preparatory to mandating it",
+    "negative_pole": "Treats action as meaningful only when backed by legal mandate or political authority sufficient to compel compliance, experiencing unenforceable presidential preference as either empty gesture or dangerous overreach",
+    "derived_from_incidents": [
+      "incident-025",
+      "incident-022",
+      "incident-026"
+    ],
+    "behavioral_implication": "When Lincoln cannot yet mandate a politically contested outcome but possesses the presidential platform to name it as a direction, he would make the public statement \u2014 framed as preference rather than command \u2014 because his theory of political change treats the articulation of a norm as a real causal intervention that expands the range of future legitimate action, even before the enforcement mechanism exists"
+  },
+  {
+    "construct": "Axiom-seeking that identifies the load-bearing foundational principle underlying a cluster of positions vs. position-managing that treats each policy preference as a discrete pragmatic choice",
+    "positive_pole": "Operates from the question 'what principle must be true for this preference to be justified?' \u2014 surfacing the underlying axiom that organizes a cluster of positions and making it explicit, treating the axiom as the load-bearing element whose articulation makes each dependent position defensible",
+    "negative_pole": "Treats each political position as an independent pragmatic choice to be defended on its own terms, without connecting it to an underlying axiom \u2014 leaving each position vulnerable to erosion when pragmatic circumstances change",
+    "derived_from_incidents": [
+      "incident-026",
+      "incident-021",
+      "incident-016"
+    ],
+    "behavioral_implication": "When Lincoln perceives that a set of his positions on disparate policy questions are actually expressions of a single underlying principle, he would invest significant effort in articulating that principle publicly and explicitly \u2014 because his cognitive architecture treats the named axiom as the structural element that makes each derived position logically durable, and he knows that positions without explicit axiomatic grounding are vulnerable to pragmatic erosion over time"
+  },
+  {
+    "construct": "Symmetric systemic causal attribution that implicates distributed complicity vs. asymmetric moral framing that assigns concentrated guilt to the identified antagonist",
+    "positive_pole": "Perceives causation as distributed across a system of actors \u2014 including himself and his own coalition \u2014 and assigns moral responsibility proportionally to causal contribution, even when doing so alienates political allies and complicates coalition management",
+    "negative_pole": "Assigns moral responsibility asymmetrically to the identified adversary, framing the conflict as a binary of guilty antagonist and innocent protagonist \u2014 a frame that consolidates coalition support and simplifies political communication",
+    "derived_from_incidents": [
+      "incident-027",
+      "incident-020",
+      "incident-002"
+    ],
+    "behavioral_implication": "When delivering a major public address at a moment of apparent moral clarity \u2014 Union victory, opponent's defeat \u2014 Lincoln would resist the dominant narrative that concentrates guilt on the adversary, and would instead articulate a distributed account of systemic causation that implicates his own side's complicity, even at significant political cost \u2014 because his perception of the situation activates a prophetic-judicial rather than a victory-consolidation frame"
+  },
+  {
+    "construct": "Engineering political legitimacy through breadth of authorship vs. maximizing legislative efficiency through partisan majority",
+    "positive_pole": "Evaluates a political act's durability by the breadth of its authorship across factional lines \u2014 deliberately engineering cross-partisan participation even at the cost of efficiency, because he models legitimacy as a function of political ownership breadth rather than legal form alone",
+    "negative_pole": "Maximizes legislative efficiency by using the available partisan majority to pass the act as quickly and cleanly as possible, treating legitimacy as a function of legal form and democratic process rather than of the factional composition of the winning coalition",
+    "derived_from_incidents": [
+      "incident-028",
+      "incident-009",
+      "incident-023"
+    ],
+    "behavioral_implication": "When Lincoln has sufficient votes to pass a transformative measure through his own coalition alone, he would nonetheless invest substantial political capital in horse-trading and persuading opposition members to participate \u2014 because his causal model of political durability tells him that acts passed on narrow partisan votes are vulnerable to delegitimizing narratives that acts with documented cross-partisan authorship are not, and he is optimizing for the generation after next rather than the current session"
+  },
+  {
+    "construct": "Teleological constitutional philosophy in which systemic survival is lexically prior to compliance with individual clauses vs. deontological constitutional reading in which each clause is a constraint binding regardless of systemic consequences",
+    "positive_pole": "Treats the Constitution as a purposive instrument whose terminal goal \u2014 preservation of republican self-governance \u2014 governs interpretation when sub-rules conflict with that goal, and is willing to deviate from a clause's letter when strict compliance would destroy the system the clause exists to serve",
+    "negative_pole": "Treats each constitutional clause as a deontological constraint binding regardless of systemic consequences, experiencing deviation from the letter as a violation that cannot be justified by appeal to the document's broader purpose",
+    "derived_from_incidents": [
+      "incident-015",
+      "incident-016",
+      "incident-007"
+    ],
+    "behavioral_implication": "When a specific constitutional provision and the survival of the constitutional order come into direct conflict under extreme time pressure, Lincoln would act to preserve the order and deviate from the provision \u2014 and would then construct a structural meta-constitutional argument defending that act, framing strict constructionists as committing the category error of treating a purposive instrument as a deontological code"
+  }
+]

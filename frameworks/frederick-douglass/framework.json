@@ -1,0 +1,216 @@
+{
+  "meta": {
+    "person": "Frederick Douglass",
+    "domain": "Abolition, Oratory, Political Strategy, Self-Liberation",
+    "born": "1818-02-14",
+    "died": "1895-02-20",
+    "generated_utc": "2026-05-02T05:00:00.000000+00:00",
+    "primary_sources": [
+      "Narrative of the Life of Frederick Douglass, an American Slave, Written by Himself (1845)",
+      "My Bondage and My Freedom (1855)",
+      "Life and Times of Frederick Douglass (1881, expanded 1892)",
+      "What to the Slave Is the Fourth of July? (1852)",
+      "Self-Made Men (1859)",
+      "The North Star and Frederick Douglass' Paper editorial archive",
+      "Lecture on Haiti (1893)"
+    ],
+    "secondary_sources": [],
+    "incident_count": 28,
+    "construct_count": 12,
+    "prediction_count": 0,
+    "packs": [
+      "the-republic",
+      "the-trailblazers",
+      "stoic-council"
+    ],
+    "tags": [
+      "abolition",
+      "oratory",
+      "political-strategy",
+      "self-liberation",
+      "civil-rights",
+      "reconstruction",
+      "press-and-publication",
+      "diplomacy"
+    ],
+    "status": "live",
+    "packRoles": {
+      "the-republic": "Constitutional reinterpretation as instrument; political-abolitionist constitutional theory; relationship between sovereign founders' intentions and present operational use of founding documents.",
+      "the-trailblazers": "Self-liberation as the prototype of role-occupation under prohibition; institutional position-taking under conditions where the role's specifications have to be altered through occupancy rather than negotiation.",
+      "stoic-council": "Operational decoupling of moral position and operational compromise; bounded execution of roles whose underlying policies one disagrees with; treatment of one's own future emotional state as a variable to be reasoned about rather than endured."
+    }
+  },
+  "perceptual_lens": {
+    "statement": "Douglass perceives every situation as a structural-prohibition disclosure problem — asking 'what is the prohibition or constraint protecting, and what does its specific form tell me about where the system that imposed it is structurally vulnerable?' — not as a moral confrontation in which the prohibition is an obstacle to be denounced or evaded.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008",
+      "incident-009",
+      "incident-010",
+      "incident-011",
+      "incident-012",
+      "incident-013",
+      "incident-014",
+      "incident-015",
+      "incident-016",
+      "incident-017",
+      "incident-018",
+      "incident-019",
+      "incident-020",
+      "incident-021",
+      "incident-022"
+    ],
+    "holdout_validation": [
+      "incident-023",
+      "incident-024",
+      "incident-025",
+      "incident-026",
+      "incident-027",
+      "incident-028"
+    ],
+    "what_they_notice_first": "Douglass's attention is automatically drawn to the structural form of constraints, prohibitions, and role-specifications imposed by institutions or adversaries. He perceives: (1) the load-bearing reputational or economic claim on which an opponent's position rests, and which a single act could falsify regardless of the act's narrow outcome (Auld's prohibition, Covey's professional standing); (2) the dependency graph of any plan, and the number of independent points of failure that the plan's architecture imposes (1836 betrayal, 1838 escape architecture); (3) the structural difference between immediate operational compromise and downstream structural achievement, recognizing that present cost is often the precondition for permanent asset-construction (manumission, recruitment under discriminatory pay, marshalship under betrayed coalition); (4) the role-shaped vacancies in institutional architectures that he can step into and silently alter through occupancy rather than negotiate from outside (Nantucket lectureship, Lincoln peer-access, Haiti diplomatic posting); (5) the temporal-deployment dimension of public criticism, recognizing that the timing of criticism is selectable separately from its content and that timing is often the dominant variable; and (6) the structural separability of moral position, operational compromise, coalition relationship, and public criticism as distinct instruments that can be deployed independently rather than collapsed into a single binary stance.",
+    "what_they_ignore": "Douglass systematically filters out information whose salience depends on collapsing operational and symbolic dimensions of a decision. He does not spontaneously register: (1) the moral-purity attractiveness of refusal options whose symbolic value is uncoupled from operational mechanism for structural change — symbolic refusal that produces no consequence is processed as cost without yield; (2) the social or coalition pressure to harmonize position with alliance or to soften analytical conclusions for the sake of relationship preservation — coalition rupture is processed as a separable cost to be accepted when the analysis requires it; (3) the desire for present comfort or immediate vindication — present injustice that is operationally recoverable is processed as a cost line rather than as a disqualifying disqualifier; (4) the appearance of inconsistency across time as a credibility liability — sequential updating under new evidence reads to him as correct operation, not as a credibility cost; and (5) the conventional expectation that role-acceptance entails identification with the role's surrounding policy or institutional posture — he treats role-acceptance, role-execution, public criticism, and role-resignation as separable transactions that do not collapse into one another.",
+    "evidence": "Across all 22 derivation incidents, a single perceptual pattern recurs with striking invariance: Douglass converts every decision domain — self-liberation, oratory, constitutional theory, coalition strategy, military recruitment, electoral politics, diplomatic service, marriage — into a question about what the imposed constraint discloses about the system imposing it, and what structural moves remain available within the disclosed terrain. In incident-001, he reads Auld's literacy prohibition as a leak of where the slaveholding system is most vulnerable. In incident-002, he reads Covey's professional position as a reputational claim falsifiable by mere resistance. In incident-003, he reads the 1836 betrayal as a structural lesson about plan architecture rather than as bad luck. In incident-004, he reads the lecture-circuit offer as a structural-role-vacancy that no alternative use of his time can match. In incident-005, he reads the testimonial-only instruction as a structural ceiling to be silently altered through performance modification. In incident-006, he reads forensic specificity as the credibility-settlement instrument the strategic asymmetry requires. In incident-007, he reads the manumission as an operational document decoupled from moral position. In incident-008, he reads the North Star as parallel construction that alters the field of action. In incident-009, he reads the constitutional question as a strategic-instrument problem decoupled from originalist history. In incident-010, he reads the Fourth of July audience as a defensive cognitive structure to be bypassed by adversarial frame adoption. In incident-011, he reads Brown's plan as a probability-assessment problem under social pressure. In incident-012, he reads silence as a separable operational category from refusal. In incident-013, he reads discriminatory pay as a recoverable cost line in a longer ledger. In incident-014, he reads recruitment cessation as a strategic signaling instrument. In incident-015, he reads the Lincoln meeting as channel-construction rather than transaction-completion. In incident-016, he reads contingency planning as conditional readiness whose value compounds independently of activation. In incident-017, he reads the AERA rupture as a sequencing decision under ranked political feasibility. In incident-018, he reads the marshalship as structural placement under betrayed coalition. In incident-019, he reads the Haiti post as a precedent-execution role with operational bounds. In incident-020, he reads the resignation as the operational cost of bounded-execution commitment. In incident-021, he reads the marriage controversy as a frame to be refused rather than inhabited. In incident-022, he reads the autobiographies as architecture for present work rather than as record of past events. The holdout incidents confirm the lens without exception: incident-023 (continued women's suffrage advocacy after rupture) is perceived as decoupled-advocacy under separable instruments; incident-024 (Lecture on Haiti) is perceived as the post-resignation completion of the bounded-execution model; incident-025 (Douglass surname adoption) is perceived as deferred-symbolic-content construction rather than nominal commitment; incident-026 ('Self-Made Men' refusal of differential versions) is perceived as structural refusal of conceptual differentiation; incident-027 (1864 campaign-period silence on Lincoln criticism) is perceived as temporal-deployment optimization separable from criticism content; incident-028 (New Bedford relocation) is perceived as appropriate delegation of operational-tactical decision under local-information constraint."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Reading the prohibition as strategic disclosure of structural vulnerability vs. processing the prohibition as either a wall to obey or an obstacle to denounce",
+      "positive_pole": "Treats every imposed constraint, denial, or prohibition as a leak of information about where the system that imposed it is most structurally vulnerable, and orients action toward the vulnerability the prohibition has disclosed",
+      "negative_pole": "Treats prohibitions as either constraints to be obeyed (preserving conformity) or as objects of moral denunciation (preserving principle), and does not extract structural intelligence from the prohibition's specific form",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-002",
+        "incident-005"
+      ],
+      "behavioral_implication": "Faced with a new constraint or prohibition imposed by an institution or adversary, Douglass would first ask 'what is this protecting, and what does its specific form tell me about where the system is structurally vulnerable?' rather than 'how do I obey this?' or 'how do I denounce this?' — and would orient subsequent action toward the disclosed vulnerability"
+    },
+    {
+      "construct": "Single high-stakes act whose mere occurrence falsifies the opponent's structural claim vs. negotiated incremental challenge that respects the opponent's claim while contesting its application",
+      "positive_pole": "Designs a single decisive act whose outcome — whether narrowly successful or not — destroys the structural claim on which the opponent's position rests, accepting concentrated personal risk to extract structural change that incrementalism cannot produce",
+      "negative_pole": "Operates within the opponent's claim by negotiating its application case-by-case, preserving safety and incremental progress at the cost of leaving the structural claim itself undisturbed",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-006",
+        "incident-021"
+      ],
+      "behavioral_implication": "When facing an opponent whose position rests on a load-bearing reputational, evidentiary, or framing claim, Douglass would design a single decisive act whose mere occurrence falsifies the claim — and would proceed with the act even when the narrow outcome of the act is uncertain or risky, because the structural value of the claim's falsification exceeds the personal cost of the act's narrow execution"
+    },
+    {
+      "construct": "Minimizing the dependency graph by concentrating risk on the actor himself vs. distributing risk across multiple actors as a hedge against single-point failure",
+      "positive_pole": "Prefers operational architectures that concentrate all dependencies on the actor's own performance, accepting higher single-point exposure to dramatically reduce aggregate failure surface from external betrayal, coercion, or coordination failure",
+      "negative_pole": "Prefers operational architectures that distribute dependencies across multiple actors as a hedge against single-actor failure, accepting larger aggregate failure surface in exchange for redundancy",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-008",
+        "incident-016"
+      ],
+      "behavioral_implication": "When designing a high-stakes operation, Douglass would systematically reduce the number of persons whose silence, fidelity, or performance the operation depends on — preferring single-actor or minimal-team architectures even at the cost of foregone redundancy — because his historical mental model treats internal coordination failure as the dominant cause of operational collapse"
+    },
+    {
+      "construct": "Coalition exit by parallel construction vs. coalition reform from within through advocacy",
+      "positive_pole": "Builds new institutional facts that the existing coalition must respond to, executing exit through construction rather than through public denunciation, and lets the new institution's existence force the coalition's realignment",
+      "negative_pole": "Lobbies for change inside an existing coalition through advocacy, manifesto, or public confrontation, treating the coalition as the field of action rather than as a parameter of an environment to be operated around",
+      "derived_from_incidents": [
+        "incident-008",
+        "incident-009",
+        "incident-014"
+      ],
+      "behavioral_implication": "When a coalition has become a structural ceiling on the work he intends to do, Douglass would build a parallel institution that does not have the ceiling — without seeking the existing coalition's permission and without publicly denouncing it in advance — and would let the new institution's existence force the realignment, engaging in public polemic only after the structural facts on the ground have already shifted"
+    },
+    {
+      "construct": "Operational/moral decoupling — refusing the symbolic-purity option when its symbolic value is uncoupled from operational mechanism for structural change vs. refusing operational compromise on principled grounds",
+      "positive_pole": "Treats moral denunciation and operational compromise as co-deployed instruments rather than as substitutes; accepts compromised operational terms when the compromise produces a structural asset that symbolic refusal would not, while continuing to denounce the underlying injustice in undiminished form",
+      "negative_pole": "Collapses moral and operational dimensions into a single binary; refuses any operational compromise that the moral position would foreclose, even when refusal produces no operational consequence and the structural asset it would have produced is foregone",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-013",
+        "incident-018"
+      ],
+      "behavioral_implication": "Faced with a compromised operational opportunity (a transaction, an appointment, a participation under discriminatory terms) that the principled position would foreclose, Douglass would accept it when his analysis showed that refusal would produce no consequence on the underlying injustice and that acceptance produces a structural asset — while publicly maintaining the moral position in undiminished form, treating the two as separable channels"
+    },
+    {
+      "construct": "Foundational-belief revision under accumulating evidence vs. doctrinal consistency as identity-preservation",
+      "positive_pole": "Holds foundational beliefs as instruments to be tested continuously against operational implications, and revises them publicly when the operational cost of holding them becomes structurally larger than the social cost of revising them — accepting coalition rupture as the necessary cost of the revision",
+      "negative_pole": "Holds foundational beliefs as identity-constituents whose revision is experienced as betrayal of self or of allies; preserves doctrinal consistency at the cost of operational paralysis",
+      "derived_from_incidents": [
+        "incident-009",
+        "incident-022",
+        "incident-017"
+      ],
+      "behavioral_implication": "When a foundational position he has long held begins to produce operational paralysis or strategic foreclosure, Douglass would revise the position publicly — naming the prior position as wrong and the new position as correct — and accept the rupture with allies committed to the prior position as the calculated cost of the revision, refusing to treat doctrinal consistency as a value in itself"
+    },
+    {
+      "construct": "Adversarial frame adoption as architectural rhetoric vs. own-frame assertion to maintain rhetorical integrity",
+      "positive_pole": "Constructs speeches and arguments as sequenced cognitive architectures that adopt the audience's or opponent's frame at the outset to bypass defenses, then deliver the structural pivot whose force depends on having inhabited the frame fully — treating speeches as functional engineering rather than as expressive performance",
+      "negative_pole": "Asserts the speaker's own frame from the opening of the speech, prioritizing rhetorical integrity and clarity of position over the cognitive architecture required to produce transformation in audiences whose defenses must be bypassed",
+      "derived_from_incidents": [
+        "incident-010",
+        "incident-005",
+        "incident-026"
+      ],
+      "behavioral_implication": "When delivering a speech intended to produce cognitive transformation in audiences with active defensive structures, Douglass would adopt the audience's or opponent's frame for an extended opening to establish co-membership and bypass defenses, before pivoting to the structural indictment whose force depends on the prior co-membership having been credibly established — and would design the speech to be extraction-resistant against adversarial weaponization of fragments"
+    },
+    {
+      "construct": "Bounded execution of a role whose underlying policy one disagrees with vs. binary acceptance/refusal of role-and-policy as a single transaction",
+      "positive_pole": "Treats institutional role-acceptance, role-execution, public criticism, and role-resignation as separable transactions that do not collapse into a single binary; accepts roles whose underlying policies one disagrees with on the condition of bounded execution and reserves the public criticism for separable channels",
+      "negative_pole": "Collapses role-acceptance with policy-endorsement and role-criticism with role-refusal; treats accepting a role under a disagreed policy as personal endorsement and refusing the role as the only available critical channel",
+      "derived_from_incidents": [
+        "incident-019",
+        "incident-020",
+        "incident-024"
+      ],
+      "behavioral_implication": "When offered an institutional role whose underlying policy he privately disagrees with, Douglass would accept the role on the explicit condition of bounded execution — committing in advance to honest performance within defined limits — and would resign rather than escalate beyond those limits if pressure for escalation arose, while preserving the option of public criticism on separable channels both during and after the role"
+    },
+    {
+      "construct": "Operating inside an institution as bounded structural placement vs. operating outside as independent critic",
+      "positive_pole": "Accepts inside-the-institution placement on the calculation that the structural position has compounding operational value that external criticism cannot match, and maintains the inside placement even when the institution's broader direction is one he criticizes — treating the role as instrument rather than identity",
+      "negative_pole": "Refuses inside-the-institution placement on the grounds that participation legitimates institutional direction; preserves moral consistency through external positioning at the cost of forgoing structural placement that would compound across appointments",
+      "derived_from_incidents": [
+        "incident-018",
+        "incident-019",
+        "incident-007"
+      ],
+      "behavioral_implication": "When offered placement within an institution whose direction he disagrees with, Douglass would accept the placement when his analysis shows that the structural position compounds across subsequent appointments and that his refusal would produce no consequence on the institutional direction — and would maintain the placement under continuing public criticism of the institution's direction, treating the inside-the-institution position and the outside-the-institution criticism as co-deployed instruments"
+    },
+    {
+      "construct": "Sequenced strategy under ranked political feasibility vs. principled simultaneous demand without sequencing analysis",
+      "positive_pole": "Accepts that under conditions of ranked political feasibility, near-term progress on one component of a multi-component goal is preferable to the simultaneous demand that produces no near-term progress on any component; advocates the sequenced strategy explicitly even at the cost of coalition rupture with allies committed to simultaneous demand",
+      "negative_pole": "Treats simultaneous demand as the principled position and the sequenced strategy as betrayal; refuses to choose between components of a multi-component goal even when political feasibility analysis shows that simultaneous demand will produce no near-term progress on any component",
+      "derived_from_incidents": [
+        "incident-017",
+        "incident-013",
+        "incident-023"
+      ],
+      "behavioral_implication": "When facing a coalition disagreement over whether to pursue components of a multi-component goal sequentially or simultaneously, Douglass would advocate the sequenced strategy when political feasibility analysis shows that simultaneous demand produces no progress on any component — and would absorb the rupture with allies committed to simultaneous demand as the necessary cost, while continuing personal advocacy for the dispreferred-by-sequencing components on separable channels"
+    },
+    {
+      "construct": "Strategic temporal deployment of public criticism vs. immediate criticism whenever its content is correct",
+      "positive_pole": "Treats public criticism as a temporal-deployment instrument whose timing is selectable separately from its content; defers criticism that would be immediately correct but operationally counterproductive, and deploys it later when the operational impact aligns with the analytical position",
+      "negative_pole": "Treats public criticism as obligatory whenever its content is analytically correct; deploys criticism in the moment without consideration of operational impact on adjacent goals (electoral outcomes, alliance preservation, channel maintenance)",
+      "derived_from_incidents": [
+        "incident-027",
+        "incident-014",
+        "incident-015"
+      ],
+      "behavioral_implication": "When holding analytically correct criticism of a leader or institution whose immediate position is structurally preferable to the available alternative (e.g., during an election with a worse opponent on the ballot), Douglass would defer the public criticism for later deployment — maintaining private criticism through channels that do not compromise the immediate operational outcome — and would deploy the public criticism only when the operational context makes its impact aligned with the analytical position"
+    },
+    {
+      "construct": "Refusing to inhabit frames imposed by other parties vs. responding to imposed frames on their own terms",
+      "positive_pole": "Treats imposed frames as someone else's frames that do not have to be inhabited; refuses to debate questions whose presupposed answer is incorrect; deflects with structurally orthogonal responses that do not engage the imposed frame on its terms",
+      "negative_pole": "Inhabits imposed frames in order to respond to them; debates questions on the presupposed terms of the questioner; treats refusal to engage as evasion or as concession",
+      "derived_from_incidents": [
+        "incident-021",
+        "incident-026",
+        "incident-022"
+      ],
+      "behavioral_implication": "When asked a question or accused of an inconsistency whose framing presupposes a structural concession he refuses to make (e.g., that interracial marriage requires justification, that achievement standards differ by race, that autobiographical multiplicity requires unification), Douglass would refuse to inhabit the frame — declining to engage on the presupposed terms — and would respond with a structurally orthogonal answer that displaces the frame rather than addressing it directly"
+    }
+  ],
+  "critical_incident_database_ref": "See incidents/incidents.json for the full 28-incident database with CDM probes."
+}

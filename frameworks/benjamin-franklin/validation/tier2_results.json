@@ -1,0 +1,114 @@
+{
+  "traceability_ratio": 0.91,
+  "lens_consistent": true,
+  "contradictions": [
+    {
+      "construct": "Structural interdependence engineering as a commitment mechanism vs. Sequential persuasion of independent parties",
+      "scenario_a": "Renewable Energy Startup (Scenario 1)",
+      "scenario_b": "Science Nonprofit (Scenario 2)",
+      "explanation": "In Scenario 1, the response explicitly engineers a mutual-contingency framing between government pilots and the foundation grant ('the government pilots generate field data that makes the foundation's global deployment more effective; the foundation's credibility makes the government pilots more politically defensible'). In Scenario 2, the response does not attempt to engineer interdependence between the intergovernmental body and the commercialization/bond paths, instead recommending sequential pursuit (decline A, pursue modified B, defer C). The situations share enough structural similarity \u2014 multiple parties each providing something the other needs \u2014 that the absence of the interdependence construct in Scenario 2 is noticeable. The Scenario 2 response could have explored whether the government working group's credibility and the mission bond's fundraising story could be made mutually reinforcing. The omission is not a logical contradiction but it is an inconsistent application of the same construct. The justification offered implicitly (that Opportunity A's editorial-restriction condition makes it structurally incompatible with any positive interdependence) is defensible but not explicitly stated, leaving the asymmetry unexplained."
+    },
+    {
+      "construct": "Diplomatic engagement as an information-yield operation independent of agreement probability vs. engagement whose value depends on probability of reaching a deal",
+      "scenario_a": "Materials Scientist / Desalination (Scenario 3)",
+      "scenario_b": "Biosensor / HAB Detection (Scenario 5)",
+      "explanation": "In Scenario 3, the response recommends attending the Central Asian ministerial summit 'as a sensor, not a negotiation' \u2014 consistent with construct 7 and the Staten Island precedent. In Scenario 5, the response recommends honest renegotiation with the multilateral body and letting 'the body's response determine whether this is a genuine partnership opportunity,' which is also consistent. However, in Scenario 5 the response is more willing to potentially exit the multilateral path entirely post-disclosure, whereas in Scenario 3 the summit attendance is recommended unconditionally. The two situations are structurally similar (multilateral body, weak dispute mechanisms, suspected IP extraction, competitor relationships inside the body), yet the HAB response is marginally more dismissive of the body's long-term potential than the desalination response. The difference is small and arguably justified by the stronger intelligence about IP extraction history in Scenario 5, but this justification is not made explicit, creating a minor traceability gap rather than a true contradiction."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Renewable Energy Startup (Atmospheric Water Harvesting)",
+      "traceable_steps": 19,
+      "total_steps": 21,
+      "lens_aligned": true,
+      "notes": [
+        "Opening move \u2014 identifying the undisclosed arid-climate limitation as the 'load-bearing constraint' before examining any offer \u2014 directly instantiates the perceptual lens ('structural constraint that will determine what outputs are even possible before any actor or argument enters the situation'). Traceable to lens statement and construct 6 (honor/disclosure as structural variable).",
+        "Disclosure framing ('not a confession but a precision specification of operational envelope') traces to construct 12 (moral failure as errata enabling correction vs. guilt) and construct 11 (behavioral system with identifiable bugs).",
+        "Proposal to reject patents-first on runway grounds traces to construct 3 (scaling a validated prototype by relaxing binding constraint) \u2014 the constraint here is capital, not structural novelty.",
+        "Argument that operational knowledge compounds with deployment and is the real moat (not the patent) traces to construct 1 (vocabulary/coordinate system as infrastructure) by analogy \u2014 the insight that the label 'patent' obscures what the actual protected asset is.",
+        "Simultaneous counter-proposal to both parties (not sequential) directly invokes construct 4 (structural interdependence engineering) and incident-012 (Pennsylvania Hospital matching mechanism). Well-traced.",
+        "Reframing the two offers as complementary components rather than mutually exclusive paths traces to construct 4 positive pole and incident-001 (Albany Plan \u2014 reframing a limited mandate as a constitutional design moment).",
+        "Prioritizing CEO's time on renegotiation rather than refining arguments traces to construct 2 (audience perceptual state as primary variable) \u2014 the lens is applied to the diplomatic context.",
+        "Runway allocation table is a direct application of construct 9 (cognitive load reduction as design criterion) \u2014 explicit prioritization to reduce concurrent live decisions.",
+        "Swiss foundation as 'structural anchor' reasoning traces to construct 7 (diplomatic engagement as information-yield operation) \u2014 the foundation engagement does not require exclusivity, preserving optionality.",
+        "Two untraceable steps: (a) the specific $50K legal cost estimate has no construct basis (quantitative detail inserted without framework grounding); (b) the recommendation to 'maintain minimum 3-month operating reserve as structural floor' is prudent but not grounded in any documented construct or incident \u2014 it is imported financial heuristic, not Franklin-specific logic."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Science Communication Nonprofit (Climate Policy Platform)",
+      "traceable_steps": 22,
+      "total_steps": 24,
+      "lens_aligned": true,
+      "notes": [
+        "Opening structural diagnosis ('perceived neutrality is not one asset among several \u2014 it is the coordinate system within which every other asset exists') directly applies the perceptual lens. The phrase 'coordinate system' echoes the lens's own language and construct 1. Well-traced.",
+        "Analysis of Opportunity A as 'structural transformation of what the organization is' traces to the lens's 'structural architecture determines outputs before any content, argument, or personal quality can operate.' The editorial restriction is analyzed as a coordinate-system change, not a policy preference change. Highly consistent.",
+        "The instruction to decline A while extracting intelligence ('the refusal will confirm whether the bloc's interest is in the organization's science or in its credibility as a cover') directly invokes construct 7 (engagement as information-yield operation) and incident-016 (Staten Island).",
+        "Board disclosure recommendation ('errata applied to institutional governance') is an explicit and traceable invocation of construct 12 and incident-026.",
+        "Opportunity B analysis \u2014 treating non-disclosure of the university IP stake as a 'structural instability' rather than merely an ethical problem \u2014 traces to the lens's priority of architecture over content, and to construct 6 (honor as tradeable but only within disclosed frameworks). The argument that disclosed complications strengthen trust is consistent with incident-015 (Wedderburn silence as strategic, not moral).",
+        "Competitor analysis (fossil-fuel-backed platform exposed by funding transparency) traces to construct 2 (audience perceptual state as primary variable) \u2014 the response designs the perception environment rather than attacking the competitor's arguments directly.",
+        "Mission bond analysis as 'correct structural direction, wrong timing' traces to construct 3 (scaling validated prototype vs. designing from first principles) \u2014 the bond is the right architecture but requires the operational prototype (demonstrated continuity) before it can be scaled.",
+        "Key-person risk framing ('load-bearing element whose removal will not be gradual') traces to the lens's 'binding constraint' language and construct 9 (cognitive load reduction \u2014 here applied organizationally).",
+        "Two steps with weak traceability: (a) the recommendation to maintain 'six-month operating reserve' is prudent financial management but not grounded in a specific construct; (b) the sequencing of 'months three through nine' for the licensing deal is pragmatically sensible but the specific timeline is not derived from any documented Franklin behavioral pattern."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Materials Scientist / Desalination Membrane",
+      "traceable_steps": 23,
+      "total_steps": 25,
+      "lens_aligned": true,
+      "notes": [
+        "Opening reframe ('one structural problem with five symptoms') directly applies the lens's 'structural architecture determines outputs' framing. The 'binding constraint' language is exact.",
+        "Sulfate disclosure recommendation framed as 'converting a structurally unstable negotiating position into a stable one' traces precisely to construct 6 (honor as tradeable commodity \u2014 here extended to institutional disclosure as a structural asset, not merely an ethical cost) and to incident-026 (errata enabling correction).",
+        "Brazilian consortium prioritized as 'highest-leverage option' because 'it compounds across all other negotiations simultaneously' traces to construct 3 (relaxing binding constraint on validated prototype) and the lens's identification of 'which variables are load-bearing.'",
+        "Summit attendance recommended 'as a sensor, not a negotiation' directly quotes construct 7 logic and incident-016 (Staten Island conference).",
+        "Counter-proposal to UAE \u2014 removing cartridge clause \u2014 traces to construct 4 (structural interdependence) by inversion: the response identifies that the existing structure destroys interdependence rather than building it.",
+        "Co-founder departure addressed as 'structural transition problem' (not personnel problem) traces to the lens's consistent pattern of recategorizing presenting problems from human/character domains into structural ones. Consistent with incident-027 (William Franklin \u2014 institutional boundary, not family crisis).",
+        "Open-source advocacy response uses construct 10 (persona as precision-engineered delivery vehicle) \u2014 the recommendation to engage publicly with a 'deployment-framing' is about designing how the company is perceived, not about refining its arguments. Traceable.",
+        "The postscript invoking the Bancroft double-agent logic is an explicit cross-reference to incident-009. Traceable and apt \u2014 the inversion (known limitation made public vs. known leak kept secret) is logically coherent with the construct.",
+        "Two weak traceability steps: (a) the specific four-to-six month reagent reformulation timeline is accepted from the scenario without structural analysis of whether this timeline is reliable \u2014 no Franklin construct governs how to evaluate uncertain technical timelines; (b) the recommendation to 'maintain minimum three-month operating reserve' recurs from Scenario 1 and remains an imported financial heuristic without construct basis."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Polymer Chemist / Biosensor Agricultural Contaminants",
+      "traceable_steps": 21,
+      "total_steps": 23,
+      "lens_aligned": true,
+      "notes": [
+        "Opening 'systems architecture problem' framing applies the lens directly. The identification of 'which coordinate system' to choose as the primary act traces to construct 1.",
+        "Toxin database identified as 'the actual company' (not the patent) traces to construct 1 (vocabulary as cognitive infrastructure that shapes what questions can be formulated) \u2014 here the construct is applied to asset categorization: the patent is a label, the database is the load-bearing structure.",
+        "False-negative disclosure framed as 'structural move that simultaneously satisfies the ethical obligation, eliminates the escalating legal exposure, tests which parties are interested in the actual technology versus interested in the IP, and resets the negotiating clock' is a strong multi-function structural analysis. Traces to construct 12 (errata enabling correction) and construct 7 (engagement as information-yield operation \u2014 the disclosure functions as a probe).",
+        "Patent strategy reframed as 'integration architecture' rather than 'assay chemistry alone' traces to construct 1 (vocabulary as cognitive infrastructure \u2014 renaming the patent's scope changes what it protects).",
+        "Validation study accepted as highest-leverage because it 'builds scientific legitimacy moat without surrendering actual competitive assets' traces to construct 3 (scaling validated prototype) and the lens's 'carrier before payload' language.",
+        "Icelandic partner declined as structured because 'the price is the company's primary competitive asset' traces directly to the same structural logic as the desalination Scenario 3 \u2014 consistent application.",
+        "Multilateral body renegotiation ('let the body's response be a diagnostic instrument') traces to construct 7 and incident-016. Consistent with Scenario 3 summit-as-sensor recommendation, though slightly more inclined toward potential exit (see contradiction note above).",
+        "Knowledge transfer recommendation for departing partnerships head uses the same 'single-point-of-failure concentration' language and structural framing as Scenario 3's co-founder departure analysis. Consistent cross-scenario application.",
+        "Open-commons engagement recommendation explicitly invokes construct 10 (persona as delivery vehicle) \u2014 'choose to be present in the conversation as something more interesting.' The 'audience that has already constructed a cognitive architecture' language directly echoes the lens's 'audience's pre-existing cognitive architecture' phrasing.",
+        "Two weak steps: (a) the recommendation to contribute 'endemic regional species toxin profiles' to an open database as a middle-ground position is practically sensible but not derived from any specific construct \u2014 it is a pragmatic compromise that sits between full open-source and full proprietary, with no documented Franklin incident as precedent; (b) the timing instruction ('engagement should happen after the salinity disclosure is made internally, not before') is prudent sequencing but not traceable to a specific construct or incident."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Marine Biologist / HAB Bioluminescence Assay",
+      "traceable_steps": 24,
+      "total_steps": 26,
+      "lens_aligned": true,
+      "notes": [
+        "Opening reframe ('not three opportunities but one structural problem wearing three masks') is the clearest single-sentence application of the perceptual lens across all five responses. Traceable directly to the lens statement.",
+        "Toxin database and firmware identified as 'the actual competitive moat' using 'front door / house' metaphor \u2014 traces to construct 1 (vocabulary as infrastructure) and the lens's identification of load-bearing variables.",
+        "Low-salinity flaw given the strongest disclosure imperative of any scenario ('not a negotiating liability \u2014 it is a structural defect that will detonate at the worst possible moment'). Consistent with and possibly stronger than Scenario 3-5's disclosure framings. The escalation is justified: this scenario involves public safety (HAB toxins) rather than agricultural efficiency, which is a legitimate basis for heightened urgency. Traces to construct 12.",
+        "Opportunity 3 (Icelandic partner) declined as 'liquidation event dressed in partnership language' \u2014 consistent with Scenario 4's rejection of the UAE acqui-hire and the Icelandic partner in Scenario 3. The cross-scenario consistency on asset-transfer disguised as partnership is strong.",
+        "Counter-proposal on Opportunity 3 (geographically scoped data license, black-box API) traces to construct 4 (structural interdependence engineering) \u2014 designing conditions where the partner can do its legitimate work without gaining full asset access.",
+        "Opportunity 1 (multilateral body) handled with renegotiation + disclosure probe \u2014 consistent with Scenario 3 and 4's multilateral body recommendations. The recommendation to use the body's response as a diagnostic instrument traces to construct 7 and incident-016.",
+        "Opportunity 2 (Australian validation) accepted with estuarine scope modification \u2014 traces to construct 3 (scaling validated prototype \u2014 the validation trial is the prototype that must succeed before scaling) and construct 8 (decision-making capacity transfer \u2014 the scoped validation gives the institute the information it needs to make a genuine endorsement).",
+        "Head of partnerships departure: 'systematic externalization of relational knowledge into documented form before she leaves' traces to the same single-point-of-failure structural analysis as Scenarios 3 and 4. Consistent.",
+        "Open-letter engagement \u2014 'the fishing cooperative network's letter is not primarily about this company \u2014 it is an ideological frame looking for a villain to name. The founder can choose to be named as the villain, or can choose to be present in the conversation as something more interesting' \u2014 is a precise application of construct 10 (persona as precision-engineered delivery vehicle) and construct 2 (audience perceptual state as primary variable to engineer). The instruction to engage post-disclosure (not before) traces to the same sequencing logic as Scenario 4.",
+        "Two weak traceability steps: (a) the CIP/continuation patent strategy is technically sound advice but the specific recommendation to focus on 'integration architecture' rather than assay chemistry alone, while logically derived from construct 1, involves a level of patent law specificity not grounded in any Franklin incident; (b) the summary 'the company that executes this sequence will be smaller and slower-moving in the next six months' is a calibration statement offered without construct basis \u2014 it is a competent judgment but not traceable to documented Franklin behavioral patterns."
+      ],
+      "contradiction": false
+    }
+  ],
+  "passed": false
+}

@@ -1,0 +1,128 @@
+{
+  "traceability_ratio": 0.89,
+  "lens_consistent": true,
+  "validation_method": "Tier-2 traceability audit: each holdout incident's decision and CDM probes were tested against the framework's perceptual lens and 12 bipolar constructs derived from incidents 1-23. For each step in the holdout decision narrative, traceability requires that the step be derivable from at least one explicit construct or from the perceptual lens 'what_they_notice_first' / 'what_they_ignore' fields. A step that requires importing reasoning not grounded in documented constructs counts as non-traceable. Quality gate: ≥80% of holdout steps must trace to documented constructs.",
+  "summary": {
+    "total_holdout_incidents": 5,
+    "traceable_steps": 124,
+    "total_steps": 139,
+    "non_traceable_steps": 15,
+    "traceability_ratio": 0.89,
+    "quality_gate_passed": true,
+    "lens_aligned_holdouts": 5,
+    "lens_inconsistent_holdouts": 0
+  },
+  "contradictions": [
+    {
+      "construct": "Mercy and terror as calibrated instruments of structural binding vs. mercy and terror as moral commitments or character traits",
+      "scenario_a": "Holdout incident-027 (relaxing personal security in Feb 44 BCE)",
+      "scenario_b": "Derivation incident-013 (withholding clementia from twice-defeated Pompeians)",
+      "explanation": "In incident-013, Caesar correctly recalibrates the clementia binding mechanism after Thapsus and Munda by withholding mercy from those who had demonstrated unbindability — applying the calibration logic by tracking the operative criterion of whether pardons bind. In incident-027, the clementia binding is treated as continuing to operate on the same criterion (the pardoned Pompeians remain bound) without re-examining whether the structural context has shifted. The construct's positive pole describes the calibration logic at full operation; the holdout exposes a failure mode in which the logic does not update when the structural context shifts. The contradiction is not in the construct's definition but in its consistent application across temporal phases: the construct predicts that calibration should continuously update but the framework does not articulate the conditions under which this updating fails. Construct-12 ('Late-period structural-context blindness') was added precisely to capture this failure mode, but its addition is partly post-hoc with respect to the holdout."
+    },
+    {
+      "construct": "Permanent infrastructure conversion vs. contingent display optimization",
+      "scenario_a": "Holdout incident-024 (building Forum Iulium as permanent display)",
+      "scenario_b": "Derivation incident-005 (marriage of Julia to Pompey as coalition reinforcement)",
+      "explanation": "Both incidents apply infrastructure-conversion logic: the Forum Iulium converts contingent Gallic plunder into permanent infrastructural facts, while Julia's marriage converts a personal dynastic relationship into structural coalition reinforcement. The construct's positive pole captures the pattern in both cases. However, the construct is most clearly articulated in non-personal infrastructural terms (calendars, colonies, monuments), and its application to personal-dynastic instruments (marriage, paternity acknowledgment) is implicit rather than explicit in the construct definition. The contradiction is mild: both holdout and derivation incidents apply the underlying logic correctly, but the construct's articulation is less general than its actual application. A reframed construct ('contingent-asset to continuing-structure conversion across all instrument categories') would capture both cases more cleanly."
+    },
+    {
+      "construct": "Incremental constitutional escalation through existing vocabulary vs. direct authority claim or stable demitting",
+      "scenario_a": "Holdout incident-025 (probing kingship at Lupercalia)",
+      "scenario_b": "Holdout incident-026 (planning Parthian campaign)",
+      "explanation": "Both holdout incidents apply the construct's core logic: incident-025 probes the absorbtion threshold, incident-026 designs an alternative path (military theater) when the threshold has been reached. The construct's positive pole correctly predicts both moves. However, the predictions about how the trajectory continues — whether the Parthian campaign's prestige reset would have actually overcome the absorbtion threshold, or whether it would have produced kingship through victory-driven settlement — depend on counterfactuals that the construct does not specifically discriminate between. The contradiction is structural: the construct describes the late-stage failure mode (cumulative trajectory exceeds absorption threshold) but does not specify the conditions under which alternative paths (external campaigns, threshold-probing) succeed in modifying the threshold versus the conditions under which they fail. The 5-incident holdout set is too small to discriminate empirically."
+    }
+  ],
+  "per_holdout_details": [
+    {
+      "incident_id": "incident-024",
+      "incident_title": "Forum Iulium and public-works program as permanent infrastructure conversion",
+      "traceable_steps": 26,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of slow-time-horizon character of public-works as asset traces directly to construct 10 ('Permanent infrastructure conversion vs. contingent display optimization') and to the perceptual lens 'what_they_notice_first' field on infrastructural-permanence targets.",
+        "Insertion of Julian display into the existing Forum's geographic-political infrastructure (rather than a parallel monument) traces to construct 7 ('Institutional capture through composition vs. institutional capture through suppression') applied to urban-spatial infrastructure: capture the institution by inserting into its existing structure rather than building a competing one.",
+        "Conversion of Gallic plunder into permanent infrastructure as financial conversion mechanism traces to construct 10 explicitly.",
+        "Dynastic-legitimating dimension of the temple of Venus Genetrix traces to construct 11 ('Incremental constitutional escalation') applied to symbolic-religious infrastructure: each dedication is a procedurally-defensible step toward the cumulative deification trajectory.",
+        "Successor-regime constraint logic ('preserve the Caesarian monuments or visibly destroy them') traces to construct 5 ('Legislation as institution-building with self-defending constituencies') applied to monumental rather than legislative infrastructure: the construct's underlying mechanism (asymmetric cost of dismantlement vs. maintenance) generalizes.",
+        "Two steps not fully traceable: (a) the specific financial figure of 100 million sesterces is operationally detailed without construct-grounded justification for that scale; (b) the choice of Forum Iulium location (between Forum Romanum and Subura) is geographically specific and would require additional construct-level reasoning about urban-political geography that the framework does not articulate explicitly."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-025",
+      "incident_title": "Probing kingship tolerance at the Lupercalia",
+      "traceable_steps": 24,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Treatment of the diadem episode as a threshold-probing experiment rather than as a kingship-claim commitment traces to construct 11 ('Incremental constitutional escalation through existing vocabulary') and to the calibration logic of construct 8 ('Calibrated minimum-dose concession').",
+        "Choreographed offer-and-decline structure as preserving optionality traces to construct 11 (procedural-precedent step that gathers information without committing).",
+        "Treatment of public reaction as informational rather than as instructional traces to the perceptual lens 'what_they_notice_first' field on absorbtion-threshold detection.",
+        "The shift to the Parthian-campaign alternative path after the negative reaction traces to construct 4 ('Procedural channel selection as a strategic variable'): when one channel (constitutional escalation) is constrained, relocate to another (military theater).",
+        "The construct 12 ('Late-period structural-context blindness') is the holdout-specific construct that captures the failure mode of the threshold-probing logic — it is partly motivated by this incident.",
+        "Four steps not fully traceable: (a) the specific timing of the Lupercalia (rather than another public occasion) is contextually specific without construct-grounded justification; (b) the specific role of Antony as offerer (rather than another priest) requires additional reasoning about Caesarian-circle role design; (c) the conspirators' interpretation of the probing-and-deferral pattern (which the framework's lens does not directly address from the conspirators' perspective); (d) the operational implication that the conspirators would use Caesar's own forcing-function logic against him is a structural insight that the framework correctly captures but does not specifically derive from any single construct."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-026",
+      "incident_title": "Planning the Parthian campaign as constitutional reset",
+      "traceable_steps": 25,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the Parthian theater as a domain-shift instrument when domestic constitutional escalation is constrained traces directly to construct 4 ('Procedural channel selection as a strategic variable') generalized to military-theater channel selection.",
+        "Reference to the Gallic-command precedent as the structural pattern (military-absence as political-position consolidation) traces to construct 11 ('Incremental constitutional escalation') and to the perceptual lens evidence on cross-domain method application.",
+        "Three-to-four-year duration as buffer for constitutional questions to settle traces to construct 1 ('Irreversibility as a forcing function') applied in reverse: deferral as forcing function on slower-deciding adversaries who must wait for his return.",
+        "The successor-arrangement design (Antony, Dolabella, Lepidus as managers) without the structural mutual-dependency logic of the original Triumvirate is correctly identified as a departure from construct 3 ('Coalitions enforced by mutual cost-of-defection') — and the construct 12 captures the late-period structural-context blindness that produced this departure.",
+        "The conspirators' counter-move using Caesar's own forcing-function logic traces to construct 1 (irreversibility as instrument) applied from the conspirators' side: they recognized that acting before 18 March was structurally informed by the same timing-pressure logic Caesar had repeatedly applied, and used it against him.",
+        "Three steps not fully traceable: (a) the specific size of the campaign force (16 legions) is operationally detailed without construct-grounded justification for that scale; (b) the specific Parthian objectives (avenging Crassus, recovering standards, conquering Mesopotamia) are theater-specific without explicit construct derivation; (c) the late-period adjustment of the successor arrangement (relying on trust rather than structural mechanisms) is correctly identified as a context-blindness failure but the framework does not specify the conditions under which the adjustment would have been correct rather than failure-mode."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-027",
+      "incident_title": "Relaxing personal security and proceeding to Senate March 15",
+      "traceable_steps": 22,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the personal-security question as a political-signaling problem (security measures as informational about principal's threat-perception) traces to construct 6 ('Public narrative as a concurrent operational front') applied to security-display.",
+        "Treatment of warnings as politically-motivated rumor rather than as actionable intelligence traces to the construct 12 ('Late-period structural-context blindness') failure mode: the structural-engineering caution that would have audited the warnings has relaxed under sustained success.",
+        "Continued reliance on the clementia-binding mechanism as operative for the pardoned Pompeians traces to construct 2 ('Mercy and terror as calibrated instruments') applied without context-update: the construct's calibration logic has not been re-applied to the new structural context.",
+        "Focus of operational attention on Parthian campaign preparation rather than on Roman personal-security calibration is consistent with construct 4 (channel selection): operational focus is in the channel where success is expected, not in the channel where the structural-context risk has emerged.",
+        "The construct 12 explicitly captures this failure mode and is the dominant construct for the incident.",
+        "Five steps not fully traceable: (a) the dismissal of Calpurnia's dreams and the haruspex's warning is psychologically specific without construct-grounded justification; (b) the specific decision not to read the unsigned letter handed to him is a contingent operational choice; (c) the trust-based rather than structural-engineering pattern of the successor-arrangement design is correctly identified as a departure but the framework does not articulate the threshold at which such departures become failure-mode rather than calibration-shift; (d) the conspirators' specific plan (multiple stab wounds in the Senate chamber) is operationally detailed without framework derivation; (e) the framework's account of the failure mode is partly post-hoc — construct 12 was articulated specifically to capture this incident's pattern, raising the question of whether the construct would have predicted the failure independently."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-028",
+      "incident_title": "Suppressing Caelius and Dolabella's debt-cancellation maximalism",
+      "traceable_steps": 27,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the maximalist proposals as threats to the structural calibration traces to construct 8 ('Calibrated minimum-dose concession vs. maximalist response to political pressure') directly.",
+        "The distinction between populares procedure (channel) and populares maximalism (content) traces to construct 4 ('Procedural channel selection as a strategic variable') with the specific decoupling of channel from content as a refinement of the construct.",
+        "Force suppression of nominal allies (Caelius's revolt, Dolabella's measure suppressed by Antony with troops) traces to construct 8's behavioral implication that calibration enforcement is more load-bearing than coalition-political-cost minimization.",
+        "Treatment of political relationships as instrumental means to structural ends rather than as values traces to construct 3 ('Coalitions enforced by mutual cost-of-defection') applied to the calibration-enforcement context: even nominal allies are bound only by structural mechanisms, and their violation of the structural calibration removes the binding.",
+        "The signaling function of the suppressions (clear calibration enforceability signal to the broader political class) traces to construct 6 ('Public narrative as a concurrent operational front') applied to enforcement-actions as narrative.",
+        "One step not fully traceable: the specific operational involvement of Antony as the executor of Dolabella's suppression is institutionally specific without construct-grounded justification for that role assignment vs. an alternative subordinate."
+      ],
+      "contradiction_with_derivation": false
+    }
+  ],
+  "lens_assessment": {
+    "lens_statement_consistency": "All five holdout incidents are consistent with the perceptual lens statement. Each holdout decision can be derived from the lens's core perceptual move (identify structural binding mechanism, calibrate instrument to operative criterion, install before adversaries recognize load-bearing function). The holdouts that test the late-period failure mode (incidents 025, 026, 027) demonstrate the 'what_they_ignore' field cleanly: the lens does not naturally generate the question 'what conditions made this work?' and therefore fails to detect when the operating method's enabling conditions have shifted.",
+    "construct_coverage": "11 of 12 constructs are exercised by at least one holdout incident. Construct 9 ('Speed-over-mass tempo pressure') is not directly exercised by any holdout (it was derived primarily from civil-war military incidents). Construct 12 ('Late-period structural-context blindness') is heavily exercised by holdouts 025, 026, and 027 — appropriately, since this is the failure-mode construct.",
+    "derivation_holdout_coherence": "The 23 derivation incidents and 5 holdout incidents form a coherent set. The derivation incidents establish the core operating method across multiple domains; the holdouts test both confirming applications (incidents 024 and 028) and failure-mode applications (incidents 025, 026, 027). The pattern is structurally similar to the Napoleon framework's derivation/holdout split: derivation incidents establish the lens, holdouts validate it including against its own failure modes."
+  },
+  "quality_gate_assessment": {
+    "minimum_required_traceability": 0.80,
+    "achieved_traceability": 0.89,
+    "passed": true,
+    "notes": "The 89% traceability ratio exceeds the 80% quality gate. The non-traceable steps are concentrated in operationally-specific details (force size, financial figures, geographic specificities) rather than in constructive-reasoning steps. Where the framework's constructs do not explicitly derive operational specifics, the framework's lens still aligns with the directional reasoning. The Tier-2 validation passes."
+  }
+}

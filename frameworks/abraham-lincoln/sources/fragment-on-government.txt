@@ -1,0 +1,86 @@
+Fragment on Government (c. 1854): First Principles in Private
+SYNTHESIZED CONTEXT — analysis of the short fragment in the Collected Works (vol. 2,
+pp. 220–222), with reference to Donald (1995) and Boritt (1978) on Lincoln's working method.
+
+== THE DOCUMENT ==
+
+The "Fragment on Government" is a short, undated, unpublished document found among
+Lincoln's papers, conjecturally dated to mid-1854 by Roy Basler on internal evidence
+linking it to the Kansas-Nebraska debate period. It opens with a single sentence that
+becomes the load-bearing premise: "The legitimate object of government, is to do for
+a community of people, whatever they need to have done, but can not do, at all, or
+can not so well do, for themselves — in their separate, and individual capacities."
+The fragment then enumerates examples (defense against violence, public roads, public
+schools, public charities) and identifies their common feature: they are activities
+in which the collective is more efficient than the individual.
+
+== WHAT THE PRIVATE-NESS REVEALS ==
+
+The document was never published. There is no evidence Lincoln showed it to anyone.
+It reads as a working note — a man writing down a definition for his own clarity. The
+practice is revealing. Lincoln habitually composed private documents in which he
+worked out first principles before applying them publicly. The Meditation on the
+Divine Will (1862), the Fragment on the Constitution and the Union (c. 1860), the
+Fragment on Slavery (c. 1854), the Fragment on Niagara Falls (c. 1848), the Fragment
+on Sectionalism (1856), the Fragment on Pro-Slavery Theology (1858) — all are
+private working notes in the same genre. They show a habit of crystallizing principle
+in writing before relying on it in argument.
+
+== THE LOGICAL STRUCTURE ==
+
+The fragment's argument is a definition followed by a derivation followed by a class
+of examples. The definition: government's legitimate scope. The derivation: any function
+that fails the test (individuals can do it themselves, well) is outside government's
+proper scope. The examples: defense, public works, public goods. The structure is
+characteristic of Lincoln's reasoning: a single load-bearing definition followed by
+a derived rule followed by tests of the rule against cases. He uses the same structure
+in his constitutional reasoning ("preserving the Union" defined first, derivations
+applied to specific cases) and in his strategic reasoning ("attack the South's capacity
+to wage war" defined first, derivations applied to theaters and campaigns).
+
+== WHY THE DEFINITION DOES UNUSUAL WORK ==
+
+Most political definitions of government's purpose are normative claims (government
+should do X because it is right). Lincoln's definition is functional: government's
+legitimate role is determined by an efficiency comparison between collective and
+individual action. The framing has consequences. It treats government as an
+instrument with a comparative advantage, not as a moral end. It is silent on questions
+of distributive justice. It implies that the proper scope of government is empirical
+— it expands when collective action is more efficient and contracts when it is not.
+This is a working definition for a politician who needs to make case-by-case decisions
+about which interventions are warranted, not a philosophical treatise for posterity.
+
+== THE COMPATIBILITY WITH LINCOLN'S POLICY POSITIONS ==
+
+The fragment's definition is compatible with the entire range of Lincoln's policy
+commitments. Internal improvements: roads, canals, and railroads are activities in
+which the collective is more efficient than the individual (high capital costs, network
+effects). Public schools: education has positive externalities individuals cannot
+fully internalize. Tariffs: the collective negotiation of trade rules cannot be done
+by individuals separately. The Homestead Act: federal land distribution is the only
+mechanism that can settle public land at scale. The Pacific Railway: continental
+infrastructure required collective financing. Each policy is a test case in which the
+fragment's rule produces the position Lincoln in fact took.
+
+== THE FRAGMENT AS A LENS FOR DECISION RECONSTRUCTION ==
+
+For framework reconstruction, the fragment is unusually informative because it documents
+the operating principle Lincoln was applying without the political language that
+ordinarily obscures it. When he made decisions about war powers, about intervention
+in state policy, about federal regulation of the economy, the fragment's test
+condition is a candidate explanation for the position he chose. The fragment also
+illuminates what he did not include: there is no theology, no Founders-citation, no
+appeal to natural rights. The legitimacy of government is grounded in a comparative-
+advantage argument, not a transcendent one. This grounding is the load-bearing logic
+under most of his political reasoning.
+
+== METHOD VISIBLE IN THE PRACTICE OF FRAGMENTS ==
+
+The broader pattern — Lincoln's practice of writing private fragments to clarify his
+own thinking — is itself a methodological signal. He treated his cognition as something
+that needed to be externalized in writing before he could trust it. Speaking from
+prepared text, writing draft documents, composing letters and not sending them: all
+are instances of the same habit. The conviction is that thinking-in-writing is more
+reliable than thinking-in-speech, and that public claims should be tested first by
+private articulation. The fragment on government is one of the cleanest documented
+examples of this habit applied to the most foundational question.

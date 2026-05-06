@@ -1,0 +1,134 @@
+[
+  {
+    "construct": "Containment logic vs. moral category logic",
+    "positive_pole": "Frames a crisis as a damage-limitation problem requiring the least-bad next move, even when that move violates a moral category",
+    "negative_pole": "Treats a situation as governed by a moral rule that sets non-negotiable constraints on action regardless of downstream consequences",
+    "derived_from_incidents": [
+      "incident-001",
+      "incident-024",
+      "incident-025"
+    ],
+    "behavioral_implication": "When faced with an irreversible atrocity already in motion, Seneca would ask 'how do I limit cascading harm from here?' rather than 'what act would be clean?' — and would accept complicity in the existing wrong to preserve the capacity to moderate future ones, until the accumulated complicity itself became the dominant harm"
+  },
+  {
+    "construct": "Pre-installed evaluative structure vs. on-demand rational argument",
+    "positive_pole": "Treats philosophical resilience as a load-bearing capacity that must be constructed through long prior practice before the crisis that will test it",
+    "negative_pole": "Assumes that correct philosophical reasoning can be fetched and applied at the moment of need, treating virtue as a conclusion rather than an installed disposition",
+    "derived_from_incidents": [
+      "incident-002",
+      "incident-014",
+      "incident-021"
+    ],
+    "behavioral_implication": "When designing philosophical education for others, Seneca would insist on scheduled, embodied rehearsal of adversity conditions — poverty drills, voluntary discomfort, nightly audits — rather than concentrating on the transmission of correct doctrinal beliefs, because he models the crisis as a test of installed capacity, not applied reasoning"
+  },
+  {
+    "construct": "Audience-relative domain optimization vs. unified public coherence",
+    "positive_pole": "Operates simultaneously in multiple incommensurable registers — flattery for political survival, Stoic reframing for internal integrity — treating these as separate tools serving separate functions without requiring reconciliation",
+    "negative_pole": "Demands a single publicly consistent position, refusing to deploy a register one does not philosophically endorse",
+    "derived_from_incidents": [
+      "incident-003",
+      "incident-004",
+      "incident-015"
+    ],
+    "behavioral_implication": "When forced to communicate across audiences with incompatible value systems, Seneca would produce texts calibrated to each audience's motivational architecture without experiencing this as self-contradiction — he would treat genre and register as tools whose deployment does not commit the author to endorsing their premises"
+  },
+  {
+    "construct": "Honest self-indictment vs. retroactive contextual justification",
+    "positive_pole": "Treats a past lapse as evidence to be assessed by an impartial internal judge, naming the failure clearly even at reputational cost, because self-deception compounds the original error",
+    "negative_pole": "Reframes past compromised behavior as contextually defensible, using philosophical sophistication to construct post-hoc justifications that make the failure disappear rather than accounting for it",
+    "derived_from_incidents": [
+      "incident-005",
+      "incident-015",
+      "incident-012"
+    ],
+    "behavioral_implication": "When returning to a public record of a past failure, Seneca would name the failure explicitly in his own voice rather than allowing it to stand as an unanswered accusation or spinning a reinterpretation — his self-concept is more threatened by dishonest self-assessment than by admitted weakness"
+  },
+  {
+    "construct": "Identity-installation via projected description vs. direct prescriptive instruction",
+    "positive_pole": "Shapes behavior by attributing the desired character trait to the target as already actualized, constructing an identity the target is then socially obligated to inhabit",
+    "negative_pole": "Addresses the gap between the target's actual and desired behavior directly, offering reasoned argument about what virtues the target should cultivate",
+    "derived_from_incidents": [
+      "incident-006",
+      "incident-007",
+      "incident-023"
+    ],
+    "behavioral_implication": "When advising a powerful person who cannot be corrected without triggering narcissistic injury, Seneca would structure his intervention as flattery-as-commitment — praising the target for already embodying the behavior he wishes to produce — and would publish that praise to create an audience that enforces the claimed identity against future deviation"
+  },
+  {
+    "construct": "Recipient-specific motivational architecture vs. universally valid philosophical argument",
+    "positive_pole": "First models the specific psychological and motivational structure of the target, then selects the argumentative frame most causally effective for that particular agent — even if that frame is not the philosophically preferred one",
+    "negative_pole": "Deploys the philosophically correct argument on the assumption that rational validity is universally persuasive, without adjusting for the recipient's actual value hierarchy",
+    "derived_from_incidents": [
+      "incident-008",
+      "incident-006",
+      "incident-010"
+    ],
+    "behavioral_implication": "When constructing any advisory intervention, Seneca would perform a diagnostic step — modeling what actually moves this person — before selecting his rhetorical approach, and would willingly sacrifice philosophical transparency to achieve the causal outcome he judged most valuable"
+  },
+  {
+    "construct": "Precision-bounded rational agency vs. comprehensive rational sovereignty",
+    "positive_pole": "Defines the domain of rational self-governance precisely and narrowly — locating control only at the stage of voluntary assent — accepting that prior stages are genuinely beyond rational reach",
+    "negative_pole": "Claims rational governance over the full causal chain of psychological response, treating any involuntary reaction as a failure of self-mastery rather than an irreducible feature of embodied cognition",
+    "derived_from_incidents": [
+      "incident-011",
+      "incident-014",
+      "incident-012"
+    ],
+    "behavioral_implication": "When constructing practical guidance on emotional governance, Seneca would insist on distinguishing the involuntary first movement from the voluntary act of assent, prescribing intervention only at the latter stage — and would distrust any framework that claimed rational control could be exercised earlier, as philosophically dishonest and practically useless"
+  },
+  {
+    "construct": "Empirical audit of self vs. introspective trust of present perception",
+    "positive_pole": "Treats the reviewing self at temporal distance as a more reliable instrument than the experiencing self in the moment, using structured retrospective examination as the primary method of self-knowledge",
+    "negative_pole": "Treats introspection as a transparent real-time window onto the self, trusting in-the-moment self-perception as the authoritative source of self-knowledge",
+    "derived_from_incidents": [
+      "incident-012",
+      "incident-011",
+      "incident-014"
+    ],
+    "behavioral_implication": "Seneca would design practical philosophical practice around procedural distance from the event being judged — nightly review, temporal delay, quasi-juridical self-examination — rather than recommending in-the-moment awareness practices, because his model treats the live emotional self as a systematically compromised witness to its own actions"
+  },
+  {
+    "construct": "Internal criterion of virtue vs. observable behavioral proxy",
+    "positive_pole": "Locates the test of philosophical virtue in the internal dispositional state — equanimity, genuine detachment, capacity to surrender without distress — rather than in the behavioral pattern that circumstance produces",
+    "negative_pole": "Treats observable behavior — absence of wealth, public renunciation, visible austerity — as the meaningful measure of philosophical compliance, conflating a sufficient condition for detachment with a necessary one",
+    "derived_from_incidents": [
+      "incident-016",
+      "incident-017",
+      "incident-002"
+    ],
+    "behavioral_implication": "Seneca would consistently defend possession of wealth, comfort, or status against charges of philosophical inconsistency by appealing to the equanimity with which those externals could be surrendered — and would demonstrate the credibility of that appeal by accepting losses gracefully rather than resisting them, treating the loss itself as the confirmation of the internal state he had claimed"
+  },
+  {
+    "construct": "Philosophy as first-person enacted commitment vs. philosophy as third-person analyzed doctrine",
+    "positive_pole": "Treats philosophical writing as a public self-commitment that imposes binding obligations on the author's own future conduct, making doctrine and biography structurally inseparable",
+    "negative_pole": "Maintains the distinction between doctrinal exposition — what the system entails — and personal conduct — what the author actually does — treating philosophical analysis as a separate domain from lived practice",
+    "derived_from_incidents": [
+      "incident-018",
+      "incident-019",
+      "incident-022"
+    ],
+    "behavioral_implication": "When facing a crisis that his own philosophical writing had theorized — death, loss, complicity — Seneca would understand himself as obligated to perform the position his texts had staked out, because in his cognitive model the text and the life are the same argument; failing to enact the doctrine at the moment of test would retroactively invalidate not just his conduct but his entire intellectual project"
+  },
+  {
+    "construct": "Sovereign self-ownership through exit option vs. accommodation of external authority over life",
+    "positive_pole": "Treats the capacity to choose one's own death as the logical entailment and ultimate guarantee of Stoic freedom — the final proof that external power has not wholly captured the self",
+    "negative_pole": "Accepts that the timing and conditions of death are among the externals over which one has no rational claim, treating survival under adverse conditions as compatible with philosophical integrity",
+    "derived_from_incidents": [
+      "incident-022",
+      "incident-019",
+      "incident-028"
+    ],
+    "behavioral_implication": "When his life could only be continued through a betrayal of self — informing on others, performing degrading submission, becoming an instrument of the regime that had destroyed his function — Seneca would treat voluntary death not as defeat but as the one remaining act that confirmed the reality of the freedom he had spent his life theorizing"
+  },
+  {
+    "construct": "Incremental recalibration of moral baseline vs. threshold-governed bright-line refusal",
+    "positive_pole": "Evaluates each successive moral compromise on its specific consequentialist merits in context, without maintaining a pre-committed threshold below which no situational justification can reach",
+    "negative_pole": "Maintains pre-committed categorical rules at specified act-types that trigger unconditional refusal regardless of the consequentialist case constructed for crossing them",
+    "derived_from_incidents": [
+      "incident-025",
+      "incident-024",
+      "incident-001"
+    ],
+    "behavioral_implication": "Seneca would consistently be vulnerable to moral erosion by increment: each accommodation would recalibrate his baseline, making the next step feel continuous rather than transgressive, until he had traveled an enormous moral distance from his starting point through a sequence of individually plausible steps — a trajectory his philosophical vocabulary could narrate but his action-dispositions could not interrupt"
+  }
+]

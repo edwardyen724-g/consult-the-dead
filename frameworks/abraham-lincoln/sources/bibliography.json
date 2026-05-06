@@ -1,0 +1,186 @@
+[
+  {
+    "title": "Lincoln's 'Meditation on the Divine Will' (c. September 1862)",
+    "url": "https://quod.lib.umich.edu/l/lincoln/lincoln5/1:796?rgn=div1;view=fulltext",
+    "source_type": "private_writing",
+    "description": "A private memo Lincoln wrote for himself, never intended for publication, wrestling with the theological and moral logic of the Civil War. Reveals his framework for reasoning under radical uncertainty \u2014 he neither claims divine favor for the Union nor abandons moral seriousness. Shows his habit of holding contradictory possibilities simultaneously without collapsing into false certainty. One of the clearest windows into his epistemic humility and how it shaped decisions like the timing of the Emancipation Proclamation.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Letters to Generals (especially to McClellan, Hooker, Meade, and Grant, 1861\u20131865)",
+    "url": "https://quod.lib.umich.edu/l/lincoln/",
+    "source_type": "private_writing",
+    "description": "Lincoln's direct correspondence with his generals is among the most analytically rich material available. The unsent letter to McClellan (January 1862), the famous letter to Hooker (January 1863) \u2014 where he explicitly lists a commander's cognitive errors \u2014 and his exchanges with Grant show Lincoln diagnosing strategic reasoning failures in others, which illuminates his own decision criteria. He demonstrates systems thinking (whole theaters, not individual battles), patience with imperfect options, and explicit articulation of what a commander must be willing to do.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Fragment on Government (c. July 1, 1854)",
+    "url": "https://quod.lib.umich.edu/l/lincoln/lincoln2/1:184?rgn=div1;view=fulltext",
+    "source_type": "private_writing",
+    "description": "A short private note defining the proper purpose and limits of government. Lincoln writes: 'The legitimate object of government, is to do for a community of people, whatever they need to have done, but can not do, at all, or can not so well do, for themselves.' This fragment, written for no audience, is a compressed statement of his political philosophy and shows his habit of working out first principles in private before applying them publicly. Reveals the logical architecture he used to evaluate policy questions and the framework he applied consistently across economic and social policy.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Collected Works of Abraham Lincoln (Roy P. Basler, ed., 1953\u20131955)",
+    "url": "https://quod.lib.umich.edu/l/lincoln/",
+    "source_type": "own_published_work",
+    "description": "The authoritative 9-volume compilation of Lincoln's letters, speeches, state papers, and fragments. Contains his most unguarded reasoning \u2014 private memoranda to himself, draft documents never sent, working notes on constitutional logic, and letters where he explains his evolving position on slavery, war powers, and reconstruction. The 'Fragment on the Constitution and the Union' (c. 1860) and the 'Meditation on the Divine Will' (1862) reveal his philosophical reasoning in raw form, written for no audience. Indispensable for observing how he constructed arguments, changed his mind, and worked through contradictions.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Cooper Union Address (February 27, 1860)",
+    "url": "https://www.abrahamlincolnonline.org/lincoln/speeches/cooper.htm",
+    "source_type": "own_published_work",
+    "description": "The speech that made Lincoln president, and a masterclass in his argumentation architecture. He constructs the entire case from primary sources \u2014 the voting records of the original 36 framers \u2014 and dismantles opponent positions from within their own stated premises. Reveals his method of historical-empirical argumentation, his use of legal reasoning in political contexts, and his rhetorical strategy of making radical conclusions feel inevitable through accumulated evidence. Shows the 'Lincoln method': research exhaustively, neutralize the strongest counterargument first, then build forward.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Second Inaugural Address (March 4, 1865)",
+    "url": "https://avalon.law.yale.edu/19th_century/lincoln2.asp",
+    "source_type": "own_published_work",
+    "description": "At 703 words, arguably the densest window into Lincoln's mature moral framework. He refuses triumphalism, declines to assign blame asymmetrically, invokes shared national guilt, and articulates a policy framework ('malice toward none') derived from theological premises. Shows how his perceptual lens \u2014 seeing the war as a national moral reckoning \u2014 directly produced specific policy choices about reconstruction. The reasoning chain from worldview to decision is unusually explicit and compressed.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Speeches and Writings on the Kansas-Nebraska Act (1854\u20131858), especially the Peoria Speech (October 16, 1854)",
+    "url": "https://www.abrahamlincolnonline.org/lincoln/speeches/peoria.htm",
+    "source_type": "own_published_work",
+    "description": "The Peoria speech is a 3-hour address that represents Lincoln's return to politics and the fullest early articulation of his moral-legal framework on slavery. He works through the argument in real time \u2014 acknowledging what he doesn't know how to do (send freed slaves back to Africa, grant them immediate equal citizenship), sitting with the discomfort of incomplete answers, then identifying the minimal claim he can make with certainty. This 'honest uncertainty' pattern is characteristic of his decision process: he identifies the load-bearing moral claim and builds only what that foundation can support.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Abraham Lincoln: A History (John G. Nicolay and John Hay, 1890)",
+    "url": "https://archive.org/details/abrahamlincolnhi01nico",
+    "source_type": "firsthand_biography",
+    "description": "Written by Lincoln's two personal secretaries who observed him daily throughout the war. Ten volumes of firsthand observation of Lincoln's work habits, decision processes, and reactions to crises. Nicolay and Hay document how Lincoln read dispatches, how he held cabinet meetings, how he responded to defeats, and specific moments of deliberation. Though reverential, the granular detail of daily operations is irreplaceable. Particularly valuable for layer2 evidence: what Lincoln actually did repeatedly, under what conditions, and in what sequence.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Herndon (William H. Herndon and Jesse W. Weik, 1889 / Herndon's Lincoln)",
+    "url": "https://archive.org/details/herndonlincoln01hern",
+    "source_type": "firsthand_biography",
+    "description": "Herndon was Lincoln's law partner for 17 years and interviewed hundreds of people who knew Lincoln across his life. Though Herndon's interpretations are contested, his raw interview materials (now at the Library of Congress) and this biography contain details about Lincoln's intellectual habits unavailable elsewhere: how he read law (slowly, questioning every premise), how he prepared cases (anticipating opponent arguments first), his conversational reasoning style, his use of storytelling as a logic device, and his extraordinary memory for principles over details.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Team of Rivals: The Political Genius of Abraham Lincoln (Doris Kearns Goodwin, 2005)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "While a popular history, Goodwin's research into primary sources \u2014 cabinet diaries, private correspondence, contemporaneous journalism \u2014 documents Lincoln's decision-making in real time across specific episodes: how he managed Seward's attempt to dominate the cabinet, his response to Chase's repeated resignation threats, his handling of the 1864 election when he believed he would lose. Particularly valuable for documenting how Lincoln managed value conflicts (loyalty vs. competence, political necessity vs. principle) and how he used rivals as cognitive tools to stress-test his own thinking.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln (David Herbert Donald, 1995)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Donald's thesis \u2014 that Lincoln was defined by 'passive' responsiveness to events rather than a driving ideological agenda \u2014 is itself a framework-revealing argument that forces engagement with counterevidence. The biography documents specific instances where Lincoln waited for public opinion to move before acting, and where he acted ahead of it. Valuable for understanding Lincoln's theory of political timing: his belief that leaders must stay within the 'radius of action' permitted by public opinion, and how he used communication to expand that radius before moving.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Inner World of Abraham Lincoln (Michael Burlingame, 1994)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "A psychobiographical analysis drawing on extensive primary sources \u2014 recollections of those who knew Lincoln, his own writings \u2014 to examine how his emotional life shaped his decisions. Covers his depression (what he called 'the hypo'), his fatalism, his use of humor as a coping and persuasion mechanism, and his compensatory drive for recognition. Useful for understanding the emotional substrates of his decision patterns: why he could tolerate humiliation from subordinates, why he rarely held grudges, and how he processed catastrophic battlefield losses without losing strategic clarity.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln's Emancipation Proclamation: The End of Slavery in America (Allen C. Guelzo, 2004)",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "A detailed reconstruction of the two-year deliberation leading to the Emancipation Proclamation. Guelzo traces Lincoln's legal reasoning (war powers vs. legislative authority), his political calculations (Border States, European intervention, Northern public opinion), and his moral commitments \u2014 showing how these three frameworks conflicted and how Lincoln sequenced them. Particularly valuable as a documented value-conflict case study: Lincoln's personal anti-slavery conviction vs. his constitutional framework vs. military necessity. Shows how he resolved multi-variable moral-political problems.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln and the Politics of Slavery (G.S. Boritt, 1978) / Lincoln and the Economics of the American Dream",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Boritt reconstructs Lincoln's core ideological framework \u2014 what Lincoln called 'the right to rise' \u2014 as the organizing principle behind his economic, political, and ultimately anti-slavery positions. Demonstrates that Lincoln's positions on tariffs, internal improvements, banking, and slavery were not opportunistic but derived from a coherent underlying construct about human dignity and economic mobility. Useful for understanding how Lincoln's perceptual lens (free labor ideology) acted as a generative framework producing consistent positions across seemingly unrelated domains.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Lincoln on Leadership (Donald T. Phillips, 1992) \u2014 USE CAUTIOUSLY; cross-reference with primary sources",
+    "url": "offline",
+    "source_type": "secondary_reporting",
+    "description": "A popularized distillation, included here only because it organizes and cites many primary-source incidents in accessible form. Useful as an index to episodes worth investigating in primary sources, not as an authority in itself. Phillips documents Lincoln's management behaviors \u2014 walking the floor to gather information, maintaining an 'open door,' seeking out opposing views \u2014 that, when cross-referenced with Nicolay/Hay and the Collected Works, reveal consistent decision-making patterns. Use as a map, not a destination.",
+    "evidence_layers": [
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

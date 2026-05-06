@@ -1,0 +1,177 @@
+{
+  "framework": "andrew-carnegie",
+  "validation_run_utc": "2026-05-02T00:00:00+00:00",
+  "scenarios_evaluated": 5,
+  "traceability_ratio": 0.86,
+  "lens_consistent": true,
+  "passed": true,
+  "validation_protocol": "Five mogul-pack scenarios were generated to test the Carnegie framework against unseen decision contexts. Each scenario was solved by systematically applying the documented constructs and incidents to the situation, and each step of the resulting recommendation was traced back to specific constructs, incidents, or perceptual-lens elements. Steps that could not be traced (operationally specific deadlines, financial-engineering specifics not grounded in any documented incident, novel-domain prescriptions exceeding what construct anchors support) were flagged as untraceable. Contradictions between scenarios were checked by comparing how the same construct was operationalized across different situations.",
+  "contradictions": [
+    {
+      "construct": "Asymmetric exposure engineering across partnerships vs. uniform exposure under joint authorship",
+      "scenario_a": "Distressed Acquisition Window (Scenario 2)",
+      "scenario_b": "Industrial Conglomerate Labor Crisis (Scenario 4)",
+      "explanation": "In Scenario 2, the response advises the principal to remain visibly involved in the acquisition negotiations, taking direct authorship of the terms and the operational integration. In Scenario 4, the response advises the principal to delegate operational labor-confrontation to a partner-COO and remain physically distant from the dispute resolution. Both scenarios involve operational moves whose execution will produce visible reputational cost; the asymmetric-exposure construct could justify either approach depending on whether the principal's reputational profile is more vulnerable to acquisition-related or labor-related visibility, but the responses do not explicitly invoke that distinction. The framework's documented derivation incidents (incident-016 Homestead pre-authorization, incident-018 library counter-narrative) support the labor-delegation pattern more directly than they support visible acquisition-engagement, so the asymmetry in treatment is operationally consistent with the framework's training but is not transparently reasoned in the responses themselves."
+    },
+    {
+      "construct": "Vertical integration triggered by organizational-quality variability vs. arms-length contracting with stricter terms",
+      "scenario_a": "Critical Supplier Renewal (Scenario 1)",
+      "scenario_b": "Talent-Retention Crisis (Scenario 3) — supplier-side technology partner section",
+      "explanation": "In Scenario 1, the response advises acquiring equity in the critical supplier whose quality variability has been disrupting production, citing the Kloman/Frick Coke pattern. In Scenario 3, the response advises NOT acquiring equity in the technology-partner whose service variability has been similarly disrupting operations, instead recommending a structured multi-vendor sourcing strategy. Both situations involve quality variability rooted in supplier organizational decisions, which construct 4 prescribes as the integration-trigger condition. The differential treatment in Scenario 3 rests on an unstated judgment that technology-services suppliers are not amenable to equity-acquisition the way commodity-input suppliers are, but this distinction is not explicitly grounded in any documented construct. The responses are not contradictory in their underlying logic but are not transparently reasoned from the construct documentation."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Critical Supplier Renewal (Scenario 1)",
+      "scenario_summary": "Industrial principal in a commodity-manufacturing business faces upcoming contract renewal with the dominant supplier of a key input. The supplier has consolidated control over the highest-quality source of the input through depression-era purchases. Quality variability has been disrupting downstream production. Three competitor manufacturers are also negotiating with the supplier. Macroeconomic conditions are entering an early downturn.",
+      "traceable_steps": 28,
+      "total_steps": 32,
+      "lens_aligned": true,
+      "notes": [
+        "Opening framing of the supplier as 'the structural input cost that will dominate the system's long-run cost curve regardless of present-period pricing' traces directly to the perceptual_lens 'what_they_notice_first' field and to construct 3 (structural cost-curve as operative variable).",
+        "Identification of the consolidated-supply position as the key structural fact traces to incident-013 (Frick Coke equity acquisition) and the perceptual lens.",
+        "Recommendation to pursue equity acquisition rather than contract renegotiation traces to construct 4 (vertical integration triggered by organizational-quality variability) and to incidents 12 (Kloman backward integration) and 13 (Frick Coke).",
+        "Recommendation to time the equity acquisition during the early downturn rather than waiting for stable conditions traces to construct 2 (counter-cyclical concentration) and to incidents 7, 15, 19.",
+        "Recommendation to take a minority equity stake (15-25%) initially with structural provisions for later expansion traces to incident-013 (Carnegie's 11.25% Frick Coke initial stake with later expansion).",
+        "Recommendation to bind the supplier's senior operating principal through equity-aligned premium compensation traces to construct 5 (premium compensation with autonomy for irreplaceable talent) and incidents 8, 10, 14.",
+        "Recommendation to pre-authorize labor-discipline measures the supplier may need to take (rather than to constrain them) traces to construct 9 (asymmetric exposure engineering) and incident-016 (Homestead pre-authorization).",
+        "Pricing recommendation to anchor on the cost to competitor manufacturers of replicating the supplier's consolidated position rather than on book value traces to construct 8 (buyer-side alternative-cost anchoring) and incident-023 ($480M single-sheet pricing).",
+        "Recommendation to structure the equity transaction as a stock-swap into the principal's holding company rather than as cash purchase traces to incident-015 (Homestead Works stock-swap acquisition).",
+        "Sequencing recommendation — secure transport-supply linkages with the supplier before the equity transaction is announced — traces to incident-020 (Mesabi-Rockefeller integrated transport) and the perceptual lens.",
+        "Recommendation to publish a public commitment to long-term industry investment in the affected geography traces to construct 10 (public commitment as commitment device) and incident-025 (Gospel of Wealth publication as commitment device).",
+        "Recommendation to assess whether the operative supply-quality variability is rooted in organizational decisions of the supplier (integration-trigger) or in transactional contract enforcement (contracts-strengthening trigger) traces to construct 4.",
+        "Recommendation to retain the existing operating principals of the acquired supplier with significant operational autonomy traces to construct 5 and the Kloman pattern in incident-012.",
+        "Recommendation to evaluate the acquisition on its first-derivative cost-curve impact rather than on its standalone IRR traces to construct 3 and to the perceptual lens 'derivative impact on the parent system's cost curve' framing.",
+        "Recommendation to maintain minority cash positions in non-integrated suppliers as price-discovery instruments traces to incident-019 (using market interactions as intelligence-gathering operations).",
+        "Four steps not fully traceable: (a) the 18-month integration timeline is operationally specific without construct-level derivation; (b) the recommendation to issue a board-level governance directive within 30 days is operationally specific in a way that exceeds the construct's anchor; (c) the suggestion of a specific royalty floor in the supply-side commercial terms is grounded in commercial logic but not in any documented incident's specific terms; (d) the framing of the public-relations narrative as 'industrial-policy alignment' is rhetorically consistent with construct 7 (reputational assets as compounding positions) but the specific framing language is novel to this scenario."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Distressed Acquisition Window (Scenario 2)",
+      "scenario_summary": "Industrial principal observes that a regional competitor has over-extended capacity expansion just before an emerging downturn and is facing balance-sheet stress. The principal has the integrated cost structure that would make the competitor's plant most valuable, while the competitor cannot survive standalone. Competing acquirers exist but lack the structural fit. The acquisition opportunity is time-sensitive.",
+      "traceable_steps": 24,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Framing of the situation as a depression-window concentration opportunity traces to construct 2 (counter-cyclical concentration) and to incident-015 (Homestead Works stock-swap from distressed consortium).",
+        "Identification of the competitor's specific moment of maximum balance-sheet stress as the timing variable traces to incident-015 and to the 'what_they_notice_first' field of the perceptual lens.",
+        "Recommendation to offer stock-swap into the principal's holding company rather than cash purchase traces to incident-015 (Homestead Works stock-swap structure).",
+        "Recommendation to convert the original owners from competitors into structurally-aligned minority stakeholders traces to incident-015 directly and to construct 11 (co-investment-forcing — original owners with continued participation will support the integrated position).",
+        "Pricing strategy of below-replacement-cost-but-above-immediate-liquidation traces to construct 8 (buyer-side alternative-cost anchoring — the alternative for the original owners is liquidation, which sets the floor of acceptable terms).",
+        "Recommendation to use intermediaries to conceal the principal's identity until terms are near traces to incident-008 (Morgan-Schwab January 1901 channel structure) and to construct 12 (optionality preservation through visible parallel preparation).",
+        "Recommendation to integrate the acquired plant into the principal's hub-and-spoke federation rather than into the centralized headquarters structure traces to construct 6 (hub-and-spoke federation with structural retention of strategic control) and to incident-014 (Frick promotion).",
+        "Recommendation to retain the acquired plant's operating leadership at premium compensation with substantial autonomy traces to construct 5 and incidents 8, 10, 14.",
+        "Recommendation to use the acquired plant's volume position to extend cost-curve advantages rather than to harvest specialty margins traces to construct 3 and incident-009 (volume-first cost discipline at Edgar Thomson).",
+        "Recommendation to evaluate the acquisition on integrated cost-curve impact rather than on standalone returns traces to construct 3 and to the perceptual lens.",
+        "Recommendation to time public announcement of the acquisition to coincide with the next industry trade-association meeting (rather than at closing) traces to construct 7 (reputational assets as compounding structural positions) and to incident-006 (Edgar Thomson Works naming as customer-anchoring move).",
+        "Recommendation that the principal remain visibly engaged in the acquisition negotiations traces to construct 6 (strategic control retained at the principal level) but is in tension with construct 9 (asymmetric exposure engineering); this is the basis of the noted contradiction with Scenario 4.",
+        "Three steps not fully traceable: (a) the recommendation to structure the stock-swap with a 90-day lock-up clause is operationally specific without construct-level derivation; (b) the suggestion to retain a specific accounting firm to validate post-acquisition synergy claims is professional-services advice not grounded in any documented incident; (c) the recommendation to communicate with regulatory authorities through a particular channel sequence is novel to this scenario and not anchored to documented constructs."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Talent-Retention Crisis (Scenario 3)",
+      "scenario_summary": "Industrial principal is facing imminent loss of the operating-chief who has driven the cost-curve advantages over the past decade. A major rival has made an offer that includes equity participation. Below the operating-chief, three senior managers are also at risk of being recruited. The crisis is acute; resolution within weeks is required.",
+      "traceable_steps": 27,
+      "total_steps": 31,
+      "lens_aligned": true,
+      "notes": [
+        "Framing of the operating-chief as 'an irreplaceable cognitive asset whose judgment compounds across multiple capacity expansions' traces directly to incident-013 (Frick as both coke supplier and irreplaceable cognitive asset) and to construct 5 (premium compensation with autonomy for irreplaceable talent).",
+        "Recommendation to match the rival's equity offer rather than competing on salary alone traces to construct 5 and to the talent-as-vertical-integration pattern in incidents 8, 10, 14.",
+        "Recommendation to structure the equity participation through a long-duration vesting schedule that aligns with the principal's ownership horizon traces to construct 6 (hub-and-spoke federation with structural retention of strategic control) and to the Iron Clad Agreement structure documented in incident-014.",
+        "Recommendation to extend equity participation to the three senior managers below the operating-chief simultaneously rather than only to the operating-chief traces to construct 5 and to the precedent-setting effect of premium-compensation policy documented in incident-008 (Captain Jones hire).",
+        "Recommendation to grant operational autonomy formally rather than relying on informal practice traces to construct 5 and to incident-008's autonomy-with-retention design.",
+        "Recommendation to publicly announce the new senior-team compensation structure as a signal to the broader industry traces to construct 7 (reputational assets as compounding positions) and construct 10 (public commitment as commitment device).",
+        "Recommendation to bind the operating-chief's compensation to the principal's holding-company stock rather than to operating-unit-specific equity traces to construct 6 and to the federation structure documented in incident-014.",
+        "Recommendation to structure the package such that voluntary departure within five years triggers significant value forfeiture traces to incident-014 (Iron Clad Agreement enforcement at book value).",
+        "Caveat regarding the Iron Clad pattern's failure mode against equivalent-leverage counterparties traces to incident-021 (1899 Frick force-out attempt) — the holdout incident's lesson is explicitly invoked.",
+        "Recommendation NOT to acquire equity in the technology-services partner whose service variability has been disrupting operations, instead recommending structured multi-vendor sourcing, is operationally consistent with the framework but is in noted tension with construct 4 (vertical integration triggered by organizational-quality variability) — basis of the noted contradiction with Scenario 1.",
+        "Recommendation to retain the operating-chief's compensation differential relative to other senior managers as a visible signal of operational-excellence prioritization traces to construct 5 and to incident-008.",
+        "Recommendation to communicate the new compensation structure through the principal personally rather than through HR or legal channels traces to construct 7 (reputation accumulated through repeated personal trust-actions) and to incident-004 (Allegheny Valley personal negotiation).",
+        "Recommendation to plan for the operating-chief's eventual succession by identifying and developing internal candidates traces to construct 6 (hub-and-spoke federation) but the specific 5-year succession-planning horizon is not directly anchored to any documented incident.",
+        "Four steps not fully traceable: (a) the specific 4-tier compensation structure (chief + senior + lieutenants + key-individual-contributors) is operationally specific without construct-level derivation; (b) the recommendation to commission an external compensation benchmarking study is professional-services advice not grounded in documented incidents; (c) the suggestion to time the announcement to the next earnings release is calendar-specific without construct anchor; (d) the recommendation to draft formal employment agreements with non-compete provisions is consistent with construct 6 but the specific non-compete duration (24 months) is operationally specific."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Industrial Conglomerate Labor Crisis (Scenario 4)",
+      "scenario_summary": "Industrial principal's largest operating subsidiary is facing union-organizing pressure during a margin-cost squeeze. The principal's other holdings are in unrelated industries (consumer products, financial services) where union association would be reputationally costly. The principal has a partner-COO at the affected subsidiary with strong operational discipline and a willingness to take confrontational labor positions. Resolution timeline is 60-90 days.",
+      "traceable_steps": 25,
+      "total_steps": 29,
+      "lens_aligned": true,
+      "notes": [
+        "Opening framing of the labor situation as 'a structural cost-curve threat that requires resolution before union recognition can lock in higher labor costs across the federation' traces to construct 3 (structural cost-curve position as operative variable) and to incident-016 (Homestead pre-authorization).",
+        "Recommendation to pre-authorize the partner-COO to take confrontational labor positions traces directly to construct 9 (asymmetric exposure engineering) and to incident-016 (Homestead pre-authorization).",
+        "Recommendation that the principal physically distance from the affected subsidiary during the resolution period traces to construct 9 and incident-016 (Carnegie's Scotland presence during Homestead).",
+        "Recommendation that the principal's public communications during the resolution period focus on unrelated subsidiary activities (consumer products, financial services) rather than on the affected subsidiary traces to construct 9 and to the post-Homestead silence pattern in incident-017 (holdout).",
+        "Recommendation to NOT publicly defend the partner-COO during the resolution traces to incident-017 (Carnegie's silence after Homestead) — this is a holdout-incident application explicitly invoked.",
+        "Recommendation to plan a counter-narrative philanthropic announcement timed for 6-12 months after resolution traces to incident-018 (post-Homestead library acceleration as structural reputational redirection) and to construct 7 (reputational assets as compounding structural positions).",
+        "Recommendation that the philanthropic announcement be in a domain (education, infrastructure) consistent with the principal's existing public positioning rather than directly responsive to labor concerns traces to incident-018 and the Gospel of Wealth doctrine in incident-025.",
+        "Recommendation to structure subsequent labor concessions (if needed) at the level of individual employees rather than at the level of union recognition traces to construct 11 (co-investment-forcing in structural transfers — individual recipients with skin-in-the-game rather than union-mediated transfers).",
+        "Recommendation to evaluate the resolution on its multi-decade impact on the federation's labor-cost line rather than on its short-term operational disruption cost traces to construct 3 and to incident-016 (Carnegie's evaluation of Homestead on long-run cost-curve impact).",
+        "Caveat regarding the framework's blind spot — the moral and relational costs that the unit-cost ledger does not register — explicitly invokes the perceptual lens 'what_they_ignore' field and the negative-case lessons from incidents 16, 17, 18.",
+        "Recommendation to NOT delegate the strategic decision (whether to negotiate with or break the union) to the partner-COO traces to construct 6 (hub-and-spoke federation with structural retention of strategic control) — strategic decisions retained at the principal level even when operational execution is delegated.",
+        "Recommendation that the partner-COO have credible authority to authorize specific tactical decisions (lockout timing, security arrangements) traces to construct 5 (autonomy for premium-compensated operational managers) and incident-016.",
+        "Four steps not fully traceable: (a) the recommended 60-90 day resolution timeline is operationally specific without construct-level derivation; (b) the suggestion to retain specific labor-relations counsel is professional-services advice not grounded in documented incidents; (c) the recommendation to brief specific media outlets in a particular sequence is novel to this scenario; (d) the framing of the philanthropic counter-narrative as 'investment in human capital infrastructure' is rhetorically consistent with construct 7 but the specific framing language is novel."
+      ],
+      "contradiction": true,
+      "contradiction_detail": "The principal-distance-from-operations posture in this scenario is operationally consistent with construct 9 (asymmetric exposure engineering) and incident-016 but is in tension with the principal-engagement posture recommended in Scenario 2's distressed acquisition. Both situations involve operational moves whose execution will produce visible cost; the differential treatment rests on an implicit judgment that labor-confrontation visibility is more reputationally damaging than acquisition-engagement visibility, but this distinction is not explicitly grounded in the construct documentation."
+    },
+    {
+      "scenario": "Strategic Exit at Cyclical Peak (Scenario 5)",
+      "scenario_summary": "Industrial principal's enterprise has compounded over two decades into the dominant integrated position in its industry. Industry consolidation is underway; financiers are assembling competing trusts. The enterprise's valuation is at cyclical peak. The principal is preparing for an extended philanthropic phase. Three exit paths are available: sale to a consolidating financier, IPO with continued operational involvement, or hold-and-distribute through a family trust.",
+      "traceable_steps": 28,
+      "total_steps": 33,
+      "lens_aligned": true,
+      "notes": [
+        "Opening framing of the exit decision as 'optionality preservation through visible parallel preparation' traces directly to construct 12 and to incident-022 (Carnegie's 1900 tube-mill expansion plans as negotiating leverage).",
+        "Recommendation to commission visible expansion plans that would directly threaten the consolidating financier's downstream investments traces to incident-022 directly.",
+        "Recommendation to NOT publicly commit to either expansion or sale until the financier engages traces to construct 12 (optionality preservation) and to incident-022.",
+        "Pricing strategy anchored on the financier's alternative-cost (what would it cost the financier to neutralize the principal's competitive threat by alternative means) traces to construct 8 (buyer-side alternative-cost anchoring) and incident-023 ($480M single-sheet pricing).",
+        "Recommendation to communicate the asking price through a single intermediary (a senior lieutenant) rather than through formal negotiations traces to incident-023 (Schwab as the Morgan-Carnegie channel).",
+        "Recommendation to take consideration in long-duration bonds rather than cash or equity traces to incident-024 (Carnegie's bonds-over-cash exit-instrument selection) — this is a holdout-incident application explicitly invoked.",
+        "Recommendation that the bonds be senior in the buyer's capital structure to provide relative safety during the philanthropic phase traces to incident-024 directly.",
+        "Recommendation to NOT retain operational involvement (board seat, advisory role) in the buyer's organization traces to incident-024 and to construct 6 (hub-and-spoke federation — strategic control through equity ownership, not through operational involvement).",
+        "Recommendation to publish a comprehensive disposition doctrine before the sale closes traces to construct 10 (public commitment as commitment device) and to incident-025 (Gospel of Wealth publication as pre-commitment).",
+        "Recommendation that the disposition doctrine specify operational rules for philanthropic capital allocation (matching commitments, replicable templates, infrastructure-over-direct-relief preferences) traces to incidents 26 (library matching commitment) and 27 (Bertram's notes standardization) — both holdout incidents explicitly invoked.",
+        "Recommendation to reject the IPO path as creating ongoing operational entanglement that would compete with philanthropic attention traces to construct 6 (hub-and-spoke federation — clean exits preferred over partial retention) and to incident-024.",
+        "Recommendation to reject the hold-and-distribute-through-family-trust path on the basis that posthumous bequests sever the disposition feedback loop traces to incident-025 (Gospel of Wealth doctrine on in-life vs. posthumous disposition).",
+        "Recommendation to structure the philanthropic vehicles for replicability and template-based scaling rather than for bespoke high-touch giving traces to construct 11 (co-investment-forcing) and to incident-027 (Bertram's notes standardization, holdout).",
+        "Recommendation to evaluate the philanthropic asset deployment on its multi-decade structural-infrastructure impact rather than on individual recipient need traces to construct 3 (structural cost-curve thinking applied to philanthropic capital) and to incident-026 (library matching commitment).",
+        "Caveat: the framework's pattern-transfer to non-economic decision domains (peace activism, international relations) has produced limited operative results; philanthropic commitments should be domains where the operative decision-units are individual rational economic agents whose incentives can be permanently rearranged — explicitly invokes the perceptual_lens 'what_they_ignore' field and the holdout-incident-028 lesson (Kaiser correspondence).",
+        "Recommendation to time the public commitment doctrine's release to coincide with the sale closing rather than after traces to construct 10 (public commitment as commitment device — maximum effect when the commitment is made before all of the fortune is fully realized).",
+        "Five steps not fully traceable: (a) the recommendation of specific bond duration (50 years) is operationally specific without construct-level derivation; (b) the suggestion of a specific philanthropic disposition pace (10% of remaining capital per year) is operationally specific; (c) the recommendation to retain a specific philanthropic-foundation legal counsel is professional-services advice not grounded in documented incidents; (d) the suggestion to maintain a specific public-speaking cadence post-sale is operationally specific without construct anchor; (e) the recommendation regarding family-trust structure for residual personal wealth is operationally specific and the framework's documentation does not extend to inheritance-planning specifics."
+      ],
+      "contradiction": false
+    }
+  ],
+  "aggregate_metrics": {
+    "total_scenarios": 5,
+    "total_steps": 152,
+    "total_traceable_steps": 132,
+    "traceability_ratio": 0.868,
+    "scenarios_with_contradictions": 1,
+    "lens_aligned_scenarios": 5,
+    "holdout_incidents_invoked": [
+      "incident-017 (Scenario 4)",
+      "incident-021 (Scenario 3)",
+      "incident-024 (Scenario 5)",
+      "incident-027 (Scenario 5)",
+      "incident-028 (Scenario 5)"
+    ]
+  },
+  "quality_gate": {
+    "traceability_threshold": 0.80,
+    "traceability_actual": 0.868,
+    "traceability_pass": true,
+    "lens_consistency_required": true,
+    "lens_consistency_actual": true,
+    "lens_consistency_pass": true,
+    "max_contradictions_allowed": 3,
+    "contradictions_observed": 2,
+    "contradictions_pass": true,
+    "overall_pass": true
+  },
+  "validator_notes": "The framework passes the tier-2 quality gate at 86.8% traceability against an 80% threshold. Two contradictions were observed across the five scenarios; both reflect operationalization tensions in how construct 9 (asymmetric exposure) and construct 4 (vertical integration trigger) are applied across superficially similar but structurally distinct situations. The contradictions are not framework-defeating but indicate that the constructs as documented could be tightened by adding explicit boundary conditions specifying when each pattern's enabling assumptions hold. All five scenarios were lens-consistent, and all five holdout incidents were authentically invoked in the validation responses, providing evidence that the framework's holdout-validation set was correctly identified and that the constructs derived from the 23 derivation incidents do generalize to the unseen holdout cases. The framework is approved for live deployment in the moguls pack."
+}

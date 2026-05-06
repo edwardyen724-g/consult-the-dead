@@ -1,0 +1,187 @@
+[
+  {
+    "title": "Marie Curie's Decision to Continue Research After Pierre's Death (1906 Crisis)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Documentation of her choice to take over Pierre's teaching position at the Sorbonne and continue their research alone. Shows her decision-making framework under extreme personal and professional pressure, revealing core values about duty, legacy, and scientific mission.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Isolation of Pure Radium: Research Decisions (1898-1910)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Documented reasoning behind her methodological choices during the years-long process of isolating radium, including why she rejected certain techniques, how she prioritized different approaches, and her persistence despite repeated failures.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "WWI Mobile X-Ray Unit Decisions (1914-1918)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Her choice to suspend laboratory work and develop mobile radiography units for the war effort. Documents her reasoning about scientific duty during crisis, practical problem-solving approaches, and how she balanced competing obligations.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Curie Institute Founding: Institutional Vision (1920s)",
+    "url": "offline",
+    "source_type": "critical_incident",
+    "description": "Her strategic thinking about creating a research institute, including funding decisions, personnel choices, and research direction. Shows her long-term planning abilities and institutional reasoning.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Langevin Affair: Value Conflicts and Public Response (1910-1911)",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Her private correspondence and public statements during the scandal over her relationship with Paul Langevin. Shows how she weighed personal happiness against public reputation, scientific credibility, and family responsibilities. Reveals her frameworks for handling moral complexity.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Nobel Prize Decision: Physics vs Chemistry Recognition",
+    "url": "offline",
+    "source_type": "value_conflict",
+    "description": "Her reasoning about accepting the 1903 Physics Nobel Prize (shared with Pierre and Becquerel) versus positioning herself primarily as a chemist for the 1911 Chemistry Nobel. Shows how she thought about disciplinary identity and scientific credit.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Early Failed Experiments with Uranium Radiation (1896-1898)",
+    "url": "offline",
+    "source_type": "failure",
+    "description": "Documentation of her initial failed hypotheses about uranium radiation and how she modified her approach. Shows her methods for learning from failure, adjusting theories, and maintaining persistence despite setbacks.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Pierre Curie by Marie Curie",
+    "url": "https://archive.org/details/pierrecurie00curi",
+    "source_type": "private_writing",
+    "description": "Marie's intimate biographical memoir of her husband written after his death. Contains deeply personal reflections on their shared scientific methodology, her decision-making during their collaborative work, and how she processed the tragedy of his death while continuing their research. Shows her reasoning about balancing personal grief with scientific duty.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Marie Curie's Laboratory Notebooks (1902-1934)",
+    "url": "https://bibliotheque.curie.fr/collections-numeriques",
+    "source_type": "private_writing",
+    "description": "Radioactive notebooks containing not just experimental data but her reasoning processes, hypothesis formation, and decision points about research directions. Shows how she thought through problems, made methodological choices, and adapted when experiments failed.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Correspondence with Einstein, Rutherford, and Other Scientists (1903-1934)",
+    "url": "offline",
+    "source_type": "private_writing",
+    "description": "Personal letters revealing her thought processes about scientific controversies, career decisions, and how she weighed competing theories. Shows her reasoning about scientific methodology and her frameworks for evaluating evidence.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Radioactivity by Marie Curie (1935 - posthumous compilation)",
+    "url": "https://archive.org/details/radioactivity00curi",
+    "source_type": "own_published_work",
+    "description": "Her own theoretical framework for understanding radioactivity, including methodological principles and scientific reasoning. Shows her systematic approach to building scientific knowledge and her criteria for valid evidence.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Marie Curie's Teaching Philosophy at the Sorbonne",
+    "url": "offline",
+    "source_type": "own_published_work",
+    "description": "Her published thoughts on scientific education and methodology, revealing her frameworks for knowledge transmission and student development. Shows how she thought about learning and scientific training.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Madame Curie by Eve Curie",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "Biography by her daughter containing intimate family stories, personal conversations, and observations of Marie's daily decision-making processes. Provides insights into her reasoning patterns in both scientific and personal contexts.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Marie Curie and Her Daughters by Shelley Emling",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Analysis of her parenting philosophy and how she balanced scientific career with motherhood, based on family letters and daughter interviews. Shows her frameworks for making decisions about work-life integration and value transmission.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Women in Science: Marie Curie's Gender Strategy Decisions",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Analysis of how she navigated gender barriers in science, based on her correspondence and contemporary accounts. Shows her strategic thinking about professional advancement and institutional change.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

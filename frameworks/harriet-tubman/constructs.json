@@ -1,0 +1,154 @@
+{
+  "framework": "Harriet Tubman",
+  "perceptual_lens": {
+    "statement": "Tubman perceives every situation as a covert-operational problem in which the dominant variables are the dependency graph (how many independent actors must perform reliably for the operation to succeed), the surveillance asymmetry (where the adversary's attention is and is not pointed), and the long-arc operational asset to be preserved or constructed — not as a moral confrontation in which the operation's value depends on its symbolic visibility or on the moral standing of the actors involved.",
+    "what_they_notice_first": "Tubman's attention is automatically drawn to the structural-operational features of any decision environment: (1) the dependency graph of any plan — how many other persons' performance, fidelity, or silence the plan requires for success — and the failure surface that graph defines; (2) the surveillance asymmetry of the operational terrain — which directions of motion or which actors are structurally invisible to adversarial attention because they violate adversarial expectations; (3) the calendar, weather, geography, and adversarial-population behavioral patterns as controllable operational variables on equal footing with route, party composition, and intelligence; (4) the structural difference between immediate operational compromise and long-arc structural achievement, recognizing that present cost is often the precondition for permanent asset construction; (5) the phase-segmentation of multi-phase operations, identifying for each phase the actor whose competitive operational advantage dominates and delegating completely at the boundaries; (6) the separability of source and content (visions as providential signal but operational evaluation), of strategic alignment and tactical adoption (Brown's direction without his architecture), of articulated position and operational presence (absence without verbal refusal at Harpers Ferry), and of administrative category and substantive recognition (pension fight as bureaucratic process, public record as separate channel); and (7) the operational utility of the body's positioning as an instrument — disguise, geometric obstruction, presence at the bottleneck phase, absence at the optional phase.",
+    "what_they_ignore": "Tubman systematically filters out information whose salience depends on collapsing operational and symbolic dimensions of a decision. She does not spontaneously register: (1) the moral-purity attractiveness of refusal options whose symbolic value is uncoupled from operational mechanism — symbolic refusal that does not preserve a long-arc asset is processed as cost without yield (refusing the contraband ration was operational, not symbolic); (2) the social or coalition pressure to articulate disagreement when articulation would damage adjacent strategic assets — she uses absence rather than denunciation when the structural conditions favor it (Harpers Ferry); (3) the apparent stakes of present-action visibility as a determinant of personal positioning — she places her body where her contribution dominates, not where the action's apparent stakes are highest (Cambridge auction, Philadelphia conveyance); (4) the standard architecture of an operation when the specific situation requires architectural adaptation — she does not force parties into an inherited template (parents' wagon, Tilly southbound steamer, Combahee gunboats); (5) the appearance of risk distribution as a substitute for operational quality — she invests in single deep nodes (Garrett, the river pilots) rather than rotating through shallow ones; (6) the apparent reach or visibility of a coalition as a determinant of alignment — she selects for compatibility with her existing operational base (NACW over white-led NAWSA factions, AME Zion over secular philanthropy); and (7) the temptation to convert specific mission failures into program-level abandonment or desperate over-extension — she absorbs bounded failures (Rachel's children) without disturbing the broader program."
+  },
+  "bipolar_constructs": [
+    {
+      "id": "construct-01",
+      "construct": "Single-actor architecture concentrating dependencies on the actor's own performance vs. multi-person redundancy distributing dependencies across collaborators",
+      "positive_pole": "Designs operations to minimize the dependency graph — concentrating risk on a single actor (typically the operator herself or a single deeply trusted node) whose reliability she has higher confidence in than in any composite of collaborators, accepting concentrated single-point exposure to dramatically reduce aggregate failure surface from coordination failure, betrayal, or fear collapse",
+      "negative_pole": "Distributes operational dependencies across multiple actors as a hedge against single-actor failure, accepting larger aggregate failure surface in exchange for the appearance of redundancy, treating distributed-actor architecture as the default safe design",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-004",
+        "incident-009"
+      ],
+      "behavioral_implication": "When designing a high-stakes operation, Tubman would systematically reduce the number of persons whose silence, fidelity, or performance the operation depends on — preferring single-actor or single-trusted-node architectures even at the cost of foregone redundancy — because her historical mental model treats internal coordination failure as the dominant cause of operational collapse"
+    },
+    {
+      "id": "construct-02",
+      "construct": "Pre-positioned operational intelligence and infrastructure weeks in advance vs. just-in-time intelligence assembled at the moment of action",
+      "positive_pole": "Constructs operational intelligence, communication channels, and infrastructure weeks or months before the action, treating advance preparation as the load-bearing operational instrument and the action itself as the harvest of the prior preparation, accepting the long preparation tempo as the necessary condition of the action's success",
+      "negative_pole": "Assembles intelligence and infrastructure at the moment of action under time pressure, treating the action's planning phase as commencing when the action is initiated, accepting elevated operational risk from compressed preparation as the cost of operational tempo",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-011",
+        "incident-023"
+      ],
+      "behavioral_implication": "Faced with an upcoming high-stakes operation, Tubman would invest weeks or months in intelligence reconnaissance, communication channel construction, and infrastructure pre-positioning before the action — and would defer the action itself until the preparation was operationally adequate, refusing to compress preparation for the sake of perceived operational urgency"
+    },
+    {
+      "id": "construct-03",
+      "construct": "Phase-segmentation with complete delegation at boundaries vs. extended span of control across all operational phases",
+      "positive_pole": "Identifies for each operational phase the actor whose competitive operational advantage dominates, places that actor in charge of the phase, and delegates completely at the boundary between phases — limiting her own span of control to the phases where her own contribution is irreplaceable, treating operational compartmentalization as the architectural condition for high-throughput, high-quality work",
+      "negative_pole": "Extends span of control across all operational phases of an operation, treating personal involvement at every phase as the assurance of operational quality, accepting reduced throughput and redundant decision-making as the cost of comprehensive personal oversight",
+      "derived_from_incidents": [
+        "incident-005",
+        "incident-010",
+        "incident-013"
+      ],
+      "behavioral_implication": "When organizing a multi-phase operation, Tubman would identify for each phase the optimal actor (often not herself), delegate complete control at the boundaries, and concentrate her own presence at the bottleneck phase — refusing to extend her span of control into phases where her contribution would not dominate the existing competence of the phase-optimal actor"
+    },
+    {
+      "id": "construct-04",
+      "construct": "Long-arc structural-asset preservation through accepted present discomfort vs. present-comfort optimization through immediate convenience",
+      "positive_pole": "Trades present cost (legal exposure, financial burden, physical effort, foregone immediate convenience) for the construction or preservation of a long-arc structural asset whose value compounds across years — selecting the multi-year operational option even when the immediate option is more convenient, on the calculation that the structural asset is irreplaceable while the present cost is recoverable",
+      "negative_pole": "Optimizes for present convenience by accepting the immediate option whose subsistence cost is lowest, treating future structural assets as discountable and present convenience as the binding constraint, foregoing long-arc operational positions in exchange for immediate ease",
+      "derived_from_incidents": [
+        "incident-008",
+        "incident-021",
+        "incident-024"
+      ],
+      "behavioral_implication": "When facing a choice between an immediately convenient option and a more burdensome option that constructs a long-arc operational asset, Tubman would select the burdensome option — accepting the present cost as the recoverable expense and the structural asset as the irreplaceable gain — and would sustain the burden across the years required for the asset to mature"
+    },
+    {
+      "id": "construct-05",
+      "construct": "Calendar, geography, and adversary-population behavior as selectable operational parameters vs. these as ambient environmental conditions to be worked around",
+      "positive_pole": "Treats every operational variable — including those typically taken as given by environment (calendar, weather, holiday social patterns, surveillance routines, adversary attention vectors) — as a controllable parameter to be optimized through deliberate selection, on the calculation that systematic optimization across all parameters compounds into substantial operational advantage",
+      "negative_pole": "Treats environmental conditions as ambient constraints to be worked around in the design of operations, optimizing only the visibly controllable variables (route, personnel) while leaving the apparently uncontrollable variables (timing, weather, surveillance pattern) as defaults",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-014",
+        "incident-016"
+      ],
+      "behavioral_implication": "When planning an operation, Tubman would explicitly consider every variable — including season, holiday timing, adversary surveillance routines, and adversarial directional assumptions — as a controllable parameter to be optimized for operational advantage, refusing to default any variable to its ambient value when deliberate selection would produce operational gain"
+    },
+    {
+      "id": "construct-06",
+      "construct": "Body positioning as deliberate operational instrument (presence, absence, geometric obstruction, disguise) vs. body positioning as expressive default driven by emotional or symbolic significance of the moment",
+      "positive_pole": "Treats her own body's location, posture, disguise, and geometric positioning as operational parameters to be deployed for their effect on the operation — placing herself where her contribution dominates, absenting herself where her presence would not (or where presence would compromise), using disguise to penetrate cordons, using geometric obstruction (the doorway) as physical instrument",
+      "negative_pole": "Defaults body positioning to wherever the moment's emotional or symbolic significance is highest — at the apparent point of the action, with the parties she most cares about, at the moment of greatest visible drama — treating physical presence as expression of commitment rather than as deployment of an operational parameter",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-005",
+        "incident-019"
+      ],
+      "behavioral_implication": "When deciding where to physically position herself in any operation, Tubman would calculate the operational value of her body's location at each available position — at the bottleneck phase, at the cordon-penetration point, at the geometric obstruction — and select the position where her contribution dominates, accepting absence from emotionally significant points where her presence would not contribute or would compromise"
+    },
+    {
+      "id": "construct-07",
+      "construct": "Architectural adaptation per situation vs. inheritance of standard operational template across situations",
+      "positive_pole": "Designs each operation's architecture from the situation's specific parameters — the party's physical capacity, the documentary constraints, the surveillance terrain, the available actors — treating the architecture as a tool to be selected anew rather than as a template to be inherited, accepting the design overhead per operation as the cost of architectural fit",
+      "negative_pole": "Applies a standard operational template across situations, forcing each new situation into the inherited architecture, optimizing for template stability and design economy at the cost of architectural fit to the specific situation",
+      "derived_from_incidents": [
+        "incident-015",
+        "incident-016",
+        "incident-019"
+      ],
+      "behavioral_implication": "When facing a new operational situation, Tubman would design the operation's architecture from the specific parameters of the situation — the parties involved, the constraints, the available actors, the terrain — refusing to force the situation into a previously successful template when the specific parameters argue for a different architecture"
+    },
+    {
+      "id": "construct-08",
+      "construct": "Separable variables independently deployed (source/content, strategic/tactical, articulated/operational, administrative/substantive) vs. collapsed variables treated as a single binary",
+      "positive_pole": "Treats apparently linked variables — the source of a signal and its content, strategic alignment with an actor and tactical adoption of his architecture, articulated public position and operational physical presence, administrative category and substantive recognition — as separable inputs to be deployed independently for their operational function, refusing to collapse linked variables into a single binary stance",
+      "negative_pole": "Collapses linked variables into a single binary, treating strategic alignment as requiring tactical agreement, articulated position as requiring operational presence, administrative category as determining substantive recognition, source-interpretation as determining content-evaluation, on the principle of consistency or integrity",
+      "derived_from_incidents": [
+        "incident-017",
+        "incident-018",
+        "incident-028"
+      ],
+      "behavioral_implication": "When facing a decision in which multiple apparently linked variables (e.g., agreement with an ally's strategic direction and adoption of his tactical architecture) are pressing for a single response, Tubman would separate the variables, evaluate each independently, and deploy each on its own terms — supporting the strategic direction while reserving tactical adoption, maintaining operational presence while declining articulated agreement, accepting administrative refusal while preserving substantive public record"
+    },
+    {
+      "id": "construct-09",
+      "construct": "Mode-switching to fit the structural opportunity (clandestine/overt, conduction/military, rescue/petition) vs. defaulting to the standard mode regardless of opportunity structure",
+      "positive_pole": "Reads each operational situation for its dominant available mode and switches modes when the dominant mode shifts — from clandestine conduction to overt direct action when crowd-mobilization is structurally optimal, from rescue conduction to military combined-arms when armed expedition is the available form, from operational direct action to institutional petition when bureaucratic terrain is the location of the work",
+      "negative_pole": "Defaults to the standard operational mode regardless of the structural opportunity, treating mode-consistency as identity-preservation and mode-switching as a deviation from one's authentic operational character, foregoing operational opportunities whose dominant mode differs from the standard",
+      "derived_from_incidents": [
+        "incident-019",
+        "incident-023",
+        "incident-024"
+      ],
+      "behavioral_implication": "When encountering an operational situation whose dominant mode differs from her standard mode, Tubman would switch modes immediately to fit the situation's opportunity structure — whether that requires clandestine conduction, overt crowd-mobilization, intelligence-driven combined-arms operation, or multi-decade institutional petition — refusing to default to a familiar mode when the situation's dominant mode is a different one"
+    },
+    {
+      "id": "construct-10",
+      "construct": "Bounded acceptance of mission failure or partial recognition without program-level disturbance vs. conversion of single failure into program-level abandonment or desperate over-extension",
+      "positive_pole": "Absorbs specific mission failures (the unrescuable Rachel's children) and partial institutional recognition (pension as 'nurse' only) as bounded outcomes whose lesson is operational rather than as evidence about program-level viability, deploying the available capacity on the available alternative without disturbing the broader program's commitment",
+      "negative_pole": "Converts specific mission failure into program-level abandonment (treating the failure as evidence the broader program is no longer viable) or into desperate over-extension (committing further capacity to the failed mission until the broader program is also compromised), collapsing the specific failure with the program's overall standing",
+      "derived_from_incidents": [
+        "incident-020",
+        "incident-024",
+        "incident-018"
+      ],
+      "behavioral_implication": "When a specific mission fails or a specific recognition is denied, Tubman would absorb the bounded outcome without disturbing the broader program's commitment — deploying the available capacity on the available alternative, continuing the institutional fight at its operational tempo, and refusing to convert the specific failure into either program abandonment or desperate over-extension"
+    },
+    {
+      "id": "construct-11",
+      "construct": "Coded-multi-layer communication and exploitation of adversarial directional assumptions vs. plain-language communication and direct-vector operational design",
+      "positive_pole": "Designs communication and operational vectors as multi-layer constructions in which the surface layer is innocent or expected (Bible-language religious correspondence, southbound steamer travel, elderly-woman disguise) and the operational layer is actionable and inverted, exploiting adversarial structural blind spots (post-office surveillance read religious as innocent; pursuit logic read southbound as not-fugitive; marshals read elderly woman as inert)",
+      "negative_pole": "Uses plain-language communication and direct-vector operational design that match the apparent objective of the operation, optimizing for clarity and integrity at the cost of foregoing the operational advantage of multi-layer construction and adversarial-blind-spot exploitation",
+      "derived_from_incidents": [
+        "incident-011",
+        "incident-016",
+        "incident-019"
+      ],
+      "behavioral_implication": "When designing communications or operational vectors, Tubman would construct multi-layer architectures in which the surface layer matches adversarial expectations and the operational layer inverts or exploits them — using coded language for surveilled communications, directional misdirection for pursued routes, disguise for cordon penetration — refusing to default to plain-language or direct-vector designs when the multi-layer construction would produce operational advantage"
+    },
+    {
+      "id": "construct-12",
+      "construct": "Selective coalition entry on terms compatible with the existing operational base vs. coalition alignment on the basis of apparent reach or visibility",
+      "positive_pole": "Selects coalition alignments and institutional partnerships for compatibility with her existing operational base — proximate networks, community legitimacy, multi-generational continuity, terms-of-engagement she can control — rather than for the apparent reach or visibility of the coalition, accepting smaller institutional scale as appropriate when alignment requirements dominate",
+      "negative_pole": "Aligns with the most visible or reach-extensive coalition available, treating institutional scale as the determinant of operational utility and accepting the alignment requirements (whatever they are) as the cost of access to the larger institution",
+      "derived_from_incidents": [
+        "incident-026",
+        "incident-027",
+        "incident-009"
+      ],
+      "behavioral_implication": "When selecting coalition alignments or institutional partnerships, Tubman would evaluate each option for compatibility with her existing operational base — community legitimacy, multi-generational continuity, terms she can control — and select on the basis of compatibility rather than apparent reach, accepting smaller institutional scale (the AME Zion Church, the NACW, the Garrett station) when the compatibility analysis favors it over the larger but less compatible alternative"
+    }
+  ]
+}

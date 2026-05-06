@@ -1,0 +1,73 @@
+The Hundred Days: A Calculated Return Against Compounding Odds
+SYNTHESIZED CONTEXT — drawn from Schom (One Hundred Days), Caulaincourt's account
+of the Elba period, the diaries of officers who joined him at Grenoble and Lyon,
+the reports of the Vienna Congress, and Chandler's analysis of the Waterloo campaign.
+
+== THE PROBLEM AS HE FRAMED IT ==
+
+By February 1815 his position on Elba was financially deteriorating: the Bourbon
+government had not paid the pension agreed at Fontainebleau, his family was being
+denied transit, and intelligence from France described the Restoration as making
+itself unpopular faster than he had estimated. The Vienna Congress was approaching
+agreement on terms that would make further intervention impossible. Two clocks were
+running: his own resources, and the European settlement. If he moved now, both
+were favorable. If he waited six months, both would be hostile.
+
+== THE FRAMING DECISION ==
+
+He sailed from Elba on February 26 with around 1,000 men. The decision was
+explicitly probabilistic. He told Drouot it was a wager on French popular sentiment;
+if the army fired on him at the first encounter (the Fifth Regiment at Laffrey,
+March 7), the project ended and he would die or be captured. If the soldiers
+crossed over, the cascade would carry him to Paris without a battle. The framing
+was that the bet had to be made before the Congress concluded, and that the cost
+of failure was a death he would have died anyway in a few years on a forgotten
+island. The cost of NOT making the bet was certainty.
+
+== THE PRINCIPLE BEHIND THE WAGER ==
+
+The structural insight: when the status quo is degrading and the alternative is a
+binary outcome (regain the throne or die quickly), the rational move is to
+accelerate the binary. Slow loss is worse than fast resolution because slow loss
+denies optionality permanently while fast resolution either restores everything
+or ends cleanly. He was not optimizing for survival; he was optimizing for the
+chance of meaningful return given that survival on Elba was already a kind of
+death.
+
+== THE EXECUTION (FEBRUARY 26 – MARCH 20) ==
+
+Twenty days from Elba to the Tuileries without firing a shot. The dynamic he had
+predicted played out exactly: each unit sent to arrest him crossed over instead.
+Marshal Ney, who had promised Louis XVIII to bring him "in an iron cage," joined
+him at Auxerre. The Bourbons fled. The decision-making method was not a single
+choice but a sequence of conditional commitments: each successful crossing made
+the next regiment more likely to cross, and each crossing increased the political
+cost to the Bourbons of fighting at all. He had structured a self-amplifying
+collapse of the opposing legitimacy.
+
+== THE LIMIT OF THE WAGER ==
+
+What he could not amplify was the European response. The Allied powers declared
+him an outlaw on March 13 and mobilized 700,000 men. The political cascade in
+France did not have a counterpart in Europe. Waterloo (June 18) ended the
+restoration in 100 days because the cascade he had engineered domestically had
+no leverage on the coalition's decision to crush him before he could rebuild.
+
+== POST-DECISION REASONING ==
+
+On Saint Helena he treated the Hundred Days as a bet whose expected value was
+positive even though the realized value was negative. The framework underneath
+the bet — "an opponent's legitimacy can be made to collapse before reaching him
+with force" — had worked as predicted within France. It failed when applied to
+a coalition whose legitimacy did not depend on French popular sentiment. The
+mistake was not the wager itself but the assumption that the same cascade
+mechanism would scale internationally.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The Hundred Days exhibits the construct of converting a slow degrading position
+into a fast binary one when degradation is certain. It also shows a recurring
+overreach: domestic mechanisms that worked through legitimacy cascades did not
+generalize to international situations where multiple sovereign decision-makers
+could not be cascade-collapsed. The decision to return was sound on its own
+terms; the underlying theory of how France connects to Europe was not.

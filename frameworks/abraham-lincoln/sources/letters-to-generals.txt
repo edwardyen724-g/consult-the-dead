@@ -1,0 +1,71 @@
+Letters to Generals: Lincoln Diagnosing Strategic Reasoning Failures
+SYNTHESIZED CONTEXT — drawn from the Collected Works (Basler, ed., vols. 5–8) and
+the Lincoln/McClellan, Lincoln/Hooker, Lincoln/Meade, and Lincoln/Grant correspondence.
+
+== THE LETTERS AS DECISION-MAKING DOCUMENTS ==
+
+Lincoln's correspondence with his generals is among the richest documentary record of
+his strategic thinking, because in these letters he is doing two things simultaneously:
+giving operational direction and explaining the reasoning a competent commander should
+have already done. When he writes to a general, he reveals the criteria by which he is
+evaluating the general's decisions. The letters function as Lincoln's own working notes
+on what military judgment requires.
+
+== THE UNSENT McCLELLAN LETTER (APRIL 9, 1862) ==
+
+After McClellan complained that his force was inadequate and that the administration was
+withholding troops, Lincoln wrote a long reply that opens: "Your dispatches complaining
+that you are not properly sustained, while they do not offer suchcomplaintexplicitly,
+do really impose so." He then itemizes McClellan's actual force levels, the location and
+mission of every withheld unit, and the operational logic of the Washington defense. The
+letter reads like a forensic deconstruction of McClellan's reasoning frame: "And, once
+more let me tell you, it is indispensable to you that you strike a blow." The decision
+signal here is that Lincoln treated McClellan's complaint as a category error — the
+general was solving the wrong problem (justifying inaction by reference to enemy strength)
+rather than the right problem (acting against the available enemy with the available force).
+
+== THE HOOKER LETTER (JANUARY 26, 1863) ==
+
+The Hooker letter is the most analytically dense single document in the collection. Lincoln
+appoints Hooker to command the Army of the Potomac and immediately tells him what is
+wrong with him: ambitious to a fault, having undermined Burnside, having said the country
+needed a dictator. Then: "Only those generals who gain successes, can set up dictators."
+And: "Beware of rashness. Beware of rashness, but with energy, and sleepless vigilance,
+go forward, and give us victories." The letter shows Lincoln explicitly modeling a
+character flaw, naming it, and converting it into operational guidance. He does not ask
+Hooker to be different; he asks him to use the energy of his ambition while watching
+for its predictable failure mode.
+
+== THE MEADE LETTER AFTER GETTYSBURG (JULY 14, 1863) ==
+
+After Meade allowed Lee's army to escape across the Potomac following Gettysburg, Lincoln
+wrote a letter expressing his "deep distress" — and then did not send it. The unsent
+letter reasons: Lee was within Meade's grasp, the war could have ended, the chance was
+lost. The decision to write but not send is itself a documented Lincoln practice. He used
+writing as a way to externalize and discharge anger so that subsequent action would not
+be driven by it. The pattern recurs across the war years: the letter is composed, the
+analysis is preserved, the explosive expression is not transmitted. The technique converts
+the emotion into a decision input rather than a decision driver.
+
+== THE GRANT CORRESPONDENCE ==
+
+With Grant, Lincoln's letters change in tone. Where the McClellan letters explain, the
+Grant letters confirm. The April 30, 1864 letter on the eve of the Wilderness campaign:
+"The particulars of your plan I neither know, or seek to know. You are vigilant and
+self-reliant; and, pleased with this, I wish not to obtrude any constraints or restraints
+upon you." This is a remarkable document: Lincoln tells his commanding general that he
+is deliberately staying out of operational planning. He had calibrated which commander
+needed which kind of supervision. Where McClellan needed pressure to act, Grant needed
+freedom to act. The selection rule: match the supervisory style to the failure mode of
+the subordinate.
+
+== WHAT THE LETTERS REVEAL AS A SET ==
+
+Read together, the letters show a consistent decision-making instrument. Lincoln evaluates
+his generals not on outcomes but on the soundness of their decision processes — whether
+they reason about whole theaters or individual battles, whether they treat absent
+information as licensing inaction, whether they confuse caution with prudence. He believes
+strategic judgment is a teachable skill but only inside a person who is already willing
+to be wrong in public. Generals who could not survive the public exposure of error were
+generals he eventually replaced. He treated the war as a sequence of selection decisions
+on personnel, with operational guidance as an interim diagnostic to inform the selection.

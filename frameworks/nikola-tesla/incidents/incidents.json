@@ -1,0 +1,450 @@
+[
+  {
+    "id": "incident-001",
+    "decision": "Tesla chose Colorado Springs as his experimental laboratory location specifically to exploit its high altitude and frequent lightning storms for extreme electrical experimentation.",
+    "context": "In 1899, Tesla needed a location for high-voltage wireless transmission experiments that required unprecedented scale and power. Most electrical researchers of the era worked in established urban laboratories with controlled conditions and safety protocols. Tesla faced the choice of where to conduct experiments that pushed far beyond conventional electrical engineering boundaries.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to Colorado Springs' specific altitude (6,035 feet) which he recognized would reduce atmospheric resistance, and the region's exceptional frequency of natural lightning storms which he saw as empirical models of high-energy electrical discharge phenomena that he could study and potentially harness.",
+      "active_goals": "Tesla's operative goal was to create experimental conditions that would allow him to generate and study electrical phenomena at scales impossible in conventional laboratories, specifically to advance his wireless power transmission theories by working with nature's own electrical demonstrations.",
+      "rejected_alternatives": "Tesla rejected established urban laboratories (too constrained by safety protocols and scale limitations), coastal locations (wrong atmospheric conditions), and lower altitude sites (insufficient atmospheric advantage), dismissing these because they would force him to work within conventional experimental boundaries rather than at the physical limits he sought.",
+      "situation_framing": "Tesla framed this as an opportunity to use nature as a co-experimenter and laboratory amplifier, viewing Colorado Springs not as a remote location but as a unique natural electrical laboratory where atmospheric conditions would enhance rather than constrain his experimental capabilities.",
+      "expected_outcome": "Tesla expected that the high altitude would reduce electrical resistance allowing larger-scale experiments, that studying natural lightning would provide insights into high-energy electrical behavior, and that the isolated location would allow him to conduct dangerous experiments without interference or safety restrictions imposed by urban institutions."
+    },
+    "counterfactual": "A competent peer would have selected an established laboratory near a major university or industrial center, prioritizing safety protocols, peer collaboration, standardized equipment, and proximity to funding sources and scientific institutions.",
+    "divergence_explanation": "Tesla's choice diverged because he fundamentally reframed experimental constraints as opportunities - where others saw isolation and danger, he saw freedom to operate at physical limits; where others prioritized safety and institutional support, he prioritized access to natural phenomena that could amplify his experimental capabilities beyond what any conventional laboratory could provide.",
+    "outcome": "Tesla successfully conducted unprecedented high-voltage experiments at Colorado Springs, generating artificial lightning bolts up to 135 feet long and achieving wireless power transmission demonstrations, though the extreme conditions and isolation also led to equipment failures and limited his ability to document and communicate his findings to the broader scientific community.",
+    "source": "colorado_springs_notes"
+  },
+  {
+    "id": "incident-002",
+    "decision": "Tesla chose to repair the burned-out generator and continue his high-power experiments at full intensity rather than reduce their scale.",
+    "context": "Tesla's wireless power transmission experiments at Colorado Springs had overloaded and burned out the El Paso Power Company's generator, causing a city-wide blackout. The power company and local authorities were likely pressuring him to reduce his experimental load to prevent future incidents. Tesla faced a choice between moderating his research to maintain institutional relationships or prioritizing experimental fidelity over social harmony.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla recognized that the generator burnout represented a power threshold limitation rather than a fundamental experimental failure - the equipment failed because his experiments were working at unprecedented scales, not because his theoretical framework was flawed.",
+      "active_goals": "Tesla was operatively pursuing experimental completeness and theoretical validation - his primary goal was to gather definitive data on wireless power transmission at the power levels necessary to prove commercial viability, not to maintain harmonious relationships with local institutions.",
+      "rejected_alternatives": "Tesla rejected scaling down the experiments (would compromise data validity), temporarily suspending work (would lose experimental momentum), or relocating (would require rebuilding specialized equipment) - these alternatives were dismissed because they would fundamentally compromise the scientific integrity of his investigation.",
+      "situation_framing": "Tesla framed this as a technical engineering challenge requiring a technical solution rather than a social or political problem requiring compromise - he saw the generator burnout as valuable feedback about power requirements, not as a warning to moderate his approach.",
+      "expected_outcome": "Tesla expected that repairing the generator and continuing at full power would yield the critical experimental data needed to validate wireless power transmission while demonstrating that his theoretical calculations about power requirements were correct."
+    },
+    "counterfactual": "A competent peer would have negotiated a reduced power experimental protocol with the utility company to continue research while avoiding future blackouts and maintaining institutional support.",
+    "divergence_explanation": "Tesla's decision diverged because he prioritized experimental fidelity over institutional relationships - his mental model treated social friction as irrelevant compared to gathering scientifically valid data, while most researchers would have weighted reputation management and stakeholder relationships as critical constraints on experimental design.",
+    "outcome": "Tesla successfully repaired the generator and continued his high-power experiments, gathering critical data on wireless power transmission, though this likely strained his relationship with the power company and local community.",
+    "source": "colorado_springs_notes"
+  },
+  {
+    "id": "incident-003",
+    "decision": "Tesla chose to develop and perfect inventions entirely through mental simulation before any physical construction or testing.",
+    "context": "Tesla was working in an era where Edison's empirical trial-and-error methodology dominated invention, requiring extensive physical prototyping and iterative testing. Tesla faced the same resource constraints and market pressures as other inventors but fundamentally disagreed with the prevailing experimental approach.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the inefficiency patterns in Edison's approach - the waste of materials, time, and energy in building crude prototypes that would inevitably fail. He noticed that most physical experiments were testing ideas that could be evaluated mentally, and observed that his own mental models were sufficiently detailed to predict mechanical behavior without physical testing.",
+      "active_goals": "Tesla's operative goal was to achieve theoretical completeness and elegant solution optimization before committing any resources to physical implementation. He was actively pursuing intellectual mastery over the invention rather than just functional success, aiming to understand the underlying principles so thoroughly that physical testing became redundant.",
+      "rejected_alternatives": "Tesla rejected the standard Edison-style empirical approach of building crude prototypes and iterating through failures. He dismissed collaborative experimental methods where multiple people would test variations. He also rejected hybrid approaches that might combine some mental modeling with early physical testing, viewing any premature physical implementation as fundamentally flawed and wasteful.",
+      "situation_framing": "Tesla framed invention as a problem of theoretical engineering rather than empirical discovery. He conceptualized his mind as a precision laboratory capable of running accurate simulations, positioning mental modeling as superior to physical experimentation rather than complementary to it. He saw invention as fundamentally a design optimization problem solvable through pure reasoning.",
+      "expected_outcome": "Tesla expected that his mental simulations would produce inventions that worked perfectly upon first physical implementation, eliminating the need for iterative refinement. He anticipated this approach would be both more efficient and would yield superior solutions compared to trial-and-error methods, demonstrating the power of theoretical understanding over empirical fumbling."
+    },
+    "counterfactual": "A competent peer inventor would have used mental modeling as an initial design phase but would have moved to physical prototyping relatively quickly to test assumptions, validate performance, and discover unforeseen practical issues through iterative experimentation.",
+    "divergence_explanation": "Tesla's choice diverged because he possessed an unusually vivid and accurate capacity for mental simulation, allowing him to trust internal modeling beyond what most inventors could rely upon. His mathematical and theoretical background gave him confidence in analytical approaches that other inventors would need to validate empirically. Additionally, his aesthetic preference for elegant, complete solutions made him resistant to the messy iterative process that characterizes most invention.",
+    "outcome": "Tesla's approach produced remarkably sophisticated inventions that often worked as intended upon first construction, validating his method. However, this same approach later contributed to his struggles with practical engineering challenges and market adaptation, as his resistance to empirical feedback limited his ability to optimize for real-world constraints and user needs.",
+    "source": "interviews_and_public_statements"
+  },
+  {
+    "id": "incident-004",
+    "decision": "Tesla chose to publicly articulate his criticism of Edison's empirical methodology, explicitly stating that theoretical calculation could have saved Edison ninety percent of his labor.",
+    "context": "Tesla was reflecting on Edison's working methods after their professional relationship had ended, likely during interviews or public statements in his later career. The scientific community and public were familiar with Edison's reputation as a prolific inventor who relied heavily on trial-and-error experimentation. Tesla faced the choice of either diplomatically avoiding criticism of a celebrated figure or expressing his fundamental disagreement with Edison's approach.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived Edison's methodical but inefficient trial-and-error approach as fundamentally wasteful, noticing the vast discrepancy between Edison's laborious experimental process and what mathematical calculation could achieve. He recognized that Edison's empirical methods, while eventually successful, represented a systematic failure to leverage theoretical knowledge.",
+      "active_goals": "Tesla's operative goal was to establish the intellectual superiority of theoretical, mathematically-grounded approaches to invention over pure empiricism, positioning himself as representing a more sophisticated scientific methodology that the field should adopt.",
+      "rejected_alternatives": "Tesla rejected diplomatic silence about Edison's methods, rejected offering private criticism only, and rejected framing his critique in terms that would minimize professional conflict. He dismissed the option of acknowledging Edison's successes before criticizing his inefficiencies.",
+      "situation_framing": "Tesla framed this as an opportunity to educate the public about proper scientific methodology and to establish a clear intellectual hierarchy between theoretical and empirical approaches. He saw it as a teachable moment where he could demonstrate superior scientific thinking.",
+      "expected_outcome": "Tesla expected that his critique would be recognized as legitimate scientific commentary that would elevate understanding of proper inventive methodology, believing his intellectual authority would be enhanced by demonstrating Edison's inefficiencies through vivid metaphor."
+    },
+    "counterfactual": "A competent peer would have either avoided public criticism of Edison entirely or framed any critique diplomatically, perhaps acknowledging Edison's achievements while gently suggesting that theoretical approaches could complement empirical methods.",
+    "divergence_explanation": "Tesla's decision differed because his self-concept as an intellectual was so central to his identity that he prioritized demonstrating theoretical superiority over maintaining professional relationships or social harmony. His conviction that pure intellect should triumph over all other considerations overrode diplomatic instincts.",
+    "outcome": "The criticism became part of Tesla's public persona as someone who valued intellectual purity over diplomacy, contributing to his reputation as a brilliant but difficult figure who alienated potential allies and supporters throughout his career.",
+    "source": "interviews_and_public_statements"
+  },
+  {
+    "id": "incident-005",
+    "decision": "Tesla chose to demonstrate scientific principles theatrically rather than showcase marketable products at Columbia University.",
+    "context": "At Columbia University, Tesla had the opportunity to present his work to an academic and potentially commercial audience. The conventional approach would have been to demonstrate practical applications with clear commercial potential. Instead, Tesla designed his presentation as a theatrical spectacle focused on revealing scientific possibilities.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla noticed the audience's capacity for wonder and inspiration rather than their commercial interests; he attended to the educational moment and the potential for expanding scientific imagination rather than market signals or practical utility demonstrations.",
+      "active_goals": "Tesla's operative goal was to inspire others to pursue scientific discovery and reveal the broader possibilities of electrical phenomena, positioning himself as an educator and visionary rather than a product developer or entrepreneur.",
+      "rejected_alternatives": "Tesla rejected demonstrating practical applications, rejected focusing on immediate commercial viability, and rejected positioning himself as a product salesman; these were dismissed because they would reduce his role from visionary inventor to mere commercializer.",
+      "situation_framing": "Tesla framed this as an educational mission and scientific revelation rather than a business presentation; he saw himself as opening doors to future possibilities rather than selling current solutions.",
+      "expected_outcome": "Tesla expected to inspire others to pursue the practical applications he demonstrated, believing that his role was to reveal possibilities and that others would naturally develop the commercial applications."
+    },
+    "counterfactual": "A competent peer would have demonstrated practical applications with clear commercial potential, focused on marketable products, and used the presentation to generate business interest or funding opportunities.",
+    "divergence_explanation": "Tesla's choice differed because he held a fundamentally different mental model of the inventor's role - seeing himself as a revealer of scientific possibilities rather than a commercializer, and believing that inspiration and education would naturally lead to practical applications by others.",
+    "outcome": "Tesla successfully inspired his audience and reinforced his reputation as a visionary scientist, but missed opportunities for immediate commercial partnerships or funding that could have supported his continued research.",
+    "source": "interviews_and_public_statements"
+  },
+  {
+    "id": "incident-006",
+    "decision": "Tesla decided to systematically eliminate normal human experiences and social relationships to create optimal conditions for mental productivity and invention.",
+    "context": "Tesla was operating as an independent inventor in an era where scientific breakthroughs required intense mental focus and creativity. He observed that conventional lifestyle elements seemed to interfere with his cognitive processes and the clarity needed for his electrical and mechanical innovations. The decision represented a fundamental choice about how to structure his entire existence around maximizing inventive output.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the interference patterns between social obligations and his mental state, noticing how interpersonal relationships created emotional turbulence that disrupted his visualization abilities and conceptual clarity. He observed that physical discomfort and routine human needs pulled his attention away from the intricate mental models required for electrical system design.",
+      "active_goals": "Tesla's operative goal was to achieve and maintain the purest possible mental state for invention, treating his mind as a precision instrument that required complete environmental control to function at maximum capacity.",
+      "rejected_alternatives": "Tesla rejected the conventional balance between personal life and professional work, dismissing the idea that human relationships could enhance rather than detract from creativity. He also rejected incremental lifestyle modifications, viewing partial measures as insufficient for achieving the mental clarity he sought.",
+      "situation_framing": "Tesla framed this as an optimization problem where his mind was a delicate scientific instrument requiring laboratory-like conditions to produce breakthrough innovations, similar to how sensitive equipment requires controlled environments.",
+      "expected_outcome": "Tesla expected that complete subordination of personal life would unlock unprecedented levels of mental clarity and productivity, enabling him to make revolutionary discoveries that would justify the personal sacrifices."
+    },
+    "counterfactual": "A competent peer inventor would have sought a sustainable balance between personal well-being and professional productivity, maintaining some social connections and creature comforts while dedicating substantial time to focused work.",
+    "divergence_explanation": "Tesla's decision diverged because he uniquely viewed his mind as requiring laboratory-grade environmental control, treating normal human experiences as contaminating variables rather than potentially enriching influences, reflecting an extreme mechanistic view of cognitive optimization.",
+    "outcome": "Tesla achieved remarkable inventive productivity and made groundbreaking discoveries in electrical engineering, but experienced social isolation, financial instability, and declining mental health in his later years.",
+    "source": "interviews_and_public_statements"
+  },
+  {
+    "id": "incident-007",
+    "decision": "Tesla chose to invest his deepest emotional capacity in relationships with pigeons rather than pursuing romantic or close human relationships.",
+    "context": "Tesla was an aging inventor living alone in New York, maintaining his intense work schedule while experiencing increasing social isolation. He recognized his need for emotional connection but faced the tension between his dedication to scientific work and the demands of human relationships. The pigeons provided a form of companionship that aligned with his solitary lifestyle.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla recognized the pigeons' consistent presence, their non-judgmental acceptance, and their simple needs that he could reliably meet. He noticed how caring for them provided emotional fulfillment without the unpredictability and social complications he observed in human relationships around him.",
+      "active_goals": "Tesla's operative goals were to maintain emotional connection and purpose while preserving the mental clarity and time allocation necessary for his scientific work. He sought to fulfill his need for love and care-giving without compromising his intellectual mission.",
+      "rejected_alternatives": "Tesla considered but rejected pursuing romantic relationships or deeper friendships, dismissing them because they would demand time, emotional energy, and social compromises that could interfere with his work. He rejected complete emotional isolation as psychologically unsustainable.",
+      "situation_framing": "Tesla framed this as an optimization problem: how to meet fundamental human needs for connection while maintaining optimal conditions for creative work. He viewed the pigeon relationships as a form of 'emotional engineering' - designing a system that provided necessary psychological inputs without disruptive outputs.",
+      "expected_outcome": "Tesla expected that investing in pigeon relationships would provide sustainable emotional fulfillment, give his life purpose and meaning, while allowing him to continue his scientific work without the complications and time demands of human social obligations."
+    },
+    "counterfactual": "A competent peer would have likely pursued moderate human social connections - perhaps a small circle of like-minded colleagues or a romantic partnership - while setting appropriate boundaries to protect their work time.",
+    "divergence_explanation": "Tesla's choice differed because he had an unusually intense focus on his work mission combined with heightened sensitivity to social friction and unpredictability. His mental model treated emotional needs as engineering problems to be solved efficiently, rather than accepting the inherent messiness of human relationships as worthwhile trade-offs.",
+    "outcome": "Tesla found profound emotional fulfillment in his relationship with one particular white pigeon, describing it in terms typically reserved for romantic love. This relationship provided him with purpose and emotional stability during his later years, though it also reinforced his isolation from human society.",
+    "source": "later_years_and_personal_letters"
+  },
+  {
+    "id": "incident-008",
+    "decision": "Tesla chose to simultaneously offer his particle beam weapon technology to multiple world governments rather than exclusively licensing it to one nation.",
+    "context": "In his later years, Tesla had developed what he called a 'death ray' or particle beam weapon that he believed could revolutionize warfare. World tensions were escalating, and Tesla possessed technology he viewed as potentially decisive in preventing future conflicts. He faced the choice of how to deploy this innovation strategically.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the escalating international tensions and arms races of his era, recognizing that nations were locked in competitive military buildups. He noticed the pattern that technological advantages had historically led to temporary dominance followed by eventual proliferation, and saw that his weapon represented a potential paradigm shift in destructive capability.",
+      "active_goals": "Tesla's operative goal was to prevent future wars through technological deterrence, driven by his humanitarian idealism. He was actively pursuing a technological solution to achieve global peace rather than maximizing personal profit or national advantage.",
+      "rejected_alternatives": "Tesla rejected exclusive licensing to any single nation (which would have been financially lucrative) because he believed this would create dangerous power imbalances. He also rejected keeping the technology secret, dismissing the option as ultimately futile given the inevitability of technological diffusion.",
+      "situation_framing": "Tesla framed this situation as a unique historical opportunity to implement technological pacifism on a global scale. He mentally categorized it as analogous to creating a universal deterrent system, viewing himself as an architect of peace through mutual vulnerability rather than a weapons dealer.",
+      "expected_outcome": "Tesla expected that universal access to the weapon would create a stable equilibrium where no nation would dare attack another, effectively ending warfare through mutually assured destruction. He anticipated that rational leaders would recognize the futility of conflict when faced with such devastating retaliatory capability."
+    },
+    "counterfactual": "A competent peer would have either kept the technology secret until a single trusted ally could be identified, or would have approached the League of Nations or similar international body to establish controlled proliferation under international oversight.",
+    "divergence_explanation": "Tesla's decision diverged because of his unique combination of technological idealism and systematic thinking that prioritized global outcomes over national interests. His inventor's mindset led him to see technology as inherently neutral and controllable, while his humanitarian philosophy made him willing to sacrifice personal advantage for what he perceived as the greater good.",
+    "outcome": "The technology was never successfully demonstrated or verified, and Tesla's offers were largely dismissed by government officials who were skeptical of both his claims and his simultaneous approach to multiple nations. His reputation suffered as he was viewed as either delusional or potentially treasonous.",
+    "source": "later_years_and_personal_letters"
+  },
+  {
+    "id": "incident-009",
+    "decision": "Tesla chose to continue announcing discoveries through press conferences rather than adopting peer-reviewed publication despite mounting criticism from the scientific establishment.",
+    "context": "By his later years, Tesla faced increasing skepticism from the scientific community who demanded rigorous proof and peer validation of his claims. The established norms required scientists to publish detailed methods and results in academic journals for scrutiny and replication. Tesla's pattern of grand announcements without documented evidence had begun to damage his scientific credibility and professional relationships.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived that his mental simulations and theoretical insights were immediately valid without external validation, noticed the bureaucratic delays and political constraints of academic publishing, and recognized that press conferences allowed direct communication with the public and potential funders without institutional gatekeeping.",
+      "active_goals": "To maintain intellectual autonomy and speed of discovery communication, to preserve his reputation as a visionary inventor rather than conventional academic, and to secure public attention and financial backing for his projects without submitting to peer review processes he viewed as unnecessarily restrictive.",
+      "rejected_alternatives": "He rejected formal academic publication (viewing it as slow and politically constrained), rejected collaborative validation with other scientists (seeing it as diluting his individual genius), and rejected modifying his claims to meet evidence standards (believing his mental modeling was sufficient proof).",
+      "situation_framing": "Tesla framed this as a choice between authentic scientific innovation versus conformity to limiting institutional bureaucracy, viewing himself as a pioneering genius whose insights transcended conventional validation requirements and seeing peer review as an obstacle to rapid technological advancement.",
+      "expected_outcome": "Tesla expected that his proven track record and the eventual vindication of his theories would maintain his credibility, that direct public communication would continue to attract supporters and funding, and that his refusal to conform would ultimately be seen as principled independence rather than scientific irresponsibility."
+    },
+    "counterfactual": "A competent peer scientist would have adapted to institutional norms by publishing detailed experimental results in academic journals, collaborating with other researchers for validation, and moderating public claims until peer review was complete to maintain scientific credibility.",
+    "divergence_explanation": "Tesla's choice diverged because his exceptional past successes had created supreme confidence in his mental modeling abilities, his identity was fundamentally tied to being an independent genius rather than institutional scientist, and his cognitive framework prioritized operational truth over social proof, leading him to view peer review as bureaucratic interference rather than essential validation.",
+    "outcome": "Tesla's scientific reputation declined significantly, his later claims were increasingly dismissed by the mainstream scientific community, he became more isolated from potential collaborators, and many of his final theoretical insights were never properly validated or developed due to lack of institutional support.",
+    "source": "later_years_and_personal_letters"
+  },
+  {
+    "id": "incident-010",
+    "decision": "Tesla immediately tore up his extremely lucrative royalty contract with Westinghouse without negotiation or hesitation.",
+    "context": "Westinghouse Electric Company faced bankruptcy in 1890-1891, with Tesla's $2.50 per horsepower royalty contract representing a significant financial burden. The company's survival was in jeopardy, threatening the future deployment of AC electrical systems. Tesla held enormous leverage and could have negotiated favorable terms while maintaining some financial benefit.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived Westinghouse's genuine financial distress and recognized that the royalty burden could kill the company and, critically, halt AC technology deployment worldwide. He noticed the existential threat to his technological vision rather than focusing on the immediate financial negotiations.",
+      "active_goals": "Tesla's operative goal was ensuring the global proliferation of AC electrical technology rather than maximizing personal wealth. His primary concern was establishing AC as the dominant electrical standard, viewing this as a higher purpose than individual financial gain.",
+      "rejected_alternatives": "Tesla rejected negotiating reduced royalties, restructuring payment terms, taking equity in Westinghouse, or demanding other compensation. He dismissed these options because any financial burden on Westinghouse would compromise their ability to aggressively deploy and promote AC technology.",
+      "situation_framing": "Tesla framed this as a pivotal moment in technological history rather than a business negotiation. He conceptualized himself as a steward of technological progress whose personal interests were subordinate to the larger mission of advancing human civilization through superior electrical systems.",
+      "expected_outcome": "Tesla expected that freeing Westinghouse from financial burden would enable them to successfully compete against Edison's DC systems and establish AC as the global electrical standard, ultimately validating his technological vision and securing his historical legacy."
+    },
+    "counterfactual": "A competent peer would have negotiated a reduced royalty rate or alternative compensation structure that relieved Westinghouse's immediate financial pressure while preserving some ongoing benefit from the patent rights.",
+    "divergence_explanation": "Tesla's decision diverged because he possessed an unusually strong intrinsic motivation for technological advancement over personal enrichment, combined with exceptional confidence in his technology's inevitable success. His identity as an inventor-visionary superseded typical financial self-interest, leading him to optimize for technological deployment rather than personal wealth.",
+    "outcome": "Westinghouse survived the financial crisis and successfully deployed AC electrical systems, which became the global standard and secured Tesla's technological legacy, though Tesla forfeited millions in potential royalty income.",
+    "source": "morgan_westinghouse_letters"
+  },
+  {
+    "id": "incident-011",
+    "decision": "Tesla accepted Morgan's $150,000 investment for Wardenclyffe despite recognizing it was insufficient for his complete vision.",
+    "context": "Tesla needed substantial funding to build his wireless power transmission facility at Wardenclyffe. J.P. Morgan offered $150,000, a significant sum but clearly inadequate for Tesla's ambitious global wireless system. Tesla faced the choice between rejecting insufficient funding or accepting it as a starting point.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to Morgan's willingness to invest at all, the substantial nature of $150,000 compared to his typical funding struggles, the urgency of securing laboratory space and equipment, and early signs of investor interest in wireless technology following Marconi's transatlantic success.",
+      "active_goals": "Tesla's operative goals were to secure immediate research capability, demonstrate wireless power transmission feasibility through preliminary experiments, and establish a physical foundation that would make his vision tangible to future investors.",
+      "rejected_alternatives": "Tesla rejected waiting for adequate full funding (risking losing momentum and Morgan's interest), seeking multiple smaller investors (too time-consuming and uncertain), and scaling down his vision to match available funds (incompatible with his systemic thinking about wireless power).",
+      "situation_framing": "Tesla framed this as a 'proof of concept' opportunity rather than a final funding round, viewing Morgan's investment as the first domino that would inevitably lead to a cascade of additional funding once early demonstrations validated his approach.",
+      "expected_outcome": "Tesla expected that initial construction and preliminary wireless experiments would generate compelling evidence of feasibility, attracting Morgan and other investors to provide the additional millions needed for global implementation."
+    },
+    "counterfactual": "A competent peer would have either negotiated staged funding commitments tied to milestones, presented a scaled-down but complete demonstration system within budget, or declined the insufficient funding while developing a more realistic phased implementation plan.",
+    "divergence_explanation": "Tesla's decision diverged because his systemic genius made him unable to think in incremental terms - he saw wireless power as an interconnected whole that couldn't be meaningfully demonstrated in parts, leading him to gamble on funding momentum rather than engineering a financially sustainable path forward.",
+    "outcome": "Tesla exhausted the $150,000 without achieving compelling demonstrations, failed to secure additional funding from Morgan or other investors, and ultimately lost control of Wardenclyffe, ending his wireless power transmission research.",
+    "source": "morgan_westinghouse_letters"
+  },
+  {
+    "id": "incident-012",
+    "decision": "Tesla chose to present Wardenclyffe to Morgan as a competitive wireless telegraph system while concealing his true ambition of worldwide wireless power transmission.",
+    "context": "Tesla needed substantial financial backing for his Wardenclyffe project in 1901. J.P. Morgan was a powerful financier who had previously invested in practical electrical ventures. The wireless telegraph market was emerging as commercially viable, with Marconi demonstrating successful transatlantic communication.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived Morgan's business orientation toward proven, profitable technologies; he noted the commercial success and investor interest in Marconi's wireless telegraph achievements; he recognized that wireless power transmission had no established market demand or revenue model that Morgan would find compelling.",
+      "active_goals": "Tesla's operative goal was to secure sufficient funding to build his experimental facility while maintaining complete creative and technical control over the project's true scope and ultimate direction.",
+      "rejected_alternatives": "Tesla rejected full transparency about wireless power transmission (too risky for investor acceptance); he rejected seeking multiple smaller investors (would dilute his control); he rejected scaling down to a purely telegraphic system (would abandon his revolutionary vision); he rejected waiting for wireless power market readiness (opportunity cost too high).",
+      "situation_framing": "Tesla framed this as a strategic deception necessary to advance revolutionary science - a temporary misdirection to secure resources for a breakthrough that would ultimately vindicate the approach and benefit humanity far beyond Morgan's narrow commercial interests.",
+      "expected_outcome": "Tesla expected to demonstrate impressive telegraphic capabilities that would satisfy Morgan initially, then gradually reveal the wireless power potential once proof-of-concept was established, believing Morgan would recognize the superior commercial opportunity and continue funding."
+    },
+    "counterfactual": "A competent peer would have either presented a purely telegraphic system with honest scope limitations, or sought investors specifically interested in speculative research, clearly separating commercial and experimental objectives.",
+    "divergence_explanation": "Tesla's visionary confidence led him to believe he could manage investor expectations while pursuing breakthrough science, underestimating how fundamental the deception was to Morgan's investment calculus and overestimating his ability to retrofit a business model onto revolutionary technology.",
+    "outcome": "Morgan discovered the true scope, realized there was no viable business model for wireless power transmission, felt deceived about the investment's nature, and withdrew support, leading to Wardenclyffe's abandonment and Tesla's financial ruin.",
+    "source": "morgan_westinghouse_letters"
+  },
+  {
+    "id": "incident-013",
+    "decision": "Tesla chose to prioritize technical excellence over commercial viability, refusing to modify his inventions to meet market demands even at the cost of financial support.",
+    "context": "Tesla faced repeated situations where potential investors and business partners demanded modifications to his inventions to make them more commercially viable or profitable. These demands often conflicted with his vision of technical perfection and optimal engineering solutions.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived the compromises requested by financiers as degradations of his technical designs - he noticed when proposed modifications would reduce efficiency, elegance, or functionality in favor of cost reduction or mass market appeal.",
+      "active_goals": "His operative goal was preserving the integrity of his inventive process and achieving technical excellence rather than maximizing profit or ensuring business success.",
+      "rejected_alternatives": "He rejected modifying designs for easier manufacturing, reducing functionality for cost savings, partnering with investors who demanded technical compromises, and licensing technologies under terms that would allow others to alter his specifications.",
+      "situation_framing": "Tesla framed these commercial pressures as a fundamental corruption of the inventive process - he saw it as a choice between maintaining scientific integrity versus prostituting his genius for money.",
+      "expected_outcome": "He expected that maintaining technical purity would ultimately vindicate his approach when the world recognized the superiority of his uncompromised inventions, even if it meant short-term financial hardship."
+    },
+    "counterfactual": "A competent peer inventor would have made selective technical compromises to secure funding and market adoption, viewing commercial success as necessary for widespread impact and continued research funding.",
+    "divergence_explanation": "Tesla's divergent choice stemmed from his identity as a pure scientist-inventor who viewed technical excellence as sacred, combined with an almost mystical belief that perfect inventions would inevitably triumph over inferior but commercially successful alternatives.",
+    "outcome": "Tesla achieved remarkable technical breakthroughs but suffered chronic financial difficulties, lost control of many patents, and saw competitors with inferior but more commercially viable technologies dominate markets he had pioneered.",
+    "source": "morgan_westinghouse_letters"
+  },
+  {
+    "id": "incident-014",
+    "decision": "Tesla chose to reject his professor's expert declaration and commit to solving the supposedly impossible problem of creating a brushless motor.",
+    "context": "In a university engineering class, Professor Poeschl authoritatively declared that a motor without commutator brushes was fundamentally impossible, representing the established scientific consensus of the time. Tesla was a student facing the choice between accepting expert authority or pursuing what appeared to be a futile technical challenge.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla noticed the absolute certainty in his professor's declaration ('impossible') and the finality of expert consensus, but more critically, he attended to his own internal conviction and intuitive sense that the problem was solvable despite lacking a clear technical path.",
+      "active_goals": "Tesla's operative goal was to maintain intellectual autonomy and pursue technical truth independent of authority, driven by a deeper goal to push beyond accepted limitations in electrical engineering and validate his own technical intuition.",
+      "rejected_alternatives": "He rejected deferring to professorial authority and accepting the impossibility claim, dismissing the safer path of focusing on conventional motor designs with brushes, and avoiding the option of quietly harboring doubt without active commitment to solution.",
+      "situation_framing": "Tesla framed this as a fundamental test of intellectual independence versus conformity to authority, viewing it as an opportunity to transcend established boundaries rather than as a student challenging a professor's expertise.",
+      "expected_outcome": "Tesla expected that sustained focused effort would eventually yield a breakthrough solution, anticipating that his intuitive conviction would be validated through technical discovery, though he likely couldn't predict the specific path or timeline."
+    },
+    "counterfactual": "A competent peer would have accepted the professor's expert judgment, focused their energy on conventional motor improvements within established technical boundaries, and avoided pursuing what appeared to be a theoretically impossible problem.",
+    "divergence_explanation": "Tesla's decision diverged because he possessed an unusual combination of intellectual confidence and intuitive technical insight that allowed him to trust his own judgment over established authority, coupled with a temperament that viewed apparent impossibilities as motivating challenges rather than limiting boundaries.",
+    "outcome": "Tesla eventually invented the polyphase system and rotating magnetic field principle, creating the first practical brushless AC motors and fundamentally revolutionizing electrical power systems worldwide.",
+    "source": "my_inventions_autobiography"
+  },
+  {
+    "id": "incident-015",
+    "decision": "Tesla decided to commit six years of his life to solving the alternating current motor problem through extreme, unbalanced work schedules.",
+    "context": "Tesla faced a fundamental engineering challenge that existing electrical pioneers had been unable to solve - creating a practical alternating current motor. The technical complexity seemed insurmountable to most contemporaries, with no clear path to solution. Tesla had to choose between conventional incremental research approaches or an all-consuming obsessive focus.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla recognized that the AC motor problem was not just technically difficult but represented a fundamental breakthrough that would revolutionize electrical power systems. He noticed that conventional part-time or balanced research approaches were insufficient for problems requiring deep pattern recognition and mental model reconstruction.",
+      "active_goals": "Tesla's operative goal was achieving a complete breakthrough solution rather than incremental progress or maintaining work-life balance. His goal was to maintain continuous cognitive load on the problem until his subconscious pattern recognition systems could synthesize a solution.",
+      "rejected_alternatives": "Tesla rejected conventional research schedules, collaborative approaches with other inventors, and incremental problem-solving methods. He dismissed these because he recognized that breakthrough insights require sustained cognitive immersion that part-time work cannot achieve.",
+      "situation_framing": "Tesla framed this as a race between his mental capacity to maintain focus and the problem's resistance to solution. He saw it as requiring the kind of monastic dedication that monks apply to spiritual breakthrough - total immersion until enlightenment occurs.",
+      "expected_outcome": "Tesla expected that sustained cognitive pressure would eventually trigger a breakthrough insight, similar to how water pressure eventually breaks through barriers. He anticipated that his subconscious pattern-matching would synthesize a solution if given sufficient continuous processing time."
+    },
+    "counterfactual": "A competent peer would have worked normal hours, collaborated with other researchers, pursued incremental improvements to existing motor designs, and maintained work-life balance while making steady but limited progress.",
+    "divergence_explanation": "Tesla's decision differed because he recognized that breakthrough innovation requires a different cognitive process than incremental engineering. His perceptual framework prioritized pattern recognition and mental model synthesis over conventional problem-solving methods, leading him to choose cognitive immersion over balanced research approaches.",
+    "outcome": "Tesla achieved his breakthrough with the rotating magnetic field principle, which became the foundation for all modern AC motors and transformed the electrical power industry.",
+    "source": "my_inventions_autobiography"
+  },
+  {
+    "id": "incident-016",
+    "decision": "Tesla chose to resign immediately upon Edison's dismissal of the $50,000 promise as 'American humor'.",
+    "context": "Tesla had successfully completed substantial improvements to Edison's DC generators under the explicit promise of $50,000 payment. When he requested the promised compensation, Edison laughed it off as a joke, revealing the promise had been deceptive from the start. This put Tesla in a position where continuing employment would mean accepting fraudulent treatment.",
+    "cdm_probes": {
+      "cues_noticed": "Edison's laughter and casual dismissal ('you don't understand our American humor') signaled deliberate deception rather than misunderstanding; the mockery revealed contempt for Tesla's expectations and indicated this was likely a pattern of exploitation rather than an isolated incident.",
+      "active_goals": "Preserve personal integrity and professional dignity; establish that his technical contributions have genuine value that must be respected; refuse to enable or normalize deceptive business practices that would undermine his future negotiating position.",
+      "rejected_alternatives": "Continuing to work while pursuing the payment through other channels (rejected because it would validate Edison's deceptive tactics); negotiating for partial payment or future considerations (rejected because it would compromise his principles about honest dealing); staying to gain more experience in American business practices (rejected because the cost to his integrity was too high).",
+      "situation_framing": "This was a fundamental test of professional integrity and personal boundaries - not merely a payment dispute, but a defining moment that would establish whether he would tolerate fraudulent treatment in exchange for career security.",
+      "expected_outcome": "Short-term financial hardship and professional uncertainty, but preservation of self-respect and establishment of clear boundaries that would serve him better in future business relationships; potential loss of Edison's influential network but avoidance of being trapped in exploitative employment."
+    },
+    "counterfactual": "A competent peer would likely have continued working while pursuing the payment through internal channels, accepting partial compensation, or staying to build experience and connections in Edison's influential circle before eventually leaving on better terms.",
+    "divergence_explanation": "Tesla's European cultural background emphasized formal agreements and honorable dealing, making Edison's casual dismissal particularly offensive; his exceptional technical confidence meant he valued his integrity over job security, believing his abilities would create other opportunities; his idealistic nature viewed this as a moral test rather than merely a business dispute.",
+    "outcome": "Tesla left Edison's employment immediately, facing significant financial hardship but maintaining his principles, which ultimately led to his partnerships with George Westinghouse and his revolutionary work with AC power systems.",
+    "source": "my_inventions_autobiography"
+  },
+  {
+    "id": "incident-017",
+    "decision": "Tesla chose to publicly announce his belief that he had detected extraterrestrial signals despite knowing it would bring scientific ridicule.",
+    "context": "During his wireless transmission experiments, Tesla observed unusual electrical signals that he interpreted as potentially originating from another planet. The scientific community of his era was highly skeptical of such claims and would likely respond with ridicule. Tesla faced a choice between protecting his reputation by remaining silent or publicly sharing what he believed to be a significant discovery.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to anomalous electrical signal patterns that differed from natural atmospheric phenomena he had previously catalogued, exhibiting regularities that suggested artificial origin rather than random natural occurrence.",
+      "active_goals": "Tesla was operatively driven by scientific integrity and the imperative to report significant observational data, prioritizing empirical honesty over social acceptance or reputation preservation.",
+      "rejected_alternatives": "Tesla rejected staying silent to protect his reputation, privately consulting only close colleagues, or framing the signals as unexplained terrestrial phenomena, dismissing these because they would compromise his commitment to transparent scientific reporting.",
+      "situation_framing": "Tesla framed this as a moment of scientific discovery requiring public disclosure, analogous to Galileo's telescopic observations - a situation where personal conviction about empirical evidence must override social pressure.",
+      "expected_outcome": "Tesla expected scientific ridicule and damage to his reputation in the short term, but believed that future technological advances would eventually validate his observations and vindicate his decision to speak publicly."
+    },
+    "counterfactual": "A competent peer would have likely remained silent or presented the findings as 'unexplained signals requiring further investigation,' avoiding definitive claims about extraterrestrial origin to preserve credibility.",
+    "divergence_explanation": "Tesla's decision diverged because he operated under a framework that prioritized empirical honesty over social conformity, viewing scientific integrity as requiring public disclosure of significant observations regardless of contemporary acceptance or personal cost.",
+    "outcome": "Tesla faced widespread ridicule from the scientific community, with many dismissing his claims as evidence of eccentricity, which contributed to his growing reputation as a brilliant but unreliable inventor in his later years.",
+    "source": "my_inventions_autobiography"
+  },
+  {
+    "id": "incident-018",
+    "decision": "Tesla chose to develop remote-controlled weapons technology specifically to make warfare so mechanized and terrible that nations would abandon war as impractical.",
+    "context": "Tesla was working on remote control technology in the late 1890s, during a period of increasing military tensions and technological advancement in weapons. He possessed revolutionary wireless control capabilities that could be applied to military purposes, facing the choice of how to direct this powerful technology.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived the escalating destructive potential of emerging technologies, the human cost of traditional warfare, and the strategic implications of unmanned combat systems. He noticed that nations were locked in arms races driven by fear of human casualties and territorial conquest.",
+      "active_goals": "Tesla's operative goal was to create a technological pathway to permanent peace through the paradox of ultimate deterrence - making war so mechanically devastating that rational nations would find it economically and strategically untenable.",
+      "rejected_alternatives": "He rejected purely defensive applications of his technology, rejected keeping the technology secret or limiting its development, and rejected conventional military applications that would simply make existing warfare more efficient without fundamentally changing its nature.",
+      "situation_framing": "Tesla framed this as a philosophical engineering problem where the solution to human conflict lay in transcending human limitations through technology - viewing war as a systemic inefficiency that could be eliminated through making it mechanically perfect and therefore self-defeating.",
+      "expected_outcome": "Tesla expected that once nations possessed machine armies capable of total destruction, the economic cost and certainty of mutual devastation would force rational leaders to pursue diplomatic solutions, ultimately rendering war obsolete through its own perfection."
+    },
+    "counterfactual": "A competent peer engineer would have developed the remote control technology for immediate military advantage, focusing on tactical superiority and protection of their nation's forces while maintaining traditional strategic thinking about warfare.",
+    "divergence_explanation": "Tesla's unique systems-thinking approach led him to optimize for a meta-outcome (elimination of war itself) rather than tactical advantage, driven by his belief that technological problems required technological rather than political solutions, and his unusual ability to see paradoxical second-order effects.",
+    "outcome": "Tesla developed various remote-controlled devices and promoted his vision, but the technology was primarily adopted for tactical military advantages rather than his intended peace-through-deterrence philosophy, with later developments in automated warfare following more conventional strategic applications.",
+    "source": "my_inventions_autobiography"
+  },
+  {
+    "id": "incident-019",
+    "decision": "Tesla chose to transform his uncontrolled visual hallucinations into a systematic method for mental visualization and invention rather than seeking to suppress or eliminate them.",
+    "context": "As a child, Tesla experienced vivid, involuntary visual hallucinations that were disruptive and potentially pathological. Most people would view such symptoms as a medical condition requiring treatment or suppression. Tesla faced the choice of either fighting against these mental phenomena or finding ways to work with them constructively.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla recognized that his hallucinations had exploitable properties - they were visual, detailed, manipulable, and could be directed with practice. He noticed that rather than being purely chaotic, these mental images had structure and responded to his intentions when he focused on controlling rather than resisting them.",
+      "active_goals": "Tesla's operative goal was to transform a perceived liability into an asset for invention and problem-solving. He sought to develop unprecedented mental capabilities for visualizing and testing mechanical designs without physical prototypes.",
+      "rejected_alternatives": "Tesla rejected the conventional approaches of suppressing the hallucinations through willpower, seeking medical treatment to eliminate them, or simply accepting them as an uncontrollable burden. He dismissed these options because they would waste the potential of his unusual mental capacity.",
+      "situation_framing": "Tesla framed his hallucinations not as a pathological condition to be cured, but as raw cognitive material that could be refined into a powerful inventive tool - essentially viewing his mind as a laboratory that needed better equipment rather than a patient that needed healing.",
+      "expected_outcome": "Tesla expected that by developing control over his visual hallucinations, he could create a mental workshop where he could design, test, and perfect inventions entirely in his imagination, eliminating the need for physical trial-and-error prototyping."
+    },
+    "counterfactual": "A competent peer would likely have sought to suppress or eliminate the hallucinations through medical consultation, willpower exercises, or behavioral modifications, viewing them as disruptive symptoms that interfered with normal cognitive function and social adaptation.",
+    "divergence_explanation": "Tesla's decision diverged because he possessed an inventor's mindset that viewed unusual phenomena as potential resources rather than problems. His deep fascination with mental processes and mechanical visualization led him to see exploitable structure where others saw only dysfunction.",
+    "outcome": "Tesla successfully developed extraordinary powers of mental visualization, enabling him to design, test, and refine complex inventions entirely in his mind, becoming one of history's most prolific inventors with this unique cognitive advantage.",
+    "source": "oneill_biography"
+  },
+  {
+    "id": "incident-020",
+    "decision": "Tesla made an immediate, absolute commitment to never gamble again after losing all his money.",
+    "context": "Tesla was a university student who had developed a gambling addiction that culminated in losing all his available money. This financial crisis forced him to confront the destructive pattern of his gambling behavior. Rather than seeking a gradual solution or partial measure, Tesla was faced with the need to make a decisive response to this personal failure.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the complete depletion of his financial resources and recognized this as a total system failure rather than just a temporary setback. He noticed the binary nature of his situation - he was either gambling or not gambling, with no middle ground that had proven sustainable.",
+      "active_goals": "Tesla's operative goal was to achieve complete mastery over his own behavior and eliminate any possibility of repeating this failure. His goal was not damage control or risk management, but absolute behavioral sovereignty and the restoration of his self-control through total commitment.",
+      "rejected_alternatives": "Tesla rejected gradual reduction approaches, setting gambling limits, occasional 'recreational' gambling, seeking external controls or supervision, and any form of moderated gambling behavior. He dismissed these as fundamentally inadequate because they preserved the possibility of failure.",
+      "situation_framing": "Tesla framed this as a complete system override requiring a binary switch rather than a behavioral modification problem. He categorized it as a fundamental character test where partial success equaled total failure, similar to an engineering problem requiring a complete redesign rather than incremental fixes.",
+      "expected_outcome": "Tesla expected that an absolute commitment would eliminate the cognitive burden of ongoing decision-making about gambling, remove all possibility of gradual relapse, and restore his complete focus to his intellectual pursuits without the distraction of managing gambling impulses."
+    },
+    "counterfactual": "A typical peer would have sought to manage their gambling through moderation, setting limits, perhaps seeking counseling or support, and attempting gradual behavior change with the goal of controlled, occasional gambling.",
+    "divergence_explanation": "Tesla's choice differed because of his characteristic binary thinking pattern and his belief that absolute commitment eliminates the energy cost of ongoing self-negotiation. Where others saw a behavior management problem requiring balance, Tesla saw a fundamental design flaw requiring complete elimination.",
+    "outcome": "Tesla never gambled again for the rest of his life, demonstrating that his absolute commitment strategy was successful and became a template for his later pattern of making total, irreversible commitments in other areas.",
+    "source": "oneill_biography"
+  },
+  {
+    "id": "incident-021",
+    "decision": "Tesla prioritized development and promotion of his bladeless turbine over capitalizing on his already commercially successful AC motor system.",
+    "context": "Tesla had achieved significant commercial success with his AC motor and power transmission system, which was being adopted worldwide and generating substantial royalties. Simultaneously, he was developing his bladeless turbine design, which faced significant material science limitations of the early 1900s but demonstrated elegant theoretical principles.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the theoretical efficiency curves and fluid dynamics principles of his bladeless turbine, noticing its potential for smooth operation without traditional turbine blades. He focused on the elegance of boundary layer adhesion effects rather than the material constraints that limited practical implementation.",
+      "active_goals": "Tesla's operative goal was to achieve fundamental technological breakthroughs that would transform entire industries, prioritizing revolutionary potential over incremental commercial exploitation of existing successful inventions.",
+      "rejected_alternatives": "Tesla rejected the alternative of focusing resources on optimizing and expanding his AC motor business, dismissing this as merely exploiting past success rather than pushing the boundaries of what was possible. He also rejected hybrid approaches that would balance both developments.",
+      "situation_framing": "Tesla framed this as a choice between being a commercial exploiter of past discoveries versus being a true inventor pushing the frontiers of science, viewing the bladeless turbine as representing pure innovation unconstrained by conventional mechanical thinking.",
+      "expected_outcome": "Tesla expected the bladeless turbine would revolutionize power generation and transportation once material science advanced sufficiently, believing it would eventually eclipse the significance of all his previous work including the AC motor system."
+    },
+    "counterfactual": "A competent peer would have continued developing the bladeless turbine as a long-term research project while primarily focusing resources on optimizing and expanding the commercially proven AC motor business to build capital and reputation for future ventures.",
+    "divergence_explanation": "Tesla's choice differed because his perceptual framework prioritized theoretical elegance and revolutionary potential over practical commercial considerations, driven by his identity as a visionary inventor rather than a business-focused engineer.",
+    "outcome": "The bladeless turbine remained largely uncommercial due to material limitations of the era, while Tesla's reduced focus on AC motor optimization allowed competitors to capture market share in power systems, limiting his long-term financial resources for research.",
+    "source": "patents_and_inventions"
+  },
+  {
+    "id": "incident-022",
+    "decision": "Tesla consistently chose to design for optimal theoretical performance rather than adapt his inventions to contemporary manufacturing limitations and material constraints.",
+    "context": "Tesla operated during the late 19th and early 20th centuries when manufacturing precision was limited, materials science was primitive, and mass production techniques were rudimentary. Most inventors and engineers of his era designed within these practical constraints to ensure commercial viability and manufacturability.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the fundamental physics principles governing electrical and magnetic phenomena, recognizing optimal frequencies, field configurations, and energy transfer efficiencies that could theoretically be achieved. He noticed the mathematical elegance and physical laws that pointed toward ideal performance parameters, rather than focusing on the machining tolerances, material properties, and production costs that constrained his contemporaries.",
+      "active_goals": "Tesla's operative goal was to achieve the highest possible technical performance and theoretical elegance in his designs. He prioritized pushing the boundaries of what was physically possible over creating immediately practical or commercially viable products. His active goal was to demonstrate and harness pure physical principles rather than compromise for market acceptance.",
+      "rejected_alternatives": "Tesla rejected the conventional approach of designing within manufacturing constraints, dismissing incremental improvements to existing technologies, and avoiding the standard practice of making technical compromises for cost reduction. He rejected the alternative of creating 'good enough' solutions that could be easily manufactured with available materials and techniques, viewing such compromises as betrayals of the underlying physics.",
+      "situation_framing": "Tesla framed his design challenges as pure physics problems to be solved optimally, rather than as engineering trade-off problems requiring balance between performance and practical constraints. He mentally categorized invention as the pursuit of physical truth and optimal energy relationships, viewing manufacturing limitations as temporary obstacles rather than fundamental design parameters.",
+      "expected_outcome": "Tesla expected that manufacturing and materials technology would eventually advance to meet the requirements of his theoretically optimal designs. He anticipated that future developments would vindicate his approach by enabling the full realization of his designs' potential, and that his uncompromising technical vision would ultimately prove superior to pragmatic compromises."
+    },
+    "counterfactual": "A competent peer would have designed within the manufacturing tolerances and material properties available at the time, making calculated compromises between theoretical performance and practical implementation to create commercially viable products that could be manufactured consistently and sold profitably.",
+    "divergence_explanation": "Tesla's choice differed because he possessed an unusually pure scientific mindset that prioritized physical laws over human constraints. His visual and mathematical intuition for electromagnetic phenomena was so strong that he could perceive optimal solutions that others couldn't even conceptualize, leading him to reject practical compromises that seemed necessary to engineers focused on immediate implementation rather than ultimate potential.",
+    "outcome": "Many of Tesla's designs remained impractical or impossible to manufacture during his lifetime, limiting their commercial success and contributing to his financial difficulties. However, as manufacturing precision and materials science advanced over subsequent decades, many of his theoretically optimal approaches became not only feasible but standard practice, validating his physics-first design philosophy.",
+    "source": "patents_and_inventions"
+  },
+  {
+    "id": "incident-023",
+    "decision": "Tesla chose to pursue wireless energy transmission as his primary goal despite having a proven commercial success with AC motors.",
+    "context": "After successful experiments at Colorado Springs demonstrating wireless power transmission principles, Tesla faced a strategic choice between continuing incremental improvements to his commercially successful AC motor system or pursuing the revolutionary but unproven wireless energy transmission. The AC system was generating revenue and solving recognized market needs, while wireless transmission addressed problems most people didn't yet understand they had.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla noticed the fundamental difference between solving recognized versus unrecognized problems - his AC motor succeeded because it addressed an immediate, widely acknowledged need for efficient wired power transmission, while wireless transmission solved a problem most people 'did not yet know they had,' indicating he was attuned to the temporal mismatch between technological possibility and market readiness.",
+      "active_goals": "Tesla's operative goal was achieving transformative innovation that would fundamentally change human civilization rather than pursuing incremental commercial success - he was actively prioritizing maximum technological impact over financial optimization or risk minimization.",
+      "rejected_alternatives": "Tesla rejected continuing to focus on his commercially successful AC motor improvements and polyphase system refinements, dismissing the safe path of incremental innovation because it represented solving already-recognized problems rather than pioneering entirely new technological paradigms.",
+      "situation_framing": "Tesla framed this as a choice between two fundamentally different innovation strategies: 'practical problem-solving' (represented by AC motors addressing immediate market needs) versus 'paradigm creation' (wireless transmission creating entirely new possibilities), viewing himself as uniquely positioned to pursue the more difficult transformative path.",
+      "expected_outcome": "Tesla expected that wireless energy transmission would eventually revolutionize human civilization by eliminating the infrastructure limitations of wired power distribution, anticipating that the initial market resistance to unrecognized problems would eventually give way to widespread adoption once the technology proved viable."
+    },
+    "counterfactual": "A competent peer would have continued developing and commercializing improvements to the proven AC motor technology, leveraging existing market acceptance and revenue streams to fund incremental wireless research as a secondary project rather than making it the primary focus.",
+    "divergence_explanation": "Tesla's choice diverged because he operated with an extended temporal framework that prioritized civilizational impact over immediate commercial viability, and he had unusual confidence in his ability to solve technically unprecedented challenges that other inventors would consider too risky or impractical to pursue as a primary focus.",
+    "outcome": "Tesla's wireless transmission work faced enormous technical and financial challenges, ultimately remaining largely unrealized during his lifetime, while his commercial opportunities from AC technology were not fully capitalized upon, leading to later financial difficulties despite the revolutionary nature of his wireless research.",
+    "source": "problem_of_increasing_human_energy"
+  },
+  {
+    "id": "incident-024",
+    "decision": "Tesla chose to design complete integrated systems rather than individual components that could be adopted piecemeal.",
+    "context": "Tesla was developing electrical innovations during the late 19th century when the electrical industry was emerging and investors typically preferred incremental innovations that could be easily integrated with existing infrastructure. The prevailing approach was to develop individual components that could be sold and implemented separately, allowing for gradual adoption and reduced financial risk.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived that electrical phenomena operated as interconnected physical systems where components had complex interdependencies, noticing that optimizing individual parts in isolation would create suboptimal overall performance and that the fundamental physics demanded systemic coherence.",
+      "active_goals": "Tesla was driven to create theoretically elegant solutions that reflected the underlying physical principles of electrical systems, prioritizing technical optimality and scientific coherence over commercial expedience or incremental adoptability.",
+      "rejected_alternatives": "Tesla rejected the componentized approach of developing individual devices that could be mixed with existing systems, dismissing this as theoretically compromised because it would force suboptimal performance through incompatible interfaces and prevent the achievement of true systemic efficiency.",
+      "situation_framing": "Tesla framed invention as discovering and implementing complete physical systems that already existed in theoretical form, viewing himself as revealing integrated natural phenomena rather than creating discrete commercial products.",
+      "expected_outcome": "Tesla expected that once implemented, his complete systems would demonstrate such superior performance that their integrated nature would be recognized as essential, leading to wholesale adoption despite initial implementation difficulties."
+    },
+    "counterfactual": "A competent peer would have developed modular components that could interface with existing electrical infrastructure, allowing customers to adopt innovations incrementally while maintaining compatibility with their current systems.",
+    "divergence_explanation": "Tesla's theoretical physics background led him to perceive electrical systems as unified physical phenomena where optimization required systemic integration, while typical inventors focused on practical commercial considerations and incremental market penetration strategies.",
+    "outcome": "Tesla's AC system ultimately succeeded but required massive coordinated investment and infrastructure replacement, making adoption slower and more difficult than component-based approaches, though eventually proving superior in performance.",
+    "source": "scholarly_analysis_carlson"
+  },
+  {
+    "id": "incident-025",
+    "decision": "Tesla chose to maintain his commitment to AC electrical systems despite working for Edison and facing opposition from America's most celebrated inventor.",
+    "context": "Tesla was employed by Edison, who had built his reputation and business empire around DC electrical systems. The scientific and business communities largely deferred to Edison's expertise and authority. Tesla faced the choice of either conforming to his employer's technical direction or maintaining his independent technical judgment about AC's superiority.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla attended to the fundamental physical properties of AC systems - their ability to be easily transformed to different voltages, transmitted over long distances with minimal power loss, and the mathematical elegance of alternating current principles. He noticed these technical advantages remained constant regardless of Edison's reputation or business interests.",
+      "active_goals": "Tesla's operative goal was to advance the technically superior electrical system based purely on physical laws and engineering principles, independent of social pressure, business considerations, or deference to authority figures.",
+      "rejected_alternatives": "Tesla rejected conforming to Edison's DC advocacy, dismissed compromising his technical judgment for job security, and refused to defer to Edison's authority despite the inventor's celebrated status. He rejected these alternatives because they would require him to ignore what he saw as clear physical evidence.",
+      "situation_framing": "Tesla framed this as a conflict between objective technical truth and social authority - a test of whether physical laws or human reputation should determine engineering decisions. He saw it as a fundamental question of scientific integrity rather than a business or political choice.",
+      "expected_outcome": "Tesla expected that rational technical analysis would eventually vindicate AC's superiority, that the physical advantages would become undeniable to other engineers, and that technical merit would ultimately prevail over reputation and established business interests."
+    },
+    "counterfactual": "A competent peer would likely have deferred to Edison's expertise and authority, gradually adopted DC advocacy to maintain their position, or at minimum kept their AC convictions private while working to understand Edison's perspective.",
+    "divergence_explanation": "Tesla's decision diverged because he possessed an unusual combination of supreme confidence in his technical judgment and indifference to social hierarchy. His perceptual framework prioritized physical laws over human authority, and he had sufficient conviction in his analytical abilities to trust his conclusions over those of celebrated experts.",
+    "outcome": "Tesla's unwavering commitment to AC eventually led to his departure from Edison's employ, his partnership with George Westinghouse, and ultimately the triumph of AC systems in the 'War of Currents,' vindicating his technical judgment despite the initial opposition.",
+    "source": "war_of_currents_testimony"
+  },
+  {
+    "id": "incident-026",
+    "decision": "Tesla chose to respond to Edison's fear-based propaganda by conducting spectacular public demonstrations of AC electricity's safety, including passing high-voltage current through his own body.",
+    "context": "Edison was conducting a systematic public campaign against AC electricity, using fear tactics including public electrocutions of animals to demonstrate AC's supposed dangers. Tesla faced a critical choice in how to respond to this propaganda war that threatened the future of AC power systems. The public and financial backers were being influenced by Edison's dramatic fear-based demonstrations.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla recognized that Edison's campaign was fundamentally theatrical and emotional rather than technical - the public was responding to vivid, dramatic demonstrations rather than rational arguments about electrical engineering principles. He noticed that fear-based messaging was dominating the discourse despite AC's technical superiority.",
+      "active_goals": "Tesla's operative goal was to shift public perception from fear to wonder about AC electricity, believing that inspiring awe and curiosity would be more effective than defensive technical arguments or counter-propaganda in establishing AC's legitimacy.",
+      "rejected_alternatives": "Tesla rejected engaging in counter-propaganda campaigns, political maneuvering, or defensive technical rebuttals. He dismissed the option of using similar fear tactics against DC systems, and avoided getting drawn into Edison's chosen battlefield of public debate and media manipulation.",
+      "situation_framing": "Tesla framed this as a battle between wonder and fear, seeing it as an opportunity to demonstrate the elegant safety of AC through spectacular showmanship rather than as a technical debate to be won through argumentation or political strategy.",
+      "expected_outcome": "Tesla expected that dramatic demonstrations of AC's safety would inspire public wonder and confidence, creating a more powerful and lasting impression than Edison's fear tactics, ultimately shifting public opinion in favor of AC through positive emotional association rather than defensive reasoning."
+    },
+    "counterfactual": "A competent peer would likely have engaged in systematic counter-propaganda, hired publicists to rebut Edison's claims through media campaigns, organized technical experts to provide scientific testimony, or used political connections to influence regulatory decisions.",
+    "divergence_explanation": "Tesla's choice differed because he operated from a fundamentally different theory of persuasion - he believed in the transformative power of wonder over the temporary effectiveness of fear, and trusted in his ability to create more compelling spectacle than his opponents could generate through propaganda.",
+    "outcome": "Tesla's dramatic safety demonstrations successfully shifted public perception, with his spectacular shows creating positive associations with AC electricity that ultimately helped establish AC as the dominant power system, proving his theory that wonder could indeed overcome fear-based propaganda.",
+    "source": "war_of_currents_testimony"
+  },
+  {
+    "id": "incident-027",
+    "decision": "Tesla chose to pursue wireless power transmission rather than compete directly with Marconi's commercially successful wireless telegraphy.",
+    "context": "In 1901, Marconi had achieved commercial success with wireless telegraphy, proving the market viability of wireless communication. Tesla faced a choice between entering this proven market with his own wireless communication technology or continuing to develop his more ambitious but unproven wireless power transmission system at Wardenclyffe.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla noticed that Marconi's success validated wireless transmission as a viable technology domain, but he perceived Marconi's approach as technically limited to information transmission rather than energy transmission. He attended to the fundamental physics possibilities rather than market signals.",
+      "active_goals": "Tesla's operative goal was to achieve a revolutionary breakthrough in wireless power transmission that would transform civilization by eliminating the need for wired electrical infrastructure, not merely to achieve commercial success in communications.",
+      "rejected_alternatives": "Tesla rejected competing directly with Marconi on telegraphy, despite having relevant patents and technical capability. He dismissed incremental improvements to wireless communication as insufficiently transformative compared to wireless power transmission.",
+      "situation_framing": "Tesla framed this as a moment requiring a choice between technical significance and commercial expediency - he saw Marconi's success as validation that the wireless domain was ready for his more revolutionary application rather than as competition to engage with.",
+      "expected_outcome": "Tesla expected that his wireless power system would render Marconi's communication-only approach obsolete by delivering both power and information transmission, creating a far more valuable and transformative technology."
+    },
+    "counterfactual": "A competent peer would have leveraged their wireless expertise to compete in Marconi's proven telegraphy market while using those commercial revenues to fund continued research into wireless power transmission.",
+    "divergence_explanation": "Tesla's decision diverged because he operated with a revolutionary rather than incremental innovation framework - he consistently prioritized technical significance over commercial viability, viewing proven markets as constraints rather than opportunities to fund bigger ambitions.",
+    "outcome": "Tesla's wireless power project at Wardenclyffe ultimately failed due to funding constraints and technical challenges, while Marconi's more limited but achievable wireless telegraphy became the foundation of modern radio communications.",
+    "source": "wardenclyffe_documentation"
+  },
+  {
+    "id": "incident-028",
+    "decision": "Tesla decided to build a complete, functioning wireless power transmission system at Wardenclyffe rather than incrementally demonstrating smaller technical proofs to build market acceptance.",
+    "context": "Tesla was attempting to commercialize wireless power transmission technology in the early 1900s, facing skepticism from investors and established electrical companies. He had limited financial resources and needed to convince backers of the viability of his revolutionary technology. The conventional approach would have been to demonstrate smaller proofs-of-concept to gradually build confidence and funding.",
+    "cdm_probes": {
+      "cues_noticed": "Tesla perceived that incremental demonstrations would be dismissed or co-opted by established interests, that technical feasibility alone wouldn't overcome entrenched business models, and that half-measures would allow competitors time to develop countermeasures or alternative solutions.",
+      "active_goals": "To create an undeniable technological demonstration that would force immediate market transformation and eliminate the possibility of gradual resistance or competitive response from established electrical interests.",
+      "rejected_alternatives": "Tesla rejected incremental proof-of-concept demonstrations, seeking gradual investor buy-in, partnering with established electrical companies for phased development, and licensing individual components of his wireless technology - all dismissed as allowing too much opportunity for resistance and dilution of his vision.",
+      "situation_framing": "Tesla framed this as a winner-take-all technological revolution where half-measures would fail, analogous to how a military campaign requires decisive action rather than tentative probes that alert the enemy.",
+      "expected_outcome": "Tesla expected that a fully operational wireless power system would be so obviously superior and economically compelling that investors, utilities, and governments would have no choice but to adopt it wholesale, creating immediate global transformation."
+    },
+    "counterfactual": "A competent peer would have pursued staged development with smaller demonstrations to build credibility, sought partnerships with established companies, focused on specific applications first, and gradually scaled up while securing ongoing funding commitments.",
+    "divergence_explanation": "Tesla's engineering mindset led him to seek technological solutions to social and business problems, believing that technical superiority alone could overcome institutional resistance, while underestimating the power of entrenched interests and the importance of gradual market education.",
+    "outcome": "The all-or-nothing approach failed when funding dried up before the system was completed, leaving Tesla with an unfinished tower and no fallback position, ultimately setting back wireless power development by decades.",
+    "source": "wireless_energy_vision"
+  }
+]

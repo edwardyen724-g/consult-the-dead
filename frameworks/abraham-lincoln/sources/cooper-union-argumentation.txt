@@ -1,0 +1,80 @@
+Cooper Union Address: The Architecture of Lincoln's Argumentation Method
+SYNTHESIZED CONTEXT — close analysis of the February 27, 1860 speech, with reference
+to Holzer's "Lincoln at Cooper Union" (2004) and the documentary record of its preparation.
+
+== THE PREPARATION ==
+
+Lincoln spent months preparing the Cooper Union speech. He went to the Illinois State
+Library and reviewed congressional records, executive papers, and correspondence
+documenting the votes of the 39 framers of the Constitution who had cast votes on
+slavery in federal territories. His core empirical claim — that 21 of the 39 framers
+had voted in support of federal regulation of slavery in territories — required
+exhaustive primary research. The preparation method itself is a decision-relevant signal:
+he treated the strongest argument as the one in which the load-bearing claim could be
+verified one signatory at a time.
+
+== THE STRUCTURAL CHOICE ==
+
+The speech opens by accepting Stephen Douglas's framing — that the Constitution should
+be interpreted as the framers understood it. This is unusual. Lincoln chose to argue
+inside his opponent's preferred frame rather than substitute his own. The reason becomes
+clear by the speech's end: by accepting Douglas's frame, Lincoln makes Douglas's frame
+prove the opposite of Douglas's conclusion. Twenty-one of the thirty-nine framers, by
+their recorded votes, treated slavery as a matter that the federal government could
+properly regulate in the territories. Therefore the "original understanding" supports,
+not undermines, the Republican position.
+
+== THE METHOD: STEAL THE FRAME, PROVE THE OPPOSITE ==
+
+This is a recurring Lincoln pattern. Rather than win an argument by adopting more
+favorable assumptions, he wins by using the opponent's assumptions to prove the
+opposite of the opponent's conclusion. The technique requires three things: identification
+of the opponent's strongest stated premise, exhaustive empirical engagement with the
+evidence the opponent claims to invoke, and a logical demonstration that the evidence
+under that premise yields the contrary result. The Lincoln-Douglas debates use the
+same technique. So does the Cooper Union speech. So does the legal reasoning of the
+House Divided speech. The method optimizes against the opponent's strongest defense
+rather than their weakest.
+
+== THE THREE-PART STRUCTURE ==
+
+The speech divides into three audiences. First, an address to the moderate Republicans
+who control the convention nomination — proving the historical case to their own
+satisfaction so they can defend it publicly. Second, an address to the Southern Democratic
+threat — Lincoln directly engages their argument that Republicans threaten the Union,
+and tells them: "we let you alone, and in fact, we just want you to let us alone." He
+denies the basis of their grievance. Third, an address to the moral question — closing
+with the claim that the Republicans must do their duty as they understand it: "Let us
+have faith that right makes might, and in that faith, let us, to the end, dare to do
+our duty as we understand it."
+
+== THE TIME ARCHITECTURE ==
+
+The speech runs roughly 90 minutes. Lincoln allocates it asymmetrically: the historical
+argument (the 21-of-39 vote count) takes roughly two-thirds of the time. The political
+argument is brief. The moral closing is short. The allocation reflects Lincoln's view
+that the load-bearing claim is the empirical one. The political and moral material can
+be compressed because, once the empirical foundation is secured, the rest follows. The
+allocation is itself a decision-method signal: he weighted the time on the most
+verifiable claim because that claim, once established, dragged the others with it.
+
+== WHAT THE COOPER UNION METHOD REVEALS ABOUT LINCOLN'S COGNITION ==
+
+The speech reveals four operational habits visible across his career. First, he prepares
+the strongest version of his argument by anticipating and incorporating the opponent's
+best response. Second, he prefers empirical primary-source evidence to abstract reasoning.
+Third, he allocates effort proportional to the evidentiary weight of each claim. Fourth,
+he chooses argument structures that survive being misquoted or excerpted — the speech's
+core claim is robust to selective republication because the 21-of-39 fact survives
+context reduction.
+
+== WHY THIS MATTERS FOR DECISION RECONSTRUCTION ==
+
+The Cooper Union method is the method Lincoln uses inside private decisions too. When
+he writes the unsent letter to McClellan, he opens by accepting McClellan's premise
+(troops are inadequate) and uses the empirical record to prove the opposite. When he
+addresses Congress on habeas corpus, he accepts the constitutional concern and uses it
+to license a wider executive action. The rhetorical pattern is also a reasoning pattern:
+identify the strongest counter-argument, accept its premise, and demonstrate that the
+premise yields the contrary conclusion. This is among the most distinctive components
+of Lincoln's intellectual operating method.

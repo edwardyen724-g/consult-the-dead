@@ -1,8 +1,13 @@
-anonymize all 30 debate samples — replace real names with fictional
+Wire Tavily back into Agora research alongside Claude web_search
 
-Real people's names, companies, and revenue figures replaced with
-fictional equivalents to avoid implying endorsement or customer
-relationship. Also updated page copy to frame debates as hypothetical
-demonstrations rather than implying they were run for real users.
+- Add @tavily/core dependency to website
+- Extract URLs from user questions and fetch actual page content
+  via Tavily extract API (so minds can read mentioned sites)
+- Also run Tavily search for broader topic context
+- Run Tavily and Claude web_search in parallel for speed
+- Graceful fallback: if TAVILY_API_KEY is unset or calls fail,
+  existing Claude web_search still works alone
+- Combined research brief now has 3 layers: site content,
+  Tavily search, and Claude web search analysis
 
 Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>

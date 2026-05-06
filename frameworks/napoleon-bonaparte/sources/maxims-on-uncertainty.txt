@@ -1,0 +1,82 @@
+The Military Maxims: Codified Heuristics for Decision Under Uncertainty
+SYNTHESIZED CONTEXT — drawn from the Maximes de guerre (compiled c.1827 from
+his marginalia and dictations), the Précis des guerres de César (Saint Helena),
+Notes sur l'art de la guerre, and Chandler's analysis of his explicit decision
+heuristics.
+
+== THE PROBLEM AS HE FRAMED IT ==
+
+The campaigns of his early career (Italy 1796–97, Egypt 1798–99) were won by
+intuition that he could not initially articulate. By the Saint Helena exile he
+had ample time to reverse-engineer his own method into transmissible heuristics.
+The Maxims are the result: 78 numbered propositions about how to decide under
+the conditions of war. They are not descriptive — many of them prescribe behavior
+he himself failed to follow at Borodino or Waterloo — but they are the cleanest
+articulation of his operating method by the only person who could write it.
+
+== THE CORE FRAMING ==
+
+Several maxims cluster around a single insight: probability dominates over
+optimization. Maxim 9: "The strength of an army, like the power in mechanics,
+is estimated by multiplying the mass by the rapidity; a rapid march augments
+the morale of an army." Maxim 16: "It is an approved maxim in war never to do
+what the enemy wishes you to do, for this reason alone, that he wishes it."
+Maxim 95: "Wars are won by him who makes the fewest mistakes, not the most
+brilliant moves." The pattern: optimize against the modal opponent decision,
+not against the most likely outcome of your own brilliance.
+
+== THE PRINCIPLE BEHIND THE MAXIMS ==
+
+The decision rule embedded across the Maxims is asymmetric: assume your
+opponent is intelligent, design your action so its expected value is high
+across the range of intelligent counter-moves, and then execute with speed
+that prevents the opponent from selecting his best counter. The Maxims do
+not promise victory; they promise a positive expected value over many
+encounters. The implicit assumption is that war is repeated — that a
+career is composed of dozens of campaigns, and the right strategy is the
+one that wins on average.
+
+== THE PRINCIPLE'S CHARACTERISTIC FAILURE MODE ==
+
+The Maxims assume war is repeated, but a campaign that destroys the army
+ends the career. Russia 1812 violated his own Maxim 6 ("at the commencement
+of a campaign, to advance or not to advance is a matter for grave
+consideration") because the question "should we advance past Smolensk" was
+treated as routine when its expected value was actually catastrophic. He
+codified the rules but did not always follow them. The codification served
+a separate purpose: instruction for successors and historical record. The
+operating Napoleon and the writing Napoleon had different audiences and
+different incentives.
+
+== THE MAXIMS ON LUCK ==
+
+Maxim 95 (preferring fewer mistakes to brilliance) and Maxim 73 ("ask of me
+anything but time") together encode his attitude toward chance. He treated
+fortune as a real factor that nonetheless rewarded preparation: a general
+who positioned correctly would have more "luck" because more outcomes would
+favor him. He explicitly preferred generals who were lucky over generals
+who were merely competent — not from superstition, but from the empirical
+observation that competence-without-luck failed enough times to disqualify.
+The Maxims encode a subtle theory: luck is partly observable from track
+record, and a track record of luck is itself selectable evidence of an
+unobserved decision quality.
+
+== POST-DECISION REASONING ==
+
+The Maxims are themselves a form of post-decision reasoning. They are what
+he chose to leave behind. The decisions they describe are the ones he wanted
+to be remembered as having followed, not necessarily the ones he made. As
+documentary evidence of his explicit heuristics they are valuable; as
+descriptive accounts of how he actually decided in the moment they are
+selectively edited. The two layers must be read against each other to
+recover the operating method.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+The Maxims show his theory of his own theory: an attempt to make his
+intuition transmissible. The construct: heuristics for asymmetric uncertainty
+where the goal is to skew expected value rather than achieve a specific
+outcome. The failure mode: heuristics drift from practice as the
+practitioner's career extends, and the writing-Napoleon produced rules that
+the operating-Napoleon did not always follow when the operating-Napoleon
+was under maximum pressure.

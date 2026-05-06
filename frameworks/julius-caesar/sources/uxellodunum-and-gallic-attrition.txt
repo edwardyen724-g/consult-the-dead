@@ -1,0 +1,106 @@
+Uxellodunum and Gallic Attrition: Calibrated Terror as Pacification Tool
+SYNTHESIZED CONTEXT — drawn from the Bellum Gallicum Books 7 and 8 (the
+Hirtius continuation), Plutarch (Caesar 22, 27, 32), Suetonius (Divus
+Iulius 25), Pliny (Naturalis Historia 7.91 — the casualty figures
+attributed to Caesar's own count), Goldsworthy's military reconstruction,
+and the modern genocide debate (notably Henige and Sherwin-White).
+
+== THE PROBLEM AS HE INHERITED IT ==
+
+By 51 BCE, Caesar had crushed the great Gallic revolt under Vercingetorix
+at Alesia (52 BCE), but resistance persisted in pockets — most notably at
+the hilltop oppidum of Uxellodunum in Aquitania, where Drappes and
+Lucterius gathered remaining holdouts behind walls Caesar judged too
+strong to storm directly. The constraint was not military but temporal: if
+the Uxellodunum garrison held out long enough for the message of
+successful resistance to spread, the entire pacified region would
+re-mobilize. Force by itself would not solve the problem within the
+needed window — the surrender of every other Gallic stronghold, even after
+Alesia, depended on the perceived cost of holding out. Caesar needed
+Uxellodunum to function not as a capture but as a demonstration.
+
+== THE FRAMING DECISION (51 BCE) ==
+
+Rather than storm the position, Caesar besieged it methodically, then
+identified and severed its single water source — the river spring at the
+base of the hill — through engineering works that diverted the water and
+left the garrison gradually dying of thirst. When the surrender came, his
+treatment of the surrendered defenders was deliberate and unprecedented:
+he ordered the hands of every man who had borne arms cut off, then
+released them alive to return to their tribes. The mutilation was not
+necessary for the immediate military objective; it was specifically
+designed to create a population of visible, permanent witnesses to the
+cost of armed resistance. He paired it with clemency to the political
+leadership of the surrounding tribes, who were spared, fined, and
+re-enrolled as Roman clients.
+
+== THE PRINCIPLE BEHIND THE TERROR ==
+
+The Uxellodunum mutilation policy is a deliberate departure from the
+clementia template he applied to Roman political opponents. The criterion
+distinguishing the two policies is precise: Roman senators and
+political-class actors could be bound by mercy because they belonged to a
+network in which restored standing produced ongoing dependency on him.
+Gallic warriors who had fought at Alesia and then at Uxellodunum had
+demonstrated that a previous defeat did not bind them, and the political
+infrastructure to bind them as Roman clients did not yet exist in
+sufficient depth. Mercy in such a context was not a coalition mechanism —
+it was an invitation to renewed resistance. Calibrated terror — visible,
+selective, paired with mercy to others — created the coalition mechanism
+by manufacturing a population whose collective memory of the cost of
+resistance would constrain successor generations.
+
+== THE BROADER PATTERN ==
+
+The Uxellodunum case is part of a wider Gallic record of selective
+brutality. The Helvetii migration (58 BCE) was followed by the
+re-deportation of survivors back to their original lands under monitored
+conditions — a population-engineering act on roughly 100,000 people. The
+Usipetes and Tencteri (55 BCE) were attacked while under flag of truce,
+producing the slaughter of about 430,000 by Caesar's own report (a figure
+Cato attempted to use to have him handed over to the Germans for breach
+of fides). The Veneti (56 BCE) had their leadership executed and the
+remaining population sold into slavery. Pliny preserves a casualty
+figure attributed to Caesar's own bookkeeping: 1,192,000 enemy combatants
+killed in Gaul over the campaigns. Even allowing for scribal inflation,
+the order of magnitude is consistent with deliberate population-scale
+attrition rather than simply battlefield casualties.
+
+== THE EXECUTION CALIBRATION ==
+
+The pattern within the Gallic War shows precise calibration: tribes that
+surrendered early received comparatively mild terms (tribute, hostages,
+restored leadership); tribes that revolted after submission were
+destroyed at population scale; tribes whose leadership Caesar judged
+useful as Roman clients (the Aedui throughout, the Remi after their
+early submission) received continuing favor and integration. The
+calibration variable is whether the recipient population could be bound
+into the future Roman provincial structure he was building. Where
+binding was feasible, mercy or moderate terms; where it was not feasible
+or where prior failures had demonstrated the population's incompatibility
+with the structure, terror at scale.
+
+== POST-DECISION REASONING ==
+
+Caesar's own narrative in the Bellum Gallicum frames the brutalities as
+responses to Gallic faithlessness — a moral framing that makes the terror
+appear reactive. The Hirtius continuation, less polished, preserves the
+operational logic more transparently: Uxellodunum's defenders were
+mutilated specifically because no other measure would visibly establish
+the futility of further resistance. The framing in the published
+narrative treats moral justification as part of the operational design —
+the brutality had to be both demonstrated to the Gallic survivors and
+made acceptable to the Roman political audience reading the Commentaries.
+
+== WHAT THIS REVEALS ABOUT THE OPERATING METHOD ==
+
+Uxellodunum reveals that Caesar's clementia is not a personal disposition
+but a tool whose deployment depends on whether the recipient population is
+bindable into the structure being built. Where binding is feasible, mercy
+manufactures debt; where binding is infeasible, calibrated terror
+manufactures deterrence. The decision rule is not 'be merciful' or 'be
+ruthless' as a matter of character but 'apply whichever instrument —
+mercy or terror — produces the constraint structure most aligned with
+the institutional outcome being engineered.' The instruments are
+substitutable; the underlying logic of binding through asymmetric cost
+is invariant.

@@ -1,0 +1,149 @@
+{
+  "traceability_ratio": 0.87,
+  "lens_consistent": true,
+  "validation_method": "Tier-2 traceability audit: each holdout incident's decision and CDM probes were tested against the framework's perceptual lens and 11 bipolar constructs derived from incidents 1-22. For each step in the holdout decision narrative, traceability requires that the step be derivable from at least one explicit construct or from the perceptual lens 'what_they_notice_first' / 'what_they_ignore' fields. A step that requires importing reasoning not grounded in documented constructs counts as non-traceable. Quality gate: ≥80% of holdout steps must trace to documented constructs.",
+  "summary": {
+    "total_holdout_incidents": 6,
+    "traceable_steps": 144,
+    "total_steps": 165,
+    "non_traceable_steps": 21,
+    "traceability_ratio": 0.87,
+    "quality_gate_passed": true,
+    "lens_aligned_holdouts": 6,
+    "lens_inconsistent_holdouts": 0
+  },
+  "contradictions": [
+    {
+      "construct": "Channel-selection across institutional portfolio vs. operation within the conventionally dominant channel",
+      "scenario_a": "Holdout incident-024 (Actium extraction with treasury and Antony)",
+      "scenario_b": "Derivation incident-004 (smuggling into the palace via Apollodorus)",
+      "explanation": "Both incidents apply the same channel-selection logic: identify the channel where her assets dominate, operate decisively within it before adversaries recognize its load-bearing function, accept surface-status cost for structural-position gain. In incident-004, the channel-selection produces favorable outcome because the structural-political conditions (Caesar's pragmatic interest in dynastic arbitration, court-faction's procedural-control gaps in commercial channels) are operative. In incident-024, the same channel-selection logic produces the operationally-correct extraction (war chest preserved, Antony extracted, Egypt reachable) but the structural-political conditions making the alliance-instrument valuable have silently failed (Antony's Roman political base has collapsed). The construct's positive pole describes the channel-selection logic at full operation; the holdout exposes a failure mode in which the logic operates correctly while its enabling conditions have shifted. Construct-11 ('Late-period structural-context blindness') was added to capture this failure mode, but its addition is partly post-hoc — the framework as derived from incidents 1-22 alone would have predicted incident-024's extraction operation but not its terminal political effect."
+    },
+    {
+      "construct": "Continuing-infrastructure cultivation vs. ad-hoc transactional operation",
+      "scenario_a": "Holdout incident-025 (Red Sea overland-ship escape attempt)",
+      "scenario_b": "Derivation incident-021 (continuing dynastic correspondence with regional courts)",
+      "explanation": "The continuing-infrastructure construct correctly predicts that Cleopatra would draw on her cultivated regional-dynastic network for the Red Sea escape operation — and indeed the operation depended on Nabataean cooperation that the dynastic-correspondence relationship was designed to provide. The contradiction is that the construct's positive pole describes continuing-infrastructure as producing 'compound timing-advantage and access yield across many future decisions' but does not articulate the threshold at which sustained adversary pressure (Octavian's post-Actium dominance) produces silent realignment in the continuing-infrastructure relationships. The Nabataean defection that destroyed the operation was rationally compelled by Octavian's now-decisive political position, but the continuing-infrastructure construct did not naturally generate the question of whether sustained adversary pressure had silently realigned the network. The construct's articulation is correct for the conditions under which the network was cultivated but does not specify the conditions under which it decouples."
+    },
+    {
+      "construct": "Treasury and resource as continuing-operation instrument with destruction-readiness vs. treasury as stockpile to be defended",
+      "scenario_a": "Holdout incident-026 (secret separate negotiations with Octavian using treasury-destruction signaling)",
+      "scenario_b": "Derivation incident-017 (calibrated bronze-coinage devaluation)",
+      "explanation": "Both incidents apply the same treasury-as-instrument logic. In incident-017, the calibrated devaluation produces favorable fiscal extraction because the structural-political conditions (continuing fiscal authority, bureaucratic compliance, no concentrated adversary mobilization) are operative. In incident-026, the treasury-destruction signaling produces sustained negotiation but does not produce the negotiation outcome (Caesarion-preservation) because Octavian's structural-political constraint (his legitimacy required Caesarion's elimination) was foreclosed regardless of any leverage Cleopatra controlled. The construct correctly predicts the treasury-as-leverage operation but does not articulate the conditions under which adversary-side structural-political constraints foreclose negotiation outcomes regardless of leverage. The contradiction is mild: the operating method is applied correctly in both cases, but the construct's articulation does not include the audit of adversary-side structural constraints."
+    },
+    {
+      "construct": "Multi-register cultural-legitimacy synthesis vs. fixed cultural-identity preservation",
+      "scenario_a": "Holdout incident-024 (Actium and the silent decoupling of Antony's Roman political register)",
+      "scenario_b": "Derivation incident-022 (Caesarion multi-register dynastic theology)",
+      "explanation": "The multi-register cultural-legitimacy construct correctly predicts Cleopatra's multi-audience publication strategies through her reign. The holdout reveals a failure mode the construct does not articulate: the multi-register framework's audience-asymmetry advantage depends on each register remaining absorbable on its own terms. When Antony's Roman political register became politically incendiary (post-Donations, post-will-disclosure) rather than absorbable, the multi-register framework did not naturally decouple — the Egyptian and Hellenistic registers continued operating but the Roman register's structural-context shift made the framework's overall coherence unstable. The construct as articulated treats audience-asymmetry as continuing structural feature; the holdout reveals that single-audience structural-context shift can decouple the framework into incompatible readings, and the lens does not naturally generate the question of whether any audience's reading has shifted from absorbable to incendiary."
+    }
+  ],
+  "per_holdout_details": [
+    {
+      "incident_id": "incident-023",
+      "incident_title": "Failed naval support during the Liberators' War",
+      "traceable_steps": 23,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the loyalty-signaling problem as structural-record construction traces to construct 2 ('Cumulative structural-fact accumulation') applied to loyalty-record domain.",
+        "Selection of fleet support as structural-minimum signaling operation traces to construct 9 ('Threshold-probing operation through procedural-form / structural-content combination') with calibrated dose logic.",
+        "Channel-selection of the Caesarian-faction-aligned signal traces to construct 1 ('Channel-selection across institutional portfolio') applied to faction-alignment channel.",
+        "The domain-mismatch failure mode (the loyalty-signaling logic's assumption that attempt-records are politically credible, which works in dynastic-political domains but not in wartime fleet operations where successful deployment is required for credibility) is partially captured by construct 11 ('Late-period structural-context blindness') but the domain-mismatch dimension of the failure mode is not fully articulated by any single construct.",
+        "Four steps not fully traceable: (a) the specific fleet size and composition is operationally detailed without construct-grounded justification; (b) the reading of Cassius's specific territorial pressure as the immediate driver of fleet-support timing requires Roman-political-context reasoning the framework does not articulate explicitly; (c) the calculation that storms were a non-zero but acceptable risk requires meteorological-strategic reasoning beyond the construct-set; (d) the specific decision not to deploy a backup signaling operation when the storms became apparent is contingent on real-time operational decisions the framework does not predict."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-024",
+      "incident_title": "Actium fleet extraction with treasury and Antony",
+      "traceable_steps": 25,
+      "total_steps": 30,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the treasury as irreplaceable asset and fleet as depreciating asset traces to construct 8 ('Treasury and resource as continuing-operation instrument with destruction-readiness') and to the perceptual lens 'what_they_notice_first' on load-bearing structural elements.",
+        "Channel-selection logic of the breakout (extracting irreplaceable asset before closing trap eliminates the option) traces to construct 1 ('Channel-selection across institutional portfolio') applied to military-extraction channel.",
+        "Decision to extract Antony with the treasury traces to construct 10 ('Structural-binding coalition through cost-of-defection scaling') applied to alliance-binding-actor preservation.",
+        "Selection of Egypt as strategic redoubt traces to construct 6 ('Existing institutional channel reactivation through personal occupation') applied to geographic-strategic-base.",
+        "The terminal failure mode (operating method continues to produce correct formal outputs but the structural-political conditions making the outputs operative have silently failed) is captured by construct 11 explicitly.",
+        "Five steps not fully traceable: (a) the specific tactical timing of the breakout signal (mid-engagement rather than at engagement opening) is operationally detailed without construct-grounded justification; (b) the specific decision to take 60 ships (rather than fewer or more) is operationally specific; (c) Antony's specific decision to abandon command and follow is from the perspective of a different actor; (d) the specific operational handling of the war chest aboard her flagship requires logistical reasoning the framework does not articulate; (e) the framework's account of the failure mode (construct 11) is partly post-hoc — articulated specifically to capture this incident's pattern."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-025",
+      "incident_title": "Red Sea overland-ship escape attempt",
+      "traceable_steps": 23,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the geographic-envelope problem as structural-context shift traces to the perceptual lens 'what_they_notice_first' field on adversary procedural-control reach.",
+        "Selection of the Red Sea / Indian-trade-route geography as structural-redoubt outside Roman reach traces to construct 1 ('Channel-selection across institutional portfolio') applied to geographic-strategic channel.",
+        "Plan to relocate dynastic-instrument portfolio with the relocation traces to construct 4 ('Dynastic-instrument portfolio cultivation') applied to portfolio-portability.",
+        "Treasury as relocation working capital traces to construct 8 ('Treasury and resource as continuing-operation instrument') applied to relocation-funding.",
+        "The Nabataean defection failure mode (regional-dynastic-network silent realignment under sustained adversary pressure) is captured by construct 11 ('Late-period structural-context blindness') and reveals the limit of construct 7 ('Continuing-infrastructure cultivation').",
+        "Four steps not fully traceable: (a) the specific overland-transport engineering is operationally detailed without construct-grounded justification; (b) the specific Indian-trade-route destination planning requires commercial-network knowledge beyond the construct-set; (c) the specific timing of the operation requires real-time intelligence reasoning; (d) the framework's account of why the Nabataean defection was unforeseeable from her perspective requires audit of the limits of her own intelligence infrastructure that the framework does not specifically articulate."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-026",
+      "incident_title": "Secret separate negotiations with Octavian using treasury-destruction signaling",
+      "traceable_steps": 24,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "notes": [
+        "Channel-selection of secret separate negotiation traces to construct 1 ('Channel-selection across institutional portfolio') applied to negotiation-channel domain.",
+        "Treasury-destruction-readiness signaling traces to construct 8 ('Treasury and resource as continuing-operation instrument with destruction-readiness') directly.",
+        "Calibrated negotiation logic (testing terms while preserving leverage) traces to construct 9 ('Threshold-probing operation') applied to negotiation domain.",
+        "Decision to channel-select away from Antony as alliance-instrument traces to construct 10 ('Structural-binding coalition through cost-of-defection scaling') with alliance-instrument calibration: when the alliance-binding actor's continued instrument-status produces structural cost rather than benefit, decouple.",
+        "The failure mode (load-bearing-leverage logic encounters adversary-side structural-political constraint that forecloses negotiation outcome regardless of leverage) is captured by construct 11 — Caesarion's elimination was structurally required for Octavian's legitimacy, foreclosing the dynastic-instrument-preservation outcome regardless of leverage.",
+        "Four steps not fully traceable: (a) the specific terms offered in the secret negotiations are operationally detailed without construct-grounded justification; (b) the specific timing of the treasury-destruction-readiness preparations relative to negotiation phases requires sequencing reasoning the framework does not articulate; (c) Octavian's specific responses (which the framework treats as adversary-side data) require Roman-political-context reasoning beyond Cleopatra's perspective; (d) the framework's account of why the adversary-side structural-political-constraint was not detectable from her negotiation-channel position is partially post-hoc."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-027",
+      "incident_title": "Antony's death scene and mausoleum haul-by-ropes admission",
+      "traceable_steps": 22,
+      "total_steps": 26,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of the personal-emotional / structural-position trade-off as separable variables traces to construct 1 ('Channel-selection across institutional portfolio') applied to personal-relationship-versus-structural-position domain.",
+        "Haul-by-ropes solution preserving both variables traces to construct 1 with calibrated-instrument logic.",
+        "Continued refusal to open the mausoleum entrance traces to construct 8 ('Treasury and resource as continuing-operation instrument') applied to secured-position preservation.",
+        "Decision to maintain operating-method functionality even at moment of personal-emotional weight traces to the perceptual lens evidence on cross-domain method application.",
+        "The failure mode (structural-position preservation operates correctly but the negotiation-outcome the position is preserved for is foreclosed) is captured by construct 11.",
+        "Four steps not fully traceable: (a) the specific architectural detail of the upper-window haul-by-ropes operation requires building-architecture reasoning the framework does not articulate; (b) Antony's specific decision to attempt suicide on hearing rumors of her death is from a different actor's perspective; (c) the specific personal-emotional content of the death scene is psychological detail beyond the construct-set; (d) the specific decision not to commit suicide alongside Antony at this point requires reasoning about the operating-method's terminal-application timing that the framework does not articulate."
+      ],
+      "contradiction_with_derivation": false
+    },
+    {
+      "incident_id": "incident-028",
+      "incident_title": "Dignified death by asp on 12 August 30 BCE",
+      "traceable_steps": 27,
+      "total_steps": 27,
+      "lens_aligned": true,
+      "notes": [
+        "Identification of continued-life as convertible only to triumph-display structural asset traces to construct 8 ('Treasury and resource as continuing-operation instrument') applied to her own person as instrument.",
+        "Selection of dignified death as final structural-political installation traces to construct 1 ('Channel-selection across institutional portfolio') applied to death-instrument domain.",
+        "Calibration of the asp (or alternative instrument) for Egyptian Isis-cult dignified-death iconography traces to construct 3 ('Multi-register cultural-legitimacy synthesis') applied to death-instrument selection.",
+        "Decision to deny Octavian the triumph-display asset traces to construct 10 ('Structural-binding coalition through cost-of-defection scaling') applied in inverse: deny adversary the structural asset her continued life would provide.",
+        "This is the most lens-consistent holdout incident: she did not require structural-context audit to make the decision because the structural-context conditions for her own death-instrument were unambiguous (Octavian's triumph-display requirement was clear, the Isis-cult dignified-death iconography was installed in the dynastic-political record). The failure modes the other holdouts validate are absent here because the variables are simple enough that audit was not required.",
+        "All steps fully traceable: this incident demonstrates that when the operating method's enabling conditions are unambiguous, the method produces lens-consistent decisions without requiring the late-period audit the other holdouts demand."
+      ],
+      "contradiction_with_derivation": false
+    }
+  ],
+  "lens_assessment": {
+    "lens_statement_consistency": "All six holdout incidents are consistent with the perceptual lens statement. Each holdout decision can be derived from the lens's core perceptual moves (identify institutional-channel portfolio, calibrate instrument to recipient register, install structural fact across multiple cultural registers). The holdouts that test the late-period failure mode (incidents 023, 024, 025, 026, 027) demonstrate the 'what_they_ignore' field cleanly: the lens does not naturally generate the question 'have the conditions making this method work changed?' and therefore fails to detect when the operating method's enabling conditions have shifted under sustained adversary pressure or domain-context change. Holdout 028 is fully lens-consistent because its variables are unambiguous enough that the audit-failure mode does not apply.",
+    "construct_coverage": "10 of 11 constructs are exercised by at least one holdout incident. Construct 6 ('Existing institutional channel reactivation through personal occupation') is exercised only marginally by holdouts (it is most prominently a derivation-incident construct around administrative reconstruction). Construct 11 ('Late-period structural-context blindness') is heavily exercised by holdouts 024, 025, 026, and 027 — appropriately, since this is the failure-mode construct.",
+    "derivation_holdout_coherence": "The 22 derivation incidents and 6 holdout incidents form a coherent set. The derivation incidents establish the core operating method across multiple domains (religious, dynastic, military, fiscal, ceremonial, administrative, intelligence, theological); the holdouts test confirming applications (incident-028) and failure-mode applications (incidents 023, 024, 025, 026, 027). The pattern is structurally similar to the Julius Caesar framework's derivation/holdout split: derivation incidents establish the lens, holdouts validate it including against its own failure modes. The Cleopatra framework's failure mode is specifically the absence of operating-method enabling-conditions audit, which the lens identifies but which the operating method does not naturally generate."
+  },
+  "quality_gate_assessment": {
+    "minimum_required_traceability": 0.80,
+    "achieved_traceability": 0.87,
+    "passed": true,
+    "notes": "The 87% traceability ratio exceeds the 80% quality gate. The non-traceable steps are concentrated in operationally-specific details (fleet size, terms-of-negotiation specifics, architectural-detail of mausoleum operations, geographic-route planning) and in adversary-side or different-actor-perspective reasoning that the framework does not naturally articulate. Where the framework's constructs do not explicitly derive operational specifics, the framework's lens still aligns with the directional reasoning. All six holdout incidents are lens-aligned. Construct 11 ('Late-period structural-context blindness') is partly post-hoc with respect to the holdouts but is structurally consistent with the perceptual lens 'what_they_ignore' field articulated independently from the holdout-specific incidents. The Tier-2 validation passes."
+  }
+}

@@ -1,0 +1,190 @@
+[
+  {
+    "title": "Apocolocyntosis (The Pumpkinification of Claudius)",
+    "url": "https://www.gutenberg.org/ebooks/36154",
+    "source_type": "critical_incident",
+    "description": "A political satire written immediately after Claudius's death, when Seneca had just been recalled from exile by Nero. It is one of the most unguarded documents we have \u2014 written in relief and anger, it reveals how Seneca actually processed political humiliation and exile. The bitterness and wit document the emotional framework operating beneath the Stoic surface. Read against the Consolatio ad Polybium (where he flattered Claudius while exiled), it exposes the full arc of a major moral compromise and his reasoning about survival under tyranny.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Consolatio ad Polybium (Consolation to Polybius)",
+    "url": "https://www.stoics.com/seneca_essays_book_2.html",
+    "source_type": "critical_incident",
+    "description": "Written during his Corsican exile, this is Seneca's most documented failure \u2014 a letter to Claudius's powerful freedman that flatters the emperor and pleads for recall. Seneca himself later called it shameful. It is invaluable precisely because it documents what he did under existential pressure versus what he believed, making the gap between his principles and his decisions legible. The reasoning structure he used to justify the compromise (exile as worse than indignity) is a direct window into his crisis decision-making.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Clementia (On Mercy) \u2014 addressed to Nero",
+    "url": "https://www.stoics.com/seneca_essays_book_1.html",
+    "source_type": "value_conflict",
+    "description": "Written c. 55-56 CE when Seneca was actively advising Nero, this text is a documented attempt to shape imperial decision-making while navigating extreme power asymmetry. It reveals how Seneca reasons about the relationship between power and virtue, and how he frames advice to dangerous authority. The gap between the philosophical ideal he articulates and the political reality he was managing is one of the richest tension points for understanding his actual decision heuristics under constraint.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Tranquillitate Animi (On Tranquility of Mind)",
+    "url": "https://www.gutenberg.org/files/1132/1132-h/1132-h.htm",
+    "source_type": "value_conflict",
+    "description": "Written as a dialogue where Serenus describes his own psychological state \u2014 widely interpreted as Seneca writing about his own inner conflict between engagement and withdrawal. He documents the pull toward both active public life and philosophical retreat, and the decision heuristics he uses to navigate between them. Unusually candid about restlessness and self-doubt. The text's dialectical structure means the decision process is visible in the back-and-forth, not just in the conclusion.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Otio (On Leisure) and De Vita Beata (On the Happy Life)",
+    "url": "https://www.stoics.com/seneca_essays_book_2.html",
+    "source_type": "value_conflict",
+    "description": "These two essays together form the most explicit documentation of Seneca's core value conflict: the tension between Stoic duty to engage in public life and Epicurean withdrawal. De Vita Beata is particularly remarkable because Seneca pre-empts his critics by listing all the accusations of hypocrisy about his wealth \u2014 and then reasons through them publicly. This meta-level engagement (arguing about how he argues, justifying why his life and his philosophy are compatible) is the most visible exposure of his defensive reasoning structure and the constructs he uses to maintain self-coherence.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Epistulae Morales ad Lucilium (Letters to Lucilius)",
+    "url": "https://www.gutenberg.org/ebooks/author/1444",
+    "source_type": "private_writing",
+    "description": "124 letters written in the last two years of Seneca's life to his friend Lucilius. These are the closest thing to unguarded, real-time thinking we have. Seneca explicitly works through dilemmas mid-letter, changes positions, admits confusion, and reveals the gap between what he preaches and how he lives. Letter 1 (on time), Letter 77 (on death and suicide), Letter 47 (on slaves), and Letters 17-18 (on wealth and poverty) are especially rich for decision framework extraction because he documents the internal argument, not just the conclusion.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Consolatio ad Helviam (Consolation to Helvia)",
+    "url": "https://www.stoics.com/seneca_essays_book_2.html",
+    "source_type": "private_writing",
+    "description": "Written to his mother during the same exile as the Polybius letter, but completely different in tone \u2014 philosophical, dignified, Stoic. The contrast between the two exile letters is itself a critical analytical artifact: it reveals that Seneca had two different decision frameworks for different audiences and stakes, and that he code-switched between them consciously. His reasoning in Helvia about what constitutes genuine loss vs. apparent loss reveals his primary reframing methodology in a personal context.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Brevitate Vitae (On the Shortness of Life)",
+    "url": "https://www.gutenberg.org/files/10772/10772-h/10772-h.htm",
+    "source_type": "own_published_work",
+    "description": "A treatise addressed to his father-in-law Paulinus, who held a powerful administrative post. Seneca is simultaneously advising Paulinus to withdraw from public life while himself remaining in it \u2014 a documented value conflict. The text reveals how Seneca structures the tradeoff between engagement and withdrawal, the framework he uses to evaluate how time is 'wasted' vs. 'invested,' and his perceptual lens that most people are passive recipients of time rather than active managers. The self-contradiction is itself a decision-process artifact.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Ira (On Anger) \u2014 Three Books",
+    "url": "https://www.gutenberg.org/files/1132/1132-h/1132-h.htm",
+    "source_type": "own_published_work",
+    "description": "The most systematic exposition of Seneca's cognitive intervention methodology. He documents the exact sequence by which a stimulus becomes anger and identifies where decision points exist. Books II and III contain step-by-step reasoning about how to interrupt emotional cascades \u2014 making explicit the perceptual and deliberative frameworks he applies. Crucially, he argues from cases and counterexamples, revealing his inductive reasoning style. The treatment of delay as the primary tool reveals a meta-cognitive framework: he believes thinking about thinking is primary.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "De Providentia (On Providence)",
+    "url": "https://www.gutenberg.org/files/1132/1132-h/1132-h.htm",
+    "source_type": "own_published_work",
+    "description": "Seneca's attempt to explain why bad things happen to good people \u2014 written partly as personal theodicy after his own suffering under Caligula. The reasoning structure is revealing: he doesn't argue that suffering is avoidable but that it is reframeable. This exposes a core perceptual construct: adversity as athletic training rather than punishment. The argument's structure (challenge \u2192 reframe \u2192 higher-order principle) is a template for how he processes negative events throughout all his work.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Naturales Quaestiones (Natural Questions)",
+    "url": "https://www.loebclassics.com/view/seneca_younger-naturales_quaestiones/1971/pb_LCL450.1.xml",
+    "source_type": "own_published_work",
+    "description": "Often overlooked, this scientific treatise reveals Seneca's epistemological framework \u2014 how he evaluates evidence, handles uncertainty, and updates beliefs. He explicitly discusses what counts as a good explanation, how to reason about phenomena you cannot observe directly, and the proper relationship between empirical data and theoretical frameworks. For understanding his cognitive architecture, this shows the foundational layer: his theory of knowledge itself. His treatment of comets (Book 7) as a case where current science is wrong is especially revealing of his epistemic humility and methodology.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Tacitus \u2014 Annals, Books XIII-XVI (Seneca sections)",
+    "url": "https://www.gutenberg.org/files/16927/16927-h/16927-h.htm",
+    "source_type": "firsthand_biography",
+    "description": "Tacitus knew people who knew Seneca and wrote within 50 years of his death. His account of Seneca's conduct at Nero's court \u2014 including reconstructed speeches and attributed reasoning \u2014 is the closest thing to a firsthand record of Seneca's political decision-making. The death scene (Annals XV.60-64) includes Seneca's reported final reasoning, which aligns closely with his philosophical framework. Tacitus is not uncritical, and his framing of Seneca's decisions as calculated is itself an interpretive artifact worth analyzing.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Miriam Griffin \u2014 'Seneca: A Philosopher in Politics'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "The most rigorous scholarly account of the relationship between Seneca's philosophy and his political actions. Griffin examines specific decisions \u2014 his management of Nero, his handling of the Octavia affair, his gradual withdrawal \u2014 and assesses the internal consistency of his reasoning. She documents the gap between his Stoic principles and his political conduct in granular detail, making explicit the decision heuristics he actually employed vs. those he publicly endorsed. Essential for understanding layer 2 (patterns) because Griffin reconstructs decisions from multiple evidence sources simultaneously.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Paul Veyne \u2014 'Seneca: The Life of a Stoic'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Veyne, a leading historian of Rome, argues that Seneca's apparent hypocrisy is a misreading \u2014 that he had a consistent philosophical framework that permitted wealth and power while remaining Stoic, and that this framework is coherent once understood correctly. The book reconstructs Seneca's actual decision logic (rather than condemning it against an ideal). Veyne is particularly strong on how Seneca reasoned about the relationship between external goods and inner freedom, making explicit the perceptual constructs that enabled Seneca to hold positions that appear contradictory to outside observers.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "James Romm \u2014 'Dying Every Day: Seneca at the Court of Nero'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "Focuses specifically on the Neronian period and reconstructs Seneca's decision-making in a context of escalating moral compromise. Romm documents specific incidents \u2014 Nero's matricide, the Pisonian conspiracy, Seneca's eventual forced suicide \u2014 and traces how Seneca's reasoning adapted to each escalation. Valuable for layer 2 because it shows how his decision heuristics performed under sequential pressure rather than in idealized conditions. Romm draws heavily on Tacitus's account while critically evaluating it.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

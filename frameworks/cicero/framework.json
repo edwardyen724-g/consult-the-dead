@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "person": "Marcus Tullius Cicero",
+    "domain": "Rhetoric, Republican Politics, Legal Philosophy, Constitutional Defense",
+    "born": "-106-01-03",
+    "died": "-43-12-07",
+    "generated_utc": "2026-05-02T07:30:00.000000+00:00",
+    "primary_sources": [
+      "De Oratore (55 BC) and Brutus (46 BC)",
+      "In Verrem actio prima and actio secunda (70 BC)",
+      "In Catilinam I-IV (63 BC)",
+      "Letters to Atticus (Ad Atticum, 68-43 BC, approximately 426 letters)",
+      "Letters to his Friends (Ad Familiares) and to his brother Quintus (Ad Quintum Fratrem)",
+      "Pro Milone (52 BC, published-textual reconstruction)",
+      "De Provinciis Consularibus (56 BC)",
+      "De Re Publica (54-51 BC) and De Legibus (begun 52 BC, incomplete)",
+      "Tusculan Disputations, De Finibus, De Natura Deorum, Academica, De Senectute, De Amicitia, De Divinatione, De Fato (45-44 BC)",
+      "Philippicae I-XIV (44-43 BC)",
+      "De Officiis (44 BC)",
+      "Plutarch, Life of Cicero (drawing on Tiro's lost contemporary biography)",
+      "Asconius Pedianus, Commentaries on Cicero's speeches",
+      "Sallust, Bellum Catilinae and the relevant passages of Bellum Iugurthinum",
+      "Appian, Civil Wars (Books II-IV) on the proscription period"
+    ],
+    "secondary_sources": [],
+    "incident_count": 27,
+    "construct_count": 12,
+    "prediction_count": 0,
+    "packs": [
+      "the-republic",
+      "stoic-council"
+    ],
+    "tags": [
+      "rhetoric",
+      "republican-politics",
+      "legal-philosophy",
+      "constitutional-defense",
+      "oratory",
+      "novus-homo",
+      "channel-bifurcation",
+      "categorical-commitment",
+      "philosophical-curriculum",
+      "late-republic"
+    ],
+    "status": "live",
+    "packRoles": {
+      "the-republic": "Republican prototype of constitutional-categorical decision-making under conditions of structurally deteriorating constitutional order: the willingness to absorb severe operational cost when the structural form of an option fails the categorical-compatibility test with the constitutional-deliberative order, paired with calibrated channel-shifting (rostral to textual to philosophical-curriculum) that preserves the operational continuation of the political program when specific channels are structurally closed, and culminating in the constructed final-scene that converts personal destruction into the categorical-political instrument of the constitutional identity's preservation through the death event.",
+      "stoic-council": "Stoic-adjacent counselor figure operating the Academic-skeptical methodology rather than Stoic doctrinal commitment: the systematic survey of Hellenistic philosophical positions presented at their strongest with considerations against each, leaving the reader to weigh the case rather than adopting authoritative doctrinal assertion. Cicero's role on the Stoic Council is the methodological-counterweight role — the figure whose advisory contribution operates through multi-position deliberative training rather than through single-school doctrinal assertion, and whose practical-ethical framework (De Officiis) systematizes the operational-ethical disposition of the public actor under conditions of structural-political crisis."
+    }
+  },
+  "perceptual_lens": {
+    "statement": "Cicero perceives every situation as a channel-engineering problem under categorical-constitutional constraint — asking 'which calibrated instrument, distributed through which audience-specific channel, will preserve or advance the constitutional-deliberative order whose categorical-compatibility constraints I have committed to operate under, even at severe operational-survival cost when the constraints and the operational-survival considerations diverge?' — not as either a moral-rhetorical contest about the substantive merits of a position or as a single-channel political-tactical optimization disconnected from categorical commitment.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008",
+      "incident-009",
+      "incident-010",
+      "incident-011",
+      "incident-012",
+      "incident-013",
+      "incident-014",
+      "incident-015",
+      "incident-016",
+      "incident-017",
+      "incident-018",
+      "incident-019",
+      "incident-020",
+      "incident-021"
+    ],
+    "holdout_validation": [
+      "incident-022",
+      "incident-023",
+      "incident-024",
+      "incident-025",
+      "incident-026",
+      "incident-027"
+    ],
+    "what_they_notice_first": "Cicero's attention is automatically drawn to the channel-engineering structure of any operational situation. He perceives: (1) the audience-specific channels available for the operational target (rostral-deliberative speeches calibrated to senatorial cognition, popular orations calibrated to assembly cognition, published-textual instruments calibrated to the educated reading public, philosophical-theoretical works calibrated to long-arc reception, closed-channel correspondence calibrated to candid strategic deliberation), and the structural calibration each channel requires for its specific cognitive audience and operational purpose; (2) the categorical-compatibility constraints under which the operational program must operate — which institutional forms are compatible with the constitutional-deliberative order he has committed to defend, and which are categorically incompatible regardless of the personal advantages compliance would produce; (3) the structural difference between operational-survival considerations and categorical-constitutional considerations, with explicit awareness that they diverge at structural-decision moments and that the categorical-constitutional consideration is load-bearing when they diverge; (4) the documentary-engineering opportunity in any operational situation — what evidentiary-record or textual-instrument can be constructed in real-time that will be operationally available for subsequent reception (autograph documentary evidence at the Allobroges intercept, daily Cilician administrative records, published actio-secunda Verrines, published Pro Milone, dual-channel Atticus correspondence); (5) the dual-channel coordination opportunity between immediate-political instruments and long-arc textual instruments, with simultaneous production at structural-urgency moments (De Officiis composed during the Philippic campaign, De Re Publica composed during the post-Lucca capitulation period); (6) the operational-completion concept that distinguishes the original categorical commitment from the post-completion decision (categorical commitments can be operationally completed by the engagement that exhausts the operational viability of the categorical position, opening the post-completion decision as a different decision made on different grounds); and (7) the long-arc reception architecture that compounds across decades and centuries through textual channels independent of the immediate-political environment.",
+    "what_they_ignore": "Cicero systematically filters out information whose salience depends on collapsing the channel-engineering and categorical-compatibility dimensions of a decision. He does not spontaneously register: (1) the operational-tactical attractiveness of options that violate categorical-compatibility constraints, regardless of the operational advantages compliance would produce — the 60 BC Triumvirate offer, the 49 BC Caesarian alignment, the 44 BC Antonian accommodation are processed as categorically foreclosed regardless of the operational-survival considerations; (2) the personal-confrontation attractiveness of public denunciation of individual opponents whose institutional standing would win the credentialing dispute — Hortensius is defeated procedurally without personal confrontation, Hall-equivalent figures across the career are operationally bypassed without public denunciation, even Antony in the Second Philippic is engaged through textual rather than direct rostral confrontation; (3) the single-channel uniform-release attractiveness of treating publication channel as neutral conveyance for content rather than as structural determinant of how the content will be received — the Verrine actio secunda, the Pro Milone, the Second Philippic, and the philosophical works of 45-44 BC are all calibrated for specific channels with specific audience-cognition profiles; (4) the categorical-purity attractiveness of stands that produce personal destruction without producing categorical victory — Cato's 46 BC suicide and the categorical-purity tradition it represents are explicitly distinguished from Cicero's operational-completion concept; (5) the operational-survival attractiveness of options that abandon the categorical-political identity at moments of structural opening — the Leucopetra reversal of August 44 BC explicitly reverses the operational-survival exit when the structural opening permits the categorical engagement; (6) the structural-cover attractiveness of long-arc procedural-precedent considerations when the immediate-operational frame is dominant — this is the recurring vulnerability of his decision-method, visible at the December 5 63 BC executions and at the 58 BC exile decision, where the long-arc procedural-precedent considerations were systematically under-weighted relative to the immediate-operational frame.",
+    "evidence": "Across all 21 derivation incidents, a single perceptual pattern recurs with striking invariance: Cicero converts every decision domain — forensic prosecution, consular crisis management, alliance offers, exile under hostile legislation, post-defeat capitulation, courtroom defense under intimidation, provincial administration, civil-war alignment, philosophical curriculum construction, late-life rhetorical campaign — into a question about which calibrated instrument, distributed through which audience-specific channel, will preserve or advance the constitutional-deliberative order under the categorical-compatibility constraints he has committed to operate under. In incident-001, he reads the Verres prosecution as a procedural-engineering problem in which the operational target is Verres's actual evidentiary defense rather than the conventional rhetorical contest. In incident-002, he reads Verres's voluntary exile not as case-termination but as an opportunity to construct a parallel-channel textual instrument addressed to a different audience. In incident-003, he reads the 64 BC consular election as a structural-coalition opportunity in which Catilina's reform agenda produces optimate alignment with his novus homo candidacy. In incident-004, he reads the November 8 63 BC confrontation as engineered political theater calibrated for a specific operational effect on Catilina's decision-calculus. In incident-005, he reads the Allobroges contact as an evidentiary-engineering problem requiring documentary intercept rather than direct arrest. In incident-006, he reads the December 5 debate in the immediate-operational frame, with the long-arc procedural-precedent frame insufficiently weighted (a recurring vulnerability). In incident-007, he reads the Triumvirate offer as a categorical-compatibility judgment in which the institutional form is incompatible with the constitutional commitments. In incident-008, he reads the lex Clodia situation in the operational-survival frame rather than in the long-arc constitutional-defense frame, choosing voluntary exile over standing trial as constitutional instrument. In incident-009, he discloses through documented incoherence the structural fragility of his decision-method when operational levers are removed. In incident-010, he reads the post-Lucca capitulation as the dual-channel discipline applied at structural-coercion: public-channel reversal paired with closed-channel candor. In incident-011, he reads the post-Lucca structural alignment as requiring the channel-shift to philosophical-textual production at the parallel-channel scale. In incident-012, he discloses through delivery failure the channel-dependence on deliberative-channel conditions that the coerced-channel substitution removed. In incident-013, he reads the failed delivery as requiring channel-recovery through textual-reconstruction publication. In incident-014, he reads the Cilician governorship as a documented administrative-record construction whose operational value is political-rhetorical rather than financial. In incident-015, he reads the Pindenissus campaign as a dual-channel event coordinating military execution with calibrated documentation for senatorial recognition. In incident-016, he reads the 49 BC alignment choice through explicit multi-dimensional optimization with the categorical-constitutional dimension load-bearing when the dimensions diverge. In incident-017, he discloses through five-month delay the operational-survival weight in his decision-method when categorical-survival diverges from operational-survival. In incident-018, he reads the post-Pharsalus situation through the operational-completion concept that distinguishes the original categorical commitment from the post-completion decision. In incident-019, he reads the post-Tullia period as a structural opportunity for comprehensive philosophical-curriculum construction with grief-mediated cognitive intensity coordinated with channel-construction discipline. In incident-020, he reads the methodological choice as structural-positioning for the comprehensive-curriculum project rather than as substantive philosophical preference. In incident-021, he reads the Leucopetra reversal as the categorical-commitment override at the moment of structural opening, reversing the operational-survival exit. The holdout incidents confirm the lens without exception: incident-022 (Second Philippic published-textual instrument) is perceived as the channel-bifurcation discipline applied to the most operationally consequential political engagement of his life; incident-023 (Octavian instrument-optimization) is perceived as instrument-optimization frame applied to a categorical-political engagement, with the post-engagement structural displacement planned in advance; incident-024 (De Officiis simultaneous with Philippics) is perceived as the dual-channel discipline applied at structural-urgency: immediate-political rhetorical campaign paired with long-arc philosophical-ethical testament; incident-025 (final-week oscillation) is perceived as decision-method collapse under conditions of complete operational-lever removal, the same pattern visible at 58 BC exile and at Brundisium; incident-026 (death scene at Formiae) is perceived as the constructed-scene engineering applied to the death event itself; incident-027 (twenty-five years of Atticus correspondence) is perceived as the load-bearing closed-channel instrument calibrated for specific operational functions and sustained at the operational scale and duration the function requires."
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Channel-bifurcated instrument engineering vs. single-channel uniform release",
+      "positive_pole": "Designs each operational instrument as a calibrated product engineered for a specific audience-channel — confidential institutional channels for expert evidence and strategic correspondence (Atticus letters, intercepted Allobroges documents), rostral-deliberative speeches for senatorial decision-making (Catilinarians, Philippics), popular orations for assembly engagement (the Allobroges-evidence Third Catilinarian to the people), published-textual instruments for the educated reading public and posterity (actio-secunda Verrines, Pro Milone, Second Philippic, philosophical works) — with each channel calibrated for its specific cognitive audience and operational purpose, and with the channels coordinated for mutually reinforcing effect",
+      "negative_pole": "Treats publication channel as a neutral conveyance for content rather than as a structural determinant of how the content will be received and used; produces single-channel uniform releases that absorb the structural cost of underserving one audience or another and forfeit the operational reach the channel-bifurcation discipline produces",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-013",
+        "incident-022"
+      ],
+      "behavioral_implication": "When releasing analytical, rhetorical, or political work, Cicero would identify the distinct audiences whose understanding or action the work requires, design separate calibrated products (rostral, popular, textual, confidential) for each audience's cognitive structure and operational role, distribute through channels that position each product appropriately, and coordinate the products for mutually reinforcing effect — accepting the increased production cost as the structural investment required to address each audience appropriately"
+    },
+    {
+      "construct": "Categorical-constitutional commitment overriding operational-survival vs. operational-survival overriding categorical commitment",
+      "positive_pole": "When categorical-compatibility constraints (the constitutional-deliberative order's structural form) and operational-survival considerations diverge at structural-decision moments, the categorical commitment is load-bearing and overrides operational-survival considerations regardless of the personal cost — the 60 BC refusal of the Triumvirate, the 49 BC decision to join Pompey, the August 44 BC reversal at Leucopetra, the Philippic engagement against Antony at the cost of life",
+      "negative_pole": "When categorical and operational-survival considerations diverge, the operational-survival consideration is load-bearing and the categorical commitment is recalibrated or abandoned to preserve operational-survival — the 58 BC voluntary exile rather than standing trial as constitutional instrument, the structural alternative Cato would have chosen at multiple decision points",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-016",
+        "incident-021"
+      ],
+      "behavioral_implication": "Faced with a decision in which categorical-compatibility constraints and operational-survival considerations diverge, Cicero would conduct explicit multi-dimensional deliberation through documentary correspondence (closed-channel), would identify the load-bearing dimension as the categorical-constitutional one when the dimensions diverge, would absorb severe operational-survival cost as the price of the categorical commitment, and would document the deliberation in closed-channel correspondence as the strategic-historical record that contextualizes the decision for subsequent reception"
+    },
+    {
+      "construct": "Operational-completion concept distinguishing categorical commitment from post-completion decision vs. categorical commitment as continuous obligation",
+      "positive_pole": "Recognizes that categorical commitments can be operationally completed by the engagement that exhausts the operational viability of the categorical position, and that the post-completion decision is a different decision from the original commitment, made on different grounds (operational-survival, channel-shift, post-engagement instrumentalization) — the post-Pharsalus refusal to continue resistance from Africa, the post-Lucca operational continuation through capitulation and channel-shift, the post-Caesarian-pardon channel-shift to philosophical-textual production",
+      "negative_pole": "Treats categorical commitments as continuous obligations that persist past operational-completion, with the post-completion engagement continuing on the same categorical grounds as the original commitment regardless of operational viability — the categorical-purity stand at personal destruction cost (Cato at Utica), the continuous engagement past the point of operational viability that produces structural-collapse without categorical victory",
+      "derived_from_incidents": [
+        "incident-018",
+        "incident-011",
+        "incident-019"
+      ],
+      "behavioral_implication": "When a categorical commitment has been operationally engaged through the structural-decision moment, Cicero would assess whether the operational viability of the categorical position has been exhausted by the engagement, would distinguish the original categorical-commitment decision from the post-completion decision, and would make the post-completion decision on different grounds (operational-survival, channel-shift, post-engagement instrumentalization) appropriate to the post-completion environment — preserving the categorical-political identity through the operational continuation rather than through continued futile engagement"
+    },
+    {
+      "construct": "Channel-shifting under structural-channel closure vs. continued futile attempts in the closed channel",
+      "positive_pole": "When the operational channel through which the political program has been pursued is structurally closed, constructs an alternative channel at the scale and quality required to operate as the load-bearing operational instrument — rostral-channel closure under post-Lucca conditions produces philosophical-textual channel construction (De Oratore, De Re Publica), Caesarian-dictatorship rostral-channel closure produces comprehensive philosophical-curriculum construction (45-44 BC works), structurally-fragile rostral channel under Antonian intimidation produces published-textual Second Philippic — preserving the operational continuation of the political program through the channel-shift",
+      "negative_pole": "When the operational channel is structurally closed, continues attempting to operate the closed channel against the structural conditions, producing operational incoherence and personal-psychological collapse without altering the structural conditions — the 58 BC exile-period oscillation, the Brundisium-period 48-47 BC oscillation, the final-week 43 BC oscillation, all visible at moments of complete operational-lever removal",
+      "derived_from_incidents": [
+        "incident-011",
+        "incident-019",
+        "incident-022"
+      ],
+      "behavioral_implication": "When the operational channel through which the political program has been pursued is structurally closed, Cicero would identify the alternative channel through which the categorical-political commitments could be operationally pursued (philosophical-textual, parallel-correspondence, dedicatory-positioning), would construct the alternative channel at the scale and quality required to operate as the load-bearing instrument, would shift operational center to the alternative channel through the supporting infrastructure (villa libraries, slave-secretary establishments, publication networks), and would preserve the operational continuation of the categorical-political program through the channel-shift rather than through continued futile attempts in the closed channel"
+    },
+    {
+      "construct": "Procedural-engineering attention to operational instruments vs. conventional procedural following",
+      "positive_pole": "Engineers the procedural shape of operational instruments (forensic prosecutions, evidentiary collection, senatorial-recognition pursuit, military documentation) for specific operational outcomes, sacrificing conventional procedural opportunities for structurally optimal procedural shapes — the abbreviated actio prima against Verres to defeat Hortensius's delay, the Allobroges intercept producing autograph documentary evidence in transit, the calibrated Pindenissus dispatches for senatorial recognition, the Cilician inverted-extraction administrative documentation",
+      "negative_pole": "Follows conventional procedural patterns within the operational instruments, accepting the structural costs (procedural delay, evidentiary vulnerability, senatorial-political weakness) as the unavoidable cost of conventional procedure — the long actio prima that would have fed Hortensius's delay strategy, the direct arrest that would have invited evidentiary dispute, the routine military dispatches that would have produced routine senatorial recognition",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-005",
+        "incident-015"
+      ],
+      "behavioral_implication": "When constructing an operational instrument, Cicero would identify the structural feature of the operational environment that conventional procedural patterns would feed (Hortensius's delay, evidentiary vulnerability, routine senatorial recognition), would re-engineer the procedural shape of the instrument to defeat the structural feature (abbreviated actio prima, intercepted documentary evidence, calibrated dispatches with direct senatorial-principal cultivation), and would sacrifice the conventional procedural opportunity for the structurally optimal procedural shape"
+    },
+    {
+      "construct": "Operational-defiance with public formal courtesy vs. either operational deference or public personal confrontation",
+      "positive_pole": "Defeats opponents on the operational ground (procedural innovation against Hortensius, documentary engineering against the Catilinarian conspirators, channel-bifurcation against Antony's intimidation, instrument-optimization against Octavian's structural alignment) while maintaining scrupulous public formal courtesy and refusing personal denunciation that would consume political capital and route the dispute through credentialing contests the unrecognized challenger could not yet win — preserving operational lines of communication with opponents and with the broader political environment that personal confrontation would foreclose",
+      "negative_pole": "Either confronts opponents publicly through personal denunciation (consuming political capital and inviting referendum on credentials the challenger will lose) or defers to opponents operationally (forfeiting the operational interventions the program requires), collapsing the decoupling that operational-defiance with formal courtesy produces",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-007",
+        "incident-023"
+      ],
+      "behavioral_implication": "When opponents structurally constrain or actively obstruct the operational program, Cicero would identify the operational instrument through which the opponent's strategy can be defeated (procedural innovation, evidentiary engineering, channel-bifurcation, instrument-optimization), would deploy the instrument while maintaining scrupulous public formal courtesy in correspondence and refusing personal denunciation, and would preserve operational lines of communication with the opponent and with the broader political environment for subsequent operational use"
+    },
+    {
+      "construct": "Documentary-engineering construction of operational records as political instruments vs. routine documentation as administrative formality",
+      "positive_pole": "Constructs operational records (autograph documentary evidence at the Allobroges intercept, daily Cilician administrative records, published Verrine actio-secunda, Pro Milone textual reconstruction, dual-channel Atticus correspondence) as engineered political instruments whose subsequent operational uses are explicitly anticipated in the construction discipline — real-time documentation calibrated for subsequent reception in the senatorial-political adjudication, in the philosophical-historical reception, in the strategic-deliberation record",
+      "negative_pole": "Treats documentation as routine administrative formality whose construction is conventional rather than calibrated for specific operational uses, accepting the structural costs when subsequent operational adjudication depends on documentary form that the routine documentation does not provide",
+      "derived_from_incidents": [
+        "incident-005",
+        "incident-014",
+        "incident-027"
+      ],
+      "behavioral_implication": "When constructing operational records, Cicero would explicitly anticipate the subsequent operational uses of the documentary record, would calibrate the construction discipline (timing, form, distribution, channel) for the specific operational uses anticipated, and would sustain the documentary discipline at the operational scale and consistency required across the relevant time horizon — investing in real-time documentary engineering as a structural instrument of the operational program rather than treating documentation as conventional administrative formality"
+    },
+    {
+      "construct": "Closed-channel candor and strategic monitoring vs. uniform public-facing posture across all interlocutors",
+      "positive_pole": "Maintains a load-bearing closed-channel correspondence (twenty-five years of Atticus letters) calibrated for candid strategic deliberation, externalized self-monitoring, operational coordination, and the construction of the strategic-historical record — with channel-discipline calibrated to the specific structural guarantee the addressee's apolitical positioning provides, and content systematically different from the public-channel orations and treatises that the dual-channel discipline produces",
+      "negative_pole": "Operates uniformly across all interlocutors with public-facing posture content, producing no load-bearing closed-channel for candid strategic deliberation and forfeiting the operational benefits (strategic monitoring, externalized self-deliberation, candid assessment of allies and opponents, operational coordination, strategic-historical record construction) that the closed-channel discipline produces",
+      "derived_from_incidents": [
+        "incident-027",
+        "incident-016",
+        "incident-010"
+      ],
+      "behavioral_implication": "When the operational discipline requires both public-channel calibration and closed-channel candor, Cicero would identify the structurally-perfect confidant (apolitical positioning, geographical separation, personal trust) and would construct a load-bearing closed-channel correspondence sustained across decades, would maintain channel-discipline through systematic content-differentiation between public and closed channels, and would use the closed channel for externalized strategic deliberation, candid assessment, operational coordination, and strategic-historical record construction"
+    },
+    {
+      "construct": "Multi-purpose channel-construction (operational + personal + grief-management + legacy) vs. single-purpose channel-construction",
+      "positive_pole": "Constructs operational channels that serve multiple coordinated purposes simultaneously — the philosophical works of 45-44 BC serving philosophical-curriculum construction + Latin philosophical vocabulary establishment + dedication-channel positioning + personal-grief management; the Cilician governorship serving administrative competence demonstration + political-rhetorical credentialing + financial discipline + documentary record; the Atticus correspondence serving strategic monitoring + operational coordination + candid assessment + grief management + strategic-historical record — with the multi-purpose construction producing operational efficiency exceeding what single-purpose channel-construction would achieve",
+      "negative_pole": "Constructs operational channels for single specific purposes, with separate channels for each operational function and no coordinated multi-purpose discipline — accepting the structural costs (production redundancy, channel-coordination overhead, missed coordination opportunities) that single-purpose channel-construction produces",
+      "derived_from_incidents": [
+        "incident-019",
+        "incident-024",
+        "incident-027"
+      ],
+      "behavioral_implication": "When constructing operational channels, Cicero would identify the multiple coordinated purposes that a single channel-construction could simultaneously serve (operational + personal + legacy + management functions), would design the channel-construction discipline to serve the coordinated purposes through integrated production rather than through separate single-purpose channels, and would deploy the multi-purpose channel at the production scale required to serve the coordinated purposes effectively"
+    },
+    {
+      "construct": "Long-arc reception architecture compounding across centuries vs. single-administration reception horizon",
+      "positive_pole": "Constructs textual instruments (philosophical-curriculum works, constitutional-theoretical treatises, political-ethical testaments, channel-bifurcated published orations) whose operational reception architecture is engineered to compound across decades and centuries through textual channels independent of the immediate-political environment — with the operational reception across two thousand subsequent years (through Augustine, Aquinas, Renaissance humanists, early-modern republican tradition, American founders) outperforming the immediate-political operational program by orders of magnitude",
+      "negative_pole": "Operates at single-administration reception horizons, optimizing for reforms and rhetorical instruments whose operational reception is contained within the immediate-political environment, accepting the structural cost when changes in the political environment foreclose the reception of instruments designed for narrower time horizons",
+      "derived_from_incidents": [
+        "incident-011",
+        "incident-019",
+        "incident-024"
+      ],
+      "behavioral_implication": "When constructing textual instruments of the political program, Cicero would identify the long-arc reception architecture through which the instruments could compound across decades and centuries (philosophical-curriculum + dedication-channel positioning + Latin-vocabulary infrastructure + multi-position deliberative methodology), would invest in the structural infrastructure required to sustain the long-arc reception (Atticus's publication network, villa-library composition support, slave-secretary establishments), and would calibrate the textual instruments for the cognitive structures of the long-arc reception audience (educated reading public, future political class, philosophical-historical tradition) rather than for the immediate-political audience alone"
+    },
+    {
+      "construct": "Instrument-optimization frame for opponents and allies vs. categorical-loyalty or categorical-opposition frame",
+      "positive_pole": "Treats opponents and allies as operationally optimizable instruments whose deployment requires careful structural calibration — defeating Hortensius procedurally without personal confrontation, accommodating Caesar publicly while preserving constitutional commitment in textual channel, instrumentalizing Octavian for Antonian confrontation with structural displacement planned in advance — recognizing that the structural alignment of the instrument's interests with the categorical-political program is contingent and time-limited rather than categorically given",
+      "negative_pole": "Treats opponents through categorical-opposition frames (continuous denunciation regardless of operational opportunity) and allies through categorical-loyalty frames (continuous support regardless of operational divergence), forfeiting the operational opportunities that calibrated instrument-optimization produces and absorbing the structural costs when categorical alignment fails operational viability",
+      "derived_from_incidents": [
+        "incident-007",
+        "incident-010",
+        "incident-023"
+      ],
+      "behavioral_implication": "When engaging opponents or allies in the operational program, Cicero would assess the structural alignment of their interests with the categorical-political program as contingent and time-limited, would calibrate the operational deployment (procedural defeat, public accommodation, instrumental use) for the specific structural alignment available, would plan in advance for the post-engagement repositioning when the structural alignment changes, and would preserve operational flexibility through formal courtesy and refusal of categorical-opposition or categorical-loyalty framing"
+    },
+    {
+      "construct": "Constructed-scene engineering at structural-collapse moments vs. uncomposed response under structural collapse",
+      "positive_pole": "Applies the instrument-engineering discipline to high-stakes personal moments (the death scene at Formiae) by identifying the operational target (categorical-political identity preservation through the death event), calibrating the instrument (composed acceptance, exposed neck, refusal of plea or struggle), and producing the operational outcome through the constructed-scene's effect on the subsequent biographical-historical reception — preserving the categorical-political identity through events that would otherwise disclose decision-method collapse",
+      "negative_pole": "Responds to structural-collapse moments through whatever uncomposed reaction the immediate-personal cognition produces (struggle, plea, flight, oscillation), forfeiting the constructed-scene operational opportunity and disclosing the structural fragility of the decision-method that the constructed-scene engineering would have masked",
+      "derived_from_incidents": [
+        "incident-026",
+        "incident-009",
+        "incident-025"
+      ],
+      "behavioral_implication": "When facing high-stakes personal moments at structural-collapse points (final illness, public-trial conviction, military defeat, proscription death), Cicero would identify the operational target (categorical-political identity preservation through the event), would calibrate the constructed-scene instrument (composed acceptance, dignified posture, refusal of degraded-response alternatives), and would deploy the instrument at the moment of operational outcome — converting an event that would otherwise disclose decision-method collapse into the constructed-scene instrument of the categorical-political identity's preservation through the event"
+    }
+  ],
+  "critical_incident_database_ref": "See incidents/incidents.json for the full 27-incident database with CDM probes."
+}

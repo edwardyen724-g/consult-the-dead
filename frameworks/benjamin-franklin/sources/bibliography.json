@@ -1,0 +1,184 @@
+[
+  {
+    "title": "Notes for a Conversation with Lord Howe (1776)",
+    "url": "https://founders.archives.gov/documents/Franklin/01-22-02-0232",
+    "source_type": "critical_incident",
+    "description": "Franklin's private preparatory notes before his last official attempt at negotiating a peaceful settlement. He anticipates counterarguments, assigns probabilities to British positions, and pre-commits to red lines. This is pre-mortem style reasoning documented in real time \u2014 rare evidence of his deliberate preparation methodology and how he structured a negotiation as a decision tree. Shows Layer 2 directly.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Papers of Benjamin Franklin (Yale Digital Edition)",
+    "url": "https://franklinpapers.org",
+    "source_type": "private_writing",
+    "description": "47-volume scholarly edition of Franklin's complete correspondence, now partially digitized. Contains unguarded letters where Franklin works through diplomatic strategy, scientific hypotheses, and political tradeoffs in real time. Letters to Peter Collinson on electricity show his iterative hypothesis-testing. Letters to Lord Howe and Lord Dartmouth during the pre-Revolution negotiations reveal his explicit cost-benefit reasoning about colonial loyalty. Unmatched for observing his thinking before conclusions hardened.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Letter to Joseph Priestley on 'Moral or Prudential Algebra' (September 19, 1772)",
+    "url": "https://franklinpapers.org/framedVolumes.jsp",
+    "source_type": "private_writing",
+    "description": "The single most direct document of Franklin's decision-making methodology. He describes dividing a page into pros and cons, weighting them, canceling equal-weight items, and observing the remainder \u2014 what he calls 'moral algebra.' This is not abstract; he is advising Priestley on a real career decision. The letter reveals his core belief that emotion distorts judgment and that structured enumeration reduces cognitive load. Essential for Layer 2.",
+    "evidence_layers": [
+      "layer1",
+      "layer2"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Franklin's Journal of the Negotiations in London (1774\u20131775)",
+    "url": "https://founders.archives.gov/documents/Franklin/01-21-02-0117",
+    "source_type": "private_writing",
+    "description": "A detailed private diary of Franklin's last-ditch diplomatic efforts to prevent the Revolution. He records conversations verbatim, annotates his own tactical choices, and documents why he changed positions. The Howe chess-game diplomacy is here. Shows how he handled value conflicts between loyalty to Britain, love of order, and colonial rights \u2014 and the moment he concluded reconciliation was impossible. Rare documentation of a high-stakes decision reversal with his own reasoning visible.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Franklin's Articles of Belief and Acts of Religion (1728)",
+    "url": "https://founders.archives.gov/documents/Franklin/01-01-02-0073",
+    "source_type": "private_writing",
+    "description": "A private liturgical document Franklin composed for his own use at age 22, replacing orthodox Christianity with a personalized deist framework. Reveals his foundational value hierarchy: utility, virtue, and reason above doctrine. His decision to retain 'prayer' as a practice while rejecting its theological basis shows how he separated functional value from theoretical commitment \u2014 a pragmatic cognitive move he would repeat throughout his life in politics and science.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Franklin's Correspondence with William Franklin (1773\u20131784)",
+    "url": "https://franklinpapers.org",
+    "source_type": "private_writing",
+    "description": "Letters between Franklin and his Loyalist son William document a genuine value conflict: family loyalty versus political principle. Franklin's reasoning about how to handle William \u2014 ranging from attempted persuasion to eventual estrangement \u2014 is among the most emotionally honest documentation of his decision calculus. He explicitly addresses why he cannot make an exception for family when principle is at stake. Reveals the hierarchy of his values under pressure.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "The Autobiography of Benjamin Franklin",
+    "url": "https://www.gutenberg.org/ebooks/148",
+    "source_type": "own_published_work",
+    "description": "Franklin's self-narrated account of his life, written across four sittings over decades. Contains his explicit articulation of the 13 Virtues project, the 'moral perfection' experiment, and his reflections on why early decisions succeeded or failed. Unusually, he comments on his own reasoning errors \u2014 notably his 'errata' framing of mistakes, which reveals a systems-thinking rather than moralistic approach to self-correction. The famous 'pros and cons' letter to Joseph Priestley about moral algebra is echoed throughout. Most valuable for Layer 1 and Layer 2.",
+    "evidence_layers": [
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Silence Dogood Letters (1722)",
+    "url": "https://founders.archives.gov/documents/Franklin/01-01-02-0009",
+    "source_type": "own_published_work",
+    "description": "Franklin's pseudonymous essays written at age 16 for his brother's newspaper. Valuable less for content than for what they reveal about his cognitive apprenticeship: he identified goals he couldn't achieve under his own name, constructed a persona to achieve them, and embedded criticism inside humor to evade resistance. Shows early pattern of indirect persuasion and reframing, which became a lifelong tool. Reveals his model of how audiences process ideas.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Poor Richard's Almanack (1732\u20131758, complete run)",
+    "url": "https://archive.org/details/poorrichardsalma00fran_2",
+    "source_type": "own_published_work",
+    "description": "26 years of annual publications reveal Franklin's curated model of practical rationality \u2014 the maxims he chose to amplify and repeat represent his distilled beliefs about human decision-making failures (sloth, self-deception, short-termism). Comparing which proverbs he invented versus borrowed reveals his intellectual priorities. The 1758 'Father Abraham's Speech' (The Way to Wealth) is a deliberate synthesis showing how he understood the relationship between frugality, time, and compounding \u2014 a cognitive framework, not just advice.",
+    "evidence_layers": [
+      "layer1",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Experiments and Observations on Electricity (1751)",
+    "url": "https://archive.org/details/experimentsobser00fran",
+    "source_type": "own_published_work",
+    "description": "Franklin's collected letters to Peter Collinson documenting his electrical experiments. Scientifically valuable, but for cognitive framework purposes, the methodology is the point: he shows his practice of constructing analogies across domains, designing experiments to force nature to reveal yes/no answers, and naming phenomena to make them tractable (he invented the terms 'positive,' 'negative,' 'battery,' 'conductor'). His naming choices are a window into his conceptual architecture \u2014 language as a decision tool.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Walter Isaacson, 'Benjamin Franklin: An American Life'",
+    "url": "offline",
+    "source_type": "firsthand_biography",
+    "description": "The most comprehensive modern biography, drawing extensively on the Yale Papers. Isaacson reconstructs decision sequences \u2014 the print shop partnerships, the diplomatic strategy in France, the Constitutional Convention positioning \u2014 with enough primary source citation to evaluate his interpretations. Particularly good on Franklin's use of silence and strategic ambiguity as persuasion tools, and his ability to separate personal ego from positional goals. Useful for Layer 2 pattern identification across domains.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "David Hume's letters about Franklin (1762\u20131771)",
+    "url": "https://founders.archives.gov/documents/Franklin/01-10-02-0011",
+    "source_type": "firsthand_biography",
+    "description": "Hume \u2014 one of the sharpest minds of the century \u2014 corresponded with Franklin and wrote observations about how he argued and reasoned. Hume's descriptions of Franklin's conversational method (listening before speaking, asking rather than asserting, building consensus through questions) provide an external, philosophically sophisticated account of his rhetorical cognition. This triangulates against Franklin's self-description in the Autobiography.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Edmund Morgan, 'Benjamin Franklin'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "A compact scholarly biography by a leading Early American historian, focused on the coherence of Franklin's intellectual character rather than biographical narrative. Morgan argues that Franklin's scientific method and political method were structurally identical \u2014 both involved isolating variables, testing propositions, and revising hypotheses. This cross-domain pattern argument is among the most useful scholarly contributions for understanding his perceptual lens (Layer 3).",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "I. Bernard Cohen, 'Benjamin Franklin's Science'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "A historian of science's close reading of Franklin's scientific papers, focused on his actual methodology rather than his discoveries. Cohen shows that Franklin consistently used analogy as a discovery tool \u2014 he found lightning rods by reasoning from laboratory-scale electrical behavior, not from direct observation of lightning. The book reconstructs his inference chains. For cognitive framework purposes, this is the deepest available analysis of his Layer 2 reasoning patterns in a domain where documentation is rigorous.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  },
+  {
+    "title": "Stacy Schiff, 'A Great Improvisation: Franklin, France, and the Birth of America'",
+    "url": "offline",
+    "source_type": "scholarly_analysis",
+    "description": "A detailed reconstruction of Franklin's 9-year diplomatic mission in France, based on extensive archival research in French and American sources. Schiff documents his decision-making under conditions of extreme uncertainty \u2014 no secure communications, competing factions, unknown intelligence. Reveals his risk management heuristics, his use of persona (the 'Quaker philosopher' image was a deliberate strategic construction), and how he handled repeated information failures. The most granular available account of his reasoning under pressure.",
+    "evidence_layers": [
+      "layer2",
+      "layer3"
+    ],
+    "fetched": false,
+    "text_path": null
+  }
+]

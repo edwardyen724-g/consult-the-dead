@@ -1,0 +1,77 @@
+General Selection and Removal: Lincoln's Personnel Decision Pattern (1861-1864)
+SYNTHESIZED CONTEXT — drawn from McPherson, Donald, Goodwin, and the operational
+correspondence record of the Army of the Potomac and the Western theater commanders.
+
+== THE PROBLEM SPACE ==
+
+Lincoln took office having never commanded troops. He had to evaluate, select, and remove
+generals while simultaneously learning the criteria by which generals should be evaluated.
+The Army of the Potomac alone went through six commanders before Grant: McDowell, McClellan,
+Burnside, Hooker, Meade, and Grant. Each transition was a documented decision. The pattern
+across them is more revealing than any single removal.
+
+== McCLELLAN: THE TWO-FAILURE THRESHOLD ==
+
+McClellan was Lincoln's first major personnel investment and his most painful firing.
+The pattern Lincoln applied: he tolerated McClellan's contempt (Lincoln waiting in
+McClellan's parlor in November 1861 while McClellan went to bed), he tolerated his
+political opposition, he tolerated his slowness during the Peninsula campaign, and he
+even reinstated him after Pope's defeat at Second Bull Run because there was no
+operationally adequate replacement. He fired McClellan only after Antietam, when McClellan
+again failed to pursue a defeated Lee. The decision rule: tolerate failure of personality
+indefinitely, tolerate failure of execution once, fire after the second strategic failure
+of the same type.
+
+== BURNSIDE AND HOOKER: REPLACEMENT WITHOUT IDEAL OPTIONS ==
+
+Burnside replaced McClellan, fought Fredericksburg disastrously, and was replaced by
+Hooker. Hooker fought Chancellorsville disastrously and was replaced by Meade three days
+before Gettysburg. Lincoln did not wait for ideal replacements. He fired commanders
+into a situation where the available successor was clearly inadequate, accepting the
+operational risk because the cost of retaining a known failure outranked the cost of
+trying an unknown alternative. The rule embedded here: a known failure is more dangerous
+than an unknown variable; replace, do not optimize.
+
+== THE LIFTING OF GRANT'S ENEMIES ==
+
+Grant came under repeated attack for his alleged drinking, his casualty rates after
+Shiloh, and the apparent stalemate around Vicksburg. Lincoln received explicit demands
+for Grant's removal from political figures, military rivals, and newspaper editors. He
+declined each one with variants of: "I can't spare this man — he fights." The criterion
+he was applying: identify the variable that distinguishes the rare effective commander
+from the common ineffective one, and weight all other variables (politics, manners,
+public opinion) below that variable. Grant attacked. That was the variable Lincoln had
+identified as scarce and load-bearing. Everything else was negotiable.
+
+== HOW LINCOLN ASSESSED GENERALS ==
+
+The criteria visible in his correspondence and conversation: (1) Did the general act on
+available information rather than wait for complete information? (2) Did the general
+accept losses as the cost of battle, or treat any loss as a reason to retreat? (3) Did
+the general reason about whole theaters or about his own command's safety? (4) Did the
+general communicate clearly with civilian leadership, or use reporting as political
+positioning? (5) Did the general improve, or repeat the same errors? Lincoln did not
+expect generals to be tactically brilliant. He expected them to clear a low bar reliably:
+fight, communicate, learn.
+
+== THE EMOTIONAL CONTAINMENT PATTERN ==
+
+Across these decisions, Lincoln's documented emotional pattern is striking. He did not
+publicly criticize the generals he removed. He did not write angry letters that arrived
+at their destinations. The famous unsent Meade letter is one of many. The principle:
+the public language of removals must preserve the dignity of the institution and the
+removed officer, because the next replacement will fail too, and the cost of demoralizing
+the officer corps exceeds the satisfaction of public criticism. He maintained the working
+relationships even with men whose performance had failed.
+
+== WHAT THE PATTERN REVEALS ==
+
+Lincoln treated personnel as the operational variable he could most directly control.
+Strategy was contingent on commander capacity; commander capacity was contingent on
+selection; selection was a sequence of imperfect bets. The framework: identify the
+scarce, load-bearing trait (willingness to fight, in this domain), select on that trait
+even at the cost of other traits, replace decisively when failure of that trait becomes
+visible, accept that some replacements will also fail, and treat the entire activity
+as an iterative search rather than a one-shot decision. This same operating method —
+optimize on one load-bearing variable, accept secondary failures — recurs across Lincoln's
+non-military decisions as well.

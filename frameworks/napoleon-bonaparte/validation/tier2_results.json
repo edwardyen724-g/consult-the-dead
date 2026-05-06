@@ -1,0 +1,134 @@
+{
+  "traceability_ratio": 0.91,
+  "lens_consistent": true,
+  "contradictions": [
+    {
+      "construct": "Asymmetric reversibility as the primary decision variable vs. honor or duty as the primary decision variable",
+      "scenario_a": "Southeast Asia Federation (Scenario 1)",
+      "scenario_b": "Continental Administrative Authority (Scenario 5)",
+      "explanation": "In Scenario 1, the response advises giving the charismatic general 'a position with the appearance of executive authority and the reality of structural subordination' \u2014 embedding him in a civilian chain without confrontation. In Scenario 5, the advice on the technocrat-administrator is structurally identical but includes an explicit threat posture: 'If the technocrat refuses this role... you must treat that refusal as a declaration of structural independence and move accordingly,' with an explicit ultimatum about withdrawing infrastructure support. The asymmetry of urgency between the two cases is not fully justified from the documented constructs \u2014 both situations involve a capable, institutionally powerful rival who controls an irreplaceable administrative function, yet the response to the general is purely structural-seduction with no escalation path articulated, while the response to the technocrat explicitly scripts a coercive fallback. The construct 'Institutional architecture as an engineered incentive system' does not discriminate between these cases in a way that would justify the difference in tone and escalation posture. A documented construct would need to invoke the 'context-invariant method application' blind spot to explain why the same binding mechanism is applied differently, but the response does not do so."
+    },
+    {
+      "construct": "Deliberate domain-shift when current competition dimension is unwinnable vs. persistence on the losing dimension",
+      "scenario_a": "Continental Military Alliance (Scenario 4)",
+      "scenario_b": "Southeast Asia Federation (Scenario 1) \u2014 external alignment section",
+      "explanation": "In Scenario 4, the response advises rejecting the extra-regional framework-nation offer categorically on sovereignty grounds, recommending organic capability-building even at slower pace. In Scenario 1, the response advises using the competing external offers as leverage to extract better terms, essentially accepting partial integration with an external power (patrol vessels, communications infrastructure from the regional power) while declining only the most sovereignty-corrosive elements (basing rights, council seat). The domain-shift construct would predict a consistent willingness to reframe external dependency as a competitive dimension to escape \u2014 but the two responses apply different thresholds for what constitutes acceptable external entanglement without explicit justification grounded in the documented constructs. The Continental Alliance response is more absolutist on sovereignty than the Federation response, and no construct in the framework explicitly privileges security-domain sovereignty over maritime-domain sovereignty in a way that would justify this difference."
+    },
+    {
+      "construct": "Agreement as transitional leverage state vs. agreement as terminal endpoint",
+      "scenario_a": "Central Africa Transitional Government (Scenario 2) \u2014 mining concession advice",
+      "scenario_b": "Continental Administrative Authority (Scenario 5) \u2014 investment framework advice",
+      "explanation": "In Scenario 2, the response explicitly advises not signing any mining concession until militia integration is substantially complete, treating the pre-signing period as the leverage window. In Scenario 5, the response advises issuing administrative rulings and establishing structural facts before seeking assembly ratification \u2014 'Act and then invite ratification' \u2014 which is the post-signature extraction logic documented in construct 2 (Concordat/Organic Articles pattern). These are not contradictory in themselves, but the response in Scenario 2 treats the signature moment as a terminus to be delayed until structural conditions are met, while Scenario 5 treats the formal ratification moment as a transitional leverage state to be exploited after administrative action has already been taken. The framework construct applies to both situations but is operationalized in opposite directions (delay signing vs. act before ratification) without explicit acknowledgment that these are different phases of the same construct. The inconsistency is in presentation rather than substance, but it is not transparently reasoned from the documented constructs."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Southeast Asia Federation (Scenario 1)",
+      "traceable_steps": 29,
+      "total_steps": 31,
+      "lens_aligned": true,
+      "notes": [
+        "Opening 'load-bearing node' framing and 'single structural problem with four symptoms' diagnosis directly traces to the perceptual lens statement and the 'what_they_notice_first' field \u2014 strait customs revenue identified as the Pratzen Heights analogy.",
+        "General management via 'engineered dependency' (salary flows through treasury, title without structural control) traces to construct 4 (Institutional architecture as engineered incentive system) and incident-017 (marshalate design).",
+        "Constitutional ratification of general's appointment as precedent-setting traces to construct 1 (Structural legitimacy engineering) and incident-001 (18 Brumaire).",
+        "Federal Revenue Authority via strait customs \u2014 'seize the Pratzen Heights before anyone recognizes it as the decisive point' \u2014 traces directly to the perceptual lens and incident-004.",
+        "Federal Commercial Code as a new domain routing around city-state sovereignty traces to construct 5 (deliberate domain-shift) and incident-007 (Continental System reframing).",
+        "Federal Civil Service offered not mandated as incentive migration traces to construct 4 and incident-017.",
+        "Bringing specific instruments (not abstract centralization questions) to the Council traces to construct 12 (future-adversary incentive modeling) and incident-019 (Napoleonic Code design).",
+        "Strait Transit Authority as multilateral institutional conversion of bilateral pressure traces to construct 5 (domain-shift) and construct 1 (structural legitimacy engineering).",
+        "Ratification clause as post-signature extraction window traces to construct 2 (agreement as transitional leverage state) and incident-006 (Organic Articles).",
+        "Special Economic Zone framing for separatist city-state as 'restructuring local incentive environment' traces to construct 4.",
+        "No secession mechanism in constitution traces to construct 12 (irreversibility as design specification) and incident-019.",
+        "Reversibility ranking at the end traces to construct 8 (asymmetric reversibility) and incident-011/012.",
+        "Two steps not fully traceable: (a) specific 12-outer-island-bloc framing treats the bloc as a monolithic actor without construct-grounded justification for that aggregation; (b) the maritime-domain-specific argument for why basing rights are more corrosive than patrol-vessel dependency lacks an explicit construct anchor \u2014 it is directionally consistent with construct 2 but the specific threshold is not derived."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Central Africa Transitional Government (Scenario 2)",
+      "traceable_steps": 26,
+      "total_steps": 29,
+      "lens_aligned": true,
+      "notes": [
+        "Opening 'three competing principals sharing a label' framing traces to perceptual lens ('system of structural positions') and to the 'what_they_ignore' field regarding agents with asymmetric internal cost structures.",
+        "Militia integration as load-bearing node \u2014 'whoever controls salary disbursement controls commander behavior' \u2014 traces to construct 4 (institutional architecture as incentive machine) and incident-005 (Concordat salary mechanism).",
+        "Instruction not to sign concession before integration complete traces to construct 8 (asymmetric reversibility) and prediction-8.",
+        "National Integration Bureau with central-treasury payroll routing around factional intermediaries traces to construct 4 and incident-017.",
+        "East Asian security-contractor rejection traces to construct 1 (structural legitimacy engineering \u2014 authority backed by force requires continuous force) and the perceptual lens's 'load-bearing connectivity nodes' concept.",
+        "Gulf consortium preference with 25% equity as ongoing patronage resource traces to construct 12 (future-adversary incentive modeling) and incident-019.",
+        "Using European offer as pricing leverage traces to construct 2 (agreement as transitional leverage state) and construct 10 (expected value across adversarial responses).",
+        "Election deadline as 'weapon' \u2014 different actors have different vulnerabilities \u2014 traces to construct 5 (deliberate domain-shift) and construct 10.",
+        "Election-precondition framing (security precondition vs. formal delay request) traces to construct 1 (structural legitimacy engineering \u2014 embed within procedural forms).",
+        "National Consultative Assembly converting reform-movement opposition into process participation traces to construct 4 and construct 12.",
+        "Three steps not fully traceable: (a) fiscal report as political tool is instrumentally sound but not explicitly derived from a specific construct; (b) the 30-day National Integration Bureau deadline is operationally specific in a way that exceeds what construct anchors can support \u2014 it is consistent with the 'decision velocity' construct but that construct is documented primarily as a failure mode (incident-009, incident-010) rather than a positive prescription; (c) the Gulf consortium advance drawdown suggestion involves financial engineering not grounded in any documented incident."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Consolidated Pacific Authority \u2014 CPA (Scenario 3)",
+      "traceable_steps": 31,
+      "total_steps": 34,
+      "lens_aligned": true,
+      "notes": [
+        "Load-bearing node identification \u2014 outer-island bloc's incentive structure \u2014 traces to perceptual lens and construct 4.",
+        "Private maritime firm rejection framed as sovereignty and negotiating leverage traces to construct 5 (domain-shift \u2014 do not compete on the losing dimension of distressed-state bargaining) and construct 8 (asymmetric reversibility \u2014 accepting the firm forecloses better options irreversibly).",
+        "Structuring competitive negotiation between regional power and Western consortium as a single auction traces to construct 10 (expected value across adversarial responses \u2014 don't optimize for one bidder, design for the distribution).",
+        "Regional power basing rights rejection framed as unrecoverable concession traces to construct 8 (asymmetric reversibility) and incident-011/012 logic.",
+        "Constitutional convention ratification clause as post-signature extraction converting pre-condition to post-condition traces to construct 2 (agreement as transitional leverage state) and incident-006.",
+        "New Coast Guard Command via emergency executive order bypassing rank-equivalence dispute traces to construct 5 (domain-shift \u2014 create a fourth institutional framework rather than resolving three-way competition).",
+        "Separatist island group: coastguard base as visible local benefit restructuring incentive environment traces to construct 4 and incident-024 (Spain counterfactual \u2014 what should have been done: neutralize parish clergy as political actor).",
+        "Diplomatic note to foreign government \u2014 one sentence, no elaboration \u2014 traces to construct 10 (expected value \u2014 a clear signal, not a negotiation, preserves dominant expected value across adversarial responses).",
+        "Legal Harmonization Commission exploiting chief justice ruling as forcing mechanism traces to construct 5 (converting an unwinnable legal constraint into a competitive asset) and construct 12 (designing for future actors' incentive constraints).",
+        "Constitutional convention timing: 10 months post-harmonization traces to construct 12 (future-adversary incentive modeling \u2014 convention ratifies already-established facts rather than approving hypotheticals) and incident-019.",
+        "By-election political narrative \u2014 prime minister bargaining from strength \u2014 traces to construct 11 (narrative construction as operational front) and incident-020.",
+        "Three steps not fully traceable: (a) currency union 90-day deadline is operationally specific without construct-level derivation; (b) the 'common law as primary architecture' recommendation in the legal harmonization section imports a preference that is consistent with the structural-infrastructure logic of construct 12 but is not grounded in any documented incident; (c) the Strait Transit Authority multilateral structure reappears from Scenario 1 \u2014 cross-scenario consistency is maintained, but the specific multilateral-body mechanism is not derived from a documented construct or incident, only from the domain-shift construct at high abstraction."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Continental Military Alliance (Scenario 4)",
+      "traceable_steps": 27,
+      "total_steps": 30,
+      "lens_aligned": true,
+      "notes": [
+        "Load-bearing node identification \u2014 Permanent Joint Operations Director position insulated from political rotation \u2014 traces to construct 6 (centralized high-throughput control) and construct 4 (institutional architecture as incentive machine).",
+        "Separating operational control nodes from ceremonial authority symbols \u2014 'give the smaller members the symbol while engineering structural control nodes' \u2014 directly traces to construct 1 (structural legitimacy engineering) and incident-001 (18 Brumaire embedding power within procedural forms).",
+        "Dominant-member trading Supreme Commander title for Operations Director position traces to construct 5 (deliberate domain-shift \u2014 compete on the domain where your strengths apply) and construct 10.",
+        "Rotational Supreme Commander as 'founding gesture of collective equality' traces to construct 11 (narrative construction as operational front) and incident-002 (plebiscite as performative legitimacy act).",
+        "Minimum interoperability standard vs. unified doctrine as 'common interface layer not cultural surrender' traces to construct 7 (context-invariant method application \u2014 recognizing what conditions actually need to be present vs. what surface features need to match) and construct 5.",
+        "SOFA/ROE resolution before summit via technical working group traces to construct 12 (future-adversary incentive modeling \u2014 remove blocking conditions before the main negotiation) and the general sequencing logic of construct 8.",
+        "Extra-regional offer rejection framed as sovereignty non-negotiable traces to construct 8 (asymmetric reversibility \u2014 basing rights are unrecoverable) and prediction-8.",
+        "Disaggregating the extra-regional offer (accept satellite intelligence, reject basing and planning seat) traces to construct 5 (domain-shift \u2014 accept capability that doesn't create structural dependency, reject capability that does).",
+        "Summit as ratification not negotiation \u2014 pre-cook solutions bilaterally \u2014 traces to construct 3 (enemy belief state as shapeable asset \u2014 managing what actors expect before the decisive moment) and construct 1.",
+        "Three steps not fully traceable: (a) the rotational rapid-reaction corps (six-month home-base cycles with 72-hour deployment obligation) is a novel military architecture recommendation that is consistent with the corps-system logic of incident-013 but not directly derived from it; (b) the bilateral pre-summit consultation sequence is strategically sound but the specific argument that 'defense ministers advocate while heads of government manage political environments' is a political psychology claim not grounded in any documented construct; (c) the explicit recommendation to attribute specific draft provisions to specific member states' concerns as a framing technique traces to construct 11 but the specific political-attribution mechanism is more granular than the construct documentation supports."
+      ],
+      "contradiction": false
+    },
+    {
+      "scenario": "Continental Administrative Authority (Scenario 5)",
+      "traceable_steps": 33,
+      "total_steps": 37,
+      "lens_aligned": true,
+      "notes": [
+        "Opening 'one problem wearing five faces' and 'building irreversibility not consensus' framing traces directly to perceptual lens ('system of structural positions whose load-bearing nodes can be identified') and construct 12 (irreversibility as design specification).",
+        "Fiscal-first sequencing argument \u2014 'security without fiscal authority is theater' \u2014 traces to construct 9 (logistics architecture as primary lever of strategic tempo) and the 'what_they_notice_first' field (financial dependency converting rival institution into subordinate administrative arm).",
+        "Revenue-tracking system under central operational control traces to construct 4 (institutional architecture as incentive machine) and incident-005 (Concordat salary mechanism as organizational capture).",
+        "Interpretive ruling issued before ratification sought \u2014 'act then invite ratification' \u2014 traces to construct 1 (structural legitimacy engineering) and incident-006 (Organic Articles post-signature extraction).",
+        "Withholding territories: naming subsidy as structural clarification not threat traces to construct 2 (agreement as transitional leverage state) and the framing logic of incident-006.",
+        "Swing territory side arrangement as 'purchasing a decision not building a friendship' traces to construct 4 and incident-017 (marshalate \u2014 loyalty produced by structural positioning not sentiment).",
+        "Highland corridor: invoking external threat as collective security externality traces to construct 11 (narrative construction as operational front) and construct 3 (enemy/adversary belief state management).",
+        "Unified security cadre funded from central treasury \u2014 career advancement flowing from center \u2014 traces to construct 4 and incident-005 (Concordat mechanism: loyalty guaranteed by financial dependency).",
+        "Two defecting territories: formal observer-status ruling with grace period traces to construct 2 and construct 1; simultaneous infrastructure benefit direction traces to construct 4.",
+        "Investment framework: rejecting external arbitration panels as sovereignty transfer traces to construct 8 (asymmetric reversibility) and construct 12.",
+        "Accepting technology transfer while proposing compatible (not identical) standards traces to construct 5 (deliberate domain-shift \u2014 accept the substance while maintaining the form of sovereignty).",
+        "Technocrat-administrator: treaty revision commission appointment converting rival's ambition into consolidation instrument traces to construct 4 and construct 12 (designing institutions so dismantlement is more costly than maintenance).",
+        "Securing revenue-tracking system before offering commission role \u2014 sequence matters absolutely \u2014 traces to construct 8 (asymmetric reversibility) and the Egypt departure incident-011 logic (control the structural resource before the political gesture).",
+        "General treaty revision rejection \u2014 'do not open every settled question' \u2014 traces to construct 7 (context-invariant method application \u2014 avoid applying amendment mechanism in a context where its enabling conditions, settled consensus, are absent) and construct 12.",
+        "Four steps not fully traceable: (a) the specific 14-month window framing as 'engineering deadline not negotiating timeline' is rhetorically consistent with the perceptual lens but no specific construct operationalizes time-window specificity at this granularity; (b) the 'aggressive concentration through the form of consensus' formulation is the framework's core synthesis but is itself a meta-claim not anchored to a single construct \u2014 it integrates constructs 1, 4, and 12 simultaneously without explicit attribution; (c) the technocrat ultimatum language ('treat that refusal as a declaration of structural independence and move accordingly') escalates to coercive threat in a way that is consistent with the lens but exceeds what the documented constructs prescribe \u2014 construct 4 describes engineering incentives, not explicitly issuing ultimatums; (d) the 'first election after fiscal architecture is consolidated' timing recommendation for the new executive position is inferentially sound but not directly derived from a specific construct or incident."
+      ],
+      "contradiction": true,
+      "contradiction_detail": "The escalation posture toward the technocrat-administrator (explicit ultimatum: withdraw infrastructure support if refused) is stronger than the analogous general-management advice in Scenario 1 (pure structural-seduction with no escalation path). Both involve a capable, institutionally powerful actor who controls irreplaceable administrative infrastructure. The difference in treatment is not explicitly justified by reference to any documented construct, and construct 4 (institutional architecture as incentive machine) is invoked in both cases but operationalized at different threat levels without explanation."
+    }
+  ],
+  "passed": false
+}
