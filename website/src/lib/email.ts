@@ -1,6 +1,16 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-initialised Resend client. Constructing `new Resend(...)` at module
+// top-level forces `next build` page-data collection to fail when this
+// module is reached during build without RESEND_API_KEY set. Defer to first
+// send call so the build can statically inspect API routes that import it.
+let _resend: Resend | null = null
+function getResend(): Resend {
+  if (!_resend) {
+    _resend = new Resend(process.env.RESEND_API_KEY)
+  }
+  return _resend
+}
 
 const FROM = 'onboarding@resend.dev'
 const AGORA_URL = 'https://www.consultthedead.com/agora'
@@ -8,7 +18,7 @@ const AGORA_URL = 'https://www.consultthedead.com/agora'
 export async function sendWelcomeEmail(to: string, name: string): Promise<void> {
   const greeting = name ? `Hi ${name},` : 'Hi,'
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to,
     subject: 'Welcome to the Agora',
@@ -70,7 +80,7 @@ export async function sendSubscriptionConfirmation(
     ? '$300/year, locked as founding-member pricing for life'
     : '$30/month'
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to,
     subject: `You're on Pro`,

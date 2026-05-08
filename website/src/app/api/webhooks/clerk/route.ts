@@ -6,7 +6,19 @@ import { sendWelcomeEmail } from '@/lib/email'
 
 export const runtime = 'nodejs'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// Lazy-initialised Stripe client. Constructing `new Stripe(...)` at module
+// top-level forces `next build` page-data collection to fail when
+// STRIPE_SECRET_KEY is unset. We instantiate inside the request handler so
+// the build can still tree-walk this route.
+let _stripe: Stripe | null = null
+function getStripe(): Stripe {
+  if (!_stripe) {
+    const key = process.env.STRIPE_SECRET_KEY
+    if (!key) throw new Error('STRIPE_SECRET_KEY is not set')
+    _stripe = new Stripe(key)
+  }
+  return _stripe
+}
 
 interface ClerkUserCreatedEvent {
   type: 'user.created'
@@ -49,6 +61,7 @@ export async function POST(request: NextRequest) {
     const primaryEmail = email_addresses.find(e => e.id === primary_email_address_id)
     const email = primaryEmail?.email_address ?? email_addresses[0]?.email_address
 
+    const stripe = getStripe()
     const customer = await stripe.customers.create({
       email,
       metadata: { clerk_user_id: clerkUserId },

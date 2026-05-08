@@ -4,7 +4,17 @@ import Stripe from 'stripe'
 
 export const runtime = 'nodejs'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// Lazy-initialised Stripe client. See checkout/route.ts for rationale —
+// `new Stripe(...)` at module scope breaks `next build` when env is unset.
+let _stripe: Stripe | null = null
+function getStripe(): Stripe {
+  if (!_stripe) {
+    const key = process.env.STRIPE_SECRET_KEY
+    if (!key) throw new Error('STRIPE_SECRET_KEY is not set')
+    _stripe = new Stripe(key)
+  }
+  return _stripe
+}
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.consultthedead.com'
 
@@ -22,6 +32,7 @@ export async function POST() {
     return NextResponse.json({ error: 'No Stripe customer found' }, { status: 404 })
   }
 
+  const stripe = getStripe()
   const session = await stripe.billingPortal.sessions.create({
     customer: customerId,
     return_url: `${SITE_URL}/account`,
