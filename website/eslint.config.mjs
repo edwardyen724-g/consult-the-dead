@@ -13,6 +13,14 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // Legacy Playwright eval scripts use CommonJS require() — silence the rule
+  // for the tests/ directory rather than touching the source files.
+  {
+    files: ["tests/**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
