@@ -242,7 +242,7 @@ Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATE
 | Persist debates? | Yes — save so users can revisit, enables sharing/virality. Ship lean in Phase 4, not v1. |
 | Cards vs chips for council select? | **Cards.** User needs context to pick advisors; chips are for known-entity tagging. Lean default: pre-select 3 suggested, user can swap. |
 | What happens to company-builder URL? | Hidden from website. Has known bugs, not worth fixing. Agora is the sole product. |
-| Mind cap? | **Up to 5** in v1 (originally 3 was just the prototype default). Allowing unlimited would require real research on multi-agent structure optimal sizing — deferred. |
+| Mind cap? | **Tiered by subscription:** Free = 2–3 minds (min 2, max 3); Pro = 2–5 minds (min 2, max 5). Council size is a monetization gate, not just a prototype limit. Live enforcement is in `/api/agon/route.ts` (`mindMax = isPro ? 5 : 3`) and displayed on the pricing page. A follow-up task should audit whether the pricing-page label "2–3 minds" (vs API "up to 3") needs copy clarification. |
 | Concierge integration? | Optional landing-page CTA only, not an Agora feature. Needs to add real value (deeper synthesis, wider council) to justify $29 over the free tier. |
 
 ---
