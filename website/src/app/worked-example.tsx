@@ -138,7 +138,7 @@ const REDUCED_MOTION_STATE: DemoState = {
 
 // =================== PROGRESS HEADER ===================
 
-const STAGE_NAMES = ["TOPIC", "RESEARCH", "DEBATES", "CONSENSUS"];
+const STAGE_NAMES = ["TOPIC", "RESEARCH", "AGON", "CONSENSUS"];
 const STAGE_DURATIONS_MS = [0, 7000, 13000, 8000];
 
 function stageToIndex(stage: DemoStage): number {
