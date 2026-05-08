@@ -15,8 +15,10 @@ export function FanDiagram() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReduced) {
-      setPlay(true);
-      return;
+      // Reduced-motion users get the final state immediately. Deferring via rAF
+      // keeps the state update out of the effect body (avoids cascading-render lint).
+      const raf = requestAnimationFrame(() => setPlay(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     const io = new IntersectionObserver(
