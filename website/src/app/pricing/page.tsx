@@ -9,6 +9,7 @@ const FEATURES: { label: string; free: string; pro: string }[] = [
   { label: 'Debate library',     free: 'Device only',             pro: 'Persistent + searchable' },
   { label: 'PDF export',         free: '—',                       pro: '✓' },
   { label: 'Extended research',  free: '—',                       pro: '✓' },
+  { label: 'Bring your own key', free: 'Unlimited (you pay Anthropic)', pro: 'Optional override' },
   { label: 'Founder support',    free: '—',                       pro: '48h email' },
   { label: 'Account',            free: 'Anonymous',               pro: 'Private, synced' },
 ]
@@ -28,7 +29,11 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Do I need an Anthropic account?',
-    a: "No. We handle all AI calls. You don't manage API keys or pay Anthropic directly. Free users don't even need an account with us.",
+    a: "Not for the default flow — we handle the AI calls and billing on Free and Pro, so you don't need an Anthropic account or API key. If you'd rather pay Anthropic directly and skip our limits, you can plug in your own key (see below). Free users don't need an account with us either.",
+  },
+  {
+    q: 'Can I use my own Anthropic API key (BYO key)?',
+    a: "Yes, on any tier. Open /agora, expand 'your own anthropic key (optional)' on the topic screen, and paste your sk-ant-… key. The key is stored only in your browser's localStorage and forwarded as the request's x-api-key header — we never write it to server logs or our database. Using your own key bypasses the free-tier daily cap, so you get unlimited debates for as long as your Anthropic account has credit. Pro subscribers can use a BYO key too if they want to spend their own quota on heavy days.",
   },
   {
     q: "What's \"founder support\"?",
@@ -450,8 +455,8 @@ export default function PricingPage() {
         }}>
           Good decisions are harder with unlimited options and no outside view.
           Agora is your sparring partner — not a therapist, not a calculator,
-          not a consensus machine. Historical minds who've already thought
-          through the problem you're facing, arguing it out on your behalf.
+          not a consensus machine. Historical minds who&apos;ve already thought
+          through the problem you&apos;re facing, arguing it out on your behalf.
         </p>
 
       </div>
