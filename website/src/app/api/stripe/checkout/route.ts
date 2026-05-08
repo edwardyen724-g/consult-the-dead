@@ -4,7 +4,19 @@ import Stripe from 'stripe'
 
 export const runtime = 'nodejs'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// Lazy-initialised Stripe client. Constructing `new Stripe(...)` at module
+// top-level forces `next build` page-data collection to fail when
+// STRIPE_SECRET_KEY is unset (e.g. in CI without secrets). We instantiate
+// inside the request handler so the build can still tree-walk this route.
+let _stripe: Stripe | null = null
+function getStripe(): Stripe {
+  if (!_stripe) {
+    const key = process.env.STRIPE_SECRET_KEY
+    if (!key) throw new Error('STRIPE_SECRET_KEY is not set')
+    _stripe = new Stripe(key)
+  }
+  return _stripe
+}
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.consultthedead.com'
 
@@ -13,6 +25,7 @@ export async function POST(request: NextRequest) {
   if (!userId) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+  const stripe = getStripe()
 
   const body = await request.json().catch(() => ({}))
   const billingPeriod: 'monthly' | 'annual' = body.billingPeriod === 'annual' ? 'annual' : 'monthly'
