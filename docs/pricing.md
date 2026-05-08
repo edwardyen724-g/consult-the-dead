@@ -86,7 +86,7 @@ Key friction points:
 | Extended Tavily research pass | ✅ Shipped |
 | 48h founder email support | ✅ Manual (Edward responds directly) |
 | Up to 5 minds council | ✅ Shipped (gated in `/api/agon`) |
-| Shareable agon URLs | ✅ Shipped (GAP-03) |
+| Shareable agon URLs | 🟡 Backend shipped, UI in flight |
 | 100 agons/month limit | ✅ Enforced in rate limiter |
 
 ---
@@ -98,7 +98,7 @@ Key friction points:
 | Auth | Clerk (`publicMetadata.subscription_tier === "pro"`) |
 | Payment | Stripe (monthly + annual products; 7-day trial) |
 | Mind-cap enforcement | `/api/agon/route.ts` — `mindMax = isPro ? 5 : 3` |
-| Rate-limit enforcement | `website/src/lib/rateLimit.ts` — 3 agons/day free, 100/month Pro |
+| Rate-limit enforcement | `website/src/lib/agon/rateLimit.ts` — 3 agons/day free, 100/month Pro |
 | Pricing page | `website/src/app/pricing/page.tsx` |
 
 ---
