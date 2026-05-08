@@ -244,13 +244,16 @@ export function AgoraApp({
 
     setState((s) => ({
       ...s,
-      stage: "research",
+      // Skip the Research stage entirely when the toggle is off — there's
+      // nothing to show, and the agon will start streaming as soon as the
+      // server emits round_start.
+      stage: s.researchEnabled ? "research" : "agon",
       turns: [],
       activeRound: null,
       activeMindSlug: null,
       consensus: null,
       consensusLoading: false,
-      researchLoading: true,
+      researchLoading: s.researchEnabled,
       researchData: null,
       error: null,
       rateLimited: false,
@@ -274,7 +277,7 @@ export function AgoraApp({
           topic: state.topic.trim(),
           mindSlugs: state.council,
           rounds: TOTAL_ROUNDS,
-          research: false,
+          research: state.researchEnabled,
         }),
       });
 
@@ -433,6 +436,10 @@ export function AgoraApp({
               setTopic={(t) => setState((s) => ({ ...s, topic: t }))}
               apiKey={state.apiKey}
               setApiKey={setApiKey}
+              researchEnabled={state.researchEnabled}
+              setResearchEnabled={(v) =>
+                setState((s) => ({ ...s, researchEnabled: v }))
+              }
               onSubmit={beginFromTopic}
             />
           )}
@@ -442,7 +449,6 @@ export function AgoraApp({
               topic={state.topic}
               loading={state.researchLoading}
               data={state.researchData}
-              onContinue={() => setState((s) => ({ ...s, stage: "council" }))}
             />
           )}
 
@@ -613,12 +619,16 @@ function TopicStage({
   setTopic,
   apiKey,
   setApiKey,
+  researchEnabled,
+  setResearchEnabled,
   onSubmit,
 }: {
   topic: string;
   setTopic: (t: string) => void;
   apiKey: string;
   setApiKey: (k: string) => void;
+  researchEnabled: boolean;
+  setResearchEnabled: (v: boolean) => void;
   onSubmit: () => void;
 }) {
   const [showKey, setShowKey] = useState(false);
@@ -705,12 +715,72 @@ function TopicStage({
           letterSpacing: "0.04em",
           color: "var(--fg-faint)",
           lineHeight: 1.6,
-          marginBottom: "32px",
+          marginBottom: "24px",
         }}
       >
         We log your decision and council selection so we can learn what to
         build next. We do <em>not</em> store your name, email, or IP.
       </div>
+
+      {/* Research toggle */}
+      <label
+        htmlFor="agora-research-toggle"
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "12px",
+          padding: "14px 16px",
+          marginBottom: "32px",
+          background: researchEnabled ? "var(--surface)" : "transparent",
+          border: `1px solid ${researchEnabled ? "var(--amber)" : "var(--hairline)"}`,
+          borderRadius: "4px",
+          cursor: "pointer",
+          transition: "all 200ms ease-out",
+        }}
+      >
+        <input
+          id="agora-research-toggle"
+          type="checkbox"
+          checked={researchEnabled}
+          onChange={(e) => setResearchEnabled(e.target.checked)}
+          style={{
+            marginTop: "2px",
+            width: "16px",
+            height: "16px",
+            accentColor: "var(--amber)",
+            cursor: "pointer",
+            flexShrink: 0,
+          }}
+        />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div
+            className="font-mono"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: researchEnabled ? "var(--amber)" : "var(--fg-dim)",
+              marginBottom: "4px",
+            }}
+          >
+            Web research before the council speaks
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "13px",
+              fontStyle: "italic",
+              lineHeight: 1.55,
+              color: "var(--fg-dim)",
+            }}
+          >
+            Pulls live facts and citations from the web (Tavily + Claude
+            web_search) and feeds them to every mind as a shared brief. Off
+            by default — adds about 15s to the run and a research stage
+            before the agon.
+          </div>
+        </div>
+      </label>
 
       <button
         onClick={onSubmit}
@@ -868,18 +938,16 @@ function TopicStage({
   );
 }
 
-/* ────────────── Stage 2: Research (Phase 3 placeholder) ────────────── */
+/* ────────────── Stage 2: Research ────────────── */
 
 function ResearchStage({
   topic,
   loading,
   data,
-  onContinue,
 }: {
   topic: string;
   loading: boolean;
   data: ResearchData | null;
-  onContinue: () => void;
 }) {
   return (
     <div>
@@ -977,25 +1045,13 @@ function ResearchStage({
         </div>
       )}
 
-      {!loading && (
-        <button
-          onClick={onContinue}
-          className="font-mono"
-          style={{
-            background: "var(--amber)",
-            color: "var(--bg)",
-            border: "1px solid var(--amber)",
-            borderRadius: "4px",
-            fontSize: "12px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            padding: "14px 28px",
-            cursor: "pointer",
-          }}
-        >
-          Pick the Council →
-        </button>
-      )}
+      {/*
+        Note: there is intentionally no "continue" button here. Once
+        research_done arrives, the next event from /api/agon is
+        round_start, which advances the stage to "agon" automatically
+        (see handleAgonEvent). The previous Phase-3-placeholder button
+        was dead code — this stage is purely informational.
+      */}
     </div>
   );
 }
