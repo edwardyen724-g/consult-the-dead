@@ -5,7 +5,7 @@ Use this runbook **after deploying** to verify that Resend delivers real email f
 1. **Clerk welcome** — fires when a new user signs up via Clerk webhook → `POST /api/webhooks/clerk`
 2. **Post-checkout receipt** — fires after a successful Stripe subscription checkout → `POST /api/stripe/webhook`
 
-> **When to run**: After first production deploy of the lazy-init Stripe/Resend refactor (capsule 0682e94c) or any time you change `src/lib/email.ts` or either webhook route.
+> **When to run**: After first production deploy of the lazy-init Stripe/Resend refactor (capsule 0682e94c) or any time you change `website/src/lib/email.ts` or either webhook route.
 
 ---
 
@@ -24,7 +24,7 @@ Set these in Vercel (Project → Settings → Environment Variables) before depl
 
 ### EMAIL_FROM
 
-The sender address is currently hardcoded in `src/lib/email.ts`:
+The sender address is currently hardcoded in `website/src/lib/email.ts`:
 
 ```ts
 const FROM = 'onboarding@resend.dev'
