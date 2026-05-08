@@ -260,7 +260,7 @@ export default async function InsightPage({ params }: PageProps) {
           Combine {person} with other historical minds. See where they agree — and where they
           fight.
         </p>
-        <a
+        <Link
           href="/#council"
           style={{
             display: "inline-block",
@@ -276,7 +276,7 @@ export default async function InsightPage({ params }: PageProps) {
           }}
         >
           Submit your decision to the council
-        </a>
+        </Link>
       </div>
     </main>
   );

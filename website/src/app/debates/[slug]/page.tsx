@@ -131,7 +131,7 @@ export default async function DebatePage({
             color: 'var(--fg)',
             margin: '0 0 28px',
           }}>
-            "{debate.topic}"
+            &ldquo;{debate.topic}&rdquo;
           </h1>
 
           {/* Council */}

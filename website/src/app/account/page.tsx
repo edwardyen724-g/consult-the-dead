@@ -139,7 +139,7 @@ export default async function AccountPage({
                   margin: '0 0 20px',
                   lineHeight: 1.6,
                 }}>
-                  You're on the free plan — 3 agons per day, 2–3 minds, anonymous.
+                  You&rsquo;re on the free plan — 3 agons per day, 2–3 minds, anonymous.
                 </p>
                 <Link
                   href="/pricing"

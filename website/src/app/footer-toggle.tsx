@@ -7,7 +7,12 @@ export function FooterToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  // Defer the mount flip until after commit so the setState happens in a callback
+  // rather than synchronously inside the effect body (avoids cascading-render lint).
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   if (!mounted) {
     return <span style={{ width: 16, height: 16, display: "inline-block" }} />;

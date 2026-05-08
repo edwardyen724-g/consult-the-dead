@@ -8,7 +8,12 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  // Defer the mount flip until after commit so the setState happens in a callback
+  // rather than synchronously inside the effect body (avoids cascading-render lint).
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   if (!mounted) {
     return <div className="w-[140px] h-9" />;
