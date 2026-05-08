@@ -304,25 +304,193 @@ body {
   }
 }
 
-/* ===== Print / PDF export ===== */
+/* ===== Print / PDF export =====
+   Hardened for Agora Cmd-P "Save as PDF" exports. Goals:
+   (a) hide sticky/fixed nav and any data-print="hide" regions;
+   (b) Agon thread flows single-column, per-mind color accents preserved;
+   (c) consensus graph + per-node paragraphs always render full text
+       (no truncation, no overflow:hidden, no max-height clamps);
+   (d) page-break-inside: avoid on each turn block and each consensus node.
+   Scope is strictly globals.css; AgoraApp.tsx already marks the live-state
+   chrome (footer link row, action buttons) with data-print="hide". */
 @media print {
+  /* Force the parchment-friendly palette regardless of which theme was
+     active on screen — bright dark-mode mind colors look washed out on
+     a white print background, so we anchor every variable to the light
+     palette (which was tuned for parchment/white contrast). */
   :root, html.light, html {
     --bg: #ffffff !important;
+    --bg-deep: #ffffff !important;
+    --bg-edge: #ffffff !important;
     --fg: #111111 !important;
     --fg-dim: #555555 !important;
+    --fg-faint: #777777 !important;
     --hairline: #c8c8c8 !important;
     --amber: #8b2e23 !important;
+    --red: #8b2e23 !important;
+    --red-deep: #6e2419 !important;
+    --green: #3e5e3e !important;
+    --amber-wash: rgba(139, 46, 35, 0.09) !important;
+    --amber-mist: rgba(139, 46, 35, 0.045) !important;
+    --surface: rgba(0, 0, 0, 0.03) !important;
+
+    /* Mind accent colors — parchment palette (sufficient contrast on white). */
+    --color-machiavelli: #8b2e23 !important;
+    --color-suntzu:      #3e5e3e !important;
+    --color-curie:       #6b7c3a !important;
+    --color-newton:      #4a5a8a !important;
+    --color-tesla:       #2a7a8a !important;
+    --color-leonardo:    #8a6a2a !important;
+    --color-einstein:    #7a5a9a !important;
+    --color-aurelius:    #7a5a2a !important;
+    --color-franklin:    #9a7510 !important;
+    --color-cicero:       #7a1f1f !important;
+    --color-epictetus:    #8a6a40 !important;
+    --color-edison:       #9a6a10 !important;
+    --color-archimedes:   #1f5a7a !important;
+    --color-rockefeller:  #1f4a30 !important;
+    --color-tubman:       #4a2a70 !important;
+    --color-lovelace:     #6a4a90 !important;
+    --color-catherine:    #9a7510 !important;
+    --color-alexander:    #7a5028 !important;
+    --color-cleopatra:    #1f5a5f !important;
+
+    --pack-stoic-council:        #7a5a2a !important;
+    --pack-inventors-workshop:   #4a5a8a !important;
+    --pack-war-room:             #8b2e23 !important;
+    --pack-republic:             #9a7510 !important;
+    --pack-trailblazers:         #3e5e3e !important;
+    --pack-moguls:               #2f5a44 !important;
   }
+
   html, body, main { background: #ffffff !important; color: #111111 !important; }
-  header, [data-print="hide"] { display: none !important; }
+
+  /* Tell the browser to honor color choices in print so per-mind accents
+     and amber tints don't get desaturated by the default ink-saver pass. */
+  *, *::before, *::after {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* (a) Hide nav chrome — explicit data-print="hide" plus any sticky/fixed
+     regions (toolbars, banners) that AgoraApp may not have annotated. */
+  header,
+  nav,
+  [role="navigation"],
+  [data-print="hide"],
+  [style*="position: sticky"],
+  [style*="position:sticky"],
+  [style*="position: fixed"],
+  [style*="position:fixed"],
+  .sticky,
+  .fixed {
+    display: none !important;
+  }
+
+  /* Force <details> blocks open so the full agon transcript prints even
+     when a turn was collapsed on screen. downloadReport() already opens
+     them programmatically, but this is a belt-and-braces guard. */
   details > *:not(summary) { display: block !important; }
   details summary { display: none !important; }
-  .gm-caret,
+
+  /* (c) Defeat any clipping. AgoraApp uses lots of inline styles; forcing
+     overflow visible + max-height none on every descendant of <main>
+     guarantees the consensus paragraphs render full text and the agon
+     thread doesn't get cut off mid-page. */
+  main,
+  main * {
+    overflow: visible !important;
+    max-height: none !important;
+    text-overflow: clip !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  /* (b) Single-column flow. AgoraApp's ConsensusStage uses a side-by-side
+     flex (graph + ConsensusDoc) that won't fit comfortably on a portrait
+     page — collapse all flex containers in <main> to column flow.
+     The agon-thread flex container is already column, so this is a no-op
+     there; per-mind color accents remain because we don't touch color. */
+  main [style*="display: flex"],
+  main [style*="display:flex"] {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+  main [style*="display: grid"],
+  main [style*="display:grid"] {
+    display: block !important;
+  }
+
+  /* Keep the consensus SVG at a sensible inline size so it doesn't try to
+     occupy a whole page on its own. */
+  .gm-consensus-graph {
+    width: 200px !important;
+    height: 200px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Reset the streaming animations: no caret, no draw-in dashes — print
+     captures the final state, not the in-flight stream. */
+  .gm-caret { display: none !important; }
   .gm-consensus-graph .gm-cline-0,
   .gm-consensus-graph .gm-cline-1,
   .gm-consensus-graph .gm-cline-2,
   .gm-consensus-graph .gm-cline-3,
-  .gm-consensus-graph .gm-cline-4 { opacity: 1 !important; animation: none !important; }
+  .gm-consensus-graph .gm-cline-4 {
+    opacity: 1 !important;
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .gm-consensus-node,
+  .gm-consensus-center {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Paragraph-level hygiene: avoid orphan/widow lines at page breaks
+     so a turn doesn't end with a single dangling word on the next page. */
+  main p,
+  main li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* (d) page-break-inside: avoid for atomic units:
+     - consensus nodes (id="consensus-points|tensions|action|steps|risks");
+     - turn blocks (direct children of any column-flex container in main —
+       AgonStage and the transcript <details> both nest turns this way);
+     - explicit transcript turn blocks under <details>;
+     - any element opted in via [data-print-block]. */
+  [id^="consensus-"],
+  main [style*="flex-direction: column"] > div,
+  main [style*="flex-direction:column"] > div,
+  details > div > div,
+  [data-print-block] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Belt-and-braces for consensus nodes: re-assert that paragraphs and
+     lists inside each node are free to wrap to whatever height they need
+     and never get clamped or hidden. */
+  [id^="consensus-"] {
+    border-left: 2px solid var(--amber) !important;
+    padding-left: 16px !important;
+    margin-bottom: 12px !important;
+  }
+  [id^="consensus-"] p,
+  [id^="consensus-"] ul,
+  [id^="consensus-"] li,
+  [id^="consensus-"] div {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    max-height: none !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  /* Page setup: comfortable margins on every page, slightly tighter top
+     margin on the first page so the agon title doesn't feel buried. */
   @page { margin: 12mm 14mm; }
-  details > div > div, [data-print-block] { break-inside: avoid; }
+  @page :first { margin-top: 8mm; }
 }
