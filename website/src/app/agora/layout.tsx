@@ -5,8 +5,11 @@ export const metadata: Metadata = {
   description:
     "Run your hard decision through a council of historical minds. Structured disagreement, real consensus, yours in under three minutes.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.consultthedead.com/agora",
   },
 };
 

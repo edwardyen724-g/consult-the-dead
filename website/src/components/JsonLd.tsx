@@ -17,10 +17,37 @@ export function OrganizationJsonLd() {
   );
 }
 
-// WebAppJsonLd removed 2026-04-18 — will be reintroduced when the new Agora ships at /agora.
-// Previously pointed to agora.consultthedead.com which hosts the hidden company-builder.
+// Restored 2026-05-07 — points at /agora now that Phase 1+ is live.
+// Previously pointed to agora.consultthedead.com which hosted the company-builder
+// and was removed 2026-04-18; see AGORA_PLAN.md §8 Phase 5.
 export function WebAppJsonLd() {
-  return null;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "The Agora",
+    url: "https://www.consultthedead.com/agora",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Run your hard decision through a council of historical minds. Structured disagreement, real consensus, yours in under three minutes.",
+    publisher: {
+      "@type": "Organization",
+      name: "Consult The Dead",
+      url: "https://www.consultthedead.com",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
 }
 
 export function FAQJsonLd() {
