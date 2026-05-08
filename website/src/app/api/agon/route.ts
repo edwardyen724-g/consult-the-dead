@@ -57,6 +57,10 @@ export async function POST(request: NextRequest) {
   const topic = (body.topic ?? "").trim();
   const mindSlugsRaw = Array.isArray(body.mindSlugs) ? body.mindSlugs : [];
   const rounds = Number.isFinite(body.rounds) ? Math.max(1, Math.min(5, body.rounds!)) : 3;
+  // Research is opt-in — only run the web-research phase when the client
+  // explicitly sends `research: true`. Any other value (false / undefined /
+  // non-boolean) leaves it disabled.
+  const research = body.research === true;
 
   if (topic.length < 10) {
     return jsonError(400, "Topic must be at least 10 characters");
@@ -146,6 +150,7 @@ export async function POST(request: NextRequest) {
           topic,
           mindSlugs,
           rounds,
+          research,
           isPro,
         })) {
           // Inject remaining quota into the agon_done event

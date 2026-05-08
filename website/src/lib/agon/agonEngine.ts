@@ -197,35 +197,47 @@ interface RunAgonArgs {
   topic: string;
   mindSlugs: FrameworkSlug[];
   rounds: number;
-  research?: string | null;
+  /**
+   * Whether to run the optional web-research phase before the council
+   * speaks. When `false` (default), `runAgon` skips the phase entirely —
+   * no `research_started` / `research_done` events, no Tavily / Claude
+   * web_search calls, and the turn / convergence prompts receive
+   * `research: null`. The UI surfaces this as a toggle on the Topic stage.
+   */
+  research?: boolean;
   isPro?: boolean;
 }
 
 export async function* runAgon(
   args: RunAgonArgs
 ): AsyncGenerator<AgonEvent, void, unknown> {
-  const { apiKey, topic, mindSlugs, rounds, isPro } = args;
+  const { apiKey, topic, mindSlugs, rounds, isPro, research: enableResearch = false } = args;
 
   const anthropic = new Anthropic({ apiKey });
 
-  // ── Research phase ──
-  let research: string | null = null;
-  try {
-    yield { type: "research_started" };
-    const result = await performResearch(anthropic, topic);
-    research = result.summary;
-    yield {
-      type: "research_done",
-      summary: result.summary,
-      sources: result.sources,
-    };
-  } catch (err) {
-    // Research is best-effort — if it fails, proceed without it
-    yield {
-      type: "research_done",
-      summary: "",
-      sources: [],
-    };
+  // ── Research phase (optional) ──
+  // Skipped entirely when `research` is false/undefined. We still need a
+  // local variable for the (possibly null) summary so the turn /
+  // convergence prompts can pass `research: null` cleanly.
+  let researchSummary: string | null = null;
+  if (enableResearch) {
+    try {
+      yield { type: "research_started" };
+      const result = await performResearch(anthropic, topic);
+      researchSummary = result.summary;
+      yield {
+        type: "research_done",
+        summary: result.summary,
+        sources: result.sources,
+      };
+    } catch {
+      // Research is best-effort — if it fails, proceed without it
+      yield {
+        type: "research_done",
+        summary: "",
+        sources: [],
+      };
+    }
   }
 
   const council = mindSlugs.map((slug) => ({
@@ -261,7 +273,7 @@ export async function* runAgon(
         round,
         totalRounds: rounds,
         priorTurns: allTurns,
-        research: research ?? null,
+        research: researchSummary,
       });
 
       yield {
@@ -315,7 +327,7 @@ export async function* runAgon(
     topic,
     council,
     turns: allTurns,
-    research: research ?? null,
+    research: researchSummary,
   });
 
   const convergenceMsg = await anthropic.messages.create({
