@@ -23,6 +23,9 @@ The slow-burn alternative: ship 2-3 articles + 4-5 reels per week, optimize for 
 
 ## 2. Positioning: The Anti-Trendslop Tool
 
+**Live product URL:** [consultthedead.com/agora](https://consultthedead.com/agora)
+**Current pricing:** Free (3 agons/day) · BYO key (unlimited) · Pro $30/mo or $25/mo annual — see [`docs/pricing.md`](docs/pricing.md) for the full canonical reference.
+
 In March 2026, HBR published "Researchers Asked LLMs for Strategic Advice. They Got Trendslop in Return" — testing 7 major LLMs across 15,000 strategic simulations and finding all models cluster around the same generic, buzzword-heavy advice. Fortune followed up calling trendslop "the new AI-fueled scourge of workplace consultants."
 
 This is the wedge. Every other AI tool gives the same answer. We give **structured disagreement** from historically-documented reasoning frameworks.
@@ -98,7 +101,41 @@ Reason: focus is the content engine. A paid service before we have organic tract
 
 ---
 
-## 6. Metrics that matter
+## 6. Pricing & Conversion Funnel
+
+**Canonical pricing reference:** [`docs/pricing.md`](docs/pricing.md)
+
+### Current tiers (Stripe + Clerk live)
+
+| Tier | Price | Key differentiators |
+|---|---|---|
+| **Free** | Always free, no signup | 3 agons/day, 2–3 minds, Sonnet |
+| **BYO key** | Free (user pays Anthropic) | Unlimited agons; same feature set as Free |
+| **Pro** | $30/mo · **$25/mo annual ($300/yr)** | 100 agons/mo, 2–5 minds, Opus, library, PDF, extended research, founder support |
+
+**7-day free trial** on Pro. Annual plan locked at $300/yr for founding members; increases to $360/yr after Q3 2026.
+
+### Funnel logic
+
+1. **Anonymous visitor** starts a free agon — no signup friction.
+2. **Hits 3-agon daily cap** → prompt: add BYO key (power users) or upgrade to Pro.
+3. **BYO key** removes the cap but adds Anthropic account overhead; doesn't drive revenue.
+4. **Pro upgrade** triggered by: cap fatigue, desire for Opus quality, library persistence, or PDF export.
+5. **Founding-member lock-in** ($300/yr) is real urgency: Q3 2026 deadline, no SKU confusion.
+
+### Pro features — implemented today
+
+All of the following are shipped and enforced in production:
+- **Opus consensus** — Opus model for the final synthesis pass (Sonnet for debate rounds)
+- **Persistent library** — server-synced, searchable agon history
+- **PDF export** — download via print dialog (window.print())
+- **Extended research** — deeper Tavily context pass before the agon
+- **Up to 5 minds** — gated in `/api/agon` (`mindMax = isPro ? 5 : 3`)
+- **Founder support** — 48h email response from Edward directly
+
+---
+
+## 7. Metrics that matter
 
 The biweekly metrics report (`ctd-biweekly-metrics-report` scheduled task) tracks all of these. See [CONTENT_PIPELINE.md §5](CONTENT_PIPELINE.md#5-kpis--what-we-track-what-we-ignore) for the full hierarchy.
 
@@ -132,7 +169,7 @@ If Day 90 numbers are missed by 3× → the format isn't working; revisit.
 
 ---
 
-## 7. Phase plan
+## 8. Phase plan
 
 ### Phase 0 — done (April 2026)
 - Product live (consultthedead.com + agora.consultthedead.com)
@@ -167,14 +204,14 @@ If Day 90 numbers are missed by 3× → the format isn't working; revisit.
 - 30+ articles, 40+ reels shipped
 
 ### Phase 5 — evaluate (week 9+)
-- Hit 90-day targets in §6? Compound, no spike event needed
+- Hit 90-day targets in §7? Compound, no spike event needed
 - Missed targets? Reassess format, audience, channel
 - Revenue signal from concierge? Consider monetization tier
 - Distribution signal strong? Consider whether a Show HN / Product Hunt event is worth attempting
 
 ---
 
-## 8. What we are NOT doing (and why)
+## 9. What we are NOT doing (and why)
 
 ### Not doing: AI-avatar talking-head reels
 Meta is suppressing AI-flagged content, audience trust collapsed in 2026. See [CONTENT_PIPELINE.md §2](CONTENT_PIPELINE.md#2-the-format-were-committing-to-verdict-reel).
@@ -193,7 +230,7 @@ Google's Helpful Content Update penalizes them. AI agents don't cite them. Every
 
 ---
 
-## 9. Open decisions (Edward needs to call)
+## 10. Open decisions (Edward needs to call)
 
 These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PIPELINE.md#10-open-decisions).
 
@@ -205,8 +242,9 @@ These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PI
 
 ---
 
-## 10. References
+## 11. References
 
 - [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md) — operating manual
 - [`topics.yaml`](topics.yaml) — topic queue
 - [`AGORA_PLAN.md`](AGORA_PLAN.md) — product roadmap (Agora pivot)
+- [`docs/pricing.md`](docs/pricing.md) — canonical pricing + funnel reference
