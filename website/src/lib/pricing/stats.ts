@@ -1,62 +1,69 @@
-/**
- * Pricing page stats counter.
- *
- * Static values for v1 (per marketing brief 22ee79de §Part 4 Variant A:
- * "Capability signal — available now, static"). When task 55af6ebe lands,
- * the live `agora_self_run` event count from Vercel Analytics can replace
- * the static minds/debatesInLibrary numbers without changing the page JSX
- * — just swap the source feeding `formatPricingStats`.
- */
+import { sql } from "@vercel/postgres";
+import { getAllFrameworks } from "@/lib/frameworks";
+import { PACKS, getActivePackMembers } from "@/lib/packs";
 
-export type PricingStats = {
-  /** Number of historical minds available in the council. */
-  minds: number;
-  /** Number of seeded debates in the public library (outreach transcripts). */
-  debatesInLibrary: number;
-};
+export interface PricingStats {
+  frameworkCount: number;
+  activePackCount: number;
+  agonsRun: number;
+  freeAgonsPerDay: number;
+  proAgonsPerMonth: number;
+  proTrialDays: number;
+  proMonthlyPrice: number;
+  proAnnualPrice: number;
+  foundingMemberAnnualPrice: number;
+}
 
-/**
- * Default static stats used by `/pricing` until live counters ship.
- * Source of truth: `website/src/lib/frameworks.ts` ALLOWED_SLUGS length
- * (minds) and `docs/outreach-debates/*.md` count (debatesInLibrary).
- *
- * NOTE: kept hard-coded here rather than computed at build time to avoid
- * pulling the framework registry into the pricing page bundle. Update both
- * places when the roster grows.
- */
-export const PRICING_STATS_DEFAULT: PricingStats = {
-  minds: 26,
-  debatesInLibrary: 30,
-};
-
-/**
- * Format the stats row shown below the pricing hero.
- *
- * Returns an ordered list of short label strings, e.g.:
- *   ["26 minds", "30 debates in the library", "Free to start"]
- *
- * Pluralization: drops the trailing "s" when count === 1 so a future
- * single-mind / single-debate state still reads correctly.
- *
- * Throws if either count is negative or non-finite — those values
- * indicate a bug in the upstream source, not a renderable state.
- */
-export function formatPricingStats(stats: PricingStats): string[] {
-  const { minds, debatesInLibrary } = stats;
-
-  if (!Number.isFinite(minds) || !Number.isFinite(debatesInLibrary)) {
-    throw new Error('formatPricingStats: stats must be finite numbers');
+function toSafeInt(value: unknown): number {
+  if (typeof value === "number" && Number.isFinite(value)) return Math.max(0, Math.trunc(value));
+  if (typeof value === "string") {
+    const parsed = Number.parseInt(value, 10);
+    return Number.isFinite(parsed) ? Math.max(0, parsed) : 0;
   }
-  if (minds < 0 || debatesInLibrary < 0) {
-    throw new Error('formatPricingStats: stats must be non-negative');
-  }
+  return 0;
+}
 
-  const mindLabel = minds === 1 ? 'mind' : 'minds';
-  const debateLabel = debatesInLibrary === 1 ? 'debate' : 'debates';
+export function buildPricingStats(input: {
+  frameworkCount: number;
+  activePackCount: number;
+  agonsRun: number;
+}): PricingStats {
+  return {
+    frameworkCount: toSafeInt(input.frameworkCount),
+    activePackCount: toSafeInt(input.activePackCount),
+    agonsRun: toSafeInt(input.agonsRun),
+    freeAgonsPerDay: 3,
+    proAgonsPerMonth: 100,
+    proTrialDays: 7,
+    proMonthlyPrice: 30,
+    proAnnualPrice: 300,
+    foundingMemberAnnualPrice: 300,
+  };
+}
 
-  return [
-    `${minds} ${mindLabel}`,
-    `${debatesInLibrary} ${debateLabel} in the library`,
-    'Free to start',
-  ];
+async function readAgonsRunCount(): Promise<number> {
+  const result = await sql<{ count: string | number }>`
+    SELECT COUNT(*)::int AS count
+    FROM agons
+  `;
+  return toSafeInt(result.rows[0]?.count ?? 0);
+}
+
+function countActivePacks(frameworks: Array<{ slug: string }>): number {
+  const liveSlugs = new Set(frameworks.map((framework) => framework.slug));
+
+  return PACKS.filter((pack) => getActivePackMembers(pack, liveSlugs).length > 0).length || 0;
+}
+
+export async function getPricingStats(): Promise<PricingStats> {
+  const frameworks = getAllFrameworks();
+  const frameworkCount = frameworks.length;
+  const activePackCount = countActivePacks(frameworks);
+  const agonsRun = await readAgonsRunCount();
+
+  return buildPricingStats({
+    frameworkCount,
+    activePackCount,
+    agonsRun,
+  });
 }
