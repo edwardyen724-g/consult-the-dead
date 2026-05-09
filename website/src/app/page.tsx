@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { getAllFrameworks, SLUG_COLOR_VAR, type FrameworkSlug } from "@/lib/frameworks";
 import { getActivePackMembers, getPacksForMind, PACKS } from "@/lib/packs";
+import {
+  formatHeroStats,
+  HERO_PRIMARY_CTA_HREF,
+  HERO_PRIMARY_CTA_LABEL,
+  HERO_SECONDARY_CTA_HREF,
+  HERO_SECONDARY_CTA_LABEL,
+} from "@/lib/hero-stats";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
 
@@ -99,46 +106,85 @@ export default function HomePage() {
                 <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>History has a council.</em>
               </h1>
 
+              {/* Conversion social-proof strip — directly under H1 per task aaa74109.
+                  Live framework count keeps "26" honest as the roster grows. */}
+              <p
+                data-testid="hero-social-proof"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-dim)',
+                  marginTop: '18px',
+                  marginBottom: 0,
+                  lineHeight: 1.5,
+                }}
+              >
+                {formatHeroStats({ minds: totalMinds })}
+              </p>
+
               <p style={{
                 fontFamily: 'var(--font-serif)',
                 fontStyle: 'italic',
                 fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
                 lineHeight: 1.65,
                 color: 'var(--fg-dim)',
-                marginTop: '28px',
+                marginTop: '24px',
                 maxWidth: '50ch',
               }}>
                 Bring the question keeping you up. We seat {totalMinds} minds —                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
               </p>
 
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
-                <Link href="/agora" style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  padding: '14px 28px',
-                  background: 'var(--amber)',
-                  color: 'var(--bg)',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  display: 'inline-block',
-                }}>
-                  Ask Your Question →
+              {/* Primary + secondary CTA cluster — kept on a single row across
+                  viewports so both stay above the fold on mobile (acceptance c). */}
+              <div
+                className="gm-hero-cta-row"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  flexWrap: 'wrap',
+                  marginTop: '32px',
+                }}
+              >
+                <Link
+                  href={HERO_PRIMARY_CTA_HREF}
+                  data-testid="hero-primary-cta"
+                  className="gm-hero-cta-primary"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '11px',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    padding: '14px 24px',
+                    background: 'var(--amber)',
+                    color: 'var(--bg)',
+                    textDecoration: 'none',
+                    borderRadius: '4px',
+                    display: 'inline-block',
+                  }}
+                >
+                  {HERO_PRIMARY_CTA_LABEL} →
                 </Link>
-                <Link href="/quiz" style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  padding: '14px 28px',
-                  border: '1px solid var(--hairline)',
-                  color: 'var(--fg)',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  display: 'inline-block',
-                }}>
-                  Not sure who to ask? →
+                <Link
+                  href={HERO_SECONDARY_CTA_HREF}
+                  data-testid="hero-secondary-cta"
+                  className="gm-hero-cta-secondary"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '11px',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    padding: '13px 22px',
+                    border: '1px solid var(--hairline)',
+                    color: 'var(--fg)',
+                    textDecoration: 'none',
+                    borderRadius: '4px',
+                    display: 'inline-block',
+                  }}
+                >
+                  {HERO_SECONDARY_CTA_LABEL} →
                 </Link>
                 <Link href="/essay" style={{
                   fontFamily: 'var(--font-serif)',
@@ -150,6 +196,19 @@ export default function HomePage() {
                   or see how it works
                 </Link>
               </div>
+              {/* Inline media query: shrink CTA padding on narrow phones so the
+                  primary + secondary buttons stay on one row (acceptance c). */}
+              <style>{`
+                @media (max-width: 480px) {
+                  .gm-hero-cta-row { gap: 10px; margin-top: 24px !important; }
+                  .gm-hero-cta-row .gm-hero-cta-primary,
+                  .gm-hero-cta-row .gm-hero-cta-secondary {
+                    padding: 11px 14px !important;
+                    font-size: 10px !important;
+                    letter-spacing: 0.1em !important;
+                  }
+                }
+              `}</style>
             </div>
             {/* Right column — 3 mind cards in a row */}
             <div style={{
