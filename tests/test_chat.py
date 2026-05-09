@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+from click.testing import CliRunner
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import json
 
-from framework_forge.chat import MODEL, chat_with_framework, framework_to_system_prompt
+from framework_forge.chat import MODEL, chat, chat_with_framework, framework_to_system_prompt
 
 
 def build_framework(incident_count: int = 9) -> dict:
@@ -115,3 +116,115 @@ def test_chat_with_framework_uses_config_default_model_and_override(
     call_kwargs = mock_messages.create.call_args.kwargs
     assert call_kwargs["model"] == "claude-opus-4-20250514"
     assert call_kwargs["messages"][-1] == {"role": "user", "content": "How should I launch?"}
+
+
+def _assert_chat_exits_cleanly_on_input_interrupt(
+    input_exc: type[BaseException], tmp_path: Path
+) -> None:
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(json.dumps(build_framework()), encoding="utf-8")
+
+    mock_response = MagicMock()
+    mock_response.content = [MagicMock(text="Stay focused.")]
+    mock_messages = MagicMock()
+    mock_messages.create.return_value = mock_response
+
+    with patch("framework_forge.chat.LLMClient") as mock_llm_client_cls, patch(
+        "builtins.input", side_effect=input_exc()
+    ) as mock_input:
+        mock_client = MagicMock()
+        mock_client._client.messages = mock_messages
+        mock_llm_client_cls.return_value = mock_client
+
+        chat_with_framework(framework_path)
+
+    mock_input.assert_called_once()
+    mock_messages.create.assert_not_called()
+
+
+def test_chat_with_framework_exits_cleanly_on_eof(tmp_path: Path) -> None:
+    _assert_chat_exits_cleanly_on_input_interrupt(EOFError, tmp_path)
+
+
+def test_chat_with_framework_exits_cleanly_on_keyboard_interrupt(
+    tmp_path: Path,
+) -> None:
+    _assert_chat_exits_cleanly_on_input_interrupt(KeyboardInterrupt, tmp_path)
+
+
+@patch("framework_forge.chat.LLMClient")
+@patch("builtins.input", side_effect=["", "quit"])
+def test_chat_with_framework_exits_on_blank_input(
+    mock_input: MagicMock,
+    mock_llm_client_cls: MagicMock,
+    tmp_path: Path,
+) -> None:
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(json.dumps(build_framework()), encoding="utf-8")
+
+    mock_response = MagicMock()
+    mock_response.content = [MagicMock(text="Stay focused.")]
+    mock_messages = MagicMock()
+    mock_messages.create.return_value = mock_response
+    mock_client = MagicMock()
+    mock_client._client.messages = mock_messages
+    mock_llm_client_cls.return_value = mock_client
+
+    chat_with_framework(framework_path)
+
+    mock_messages.create.assert_not_called()
+
+
+@patch("framework_forge.chat.LLMClient")
+@patch("builtins.input", side_effect=["First question?", "Second question?", "quit"])
+def test_chat_with_framework_carries_history_between_turns(
+    mock_input: MagicMock,
+    mock_llm_client_cls: MagicMock,
+    tmp_path: Path,
+) -> None:
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(json.dumps(build_framework()), encoding="utf-8")
+
+    first_response = MagicMock()
+    first_response.content = [MagicMock(text="First reply.")]
+    second_response = MagicMock()
+    second_response.content = [MagicMock(text="Second reply.")]
+    mock_messages = MagicMock()
+    mock_messages.create.side_effect = [first_response, second_response]
+    mock_client = MagicMock()
+    mock_client._client.messages = mock_messages
+    mock_llm_client_cls.return_value = mock_client
+
+    chat_with_framework(framework_path)
+
+    assert mock_messages.create.call_count == 2
+    first_call = mock_messages.create.call_args_list[0].kwargs
+    second_call = mock_messages.create.call_args_list[1].kwargs
+
+    assert first_call["messages"] == [
+        {"role": "user", "content": "First question?"}
+    ]
+    assert second_call["messages"] == [
+        {"role": "user", "content": "First question?"},
+        {"role": "assistant", "content": "First reply."},
+        {"role": "user", "content": "Second question?"},
+    ]
+
+
+@patch("framework_forge.chat.chat_with_framework")
+def test_chat_cli_delegates_to_chat_with_framework(
+    mock_chat_with_framework: MagicMock,
+    tmp_path: Path,
+) -> None:
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(json.dumps(build_framework()), encoding="utf-8")
+
+    result = CliRunner().invoke(
+        chat,
+        ["--framework", str(framework_path), "--model", "claude-opus-4-20250514"],
+    )
+
+    assert result.exit_code == 0
+    mock_chat_with_framework.assert_called_once_with(
+        Path(framework_path), model="claude-opus-4-20250514"
+    )
