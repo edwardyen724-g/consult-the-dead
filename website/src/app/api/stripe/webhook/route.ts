@@ -55,11 +55,25 @@ export async function POST(request: NextRequest) {
       publicMetadata: { subscription_tier: 'pro' },
     })
 
+    const sessionMetadata = session.metadata ?? {}
+    const utmCampaign = sessionMetadata.utm_campaign
+    const utmContent = sessionMetadata.utm_content
     const customerEmail = (customer as Stripe.Customer).email ?? undefined
     const billingInterval = (session.subscription
       ? ((await stripe.subscriptions.retrieve(session.subscription as string))
           .items.data[0]?.price.recurring?.interval === 'year' ? 'annual' : 'monthly')
       : 'monthly')
+
+    try {
+      await trackEvent('paid_subscription', {
+        plan: billingInterval,
+        ...(utmCampaign ? { utm_campaign: utmCampaign } : {}),
+        ...(utmContent ? { utm_content: utmContent } : {}),
+      })
+    } catch {
+      // Analytics must not block the webhook response.
+    }
+
     if (customerEmail) {
       try {
         await sendSubscriptionConfirmation(customerEmail, '', billingInterval)
