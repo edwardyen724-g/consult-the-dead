@@ -8,7 +8,6 @@ import {
   HERO_SECONDARY_CTA_HREF,
   HERO_SECONDARY_CTA_LABEL,
 } from "@/lib/hero-stats";
-import { HeroQuiz } from "@/components/hero-quiz";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
 
@@ -224,8 +223,6 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-
-          <HeroQuiz />
 
           {/* Stats bar */}
           <div style={{

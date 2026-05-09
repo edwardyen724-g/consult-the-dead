@@ -16,17 +16,12 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov", "html"],
-      // Keep the PR gate focused on the newly added hero-quiz surface.
-      include: [
-        "src/lib/hero-quiz.ts",
-        "src/lib/hero-stats.ts",
-        "src/components/hero-quiz.tsx",
-      ],
+      // Keep the PR gate on the actual changed production files for the home hero.
+      include: ["src/app/page.tsx", "src/lib/hero-stats.ts"],
       exclude: [
         "src/**/*.d.ts",
         "src/**/*.test.ts",
         "src/**/*.test.tsx",
-        "src/app/**",      // Next.js route handlers — integration-tested by Playwright
         "src/middleware.ts",
       ],
       thresholds: {
