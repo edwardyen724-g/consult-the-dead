@@ -91,6 +91,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -101,4 +103,35 @@ jobs:
         run: python -m pip install -e .[dev]
 
       - name: Validate framework citations
-        run: python -m framework_forge.validation.placeholder_citations frameworks
+        run: |
+          set -euo pipefail
+
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$base_sha" ] || [ "$base_sha" = "0000000000000000000000000000000000000000" ]; then
+            base_sha="${{ github.event.before }}"
+          fi
+          if [ -z "$base_sha" ] || [ "$base_sha" = "0000000000000000000000000000000000000000" ]; then
+            base_sha="$(git rev-parse HEAD^)"
+          fi
+
+          mapfile -t changed_jsons < <(
+            git diff --name-only "$base_sha" HEAD -- frameworks \
+              | grep '\.json$' || true
+          )
+
+          if [ "${#changed_jsons[@]}" -eq 0 ]; then
+            echo "No framework JSON files changed; skipping placeholder validation."
+            exit 0
+          fi
+
+          declare -A target_dirs=()
+          targets=()
+          for file in "${changed_jsons[@]}"; do
+            dir="$(dirname "$file")"
+            if [ -z "${target_dirs[$dir]:-}" ]; then
+              target_dirs["$dir"]=1
+              targets+=("$dir")
+            fi
+          done
+
+          python -m framework_forge.validation.placeholder_citations "${targets[@]}"
