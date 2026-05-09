@@ -27,18 +27,26 @@ export async function POST(request: NextRequest) {
   }
   const stripe = getStripe()
 
+  const searchParams = request.nextUrl.searchParams
   const body = await request.json().catch(() => ({}))
   const billingPeriod: 'monthly' | 'annual' = body.billingPeriod === 'annual' ? 'annual' : 'monthly'
   const priceId = billingPeriod === 'annual'
     ? process.env.STRIPE_PRICE_ANNUAL!
     : process.env.STRIPE_PRICE_MONTHLY!
 
-  const url = new URL(request.url)
+  // Pull UTM attribution from either the JSON body (preferred path: client
+  // forwards window.location params when calling this endpoint) or the
+  // request URL's own query string (fallback if the client builds the
+  // checkout URL with the params attached). Stored on the Stripe session's
+  // metadata so the post-payment webhook can attribute the conversion in
+  // Vercel Analytics. See marketing playbook §8 ("Conversion funnel
+  // instrumentation"). Both fields are optional and clipped to Stripe's
+  // 500-char metadata-value limit defensively.
   const utmCampaign = sanitiseUtm(
-    typeof body.utm_campaign === 'string' ? body.utm_campaign : url.searchParams.get('utm_campaign'),
+    typeof body.utm_campaign === 'string' ? body.utm_campaign : searchParams.get('utm_campaign'),
   )
   const utmContent = sanitiseUtm(
-    typeof body.utm_content === 'string' ? body.utm_content : url.searchParams.get('utm_content'),
+    typeof body.utm_content === 'string' ? body.utm_content : searchParams.get('utm_content'),
   )
 
   const clerk = await clerkClient()
@@ -58,8 +66,13 @@ export async function POST(request: NextRequest) {
     })
   }
 
+  // Stripe rejects metadata values that are not strings, and silently drops
+  // keys whose value is null/undefined. We pre-build the object and only
+  // attach UTM fields when they are present so absent attribution does not
+  // pollute the dashboard with empty strings.
   const metadata: Record<string, string> = {
     clerk_user_id: userId,
+    plan: billingPeriod,
   }
   if (utmCampaign) metadata.utm_campaign = utmCampaign
   if (utmContent) metadata.utm_content = utmContent
@@ -69,6 +82,11 @@ export async function POST(request: NextRequest) {
     mode: 'subscription',
     line_items: [{ price: priceId, quantity: 1 }],
     subscription_data: { trial_period_days: 7 },
+    metadata: {
+      clerk_user_id: userId,
+      ...(utmCampaign ? { utm_campaign: utmCampaign } : {}),
+      ...(utmContent ? { utm_content: utmContent } : {}),
+    },
     success_url: `${SITE_URL}/account?checkout=success`,
     cancel_url: `${SITE_URL}/pricing`,
     metadata,

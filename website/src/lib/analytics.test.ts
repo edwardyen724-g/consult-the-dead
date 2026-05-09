@@ -61,7 +61,6 @@ describe('trackEvent', () => {
       utm_content: 'hero',
     })
   })
-
   it('reuses the cached analytics module promise across calls', async () => {
     process.env.NODE_ENV = 'production'
     const track = vi.fn().mockResolvedValue(undefined)
