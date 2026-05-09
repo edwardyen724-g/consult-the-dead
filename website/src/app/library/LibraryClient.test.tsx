@@ -96,8 +96,10 @@ describe("LibraryClient", () => {
 
     const tree = LibraryClient({ agons: [] });
 
-    expect(flattenText(tree)).toContain("No agons saved yet.");
-    expect(flattenText(tree)).toContain("Run your first one →");
+    const text = flattenText(tree);
+    expect(text).toContain("Saved library");
+    expect(text).toContain("No saved agons yet.");
+    expect(text).toContain("Run your first one →");
     expect(findElementWithProp(tree, "href", "/agora")).not.toBeNull();
   });
 
@@ -147,8 +149,10 @@ describe("LibraryClient", () => {
     const tree = LibraryClient({ agons });
 
     const text = flattenText(tree);
-    expect(text).toContain("No saved agons match this filter.");
+    expect(text).toContain("Filtered results");
+    expect(text).toContain('No saved agons match "zebra".');
     expect(text).toContain("Clear search");
+    expect(text).toContain("Reset filters");
     expect(text).toContain("0 of 1 saved");
   });
 
