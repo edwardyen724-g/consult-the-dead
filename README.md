@@ -6,4 +6,16 @@ This repo holds Consult The Dead: a Next.js debate app under [`/company-builder`
 
 The landing page lives in [`/website`](./website). The framework-extraction pipeline lives in [`/framework_forge`](./framework_forge).
 
+## Pricing
+
+| Tier | Cost | Agons | Council | Model |
+|------|------|-------|---------|-------|
+| **Free** | $0 | 3 / day | 2–3 minds | Sonnet |
+| **BYO key** | $0 (your Anthropic key) | Unlimited | 2–3 minds | Sonnet |
+| **Pro** | $30 / mo · $25 / mo annual | 100 / month | Up to 5 minds | Opus consensus |
+
+Pro also includes persistent library, PDF export, extended research, and 48h founder support. See [/pricing](/pricing) for full feature comparison and to upgrade.
+
+---
+
 Licensed under the MIT License. See [LICENSE](./LICENSE).
