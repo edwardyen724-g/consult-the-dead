@@ -21,7 +21,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { clerkClient } from '@clerk/nextjs/server'
 import {
-  authorizeCronRequest,
+  authorizeProductionCronRequest,
   runDigestCron,
   toPublicCronSummary,
   type CronSummary,
@@ -36,7 +36,7 @@ const SITE_URL = 'https://www.consultthedead.com'
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url)
-  const auth = authorizeCronRequest(request.headers, url)
+  const auth = authorizeProductionCronRequest(request.headers)
   if (auth !== null) {
     return NextResponse.json({ error: auth }, { status: 401 })
   }
@@ -128,6 +128,6 @@ function readFeaturedFromEnv() {
     featuredAgonShareId: shareId,
     newMindName: process.env.NEW_MIND_NAME ?? null,
     newMindTagline: process.env.NEW_MIND_TAGLINE ?? null,
-    newMindHowArguesBlurb: process.env.NEW_MIND_HOW_ARGUES ?? null,
+    newMindHowArguesBlurb: process.env.NEW_MIND_HOW_ARGS ?? null,
   }
 }

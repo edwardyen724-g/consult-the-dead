@@ -12,6 +12,11 @@ vi.mock('@vercel/postgres', () => ({
   sql: vi.fn(),
 }))
 
+vi.mock('@/lib/emails/send', () => ({
+  sendNudge: vi.fn(),
+  sendDigest: vi.fn(),
+}))
+
 vi.mock('@/lib/emails/cron', async () => {
   const actual = await vi.importActual<typeof import('@/lib/emails/cron')>(
     '@/lib/emails/cron',
@@ -33,23 +38,7 @@ afterEach(() => {
 })
 
 describe('GET /api/cron/retention-emails/nudge', () => {
-  it('rejects production dry-run requests without auth', async () => {
-    vi.stubEnv('NODE_ENV', 'production')
-    vi.stubEnv('CRON_SECRET', 'secret')
-
-    const response = await GET(
-      new Request(
-        'https://consultthedead.com/api/cron/retention-emails/nudge?dryRun=1',
-      ) as never,
-    )
-
-    expect(response.status).toBe(401)
-    await expect(response.json()).resolves.toEqual({ error: 'unauthorized' })
-    expect(clerkClientMock).not.toHaveBeenCalled()
-    expect(sqlMock).not.toHaveBeenCalled()
-  })
-
-  it('rejects spoofed x-vercel-cron requests without bearer auth', async () => {
+  it('rejects production dry-run requests without bearer auth, even with x-vercel-cron', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     vi.stubEnv('CRON_SECRET', 'secret')
 
@@ -69,7 +58,7 @@ describe('GET /api/cron/retention-emails/nudge', () => {
     expect(runNudgeCronMock).not.toHaveBeenCalled()
   })
 
-  it('loads eligible Clerk users, counts agons, and forwards them to the cron runner', async () => {
+  it('redacts Clerk identity fields from the returned dry-run summary', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     vi.stubEnv('CRON_SECRET', 'secret')
 

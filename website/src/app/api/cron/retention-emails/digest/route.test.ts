@@ -7,6 +7,11 @@ vi.mock('@clerk/nextjs/server', () => ({
   clerkClient: vi.fn(),
 }))
 
+vi.mock('@/lib/emails/send', () => ({
+  sendNudge: vi.fn(),
+  sendDigest: vi.fn(),
+}))
+
 vi.mock('@/lib/emails/cron', async () => {
   const actual = await vi.importActual<typeof import('@/lib/emails/cron')>(
     '@/lib/emails/cron',
@@ -27,7 +32,26 @@ afterEach(() => {
 })
 
 describe('GET /api/cron/retention-emails/digest', () => {
-  it('redacts Clerk identity fields from the returned summary', async () => {
+  it('rejects production dry-run requests without bearer auth, even with x-vercel-cron', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+
+    const response = await GET(
+      new Request(
+        'https://consultthedead.com/api/cron/retention-emails/digest?dryRun=1',
+        {
+          headers: { 'x-vercel-cron': '1' },
+        },
+      ) as never,
+    )
+
+    expect(response.status).toBe(401)
+    await expect(response.json()).resolves.toEqual({ error: 'unauthorized' })
+    expect(clerkClientMock).not.toHaveBeenCalled()
+    expect(runDigestCronMock).not.toHaveBeenCalled()
+  })
+
+  it('redacts Clerk identity fields from the returned dry-run summary', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     vi.stubEnv('CRON_SECRET', 'secret')
 
@@ -67,9 +91,12 @@ describe('GET /api/cron/retention-emails/digest', () => {
     } as never)
 
     const response = await GET(
-      new Request('https://consultthedead.com/api/cron/retention-emails/digest?dryRun=1', {
-        headers: { authorization: 'Bearer secret' },
-      }) as never,
+      new Request(
+        'https://consultthedead.com/api/cron/retention-emails/digest?dryRun=1',
+        {
+          headers: { authorization: 'Bearer secret' },
+        },
+      ) as never,
     )
 
     expect(response.status).toBe(200)
@@ -85,6 +112,7 @@ describe('GET /api/cron/retention-emails/digest', () => {
     })
     expect(body.details[0].clerkUserId).toBeUndefined()
     expect(body.details[0].email).toBeUndefined()
+    expect(clerkClientMock).toHaveBeenCalledTimes(1)
     expect(runDigestCronMock).toHaveBeenCalledTimes(1)
     expect(runDigestCronMock.mock.calls[0][0]).toEqual([
       expect.objectContaining({

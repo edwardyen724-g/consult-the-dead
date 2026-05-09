@@ -6,7 +6,7 @@
  * output/change-summary.md).
  *
  * Behaviour:
- *   1. Authorise (Vercel cron header / Authorization bearer).
+ *   1. Authorise (Authorization bearer in production; dryRun never bypasses).
  *   2. Pull all Clerk users whose `created_at` is in T-24h±2h.
  *   3. For each user, count their agons in the database.
  *   4. Pure logic in src/lib/emails/cron.ts decides who to send.
@@ -27,7 +27,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { clerkClient } from '@clerk/nextjs/server'
 import { sql } from '@vercel/postgres'
 import {
-  authorizeCronRequest,
+  authorizeProductionCronRequest,
   runNudgeCron,
   toPublicCronSummary,
   type CronSummary,
@@ -42,7 +42,7 @@ const NUDGE_LOOKBACK_HOURS = 26
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url)
-  const auth = authorizeCronRequest(request.headers, url)
+  const auth = authorizeProductionCronRequest(request.headers)
   if (auth !== null) {
     return NextResponse.json({ error: auth }, { status: 401 })
   }
