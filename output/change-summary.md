@@ -1,23 +1,30 @@
 # Change Summary
 
 ## Task
-Restore `/pricing` OG/Twitter preview image routes and regression coverage.
+- Restore missing Ask This Mind API route source and unblock streamed analysis
 
-## Changed Files
-- `website/src/app/pricing/opengraph-image.tsx`
-- `website/src/app/pricing/twitter-image.tsx`
-- `website/src/app/pricing/opengraph-image.test.tsx`
-- `website/src/app/pricing/twitter-image.test.tsx`
+## Files Changed
+- `website/src/lib/ask-this-mind.test.ts`
+- `website/src/app/api/generate-analysis/route.ts`
+- `website/src/app/api/generate-analysis/route.test.ts`
+- `website/src/lib/ask-this-mind.ts`
 
 ## What Changed
-- Restored explicit `/pricing/opengraph-image.tsx` and `/pricing/twitter-image.tsx` route files.
-- Added a dedicated pricing share-card composition that mirrors the canonical pricing copy and renders a 1200x630 social preview.
-- Locked the routes with regression tests for route metadata, OG/Twitter alignment, and rendered pricing copy.
+- Restored `POST /api/generate-analysis` with the existing SSE analysis contract.
+- Added route regression coverage for:
+  - valid streamed analysis
+  - invalid JSON / missing slug / unknown slug / topic length validation
+  - missing Anthropic API key
+  - rate-limit failures
+  - fallback framework-name behavior
+- Tightened `streamAskThisMindAnalysis` type narrowing so the website build passes strict TypeScript checks.
 
 ## Verification
-- `./node_modules/.bin/vitest run src/app/pricing/opengraph-image.test.tsx src/app/pricing/twitter-image.test.tsx src/app/pricing/layout.test.ts`
-  - Passed: 3 files, 7 tests.
-- `./node_modules/.bin/vitest run --coverage`
-  - Passed: 72 files, 795 tests, 100% coverage across the configured include set.
-- `./node_modules/.bin/eslint .`
-  - Passed with existing repository warnings only; no errors.
+- `wcx pnpm vitest run src/app/api/generate-analysis/route.test.ts`
+- `wcx pnpm vitest run src/lib/ask-this-mind.test.ts`
+- `wcx pnpm vitest run --coverage src/app/api/generate-analysis/route.test.ts src/lib/ask-this-mind.test.ts`
+- `wcx pnpm eslint src/app/api/generate-analysis/route.ts src/app/api/generate-analysis/route.test.ts src/lib/ask-this-mind.ts src/lib/ask-this-mind.test.ts`
+- `wcx pnpm build`
+
+## Notes
+- Vitest coverage excludes `src/app/**` route handlers in this repo’s config, so the route is validated by direct tests but does not appear in LCOV output.
