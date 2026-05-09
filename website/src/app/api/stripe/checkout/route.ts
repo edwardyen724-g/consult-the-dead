@@ -82,11 +82,6 @@ export async function POST(request: NextRequest) {
     mode: 'subscription',
     line_items: [{ price: priceId, quantity: 1 }],
     subscription_data: { trial_period_days: 7 },
-    metadata: {
-      clerk_user_id: userId,
-      ...(utmCampaign ? { utm_campaign: utmCampaign } : {}),
-      ...(utmContent ? { utm_content: utmContent } : {}),
-    },
     success_url: `${SITE_URL}/account?checkout=success`,
     cancel_url: `${SITE_URL}/pricing`,
     metadata,
