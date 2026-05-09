@@ -21,7 +21,9 @@
  * not appear in ALLOWED_SLUGS.
  */
 import fs from "fs";
+import os from "os";
 import path from "path";
+import { afterEach } from "vitest";
 import {
   ALLOWED_SLUGS,
   DISPLAY_ORDER,
@@ -158,6 +160,180 @@ describe("framework.json parity with ALLOWED_SLUGS", () => {
       if (!fw) continue;
       expect(fw.incidents.length).toBeGreaterThan(0);
     }
+  });
+});
+
+/**
+ * Fixture-based tests that drive the in-tree branches of getFramework() that
+ * the shipped data alone cannot reach (legacy incidents/incidents.json
+ * fallback, missing framework.json → null, etc.). We spin up a temporary
+ * data tree, then point process.cwd() at it via a vi.spyOn so the helper
+ * resolves frameworksDir() inside the fixture.
+ */
+describe("getFramework fixture-driven branches", () => {
+  let originalCwd: string;
+  let fixtureRoot: string;
+
+  beforeEach(() => {
+    originalCwd = process.cwd();
+    fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "ctd-frameworks-"));
+    fs.mkdirSync(path.join(fixtureRoot, "data", "frameworks"), {
+      recursive: true,
+    });
+    vi.spyOn(process, "cwd").mockReturnValue(fixtureRoot);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    // Sanity: cwd restoration is implicit via restoreAllMocks above.
+    expect(process.cwd()).toBe(originalCwd);
+  });
+
+  /**
+   * Build a minimal framework.json + optional incidents/incidents.json under
+   * <fixtureRoot>/data/frameworks/<slug>/. The slug is cast to FrameworkSlug
+   * so we can call getFramework() against synthetic data without touching
+   * the real ALLOWED_SLUGS literal.
+   */
+  function writeFixture(
+    slug: string,
+    frameworkJson: Record<string, unknown> | null,
+    sideFileIncidents?: unknown,
+  ): FrameworkSlug {
+    const dir = path.join(fixtureRoot, "data", "frameworks", slug);
+    fs.mkdirSync(dir, { recursive: true });
+    if (frameworkJson) {
+      fs.writeFileSync(
+        path.join(dir, "framework.json"),
+        JSON.stringify(frameworkJson),
+        "utf-8",
+      );
+    }
+    if (sideFileIncidents !== undefined) {
+      fs.mkdirSync(path.join(dir, "incidents"), { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, "incidents", "incidents.json"),
+        JSON.stringify(sideFileIncidents),
+        "utf-8",
+      );
+    }
+    return slug as unknown as FrameworkSlug;
+  }
+
+  it("falls back to incidents/incidents.json when framework.json has no inline critical_incident_database", () => {
+    const sideFile = [
+      {
+        id: "INC-FALLBACK-1",
+        decision: "Move legacy data into the JSON",
+        context: "Migrating from per-file storage to inline arrays",
+        divergence_explanation: "Backward-compat path under test",
+      },
+    ];
+    const slug = writeFixture(
+      "fixture-fallback",
+      {
+        meta: { person: "Fixture Person", domain: "Test", incident_count: 1 },
+        bipolar_constructs: [
+          {
+            construct: "x",
+            positive_pole: "+",
+            negative_pole: "-",
+            behavioral_implication: "y",
+          },
+        ],
+        // critical_incident_database deliberately absent — exercises the
+        // else-branch that reads incidents/incidents.json.
+      },
+      sideFile,
+    );
+
+    const fw = getFramework(slug);
+    expect(fw).not.toBeNull();
+    if (!fw) return;
+    expect(fw.incidents).toHaveLength(1);
+    expect(fw.incidents[0].id).toBe("INC-FALLBACK-1");
+  });
+
+  it("treats inline empty critical_incident_database as missing → uses fallback file", () => {
+    const slug = writeFixture(
+      "fixture-empty-inline",
+      {
+        meta: { person: "Empty Inline", domain: "Test", incident_count: 0 },
+        bipolar_constructs: [
+          {
+            construct: "x",
+            positive_pole: "+",
+            negative_pole: "-",
+            behavioral_implication: "y",
+          },
+        ],
+        critical_incident_database: [], // empty array → fallback path
+      },
+      [
+        {
+          id: "INC-FROM-FILE",
+          decision: "use side file",
+          context: "...",
+          divergence_explanation: "...",
+        },
+      ],
+    );
+    const fw = getFramework(slug);
+    expect(fw?.incidents).toHaveLength(1);
+    expect(fw?.incidents?.[0].id).toBe("INC-FROM-FILE");
+  });
+
+  it("returns empty incidents[] when neither inline nor fallback file exists", () => {
+    const slug = writeFixture(
+      "fixture-no-incidents",
+      {
+        meta: { person: "No Incidents", domain: "Test", incident_count: 0 },
+        bipolar_constructs: [
+          {
+            construct: "x",
+            positive_pole: "+",
+            negative_pole: "-",
+            behavioral_implication: "y",
+          },
+        ],
+      },
+      // no side file
+    );
+    const fw = getFramework(slug);
+    expect(fw).not.toBeNull();
+    expect(fw?.incidents).toEqual([]);
+  });
+
+  it("ignores a non-array incidents/incidents.json payload", () => {
+    // readJson returns the parsed object; the guard
+    // `Array.isArray(rawIncidents)` should reject it and leave incidents=[].
+    const slug = writeFixture(
+      "fixture-bad-shape",
+      {
+        meta: { person: "Bad Shape", domain: "Test", incident_count: 0 },
+        bipolar_constructs: [
+          {
+            construct: "x",
+            positive_pole: "+",
+            negative_pole: "-",
+            behavioral_implication: "y",
+          },
+        ],
+      },
+      { not: "an array" },
+    );
+    const fw = getFramework(slug);
+    expect(fw?.incidents).toEqual([]);
+  });
+
+  it("getFramework() returns null when framework.json is malformed JSON", () => {
+    // Trigger the readJson catch branch without going through writeFixture.
+    const slug = "fixture-malformed" as unknown as FrameworkSlug;
+    const dir = path.join(fixtureRoot, "data", "frameworks", slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "framework.json"), "{not-json", "utf-8");
+    expect(getFramework(slug)).toBeNull();
   });
 });
 
