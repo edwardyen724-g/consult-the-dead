@@ -84,3 +84,21 @@ jobs:
 
       - name: Run build
         run: npm run build
+
+  framework-placeholder-citations:
+    name: CI / Framework Citation Guardrail
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project dependencies
+        run: python -m pip install -e .[dev]
+
+      - name: Validate framework citations
+        run: python -m framework_forge.validation.placeholder_citations frameworks
