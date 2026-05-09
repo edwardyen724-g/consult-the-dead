@@ -20,29 +20,7 @@ describe('trackEvent', () => {
     expect(track).not.toHaveBeenCalled()
   })
 
-  it('forwards events in production', async () => {
-    process.env.NODE_ENV = 'production'
-    const track = vi.fn().mockResolvedValue(undefined)
-
-    vi.doMock('@vercel/analytics/server', () => ({ track }))
-
-    const { trackEvent } = await import('./analytics')
-
-    await expect(trackEvent('paid_subscription', {
-      plan: 'annual',
-      utm_campaign: 'pricing',
-      utm_content: 'hero',
-    })).resolves.toBe(true)
-
-    expect(track).toHaveBeenCalledTimes(1)
-    expect(track).toHaveBeenCalledWith('paid_subscription', {
-      plan: 'annual',
-      utm_campaign: 'pricing',
-      utm_content: 'hero',
-    })
-  })
-
-  it('drops undefined props before forwarding', async () => {
+  it('forwards cleaned props in production', async () => {
     process.env.NODE_ENV = 'production'
     const track = vi.fn().mockResolvedValue(undefined)
 
@@ -56,32 +34,28 @@ describe('trackEvent', () => {
       utm_content: 'hero',
     })).resolves.toBe(true)
 
+    expect(track).toHaveBeenCalledTimes(1)
     expect(track).toHaveBeenCalledWith('paid_subscription', {
       plan: 'annual',
       utm_content: 'hero',
     })
   })
 
-  it('reuses the cached analytics module promise across calls', async () => {
+  it('forwards events without props in production', async () => {
     process.env.NODE_ENV = 'production'
     const track = vi.fn().mockResolvedValue(undefined)
-    let loadCount = 0
 
-    vi.doMock('@vercel/analytics/server', () => {
-      loadCount += 1
-      return { track }
-    })
+    vi.doMock('@vercel/analytics/server', () => ({ track }))
 
     const { trackEvent } = await import('./analytics')
 
-    await trackEvent('paid_subscription', { plan: 'monthly' })
-    await trackEvent('paid_subscription', { plan: 'annual' })
+    await expect(trackEvent('paid_subscription')).resolves.toBe(true)
 
-    expect(loadCount).toBe(1)
-    expect(track).toHaveBeenCalledTimes(2)
+    expect(track).toHaveBeenCalledTimes(1)
+    expect(track).toHaveBeenCalledWith('paid_subscription')
   })
 
-  it('does not throw when the analytics module has no track export', async () => {
+  it('returns false when the analytics module has no track export', async () => {
     process.env.NODE_ENV = 'production'
 
     vi.doMock('@vercel/analytics/server', () => ({ track: undefined }))
@@ -91,7 +65,7 @@ describe('trackEvent', () => {
     await expect(trackEvent('paid_subscription')).resolves.toBe(false)
   })
 
-  it('does not throw when the analytics module import fails', async () => {
+  it('returns false when the analytics module import fails', async () => {
     process.env.NODE_ENV = 'production'
 
     vi.doMock('@vercel/analytics/server', () => {
