@@ -227,6 +227,15 @@ function emptyScores(): Record<HeroQuizCategory, number> {
   };
 }
 
+export function applyHeroQuizWeights(
+  scores: Record<HeroQuizCategory, number>,
+  weights: Partial<Record<HeroQuizCategory, number>>,
+) {
+  for (const [category, weight] of Object.entries(weights)) {
+    scores[category as HeroQuizCategory] += weight ?? 0;
+  }
+}
+
 function chooseBestCategory(scores: Record<HeroQuizCategory, number>): HeroQuizCategory {
   return CATEGORY_PRIORITY.reduce((best, category) => {
     if (scores[category] > scores[best]) return category;
@@ -241,9 +250,7 @@ export function buildHeroQuizRecommendation(
   for (const answerId of answerIds) {
     const option = QUESTION_BY_OPTION_ID.get(answerId);
     if (!option) continue;
-    for (const [category, weight] of Object.entries(option.weights)) {
-      scores[category as HeroQuizCategory] += weight ?? 0;
-    }
+    applyHeroQuizWeights(scores, option.weights);
   }
 
   const category = chooseBestCategory(scores);
@@ -259,4 +266,3 @@ export function buildHeroQuizRecommendation(
     ctaHref: buildAgoraQuizHref(recommendation.packId),
   };
 }
-

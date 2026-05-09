@@ -7,6 +7,7 @@
  * worktree.
  */
 import {
+  applyHeroQuizWeights,
   buildHeroQuizRecommendation,
   HERO_QUIZ_QUESTIONS,
 } from "../hero-quiz";
@@ -72,6 +73,29 @@ describe("HERO_QUIZ_QUESTIONS", () => {
 });
 
 describe("buildHeroQuizRecommendation", () => {
+  it("applies missing weights as zero when scoring options", () => {
+    const scores = {
+      strategy: 0,
+      people: 0,
+      building: 0,
+      money: 0,
+      personal: 0,
+    };
+
+    applyHeroQuizWeights(scores, {
+      strategy: 2,
+      money: undefined as unknown as number,
+    });
+
+    expect(scores).toEqual({
+      strategy: 2,
+      people: 0,
+      building: 0,
+      money: 0,
+      personal: 0,
+    });
+  });
+
   it("routes strategy-heavy answers to the War Room", () => {
     const recommendation = buildHeroQuizRecommendation([
       "challenge-strategy",
@@ -111,6 +135,21 @@ describe("buildHeroQuizRecommendation", () => {
     expect(recommendation.category).toBe("building");
     expect(recommendation.packId).toBe("inventors-workshop");
     expect(recommendation.headline).toBe("Seat the Inventors' Workshop");
+  });
+
+  it("routes personal-heavy answers to the Stoic Council", () => {
+    const recommendation = buildHeroQuizRecommendation([
+      "challenge-personal",
+      "pressure-clarity",
+      "outcome-grounding",
+    ]);
+
+    expect(recommendation.category).toBe("personal");
+    expect(recommendation.packId).toBe("stoic-council");
+    expect(recommendation.packName).toBe("Stoic Council");
+    expect(recommendation.ctaHref).toBe(
+      "/agora?pack=stoic-council&utm_source=home&utm_campaign=hero_quiz&utm_content=stoic-council",
+    );
   });
 
   it("ignores unknown answer ids instead of throwing", () => {

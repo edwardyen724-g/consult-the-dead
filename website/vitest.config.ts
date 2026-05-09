@@ -16,7 +16,12 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov", "html"],
-      include: ["src/**/*.ts", "src/**/*.tsx"],
+      // Keep the PR gate focused on the newly added hero-quiz surface.
+      include: [
+        "src/lib/hero-quiz.ts",
+        "src/lib/hero-stats.ts",
+        "src/components/hero-quiz.tsx",
+      ],
       exclude: [
         "src/**/*.d.ts",
         "src/**/*.test.ts",
@@ -25,10 +30,10 @@ export default defineConfig({
         "src/middleware.ts",
       ],
       thresholds: {
-        lines: 0,   // gate starts at 0; raise once coverage backfill proceeds
-        branches: 0,
-        functions: 0,
-        statements: 0,
+        lines: 95,
+        branches: 95,
+        functions: 95,
+        statements: 95,
       },
     },
   },
