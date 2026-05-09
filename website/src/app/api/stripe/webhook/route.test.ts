@@ -124,6 +124,7 @@ describe('POST /api/stripe/webhook', () => {
       '',
       'annual',
     )
+    expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
     expect(mocks.trackEvent).toHaveBeenCalledWith('paid_subscription', {
       plan: 'annual',
       utm_campaign: 'pricing',
@@ -174,6 +175,7 @@ describe('POST /api/stripe/webhook', () => {
       '',
       'monthly',
     )
+    expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
     expect(mocks.trackEvent).toHaveBeenCalledWith('paid_subscription', {
       plan: 'monthly',
       utm_campaign: 'pricing',
