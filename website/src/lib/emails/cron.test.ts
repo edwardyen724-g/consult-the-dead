@@ -6,10 +6,19 @@ import {
   runNudgeCron,
   toPublicCronSummary,
 } from './cron'
+import { sendDigest, sendNudge } from './send'
 import type {
   DigestUserCandidate,
   NudgeUserCandidate,
 } from './types'
+
+vi.mock('./send', () => ({
+  sendNudge: vi.fn(),
+  sendDigest: vi.fn(),
+}))
+
+const sendNudgeMock = vi.mocked(sendNudge)
+const sendDigestMock = vi.mocked(sendDigest)
 
 const NOW = new Date('2026-05-09T17:00:00.000Z')
 const T_MINUS_24H = new Date(NOW.getTime() - 24 * 60 * 60 * 1000)
@@ -147,6 +156,23 @@ describe('runNudgeCron suppression + windowing', () => {
     expect(summary.suppressed['unsubscribed']).toBe(1)
     expect(summary.sent).toBe(0)
   })
+
+  it('uses the default sendNudge helper when no send override is provided', async () => {
+    const summary = await runNudgeCron([
+      {
+        ...baseCandidate,
+        createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+      },
+    ])
+
+    expect(sendNudgeMock).toHaveBeenCalledTimes(1)
+    expect(sendNudgeMock).toHaveBeenCalledWith(
+      'a@example.com',
+      { firstName: 'Ada' },
+      { dryRun: undefined },
+    )
+    expect(summary.sent).toBe(1)
+  })
 })
 
 describe('runDigestCron suppression', () => {
@@ -253,6 +279,31 @@ describe('runDigestCron suppression', () => {
       },
     )
     expect(sendSpy.mock.calls[0][1].agonsRemaining).toBeNull()
+  })
+
+  it('uses the default sendDigest helper when no send override is provided', async () => {
+    const cand: DigestUserCandidate = {
+      clerkUserId: 'u2',
+      email: 'u2@example.com',
+      suppression: {},
+    }
+
+    const summary = await runDigestCron([cand], {
+      shared,
+      buildUnsubscribeUrl: buildUnsubscribe,
+    })
+
+    expect(sendDigestMock).toHaveBeenCalledTimes(1)
+    expect(sendDigestMock).toHaveBeenCalledWith(
+      'u2@example.com',
+      expect.objectContaining({
+        firstName: undefined,
+        unsubscribeUrl: 'https://www.consultthedead.com/unsubscribe?u=u2',
+        agonsRemaining: null,
+      }),
+      { dryRun: undefined },
+    )
+    expect(summary.sent).toBe(1)
   })
 })
 
