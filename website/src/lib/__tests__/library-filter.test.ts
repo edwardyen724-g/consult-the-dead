@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { filterAndSortLibraryAgons } from "@/lib/library-filter";
+import {
+  filterAndSortLibraryAgons,
+  getLibraryEmptyState,
+} from "@/lib/library-filter";
 
 describe("filterAndSortLibraryAgons", () => {
   const agons = [
@@ -116,5 +119,30 @@ describe("filterAndSortLibraryAgons", () => {
     );
 
     expect(result[result.length - 1]?.id).toBe("5");
+  });
+
+  it("describes the empty saved-library state", () => {
+    expect(getLibraryEmptyState(0, 0, "")).toEqual({
+      kind: "saved-empty",
+      title: "No saved agons yet.",
+      body: "Run your first agon in the Agora and the library will keep it here for later review.",
+      primaryActionLabel: "Run your first one →",
+      primaryActionHref: "/agora",
+    });
+  });
+
+  it("describes the filtered-empty recovery state", () => {
+    expect(getLibraryEmptyState(3, 0, "strategy")).toEqual({
+      kind: "filtered-empty",
+      title: 'No saved agons match "strategy".',
+      body: "Try clearing the search or resetting filters to bring the full archive back.",
+      primaryActionLabel: "Clear search",
+      secondaryActionLabel: "Reset filters",
+    });
+  });
+
+  it("returns null when there are results to show", () => {
+    expect(getLibraryEmptyState(4, 2, "team")).toBeNull();
+    expect(getLibraryEmptyState(4, 4, "   ")).toBeNull();
   });
 });

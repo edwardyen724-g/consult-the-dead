@@ -2,6 +2,22 @@ import type { AgonRecord } from "@/lib/db/client";
 
 export type LibrarySortOrder = "newest" | "oldest";
 
+export type LibraryEmptyState =
+  | {
+      kind: "saved-empty";
+      title: string;
+      body: string;
+      primaryActionLabel: string;
+      primaryActionHref: string;
+    }
+  | {
+      kind: "filtered-empty";
+      title: string;
+      body: string;
+      primaryActionLabel: string;
+      secondaryActionLabel: string;
+    };
+
 function slugToName(slug: string) {
   return slug
     .split("-")
@@ -67,3 +83,32 @@ export function filterAndSortLibraryAgons(
     .sort((left, right) => compareByRecency(left, right, sortOrder));
 }
 
+export function getLibraryEmptyState(
+  totalCount: number,
+  filteredCount: number,
+  query: string,
+): LibraryEmptyState | null {
+  const trimmedQuery = query.trim();
+
+  if (totalCount === 0) {
+    return {
+      kind: "saved-empty",
+      title: "No saved agons yet.",
+      body: "Run your first agon in the Agora and the library will keep it here for later review.",
+      primaryActionLabel: "Run your first one →",
+      primaryActionHref: "/agora",
+    };
+  }
+
+  if (trimmedQuery && filteredCount === 0) {
+    return {
+      kind: "filtered-empty",
+      title: `No saved agons match \"${trimmedQuery}\".`,
+      body: "Try clearing the search or resetting filters to bring the full archive back.",
+      primaryActionLabel: "Clear search",
+      secondaryActionLabel: "Reset filters",
+    };
+  }
+
+  return null;
+}
