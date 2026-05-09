@@ -8,5 +8,5 @@
 
 ## Notes
 
-- `tests/test_sources.py` now covers discovery, triage, HTML cleanup, non-HTML passthrough, and request failure handling.
-- `docs/plans/2026-04-01-phase1-framework-forge.md` has an uncommitted explanatory note from prior work and remains outside the capsule scope for this branch.
+- `docs/plans/2026-04-01-phase1-framework-forge.md` now explains the implemented Phase 1 handoff order: discover sources, fetch or add text files, triage candidates, reconstruct incidents, then validate the framework.
+- `output/change-summary.md` was updated to match the final branch contents and verification result.
