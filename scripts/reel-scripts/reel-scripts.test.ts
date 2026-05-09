@@ -193,6 +193,58 @@ describe("CLI behavior", () => {
     expect(parsed.hook.caption).toBe("Sun Tzu On Entering A Market With Incumbents");
   });
 
+  it("shows usage and exits cleanly for help", () => {
+    let stdout = "";
+    let stderr = "";
+    const code = runCli(["--help"], {
+      stdout: (chunk) => {
+        stdout += chunk;
+      },
+      stderr: (chunk) => {
+        stderr += chunk;
+      },
+    });
+
+    expect(code).toBe(0);
+    expect(stderr).toBe("");
+    expect(stdout).toContain("Usage: tsx scripts/reel-scripts/generate-reel-scripts.ts");
+    expect(stdout).toContain("Supported slugs:");
+  });
+
+  it("rejects missing slugs before trying to build a script", () => {
+    let stdout = "";
+    let stderr = "";
+    const code = runCli(["--dry-run"], {
+      stdout: (chunk) => {
+        stdout += chunk;
+      },
+      stderr: (chunk) => {
+        stderr += chunk;
+      },
+    });
+
+    expect(code).toBe(1);
+    expect(stdout).toBe("");
+    expect(stderr).toContain("Missing required --slug <insight-slug> argument.");
+  });
+
+  it("reports unknown slugs through the CLI error path", () => {
+    let stdout = "";
+    let stderr = "";
+    const code = runCli(["--slug", "missing-slug", "--dry-run"], {
+      stdout: (chunk) => {
+        stdout += chunk;
+      },
+      stderr: (chunk) => {
+        stderr += chunk;
+      },
+    });
+
+    expect(code).toBe(1);
+    expect(stdout).toBe("");
+    expect(stderr).toContain("Unknown insight slug: missing-slug");
+  });
+
   it("rejects missing dry-run mode", () => {
     let stderr = "";
     const code = runCli(["--slug", "sun-tzu-on-entering-a-market-with-incumbents"], {
