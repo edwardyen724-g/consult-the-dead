@@ -143,33 +143,7 @@ async function ProLibrary({ userId }: { userId: string }) {
 
   return (
     <>
-      <div
-        style={{
-          borderTop: "1px solid var(--hairline)",
-          marginBottom: "0",
-        }}
-      >
-        {agons.length > 0 && (
-          <div
-            className="font-mono"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto auto auto",
-              gap: "24px",
-              padding: "10px 0",
-              fontSize: "9px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--fg-dim)",
-              borderBottom: "1px solid var(--hairline)",
-            }}
-          >
-            <span>Topic</span>
-            <span>Date</span>
-            <span />
-            <span>Action</span>
-          </div>
-        )}
+      <div style={{ borderTop: "1px solid var(--hairline)", marginBottom: "0" }}>
         <LibraryClient agons={agons} />
       </div>
 
