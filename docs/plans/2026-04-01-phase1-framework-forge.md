@@ -527,6 +527,12 @@ git commit -m "feat: LLM client wrapper with structured response parsing"
 - Create: `framework_forge/sources/triage.py`
 - Create: `tests/test_sources.py`
 
+**Workflow note:** source discovery now feeds a ranked bibliography first, then
+the fetcher turns selected URLs into cleaned `.txt` files under
+`frameworks/steve-jobs/sources/texts/`. Incident identification consumes that
+text corpus directly; the bibliography is the handoff, not the input file for
+CDM extraction.
+
 - [ ] **Step 1: Create `framework_forge/sources/__init__.py`**
 
 ```python
@@ -3311,7 +3317,9 @@ git commit -m "feat: CLI entry point tying all subsystems together"
 **Files:**
 - No new code files — this task uses the tooling built in Tasks 1-13.
 
-This is the actual extraction. It follows the spec's Phase 1 build order exactly.
+This is the actual extraction. It follows the implemented Phase 1 build order:
+discover sources, fetch or add text files, triage candidates, reconstruct
+incidents, then build and validate the framework.
 
 - [ ] **Step 1: Discover sources**
 
@@ -3321,7 +3329,7 @@ python -m framework_forge.cli discover-sources --person "Steve Jobs" --output fr
 ```
 Expected: Bibliography saved to `frameworks/steve-jobs/sources/bibliography.json` with 10-15 sources.
 
-- [ ] **Step 2: Review bibliography and manually add primary source texts**
+- [ ] **Step 2: Review bibliography and fetch or add primary source texts**
 
 Open `frameworks/steve-jobs/sources/bibliography.json` and review. For sources that are books (url = "offline"), you will need to manually prepare text excerpts. Create text files in `frameworks/steve-jobs/sources/texts/`:
 
@@ -3334,7 +3342,11 @@ mkdir -p frameworks/steve-jobs/sources/texts
 # - etc.
 ```
 
-This is the step that requires manual effort — source texts must be gathered from primary materials.
+Use `fetch_source()` for reachable URLs so the workflow stores a cleaned text
+copy next to the bibliography entry. Offline books, transcripts, and other
+non-fetchable materials still need manual excerpts or transcriptions in
+`sources/texts/`. The source corpus is considered ready when the bibliography
+and text files agree on what was actually gathered.
 
 - [ ] **Step 3: Identify candidate incidents from source texts**
 
@@ -3345,11 +3357,14 @@ python -m framework_forge.cli identify-incidents \
   --source-dir frameworks/steve-jobs/sources/texts \
   --output frameworks/steve-jobs
 ```
-Expected: `frameworks/steve-jobs/incidents/candidates.json` with 20-30 candidate incidents.
+Expected: `frameworks/steve-jobs/incidents/candidates.json` with 20-30 candidate
+incidents derived from the `.txt` corpus in `sources/texts/`.
 
 - [ ] **Step 4: Review candidate incidents**
 
-Open `candidates.json`. Remove incidents where `reasoning_visible` is false or the excerpt is too thin. Target: keep 20-25 high-quality incidents with visible reasoning process.
+Open `candidates.json`. Remove incidents where `reasoning_visible` is false or
+the excerpt is too thin. Target: keep 20-25 high-quality incidents with visible
+reasoning process before reconstruction.
 
 - [ ] **Step 5: Reconstruct incidents with CDM probes**
 
@@ -3360,7 +3375,8 @@ python -m framework_forge.cli reconstruct \
   --incidents-file frameworks/steve-jobs/incidents/candidates.json \
   --output frameworks/steve-jobs
 ```
-Expected: `frameworks/steve-jobs/incidents/incidents.json` with full CDM probe reconstruction for each incident.
+Expected: `frameworks/steve-jobs/incidents/incidents.json` with full CDM probe
+reconstruction for each retained incident.
 
 - [ ] **Step 6: Review reconstructed incidents**
 
