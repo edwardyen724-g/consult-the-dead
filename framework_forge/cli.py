@@ -14,6 +14,16 @@ def cli():
     pass
 
 
+def _person_output_dir(person: str, output: str | None) -> Path:
+    return Path(output) if output else FRAMEWORKS_DIR / person.lower().replace(" ", "-")
+
+
+def _write_bibliography(path: Path, sources) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps([s.to_dict() for s in sources], indent=2), encoding="utf-8")
+    return path
+
+
 @cli.command()
 @click.option("--person", required=True, help="Full name of the historical figure.")
 @click.option("--output", type=click.Path(), default=None, help="Output directory.")
@@ -22,7 +32,7 @@ def discover_sources(person: str, output: str | None):
     from framework_forge.llm import LLMClient
     from framework_forge.sources import discover_sources as _discover, triage_sources
 
-    output_dir = Path(output) if output else FRAMEWORKS_DIR / person.lower().replace(" ", "-")
+    output_dir = _person_output_dir(person, output)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     click.echo(f"Discovering sources for {person}...")
@@ -30,12 +40,42 @@ def discover_sources(person: str, output: str | None):
     sources = _discover(person, client)
     ranked = triage_sources(sources)
 
-    bib = [s.to_dict() for s in ranked]
     bib_path = output_dir / "sources" / "bibliography.json"
-    bib_path.parent.mkdir(parents=True, exist_ok=True)
-    bib_path.write_text(json.dumps(bib, indent=2), encoding="utf-8")
+    _write_bibliography(bib_path, ranked)
 
     click.echo(f"Found {len(ranked)} sources. Bibliography saved to {bib_path}")
+    for s in ranked[:5]:
+        click.echo(f"  [{s.source_type}] {s.title}")
+
+
+@cli.command(name="triage-sources")
+@click.option(
+    "--bibliography",
+    type=click.Path(exists=True, dir_okay=False),
+    required=True,
+    help="Path to bibliography.json produced by discovery.",
+)
+@click.option(
+    "--output",
+    type=click.Path(dir_okay=False),
+    default=None,
+    help="Optional output file path. Defaults to rewriting the input bibliography.",
+)
+def triage_sources_cli(bibliography: str, output: str | None):
+    """Stage 1b: Rank a discovered bibliography by evidence value."""
+    from framework_forge.sources import triage_sources
+    from framework_forge.sources.triage import SourceEntry
+
+    bibliography_path = Path(bibliography)
+    entries = [SourceEntry(**entry) for entry in json.loads(bibliography_path.read_text(encoding="utf-8"))]
+
+    click.echo(f"Triaging {len(entries)} sources from {bibliography_path}...")
+    ranked = triage_sources(entries)
+
+    output_path = Path(output) if output else bibliography_path
+    _write_bibliography(output_path, ranked)
+
+    click.echo(f"Ranked {len(ranked)} sources. Bibliography saved to {output_path}")
     for s in ranked[:5]:
         click.echo(f"  [{s.source_type}] {s.title}")
 
