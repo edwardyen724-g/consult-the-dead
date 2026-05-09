@@ -3,6 +3,8 @@ import { Webhook } from 'svix'
 import Stripe from 'stripe'
 import { clerkClient } from '@clerk/nextjs/server'
 import { sendWelcomeEmail } from '@/lib/email'
+import { trackEvent } from '@/lib/analytics'
+import { extractUtmFromClerkMetadata } from '@/lib/utm'
 
 export const runtime = 'nodejs'
 
@@ -28,6 +30,8 @@ interface ClerkUserCreatedEvent {
     primary_email_address_id: string
     first_name?: string | null
     last_name?: string | null
+    public_metadata?: Record<string, unknown>
+    unsafe_metadata?: Record<string, unknown>
   }
 }
 
@@ -57,7 +61,8 @@ export async function POST(request: NextRequest) {
   }
 
   if (event.type === 'user.created') {
-    const { id: clerkUserId, email_addresses, primary_email_address_id } = (event as ClerkUserCreatedEvent).data
+    const data = (event as ClerkUserCreatedEvent).data
+    const { id: clerkUserId, email_addresses, primary_email_address_id } = data
     const primaryEmail = email_addresses.find(e => e.id === primary_email_address_id)
     const email = primaryEmail?.email_address ?? email_addresses[0]?.email_address
 
@@ -72,8 +77,28 @@ export async function POST(request: NextRequest) {
       privateMetadata: { stripe_customer_id: customer.id },
     })
 
+    // Funnel attribution. UTMs come from publicMetadata first (durable across
+    // sessions, set post-signup) and fall back to unsafeMetadata (set
+    // pre-signup via Clerk's signup flow). Either layout is honoured by the
+    // helper. trackEvent is best-effort: it returns false on any failure and
+    // never throws — see src/lib/analytics.ts.
+    const utm = extractUtmFromClerkMetadata(
+      data.public_metadata ?? data.unsafe_metadata,
+    )
+    try {
+      await trackEvent('free_signup', {
+        plan: 'free',
+        clerk_user_id: clerkUserId,
+        utm_source: utm.utm_source,
+        utm_campaign: utm.utm_campaign,
+      })
+    } catch {
+      // trackEvent already swallows internally, but defend against future
+      // changes to the helper. Telemetry must never fail the webhook.
+    }
+
     if (email) {
-      const { first_name } = (event as ClerkUserCreatedEvent).data
+      const { first_name } = data
       try {
         await sendWelcomeEmail(email, first_name ?? '')
       } catch {
