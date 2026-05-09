@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const FEATURES: { label: string; free: string; pro: string }[] = [
@@ -45,10 +45,41 @@ const FAQ: { q: string; a: string }[] = [
   },
 ]
 
+type PricingStats = {
+  frameworkCount: number
+  activePackCount: number
+  agonsRun: number
+  freeAgonsPerDay: number
+  proAgonsPerMonth: number
+  proTrialDays: number
+  proMonthlyPrice: number
+  proAnnualPrice: number
+  foundingMemberAnnualPrice: number
+}
+
 export default function PricingPage() {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual')
   const [loading, setLoading] = useState(false)
+  const [stats, setStats] = useState<PricingStats | null>(null)
   const router = useRouter()
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats', { signal: controller.signal })
+        if (!res.ok) return
+        const data = (await res.json()) as PricingStats
+        setStats(data)
+      } catch {
+        // Leave the static pricing copy intact if live stats are temporarily unavailable.
+      }
+    }
+
+    void loadStats()
+    return () => controller.abort()
+  }, [])
 
   async function handleProCheckout() {
     setLoading(true)
@@ -107,6 +138,83 @@ export default function PricingPage() {
           }}>
             Think through your hardest decisions with historical minds.
             Unbiased, rigorous, immediate.
+          </p>
+        </div>
+
+        {/* Live release stats */}
+        <div style={{
+          border: '1px solid var(--hairline)',
+          borderRadius: '8px',
+          padding: '18px 20px',
+          marginBottom: '40px',
+          background: 'var(--surface)',
+        }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            margin: '0 0 14px',
+          }}>
+            Live release stats
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+            gap: '12px',
+          }}>
+            <div style={{ padding: '14px 16px', border: '1px solid var(--hairline)', borderRadius: '6px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-faint)', marginBottom: '8px' }}>
+                Minds
+              </div>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', lineHeight: 1, color: 'var(--fg)' }}>
+                {stats ? stats.frameworkCount.toLocaleString('en-US') : '…'}
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', border: '1px solid var(--hairline)', borderRadius: '6px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-faint)', marginBottom: '8px' }}>
+                Agons run
+              </div>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', lineHeight: 1, color: 'var(--fg)' }}>
+                {stats ? stats.agonsRun.toLocaleString('en-US') : '…'}
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', border: '1px solid var(--hairline)', borderRadius: '6px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-faint)', marginBottom: '8px' }}>
+                Free
+              </div>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', lineHeight: 1, color: 'var(--fg)' }}>
+                {stats ? `${stats.freeAgonsPerDay} / day` : '3 / day'}
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', border: '1px solid var(--hairline)', borderRadius: '6px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-faint)', marginBottom: '8px' }}>
+                Pro
+              </div>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', lineHeight: 1, color: 'var(--fg)' }}>
+                {stats ? `${stats.proAgonsPerMonth} / month` : '100 / month'}
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', border: '1px solid var(--hairline)', borderRadius: '6px' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--fg-faint)', marginBottom: '8px' }}>
+                Founding rate
+              </div>
+              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', lineHeight: 1, color: 'var(--fg)' }}>
+                {stats ? `$${stats.foundingMemberAnnualPrice}/yr` : '$300/yr'}
+              </div>
+            </div>
+          </div>
+          <p style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '0.95rem',
+            color: 'var(--fg-dim)',
+            lineHeight: 1.6,
+            margin: '14px 0 0',
+          }}>
+            {stats
+              ? `${stats.activePackCount} themed packs · ${stats.proTrialDays}-day Pro trial · ${stats.proMonthlyPrice}/mo monthly or $${stats.proAnnualPrice}/yr annual`
+              : 'Live pricing proof is loading from the canonical stats endpoint.'}
           </p>
         </div>
 

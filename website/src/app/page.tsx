@@ -3,6 +3,7 @@ import { getAllFrameworks, SLUG_COLOR_VAR, type FrameworkSlug } from "@/lib/fram
 import { getActivePackMembers, getPacksForMind, PACKS } from "@/lib/packs";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
+import { getPricingStats } from "@/lib/pricing/stats";
 
 const AGON_STEPS = [
   {
@@ -26,7 +27,7 @@ const AGON_STEPS = [
     body: "Consensus distilled into a concrete recommendation — with the dissent preserved.",
   },
 ] as const;
-export default function HomePage() {
+export default async function HomePage() {
   const frameworks = getAllFrameworks();
   const frameworkBySlug = new Map(frameworks.map((f) => [f.slug, f] as const));
   const liveSlugs: ReadonlySet<string> = new Set(frameworks.map((f) => f.slug));
@@ -61,6 +62,18 @@ export default function HomePage() {
       totalRoster: pack.members.length,
     };
   }).filter((p) => p.members.length > 0);
+  const liveStats = await getPricingStats().catch(() => null);
+  const stats = liveStats ?? {
+    frameworkCount: totalMinds,
+    activePackCount: packCards.length,
+    agonsRun: 0,
+    freeAgonsPerDay: 3,
+    proAgonsPerMonth: 100,
+    proTrialDays: 7,
+    proMonthlyPrice: 30,
+    proAnnualPrice: 300,
+    foundingMemberAnnualPrice: 300,
+  };
 
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
@@ -108,7 +121,9 @@ export default function HomePage() {
                 marginTop: '28px',
                 maxWidth: '50ch',
               }}>
-                Bring the question keeping you up. We seat {totalMinds} minds —                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
+                Bring the question keeping you up. We seat {totalMinds} minds —
+                Machiavelli, Sun Tzu, Curie, and more — and let them argue it
+                out on your behalf.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
@@ -179,7 +194,8 @@ export default function HomePage() {
               color: 'var(--fg-faint)',
               margin: 0,
             }}>
-              No signup for your first debate · {totalMinds} minds in the corpus · {packCards.length} themed packs            </p>
+              No signup for your first debate · {stats.agonsRun.toLocaleString('en-US')} agons run · {stats.frameworkCount.toLocaleString('en-US')} minds in the corpus · {stats.activePackCount.toLocaleString('en-US')} themed packs
+            </p>
           </div>
         </div>
       </section>
