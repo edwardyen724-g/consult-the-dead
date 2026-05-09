@@ -1,17 +1,23 @@
-# CDM Probe Reconstruction
+# Framework Forge constructs and lens derivation
 
 ## Files Changed
-- `framework_forge/extraction/cdm_probes.py`
-- `tests/test_cdm_probes.py`
+- `framework_forge/extraction/constructs.py`
+- `framework_forge/extraction/lens.py`
+- `tests/test_extraction.py`
 
 ## What Changed
-- Added a typed `CDMProbes` dataclass that validates required probe fields and still supports mapping-style access for downstream consumers.
-- Added `ReconstructedIncident.from_mapping()` so raw incident payloads can be rebuilt with explicit validation.
-- Hardened `reconstruct_incident()` to require `cdm_probes` in the LLM payload and to use the typed reconstruction path.
-- Added tests for the happy path, missing-field failures, bad type/empty-value failures, and the default-client branch.
+- Added stable incident normalization and triad grouping helpers in `constructs.py`, including canonical ordering for prompt generation and traceable `derived_from_incidents` normalization.
+- Updated `constructs.py` to format incidents as stable triads before prompting, and to fall back cleanly when the caller does not pass an `LLMClient`.
+- Updated `lens.py` to exclude holdout incidents from the derivation prompt, keep holdout validation separate, and normalize the returned lens payload.
+- Expanded extraction tests to cover stable ordering, singleton triad merging, holdout exclusion, dict/object coercion, and the default-client branches.
 
 ## Verification
-- `PYTHONPATH=. uv run --with pytest pytest tests/test_cdm_probes.py -q`
-  - Result: `6 passed`
-- `PYTHONPATH=. uv run --with pytest --with pytest-cov pytest tests/test_cdm_probes.py --cov=framework_forge.extraction.cdm_probes --cov-report=term-missing -q`
-  - Result: `6 passed`, `framework_forge/extraction/cdm_probes.py` at `100%` coverage
+- `python3 -m py_compile framework_forge/extraction/cdm_probes.py framework_forge/extraction/constructs.py framework_forge/extraction/lens.py tests/test_extraction.py`
+  - Result: passed
+- `uv run --with pytest --with pytest-asyncio python -m pytest tests/test_extraction.py -q`
+  - Result: `13 passed`
+- `uv run --with pytest --with pytest-asyncio --with pytest-cov python -m pytest -q --cov=framework_forge --cov-report=term-missing`
+  - Result: `49 passed`
+  - Changed-file coverage:
+    - `framework_forge/extraction/constructs.py`: `100%`
+    - `framework_forge/extraction/lens.py`: `100%`
