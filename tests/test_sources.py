@@ -4,9 +4,13 @@ import json
 import pytest
 from pathlib import Path
 from unittest.mock import patch, MagicMock
+
+import httpx
+
+from framework_forge.sources import discovery
 from framework_forge.sources.discovery import discover_sources
-from framework_forge.sources.triage import triage_sources, SourceEntry
 from framework_forge.sources.fetcher import clean_html, fetch_source
+from framework_forge.sources.triage import SourceEntry, triage_sources
 
 
 class TestSourceEntry:
@@ -47,6 +51,17 @@ class TestTriage:
         assert ranked[1].source_type == "firsthand_biography"
         assert ranked[2].source_type == "web_summary"
 
+    def test_triage_sends_unknown_types_to_end(self):
+        entries = [
+            SourceEntry("Known", "http://a.com", "critical_incident", "incident", ["layer2"]),
+            SourceEntry("Unknown", "http://b.com", "mystery_type", "fallback", ["layer1"]),
+        ]
+
+        ranked = triage_sources(entries)
+
+        assert ranked[0].source_type == "critical_incident"
+        assert ranked[1].source_type == "mystery_type"
+
 
 class TestCleanHtml:
     def test_strips_tags(self):
@@ -63,6 +78,34 @@ class TestCleanHtml:
         assert "color:red" not in result
         assert "alert" not in result
         assert "Content" in result
+
+    def test_preserves_article_content_while_stripping_chrome(self):
+        html = """
+            <html>
+              <head><style>body { color: red; }</style></head>
+              <body>
+                <header><nav>Home About Jobs</nav></header>
+                <main>
+                  <article>
+                    <p>Hello <strong>world</strong> &amp; beyond.</p>
+                    <div>Second paragraph with <em>details</em>.</div>
+                  </article>
+                </main>
+                <footer>Footer noise</footer>
+                <script>window.alert("ignore me")</script>
+              </body>
+            </html>
+        """
+
+        result = clean_html(html)
+
+        assert "Home About Jobs" not in result
+        assert "Footer noise" not in result
+        assert "window.alert" not in result
+        assert "body { color: red; }" not in result
+        assert "Hello world & beyond." in result
+        assert "Second paragraph with details." in result
+        assert "&amp;" not in result
 
     def test_strips_navigation_blocks_and_decodes_entities(self):
         html = (
@@ -111,8 +154,53 @@ class TestDiscoverSources:
         assert sources[1].evidence_layers == ["layer1"]
         mock_client.prompt_json.assert_called_once()
 
+    def test_discover_sources_normalizes_llm_payload(self):
+        fake_client = MagicMock()
+        fake_client.prompt_json.return_value = {
+            "sources": [
+                {
+                    "title": "Founder story",
+                    "url": "https://example.com/story",
+                    "source_type": "critical_incident",
+                    "description": "A canonical decision-making episode.",
+                    "evidence_layers": ["layer2", "layer3"],
+                },
+                {
+                    "title": "Fallback summary",
+                    "description": "A weak orientation source.",
+                },
+            ]
+        }
+
+        with patch.object(discovery, "LLMClient", return_value=fake_client):
+            entries = discovery.discover_sources("Steve Jobs")
+
+        assert fake_client.prompt_json.called
+        assert len(entries) == 2
+        assert entries[0] == SourceEntry(
+            title="Founder story",
+            url="https://example.com/story",
+            source_type="critical_incident",
+            description="A canonical decision-making episode.",
+            evidence_layers=["layer2", "layer3"],
+        )
+        assert entries[1] == SourceEntry(
+            title="Fallback summary",
+            url="",
+            source_type="web_summary",
+            description="A weak orientation source.",
+            evidence_layers=["layer1"],
+        )
+
 
 class TestFetchSource:
+    def _make_response(self, *, text: str, content_type: str) -> MagicMock:
+        response = MagicMock()
+        response.headers = {"content-type": content_type}
+        response.text = text
+        response.raise_for_status.return_value = None
+        return response
+
     @patch("framework_forge.sources.fetcher.httpx.get")
     def test_fetch_source_cleans_html_and_writes_file(self, mock_get, tmp_path):
         response = MagicMock()
@@ -141,3 +229,56 @@ class TestFetchSource:
 
         assert text == "Plain text payload"
         assert output_path.read_text(encoding="utf-8") == "Plain text payload"
+
+    def test_fetch_source_cleans_html_and_writes_output(self, tmp_path):
+        url = "https://example.com/article"
+        output_path = tmp_path / "sources" / "article.txt"
+        response = self._make_response(
+            text="""
+                <html>
+                  <body>
+                    <header><nav>Skip me</nav></header>
+                    <article><p>Important <b>decision</b> memo.</p></article>
+                    <footer>Skip me too</footer>
+                  </body>
+                </html>
+            """,
+            content_type="text/html; charset=utf-8",
+        )
+
+        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response) as mock_get:
+            result = fetch_source(url, output_path)
+
+        assert result == "Important decision memo."
+        assert output_path.read_text(encoding="utf-8") == "Important decision memo."
+        mock_get.assert_called_once_with(
+            url,
+            headers={"User-Agent": "FrameworkForge/0.1 (research tool)"},
+            timeout=30.0,
+            follow_redirects=True,
+        )
+        response.raise_for_status.assert_called_once()
+
+    def test_fetch_source_round_trips_non_html_payload(self, tmp_path):
+        url = "https://example.com/data.txt"
+        output_path = tmp_path / "sources" / "data.txt"
+        payload = "plain text payload with <angle brackets> left intact"
+        response = self._make_response(text=payload, content_type="text/plain; charset=utf-8")
+
+        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response):
+            result = fetch_source(url, output_path)
+
+        assert result == payload
+        assert output_path.read_text(encoding="utf-8") == payload
+
+    def test_fetch_source_bubbles_request_failures(self, tmp_path):
+        url = "https://example.com/unreachable"
+        output_path = tmp_path / "sources" / "missing.txt"
+        request = httpx.Request("GET", url)
+        error = httpx.ConnectError("connection refused", request=request)
+
+        with patch("framework_forge.sources.fetcher.httpx.get", side_effect=error):
+            with pytest.raises(httpx.ConnectError, match="connection refused"):
+                fetch_source(url, output_path)
+
+        assert not output_path.exists()
