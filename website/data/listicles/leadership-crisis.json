@@ -1,0 +1,38 @@
+{
+  "slug": "leadership-crisis",
+  "h1": "Lincoln vs. Caesar on Managing a Leadership Crisis",
+  "metaDescription": "One held a fracturing coalition together through patience. The other moved fast and missed the knives. Their debate on your leadership crisis is unresolved.",
+  "topicForCta": "leadership crisis",
+  "intro": [
+    "Most leadership crisis advice is about communication strategy. Stay calm. Communicate clearly. Hold the vision. This is fine advice for a stable system that's temporarily stressed. It's nearly useless for an actual crisis — a situation where the structural legitimacy of your leadership is itself in question, your coalition is fragmenting, and the people you need most are evaluating their own exits.",
+    "Julius Caesar and Abraham Lincoln both faced that second category. And they made opposite bets.",
+    "Caesar's bet: move decisively enough that the instability becomes someone else's problem. Crossing the Rubicon, the Gallic Wars, the Egyptian campaign — Caesar's pattern is that leadership crises are authority vacuums, and the correct response is to fill the vacuum before anyone can argue about whether you're entitled to. He wins credibility through action so fast that legitimacy questions get mooted.",
+    "Lincoln's bet: the crisis is a legitimacy problem, and legitimacy can only be rebuilt by holding the coalition — even the parts of it that are actively undermining you. His willingness to absorb McClellan's insubordination, manage Seward and Chase's ambitions, and keep border state loyalty reflects a leader who understands that moving decisively too early fractures something that can't be rebuilt. Patience is not passivity; it's structural preservation.",
+    "They fundamentally disagree on whether a leadership crisis calls for speed or structural patience — and which is right depends entirely on your specific coalition dynamics."
+  ],
+  "minds": [
+    {
+      "slug": "julius-caesar",
+      "name": "Julius Caesar",
+      "rationale": "Treats leadership crises as authority vacuums to fill through decisive action — will argue Lincoln's patience would have lost the war."
+    },
+    {
+      "slug": "abraham-lincoln",
+      "name": "Abraham Lincoln",
+      "rationale": "Holds that coalition preservation under stress is the structural constraint that cannot be violated — will argue Caesar's speed was the real reason he died."
+    },
+    {
+      "slug": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "rationale": "Asks whether the crisis is externally generated or internally manufactured by the leader's own prior decisions — often the most uncomfortable diagnosis in the room."
+    },
+    {
+      "slug": "catherine-the-great",
+      "name": "Catherine the Great",
+      "rationale": "Seized power through a coup, then governed through coalition maintenance for decades — has direct experience with both Caesar's move and Lincoln's patience, often in the same decision."
+    }
+  ],
+  "ctaHeadline": "Bring this debate to your actual leadership situation",
+  "ctaButtonLabel": "Run in the Agora",
+  "ctaSubtext": "Describe what's happening. They'll disagree productively about what you should do."
+}

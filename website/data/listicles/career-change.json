@@ -1,0 +1,37 @@
+{
+  "slug": "career-change",
+  "h1": "Epictetus vs. Franklin: Should You Change Careers at 35?",
+  "metaDescription": "One argues your career is an externality you don't control. The other reinvented himself three times. Both are right. The question is which one you need.",
+  "topicForCta": "career change",
+  "intro": [
+    "The career change question isn't really about whether to change. Most people who are asking it have already decided. What they're actually looking for is a framework that tells them they're not being reckless — or, if they are, that the recklessness is the right kind.",
+    "Epictetus would cut through that immediately. For him, your career title, your salary, your industry reputation — these are all \"externals.\" Things that belong to the realm of what happens to you, not who you are. He would tell you that the anxiety you feel about switching careers is a signal that you've outsourced your identity to something contingent. The question isn't \"should I change careers?\" — that's the wrong question entirely. The question is: what would you be doing if none of those externals could be taken from you?",
+    "Benjamin Franklin would listen to this politely and then disagree on practical grounds. He changed careers at least three times: printer, scientist, diplomat, constitutional architect. He doesn't think career change is a spiritual problem. He thinks it's a resource allocation problem. You have skills that compound. You have relationships that transfer. You have a network with credibility in domain A — how much of that translates to domain B, and what's the delta in switching cost vs. expected compounding return?",
+    "What makes their debate genuinely useful is that Epictetus is solving the identity problem and Franklin is solving the execution problem. If you only get one of them, you get half an answer. This debate runs both in parallel — and lets Harriet Tubman and Abraham Lincoln add the dimension of change under real constraint, not theoretical optionality."
+  ],
+  "minds": [
+    {
+      "slug": "epictetus",
+      "name": "Epictetus",
+      "rationale": "Reframes the career question as an identity question — challenges whether the anxiety about changing is evidence you're asking the wrong thing entirely."
+    },
+    {
+      "slug": "benjamin-franklin",
+      "name": "Benjamin Franklin",
+      "rationale": "Serial career-changer who treats reinvention as a compounding asset problem, not a courage problem — gives the execution layer Epictetus ignores."
+    },
+    {
+      "slug": "abraham-lincoln",
+      "name": "Abraham Lincoln",
+      "rationale": "Changed from lawyer to politician to wartime executive under escalating pressure — brings the \"change under constraint\" case study that idealized frameworks miss."
+    },
+    {
+      "slug": "harriet-tubman",
+      "name": "Harriet Tubman",
+      "rationale": "Operated in situations where the cost of staying was catastrophic and the path forward was genuinely unclear — her framework on moving without a map is the most pragmatic in the room."
+    }
+  ],
+  "ctaHeadline": "Run this debate with your own career question",
+  "ctaButtonLabel": "Open in the Agora",
+  "ctaSubtext": "Ask them about your specific situation — not \"career change\" in the abstract."
+}
