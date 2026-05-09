@@ -101,4 +101,16 @@ describe('trackEvent', () => {
 
     await expect(trackEvent('paid_subscription')).resolves.toBe(false)
   })
+
+  it('does not throw when the analytics module import fails', async () => {
+    process.env.NODE_ENV = 'production'
+
+    vi.doMock('@vercel/analytics/server', () => {
+      throw new Error('boom')
+    })
+
+    const { trackEvent } = await import('./analytics')
+
+    await expect(trackEvent('paid_subscription')).resolves.toBeUndefined()
+  })
 })
