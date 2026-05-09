@@ -7,6 +7,7 @@ import {
 } from "@/app/frameworks/[slug]/page";
 import {
   FrameworkConstructExplorer,
+  FrameworkConstructExplorerCard,
   getConstructExplorerSnapshot,
   pairConstructsWithPredictions,
   type ConstructExplorerConstruct,
@@ -60,6 +61,10 @@ describe("pairConstructsWithPredictions", () => {
     const pairs = pairConstructsWithPredictions(constructs, predictions.slice(0, 1));
     expect(pairs[1].prediction).toBe(predictions[0]);
   });
+
+  it("returns null predictions when no prediction data exists", () => {
+    expect(pairConstructsWithPredictions(constructs, []).every((pair) => pair.prediction === null)).toBe(true);
+  });
 });
 
 describe("getConstructExplorerSnapshot", () => {
@@ -79,6 +84,17 @@ describe("getConstructExplorerSnapshot", () => {
 
     expect(snapshot.orientation).toBe("positive");
     expect(snapshot.orientationLabel).toContain("Rebuilds knowledge from first principles");
+  });
+
+  it("clamps negative and overflow selection indexes, and handles empty construct lists", () => {
+    const negative = getConstructExplorerSnapshot(constructs, predictions, -3, 50);
+    const overflow = getConstructExplorerSnapshot(constructs, predictions, 99, 50);
+    const empty = getConstructExplorerSnapshot([], [], 4, 50);
+
+    expect(negative.selectedIndex).toBe(0);
+    expect(overflow.selectedIndex).toBe(constructs.length - 1);
+    expect(empty.selectedConstruct).toBeNull();
+    expect(empty.selectedPrediction).toBeNull();
   });
 });
 
@@ -101,8 +117,76 @@ describe("FrameworkConstructExplorer", () => {
     expect(html).toContain("aria-label=\"Move along withdraws to preserve control vs. engages to influence outcomes\"");
   });
 
-  it("omits the confidence label when the value is missing or invalid", () => {
+  it("renders stateful orientation copy for a given slider position", () => {
+    const pair = pairConstructsWithPredictions(constructs, predictions)[0];
+    const negativeHtml = renderToStaticMarkup(
+      <FrameworkConstructExplorerCard
+        color="var(--amber)"
+        index={0}
+        pair={pair}
+        position={20}
+        total={2}
+        onPositionChange={() => {}}
+      />,
+    );
+    const positiveHtml = renderToStaticMarkup(
+      <FrameworkConstructExplorerCard
+        color="var(--amber)"
+        index={0}
+        pair={pair}
+        position={80}
+        total={2}
+        onPositionChange={() => {}}
+      />,
+    );
+
+    expect(negativeHtml).toContain("Current orientation: leaning toward Builds on accepted practice");
+    expect(negativeHtml).toContain("aria-valuetext=\"leaning toward Builds on accepted practice\"");
+    expect(positiveHtml).toContain("Current orientation: leaning toward Rebuilds knowledge from first principles");
+    expect(positiveHtml).toContain("aria-valuetext=\"leaning toward Rebuilds knowledge from first principles\"");
+  });
+
+  it("renders fallback copy when the framework has no prediction data", () => {
+    const bareConstruct = {
+      construct: "risk tolerance vs. caution",
+      positive_pole: "Moves decisively despite uncertainty",
+      negative_pole: "Waits for more evidence",
+      behavioral_implication: "",
+    };
+    const pair = pairConstructsWithPredictions([bareConstruct], [])[0];
+
     const html = renderToStaticMarkup(
+      <FrameworkConstructExplorerCard
+        color="var(--amber)"
+        index={0}
+        pair={pair}
+        position={50}
+        total={1}
+        onPositionChange={() => {}}
+      />,
+    );
+
+    expect(html).toContain("No prediction available");
+    expect(html).toContain("Not provided in the framework data.");
+    expect(html).toContain("No prediction was recorded for this construct.");
+    expect(html).not.toContain("In practice:");
+  });
+
+  it("omits the confidence label when the value is missing or invalid", () => {
+    const missingConfidenceHtml = renderToStaticMarkup(
+      <FrameworkConstructExplorer
+        person="Isaac Newton"
+        color="var(--amber)"
+        constructs={constructs.slice(0, 1)}
+        predictions={[
+          {
+            ...predictions[0],
+            confidence: undefined,
+          },
+        ]}
+      />,
+    );
+    const invalidConfidenceHtml = renderToStaticMarkup(
       <FrameworkConstructExplorer
         person="Isaac Newton"
         color="var(--amber)"
@@ -116,8 +200,10 @@ describe("FrameworkConstructExplorer", () => {
       />,
     );
 
-    expect(html).toContain("Joining a new organization");
-    expect(html).not.toContain("confidence");
+    expect(missingConfidenceHtml).toContain("Joining a new organization");
+    expect(missingConfidenceHtml).not.toContain("confidence");
+    expect(invalidConfidenceHtml).toContain("Joining a new organization");
+    expect(invalidConfidenceHtml).not.toContain("confidence");
   });
 
   it("returns null when there are no constructs to explore", () => {
