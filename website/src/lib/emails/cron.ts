@@ -232,15 +232,13 @@ export async function runDigestCron(
  * request is authorised; otherwise returns the failure reason.
  *
  * Auth modes:
- *   - Vercel Cron sends `x-vercel-cron: 1` automatically; trust it.
- *   - Manual triggers must include `Authorization: Bearer <CRON_SECRET>`.
  *   - In dev (NODE_ENV !== 'production'), allow unauthenticated smoke tests.
- *     Production dry-runs still require auth.
+ *   - Production requests must include `Authorization: Bearer <CRON_SECRET>`.
+ *   - Ignore the forgeable `x-vercel-cron` header for auth decisions.
  */
 export function authorizeCronRequest(headers: Headers, url: URL): string | null {
   void url
   if (process.env.NODE_ENV !== 'production') return null
-  if (headers.get('x-vercel-cron') === '1') return null
 
   const auth = headers.get('authorization') ?? ''
   const expected = process.env.CRON_SECRET

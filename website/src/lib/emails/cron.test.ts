@@ -280,11 +280,12 @@ describe('authorizeCronRequest', () => {
     expect(authorizeCronRequest(new Headers(), u)).toBeNull()
   })
 
-  it('allows when x-vercel-cron header is present', () => {
+  it('rejects spoofed x-vercel-cron requests without Authorization', () => {
     setNodeEnv('production')
+    vi.stubEnv('CRON_SECRET', 'shh')
     expect(
       authorizeCronRequest(new Headers({ 'x-vercel-cron': '1' }), url),
-    ).toBeNull()
+    ).toBe('unauthorized')
   })
 
   it('allows when Authorization Bearer matches CRON_SECRET', () => {
