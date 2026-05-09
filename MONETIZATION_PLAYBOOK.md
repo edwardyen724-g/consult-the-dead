@@ -132,14 +132,14 @@ Team seats, SSO, API, Forge submission portal, enterprise contracts, white-label
 ### Phase 1 — Apr 24 – May 5 (~10 working days): payment rails ✅ COMPLETE
 
 Sequential, do not parallelize solo:
-1. Clerk integration (day 1-2)
-2. Stripe Checkout + Customer Portal + webhook (day 3-4)
-3. Pricing page + account page (day 5)
-4. ToS, Privacy, Resend transactional email (day 6-7)
-5. User-scoped rate limit rewrite (day 8-9)
-6. End-to-end test: sign up → pay → run agon → cancel → verify limits (day 10)
+1. [x] Clerk integration (day 1-2)
+2. [x] Stripe Checkout + Customer Portal + webhook (day 3-4)
+3. [x] Pricing page + account page (day 5)
+4. [x] ToS, Privacy, Resend transactional email (day 6-7)
+5. [x] User-scoped rate limit rewrite (day 8-9)
+6. [x] End-to-end test: sign up → pay → run agon → cancel → verify limits (day 10)
 
-**Phase 1 milestone:** someone could pay you today and it would work. Product isn't value-complete, but rails are live.
+**Phase 1 milestone:** ✅ someone can pay today and it works. Pro tier is live at $30/mo or $300/yr.
 
 ### Phase 2 — Apr 23-24: value justifies the price ✅ COMPLETE
 
