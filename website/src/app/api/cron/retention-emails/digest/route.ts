@@ -16,6 +16,8 @@
  *
  * In dry-run mode (?dryRun=1) the route never calls Resend and tolerates
  * Clerk/DB unavailability, returning a smoke-test-friendly summary.
+ * Production auth still requires `Authorization: Bearer <CRON_SECRET>`;
+ * `x-vercel-cron` is not accepted as an auth shortcut.
  */
 
 import { NextRequest, NextResponse } from 'next/server'

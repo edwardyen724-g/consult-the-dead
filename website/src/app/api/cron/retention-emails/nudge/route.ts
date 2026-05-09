@@ -6,7 +6,9 @@
  * output/change-summary.md).
  *
  * Behaviour:
- *   1. Authorise (Vercel cron header / Authorization bearer).
+ *   1. Authorise via `Authorization: Bearer <CRON_SECRET>` in production;
+ *      dry-run never bypasses auth, and the forgeable `x-vercel-cron`
+ *      header is ignored for access control.
  *   2. Pull all Clerk users whose `created_at` is in T-24h±2h.
  *   3. For each user, count their agons in the database.
  *   4. Pure logic in src/lib/emails/cron.ts decides who to send.

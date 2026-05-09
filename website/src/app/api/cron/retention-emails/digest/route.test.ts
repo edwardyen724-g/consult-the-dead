@@ -43,6 +43,25 @@ describe('GET /api/cron/retention-emails/digest', () => {
     expect(runDigestCronMock).not.toHaveBeenCalled()
   })
 
+  it('rejects spoofed x-vercel-cron requests without bearer auth', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+
+    const response = await GET(
+      new Request(
+        'https://consultthedead.com/api/cron/retention-emails/digest?dryRun=1',
+        {
+          headers: { 'x-vercel-cron': '1' },
+        },
+      ) as never,
+    )
+
+    expect(response.status).toBe(401)
+    await expect(response.json()).resolves.toEqual({ error: 'unauthorized' })
+    expect(clerkClientMock).not.toHaveBeenCalled()
+    expect(runDigestCronMock).not.toHaveBeenCalled()
+  })
+
   it('redacts Clerk identity fields from the returned summary', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     vi.stubEnv('CRON_SECRET', 'secret')
