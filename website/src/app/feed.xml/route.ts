@@ -4,7 +4,7 @@ import {
   buildFeedMetadata,
   buildPublicFeedItems,
   serializeRssFeed,
-} from "@/lib/rss-feed";
+} from "@/lib/feed";
 
 export const runtime = "nodejs";
 export const revalidate = 3600;

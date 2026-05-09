@@ -12,11 +12,13 @@ import {
   RSS_FEED_LANGUAGE,
   RSS_FEED_TITLE,
   serializeRssFeed,
-} from "./rss-feed";
+} from "./feed";
 
 const FIXED_NOW = new Date("2026-05-08T12:00:00.000Z");
 
-function makeDebate(partial: Partial<Debate> & Pick<Debate, "slug" | "name" | "forContext" | "topic" | "date">): Debate {
+function makeDebate(
+  partial: Partial<Debate> & Pick<Debate, "slug" | "name" | "forContext" | "topic" | "date">,
+): Debate {
   return {
     rounds: [],
     consensus: [],
@@ -25,7 +27,10 @@ function makeDebate(partial: Partial<Debate> & Pick<Debate, "slug" | "name" | "f
   };
 }
 
-function makeInsight(partial: Partial<InsightEntry> & Pick<InsightEntry, "slug" | "title" | "description" | "frameworkSlug">): InsightEntry {
+function makeInsight(
+  partial: Partial<InsightEntry> &
+    Pick<InsightEntry, "slug" | "title" | "description" | "frameworkSlug">,
+): InsightEntry {
   return {
     targetKeywords: [],
     decisionType: "strategy",
@@ -34,7 +39,7 @@ function makeInsight(partial: Partial<InsightEntry> & Pick<InsightEntry, "slug" 
   };
 }
 
-describe("rss-feed helpers", () => {
+describe("feed helpers", () => {
   it("normalizes the site URL and exposes feed metadata", () => {
     const metadata = buildFeedMetadata("https://www.consultthedead.com/");
 
@@ -45,6 +50,38 @@ describe("rss-feed helpers", () => {
       language: RSS_FEED_LANGUAGE,
       feedUrl: "https://www.consultthedead.com/feed.xml",
     });
+  });
+
+  it("falls back to the canonical site URL when the site URL is blank", () => {
+    const metadata = buildFeedMetadata("");
+    const items = buildPublicFeedItems({
+      siteUrl: "",
+      now: FIXED_NOW,
+      debates: [
+        makeDebate({
+          slug: "fallback-debate",
+          name: "Fallback Debate",
+          forContext: "For Fallback",
+          topic: "Fallback topic",
+          date: "2026-04-02",
+        }),
+      ],
+      insightEntries: [
+        makeInsight({
+          slug: "fallback-insight",
+          title: "Fallback insight",
+          description: "Fallback description",
+          frameworkSlug: "isaac-newton",
+        }),
+      ],
+    });
+
+    expect(metadata.link).toBe("https://www.consultthedead.com");
+    expect(metadata.feedUrl).toBe("https://www.consultthedead.com/feed.xml");
+    expect(items.map((item) => item.link)).toEqual([
+      "https://www.consultthedead.com/debates/fallback-debate",
+      "https://www.consultthedead.com/insights/fallback-insight",
+    ]);
   });
 
   it("orders debates newest-first and keeps insights in source order", () => {
@@ -135,7 +172,7 @@ describe("rss-feed helpers", () => {
     expect(xml).toContain("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     expect(xml).toContain("<rss version=\"2.0\">");
     expect(xml).toContain("<title>Consult &amp; The &lt;Dead&gt; &quot;Feed&quot;</title>");
-    expect(xml).toContain("<link>https://www.consultthedead.com/feed.xml</link>");
+    expect(xml).toContain("<link>https://www.consultthedead.com</link>");
     expect(xml).toContain("<language>en-us</language>");
     expect(xml).toContain(`<lastBuildDate>${FIXED_NOW.toUTCString()}</lastBuildDate>`);
     expect(xml).toContain("<guid isPermaLink=\"true\">https://www.consultthedead.com/debates/alpha</guid>");
