@@ -423,3 +423,143 @@ class TestValidationCliSmoke:
         assert tier2_data["traceability_ratio"] == 0.9
         assert tier3_data["person"] == "Steve Jobs"
         assert len(tier3_data["pairs"]) == 5
+=======
+class TestPlaceholderCitations:
+    """Tests for placeholder citation validation."""
+
+    def test_validate_framework_payload_passes_clean_data(self):
+        """Clean framework payloads should pass placeholder validation."""
+        from framework_forge.validation.placeholder_citations import (
+            validate_framework_payload,
+        )
+
+        payload = {
+            "meta": {
+                "primary_sources": ["Walter Isaacson, Steve Jobs"],
+                "secondary_sources": ["Brent Schlender, Becoming Steve Jobs"],
+            },
+            "critical_incident_database": [
+                {
+                    "source": "Walter Isaacson, Steve Jobs",
+                    "decision": "Remove the keyboard",
+                }
+            ],
+            "behavioral_divergence_predictions": [],
+        }
+
+        result = validate_framework_payload(payload)
+
+        assert result.passed is True
+        assert result.violations == []
+        assert result.to_dict()["passed"] is True
+        assert result.to_dict()["scanned_files"] == ["<memory>"]
+
+    def test_validate_framework_payload_rejects_mock_placeholder(self):
+        """Any mock_placeholder citation should fail validation."""
+        from framework_forge.validation.placeholder_citations import (
+            validate_framework_payload,
+        )
+
+        payload = {
+            "meta": {
+                "primary_sources": ["mock_placeholder"],
+                "secondary_sources": [],
+            },
+            "critical_incident_database": [
+                {
+                    "source": "Walter Isaacson, Steve Jobs",
+                    "decision": "Remove the keyboard",
+                }
+            ],
+        }
+
+        result = validate_framework_payload(payload, artifact_path="framework.json")
+
+        assert result.passed is False
+        assert len(result.violations) == 1
+        violation = result.violations[0]
+        assert violation.artifact_path == "framework.json"
+        assert violation.json_path == "$.meta.primary_sources[0]"
+        assert violation.value == "mock_placeholder"
+        assert violation.to_dict() == {
+            "artifact_path": "framework.json",
+            "json_path": "$.meta.primary_sources[0]",
+            "value": "mock_placeholder",
+        }
+
+    def test_validate_framework_artifact_tree_reports_placeholder(self, tmp_framework_dir):
+        """Tree validation should scan JSON artifacts and fail on placeholders."""
+        from framework_forge.validation.placeholder_citations import (
+            validate_framework_artifact_tree,
+        )
+
+        clean_framework = {
+            "meta": {
+                "primary_sources": ["Walter Isaacson, Steve Jobs"],
+                "secondary_sources": [],
+            },
+            "critical_incident_database": [],
+        }
+        bad_bibliography = {
+            "entries": [
+                {
+                    "title": "Interview transcript",
+                    "source": "mock_placeholder",
+                }
+            ]
+        }
+
+        (tmp_framework_dir / "framework.json").write_text(
+            json.dumps(clean_framework), encoding="utf-8"
+        )
+        bibliography_path = tmp_framework_dir / "sources" / "bibliography.json"
+        bibliography_path.write_text(json.dumps(bad_bibliography), encoding="utf-8")
+
+        result = validate_framework_artifact_tree(tmp_framework_dir)
+
+        assert result.passed is False
+        assert result.scanned_files == ["framework.json", "sources/bibliography.json"]
+        assert any(v.artifact_path == "sources/bibliography.json" for v in result.violations)
+        assert any(v.value == "mock_placeholder" for v in result.violations)
+        assert result.to_dict()["passed"] is False
+
+    def test_main_returns_zero_for_clean_tree(self, tmp_framework_dir, capsys):
+        """The CLI entrypoint should exit zero when the tree is clean."""
+        from framework_forge.validation.placeholder_citations import main
+
+        payload = {
+            "meta": {
+                "primary_sources": ["Walter Isaacson, Steve Jobs"],
+                "secondary_sources": [],
+            }
+        }
+        (tmp_framework_dir / "framework.json").write_text(
+            json.dumps(payload), encoding="utf-8"
+        )
+
+        exit_code = main([str(tmp_framework_dir)])
+        captured = capsys.readouterr()
+
+        assert exit_code == 0
+        assert "No mock_placeholder citations found" in captured.out
+
+    def test_main_returns_nonzero_for_placeholder_tree(self, tmp_framework_dir, capsys):
+        """The CLI entrypoint should exit non-zero when placeholders exist."""
+        from framework_forge.validation.placeholder_citations import main
+
+        payload = {
+            "meta": {
+                "primary_sources": ["mock_placeholder"],
+                "secondary_sources": [],
+            }
+        }
+        (tmp_framework_dir / "framework.json").write_text(
+            json.dumps(payload), encoding="utf-8"
+        )
+
+        exit_code = main([str(tmp_framework_dir)])
+        captured = capsys.readouterr()
+
+        assert exit_code == 1
+        assert "mock_placeholder" in captured.out
+>>>>>>> 28a9138 (feat: block mock_placeholder framework citations)
