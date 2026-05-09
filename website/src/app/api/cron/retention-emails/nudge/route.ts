@@ -6,7 +6,7 @@
  * output/change-summary.md).
  *
  * Behaviour:
- *   1. Authorise (Vercel cron header / Authorization bearer / dryRun=1).
+ *   1. Authorise (Vercel cron header / Authorization bearer).
  *   2. Pull all Clerk users whose `created_at` is in T-24h±2h.
  *   3. For each user, count their agons in the database.
  *   4. Pure logic in src/lib/emails/cron.ts decides who to send.
@@ -29,6 +29,7 @@ import { sql } from '@vercel/postgres'
 import {
   authorizeCronRequest,
   runNudgeCron,
+  toPublicCronSummary,
   type CronSummary,
 } from '@/lib/emails/cron'
 import { resolveSuppressionMetadata } from '@/lib/emails/suppression'
@@ -64,7 +65,11 @@ export async function GET(request: NextRequest) {
   }
 
   const summary: CronSummary = await runNudgeCron(candidates, { dryRun })
-  return NextResponse.json({ ok: true, dryRun, ...summary })
+  return NextResponse.json({
+    ok: true,
+    dryRun,
+    ...toPublicCronSummary(summary),
+  })
 }
 
 async function loadNudgeCandidates(

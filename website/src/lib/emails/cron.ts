@@ -28,13 +28,37 @@ export interface CronSummary {
   scanned: number
   sent: number
   suppressed: Record<string, number>
-  /** Per-user diagnostic rows; useful in dry-run output. */
+  /**
+   * Internal per-user diagnostic rows.
+   *
+   * Route handlers must redact this before returning JSON to the caller,
+   * because these rows include Clerk user IDs and email addresses.
+   */
   details: Array<{
     clerkUserId: string
     email: string
     action: 'sent' | 'suppressed' | 'skipped'
     reason?: string
   }>
+}
+
+export interface PublicCronSummary {
+  scanned: number
+  sent: number
+  suppressed: Record<string, number>
+  details: Array<{
+    action: 'sent' | 'suppressed' | 'skipped'
+    reason?: string
+  }>
+}
+
+export function toPublicCronSummary(summary: CronSummary): PublicCronSummary {
+  return {
+    scanned: summary.scanned,
+    sent: summary.sent,
+    suppressed: summary.suppressed,
+    details: summary.details.map(({ action, reason }) => ({ action, reason })),
+  }
 }
 
 /** ms-window around T-24h that the nudge cron considers eligible. */
@@ -210,12 +234,12 @@ export async function runDigestCron(
  * Auth modes:
  *   - Vercel Cron sends `x-vercel-cron: 1` automatically; trust it.
  *   - Manual triggers must include `Authorization: Bearer <CRON_SECRET>`.
- *   - In dev (NODE_ENV !== 'production') and when `dryRun=1` is set, allow
- *     unauthenticated for local smoke tests.
+ *   - In dev (NODE_ENV !== 'production'), allow unauthenticated smoke tests.
+ *     Production dry-runs still require auth.
  */
 export function authorizeCronRequest(headers: Headers, url: URL): string | null {
+  void url
   if (process.env.NODE_ENV !== 'production') return null
-  if (url.searchParams.get('dryRun') === '1') return null
   if (headers.get('x-vercel-cron') === '1') return null
 
   const auth = headers.get('authorization') ?? ''

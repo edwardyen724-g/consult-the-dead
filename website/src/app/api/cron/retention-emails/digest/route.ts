@@ -23,6 +23,7 @@ import { clerkClient } from '@clerk/nextjs/server'
 import {
   authorizeCronRequest,
   runDigestCron,
+  toPublicCronSummary,
   type CronSummary,
 } from '@/lib/emails/cron'
 import { resolveSuppressionMetadata } from '@/lib/emails/suppression'
@@ -80,7 +81,11 @@ export async function GET(request: NextRequest) {
     dryRun,
   })
 
-  return NextResponse.json({ ok: true, dryRun, ...summary })
+  return NextResponse.json({
+    ok: true,
+    dryRun,
+    ...toPublicCronSummary(summary),
+  })
 }
 
 async function loadDigestCandidates(): Promise<DigestUserCandidate[]> {

@@ -4,6 +4,7 @@ import {
   isInNudgeWindow,
   runDigestCron,
   runNudgeCron,
+  toPublicCronSummary,
 } from './cron'
 import type {
   DigestUserCandidate,
@@ -273,8 +274,8 @@ describe('authorizeCronRequest', () => {
     expect(authorizeCronRequest(new Headers(), url)).toBeNull()
   })
 
-  it('allows when dryRun=1 query param is present', () => {
-    setNodeEnv('production')
+  it('allows when dryRun=1 query param is present in non-production', () => {
+    setNodeEnv('test')
     const u = new URL(url + '?dryRun=1')
     expect(authorizeCronRequest(new Headers(), u)).toBeNull()
   })
@@ -294,7 +295,14 @@ describe('authorizeCronRequest', () => {
     ).toBeNull()
   })
 
-  it('rejects production calls with no auth + no dryRun + no cron header', () => {
+  it('rejects production calls with dryRun=1 unless authenticated', () => {
+    setNodeEnv('production')
+    vi.stubEnv('CRON_SECRET', 'shh')
+    const u = new URL(url + '?dryRun=1')
+    expect(authorizeCronRequest(new Headers(), u)).toBe('unauthorized')
+  })
+
+  it('rejects production calls with no auth + no cron header', () => {
     setNodeEnv('production')
     vi.stubEnv('CRON_SECRET', '')
     expect(authorizeCronRequest(new Headers(), url)).toBe('unauthorized')
@@ -309,5 +317,37 @@ describe('authorizeCronRequest', () => {
         url,
       ),
     ).toBe('unauthorized')
+  })
+})
+
+describe('toPublicCronSummary', () => {
+  it('redacts Clerk IDs and email addresses from detail rows', () => {
+    const publicSummary = toPublicCronSummary({
+      scanned: 2,
+      sent: 1,
+      suppressed: { unsubscribed: 1 },
+      details: [
+        {
+          clerkUserId: 'user_123',
+          email: 'secret@example.com',
+          action: 'sent',
+        },
+        {
+          clerkUserId: 'user_456',
+          email: 'private@example.com',
+          action: 'suppressed',
+          reason: 'unsubscribed',
+        },
+      ],
+    })
+
+    expect(publicSummary.scanned).toBe(2)
+    expect(publicSummary.sent).toBe(1)
+    expect(publicSummary.details).toEqual([
+      { action: 'sent' },
+      { action: 'suppressed', reason: 'unsubscribed' },
+    ])
+    expect(JSON.stringify(publicSummary)).not.toContain('user_123')
+    expect(JSON.stringify(publicSummary)).not.toContain('secret@example.com')
   })
 })
