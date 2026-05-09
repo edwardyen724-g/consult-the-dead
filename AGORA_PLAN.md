@@ -2,7 +2,7 @@
 
 **Status:** approved, ready for Phase 1
 **Owner:** Edward
-**Last updated:** 2026-05-08
+**Last updated:** 2026-04-18
 
 ---
 
@@ -221,27 +221,15 @@ Option 1 is the plan. No Vercel action needed until Phase 1 completes.
 - Re-add `WebAppJsonLd` pointing to `/agora`.
 - Update [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) with the live product URL.
 
----
+## 9. Monetization — confirmed model
 
-## 9. Monetization — shipped model
+Same as the original BYO-key approach, now with a planned upgrade path:
 
-Three tiers, all live:
+- **Free tier:** 3 agons / IP / day, using a server-side Anthropic key. No account required.
+- **BYO key:** unlimited. API key entered in a settings drawer (not a blocking modal).
+- **Subscription tiers (future, not v1):** monthly plans with progressively higher rate limits on the server-side key, so users don't have to hold an Anthropic account. Pricing and tier breakpoints TBD.
 
-- **Free:** 3 agons / IP / day, server-side Anthropic key (Claude Sonnet), council 2–3 minds. No account required.
-- **BYO key:** unlimited agons. API key entered in a settings drawer (not a blocking modal). Key stored in browser only — never logged server-side. Skips the daily rate limit entirely.
-- **Pro — $30 / mo (monthly) or $25 / mo ($300 / yr, founding-member price locked before Q3 2026):**
-  - 100 agons / month
-  - Up to 5 minds in council
-  - Opus model for consensus synthesis (Sonnet for debate rounds)
-  - Persistent, searchable debate library (synced across devices)
-  - PDF export of full agon
-  - Extended research mode (Tavily + web_search)
-  - 48-hour email founder support
-  - Private account (Clerk auth), synced across devices
-
-Pro upgrades go through Stripe (monthly or annual billing). 7-day free trial available at `/pricing`. Founding-member annual price ($300 / yr) locks for life for early subscribers.
-
-Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) §6) is **not** an integrated Agora feature. It only makes sense if it delivers meaningfully higher value than the automated flow — e.g. Edward's hand-written synthesis on top. Keep as an optional landing-page CTA for now; revisit if user feedback shows demand.
+Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) §6) is **not** an integrated Agora feature. It only makes sense if it delivers meaningfully higher value than the automated flow — e.g. Edward's hand-written synthesis on top, or running the debate with 5 minds + custom research the free tier doesn't do. Keep as an optional landing-page CTA for now; revisit if user feedback shows demand.
 
 ---
 
@@ -259,7 +247,8 @@ Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATE
 
 ## 11. Non-goals for v1
 
-- No editable framework library — the 26 minds are what you get; users cannot add or modify frameworks.
+- No accounts, no login, no Stripe subscriptions.
+- No editable framework library — the 11 (Einstein hidden pending legal) are what you get.
 - No multi-user / collaborative agons.
 - No voice, no video, no avatars.
 - No "chat with Newton" mode — this is a contest of reasoning, not a chatbot.

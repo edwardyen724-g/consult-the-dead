@@ -144,6 +144,28 @@ describe("getInsightAnnotatedPassages", () => {
     );
   });
 
+  it("returns an empty list for insight slugs without annotation blueprints", () => {
+    const entry = INSIGHT_ENTRIES.find(
+      (candidate) => candidate.slug === "how-newton-would-approach-your-pivot-decision",
+    );
+
+    if (!entry) {
+      throw new Error("Newton insight entry not found");
+    }
+
+    const framework = getFramework(entry.frameworkSlug);
+    if (!framework) {
+      throw new Error("Newton framework not found");
+    }
+
+    const passages = getInsightAnnotatedPassages(
+      { ...entry, slug: "unmapped-slug" },
+      framework,
+    );
+
+    expect(passages).toEqual([]);
+  });
+
   it("builds annotated passages for every published insight slug", () => {
     for (const entry of INSIGHT_ENTRIES) {
       const framework = getFramework(entry.frameworkSlug);
