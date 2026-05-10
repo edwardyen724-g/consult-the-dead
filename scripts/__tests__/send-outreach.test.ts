@@ -34,6 +34,7 @@ import {
   type CliDeps,
   type SendResult,
 } from "../send-outreach";
+import { registerSendOutreachCoverageEdgeCases } from "./send-outreach.edge-cases.test";
 import { OUTREACH_LIST, findRecipient } from "../outreach-list";
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -115,6 +116,8 @@ const describe = g.describe ?? describeFallback;
 const it = g.it ?? itFallback;
 const expect = g.expect ?? expectFallback;
 
+registerSendOutreachCoverageEdgeCases(describe, it, expect);
+
 // ---------------------------------------------------------------------------
 // Test fixtures
 // ---------------------------------------------------------------------------
@@ -178,6 +181,15 @@ describe("buildEmail", () => {
     expect(html.includes("<script>")).toBe(false);
   });
 
+  it("falls back to the algorithmic subject when subject_line is whitespace only", () => {
+    const { subject } = buildEmail({
+      ...fixtureWithSubject,
+      subject_line: "   ",
+    });
+    expect(subject).toContain("3 dead strategists argued");
+    expect(subject).toContain(fixtureWithSubject.topic_line);
+  });
+
   it("produces a stable subject for every shipped recipient (no empty subjects)", () => {
     for (const r of OUTREACH_LIST) {
       const { subject, text, html } = buildEmail(r);
@@ -227,6 +239,11 @@ describe("firstName", () => {
   it("collapses multi-whitespace correctly", () => {
     expect(firstName("  Foo   Bar")).toBe("Foo");
   });
+
+  it("treats nullish input as an empty name", () => {
+    expect(firstName(undefined as unknown as string)).toBe("there");
+    expect(firstName(null as unknown as string)).toBe("there");
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -260,6 +277,12 @@ describe("parseArgs", () => {
     expect(a.dryRun).toBe(false);
     expect(a.help).toBe(false);
     expect(a.slug).toBe(undefined as unknown as string);
+  });
+  it("ignores unknown flags without mutating the parsed result", () => {
+    const a = parseArgs(["--mystery-flag", "--slug", "abhishek-chakravarty"]);
+    expect(a.slug).toBe("abhishek-chakravarty");
+    expect(a.help).toBe(false);
+    expect(a.dryRun).toBe(false);
   });
 });
 
@@ -473,18 +496,23 @@ describe("sendOutreach send path", () => {
       observedToRef.value = input.to;
       return { data: { id: "msg_x" } };
     };
-    // Simulate the founder editing outreach-list.ts to add an email
-    // by passing --to (override path); also verify that when --to is
-    // absent we fall back to recipient.email exactly.
-    // Direct path: pass --to so we exercise the no-op branch.
-    await sendOutreach({
-      slug: "sarah-chen",
-      to: "  sarah@example.com  ", // whitespace must be trimmed
-      dryRun: false,
-      env: { RESEND_API_KEY: "re_test" },
-      resendSender: sender,
-    });
-    expect(observedToRef.value).toBe("sarah@example.com");
+    const recipient = OUTREACH_LIST.find((r) => r.slug === "sarah-chen");
+    if (!recipient) {
+      throw new Error("Expected sarah-chen to exist in the outreach roster");
+    }
+    const originalEmail = recipient.email;
+    recipient.email = "  sarah@example.com  ";
+    try {
+      await sendOutreach({
+        slug: "sarah-chen",
+        dryRun: false,
+        env: { RESEND_API_KEY: "re_test" },
+        resendSender: sender,
+      });
+      expect(observedToRef.value).toBe("sarah@example.com");
+    } finally {
+      recipient.email = originalEmail;
+    }
   });
 });
 
