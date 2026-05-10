@@ -20,9 +20,9 @@ vi.mock("next/image", () => ({
     alt,
     src,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string }) => (
+  }: React.HTMLAttributes<HTMLDivElement> & { src: string; alt: string }) => (
     // The test only needs a renderable stand-in for Next's Image component.
-    <img alt={alt} src={src} {...props} />
+    <div data-alt={alt} data-src={src} {...props} />
   ),
 }));
 
