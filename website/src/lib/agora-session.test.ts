@@ -211,6 +211,35 @@ describe("agora session persistence", () => {
     });
   });
 
+  it("treats absent consensus and research data as null", () => {
+    const encoded = JSON.stringify({
+      version: 1,
+      state: {
+        stage: "topic",
+        topic: "What should we do next?",
+        researchEnabled: false,
+        council: [],
+        turns: [],
+        consensus: null,
+        researchData: null,
+      },
+    });
+
+    expect(decodeAgoraSession(encoded)).toEqual({
+      stage: "topic",
+      topic: "What should we do next?",
+      researchEnabled: false,
+      council: [],
+      turns: [],
+      activeRound: null,
+      activeMindSlug: null,
+      consensus: null,
+      consensusNode: null,
+      quotaRemaining: undefined,
+      researchData: null,
+    });
+  });
+
   it("rejects malformed payloads", () => {
     expect(decodeAgoraSession(null)).toBeNull();
     expect(decodeAgoraSession("not-json")).toBeNull();
