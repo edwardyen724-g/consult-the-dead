@@ -6,6 +6,11 @@ import Image from "next/image";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
+  chooseSampleQuestion,
+  EXAMPLE_TOPICS,
+  SAMPLE_QUESTION_LABEL_ID,
+} from "@/lib/agora-sample-questions";
+import {
   PACKS,
   getActivePackMembers,
   getPack,
@@ -54,14 +59,6 @@ const MIND_MAX = 5;
 const DEFAULT_COUNCIL_SIZE = 3;
 const TOTAL_ROUNDS = 3;
 const API_KEY_STORAGE = "ctd-anthropic-key";
-
-const EXAMPLE_TOPICS = [
-  "Should I raise VC or bootstrap?",
-  "Should we open-source our core product?",
-  "My industry is being automated — pivot into AI, or double down on domain depth?",
-];
-
-const SAMPLE_QUESTION_LABEL_ID = "agora-sample-question-label";
 
 interface RoundTurn {
   mindSlug: string;
@@ -638,11 +635,6 @@ function TopicStage({
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
-  function chooseExampleTopic(example: string) {
-    setTopic(example);
-    topicRef.current?.focus();
-  }
-
   return (
     <div>
       {/* Centered editorial heading */}
@@ -849,7 +841,9 @@ function TopicStage({
             <button
               key={ex}
               type="button"
-              onClick={() => chooseExampleTopic(ex)}
+              onClick={() =>
+                chooseSampleQuestion(setTopic, topicRef, ex)
+              }
               aria-label={`Use sample question: ${ex}`}
               title="Prefill the topic with this sample question"
               style={{
