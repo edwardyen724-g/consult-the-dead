@@ -1,30 +1,30 @@
 # Change Summary
 
 ## Task
-- Restore missing Ask This Mind API route source and unblock streamed analysis
+- Add regression tests for Framework Forge placeholder validator multi-root and JSON output
 
 ## Files Changed
-- `website/src/lib/ask-this-mind.test.ts`
-- `website/src/app/api/generate-analysis/route.ts`
-- `website/src/app/api/generate-analysis/route.test.ts`
-- `website/src/lib/ask-this-mind.ts`
+- `framework_forge/validation/placeholder_citations.py`
+- `tests/test_placeholder_citations.py`
+- `output/change-summary.md`
 
 ## What Changed
-- Restored `POST /api/generate-analysis` with the existing SSE analysis contract.
-- Added route regression coverage for:
-  - valid streamed analysis
-  - invalid JSON / missing slug / unknown slug / topic length validation
-  - missing Anthropic API key
-  - rate-limit failures
-  - fallback framework-name behavior
-- Tightened `streamAskThisMindAnalysis` type narrowing so the website build passes strict TypeScript checks.
+- Added a standalone placeholder citation validator that:
+  - scans multiple framework roots in one run,
+  - tracks missing `framework.json` manifests as a stable failure case,
+  - emits a JSON report for CI and local review.
+- Added regression coverage for:
+  - multi-root failure aggregation,
+  - missing-manifest handling,
+  - in-memory payload serialization,
+  - single-root wrapper behavior,
+  - `--json` report stability,
+  - text-mode success and failure output.
 
 ## Verification
-- `wcx pnpm vitest run src/app/api/generate-analysis/route.test.ts`
-- `wcx pnpm vitest run src/lib/ask-this-mind.test.ts`
-- `wcx pnpm vitest run --coverage src/app/api/generate-analysis/route.test.ts src/lib/ask-this-mind.test.ts`
-- `wcx pnpm eslint src/app/api/generate-analysis/route.ts src/app/api/generate-analysis/route.test.ts src/lib/ask-this-mind.ts src/lib/ask-this-mind.test.ts`
-- `wcx pnpm build`
+- `PYTHONPATH=. uv run --with pytest pytest tests/test_placeholder_citations.py -q`
+- `PYTHONPATH=. uv run --with pytest pytest tests/test_validation.py -q`
+- `PYTHONPATH=. uv run --with pytest --with pytest-cov pytest tests/test_placeholder_citations.py --cov=framework_forge.validation.placeholder_citations --cov-report=term-missing -q`
 
 ## Notes
-- Vitest coverage excludes `src/app/**` route handlers in this repo’s config, so the route is validated by direct tests but does not appear in LCOV output.
+- Focused coverage on `framework_forge.validation.placeholder_citations` reached 99% in the final run.
