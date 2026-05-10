@@ -17,6 +17,7 @@ import {
   buildEmail,
   fallbackSubject,
   firstName,
+  makeResendModuleLoader,
   parseArgs,
   sendOutreach,
   formatDryRunSummary,
@@ -34,6 +35,9 @@ import {
   type SendResult,
 } from "../send-outreach";
 import { OUTREACH_LIST, findRecipient } from "../outreach-list";
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 // ---------------------------------------------------------------------------
 // Minimal vitest shim — engages only when running outside vitest.
@@ -485,6 +489,49 @@ describe("sendOutreach send path", () => {
 });
 
 // ---------------------------------------------------------------------------
+// makeResendModuleLoader() — resolution helper
+// ---------------------------------------------------------------------------
+describe("makeResendModuleLoader", () => {
+  it("imports resend from the path returned by the provided resolver", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "send-outreach-loader-"));
+    const modulePath = join(dir, "resend.mjs");
+    writeFileSync(
+      modulePath,
+      [
+        "export class Resend {",
+        "  constructor(key) {",
+        "    this.key = key;",
+        "    this.emails = {",
+        "      send: async (input) => ({ data: { id: `msg-${key}`, to: input.to } }),",
+        "    };",
+        "  }",
+        "}",
+      ].join("\n"),
+    );
+
+    const loader = makeResendModuleLoader({
+      resolve(specifier: string) {
+        expect(specifier).toBe("resend");
+        return modulePath;
+      },
+    });
+    const mod = await loader();
+    const client = new mod.Resend("re_test");
+    const result = await client.emails.send({
+      from: FROM_ADDRESS,
+      to: "test@example.com",
+      subject: "hello",
+      html: "<p>hello</p>",
+      text: "hello",
+      tags: [],
+    });
+
+    expect(typeof mod.Resend).toBe("function");
+    expect(result.data?.id).toBe("msg-re_test");
+  });
+});
+
+// ---------------------------------------------------------------------------
 // formatHelp() / isDirectInvocation()
 // ---------------------------------------------------------------------------
 describe("formatHelp", () => {
@@ -664,10 +711,11 @@ describe("__setResendModuleLoaderForTests", () => {
     __setResendModuleLoaderForTests(undefined);
     expect(caught instanceof OutreachError).toBe(true);
     expect((caught as Error).message).toContain("weird string failure");
-    expect((caught as Error).message).toContain("npm install resend");
+    expect((caught as Error).message).toContain("website/");
+    expect((caught as Error).message).toContain("npm install");
   });
 
-  it("rewraps a loader failure into an OutreachError pointing at npm install", async () => {
+  it("rewraps a loader failure into an OutreachError pointing at website install", async () => {
     __setResendModuleLoaderForTests(async () => {
       throw new Error("Cannot find module 'resend'");
     });
@@ -685,7 +733,8 @@ describe("__setResendModuleLoaderForTests", () => {
     }
     __setResendModuleLoaderForTests(undefined); // reset
     expect(caught instanceof OutreachError).toBe(true);
-    expect((caught as Error).message).toContain("npm install resend");
+    expect((caught as Error).message).toContain("website/");
+    expect((caught as Error).message).toContain("npm install");
     expect((caught as Error).message).toContain("Could not load");
   });
 
