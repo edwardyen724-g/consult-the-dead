@@ -1,5 +1,10 @@
 # Report History — 2026-05-10
 
+## Last-Hour Snapshot
+- Only report artifacts changed in git in the last hour (`060a075`): `output/latest-report.md`, `output/report-history-2026-05-10.md`, and `output/human-questions.md`.
+- No new human messages or visible task-state transitions showed up in the live Wanman snapshot.
+- The live priority lanes remain growth `16799287`, roadmap `9e0f2ccd`, and docs/release-state `2914a01a`.
+
 ## Founder Report Snapshot
 The project is centered on the Agora growth directive `16799287`, with roadmap delivery `9e0f2ccd` and docs/release-state sync `2914a01a` still active.
 
