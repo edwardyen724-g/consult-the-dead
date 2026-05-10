@@ -43,6 +43,10 @@ export const CURIOSITY_GAP_HERO_COPY_VARIANTS = [
   },
 ] as const satisfies readonly CuriosityGapHeroCopy[];
 
+export const CURIOSITY_GAP_HERO_VARIANT_IDS = CURIOSITY_GAP_HERO_COPY_VARIANTS.map(
+  (variant) => variant.variantId,
+) as readonly CuriosityGapHeroVariantId[];
+
 function normalizeLookupKey(value: string | null | undefined) {
   return typeof value === "string" ? value.trim().toLowerCase() : "";
 }
@@ -70,6 +74,13 @@ export type QuizDecisionType =
   | "building"
   | "money"
   | "personal";
+
+export type QuizEntryMode = "guided" | "direct";
+
+export const QUIZ_ENTRY_HREFS = {
+  guided: "/quiz?entry=guided",
+  direct: "/quiz",
+} as const satisfies Record<QuizEntryMode, string>;
 
 export interface QuizDestination {
   decisionType: QuizDecisionType;
@@ -221,8 +232,8 @@ export const QUIZ_ROUTE_GROUPS = [
  * The guided entry keeps the current behavior explicit instead of hard-coding
  * the query string in multiple pages.
  */
-export function buildQuizEntryHref(mode: "guided" | "direct" = "guided"): string {
-  return mode === "guided" ? "/quiz?entry=guided" : "/quiz";
+export function buildQuizEntryHref(mode: QuizEntryMode = "guided"): string {
+  return QUIZ_ENTRY_HREFS[mode];
 }
 
 /**

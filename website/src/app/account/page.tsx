@@ -5,8 +5,16 @@ import { ManageSubscriptionButton } from '@/components/ManageSubscriptionButton'
 import { ApiKeySettings } from '@/components/ApiKeySettings'
 import { getUsage } from '@/lib/agon/rateLimit'
 import { maskApiKey } from '@/lib/api-key-mask'
+import {
+  getPricingFreeTierSummary,
+  getPricingFoundingMemberSummary,
+  getPricingMetadataDescription,
+} from '@/lib/pricing-copy'
 
-export const metadata = { title: 'Account' }
+export const metadata = {
+  title: 'Account',
+  description: getPricingMetadataDescription(),
+}
 
 export default async function AccountPage({
   searchParams,
@@ -151,7 +159,16 @@ export default async function AccountPage({
                   margin: '0 0 20px',
                   lineHeight: 1.6,
                 }}>
-                  You&rsquo;re on the free plan — 3 agons per day, 2–3 minds, anonymous.
+                  You&rsquo;re on the free plan — {getPricingFreeTierSummary()} Anonymous, 2–3 minds, device-local storage.
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '0.95rem',
+                  color: 'var(--fg-dim)',
+                  margin: '0 0 20px',
+                  lineHeight: 1.6,
+                }}>
+                  Upgrade to Pro for Opus, persistent library, PDF export, and {getPricingFoundingMemberSummary()} when billed annually.
                 </p>
                 <Link
                   href="/pricing"
@@ -168,7 +185,7 @@ export default async function AccountPage({
                     textDecoration: 'none',
                   }}
                 >
-                  Upgrade to Pro
+                  Start 7-day Pro trial — Opus + Library
                 </Link>
               </>
             )}
@@ -272,4 +289,3 @@ export default async function AccountPage({
     </main>
   )
 }
-

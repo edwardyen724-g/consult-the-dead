@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_LINK_STYLE = {
@@ -11,6 +12,17 @@ const NAV_LINK_STYLE = {
   textTransform: 'uppercase' as const,
   color: 'var(--fg-dim)',
   textDecoration: 'none',
+};
+
+const QUIZ_CTA_STYLE = {
+  ...NAV_LINK_STYLE,
+  padding: '10px 14px',
+  borderRadius: '999px',
+  border: '1px solid rgba(204, 171, 77, 0.42)',
+  background: 'linear-gradient(180deg, rgba(204, 171, 77, 0.18), rgba(204, 171, 77, 0.08))',
+  color: 'var(--fg)',
+  letterSpacing: '0.12em',
+  boxShadow: '0 0 0 1px rgba(204, 171, 77, 0.12) inset',
 };
 
 export function Header() {
@@ -25,8 +37,8 @@ export function Header() {
       <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Council
       </Link>
-      <Link href="/quiz" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
-        Find Your Mind
+      <Link href={buildQuizEntryHref()} style={QUIZ_CTA_STYLE} onClick={() => setMobileOpen(false)}>
+        Guided Quiz
       </Link>
       {isSignedIn && (
         <Link href="/library" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>

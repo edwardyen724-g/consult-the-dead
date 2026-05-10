@@ -2,6 +2,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
+  getPricingFreeTierSummary,
+  getPricingFreeLimitResetSummary,
+  getPricingFoundingMemberSummary,
+} from '@/lib/pricing-copy'
+import {
   formatPricingStats,
   PRICING_STATS_DEFAULT,
 } from '@/lib/pricing/stats'
@@ -44,7 +49,7 @@ const FEATURES: { label: string; free: string; pro: string }[] = [
 const FAQ: { q: string; a: string }[] = [
   {
     q: 'What happens when I hit the free limit?',
-    a: "You'll see a prompt to upgrade. Nothing gets deleted — your work stays. Upgrade anytime, or come back tomorrow for 3 more.",
+    a: `You'll see a prompt to upgrade. Nothing gets deleted — your work stays. Upgrade anytime, or ${getPricingFreeLimitResetSummary()}.`,
   },
   {
     q: 'Can I cancel anytime?',
@@ -60,7 +65,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Can I use my own Anthropic API key (BYO key)?',
-    a: "Yes, on any tier. Open /agora, expand 'your own anthropic key (optional)' on the topic screen, and paste your sk-ant-… key. The key is stored only in your browser's localStorage and forwarded as the request's x-api-key header — we never write it to server logs or our database. Using your own key bypasses the free-tier daily cap, so you get unlimited debates for as long as your Anthropic account has credit. Pro subscribers can use a BYO key too if they want to spend their own quota on heavy days.",
+    a: `${getPricingFreeTierSummary()} Open /agora, expand 'your own anthropic key (optional)' on the topic screen, and paste your sk-ant-… key. The key is stored only in your browser's localStorage and forwarded as the request's x-api-key header — we never write it to server logs or our database. Using your own key bypasses the free-tier daily cap, so you get unlimited debates for as long as your Anthropic account has credit. Pro subscribers can use a BYO key too if they want to spend their own quota on heavy days.`,
   },
   {
     q: "What's \"founder support\"?",
@@ -492,7 +497,7 @@ export default function PricingPage() {
             margin: 0,
             lineHeight: 1.65,
           }}>
-            <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
+            <strong style={{ color: 'var(--amber)' }}>{getPricingFoundingMemberSummary()}.</strong>{' '}
             Early subscribers lock in <strong>$300/year for life</strong>. After Q3 2026,
             annual plans go to $360. Monthly stays at $30.
           </p>

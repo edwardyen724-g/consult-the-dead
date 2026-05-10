@@ -11,7 +11,7 @@
  *      (onUpgrade receives the prebuilt payload so the wiring layer can POST
  *       it as the request body or append it as a query string — all Stripe
  *       sees is utm_campaign=tier_exhaustion in the resulting metadata)
- *   3. Come back tomorrow            → dismiss the modal (onDismiss)
+ *   3. Reset at UTC midnight        → dismiss the modal (onDismiss)
  *
  * This is a presentational component — it does NOT call fetch, navigate, or
  * touch window. All side effects live in the parent (AgoraApp.tsx wiring is
@@ -23,6 +23,7 @@
  */
 
 import type { CSSProperties } from 'react'
+import { getPricingFreeLimitResetSummary } from '@/lib/pricing-copy'
 
 // ──────────────────────────────────────────────────────────────────────────
 //  Public constants & helpers
@@ -147,7 +148,7 @@ const ctaRowStyle: CSSProperties = {
  * Per-CTA button style. Variant selects which colour treatment is applied:
  * - `primary`: filled accent, conversion-target (Pro upgrade)
  * - `secondary`: outlined, supportive option (BYO key)
- * - `ghost`: text-only escape hatch (come back tomorrow)
+ * - `ghost`: text-only escape hatch (reset at UTC midnight)
  */
 function ctaButtonStyle(variant: 'primary' | 'secondary' | 'ghost'): CSSProperties {
   const base: CSSProperties = {
@@ -272,8 +273,8 @@ export function UpsellModal({ onAddKey, onUpgrade, onDismiss }: UpsellModalProps
             onClick={onDismiss}
             style={ctaButtonStyle('ghost')}
           >
-            <span style={ctaTitleStyle}>Come back tomorrow</span>
-            <span style={ctaSubtitleStyle}>RESETS AT MIDNIGHT UTC</span>
+            <span style={ctaTitleStyle}>{getPricingFreeLimitResetSummary()}</span>
+            <span style={ctaSubtitleStyle}>TRY AGAIN AFTER MIDNIGHT UTC</span>
           </button>
         </div>
       </div>
