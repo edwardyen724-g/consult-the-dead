@@ -1,29 +1,19 @@
 # Change Summary
 
-- Task: `725d21a6-fba4-4d6e-9d4b-82dcd8466739`
-- Branch: `wanman/api-agon-contract-tests`
-- Commit: `pending`
-- PR: `https://github.com/edwardyen724-g/consult-the-dead/pull/85`
+## Task
+- Lock the pricing share-preview contract in regression tests
 
-## Files Changed
-
-- `website/vitest.config.ts`
-- `website/src/app/api/agon/route.test.ts`
+## Changed Files
+- `website/src/lib/pricing-copy.ts`
+- `website/src/app/pricing/layout.tsx`
+- `website/src/app/pricing/layout.test.ts`
 
 ## What Changed
-
-- Removed the blanket `src/app/**` Vitest coverage exclusion so route handlers can be measured.
-- Added route coverage cases for:
-  - allowed Vercel preview origins
-  - free-tier mind-count validation copy
-  - pro-tier mind-count validation copy
+- Promoted the pricing metadata title and Twitter card into the canonical pricing helper so the `/pricing` metadata now reads from one source of truth.
+- Wired the pricing route layout to the helper-backed title, description, and `summary_large_image` card.
+- Tightened the pricing metadata regression test to assert all three metadata fields against the helper exports.
 
 ## Verification
+- `npm test -- --coverage src/app/pricing/layout.test.ts src/app/pricing/page.test.tsx src/lib/pricing-copy.test.ts`
+  - Passed: 3 test files, 8 tests
 
-- `pnpm --dir website coverage`
-  - Passed: 25 test files, 282 tests.
-  - `src/app/api/agon/route.ts` now reports `100%` line coverage and `89.47%` branch coverage.
-- `pnpm --dir website lint`
-  - Passed with existing repository warnings only.
-- `pnpm --dir website build`
-  - Failed in pre-existing dirty-tree code at `website/src/lib/sitemap-data.ts:201` with a TypeScript `changeFrequency` type mismatch.

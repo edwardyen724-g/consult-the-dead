@@ -5,7 +5,11 @@
  * can run under vitest and also directly via `npx tsx` when needed.
  */
 import { metadata } from "./layout";
-import { getPricingMetadataDescription } from "@/lib/pricing-copy";
+import {
+  getPricingMetadataDescription,
+  getPricingMetadataTitle,
+  getPricingSharePreviewCard,
+} from "@/lib/pricing-copy";
 
 type TestFn = () => void;
 type Suite = { name: string; tests: { name: string; fn: TestFn }[] };
@@ -50,20 +54,22 @@ const expect = g.expect ?? expectFallback;
 describe("pricing metadata", () => {
   it("uses canonical free, BYO key, and Pro copy", () => {
     const description = getPricingMetadataDescription();
+    const title = getPricingMetadataTitle();
+    const card = getPricingSharePreviewCard();
 
-    expect(metadata.title).toBe("Pricing");
+    expect(metadata.title).toBe(title);
     expect(metadata.description).toBe(description);
     expect(metadata.alternates?.canonical).toBe("https://www.consultthedead.com/pricing");
     expect(metadata.openGraph).toEqual({
-      title: "Pricing",
+      title,
       description,
       url: "https://www.consultthedead.com/pricing",
       type: "website",
       siteName: "Consult The Dead",
     });
     expect(metadata.twitter).toEqual({
-      card: "summary_large_image",
-      title: "Pricing",
+      card,
+      title,
       description,
     });
   });

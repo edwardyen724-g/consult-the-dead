@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { getPricingMetadataDescription } from "@/lib/pricing-copy";
+import {
+  getPricingMetadataDescription,
+  getPricingMetadataTitle,
+  getPricingSharePreviewCard,
+} from "@/lib/pricing-copy";
 
-const title = "Pricing";
+const title = getPricingMetadataTitle();
 const description = getPricingMetadataDescription();
+const card = getPricingSharePreviewCard();
 
 export const metadata: Metadata = {
   title,
@@ -18,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Consult The Dead",
   },
   twitter: {
-    card: "summary_large_image",
+    card,
     title,
     description,
   },
