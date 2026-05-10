@@ -2,6 +2,10 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { db, type AgonRecord } from "@/lib/db/client";
+import {
+  formatLibraryProgressStats,
+  getLibraryProgressStats,
+} from "@/lib/library-stats";
 import { LibraryClient } from "./LibraryClient";
 
 export default async function LibraryPage() {
@@ -165,8 +169,39 @@ export async function ProLibrary({ userId }: { userId: string }) {
     );
   }
 
+  const progressLabels = formatLibraryProgressStats(getLibraryProgressStats(agons));
+
   return (
     <>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(168px, 1fr))",
+          gap: "12px",
+          padding: "14px 0 18px",
+          borderTop: "1px solid var(--hairline)",
+          borderBottom: "1px solid var(--hairline)",
+          marginBottom: "28px",
+        }}
+      >
+        {progressLabels.map((label) => (
+          <p
+            key={label}
+            className="font-mono"
+            style={{
+              margin: 0,
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--fg-dim)",
+              lineHeight: 1.6,
+            }}
+          >
+            {label}
+          </p>
+        ))}
+      </div>
+
       <div
         style={{
           borderTop: "1px solid var(--hairline)",
