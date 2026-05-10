@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import type { ReactElement } from "react";
 import { describe, expect, it, vi } from "vitest";
+import * as frameworkModule from "@/lib/frameworks";
 import {
   FrameworkPreviewCard,
   getFrameworkPreviewData,
@@ -39,6 +40,14 @@ describe("framework preview image helpers", () => {
     expect(getFrameworkPreviewData("not-a-framework")).toBeNull();
   });
 
+  it("returns null when the framework record cannot be resolved", () => {
+    const spy = vi.spyOn(frameworkModule, "getFramework").mockReturnValue(null);
+
+    expect(getFrameworkPreviewData("isaac-newton")).toBeNull();
+
+    spy.mockRestore();
+  });
+
   it("renders the preview card with the framework stats and mode label", () => {
     const data = getFrameworkPreviewData("isaac-newton");
     expect(data).not.toBeNull();
@@ -53,6 +62,57 @@ describe("framework preview image helpers", () => {
     expect(html).toContain(data!.domain);
     expect(html).toContain(String(data!.constructCount));
     expect(html).toContain(String(data!.incidentCount));
+  });
+
+  it("truncates long statement copy in the rendered preview card", () => {
+    const data = getFrameworkPreviewData("isaac-newton");
+    expect(data).not.toBeNull();
+
+    const html = renderToStaticMarkup(
+      FrameworkPreviewCard({
+        data: {
+          ...data!,
+          statement:
+            "A".repeat(220) +
+            " This intentionally exceeds the card copy limit so the truncation branch runs.",
+        },
+        mode: "twitter",
+      }),
+    );
+
+    expect(html).toContain("Twitter card image");
+    expect(html).toContain("A".repeat(220).slice(0, 150));
+    expect(html).toContain("…");
+  });
+
+  it("renders short statement copy without truncation and falls back for empty text", () => {
+    const data = getFrameworkPreviewData("isaac-newton");
+    expect(data).not.toBeNull();
+
+    const shortHtml = renderToStaticMarkup(
+      FrameworkPreviewCard({
+        data: {
+          ...data!,
+          statement: "Brief",
+        },
+        mode: "opengraph",
+      }),
+    );
+    const fallbackHtml = renderToStaticMarkup(
+      FrameworkPreviewCard({
+        data: {
+          ...data!,
+          statement: "",
+        },
+        mode: "opengraph",
+      }),
+    );
+
+    expect(shortHtml).toContain("Brief");
+    expect(shortHtml).not.toContain("…");
+    expect(fallbackHtml).toContain(
+      "Decision framework extracted from documented historical incidents, not a persona clone.",
+    );
   });
 
   it("returns an ImageResponse for both route handlers", async () => {

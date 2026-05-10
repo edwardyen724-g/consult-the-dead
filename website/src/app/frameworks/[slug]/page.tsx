@@ -400,7 +400,7 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 
 /* ── Utility functions ── */
 
-function formatValidation(
+export function formatValidation(
   v: ReturnType<typeof getValidation>
 ): string | null {
   if (!v) return null;
