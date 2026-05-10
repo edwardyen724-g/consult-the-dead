@@ -21,7 +21,10 @@ export default defineConfig({
         "src/**/*.d.ts",
         "src/**/*.test.ts",
         "src/**/*.test.tsx",
-        "src/app/**",      // Next.js route handlers — integration-tested by Playwright
+        "src/app/**/page.tsx",
+        "src/app/**/layout.tsx",
+        "src/app/**/loading.tsx",
+        "src/app/**/error.tsx",
         "src/middleware.ts",
       ],
       thresholds: {
