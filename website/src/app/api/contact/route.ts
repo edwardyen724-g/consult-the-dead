@@ -14,6 +14,13 @@ type ThrottleBucket = {
   resetAt: number;
 };
 
+type DbClient = Awaited<ReturnType<typeof sql.connect>>;
+type DatabaseThrottleResult = {
+  allowed: boolean;
+  source: "ip" | "email" | null;
+  remaining: number;
+};
+
 const CONTACT_IP_LIMIT = 5;
 const CONTACT_EMAIL_LIMIT = 3;
 const CONTACT_WINDOW_MS = 60 * 60 * 1000;
@@ -76,8 +83,8 @@ function consumeLocalThrottle(key: string, limit: number) {
   };
 }
 
-async function ensureSubmissionTable() {
-  await sql`
+async function ensureSubmissionTableOnClient(client: DbClient) {
+  await client.sql`
     CREATE TABLE IF NOT EXISTS contact_submissions (
       id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
       name TEXT NOT NULL,
@@ -92,8 +99,8 @@ async function ensureSubmissionTable() {
   `;
 }
 
-async function countRecentIpSubmissions(ip: string) {
-  const result = await sql`
+async function countRecentIpSubmissions(client: DbClient, ip: string) {
+  const result = await client.sql`
     SELECT COUNT(*)::int AS count
     FROM contact_submissions
     WHERE ip_address = ${ip}
@@ -102,8 +109,8 @@ async function countRecentIpSubmissions(ip: string) {
   return ((result.rows[0] as { count?: number } | undefined)?.count ?? 0) as number;
 }
 
-async function countRecentEmailSubmissions(email: string) {
-  const result = await sql`
+async function countRecentEmailSubmissions(client: DbClient, email: string) {
+  const result = await client.sql`
     SELECT COUNT(*)::int AS count
     FROM contact_submissions
     WHERE email = ${email}
@@ -112,12 +119,22 @@ async function countRecentEmailSubmissions(email: string) {
   return ((result.rows[0] as { count?: number } | undefined)?.count ?? 0) as number;
 }
 
-async function checkDatabaseThrottle(ip: string, email: string) {
-  const [ipCount, emailCount] = await Promise.all([
-    countRecentIpSubmissions(ip),
-    countRecentEmailSubmissions(email),
-  ]);
+async function lockThrottleBuckets(client: DbClient, ip: string, email: string) {
+  await client.sql`
+    SELECT pg_advisory_xact_lock(hashtext(${throttleKey("ip", ip)})::bigint)
+  `;
+  await client.sql`
+    SELECT pg_advisory_xact_lock(hashtext(${throttleKey("email", email)})::bigint)
+  `;
+}
 
+async function checkDatabaseThrottle(
+  client: DbClient,
+  ip: string,
+  email: string,
+): Promise<DatabaseThrottleResult> {
+  const ipCount = await countRecentIpSubmissions(client, ip);
+  const emailCount = await countRecentEmailSubmissions(client, email);
   return {
     allowed: ipCount < CONTACT_IP_LIMIT && emailCount < CONTACT_EMAIL_LIMIT,
     source:
@@ -135,14 +152,17 @@ async function checkDatabaseThrottle(ip: string, email: string) {
   };
 }
 
-async function storeSubmission(params: {
-  name: string;
-  email: string;
-  decision: string;
-  ip: string;
-  userAgent: string;
-}) {
-  const result = await sql`
+async function storeSubmission(
+  client: DbClient,
+  params: {
+    name: string;
+    email: string;
+    decision: string;
+    ip: string;
+    userAgent: string;
+  },
+) {
+  const result = await client.sql`
     INSERT INTO contact_submissions (
       name,
       email,
@@ -163,6 +183,38 @@ async function storeSubmission(params: {
   `;
 
   return (result.rows[0] as { id?: string } | undefined)?.id ?? null;
+}
+
+async function runDatabaseThrottle<T>(
+  handler: (client: DbClient) => Promise<T>,
+) {
+  const client = await sql.connect();
+  try {
+    await client.sql`BEGIN`;
+    const result = await handler(client);
+    await client.sql`COMMIT`;
+    return result;
+  } catch (error) {
+    try {
+      await client.sql`ROLLBACK`;
+    } catch {
+      // Best-effort rollback. The request still fails, but the connection is
+      // released below either way.
+    }
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+class ContactThrottleExceeded extends Error {
+  constructor(
+    public readonly throttle: DatabaseThrottleResult,
+  ) {
+    super("Contact throttle exceeded");
+    this.name = "ContactThrottleExceeded";
+    Object.setPrototypeOf(this, ContactThrottleExceeded.prototype);
+  }
 }
 
 async function updateSubmissionState(
@@ -250,23 +302,36 @@ export async function POST(request: Request) {
 
   const ip = getClientIp(request);
   const userAgent = normalizeInput(request.headers.get("user-agent") ?? undefined, 500);
-
-  let dbThrottleResult:
-    | Awaited<ReturnType<typeof checkDatabaseThrottle>>
-    | null = null;
+  let storedSubmissionId: string | null = null;
+  let stored = false;
   let throttleError = false;
 
   try {
-    await ensureSubmissionTable();
-    dbThrottleResult = await checkDatabaseThrottle(ip, email);
-    if (!dbThrottleResult.allowed) {
+    storedSubmissionId = await runDatabaseThrottle(async (client) => {
+      await ensureSubmissionTableOnClient(client);
+      await lockThrottleBuckets(client, ip, email);
+      const dbThrottleResult = await checkDatabaseThrottle(client, ip, email);
+      if (!dbThrottleResult.allowed) {
+        throw new ContactThrottleExceeded(dbThrottleResult);
+      }
+      return storeSubmission(client, {
+        name,
+        email,
+        decision,
+        ip,
+        userAgent,
+      });
+    });
+    stored = true;
+  } catch (error) {
+    if (error instanceof ContactThrottleExceeded) {
       const message =
-        dbThrottleResult.source === "email"
+        error.throttle.source === "email"
           ? "That email has already been used for several recent contact requests. Please wait before trying again."
           : "You're sending contact requests too quickly. Please wait a bit and try again.";
       return jsonError(429, message);
     }
-  } catch {
+    console.error("[contact] database throttle unavailable; falling back to local throttle", error);
     throttleError = true;
   }
 
@@ -298,22 +363,6 @@ export async function POST(request: Request) {
       },
     ],
   };
-
-  let storedSubmissionId: string | null = null;
-  let stored = false;
-  try {
-    storedSubmissionId = await storeSubmission({
-      name,
-      email,
-      decision,
-      ip,
-      userAgent,
-    });
-    stored = true;
-  } catch (error) {
-    // If the database is unavailable we still try to deliver the lead to Discord.
-    console.error("[contact] failed to persist submission", error);
-  }
 
   const delivery = await postDiscordWebhook(payload);
 

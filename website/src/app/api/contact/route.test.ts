@@ -6,6 +6,7 @@ const state = vi.hoisted(() => ({
   emailCount: 0,
   insertedRows: 0,
   updatedRows: 0,
+  queryLog: [] as string[],
   fetchStatus: 200,
   fetchBody: "",
   fetchJsonOk: true,
@@ -15,12 +16,22 @@ const state = vi.hoisted(() => ({
   missingInsertId: false,
 }));
 
-const mocks = vi.hoisted(() => ({
-  sqlMock: vi.fn(async (strings: TemplateStringsArray) => {
+const mocks = vi.hoisted(() => {
+  const queryHandler = async (strings: TemplateStringsArray) => {
     const query = strings.join(" ").replace(/\s+/g, " ").trim().toLowerCase();
+    state.queryLog.push(query);
 
     if (state.dbDown) {
       throw new Error("database unavailable");
+    }
+
+    if (
+      query.startsWith("begin") ||
+      query.startsWith("commit") ||
+      query.startsWith("rollback") ||
+      query.startsWith("select pg_advisory_xact_lock")
+    ) {
+      return { rows: [] };
     }
 
     if (query.startsWith("create table if not exists contact_submissions")) {
@@ -56,19 +67,35 @@ const mocks = vi.hoisted(() => ({
     }
 
     throw new Error(`unexpected query: ${query}`);
-  }),
-  fetchMock: vi.fn(async () => ({
-    ok: state.fetchJsonOk,
-    status: state.fetchStatus,
-    text: async () => {
-      if (state.fetchTextThrows) {
-        throw new Error("response body unavailable");
-      }
+  };
+  const clientSqlMock = vi.fn(queryHandler);
+  const connectMock = vi.fn(async () => ({
+    sql: clientSqlMock,
+    release: vi.fn(),
+  }));
 
-      return state.fetchBody;
-    },
-  })),
-}));
+  return {
+    queryHandler,
+    sqlMock: vi.fn(queryHandler),
+    clientSqlMock,
+    connectMock,
+    fetchMock: vi.fn(async () => ({
+      ok: state.fetchJsonOk,
+      status: state.fetchStatus,
+      text: async () => {
+        if (state.fetchTextThrows) {
+          throw new Error("response body unavailable");
+        }
+
+        return state.fetchBody;
+      },
+    })),
+  };
+});
+
+Object.assign(mocks.sqlMock, {
+  connect: mocks.connectMock,
+});
 
 vi.mock("@vercel/postgres", () => ({
   sql: mocks.sqlMock,
@@ -93,6 +120,10 @@ function makeRequest(
   });
 }
 
+function findQueryIndex(pattern: RegExp) {
+  return state.queryLog.findIndex((query) => pattern.test(query));
+}
+
 beforeEach(() => {
   vi.stubGlobal("fetch", mocks.fetchMock);
   process.env.DISCORD_WEBHOOK_URL = "https://discord.example/webhook";
@@ -102,6 +133,7 @@ beforeEach(() => {
   state.emailCount = 0;
   state.insertedRows = 0;
   state.updatedRows = 0;
+  state.queryLog = [];
   state.fetchStatus = 200;
   state.fetchBody = "";
   state.fetchJsonOk = true;
@@ -111,6 +143,8 @@ beforeEach(() => {
   state.missingInsertId = false;
 
   mocks.sqlMock.mockClear();
+  mocks.clientSqlMock.mockClear();
+  mocks.connectMock.mockClear();
   mocks.fetchMock.mockClear();
   __resetContactThrottleForTests();
 });
@@ -175,6 +209,8 @@ describe("POST /api/contact", () => {
 
     expect(response.status).toBe(429);
     expect(mocks.fetchMock).not.toHaveBeenCalled();
+    expect(state.insertedRows).toBe(0);
+    expect(findQueryIndex(/^rollback$/)).toBeGreaterThan(-1);
     await expect(response.json()).resolves.toEqual({
       ok: false,
       error:
@@ -282,10 +318,47 @@ describe("POST /api/contact", () => {
 
     expect(response.status).toBe(429);
     expect(mocks.fetchMock).not.toHaveBeenCalled();
+    expect(state.insertedRows).toBe(0);
+    expect(findQueryIndex(/^rollback$/)).toBeGreaterThan(-1);
     await expect(response.json()).resolves.toEqual({
       ok: false,
       error: "You're sending contact requests too quickly. Please wait a bit and try again.",
     });
+  });
+
+  it("wraps the database throttle in a transaction with advisory locks before inserting", async () => {
+    const response = await POST(
+      makeRequest({
+        name: "Ada",
+        email: "ada@example.com",
+        decision: "Run the submission inside one database transaction.",
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    expect(state.insertedRows).toBe(1);
+    expect(mocks.fetchMock).toHaveBeenCalledTimes(1);
+    expect(mocks.connectMock).toHaveBeenCalledTimes(1);
+
+    const beginIndex = findQueryIndex(/^begin$/);
+    const firstLockIndex = findQueryIndex(/^select pg_advisory_xact_lock/);
+    const secondLockIndex = state.queryLog.findIndex(
+      (query, index) => index > firstLockIndex && query.startsWith("select pg_advisory_xact_lock"),
+    );
+    const firstCountIndex = findQueryIndex(/^select count\(\*\)::int as count/);
+    const secondCountIndex = state.queryLog.findIndex(
+      (query, index) => index > firstCountIndex && query.startsWith("select count(*)::int as count"),
+    );
+    const insertIndex = findQueryIndex(/^insert into contact_submissions/);
+    const commitIndex = findQueryIndex(/^commit$/);
+
+    expect(beginIndex).toBeGreaterThan(-1);
+    expect(firstLockIndex).toBeGreaterThan(beginIndex);
+    expect(secondLockIndex).toBeGreaterThan(firstLockIndex);
+    expect(firstCountIndex).toBeGreaterThan(secondLockIndex);
+    expect(secondCountIndex).toBeGreaterThan(firstCountIndex);
+    expect(insertIndex).toBeGreaterThan(secondCountIndex);
+    expect(commitIndex).toBeGreaterThan(insertIndex);
   });
 
   it("persists the submission and delivers it to Discord when both sinks are healthy", async () => {
