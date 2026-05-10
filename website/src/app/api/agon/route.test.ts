@@ -153,6 +153,29 @@ describe("/api/agon", () => {
     });
   });
 
+  it("accepts allowed Vercel preview origins", async () => {
+    checkRateLimitMock.mockResolvedValue({
+      allowed: true,
+      remaining: 1,
+    });
+    runAgonMock.mockImplementation(() =>
+      (async function* () {
+        yield { type: "agon_done", summary: "done" };
+      })(),
+    );
+
+    const response = await POST(
+      makeRequest(makeValidBody(), {
+        origin: "https://website-abc123-edwardyen724-gs-projects.vercel.app",
+      }) as never,
+    );
+
+    expect(response.status).toBe(200);
+    await expect(readText(response)).resolves.toContain(
+      'data: {"type":"agon_done","summary":"done","remaining":1}',
+    );
+  });
+
   it("returns 401 when no API key is available", async () => {
     delete process.env.ANTHROPIC_API_KEY;
 
@@ -161,6 +184,40 @@ describe("/api/agon", () => {
     expect(response.status).toBe(401);
     await expect(response.json()).resolves.toEqual({
       error: "No API key available. Add your Anthropic API key in settings, or contact the site owner.",
+    });
+  });
+
+  it("returns the free-tier mind-count copy when fewer than two minds are selected", async () => {
+    const response = await POST(
+      makeRequest(
+        {
+          ...makeValidBody({ mindSlugs: ["cicero"] }),
+        },
+      ) as never,
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      error: "Pick 2 to 3 minds",
+    });
+  });
+
+  it("returns the pro-tier mind-count copy when fewer than two minds are selected", async () => {
+    currentUserMock.mockResolvedValue({
+      publicMetadata: { subscription_tier: "pro" },
+    });
+
+    const response = await POST(
+      makeRequest(
+        {
+          ...makeValidBody({ mindSlugs: ["cicero"] }),
+        },
+      ) as never,
+    );
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      error: "Pick 2 to 5 minds",
     });
   });
 
