@@ -185,6 +185,30 @@ describe("draft generation", () => {
     expect(payload).toContain("/decisions/should-i-quit-my-job-to-start-a-company");
   });
 
+  it("does not write draft artifacts in dry-run mode", async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ctd-content-pipeline-dry-run-"));
+    const draftOutputs = buildOutputPaths(
+      {
+        slug: "should-i-raise-vc-or-bootstrap",
+        type: "decision",
+      },
+      tempDir,
+    );
+
+    await runCli([
+      "--slug",
+      "should-i-raise-vc-or-bootstrap",
+      "--output-dir",
+      tempDir,
+      "--site-base-url",
+      "https://consultthedead.com",
+      "--dry-run",
+    ]);
+
+    await expect(fs.access(draftOutputs.markdownPath)).rejects.toThrow();
+    await expect(fs.access(draftOutputs.searchConsolePath)).rejects.toThrow();
+  });
+
   it("throws when a framework JSON is missing its incident database", async () => {
     const fakeTopic = {
       slug: "fake-draft",

@@ -601,7 +601,9 @@ export async function runCli(argv = process.argv.slice(2)): Promise<void> {
   const draft = await buildArticleDraft(topic, {
     siteBaseUrl: options.siteBaseUrl,
   });
-  const outputs = await writeDraftArtifacts(draft, options.outputDir);
+  const outputs = options.dryRun
+    ? buildOutputPaths(draft, options.outputDir)
+    : await writeDraftArtifacts(draft, options.outputDir);
 
   const mode = options.dryRun ? "dry-run" : "write";
   process.stdout.write(
