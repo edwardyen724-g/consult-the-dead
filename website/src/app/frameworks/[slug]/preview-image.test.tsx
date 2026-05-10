@@ -1,8 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import type { ReactElement } from "react";
 import { describe, expect, it, vi } from "vitest";
-import OpenGraphImage from "./opengraph-image";
-import TwitterImage from "./twitter-image";
 import {
   FrameworkPreviewCard,
   getFrameworkPreviewData,
@@ -25,6 +23,9 @@ const ImageResponseMock = vi.hoisted(() => {
 vi.mock("next/og", () => ({
   ImageResponse: ImageResponseMock.MockImageResponse,
 }));
+
+const loadFrameworkImageHandlers = async () =>
+  Promise.all([import("./opengraph-image"), import("./twitter-image")]);
 
 describe("framework preview image helpers", () => {
   it("returns preview data for a live slug and null for an invalid one", () => {
@@ -55,6 +56,9 @@ describe("framework preview image helpers", () => {
   });
 
   it("returns an ImageResponse for both route handlers", async () => {
+    const [{ default: OpenGraphImage }, { default: TwitterImage }] =
+      await loadFrameworkImageHandlers();
+
     const og = await OpenGraphImage({
       params: Promise.resolve({ slug: "isaac-newton" }),
     });
@@ -85,6 +89,9 @@ describe("framework preview image helpers", () => {
   });
 
   it("returns 404 responses for unknown slugs", async () => {
+    const [{ default: OpenGraphImage }, { default: TwitterImage }] =
+      await loadFrameworkImageHandlers();
+
     const og = await OpenGraphImage({
       params: Promise.resolve({ slug: "not-a-framework" }),
     });
