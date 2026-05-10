@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import { AGORA_SESSION_STORAGE_KEY, decodeAgoraSession, encodeAgoraSession } from "@/lib/agora-session";
 import {
@@ -143,6 +143,33 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
+const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
+
+function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
+  return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
+}
+
+export function restoreAgoraAppState(
+  current: AgonState,
+  savedSessionRaw: string | null,
+  savedApiKey: string | null,
+): { state: AgonState; shouldClearSavedSession: boolean } {
+  const savedSession = decodeAgoraSession(savedSessionRaw);
+  const restored = restoreAgoraState(current, savedSession, savedApiKey);
+
+  return {
+    shouldClearSavedSession: savedSessionRaw !== null && !savedSession,
+    state: {
+      ...restored,
+      consensusNode: isConsensusNodeKey(restored.consensusNode) ? restored.consensusNode : null,
+    },
+  };
+}
+
+export function serializeAgoraAppSession(state: AgonState) {
+  return encodeAgoraSession(buildAgoraSessionSnapshot(state));
+}
+
 export function AgoraApp({
   minds,
   isPro,
@@ -171,12 +198,16 @@ export function AgoraApp({
     try {
       const savedApiKey = localStorage.getItem(API_KEY_STORAGE);
       const savedSessionRaw = localStorage.getItem(AGORA_SESSION_STORAGE_KEY);
-      const savedSession = decodeAgoraSession(savedSessionRaw);
-      if (savedSessionRaw !== null && !savedSession) {
+      const { state: restoredState, shouldClearSavedSession } = restoreAgoraAppState(
+        state,
+        savedSessionRaw,
+        savedApiKey,
+      );
+      if (shouldClearSavedSession) {
         localStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
       }
 
-      setState((current) => restoreAgoraState(current, savedSession, savedApiKey));
+      setState(restoredState);
     } catch {
       // ignore
     } finally {
@@ -188,7 +219,7 @@ export function AgoraApp({
     if (!sessionHydratedRef.current) return;
 
     try {
-      const snapshot = encodeAgoraSession(buildAgoraSessionSnapshot(state));
+      const snapshot = serializeAgoraAppSession(state);
       if (snapshot) localStorage.setItem(AGORA_SESSION_STORAGE_KEY, snapshot);
       else localStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
     } catch {
