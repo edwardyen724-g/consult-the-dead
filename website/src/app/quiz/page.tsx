@@ -1,8 +1,7 @@
-"use client"
+'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { buildQuizCompletionPayload } from "./quiz-completion"
 
 /* ── Routing matrix ──
    Q1 (decision type) → Q2 (tension) → recommended slugs
@@ -178,7 +177,6 @@ export default function QuizPage() {
   const [step, setStep] = useState<0 | 1 | 2>(0)
   const [decisionType, setDecisionType] = useState<DecisionType | null>(null)
   const [tension, setTension] = useState<Tension | null>(null)
-  const completionEventKeyRef = useRef<string | null>(null)
 
   const handleDecisionType = (dt: DecisionType) => {
     setDecisionType(dt)
@@ -191,55 +189,10 @@ export default function QuizPage() {
   }
 
   const reset = () => {
-    completionEventKeyRef.current = null
     setStep(0)
     setDecisionType(null)
     setTension(null)
   }
-
-  useEffect(() => {
-    if (step !== 2 || !decisionType || !tension || typeof window === "undefined") {
-      return
-    }
-
-    const payload = buildQuizCompletionPayload({
-      decisionType,
-      tensionLabel: tension.label,
-      mindSlugs: tension.slugs,
-    })
-
-    if (completionEventKeyRef.current === payload.destination) {
-      return
-    }
-
-    completionEventKeyRef.current = payload.destination
-
-    window.dispatchEvent(
-      new CustomEvent("consultthedead:quiz-complete", {
-        detail: payload,
-      }),
-    )
-
-    const analyticsWindow = window as Window & {
-      dataLayer?: Array<Record<string, unknown>>
-      gtag?: (...args: unknown[]) => void
-    }
-
-    analyticsWindow.dataLayer?.push({
-      event: payload.event,
-      decision_type: payload.decision_type,
-      result_label: payload.result_label,
-      mind_count: payload.mind_count,
-      destination: payload.destination,
-    })
-
-    analyticsWindow.gtag?.("event", payload.event, {
-      decision_type: payload.decision_type,
-      result_label: payload.result_label,
-      mind_count: payload.mind_count,
-      destination: payload.destination,
-    })
-  }, [decisionType, step, tension])
 
   return (
     <main style={{ background: "var(--bg)", color: "var(--fg)", minHeight: "100vh" }}>
@@ -455,7 +408,7 @@ export default function QuizPage() {
               lineHeight: 1.2,
               marginBottom: "8px",
             }}>
-              Your council is ready.
+              We found your minds.
             </h1>
             <p style={{
               fontFamily: "var(--font-serif)",
@@ -465,7 +418,7 @@ export default function QuizPage() {
               marginBottom: "48px",
               maxWidth: "50ch",
             }}>
-              {tension.tagline} Open the debate now while the question is sharp and let the disagreement do the work.
+              {tension.tagline}
             </p>
 
             {/* Mind cards */}
@@ -550,7 +503,7 @@ export default function QuizPage() {
                 margin: "0 0 20px",
                 lineHeight: 1.6,
               }}>
-                The best next move is to open the council now. These three will argue it from every angle &mdash; where they disagree is where your blind spots live.
+                Bring your question. These three will argue it from every angle &mdash; where they disagree is where your blind spots live.
               </p>
               <Link
                 href={`/agora?minds=${tension.slugs.join(",")}`}
@@ -567,18 +520,8 @@ export default function QuizPage() {
                   borderRadius: "4px",
                 }}
               >
-                Start the debate now &rarr;
+                Start Your Debate &rarr;
               </Link>
-              <p style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "9px",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "var(--fg-faint)",
-                margin: "16px 0 0",
-              }}>
-                You’ll land in the Agora with these minds preloaded.
-              </p>
             </div>
 
             {/* Restart */}
