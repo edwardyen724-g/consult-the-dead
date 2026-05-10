@@ -10,8 +10,8 @@
  *   # Preview a single recipient (no API calls, no install required):
  *   tsx scripts/send-outreach.ts --slug abhishek-chakravarty --dry-run
  *
- *   # Actually send via Resend (requires `npm install resend` in repo root
- *   # and RESEND_API_KEY in env):
+ *   # Actually send via Resend (requires `resend` to be installed under
+ *   # website/ and RESEND_API_KEY in env):
  *   RESEND_API_KEY=re_... tsx scripts/send-outreach.ts --slug abhishek-chakravarty
  *
  *   # Override the recipient email at send time (useful when the inline
@@ -25,8 +25,8 @@
  *    is enforced by the founder running this script repeatedly.
  *  - Lazy-imports the Resend SDK inside the send code path so the script
  *    file can be imported, type-checked, and unit-tested without `resend`
- *    being installed (mirrors the existing `getStripe()` lazy-init pattern
- *    in website/src/app/api/stripe/checkout/route.ts).
+ *    being installed at the repo root (mirrors the existing `getStripe()`
+ *    lazy-init pattern in website/src/app/api/stripe/checkout/route.ts).
  *  - Tags every send with `campaign=founder-outreach-may26` and `slug=<slug>`
  *    so Resend's dashboard groups the batch and per-recipient analytics work.
  *  - `buildEmail()` is a pure helper — same input always yields the same
@@ -39,6 +39,8 @@
  */
 
 import { OUTREACH_LIST, findRecipient, type OutreachRecipient } from "./outreach-list";
+import { createRequire } from "node:module";
+import { pathToFileURL } from "node:url";
 
 export type { OutreachRecipient } from "./outreach-list";
 
@@ -304,17 +306,26 @@ type ResendModuleLoader = () => Promise<{
   Resend: new (key: string) => { emails: { send: ResendSender } };
 }>;
 
-/* c8 ignore start -- the real `import('resend')` only runs when the
- * founder invokes the script with RESEND_API_KEY set; CI exercises the
- * loader-failure + happy-path branches via __setResendModuleLoaderForTests.
- * `@ts-expect-error` because the resend SDK lives in website/node_modules,
- * not at the repo root where tsc would resolve it; runtime resolution
- * works via Node's normal node_modules walk when the founder runs the
- * script from a directory where resend is installed. */
-const realResendLoader: ResendModuleLoader = () =>
-  // @ts-expect-error -- 'resend' resolved at runtime, not compile time.
-  import("resend") as unknown as ReturnType<ResendModuleLoader>;
-/* c8 ignore stop */
+type RequireLike = {
+  resolve(specifier: string): string;
+};
+
+const websiteRequire: RequireLike = createRequire(
+  new URL("../website/package.json", import.meta.url),
+);
+
+export function makeResendModuleLoader(
+  resolver: RequireLike = websiteRequire,
+): ResendModuleLoader {
+  return async () => {
+    const modulePath = resolver.resolve("resend");
+    return (await import(pathToFileURL(modulePath).href)) as Awaited<
+      ReturnType<ResendModuleLoader>
+    >;
+  };
+}
+
+const realResendLoader: ResendModuleLoader = makeResendModuleLoader();
 
 let _resendModuleLoader: ResendModuleLoader = realResendLoader;
 
@@ -332,7 +343,7 @@ async function loadResendSender(apiKey: string): Promise<ResendSender> {
   } catch (err) {
     const why = err instanceof Error ? err.message : String(err);
     throw new OutreachError(
-      `Could not load the Resend SDK (${why}). From repo root, run: npm install resend`,
+      `Could not load the Resend SDK (${why}). From website/, run: npm install`,
     );
   }
   const client = new mod.Resend(apiKey);
