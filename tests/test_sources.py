@@ -3,8 +3,9 @@
 import json
 import pytest
 from unittest.mock import patch, MagicMock
+from framework_forge.config import SOURCE_TYPES
 from framework_forge.sources.triage import triage_sources, SourceEntry
-from framework_forge.sources.fetcher import clean_html
+from framework_forge.sources.fetcher import clean_html, fetch_source
 
 
 class TestSourceEntry:
@@ -45,6 +46,16 @@ class TestTriage:
         assert ranked[1].source_type == "firsthand_biography"
         assert ranked[2].source_type == "web_summary"
 
+    def test_unknown_source_type_falls_back_to_lowest_priority(self):
+        known = SourceEntry("Known", "http://a.com", SOURCE_TYPES[0], "known", ["layer1"])
+        unknown = SourceEntry("Unknown", "http://b.com", "made_up_type", "unknown", ["layer1"])
+
+        ranked = triage_sources([unknown, known])
+
+        assert known.rank == 0
+        assert unknown.rank == len(SOURCE_TYPES)
+        assert ranked[-1].source_type == "made_up_type"
+
 
 class TestCleanHtml:
     def test_strips_tags(self):
@@ -61,3 +72,77 @@ class TestCleanHtml:
         assert "color:red" not in result
         assert "alert" not in result
         assert "Content" in result
+
+
+class TestFetchSourcePersistence:
+    def _make_response(self, *, text: str, content_type: str) -> MagicMock:
+        response = MagicMock()
+        response.text = text
+        response.headers = {"content-type": content_type}
+        response.raise_for_status = MagicMock()
+        return response
+
+    def test_fetch_source_writes_cleaned_text_to_source_artifact_path(self, tmp_path):
+        url = "https://example.com/keynote-decisions"
+        output_path = tmp_path / "steve-jobs" / "sources" / "texts" / "keynote-decisions.txt"
+        response = self._make_response(
+            text="""
+                <html>
+                  <body>
+                    <header><nav>Skip this</nav></header>
+                    <article><p>Important <b>decision</b> memo.</p></article>
+                    <footer>Skip this too</footer>
+                  </body>
+                </html>
+            """,
+            content_type="text/html; charset=utf-8",
+        )
+
+        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response) as mock_get:
+            first = fetch_source(url, output_path)
+            second = fetch_source(url, output_path)
+
+        assert output_path.exists()
+        assert output_path.parent.name == "texts"
+        assert output_path.parent.parent.name == "sources"
+        assert first == "Important decision memo."
+        assert second == "Important decision memo."
+        assert output_path.read_text(encoding="utf-8") == "Important decision memo."
+        mock_get.assert_called_with(
+            url,
+            headers={"User-Agent": "FrameworkForge/0.1 (research tool)"},
+            timeout=30.0,
+            follow_redirects=True,
+        )
+        assert response.raise_for_status.call_count == 2
+
+    def test_fetch_source_preserves_non_html_payloads(self, tmp_path):
+        url = "https://example.com/keynote.txt"
+        output_path = tmp_path / "steve-jobs" / "sources" / "texts" / "keynote.txt"
+        response = self._make_response(
+            text="Plain source text\nwith a second line.",
+            content_type="text/plain; charset=utf-8",
+        )
+
+        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response):
+            text = fetch_source(url, output_path)
+
+        assert text == "Plain source text\nwith a second line."
+        assert output_path.read_text(encoding="utf-8") == "Plain source text\nwith a second line."
+
+    def test_source_entry_serializes_text_persistence_metadata(self):
+        entry = SourceEntry(
+            title="Keynote decisions",
+            url="https://example.com/keynote",
+            source_type="critical_incident",
+            description="A source that should be fetched and persisted.",
+            evidence_layers=["layer2", "layer3"],
+            fetched=True,
+            text_path="sources/texts/keynote-decisions.txt",
+        )
+
+        payload = entry.to_dict()
+
+        assert payload["fetched"] is True
+        assert payload["text_path"] == "sources/texts/keynote-decisions.txt"
+        assert payload["evidence_layers"] == ["layer2", "layer3"]
