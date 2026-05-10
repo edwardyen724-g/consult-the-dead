@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FrameworkTransparencyPanel } from "@/components/framework-transparency-panel";
 import {
   ALLOWED_SLUGS,
   SLUG_COLOR_VAR,
@@ -331,23 +332,14 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
           </p>
         </section>
 
-        {/* ──────── VALIDATION ──────── */}
-        {validationLine && (
-          <section style={{ marginTop: "72px" }}>
-            <SectionLabel>Validation</SectionLabel>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                lineHeight: 1.6,
-                color: "var(--fg-dim)",
-                maxWidth: "62ch",
-              }}
-            >
-              {validationLine}
-            </p>
-          </section>
-        )}
+        <FrameworkTransparencyPanel
+          frameworkSlug={slug as FrameworkSlug}
+          frameworkName={fw.meta.person}
+          constructCount={constructCount}
+          incidentCount={incidentCount}
+          blindSpotCount={fw.blind_spots.length}
+          validationLine={validationLine}
+        />
 
         {/* ──────── CTA ──────── */}
         <div
