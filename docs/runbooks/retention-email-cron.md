@@ -84,6 +84,5 @@ When a release note cites this surface, confirm the note says:
 
 - the manifest route is the canonical operator contract
 - the schedule is owned externally, not in repo
-- nudge and digest are the only cron-fired email sends
-- welcome and recap remain event-driven and do not run on the cron schedule
-
+- recap, nudge, and digest are the cron-fired email sends
+- welcome remains webhook-driven through Clerk `user.created`

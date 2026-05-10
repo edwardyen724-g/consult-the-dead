@@ -43,8 +43,8 @@ The scheduler is intentionally external. This repo owns the contract and the cod
 
 ### Recap
 
-- Fires after the user completes their first agon.
-- The send is delayed by one hour from `completed_at`.
+- Runs through `GET /api/cron/first-agon-recap` after the user completes their first agon.
+- The cron surface targets the send one hour after `completed_at`.
 - Suppress if the user already upgraded, unsubscribed, or hard-bounced before the send executes.
 
 ### Nudge
@@ -79,4 +79,3 @@ All retention-email links must preserve the email tracking convention:
 - `utm_content=<email_id>`
 
 `email_id` should stay versioned per campaign copy, for example `welcome_v1` or `digest_v1`.
-
