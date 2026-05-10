@@ -32,6 +32,31 @@ const clerkClientMock = vi.mocked(clerkClient)
 const sqlMock = vi.mocked(sql)
 const runNudgeCronMock = vi.mocked(runNudgeCron)
 
+function makeClerkUsersPage(
+  prefix: string,
+  count: number,
+  createdAt: number,
+  startIndex = 0,
+) {
+  return Array.from({ length: count }, (_, index) => {
+    const idIndex = startIndex + index
+    return {
+      id: `${prefix}_${idIndex}`,
+      firstName: `User ${idIndex}`,
+      emailAddresses: [
+        {
+          id: `email_${prefix}_${idIndex}`,
+          emailAddress: `${prefix}_${idIndex}@example.com`,
+        },
+      ],
+      primaryEmailAddressId: `email_${prefix}_${idIndex}`,
+      createdAt,
+      publicMetadata: {},
+      privateMetadata: {},
+    }
+  })
+}
+
 afterEach(() => {
   vi.unstubAllEnvs()
   vi.clearAllMocks()
@@ -219,7 +244,9 @@ describe('GET /api/cron/retention-emails/nudge', () => {
       },
     } as never)
 
-    sqlMock.mockRejectedValueOnce(new Error('db unavailable'))
+    sqlMock.mockResolvedValue({
+      rows: [{ n: 0 }],
+    } as never)
 
     runNudgeCronMock.mockResolvedValue({
       scanned: 1,
@@ -325,6 +352,102 @@ describe('GET /api/cron/retention-emails/nudge', () => {
       }),
     ])
     expect(sqlMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('fails closed when Postgres cannot count agons for a candidate', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+
+    clerkClientMock.mockResolvedValue({
+      users: {
+        getUserList: vi.fn().mockResolvedValue({
+          data: [
+            {
+              id: 'user_db_fail',
+              firstName: 'Ada',
+              emailAddresses: [
+                {
+                  id: 'email_db_fail',
+                  emailAddress: 'dbfail@example.com',
+                },
+              ],
+              primaryEmailAddressId: 'email_db_fail',
+              createdAt: Date.now() - 25 * 60 * 60 * 1000,
+              publicMetadata: {},
+              privateMetadata: {},
+            },
+          ],
+        }),
+      },
+    } as never)
+
+    sqlMock.mockRejectedValueOnce(new Error('db unavailable'))
+
+    await expect(
+      GET(
+        new Request('https://consultthedead.com/api/cron/retention-emails/nudge', {
+          headers: { authorization: 'Bearer secret' },
+        }) as never,
+      ),
+    ).rejects.toThrow('db unavailable')
+    expect(runNudgeCronMock).not.toHaveBeenCalled()
+    expect(sqlMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('loads all Clerk pages before building nudge candidates', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+
+    const createdAt = Date.now() - 25 * 60 * 60 * 1000
+    const firstPage = makeClerkUsersPage('page1', 200, createdAt)
+    const secondPage = makeClerkUsersPage('page2', 1, createdAt, 200)
+    const getUserList = vi
+      .fn()
+      .mockImplementation(({ limit, offset }: { limit: number; offset: number }) => {
+        expect(limit).toBe(200)
+        if (offset === 0) return Promise.resolve({ data: firstPage })
+        if (offset === 200) return Promise.resolve({ data: secondPage })
+        return Promise.resolve({ data: [] })
+      })
+
+    clerkClientMock.mockResolvedValue({
+      users: {
+        getUserList,
+      },
+    } as never)
+
+    sqlMock.mockResolvedValue({ rows: [{ n: 0 }] } as never)
+
+    runNudgeCronMock.mockResolvedValue({
+      scanned: 201,
+      sent: 201,
+      suppressed: {},
+      details: [],
+    } as never)
+
+    const response = await GET(
+      new Request('https://consultthedead.com/api/cron/retention-emails/nudge', {
+        headers: { authorization: 'Bearer secret' },
+      }) as never,
+    )
+
+    expect(response.status).toBe(200)
+    expect(getUserList).toHaveBeenCalledTimes(2)
+    expect(getUserList.mock.calls).toEqual([
+      [{ orderBy: '-created_at', limit: 200, offset: 0 }],
+      [{ orderBy: '-created_at', limit: 200, offset: 200 }],
+    ])
+    expect(runNudgeCronMock).toHaveBeenCalledTimes(1)
+    expect(runNudgeCronMock.mock.calls[0][0]).toHaveLength(201)
+    expect(runNudgeCronMock.mock.calls[0][0][0]).toMatchObject({
+      clerkUserId: 'page1_0',
+      email: 'page1_0@example.com',
+    })
+    expect(runNudgeCronMock.mock.calls[0][0][200]).toMatchObject({
+      clerkUserId: 'page2_200',
+      email: 'page2_200@example.com',
+    })
+    expect(sqlMock).toHaveBeenCalledTimes(201)
   })
 
   it('returns the dry-run smoke-test fallback when candidate loading fails', async () => {

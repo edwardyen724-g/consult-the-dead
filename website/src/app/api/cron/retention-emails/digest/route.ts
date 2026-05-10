@@ -33,6 +33,27 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const SITE_URL = 'https://www.consultthedead.com'
+const DIGEST_CLERK_PAGE_SIZE = 200
+
+interface ClerkUserRecord {
+  id: string
+  firstName?: string | null
+  emailAddresses: Array<{
+    id: string
+    emailAddress?: string | null
+  }>
+  primaryEmailAddressId?: string | null
+  publicMetadata: Record<string, unknown>
+  privateMetadata: Record<string, unknown>
+}
+
+interface ClerkUsersApi {
+  getUserList(args: {
+    orderBy: '-created_at'
+    limit: number
+    offset: number
+  }): Promise<{ data: ClerkUserRecord[] }>
+}
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url)
@@ -90,13 +111,10 @@ export async function GET(request: NextRequest) {
 
 async function loadDigestCandidates(): Promise<DigestUserCandidate[]> {
   const clerk = await clerkClient()
-  const list = await clerk.users.getUserList({
-    orderBy: '-created_at',
-    limit: 500,
-  })
+  const users = await loadAllClerkUsers(clerk.users, DIGEST_CLERK_PAGE_SIZE)
 
   const candidates: DigestUserCandidate[] = []
-  for (const u of list.data) {
+  for (const u of users) {
     const primaryEmail = u.emailAddresses.find(
       (e) => e.id === u.primaryEmailAddressId,
     )
@@ -114,6 +132,23 @@ async function loadDigestCandidates(): Promise<DigestUserCandidate[]> {
     })
   }
   return candidates
+}
+
+async function loadAllClerkUsers(
+  usersApi: ClerkUsersApi,
+  pageSize: number,
+): Promise<ClerkUserRecord[]> {
+  const users: ClerkUserRecord[] = []
+  for (let offset = 0; ; offset += pageSize) {
+    const page = await usersApi.getUserList({
+      orderBy: '-created_at',
+      limit: pageSize,
+      offset,
+    })
+    users.push(...page.data)
+    if (page.data.length < pageSize) break
+  }
+  return users
 }
 
 function readFeaturedFromEnv() {

@@ -26,6 +26,31 @@ vi.mock('@/lib/emails/cron', async () => {
 const clerkClientMock = vi.mocked(clerkClient)
 const runDigestCronMock = vi.mocked(runDigestCron)
 
+function makeClerkUsersPage(
+  prefix: string,
+  count: number,
+  createdAt?: number,
+  startIndex = 0,
+) {
+  return Array.from({ length: count }, (_, index) => {
+    const idIndex = startIndex + index
+    return {
+      id: `${prefix}_${idIndex}`,
+      firstName: `User ${idIndex}`,
+      emailAddresses: [
+        {
+          id: `email_${prefix}_${idIndex}`,
+          emailAddress: `${prefix}_${idIndex}@example.com`,
+        },
+      ],
+      primaryEmailAddressId: `email_${prefix}_${idIndex}`,
+      createdAt,
+      publicMetadata: {},
+      privateMetadata: {},
+    }
+  })
+}
+
 afterEach(() => {
   vi.unstubAllEnvs()
   vi.clearAllMocks()
@@ -305,6 +330,61 @@ describe('GET /api/cron/retention-emails/digest', () => {
     expect(
       runDigestCronMock.mock.calls[0][1].buildUnsubscribeUrl('user_456'),
     ).toBe('https://www.consultthedead.com/account/email-unsubscribe?u=user_456')
+  })
+
+  it('loads every Clerk page before building digest candidates', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+    vi.stubEnv('FEATURED_AGON_TOPIC', 'Should I raise prices?')
+    vi.stubEnv('FEATURED_AGON_CONSENSUS', 'Stage it, then expand.')
+    vi.stubEnv('FEATURED_AGON_SHARE_ID', 'abc123')
+
+    const firstPage = makeClerkUsersPage('page1', 200)
+    const secondPage = makeClerkUsersPage('page2', 1, undefined, 200)
+    const getUserList = vi
+      .fn()
+      .mockImplementation(({ limit, offset }: { limit: number; offset: number }) => {
+        expect(limit).toBe(200)
+        if (offset === 0) return Promise.resolve({ data: firstPage })
+        if (offset === 200) return Promise.resolve({ data: secondPage })
+        return Promise.resolve({ data: [] })
+      })
+
+    clerkClientMock.mockResolvedValue({
+      users: {
+        getUserList,
+      },
+    } as never)
+
+    runDigestCronMock.mockResolvedValue({
+      scanned: 201,
+      sent: 201,
+      suppressed: {},
+      details: [],
+    } as never)
+
+    const response = await GET(
+      new Request('https://consultthedead.com/api/cron/retention-emails/digest', {
+        headers: { authorization: 'Bearer secret' },
+      }) as never,
+    )
+
+    expect(response.status).toBe(200)
+    expect(getUserList).toHaveBeenCalledTimes(2)
+    expect(getUserList.mock.calls).toEqual([
+      [{ orderBy: '-created_at', limit: 200, offset: 0 }],
+      [{ orderBy: '-created_at', limit: 200, offset: 200 }],
+    ])
+    expect(runDigestCronMock).toHaveBeenCalledTimes(1)
+    expect(runDigestCronMock.mock.calls[0][0]).toHaveLength(201)
+    expect(runDigestCronMock.mock.calls[0][0][0]).toMatchObject({
+      clerkUserId: 'page1_0',
+      email: 'page1_0@example.com',
+    })
+    expect(runDigestCronMock.mock.calls[0][0][200]).toMatchObject({
+      clerkUserId: 'page2_200',
+      email: 'page2_200@example.com',
+    })
   })
 
   it('nulls optional new-mind metadata when the env vars are omitted', async () => {

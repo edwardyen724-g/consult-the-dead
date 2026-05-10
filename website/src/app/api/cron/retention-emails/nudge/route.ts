@@ -39,6 +39,28 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const NUDGE_LOOKBACK_HOURS = 26
+const NUDGE_CLERK_PAGE_SIZE = 200
+
+interface ClerkUserRecord {
+  id: string
+  firstName?: string | null
+  emailAddresses: Array<{
+    id: string
+    emailAddress?: string | null
+  }>
+  primaryEmailAddressId?: string | null
+  createdAt?: number | null
+  publicMetadata: Record<string, unknown>
+  privateMetadata: Record<string, unknown>
+}
+
+interface ClerkUsersApi {
+  getUserList(args: {
+    orderBy: '-created_at'
+    limit: number
+    offset: number
+  }): Promise<{ data: ClerkUserRecord[] }>
+}
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url)
@@ -78,15 +100,10 @@ async function loadNudgeCandidates(
   const sinceMs = Date.now() - lookbackHours * 60 * 60 * 1000
 
   const clerk = await clerkClient()
-  // Clerk paginates; we expect signups/day to be small enough that a
-  // single page is fine for v1. If volume grows, paginate here.
-  const list = await clerk.users.getUserList({
-    orderBy: '-created_at',
-    limit: 200,
-  })
+  const users = await loadAllClerkUsers(clerk.users, NUDGE_CLERK_PAGE_SIZE)
 
   const candidates: NudgeUserCandidate[] = []
-  for (const u of list.data) {
+  for (const u of users) {
     const createdAt = u.createdAt
     if (!createdAt || createdAt < sinceMs) continue
 
@@ -113,16 +130,29 @@ async function loadNudgeCandidates(
   return candidates
 }
 
-async function countAgons(clerkUserId: string): Promise<number> {
-  try {
-    const result = await sql`
-      SELECT COUNT(*)::int AS n
-      FROM agons
-      WHERE clerk_user_id = ${clerkUserId}
-    `
-    const row = result.rows[0] as { n: number } | undefined
-    return row?.n ?? 0
-  } catch {
-    return 0
+async function loadAllClerkUsers(
+  usersApi: ClerkUsersApi,
+  pageSize: number,
+): Promise<ClerkUserRecord[]> {
+  const users: ClerkUserRecord[] = []
+  for (let offset = 0; ; offset += pageSize) {
+    const page = await usersApi.getUserList({
+      orderBy: '-created_at',
+      limit: pageSize,
+      offset,
+    })
+    users.push(...page.data)
+    if (page.data.length < pageSize) break
   }
+  return users
+}
+
+async function countAgons(clerkUserId: string): Promise<number> {
+  const result = await sql`
+    SELECT COUNT(*)::int AS n
+    FROM agons
+    WHERE clerk_user_id = ${clerkUserId}
+  `
+  const row = result.rows[0] as { n: number } | undefined
+  return row?.n ?? 0
 }
