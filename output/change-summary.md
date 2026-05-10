@@ -1,41 +1,20 @@
 # Change Summary
 
-Task: `cd7251fb` - Add framework transparency toggle and Ask This Mind form
+Task: `fac8ad62-0710-49eb-99a9-ecbd67b35699`
 
-## Files Changed
+Changed files:
+- `company-builder/src/app/api/research/route.ts`
+- `company-builder/tests/research-route.test.ts`
 
-- `website/src/app/frameworks/[slug]/page.tsx`
-- `website/src/components/framework-transparency-panel.tsx`
-- `website/src/components/framework-transparency-panel.test.tsx`
-- `website/src/app/api/generate-analysis/route.ts`
-- `website/src/app/api/generate-analysis/route.test.ts`
+What changed:
+- Added stable SSE error events for research source fetch failures and synthesis stream failures.
+- Kept `research_sources` as the first streamed event before any chunks.
+- Preserved and regression-tested deterministic source ordering and deduplication across web, Hacker News, and GitHub results.
+- Added route-level regression coverage for the success path, source-failure fallback path, and synthesis-failure path.
 
-## What Changed
+Verification:
+- `cd company-builder && /var/folders/nj/6nhbccys34393w3xv9vxpzfh0000gn/T/wanman-agent-homes/run-mozn9oyg-p70587-ad97d2d0/dev/.wanman/bin/wcx /Users/haotingyen/projects/wanman.dev/node_modules/.bin/vitest run tests/research-route.test.ts`
 
-- Added a client-side framework transparency panel with:
-  - toggleable transparency section
-  - framework depth metrics
-  - validation copy
-  - inline Ask This Mind form
-  - streamed analysis rendering state
-- Wired the framework detail page to render the new transparency panel and removed the standalone validation block.
-- Restored the `/api/generate-analysis` route so the Ask This Mind form can stream a framework-grounded analysis from a framework slug + topic.
-- Added unit tests for:
-  - payload building
-  - topic validation
-  - SSE parsing
-  - API submission success/error paths
-  - transparency panel render states
-  - generate-analysis route happy/error paths
-
-## Verification
-
-- `pnpm vitest run src/components/framework-transparency-panel.test.tsx src/app/api/generate-analysis/route.test.ts`
-- `pnpm coverage -- src/components/framework-transparency-panel.test.tsx src/app/api/generate-analysis/route.test.ts`
-- `pnpm lint`
-
-## Notes
-
-- `pnpm build` fails in `website/src/app/account/page.tsx:32` with `Property 'get' does not exist on type 'Promise<ReadonlyHeaders>'`.
-- That build failure is outside the capsule scope for this task, so I did not modify it.
-- Coverage for `website/src/components/framework-transparency-panel.tsx` reached `95.23%` lines in the focused run.
+Result:
+- Passed: 3 tests green.
+- ESLint verification was blocked because the company-builder app tree does not have the ESLint dependency set installed locally, and its `eslint.config.mjs` cannot resolve `eslint/config` in this capsule environment.
