@@ -162,6 +162,18 @@ describe('GET /api/cron/retention-emails/nudge', () => {
               privateMetadata: {},
             },
             {
+              id: 'missing_email_value',
+              firstName: 'Value',
+              emailAddresses: [
+                {
+                  id: 'email_missing',
+                },
+              ],
+              createdAt: Date.now() - 25 * 60 * 60 * 1000,
+              publicMetadata: {},
+              privateMetadata: {},
+            },
+            {
               id: 'old_user',
               firstName: 'Old',
               emailAddresses: [
