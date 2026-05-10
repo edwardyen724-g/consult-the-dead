@@ -61,6 +61,8 @@ const EXAMPLE_TOPICS = [
   "My industry is being automated — pivot into AI, or double down on domain depth?",
 ];
 
+const SAMPLE_QUESTION_LABEL_ID = "agora-sample-question-label";
+
 interface RoundTurn {
   mindSlug: string;
   mindName: string;
@@ -632,8 +634,14 @@ function TopicStage({
   onSubmit: () => void;
 }) {
   const [showKey, setShowKey] = useState(false);
+  const topicRef = useRef<HTMLTextAreaElement | null>(null);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
+
+  function chooseExampleTopic(example: string) {
+    setTopic(example);
+    topicRef.current?.focus();
+  }
 
   return (
     <div>
@@ -671,6 +679,7 @@ function TopicStage({
       <div style={{ position: "relative", marginBottom: "10px" }}>
         <textarea
           id="agora-topic"
+          ref={topicRef}
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
@@ -803,7 +812,7 @@ function TopicStage({
       </button>
 
       {/* Example questions */}
-      <div style={{ marginTop: "56px" }}>
+      <div style={{ marginTop: "56px" }} aria-labelledby={SAMPLE_QUESTION_LABEL_ID}>
         <div
           style={{
             display: "flex",
@@ -814,6 +823,7 @@ function TopicStage({
         >
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
           <span
+            id={SAMPLE_QUESTION_LABEL_ID}
             className="font-mono"
             style={{
               fontSize: "10px",
@@ -823,7 +833,7 @@ function TopicStage({
               whiteSpace: "nowrap",
             }}
           >
-            ◆ Or borrow a question from another querent
+            ◆ Sample questions you can tap to start
           </span>
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
         </div>
@@ -838,7 +848,10 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
-              onClick={() => setTopic(ex)}
+              type="button"
+              onClick={() => chooseExampleTopic(ex)}
+              aria-label={`Use sample question: ${ex}`}
+              title="Prefill the topic with this sample question"
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--hairline)",
