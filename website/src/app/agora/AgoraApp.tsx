@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import { UpsellModal, type UpsellUpgradePayload } from "@/components/upsell-modal";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
@@ -11,6 +11,12 @@ import {
   EXAMPLE_TOPICS,
   SAMPLE_QUESTION_LABEL_ID,
 } from "@/lib/agora-sample-questions";
+import {
+  AGORA_SESSION_STORAGE_KEY,
+  decodeAgoraSession,
+  encodeAgoraSession,
+  type AgoraSessionState,
+} from "@/lib/agora-session";
 import {
   PACKS,
   getActivePackMembers,
@@ -152,6 +158,28 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
+function toAgoraSessionState(state: AgonState): AgoraSessionState {
+  return {
+    stage: state.stage,
+    topic: state.topic,
+    researchEnabled: state.researchEnabled,
+    council: state.council,
+    turns: state.turns,
+    activeRound: state.activeRound,
+    activeMindSlug: state.activeMindSlug,
+    consensus: state.consensus,
+    consensusNode: state.consensusNode,
+    quotaRemaining: state.quotaRemaining,
+    researchData: state.researchData,
+  };
+}
+
+const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
+
+function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
+  return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
+}
+
 export function AgoraApp({
   minds,
   isPro,
@@ -164,6 +192,7 @@ export function AgoraApp({
   initialMinds?: string[] | null;
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
+  const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
   // showApiKey is lifted here so the upsell modal's "Add API key" CTA can
@@ -187,6 +216,55 @@ export function AgoraApp({
       // ignore
     }
   }, []);
+
+  // Restore a previously persisted Agora session once the component mounts.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(AGORA_SESSION_STORAGE_KEY);
+      const restored = decodeAgoraSession(saved);
+      if (!restored) return;
+
+      setState((current) => ({
+        ...current,
+        ...restored,
+        consensusNode: isConsensusNodeKey(restored.consensusNode) ? restored.consensusNode : null,
+        consensusLoading: false,
+        researchLoading: false,
+        error: null,
+        rateLimited: false,
+      }));
+    } catch {
+      // ignore
+    } finally {
+      setSessionHydrated(true);
+    }
+  }, []);
+
+  // Persist the non-transient Agora session fields after hydration completes.
+  useEffect(() => {
+    if (!sessionHydrated) return;
+
+    try {
+      const encoded = encodeAgoraSession(toAgoraSessionState(state));
+      if (encoded) sessionStorage.setItem(AGORA_SESSION_STORAGE_KEY, encoded);
+      else sessionStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+  }, [
+    sessionHydrated,
+    state.stage,
+    state.topic,
+    state.researchEnabled,
+    state.council,
+    state.turns,
+    state.activeRound,
+    state.activeMindSlug,
+    state.consensus,
+    state.consensusNode,
+    state.quotaRemaining,
+    state.researchData,
+  ]);
 
   // Cancel any in-flight stream when component unmounts
   useEffect(() => {
