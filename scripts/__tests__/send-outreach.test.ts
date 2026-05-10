@@ -207,6 +207,12 @@ describe("fallbackSubject", () => {
     expect(/\s…$/.test(subject)).toBe(false);
   });
 
+  it("handles a single long token by falling back to the hard cutoff branch", () => {
+    const subject = fallbackSubject("x".repeat(80));
+    expect(subject.length).toBeLessThanOrEqual(70);
+    expect(subject.endsWith("…")).toBe(true);
+  });
+
   it("starts with the '3 dead strategists argued' lead", () => {
     expect(fallbackSubject("foo")).toMatch(/^3 dead strategists argued/);
   });
@@ -223,6 +229,9 @@ describe("firstName", () => {
   it("falls back to 'there' for empty / whitespace input", () => {
     expect(firstName("")).toBe("there");
     expect(firstName("   ")).toBe("there");
+  });
+  it("treats undefined display names as absent at runtime", () => {
+    expect(firstName(undefined as unknown as string)).toBe("there");
   });
   it("collapses multi-whitespace correctly", () => {
     expect(firstName("  Foo   Bar")).toBe("Foo");
@@ -473,17 +482,20 @@ describe("sendOutreach send path", () => {
       observedToRef.value = input.to;
       return { data: { id: "msg_x" } };
     };
-    // Simulate the founder editing outreach-list.ts to add an email
-    // by passing --to (override path); also verify that when --to is
-    // absent we fall back to recipient.email exactly.
-    // Direct path: pass --to so we exercise the no-op branch.
-    await sendOutreach({
-      slug: "sarah-chen",
-      to: "  sarah@example.com  ", // whitespace must be trimmed
-      dryRun: false,
-      env: { RESEND_API_KEY: "re_test" },
-      resendSender: sender,
-    });
+    const recipient = OUTREACH_LIST.find((r) => r.slug === "sarah-chen");
+    if (!recipient) throw new Error("missing fixture recipient");
+    const originalEmail = recipient.email;
+    try {
+      recipient.email = "  sarah@example.com  ";
+      await sendOutreach({
+        slug: "sarah-chen",
+        dryRun: false,
+        env: { RESEND_API_KEY: "re_test" },
+        resendSender: sender,
+      });
+    } finally {
+      recipient.email = originalEmail;
+    }
     expect(observedToRef.value).toBe("sarah@example.com");
   });
 });
@@ -650,6 +662,23 @@ describe("cliMain", () => {
       ...cap.deps,
     });
     expect(cap.err.join("\n")).toContain("explosive failure");
+    expect(cap.exitCode).toBe(1);
+  });
+
+  it("prints '(no message)' when Resend reports an error without details", async () => {
+    const cap = makeCliCapture();
+    const stubSend: typeof sendOutreach = async () => ({
+      status: "error",
+      recipient: OUTREACH_LIST[0],
+      to: "x@example.com",
+      subject: "stub",
+    });
+    await cliMain({
+      argv: ["--slug", "abhishek-chakravarty", "--to", "x@example.com"],
+      send: stubSend,
+      ...cap.deps,
+    });
+    expect(cap.err.join("\n")).toContain("(no message)");
     expect(cap.exitCode).toBe(1);
   });
 

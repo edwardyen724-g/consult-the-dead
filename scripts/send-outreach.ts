@@ -55,8 +55,7 @@ export const FROM_ADDRESS = "Haoting Yen <haoting@consultthedead.com>";
 export function firstName(displayName: string): string {
   const trimmed = (displayName ?? "").trim();
   if (!trimmed) return "there";
-  const first = trimmed.split(/\s+/)[0];
-  return first || "there";
+  return trimmed.split(/\s+/)[0];
 }
 
 /**
