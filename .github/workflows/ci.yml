@@ -12,6 +12,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Cancel in-flight runs for the same branch/PR to keep queues clean.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -62,6 +67,14 @@ jobs:
       - name: Run vitest coverage
         run: npm run coverage
 
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-lcov
+          path: website/coverage/lcov.info
+          retention-days: 14
+
   build:
     name: CI / Build
     runs-on: ubuntu-latest
@@ -84,6 +97,10 @@ jobs:
 
       - name: Run build
         run: npm run build
+        env:
+          # Clerk publishable key is read at build time by @clerk/nextjs.
+          # A placeholder satisfies the format check; no real auth occurs in CI.
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_placeholder00000000000000000000000000000000000000000000000000
 
   framework-placeholder-citations:
     name: CI / Framework Citation Guardrail
