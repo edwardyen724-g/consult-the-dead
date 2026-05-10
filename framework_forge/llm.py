@@ -40,6 +40,18 @@ class StructuredResponse:
         return None
 
 
+class LLMError(RuntimeError):
+    """Base error for Anthropic wrapper failures."""
+
+
+class LLMRequestError(LLMError):
+    """Raised when the Anthropic request itself fails."""
+
+
+class LLMResponseError(LLMError):
+    """Raised when Anthropic returns an unusable response."""
+
+
 class LLMClient:
     """Wrapper around the Anthropic Claude API for structured analytical prompts."""
 
@@ -50,6 +62,18 @@ class LLMClient:
                 "ANTHROPIC_API_KEY is required. Set it in .env or pass api_key= to LLMClient."
             )
         self._client = anthropic.Anthropic(api_key=self.api_key)
+
+    @staticmethod
+    def _validate_prompt_inputs(system: str, user: str, max_tokens: int) -> None:
+        """Reject invalid prompt inputs before the SDK call is attempted."""
+        if not isinstance(system, str) or not system.strip():
+            raise ValueError("system must be a non-empty string")
+        if not isinstance(user, str) or not user.strip():
+            raise ValueError("user must be a non-empty string")
+        if not isinstance(max_tokens, int):
+            raise TypeError(f"max_tokens must be an int, got {type(max_tokens).__name__}")
+        if max_tokens <= 0:
+            raise ValueError("max_tokens must be a positive integer")
 
     @staticmethod
     def _build_message_request(
@@ -74,13 +98,32 @@ class LLMClient:
 
         for block in content:
             text = getattr(block, "text", None)
-            if text:
+            if isinstance(text, str) and text:
                 text_parts.append(text)
 
         if not text_parts:
-            raise ValueError("Expected a text response from Anthropic, but no text content was returned.")
+            raise LLMResponseError(
+                "Anthropic returned no text content; cannot continue with extraction."
+            )
 
         return "".join(text_parts)
+
+    @staticmethod
+    def _extract_usage(response: Any) -> tuple[int, int]:
+        """Validate and return usage metadata from a response."""
+        usage = getattr(response, "usage", None)
+        if usage is None:
+            raise LLMResponseError("Anthropic response is missing usage metadata.")
+
+        input_tokens = getattr(usage, "input_tokens", None)
+        output_tokens = getattr(usage, "output_tokens", None)
+
+        if not isinstance(input_tokens, int) or not isinstance(output_tokens, int):
+            raise LLMResponseError(
+                "Anthropic response usage metadata is incomplete or invalid."
+            )
+
+        return input_tokens, output_tokens
 
     def prompt(
         self,
@@ -90,14 +133,28 @@ class LLMClient:
         max_tokens: int = 4096,
     ) -> StructuredResponse:
         """Send a structured prompt and return a parsed response."""
-        request = self._build_message_request(system=system, user=user, model=model, max_tokens=max_tokens)
-        response = self._client.messages.create(**request)
+        self._validate_prompt_inputs(system=system, user=user, max_tokens=max_tokens)
+        request = self._build_message_request(
+            system=system,
+            user=user,
+            model=model,
+            max_tokens=max_tokens,
+        )
+
+        try:
+            response = self._client.messages.create(**request)
+        except Exception as exc:  # pragma: no cover - exercised by unit test via mock
+            raise LLMRequestError(
+                f"Anthropic request failed for model {request['model']!r} "
+                f"with max_tokens={max_tokens}."
+            ) from exc
 
         raw_text = self._extract_response_text(response)
+        input_tokens, output_tokens = self._extract_usage(response)
         return StructuredResponse(
             raw_text=raw_text,
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
         )
 
     def prompt_json(
