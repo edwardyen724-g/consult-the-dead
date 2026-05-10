@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
+import { AGORA_SESSION_STORAGE_KEY, decodeAgoraSession, encodeAgoraSession } from "@/lib/agora-session";
 import {
   PACKS,
   getActivePackMembers,
@@ -12,6 +14,11 @@ import {
   type Pack,
   type PackId,
 } from "@/lib/packs";
+import {
+  buildAgoraSessionSnapshot,
+  restoreAgoraState,
+  type AgoraSessionAppState,
+} from "./agora-session-store";
 
 export interface MindOption {
   slug: string;
@@ -74,24 +81,11 @@ interface ResearchData {
   sources: { title: string; url: string }[];
 }
 
-interface AgonState {
-  stage: Stage;
-  topic: string;
-  apiKey: string;
-  researchEnabled: boolean;
-  council: string[];
-  turns: RoundTurn[];
-  activeRound: number | null;
-  activeMindSlug: string | null;
-  consensus: ConsensusResult | null;
-  consensusLoading: boolean;
+type AgonState = AgoraSessionAppState & {
   consensusNode: ConsensusNodeKey | null;
-  error: string | null;
-  rateLimited: boolean;
-  quotaRemaining: number | undefined;
-  researchLoading: boolean;
   researchData: ResearchData | null;
-}
+  turns: RoundTurn[];
+};
 
 const INITIAL_STATE: AgonState = {
   stage: "topic",
@@ -162,6 +156,7 @@ export function AgoraApp({
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
+  const sessionHydratedRef = useRef(false);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
 
   // Fetch live usage on mount
@@ -172,15 +167,34 @@ export function AgoraApp({
       .catch(() => {});
   }, []);
 
-  // Restore API key from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(API_KEY_STORAGE);
-      if (saved) setState((s) => ({ ...s, apiKey: saved }));
+      const savedApiKey = localStorage.getItem(API_KEY_STORAGE);
+      const savedSessionRaw = localStorage.getItem(AGORA_SESSION_STORAGE_KEY);
+      const savedSession = decodeAgoraSession(savedSessionRaw);
+      if (savedSessionRaw !== null && !savedSession) {
+        localStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
+      }
+
+      setState((current) => restoreAgoraState(current, savedSession, savedApiKey));
+    } catch {
+      // ignore
+    } finally {
+      sessionHydratedRef.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!sessionHydratedRef.current) return;
+
+    try {
+      const snapshot = encodeAgoraSession(buildAgoraSessionSnapshot(state));
+      if (snapshot) localStorage.setItem(AGORA_SESSION_STORAGE_KEY, snapshot);
+      else localStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
     } catch {
       // ignore
     }
-  }, []);
+  }, [state]);
 
   // Cancel any in-flight stream when component unmounts
   useEffect(() => {
@@ -1992,7 +2006,7 @@ function ConsensusDoc({
   consensus: ConsensusResult;
   active: ConsensusNodeKey | null;
 }) {
-  const sections: { key: ConsensusNodeKey; title: string; body: React.ReactNode }[] = [
+  const sections: { key: ConsensusNodeKey; title: string; body: ReactNode }[] = [
     { key: "POINTS", title: "Consensus Points", body: <p>{consensus.points}</p> },
     { key: "TENSIONS", title: "Live Tensions", body: <p>{consensus.tensions}</p> },
     { key: "ACTION", title: "Recommended Action", body: <p>{consensus.action}</p> },
@@ -2195,7 +2209,7 @@ function PackMindCard({
 
 /* ────────────── Shared ────────────── */
 
-function PreviewBanner({ children }: { children: React.ReactNode }) {
+function PreviewBanner({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
