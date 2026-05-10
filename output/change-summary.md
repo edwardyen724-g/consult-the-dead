@@ -1,32 +1,29 @@
 # Change Summary
 
 ## Task
-- Make Agora example topics clickable
+- Add quiz result tracking and stronger debate CTA
 
 ## Changed Files
-- `website/src/app/agora/AgoraApp.tsx`
+- `website/src/app/quiz/page.tsx`
+- `website/src/app/quiz/quiz-completion.ts`
+- `website/src/app/quiz/quiz-completion.test.ts`
 
 ## What Changed
-- Added a labeled sample-question block for the Topic stage so visitors can see the examples as tap-to-start prompts.
-- Made each example prompt an explicit `button` with an accessible label and title.
-- Wired each sample button to prefill the topic textarea and return focus to the textarea so the user can continue straight to the Council flow.
+- Added a lightweight completion tracking hook that fires when the quiz reaches the result step.
+- The hook emits a browser `CustomEvent` and mirrors the payload into common analytics sinks (`dataLayer` and `gtag`) when they exist.
+- Extracted the completion payload builder into a small helper so the result event shape is stable and testable.
+- Tightened the result-card copy to push users into the next action immediately.
+- Reworded the final CTA from a generic "start" prompt to a more conversion-forward debate prompt while keeping the existing mind-matching and `/agora?minds=...` routing intact.
 
 ## Verification
 - `wcx pnpm --dir website coverage`
-  - Passed: 2 test files, 42 tests.
-  - Coverage still reports the existing repo-wide baseline numbers.
-  - Vitest emits the pre-existing unresolved-import warning for `vitest/config` in `vitest.config.ts`, but the suite exits successfully.
+  - Passed: 3 test files, 43 tests.
+  - Coverage still reports the existing repo-wide baseline numbers because the app route files are excluded from coverage collection.
 - `wcx pnpm --dir website lint`
-  - Passed with existing repo warnings only; no new errors from the Agora edit.
+  - Passed with pre-existing repo warnings only; no new lint errors from the quiz changes.
 - `wcx pnpm --dir website build`
-  - Passed successfully after installing the website dependencies locally.
+  - Passed successfully.
 
 ## Notes
-- The sample-topic edit stayed inside `website/src/app/agora/AgoraApp.tsx` as requested.
-- I linked the task to the existing file-scoped AgoraApp capsule before editing because the path was already owned by an active capsule.
-
-## PR #20 Follow-up
-- Verified the live non-dry-run send path from `website/` with a temporary Resend stub:
-  - `RESEND_API_KEY=re_smoke npx tsx ../scripts/send-outreach.ts --slug abhishek-chakravarty --to smoke@example.com`
-  - Result: `Sent via Resend (campaign=founder-outreach-may26, slug=abhishek-chakravarty)` with stub message ID `stub-abhishek-chakravarty`.
-- Re-requested CTO review on PR #20 with the smoke-test evidence in a new PR comment.
+- `website/src/app/page.tsx` was already dirty in the worktree before this task and was left untouched.
+- The new quiz completion helper stays inside the quiz folder so the page logic remains focused and the tracking payload is unit-tested.

@@ -1,15 +1,16 @@
 # DevOps Notes
 
 ## Work
-- Agora sample-question tap targets now prefill the topic textarea and restore focus so the user can keep typing immediately.
+- Quiz result tracking now emits a completion event when the result step is reached.
+- Result-card copy and CTA now push users into the debate flow more directly.
 
 ## Verification
-- `cd website && npm ci`
-- `cd website && npm run lint`
-  - Passed with existing repo warnings only; no new errors from the Agora edit.
-- `cd website && npm run build`
+- `cd website && pnpm coverage`
+  - Passed with 3 test files / 43 tests.
+- `cd website && pnpm lint`
+  - Passed with existing repository warnings only.
+- `cd website && pnpm build`
   - Passed successfully.
 
 ## Notes
-- The only tracked source change is `website/src/app/agora/AgoraApp.tsx`.
-- The verification environment initially lacked installed website dependencies, so I installed them locally before rerunning lint and build.
+- A separate pre-existing modification to `website/src/app/page.tsx` was present in the worktree and was not changed for this task.
