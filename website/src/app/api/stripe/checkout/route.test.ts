@@ -70,6 +70,21 @@ describe('POST /api/stripe/checkout', () => {
     mocks.checkoutCreate.mockResolvedValue({ url: 'https://stripe.test/session' })
   })
 
+  it('rejects unauthenticated checkout attempts', async () => {
+    mocks.auth.mockResolvedValue({ userId: null })
+
+    const { POST } = await import('./route')
+    const response = await POST(
+      buildRequest('https://site.test/api/stripe/checkout', {
+        billingPeriod: 'monthly',
+      }),
+    )
+
+    expect(response.status).toBe(401)
+    await expect(response.json()).resolves.toEqual({ error: 'Unauthorized' })
+    expect(mocks.checkoutCreate).not.toHaveBeenCalled()
+  })
+
   it('stores body UTM params in Stripe session metadata', async () => {
     const { POST } = await import('./route')
 
@@ -90,8 +105,10 @@ describe('POST /api/stripe/checkout', () => {
       customer: 'cus_123',
       mode: 'subscription',
       line_items: [{ price: 'price_annual', quantity: 1 }],
+      subscription_data: { trial_period_days: 7 },
       metadata: {
         clerk_user_id: 'user_1',
+        plan: 'annual',
         utm_campaign: 'body-campaign',
         utm_content: 'body-content',
       },
@@ -101,6 +118,52 @@ describe('POST /api/stripe/checkout', () => {
     expect(mocks.updateUserMetadata).toHaveBeenCalledWith('user_1', {
       privateMetadata: { stripe_customer_id: 'cus_123' },
     })
+  })
+
+  it('throws when the Stripe secret is missing', async () => {
+    delete process.env.STRIPE_SECRET_KEY
+
+    const { POST } = await import('./route')
+
+    await expect(
+      POST(
+        buildRequest('https://site.test/api/stripe/checkout', {
+          billingPeriod: 'monthly',
+        }),
+      ),
+    ).rejects.toThrow('STRIPE_SECRET_KEY is not set')
+  })
+
+  it('reuses an existing Stripe customer and trims UTM values', async () => {
+    mocks.getUser.mockResolvedValue({
+      privateMetadata: { stripe_customer_id: 'cus_existing' },
+      emailAddresses: [{ emailAddress: 'ada@example.com' }],
+    })
+
+    const { POST } = await import('./route')
+
+    const response = await POST(
+      buildRequest(
+        'https://site.test/api/stripe/checkout',
+        {
+          billingPeriod: 'monthly',
+          utm_campaign: '   ',
+          utm_content: `${'x'.repeat(501)}   `,
+        },
+      ),
+    )
+
+    expect(response.status).toBe(200)
+    expect(mocks.customerCreate).not.toHaveBeenCalled()
+    expect(mocks.updateUserMetadata).not.toHaveBeenCalled()
+    expect(mocks.checkoutCreate).toHaveBeenCalledWith(expect.objectContaining({
+      customer: 'cus_existing',
+      metadata: {
+        clerk_user_id: 'user_1',
+        plan: 'monthly',
+        utm_content: 'x'.repeat(500),
+      },
+    }))
   })
 
   it('falls back to query UTMs when the body omits them', async () => {
@@ -120,9 +183,11 @@ describe('POST /api/stripe/checkout', () => {
       line_items: [{ price: 'price_monthly', quantity: 1 }],
       metadata: {
         clerk_user_id: 'user_1',
+        plan: 'monthly',
         utm_campaign: 'query-campaign',
         utm_content: 'query-content',
       },
+      subscription_data: { trial_period_days: 7 },
     }))
   })
 })

@@ -55,6 +55,22 @@ describe('trackEvent', () => {
     expect(track).toHaveBeenCalledWith('paid_subscription')
   })
 
+  it('falls back to the default loader when the test loader is cleared', async () => {
+    process.env.NODE_ENV = 'production'
+    const track = vi.fn().mockResolvedValue(undefined)
+
+    vi.doMock('@vercel/analytics/server', () => ({ track }))
+
+    const { trackEvent, _setVercelTrackLoaderForTests } = await import('./analytics')
+    _setVercelTrackLoaderForTests(async () => track)
+    _setVercelTrackLoaderForTests(null)
+
+    await expect(trackEvent('paid_subscription', { plan: 'monthly' })).resolves.toBe(true)
+
+    expect(track).toHaveBeenCalledTimes(1)
+    expect(track).toHaveBeenCalledWith('paid_subscription', { plan: 'monthly' })
+  })
+
   it('returns false when the analytics module has no track export', async () => {
     process.env.NODE_ENV = 'production'
 
@@ -63,6 +79,20 @@ describe('trackEvent', () => {
     const { trackEvent } = await import('./analytics')
 
     await expect(trackEvent('paid_subscription')).resolves.toBe(false)
+  })
+
+  it('returns false when the analytics track call throws', async () => {
+    process.env.NODE_ENV = 'production'
+    const track = vi.fn().mockImplementation(() => {
+      throw new Error('boom')
+    })
+
+    vi.doMock('@vercel/analytics/server', () => ({ track }))
+
+    const { trackEvent } = await import('./analytics')
+
+    await expect(trackEvent('paid_subscription', { plan: 'annual' })).resolves.toBe(false)
+    expect(track).toHaveBeenCalledTimes(1)
   })
 
   it('returns false when the analytics module import fails', async () => {
