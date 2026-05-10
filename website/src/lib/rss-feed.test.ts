@@ -11,6 +11,7 @@ import {
   RSS_FEED_DESCRIPTION,
   RSS_FEED_LANGUAGE,
   RSS_FEED_TITLE,
+  normalizeSiteUrl,
   serializeRssFeed,
 } from "./rss-feed";
 
@@ -50,6 +51,45 @@ describe("rss-feed helpers", () => {
       language: RSS_FEED_LANGUAGE,
       feedUrl: "https://www.consultthedead.com/feed.xml",
     });
+  });
+
+  it("falls back to the canonical site URL when the input site URL is empty", () => {
+    expect(normalizeSiteUrl("")).toBe("");
+
+    expect(buildFeedMetadata("")).toEqual({
+      title: RSS_FEED_TITLE,
+      description: RSS_FEED_DESCRIPTION,
+      link: "https://www.consultthedead.com",
+      language: RSS_FEED_LANGUAGE,
+      feedUrl: "https://www.consultthedead.com/feed.xml",
+    });
+
+    const items = buildPublicFeedItems({
+      siteUrl: "",
+      now: FIXED_NOW,
+      debates: [
+        makeDebate({
+          slug: "fallback-debate",
+          name: "Fallback Debate",
+          forContext: "For Fallback",
+          topic: "Fallback topic",
+          date: "2026-04-03",
+        }),
+      ],
+      insightEntries: [
+        makeInsight({
+          slug: "fallback-insight",
+          title: "Fallback insight",
+          description: "Fallback description",
+          frameworkSlug: "isaac-newton",
+        }),
+      ],
+    });
+
+    expect(items.map((item) => item.link)).toEqual([
+      "https://www.consultthedead.com/debates/fallback-debate",
+      "https://www.consultthedead.com/insights/fallback-insight",
+    ]);
   });
 
   it("orders debates newest-first and keeps insights in source order", () => {
