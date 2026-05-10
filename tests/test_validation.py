@@ -1,10 +1,9 @@
 """Tests for validation modules (Tier 1, Tier 2, Tier 3 Prep, Floor Check)."""
 
 import json
+from shutil import copyfile
 from pathlib import Path
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import MagicMock
 
 from framework_forge.config import (
     FLOOR_CHECK_MIN_ALIGNMENT,
@@ -304,3 +303,123 @@ class TestFloorCheck:
         )
 
         assert result.passed is False
+
+
+class TestValidationCliSmoke:
+    """End-to-end smoke coverage for the validate CLI contract."""
+
+    def test_validate_full_emits_expected_artifacts_from_saved_fixture(
+        self,
+        tmp_path,
+        monkeypatch,
+    ):
+        """Full validation should write Tier 1, Tier 2, and Tier 3 outputs."""
+        from click.testing import CliRunner
+
+        from framework_forge.cli import cli
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+        from framework_forge.validation.tier2 import Tier2Result
+
+        fixture_path = (
+            Path(__file__).resolve().parents[1]
+            / "frameworks"
+            / "abraham-lincoln"
+            / "framework.json"
+        )
+        framework_dir = tmp_path / "framework-fixture"
+        framework_dir.mkdir(parents=True)
+        framework_path = framework_dir / "framework.json"
+        copyfile(fixture_path, framework_path)
+
+        class DummyLLMClient:
+            """Placeholder client so validate() can instantiate safely."""
+
+        def fake_run_tier1(framework, person, domain, client=None):
+            assert framework["meta"]["person"] == "Abraham Lincoln"
+            assert person == "Steve Jobs"
+            assert domain == "Technology, Design, Business"
+            return Tier1Result(
+                scenario_results=[
+                    ScenarioResult(
+                        scenario=f"Launch timing {index}",
+                        framework_response="Ship now",
+                        baseline_response="Wait",
+                        divergence_score=8,
+                        specificity_score=7,
+                        traceability_score=9,
+                        divergent=True,
+                    )
+                    for index in range(5)
+                ]
+            )
+
+        def fake_run_tier2(framework, tier1_scenarios, client=None):
+            assert framework["meta"]["person"] == "Abraham Lincoln"
+            assert len(tier1_scenarios) == 5
+            assert tier1_scenarios[0]["scenario"] == "Launch timing 0"
+            assert all(
+                set(scenario) == {"scenario", "framework_response"}
+                and scenario["framework_response"] == "Ship now"
+                for scenario in tier1_scenarios
+            )
+            return Tier2Result(
+                traceability_ratio=0.9,
+                lens_consistent=True,
+                contradictions=[],
+                per_scenario_details=[
+                    {
+                        "scenario": f"Launch timing {index}",
+                        "traceable_steps": 9,
+                        "total_steps": 10,
+                        "lens_aligned": True,
+                        "contradiction": None,
+                    }
+                    for index in range(5)
+                ],
+            )
+
+        monkeypatch.setattr("framework_forge.llm.LLMClient", DummyLLMClient)
+        monkeypatch.setattr("framework_forge.validation.tier1.run_tier1", fake_run_tier1)
+        monkeypatch.setattr("framework_forge.validation.tier2.run_tier2", fake_run_tier2)
+
+        runner = CliRunner()
+        result = runner.invoke(
+            cli,
+            [
+                "validate",
+                "--framework",
+                str(framework_path),
+                "--person",
+                "Steve Jobs",
+                "--domain",
+                "Technology, Design, Business",
+                "--mode",
+                "full",
+            ],
+        )
+
+        assert result.exit_code == 0, result.output
+        assert "Running Tier 1: Baseline Differentiation..." in result.output
+        assert "Running Tier 2: Internal Consistency..." in result.output
+        assert "Review packet saved to" in result.output
+
+        validation_dir = framework_dir / "validation"
+        tier1_path = validation_dir / "tier1_results.json"
+        tier2_path = validation_dir / "tier2_results.json"
+        tier3_path = validation_dir / "tier3_materials" / "review_packet.json"
+
+        assert tier1_path.exists()
+        assert tier2_path.exists()
+        assert tier3_path.exists()
+
+        tier1_data = json.loads(tier1_path.read_text(encoding="utf-8"))
+        tier2_data = json.loads(tier2_path.read_text(encoding="utf-8"))
+        tier3_data = json.loads(tier3_path.read_text(encoding="utf-8"))
+
+        assert tier1_data["passed"] is True
+        assert len(tier1_data["scenario_results"]) == 5
+        assert tier1_data["scenario_results"][0]["scenario"] == "Launch timing 0"
+        assert tier2_data["passed"] is True
+        assert tier2_data["traceability_ratio"] == 0.9
+        assert tier3_data["person"] == "Steve Jobs"
+        assert len(tier3_data["pairs"]) == 5

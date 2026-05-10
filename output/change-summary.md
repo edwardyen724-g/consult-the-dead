@@ -1,28 +1,28 @@
 # Change Summary
 
-Task: `1d6f42ad` - Add one more send-outreach branch-coverage test to clear the CTO gate
-Capsule: `1b2feb4a` - `wanman/send-outreach-script`
-
 ## Changed Files
-
-- `scripts/__tests__/send-outreach.branch-coverage.test.ts`
+- `tests/test_validation.py`
 
 ## What Changed
-
-- Added a dedicated branch-coverage test file for the send-outreach script.
-- Covered the remaining branch-sensitive paths:
-  - `firstName()` fallback when a string-like input trims to an empty token
-  - `sendOutreach()` with `env` omitted so it falls back to `process.env`
-  - `sendOutreach()` dry-run placeholder handling when a roster email is blank or missing
+- Added a CLI smoke test for `framework_forge.cli validate --mode full`.
+- The test copies a checked-in framework fixture (`frameworks/abraham-lincoln/framework.json`) into a temp sandbox.
+- It stubs Tier 1 and Tier 2 validation to keep the smoke focused on the CLI contract, then asserts:
+  - `validation/tier1_results.json` is written
+  - `validation/tier2_results.json` is written
+  - `validation/tier3_materials/review_packet.json` is written
+  - the CLI exits successfully and prints the expected stage messages
+- Removed unused imports from the test file while touching it.
 
 ## Verification
-
-- `npx tsx -e '(async () => { await import("./scripts/__tests__/send-outreach.test.ts"); await import("./scripts/__tests__/send-outreach.branch-coverage.test.ts"); })();'`
-  - Result: `58 tests passed`
-- `npx c8 --reporter=text --reporter=lcov npx tsx -e '(async () => { await import("./scripts/__tests__/send-outreach.test.ts"); await import("./scripts/__tests__/send-outreach.branch-coverage.test.ts"); })();'`
-  - Result: `scripts/send-outreach.ts` reached `97.19%` branch coverage and overall branch coverage hit `95.86%`
+- `env PYTHONPATH=. uv run --with pytest pytest tests/test_validation.py -q`
+  - Result: `12 passed`
+- `env PYTHONPATH=. uv run --with pytest --with pytest-cov pytest tests/test_validation.py --cov=framework_forge --cov-report=term-missing`
+  - Result: `12 passed`
+  - Coverage highlights:
+    - `framework_forge/cli.py`: 43%
+    - `framework_forge/validation/tier1.py`: 59%
+    - `framework_forge/validation/tier2.py`: 92%
+    - `framework_forge/validation/tier3_prep.py`: 100%
 
 ## Notes
-
-- Scope stayed inside `scripts/send-outreach*` only.
-- No runtime script changes were required; this was a test-only lift.
+- Unrelated repo changes were already present in `CONTENT_PIPELINE.md`, `MARKETING_STRATEGY.md`, and `output/marketing-notes.md`; I left them untouched.
