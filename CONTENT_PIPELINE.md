@@ -2,7 +2,7 @@
 
 **Status:** v1, source-of-truth. Updates here cascade to scheduled tasks + topic queue + production workflow.
 **Owner:** Edward
-**Last updated:** 2026-05-10
+**Last updated:** 2026-04-19
 
 This doc is the operating manual for content + Instagram. It exists separately from `MARKETING_STRATEGY.md` (high-level GTM) so the day-to-day rules don't get buried.
 
@@ -112,7 +112,7 @@ Each new article triggers: (a) Search Console URL inspection → "Request Indexi
 | **Profile visits** | Bridge metric — view → consideration | 3–5% of reach (months 1–3), 8%+ once recognized |
 | **Bio link clicks** | The conversion bridge. UTM-tagged so we attribute via Vercel Analytics. | 2–5% of profile visits |
 | **Free agons started** | The one true north metric. Track via `?utm_source=instagram&utm_medium=reels` in bio link. | 10% of link clicks → run started in month 1 |
-| **Email captures** | Beehiiv capture is live and treated as the durable asset. Daily Stoic / Farnam Street confirm: email is where the business lives. | live; track weekly signup volume and bio-link conversion |
+| **Email captures** | The durable asset. Daily Stoic / Farnam Street confirm: email is where the business lives. **Action: add email capture to consensus stage.** | n/a yet |
 
 Healthy overall engagement rate for niche accounts in 2026 = 1.5–3%. Below 1% = content not landing → iterate hooks first, then thumbnails, then topics.
 
@@ -183,9 +183,8 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 - **Stock voiceovers** — triggers AI-slop reaction
 - **Generic stock footage** — kills our visual differentiation
 
-### Email — resolved 2026-04-20: Beehiiv capture + newsletter
+### Email — resolved 2026-04-20: Beehiiv
 - Newsletter platform, not transactional. Free up to 2,500 subs.
-- Beehiiv is the canonical capture layer for the email list and the durable asset behind retention.
 - Built-in growth tools (recommendations, monetization).
 - Resend stays in the toolkit for future transactional needs (agon completion notifications, etc.) — different category.
 
@@ -193,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. Hand-curated and reviewed; 50+ entries seeded. Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. Hand-curated to start (50+ entries seeded). Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml
@@ -244,13 +243,15 @@ If a Reel hits 3× our typical reach AND the topic has search volume:
 
 ---
 
-## 10. Resolved decisions — 2026-05-10
+## 10. Open decisions — resolved 2026-04-20
 
-1. **Voice** → **F5-TTS** (open source clone of Edward's voice). Fallback: Chatterbox.
-2. **Email** → **Beehiiv** (capture + newsletter, free 2.5k subs). Resend reserved for future transactional.
-3. **`/decisions/` slug pattern** → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
-4. **Instagram handle** → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy: "Historical decision frameworks. Not mediumship."
-5. **First topic batch** → seeded in [topics.yaml](topics.yaml), reviewed, and ready for Phase 1 auto-generation.
+1. ~~Voice~~ → **F5-TTS** (open source clone of Edward's voice). Fallback: Chatterbox.
+2. ~~Email~~ → **Beehiiv** (newsletter, free 2.5k subs). Resend reserved for future transactional.
+3. ~~`/decisions/` slug pattern~~ → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
+4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
+5. ~~First topic batch~~ → seeded in [topics.yaml](topics.yaml). Edward to review and adjust before Phase 1 starts publishing.
+
+The remaining unresolved item is Edward's review of the topics.yaml seed list before we start auto-generating articles from it.
 
 ---
 

@@ -1,7 +1,7 @@
 # Monetization Playbook
 
 **Status:** Source of truth for monetization + GTM execution, April 2026 → April 2027.
-**Last updated:** 2026-05-10
+**Last updated:** 2026-04-22
 **Owner:** Edward
 **Supersedes:** monetization sections of [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) and §9 + §11 of [AGORA_PLAN.md](AGORA_PLAN.md). Content cadence in [CONTENT_PIPELINE.md](CONTENT_PIPELINE.md) is **reprioritized, not replaced** — see §9 below.
 
@@ -266,20 +266,21 @@ Remains as a landing-page CTA. Not integrated into Pro. If it gets taken up with
 
 ### Previous "5 open decisions" from 2026-04-19 project status
 
-1. ~~Voice (real vs ElevenLabs)~~ — resolved: F5-TTS voiceover stack, with Chatterbox fallback.
-2. ~~Email capture provider~~ — resolved: Beehiiv for capture; Resend stays reserved for transactional email.
-3. ~~`/decisions/{slug}` UX~~ — resolved: pre-loaded cached agons with run-your-own CTA.
-4. ~~Instagram handle~~ — resolved: `@consultthedead` with defensive registrations for `@consultthedead_official` and `@theconsultthedead`.
-5. ~~Concierge $29 on/off~~ — resolved: keep as optional landing CTA, not Pro feature.
+1. ~~Voice (real vs ElevenLabs)~~ — deferred to month 3+ when content ramps
+2. ~~Email capture provider~~ — **resolved: Clerk for auth + Resend for transactional in Phase 1**
+3. ~~`/decisions/{slug}` UX~~ — deferred to content phase (month 3+)
+4. ~~Instagram handle~~ — deferred, not on critical path
+5. ~~Concierge $29 on/off~~ — **resolved: keep as optional landing CTA, not Pro feature**
 
 ---
 
 ## 10. Open decisions (need input)
 
 1. **Target list (Phase 0 deliverable).** Who are the 30 names? Edward owns.
-2. **Reference case study topic.** Which real Edward decision is the hero case? Must be recent, specific, and resolve-able on camera.
-3. **Whether to keep "greatmind is open source" framing in the essay.** Open-source the *methodology* is defensible. Open-source the *product* contradicts charging for it. Essay needs a rewrite in Phase 2.
-4. **Pricing: $30 or $39?** $30 is the mental-model price. $39 is 30% more revenue per user, same perceived value. Test after first 10 customers.
+2. **Cold email voice.** First-person casual, or more formal pitch? Test variant.
+3. **Reference case study topic.** Which real Edward decision is the hero case? Must be recent, specific, and resolve-able on camera.
+4. **Whether to keep "greatmind is open source" framing in the essay.** Open-source the *methodology* is defensible. Open-source the *product* contradicts charging for it. Essay needs a rewrite in Phase 2.
+5. **Pricing: $30 or $39?** $30 is the mental-model price. $39 is 30% more revenue per user, same perceived value. Test after first 10 customers.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Goal:** Build a self-sustaining content engine that compounds over 90 days into 500+ weekly visitors and 50+ weekly agons started.
 **Approach:** Slow-burn, content-led, organic. **Not** a launch-spike strategy.
-**Last updated:** 2026-05-10
+**Last updated:** 2026-04-19
 
 This is the high-level GTM. The day-to-day operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md). Topic backlog in [`topics.yaml`](topics.yaml).
 
@@ -83,7 +83,7 @@ The full operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md).
 - **2-3 articles/week** — mix of evergreen `/insights/` and pain-state `/decisions/` pages, optimized for both Google ranking and AI-agent citation
 - **4-5 Verdict Reels/week + 1 carousel/week** on Instagram, faceless brand account, voiceover + kinetic text + product UI as B-roll
 - **Daily Stories** — low-effort, drives profile visits
-- **Topic queue:** [`topics.yaml`](topics.yaml), 50+ entries seeded and reviewed
+- **Topic queue:** [`topics.yaml`](topics.yaml), 25+ entries seeded
 - **Format pick (Verdict Reel) is data-backed** — we considered AI avatars and rejected them: Meta is suppressing AI-flagged content, audience reception in 2026 is actively negative
 
 ---
@@ -150,7 +150,7 @@ The biweekly metrics report (`ctd-biweekly-metrics-report` scheduled task) track
 - **Bio-link CTR from Instagram** (UTM-attributed)
 - **Saves / shares per Reel** (algorithm reach signal)
 - **3-second view rate per Reel** (hook health)
-- **Email captures** (durable asset — Beehiiv live)
+- **Email captures** (durable asset — pending implementation)
 
 ### 90-day targets (slow-burn)
 
@@ -162,7 +162,7 @@ The biweekly metrics report (`ctd-biweekly-metrics-report` scheduled task) track
 | Weekly site visitors | 50 | 200 | 500+ |
 | Weekly agons started | 5 | 20 | 50+ |
 | Instagram followers | 100 | 500 | 2,000+ |
-| Beehiiv subscribers from capture | 50 | 200+ | 500+ |
+| Email subscribers | n/a (TBD) | 50 | 200+ |
 
 If Day 90 numbers are met or exceeded → keep compounding, no launch event needed.
 If Day 90 numbers are missed by 3× → the format isn't working; revisit.
@@ -179,14 +179,14 @@ If Day 90 numbers are missed by 3× → the format isn't working; revisit.
 - This doc + CONTENT_PIPELINE + topics.yaml in place
 
 ### Phase 1 — content engine groundwork (next 1–2 weeks)
-- Edward implements the resolved F5-TTS voice stack, with Chatterbox as fallback
+- Edward picks voice approach (real voiceover vs ElevenLabs clone)
 - Article generation pipeline built (topic queue → AI draft → PR review → deploy → Search Console submit)
 - First 2-4 articles shipped
 - Edward records 5 manual reels using picked tooling, no automation yet
-- Beehiiv capture integrated on the consensus stage and wired into the retention flow
+- Email capture provider chosen + integrated on consensus stage
 
 ### Phase 2 — Instagram launch (weeks 3–4)
-- Faceless brand account created and locked to @consultthedead, with defensive registrations for @consultthedead_official and @theconsultthedead
+- Faceless brand account created (handle TBD: @consultthedead or @councilofthedead)
 - Profile bio + Stories highlights + first 5 reels published manually
 - Tracking established (UTM links, Vercel attribution)
 - 8+ articles shipped by end of phase
@@ -230,15 +230,15 @@ Google's Helpful Content Update penalizes them. AI agents don't cite them. Every
 
 ---
 
-## 10. Decision lock-in
+## 10. Open decisions (Edward needs to call)
 
-These are now canonical in `CONTENT_PIPELINE.md`; this section exists as the high-level GTM mirror.
+These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PIPELINE.md#10-open-decisions).
 
-1. **Voice** → **F5-TTS** (open source clone of Edward's voice). Fallback: Chatterbox.
-2. **Email provider** → **Beehiiv** (capture + newsletter, free 2.5k subs). Resend reserved for future transactional.
-3. **`/decisions/` slug pattern** → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
-4. **Instagram handle** → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy: "Historical decision frameworks. Not mediumship."
-5. **Concierge offer** → out of scope until Day 90 evaluation.
+1. **Voice:** real Edward voiceover OR ElevenLabs clone of Edward's voice?
+2. **Email provider:** ConvertKit / Beehiiv / Resend / build-our-own?
+3. **`/decisions/` slug pattern:** want pre-loaded agons, or just landing pages with "run yours" CTAs?
+4. **Instagram handle:** @consultthedead, @councilofthedead, or alternative?
+5. ~~Concierge offer~~ — resolved 2026-04-20: out of scope until Day 90 evaluation.
 
 ---
 
