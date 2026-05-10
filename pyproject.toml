@@ -14,14 +14,10 @@ dependencies = [
 dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
-    "pytest-cov>=5.0.0",
 ]
 
 [tool.setuptools.packages.find]
 include = ["framework_forge*"]
-
-[tool.pytest.ini_options]
-pythonpath = ["."]
 
 [project.scripts]
 framework-forge = "framework_forge.cli:cli"
