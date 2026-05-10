@@ -1,4 +1,50 @@
+# 2026-05-09 Shared CTA attribution helper for funnel events
+
+## Files Changed
+- `website/src/lib/cta-attribution.ts`
+- `website/src/lib/cta-attribution.test.ts`
+
+## What Changed
+- Added a reusable `buildCtaEventProps()` helper for funnel CTA events.
+- The helper serializes the source surface and optional campaign/content labels into canonical `utm_source`, `utm_campaign`, and `utm_content` analytics props.
+- Extra event metadata can be merged into the payload without overriding the canonical UTM keys.
+- Added focused regression coverage for trimming, blank-value dropping, extra-prop merging, canonical key precedence, and the blank-source fallback branch.
+
+## Verification
+- `cd website && wcx npm test -- src/lib/cta-attribution.test.ts`
+- `cd website && wcx npm run coverage -- src/lib/cta-attribution.test.ts`
+- `cd website && wcx npm run lint -- src/lib/cta-attribution.ts src/lib/cta-attribution.test.ts`
+
+## Results
+- Targeted vitest run: `5 passed`
+- Coverage artifact: `src/lib/cta-attribution.ts` at `100%` lines, `100%` branches, `100%` functions in `coverage/lcov.info`
+- ESLint: passed
+
 # Change Summary
+
+## 2026-05-09 Company-builder command palette regression coverage
+
+### Files Changed
+- `company-builder/src/components/shared/CommandPalette.test.tsx`
+- `company-builder/src/lib/events.test.ts`
+
+### What Changed
+- Expanded command-palette regression coverage to lock down:
+  - Cmd+K / Ctrl+K open-close toggling and Escape close behavior,
+  - query filtering via labels, keywords, and blank-query passthrough,
+  - command catalog actions for placed minds, unplaced minds, export, sidebar toggle, debate toggle, history toggle, and the connected-canvas start-debate branch.
+- Added a small local test helper to build catalog dependencies without repeating boilerplate.
+- Fixed the `events.test.ts` window stub type so repo-wide `tsc --noEmit` stays green.
+
+### Verification
+- `npx tsc --noEmit`
+- `npx --yes tsx --test src/components/shared/CommandPalette.test.tsx src/lib/events.test.ts`
+- `npx eslint src/components/shared/CommandPalette.test.tsx src/lib/events.test.ts`
+
+### Results
+- Typecheck: passed
+- Test run: `5 passed`
+- ESLint: passed
 
 ## 2026-05-09 Auth landing shell + reversible history primitives
 
@@ -111,3 +157,58 @@
 - Python coverage: `framework_forge.sources` at `100%` line coverage in the targeted run
 - Agora vitest file: `3 passed`
 - Agora coverage run: `22 passed`, coverage command completed successfully
+
+## 2026-05-09 Framework Forge pipeline orchestrator
+
+### Files Changed
+- `framework_forge/pipeline.py`
+- `tests/test_pipeline.py`
+
+### What Changed
+- Added a module-level Framework Forge pipeline orchestrator that:
+  - discovers and persists source bibliography data,
+  - mirrors the source text corpus into the output tree,
+  - identifies candidate incidents,
+  - reconstructs incidents,
+  - builds the framework JSON, and
+  - runs validation in sequence.
+- Added a `click` CLI entry point for the orchestrator so it can be invoked as a single command from the module.
+- Added regression tests for:
+  - the end-to-end happy path,
+  - the CLI wiring,
+  - helper branch coverage,
+  - validation guard rails, and
+  - the floor-check / tier validation error paths.
+
+### Verification
+- `PYTHONPATH=. uv run --with pytest --with pytest-cov pytest --cov=framework_forge.pipeline --cov-report=term-missing -q tests/test_pipeline.py`
+
+### Results
+- `4 passed`
+- `framework_forge/pipeline.py` coverage: `99%` line coverage in the targeted run
+
+## 2026-05-09 Reusable Framework Forge pipeline runner
+
+### Files Changed
+- `framework_forge/pipeline.py`
+- `tests/test_pipeline.py`
+
+### What Changed
+- Added `FrameworkForgePipelineRunner`, a reusable Python-facing runner that exposes the Framework Forge stages as explicit methods:
+  - `run_discovery()`
+  - `prepare_source_texts()`
+  - `run_incident_identification()`
+  - `run_reconstruction()`
+  - `run_build()`
+  - `run_validation()`
+- Kept `run_pipeline()` as a thin compatibility wrapper over the runner, and wired the CLI through the same path with injectable output emission.
+- Preserved the existing missing-source guard so a bad corpus path still fails before discovery runs.
+- Added a direct runner regression test that exercises the stage methods from Python without going through the click command.
+
+### Verification
+- `PYTHONPATH=. uv run pytest tests/test_pipeline.py`
+- `PYTHONPATH=. uv run pytest tests/test_pipeline.py --cov=framework_forge.pipeline --cov-report=term-missing`
+
+### Results
+- `5 passed`
+- `framework_forge/pipeline.py` coverage: `99%` line coverage in the targeted run
