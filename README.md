@@ -6,6 +6,14 @@ This repo holds Consult The Dead: a Next.js debate app under [`/company-builder`
 
 The landing page lives in [`/website`](./website). The framework-extraction pipeline lives in [`/framework_forge`](./framework_forge).
 
+The public website now exposes the framework detail preview contract through slug-scoped route files:
+
+- `/frameworks/[slug]`
+- `/frameworks/[slug]/opengraph-image`
+- `/frameworks/[slug]/twitter-image`
+
+Those preview-image routes are generated from the same framework record as the detail page and should stay aligned with `website/src/lib/frameworks.ts` (`ALLOWED_SLUGS`, metadata counts, and the live roster).
+
 ## Pricing
 
 | Tier | Cost | Agons | Council | Model |
