@@ -24,6 +24,7 @@ export default defineConfig({
         "src/**/*.d.ts",
         "src/**/*.test.ts",
         "src/**/*.test.tsx",
+        "src/app/**/route.ts", // API routes stay integration-tested
         "src/middleware.ts",
       ],
       thresholds: {
