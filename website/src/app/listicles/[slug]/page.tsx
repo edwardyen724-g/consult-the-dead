@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import {
   LISTICLE_SLUGS,
   buildCtaUrl,
+  buildListicleShareImageUrls,
   isListicleSlug,
   listicleCanonicalUrl,
   loadListicleContent,
@@ -32,6 +33,7 @@ export async function generateMetadata({
   if (!content) return { title: "Not Found" };
 
   const canonical = listicleCanonicalUrl(content.slug);
+  const shareImageUrls = buildListicleShareImageUrls(content.slug);
   return {
     title: content.h1,
     description: content.metaDescription,
@@ -40,11 +42,13 @@ export async function generateMetadata({
       description: content.metaDescription,
       url: canonical,
       type: "article",
+      images: [shareImageUrls.openGraph],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: content.h1,
       description: content.metaDescription,
+      images: [shareImageUrls.twitter],
     },
     alternates: { canonical },
   };

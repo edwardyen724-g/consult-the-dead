@@ -2,7 +2,13 @@ import { describe, expect, it } from "vitest";
 
 import {
   LISTICLE_SLUGS,
+  LISTICLE_SHARE_IMAGE_HEIGHT,
+  LISTICLE_SHARE_IMAGE_WIDTH,
   SITE_URL,
+  buildListicleShareCardCopy,
+  buildListicleShareImagePath,
+  buildListicleShareImageUrl,
+  buildListicleShareImageUrls,
   buildCtaUrl,
   isListicleSlug,
   listicleCanonicalUrl,
@@ -266,5 +272,73 @@ describe("listicleCanonicalUrl", () => {
   it("uses https + www subdomain to match sitemap.ts SITE_URL", () => {
     // Acceptance gate: same origin as the rest of the sitemap so dedupe works.
     expect(SITE_URL).toBe("https://www.consultthedead.com");
+  });
+});
+
+describe("share-card helpers", () => {
+  it("keeps the image size aligned with the existing Open Graph share format", () => {
+    expect(LISTICLE_SHARE_IMAGE_WIDTH).toBe(1200);
+    expect(LISTICLE_SHARE_IMAGE_HEIGHT).toBe(630);
+  });
+
+  it("builds safe absolute image URLs for both Open Graph and Twitter routes", () => {
+    expect(buildListicleShareImagePath("startup-pivot")).toBe(
+      "/listicles/startup-pivot/opengraph-image",
+    );
+    expect(buildListicleShareImagePath("startup-pivot", "twitter")).toBe(
+      "/listicles/startup-pivot/twitter-image",
+    );
+    expect(buildListicleShareImageUrl("startup-pivot")).toBe(
+      "https://www.consultthedead.com/listicles/startup-pivot/opengraph-image",
+    );
+    expect(buildListicleShareImageUrl("startup-pivot", "twitter", "consultthedead.com/")).toBe(
+      "https://consultthedead.com/listicles/startup-pivot/twitter-image",
+    );
+    expect(buildListicleShareImageUrls("startup-pivot")).toEqual({
+      openGraph:
+        "https://www.consultthedead.com/listicles/startup-pivot/opengraph-image",
+      twitter:
+        "https://www.consultthedead.com/listicles/startup-pivot/twitter-image",
+    });
+  });
+
+  it("rejects unsafe image slugs and empty origins", () => {
+    expect(buildListicleShareImagePath("with space")).toBeNull();
+    expect(buildListicleShareImageUrl("with space")).toBeNull();
+    expect(buildListicleShareImageUrl("startup-pivot", "twitter", "   ")).toBeNull();
+    expect(buildListicleShareImageUrl("startup-pivot", "twitter", "/")).toBeNull();
+    expect(buildListicleShareImageUrls("with space")).toEqual({
+      openGraph: "",
+      twitter: "",
+    });
+  });
+
+  it("uses the listicle content to compose title, council cue, and CTA copy", () => {
+    const content = loadListicleContent("startup-pivot");
+    expect(content).not.toBeNull();
+
+    const copy = buildListicleShareCardCopy(content, "startup-pivot");
+    expect(copy).toEqual({
+      eyebrow: "LISTICLE",
+      title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
+      councilCueLabel: "Council cue",
+      councilCue: "Niccolò Machiavelli · Sun Tzu · Isaac Newton",
+      ctaHeadline: "Continue this debate on your actual startup decision",
+      ctaButtonLabel: "Run this debate in the Agora",
+      ctaSubtext: "Free. No signup required for your first 3 debates.",
+    });
+  });
+
+  it("falls back to slug-derived title and generic CTA copy when content is missing", () => {
+    const copy = buildListicleShareCardCopy(null, "career-change");
+    expect(copy).toEqual({
+      eyebrow: "LISTICLE",
+      title: "Career Change",
+      councilCueLabel: "Council cue",
+      councilCue: "Recommended council",
+      ctaHeadline: "Read the listicle, then run your own council",
+      ctaButtonLabel: "Open in Agora →",
+      ctaSubtext: "Pre-filled with the recommended minds.",
+    });
   });
 });

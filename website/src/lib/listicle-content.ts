@@ -188,3 +188,109 @@ export function buildCtaUrl(content: ListicleContent): string {
 export function listicleCanonicalUrl(slug: ListicleSlug): string {
   return `${SITE_URL}/listicles/${slug}`;
 }
+
+/* ── Share-card helpers ── */
+
+const SAFE_SLUG_PATTERN = /^[A-Za-z0-9_-]+$/;
+
+export const LISTICLE_SHARE_IMAGE_WIDTH = 1200;
+export const LISTICLE_SHARE_IMAGE_HEIGHT = 630;
+export const LISTICLE_SHARE_IMAGE_ORIGIN = SITE_URL;
+
+export type ListicleShareImageKind = "opengraph" | "twitter";
+
+export interface ListicleShareCardCopy {
+  eyebrow: string;
+  title: string;
+  councilCueLabel: string;
+  councilCue: string;
+  ctaHeadline: string;
+  ctaButtonLabel: string;
+  ctaSubtext: string;
+}
+
+function normalizeOrigin(origin: string): string {
+  const trimmed = origin.trim().replace(/\/+$/u, "");
+  if (!trimmed) return "";
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return `https://${trimmed}`;
+}
+
+function titleFromSlug(slug: string): string {
+  const clean = slug.trim().replace(/[-_]+/gu, " ");
+  if (!clean) return "Consult The Dead";
+  return clean
+    .split(/\s+/u)
+    .map((part) => (part ? part[0].toUpperCase() + part.slice(1) : part))
+    .join(" ");
+}
+
+export function buildListicleShareImagePath(
+  slug: string,
+  kind: ListicleShareImageKind = "opengraph",
+): string | null {
+  if (typeof slug !== "string") return null;
+  const id = slug.trim();
+  if (!id || !SAFE_SLUG_PATTERN.test(id)) return null;
+  return `/listicles/${id}/${kind}-image`;
+}
+
+export function buildListicleShareImageUrl(
+  slug: string,
+  kind: ListicleShareImageKind = "opengraph",
+  origin: string = LISTICLE_SHARE_IMAGE_ORIGIN,
+): string | null {
+  const path = buildListicleShareImagePath(slug, kind);
+  if (!path) return null;
+  const normalized = normalizeOrigin(origin);
+  if (!normalized) return null;
+  return `${normalized}${path}`;
+}
+
+export interface ListicleShareImageUrls {
+  openGraph: string;
+  twitter: string;
+}
+
+export function buildListicleShareImageUrls(
+  slug: string,
+  origin: string = LISTICLE_SHARE_IMAGE_ORIGIN,
+): ListicleShareImageUrls {
+  const path = buildListicleShareImagePath(slug);
+  const normalized = normalizeOrigin(origin);
+  if (!path || !normalized) {
+    return { openGraph: "", twitter: "" };
+  }
+  return {
+    openGraph: `${normalized}${path}`,
+    twitter: `${normalized}${path.replace("/opengraph-image", "/twitter-image")}`,
+  };
+}
+
+export function buildListicleShareCardCopy(
+  content: ListicleContent | null | undefined,
+  fallbackSlug = "",
+): ListicleShareCardCopy {
+  const minds = content?.minds ?? [];
+  const title = content?.h1?.trim() || titleFromSlug(fallbackSlug);
+  const councilCue =
+    minds.length > 0
+      ? minds
+          .slice(0, 3)
+          .map((mind) => mind.name.trim())
+          .filter((name) => name.length > 0)
+          .join(" · ")
+      : "";
+
+  return {
+    eyebrow: "LISTICLE",
+    title,
+    councilCueLabel: "Council cue",
+    councilCue: councilCue || "Recommended council",
+    ctaHeadline:
+      content?.ctaHeadline?.trim() || "Read the listicle, then run your own council",
+    ctaButtonLabel: content?.ctaButtonLabel?.trim() || "Open in Agora →",
+    ctaSubtext:
+      content?.ctaSubtext?.trim() || "Pre-filled with the recommended minds.",
+  };
+}

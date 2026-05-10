@@ -5,6 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   LISTICLE_SLUGS,
   buildCtaUrl,
+  buildListicleShareImageUrl,
   listicleCanonicalUrl,
   loadListicleContent,
 } from "@/lib/listicle-content";
@@ -71,27 +72,33 @@ describe("generateMetadata", () => {
       params: Promise.resolve({ slug: "startup-pivot" }),
     });
 
-    expect(metadata).toMatchObject({
-      title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
-      description:
-        "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
+      expect(metadata).toMatchObject({
+        title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
+        description:
+          "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
       alternates: {
         canonical: listicleCanonicalUrl("startup-pivot"),
       },
-      openGraph: {
-        title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
-        description:
-          "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
-        url: listicleCanonicalUrl("startup-pivot"),
-        type: "article",
-      },
-      twitter: {
-        card: "summary",
-        title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
-        description:
-          "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
-      },
-    });
+        openGraph: {
+          title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
+          description:
+            "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
+          url: listicleCanonicalUrl("startup-pivot"),
+          type: "article",
+          images: [
+            buildListicleShareImageUrl("startup-pivot", "opengraph"),
+          ],
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
+          description:
+            "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
+          images: [
+            buildListicleShareImageUrl("startup-pivot", "twitter"),
+          ],
+        },
+      });
   });
 
   it("returns a Not Found title for unknown slugs", async () => {
