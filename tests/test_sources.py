@@ -1,8 +1,6 @@
 """Tests for source discovery, fetching, and triage."""
 
-import json
-import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 from framework_forge.config import SOURCE_TYPES
 from framework_forge.sources.triage import triage_sources, SourceEntry
 from framework_forge.sources.fetcher import clean_html, fetch_source
