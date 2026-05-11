@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Webhook } from 'svix'
 import Stripe from 'stripe'
 import { clerkClient } from '@clerk/nextjs/server'
-import { sendWelcomeEmail } from '@/lib/email'
+import { sendWelcome } from '@/lib/emails'
 import { trackEvent } from '@/lib/analytics'
 import { extractUtmFromClerkMetadata } from '@/lib/utm'
 
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     if (email) {
       const { first_name } = data
       try {
-        await sendWelcomeEmail(email, first_name ?? '')
+        await sendWelcome(email, { firstName: first_name })
       } catch {
         // Email failure must not block the webhook response
       }

@@ -8,10 +8,21 @@
     "born": "69 BC",
     "died": "30 BC",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Plutarch, Life of Antony (c. 100 CE) — primary narrative source for Cleopatra's alliance with Antony; gutenberg.org/ebooks/14137",
+      "Caesar, Bellum Civile, Book 3 (c. 47 BCE) — Caesar's own account of the Alexandrian War and Cleopatra",
+      "Strabo, Geography, Book 17 (c. 20 BCE) — contemporary description of Ptolemaic Egypt and Alexandria",
+      "Appian, Civil Wars, Books 2–5 (c. 150 CE) — account of the triumviral period and Cleopatra's role",
+      "Cassius Dio, Roman History, Books 42–51 (c. 220 CE) — detailed account of Cleopatra's political maneuvers"
+    ],
+    "secondary_sources": [
+      "Duane W. Roller, Cleopatra: A Biography (2010) — standard modern scholarly biography",
+      "Stanley M. Burstein, The Reign of Cleopatra (2004)",
+      "Joann Fletcher, Cleopatra the Great: The Woman Behind the Legend (2008)",
+      "Adrian Goldsworthy, Antony and Cleopatra (2010)"
+    ],
+    "incident_count": 28,
+    "construct_count": 12,
     "prediction_count": 5
   },
   "perceptual_lens": {

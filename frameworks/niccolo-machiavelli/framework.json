@@ -8,10 +8,22 @@
     "born": "1469",
     "died": "1527",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Niccolo Machiavelli, The Prince (1532, written 1513) — gutenberg.org/ebooks/1232",
+      "Niccolo Machiavelli, Discourses on Livy (written c. 1517, pub. 1531) — gutenberg.org/ebooks/10827",
+      "Niccolo Machiavelli, The Art of War (1521) — gutenberg.org/ebooks/10817",
+      "Niccolo Machiavelli, Florentine Histories (1525) — gutenberg.org/ebooks/10821",
+      "Niccolo Machiavelli, Letter to Francesco Vettori, December 10, 1513 — brown.edu/Departments/Italian_Studies/dweb/texts/letters.php",
+      "Niccolo Machiavelli, Private Letters (1498–1527) — diplomatic correspondence and personal letters to Vettori, Guicciardini, and others"
+    ],
+    "secondary_sources": [
+      "Miles Unger, Machiavelli: A Biography (2011) — standard modern scholarly biography",
+      "John Najemy, Between Friends: Discourses of Power and Desire in the Machiavelli-Vettori Letters (1993)",
+      "Mikael Hornqvist, Machiavelli and Empire (2004)",
+      "Quentin Skinner, Machiavelli (1981) — Oxford University Press Very Short Introduction"
+    ],
+    "incident_count": 28,
+    "construct_count": 10,
     "prediction_count": 6
   },
   "perceptual_lens": {

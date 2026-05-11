@@ -1,13 +1,15 @@
 /**
- * Unit tests for the Clerk webhook handler — specifically the funnel
- * `free_signup` instrumentation added in capsule 3c20ad0a.
+ * Unit tests for the Clerk webhook handler — covering both the funnel
+ * `free_signup` instrumentation (capsule 3c20ad0a) and the welcome email
+ * wiring via sendWelcome from @/lib/emails (task 94fddecc).
  *
  * Strategy: vitest `vi.mock` is used to stub svix (signature verification),
  * @clerk/nextjs/server, stripe, the welcome-email side effect, and the
  * analytics helper. We then POST fabricated svix headers + a JSON body to
- * the route's `POST` handler and assert how `trackEvent` was invoked.
+ * the route's `POST` handler and assert how `trackEvent` and `sendWelcome`
+ * were invoked.
  *
- * Coverage gate (per capsule 3c20ad0a acceptance):
+ * Coverage gate:
  *   1. Happy path — UTM present in publicMetadata → trackEvent called with
  *      {plan:'free', clerk_user_id, utm_source, utm_campaign} populated.
  *   2. Missing-UTM path — no UTM anywhere → trackEvent still called with
@@ -20,6 +22,9 @@
  *   5. Non-user.created events do NOT fire trackEvent.
  *   6. Invalid svix signature returns 400 (regression-guard for the existing
  *      verify path).
+ *   7. sendWelcome is called with email + firstName on user.created.
+ *   8. sendWelcome failure does not break the webhook (still 200).
+ *   9. sendWelcome is NOT called for non-user.created events.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -34,7 +39,7 @@ const mocks = vi.hoisted(() => ({
   verifyMock: vi.fn(),
   stripeCustomersCreate: vi.fn(),
   updateUserMetadataMock: vi.fn(),
-  sendWelcomeEmailMock: vi.fn(),
+  sendWelcomeMock: vi.fn(),
   trackEventMock: vi.fn(),
 }));
 
@@ -56,8 +61,8 @@ vi.mock("@clerk/nextjs/server", () => ({
   })),
 }));
 
-vi.mock("@/lib/email", () => ({
-  sendWelcomeEmail: mocks.sendWelcomeEmailMock,
+vi.mock("@/lib/emails", () => ({
+  sendWelcome: mocks.sendWelcomeMock,
 }));
 
 vi.mock("@/lib/analytics", () => ({
@@ -68,7 +73,7 @@ const {
   verifyMock,
   stripeCustomersCreate,
   updateUserMetadataMock,
-  sendWelcomeEmailMock,
+  sendWelcomeMock,
   trackEventMock,
 } = mocks;
 
@@ -82,6 +87,7 @@ import { POST } from "./route";
 interface UserCreatedFixtureOpts {
   clerkUserId?: string;
   email?: string;
+  firstName?: string | null;
   publicMetadata?: Record<string, unknown>;
   unsafeMetadata?: Record<string, unknown>;
 }
@@ -90,6 +96,7 @@ function userCreatedEvent(opts: UserCreatedFixtureOpts = {}) {
   const {
     clerkUserId = "user_test_abc",
     email = "buyer@example.com",
+    firstName = "Sam",
     publicMetadata,
     unsafeMetadata,
   } = opts;
@@ -99,7 +106,7 @@ function userCreatedEvent(opts: UserCreatedFixtureOpts = {}) {
       id: clerkUserId,
       email_addresses: [{ id: "ea_1", email_address: email }],
       primary_email_address_id: "ea_1",
-      first_name: "Sam",
+      first_name: firstName,
       last_name: "Quill",
       public_metadata: publicMetadata,
       unsafe_metadata: unsafeMetadata,
@@ -126,7 +133,7 @@ beforeEach(() => {
   verifyMock.mockReset();
   stripeCustomersCreate.mockReset().mockResolvedValue({ id: "cus_test_123" });
   updateUserMetadataMock.mockReset().mockResolvedValue({});
-  sendWelcomeEmailMock.mockReset().mockResolvedValue({});
+  sendWelcomeMock.mockReset().mockResolvedValue({ ok: true, messageId: "msg_1", dryRun: false });
   trackEventMock.mockReset().mockResolvedValue(true);
 });
 
@@ -264,5 +271,66 @@ describe("POST /api/webhooks/clerk — free_signup funnel instrumentation", () =
     expect(res.status).toBe(400);
     expect(verifyMock).not.toHaveBeenCalled();
     expect(trackEventMock).not.toHaveBeenCalled();
+  });
+});
+
+describe("POST /api/webhooks/clerk — sendWelcome wiring (task 94fddecc)", () => {
+  it("calls sendWelcome with email and firstName on user.created", async () => {
+    const fixture = userCreatedEvent({
+      clerkUserId: "user_welcome",
+      email: "alice@example.com",
+      firstName: "Alice",
+    });
+    verifyMock.mockReturnValue(fixture);
+
+    const res = await POST(makeRequest(fixture) as never);
+
+    expect(res.status).toBe(200);
+    expect(sendWelcomeMock).toHaveBeenCalledTimes(1);
+    expect(sendWelcomeMock).toHaveBeenCalledWith("alice@example.com", {
+      firstName: "Alice",
+    });
+  });
+
+  it("calls sendWelcome with firstName null when not provided", async () => {
+    const fixture = userCreatedEvent({
+      clerkUserId: "user_no_name",
+      email: "noname@example.com",
+      firstName: null,
+    });
+    verifyMock.mockReturnValue(fixture);
+
+    const res = await POST(makeRequest(fixture) as never);
+
+    expect(res.status).toBe(200);
+    expect(sendWelcomeMock).toHaveBeenCalledWith("noname@example.com", {
+      firstName: null,
+    });
+  });
+
+  it("does not let sendWelcome failure break the webhook (still 200)", async () => {
+    sendWelcomeMock.mockRejectedValueOnce(new Error("Resend API down"));
+    const fixture = userCreatedEvent({ clerkUserId: "user_email_fail" });
+    verifyMock.mockReturnValue(fixture);
+
+    const res = await POST(makeRequest(fixture) as never);
+
+    expect(res.status).toBe(200);
+    // Stripe customer + Clerk metadata update must still have completed.
+    expect(stripeCustomersCreate).toHaveBeenCalledTimes(1);
+    expect(updateUserMetadataMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("does NOT call sendWelcome for non-user.created events", async () => {
+    const fixture = {
+      type: "user.updated",
+      data: { id: "user_update", email_addresses: [], primary_email_address_id: "" },
+    };
+    verifyMock.mockReturnValue(fixture);
+
+    const res = await POST(makeRequest(fixture) as never);
+
+    expect(res.status).toBe(200);
+    expect(sendWelcomeMock).not.toHaveBeenCalled();
   });
 });
