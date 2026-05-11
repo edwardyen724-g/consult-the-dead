@@ -343,6 +343,30 @@ describe("sendOutreach dry-run", () => {
     expect(r.status).toBe("dry-run");
   });
 
+  it("falls back to the empty-string branch when a roster email becomes nullish", async () => {
+    const recipient = OUTREACH_LIST.find((r) => r.slug === "abhishek-chakravarty");
+    if (!recipient) {
+      throw new Error("missing expected outreach recipient");
+    }
+
+    const originalEmail = recipient.email;
+    try {
+      recipient.email = undefined as unknown as string;
+      const result = await sendOutreach({
+        slug: recipient.slug,
+        dryRun: true,
+        env: {},
+      });
+
+      expect(result.to).toBe(
+        "(no email yet — pass --to or fill in outreach-list.ts before sending)",
+      );
+      expect(result.subject).toContain("3 dead strategists argued");
+    } finally {
+      recipient.email = originalEmail;
+    }
+  });
+
   it("rejects unknown slugs with OutreachError", async () => {
     let caught: unknown = null;
     try {
