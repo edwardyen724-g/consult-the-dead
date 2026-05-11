@@ -191,10 +191,82 @@ describe("Agora public share page", () => {
     expect(html).toContain(
       'href="/agora?utm_campaign=launch&amp;utm_content=hero"',
     );
-    expect(html).toContain("Run your own agon →");
+    expect(html).toContain("Start a new consultation →");
+    expect(html).toContain("Share this agon");
     expect(html).toContain("Consult The Dead — The Agora");
     expect(html).toContain("Measure the tradeoff.");
     expect(html).toContain("Set a short decision deadline.");
+  });
+
+  it("renders the highlight insight pull-quote when consensus has a usable action", async () => {
+    getPublicAgonByShareIdMock.mockResolvedValueOnce({
+      share_id: "share-highlight",
+      topic: "How should we prioritize our backlog?",
+      mind_slugs: ["sun-tzu"],
+      rounds: 1,
+      turns: [],
+      consensus: {
+        points: "Focus on the highest-leverage item first.",
+        tensions: "Short-term pressure conflicts with long-term strategy.",
+        action: "Rank items by impact-to-effort ratio and cut everything below the fold.",
+        steps: [],
+        risks: "Tunnel vision risk.",
+      },
+      research: null,
+    });
+
+    const html = renderToStaticMarkup(
+      await PublicAgonPage({
+        params: Promise.resolve({ id: "share-highlight" }),
+        searchParams: Promise.resolve({}),
+      }),
+    );
+
+    expect(html).toContain("Recommended action");
+    expect(html).toContain("Rank items by impact-to-effort ratio");
+  });
+
+  it("omits the highlight pull-quote when consensus is null", async () => {
+    getPublicAgonByShareIdMock.mockResolvedValueOnce({
+      share_id: "share-no-consensus",
+      topic: "No consensus agon",
+      mind_slugs: ["sun-tzu"],
+      rounds: 1,
+      turns: [],
+      consensus: null,
+      research: null,
+    });
+
+    const html = renderToStaticMarkup(
+      await PublicAgonPage({
+        params: Promise.resolve({ id: "share-no-consensus" }),
+        searchParams: Promise.resolve({}),
+      }),
+    );
+
+    expect(html).not.toContain("Recommended action");
+  });
+
+  it("renders the share-this-agon link pointing to the canonical share URL", async () => {
+    getPublicAgonByShareIdMock.mockResolvedValueOnce({
+      share_id: "share-abc123",
+      topic: "Test share URL",
+      mind_slugs: ["sun-tzu"],
+      rounds: 1,
+      turns: [],
+      consensus: null,
+      research: null,
+    });
+
+    const html = renderToStaticMarkup(
+      await PublicAgonPage({
+        params: Promise.resolve({ id: "share-abc123" }),
+        searchParams: Promise.resolve({}),
+      }),
+    );
+
+    expect(html).toContain('href="https://www.consultthedead.com/agora/a/share-abc123"');
+    expect(html).toContain("Share this agon");
   });
 
   it("renders fallback mind metadata for stale slugs without crashing", async () => {
