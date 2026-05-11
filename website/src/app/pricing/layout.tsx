@@ -8,6 +8,8 @@ import {
 const title = getPricingMetadataTitle();
 const description = getPricingMetadataDescription();
 const card = getPricingSharePreviewCard();
+const openGraphImage = "https://www.consultthedead.com/pricing/opengraph-image";
+const twitterImage = "https://www.consultthedead.com/pricing/twitter-image";
 
 export const metadata: Metadata = {
   title,
@@ -15,17 +17,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.consultthedead.com/pricing",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title,
     description,
     url: "https://www.consultthedead.com/pricing",
     type: "website",
     siteName: "Consult The Dead",
+    images: [openGraphImage],
   },
   twitter: {
     card,
     title,
     description,
+    images: [twitterImage],
   },
 };
 
