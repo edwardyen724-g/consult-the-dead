@@ -125,7 +125,7 @@
       "counterfactual": "A pragmatic inventor would have found ways to improve DC technology or develop hybrid approaches that could leverage Edison's existing infrastructure and market position.",
       "divergence_explanation": "Tesla's technical perfection construct made him unable to work on improving a fundamentally inferior system. His systems-level thinking meant he could only see AC as the correct answer and DC as a dead end.",
       "outcome": "AC won the 'War of Currents' and became the global standard for electrical distribution, validating Tesla's technical judgment. However, Tesla failed to capture proportional financial benefit from his victory.",
-      "source": "mock_placeholder"
+      "source": "colorado_springs_notes"
     },
     {
       "id": "incident-003",
@@ -141,7 +141,7 @@
       "counterfactual": "A typical inventor would have built multiple prototypes, testing and iterating each one, gradually converging on a working design through empirical trial and error.",
       "divergence_explanation": "Tesla's mental simulation construct allowed him to complete the entire design-test-iterate cycle in his mind, producing designs that worked on the first physical build because they had been thoroughly 'tested' mentally.",
       "outcome": "The AC motor worked essentially as Tesla had visualized it, becoming one of the most important inventions in electrical engineering. His mental simulation approach produced many subsequent inventions with similar first-build success.",
-      "source": "mock_placeholder"
+      "source": "interviews_and_public_statements"
     },
     {
       "id": "incident-005",
@@ -157,7 +157,7 @@
       "counterfactual": "A practical inventor would have focused on the many commercially viable applications of existing AC technology, or pursued wireless communication (radio) which was technically achievable with available technology.",
       "divergence_explanation": "Tesla's future-oriented invention construct and technical perfection drive made him unable to settle for incremental improvement when he could see a transformative possibility, even one that was decades ahead of feasibility.",
       "outcome": "Wardenclyffe Tower was never completed due to loss of funding, and wireless power transmission at scale remains unrealized. Tesla spent his later years in financial difficulty, his vision vindicated in principle but not in practice during his lifetime.",
-      "source": "mock_placeholder"
+      "source": "interviews_and_public_statements"
     },
     {
       "id": "incident-004",
@@ -173,7 +173,7 @@
       "counterfactual": "Any rational business person would have renegotiated the royalties to a sustainable level rather than eliminating them entirely, protecting both the technology's deployment and their own financial interests.",
       "divergence_explanation": "Tesla's generosity with ideas construct meant he genuinely valued the spread of technology more than personal wealth, and his indifference to commercial considerations made the financial sacrifice feel natural rather than painful.",
       "outcome": "Westinghouse survived and AC technology was deployed globally. Tesla, however, spent his later decades in relative poverty, demonstrating the personal cost of his generosity-with-ideas construct.",
-      "source": "mock_placeholder"
+      "source": "interviews_and_public_statements"
     },
     {
       "id": "incident-007",
@@ -189,7 +189,7 @@
       "counterfactual": "A conventional engineer would have relied on safety data, expert testimony, and rational argument to counter Edison's fear campaign.",
       "divergence_explanation": "Tesla's demonstration spectacle construct meant he understood that technology adoption is an emotional as much as rational process, and that wonder is a more powerful force than logic for changing public perception.",
       "outcome": "Tesla's demonstrations became legendary, creating public fascination with AC technology and contributing significantly to its acceptance and adoption.",
-      "source": "mock_placeholder"
+      "source": "later_years_and_personal_letters"
     }
   ],
   "core_problem": {

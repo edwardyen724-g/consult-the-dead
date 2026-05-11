@@ -1,0 +1,17 @@
+{
+  "slug": "marie-curie",
+  "h1": "Marie Curie — The Mind That Measures First",
+  "metaDescription": "Marie Curie identifies what's unmeasured and exposes the gap between what feels true and what the data shows. Add her to your Council.",
+  "famousFor": "Treating every strategic question as an anomalous signal demanding measurement",
+  "howTheyArgue": "Curie argues that others are measuring the wrong variable. Her move in round 1 is to identify what hasn't been empirically tested yet — the gap between what feels true and what the data actually shows. She frames every strategic question as a measurement problem: what is the anomalous signal, and what controlled experiment would make it undeniable? In rounds 2 and 3 she concedes on sequencing and timing but never on rigor — she will tell Machiavelli his narrative is compelling and empirically empty in the same sentence. She doesn't argue for outcomes; she argues for the quality of the evidence behind them.",
+  "sampleQuotes": [
+    "Your instinct that price competition feels wrong is exactly the anomalous signal I would never abandon — but Machiavelli wants you to act before you have measured the variable that actually matters, which is whether your current customers would have paid more, and by how much.",
+    "What paying customers do with a bare-bones product is more reliable data than what they say they want, because behavior under constraint eliminates the decorative noise.",
+    "Leonardo da Vinci locates the critical path correctly but misidentifies its nature — he says find the one false assumption encoded in the architecture, when the actual critical path is the measurement system itself."
+  ],
+  "ctaVariants": [
+    "Add Curie to Your Council — She'll find what you forgot to measure →",
+    "Consult Marie Curie — The anomalous signal you're missing →",
+    "Add the Empiricist to Your Council →"
+  ]
+}

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { clerkClient } from '@clerk/nextjs/server'
 import { sendSubscriptionConfirmation } from '@/lib/email'
+import { trackEvent } from '@/lib/analytics'
 
 export const runtime = 'nodejs'
 
@@ -54,11 +55,25 @@ export async function POST(request: NextRequest) {
       publicMetadata: { subscription_tier: 'pro' },
     })
 
+    const sessionMetadata = session.metadata ?? {}
+    const utmCampaign = sessionMetadata.utm_campaign
+    const utmContent = sessionMetadata.utm_content
     const customerEmail = (customer as Stripe.Customer).email ?? undefined
     const billingInterval = (session.subscription
       ? ((await stripe.subscriptions.retrieve(session.subscription as string))
           .items.data[0]?.price.recurring?.interval === 'year' ? 'annual' : 'monthly')
       : 'monthly')
+
+    try {
+      await trackEvent('paid_subscription', {
+        plan: billingInterval,
+        ...(utmCampaign ? { utm_campaign: utmCampaign } : {}),
+        ...(utmContent ? { utm_content: utmContent } : {}),
+      })
+    } catch {
+      // Analytics must not block the webhook response.
+    }
+
     if (customerEmail) {
       try {
         await sendSubscriptionConfirmation(customerEmail, '', billingInterval)
@@ -66,6 +81,7 @@ export async function POST(request: NextRequest) {
         // Email failure must not block the webhook response
       }
     }
+
   } else if (event.type === 'customer.subscription.deleted') {
     const subscription = event.data.object as Stripe.Subscription
     const customerId = subscription.customer as string

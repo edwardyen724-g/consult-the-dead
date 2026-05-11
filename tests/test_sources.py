@@ -2,9 +2,11 @@
 
 import json
 import pytest
+from pathlib import Path
 from unittest.mock import patch, MagicMock
+from framework_forge.sources.discovery import discover_sources
 from framework_forge.sources.triage import triage_sources, SourceEntry
-from framework_forge.sources.fetcher import clean_html
+from framework_forge.sources.fetcher import clean_html, fetch_source
 
 
 class TestSourceEntry:
@@ -61,3 +63,81 @@ class TestCleanHtml:
         assert "color:red" not in result
         assert "alert" not in result
         assert "Content" in result
+
+    def test_strips_navigation_blocks_and_decodes_entities(self):
+        html = (
+            "<header>Top</header><!--ignore--><nav>Menu</nav>"
+            "<p>Hello &amp; goodbye</p><div>Line&nbsp;Two</div>"
+            "<footer>Bottom</footer>"
+        )
+        result = clean_html(html)
+
+        assert "Top" not in result
+        assert "Menu" not in result
+        assert "Bottom" not in result
+        assert "ignore" not in result
+        assert "Hello & goodbye" in result
+        assert "Line Two" in result
+
+
+class TestDiscoverSources:
+    @patch("framework_forge.sources.discovery.LLMClient")
+    def test_discover_sources_maps_sources_and_defaults(self, mock_llm_cls):
+        mock_client = MagicMock()
+        mock_llm_cls.return_value = mock_client
+        mock_client.prompt_json.return_value = {
+            "sources": [
+                {
+                    "title": "Primary Letter",
+                    "url": "https://example.com/letter",
+                    "source_type": "private_writing",
+                    "description": "A direct letter",
+                    "evidence_layers": ["layer1", "layer2"],
+                },
+                {
+                    "title": "Sparse Entry",
+                },
+            ]
+        }
+
+        sources = discover_sources("Catherine the Great", client=None)
+
+        assert len(sources) == 2
+        assert sources[0].title == "Primary Letter"
+        assert sources[0].source_type == "private_writing"
+        assert sources[1].title == "Sparse Entry"
+        assert sources[1].url == ""
+        assert sources[1].source_type == "web_summary"
+        assert sources[1].evidence_layers == ["layer1"]
+        mock_client.prompt_json.assert_called_once()
+
+
+class TestFetchSource:
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_cleans_html_and_writes_file(self, mock_get, tmp_path):
+        response = MagicMock()
+        response.headers = {"content-type": "text/html; charset=utf-8"}
+        response.text = "<p>Hello &amp; goodbye</p>"
+        response.raise_for_status.return_value = None
+        mock_get.return_value = response
+
+        output_path = tmp_path / "nested" / "page.txt"
+        text = fetch_source("https://example.com", output_path)
+
+        assert text == "Hello & goodbye"
+        assert output_path.read_text(encoding="utf-8") == "Hello & goodbye"
+        mock_get.assert_called_once()
+
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_preserves_non_html_text(self, mock_get, tmp_path):
+        response = MagicMock()
+        response.headers = {"content-type": "text/plain"}
+        response.text = "Plain text payload"
+        response.raise_for_status.return_value = None
+        mock_get.return_value = response
+
+        output_path = tmp_path / "plain.txt"
+        text = fetch_source("https://example.com/plain", output_path)
+
+        assert text == "Plain text payload"
+        assert output_path.read_text(encoding="utf-8") == "Plain text payload"

@@ -4,7 +4,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { UpsellModal, type UpsellUpgradePayload } from "@/components/upsell-modal";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
+import {
+  chooseSampleQuestion,
+  EXAMPLE_TOPICS,
+  SAMPLE_QUESTION_LABEL_ID,
+} from "@/lib/agora-sample-questions";
 import {
   PACKS,
   getActivePackMembers,
@@ -55,12 +61,6 @@ const DEFAULT_COUNCIL_SIZE = 3;
 const TOTAL_ROUNDS = 3;
 const API_KEY_STORAGE = "ctd-anthropic-key";
 
-const EXAMPLE_TOPICS = [
-  "Should I raise VC or bootstrap?",
-  "Should we open-source our core product?",
-  "My industry is being automated — pivot into AI, or double down on domain depth?",
-];
-
 interface RoundTurn {
   mindSlug: string;
   mindName: string;
@@ -88,6 +88,8 @@ interface AgonState {
   consensusNode: ConsensusNodeKey | null;
   error: string | null;
   rateLimited: boolean;
+  /** True while the free-tier exhaustion upsell modal is visible. */
+  showUpsellModal: boolean;
   quotaRemaining: number | undefined;
   researchLoading: boolean;
   researchData: ResearchData | null;
@@ -107,6 +109,7 @@ const INITIAL_STATE: AgonState = {
   consensusNode: null,
   error: null,
   rateLimited: false,
+  showUpsellModal: false,
   quotaRemaining: undefined,
   researchLoading: false,
   researchData: null,
@@ -163,6 +166,9 @@ export function AgoraApp({
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
+  // showApiKey is lifted here so the upsell modal's "Add API key" CTA can
+  // navigate back to the topic stage with the key section pre-expanded.
+  const [showApiKey, setShowApiKey] = useState(false);
 
   // Fetch live usage on mount
   useEffect(() => {
@@ -283,10 +289,12 @@ export function AgoraApp({
 
       if (!res.ok) {
         const errBody = await res.json().catch(() => ({}));
+        const isRateLimited = !!errBody.rateLimited;
         setState((s) => ({
           ...s,
-          error: errBody.error ?? `Request failed: ${res.status}`,
-          rateLimited: !!errBody.rateLimited,
+          error: isRateLimited ? null : (errBody.error ?? `Request failed: ${res.status}`),
+          rateLimited: isRateLimited,
+          showUpsellModal: isRateLimited,
           stage: "council",
         }));
         return;
@@ -372,13 +380,16 @@ export function AgoraApp({
             .then((data) => setUsageInfo(data))
             .catch(() => {});
           return { ...s, quotaRemaining: event.remaining };
-        case "error":
+        case "error": {
+          const isRateLimited = !!event.rateLimited;
           return {
             ...s,
-            error: event.message,
-            rateLimited: !!event.rateLimited,
+            error: isRateLimited ? null : event.message,
+            rateLimited: isRateLimited,
+            showUpsellModal: isRateLimited,
             consensusLoading: false,
           };
+        }
         default:
           return s;
       }
@@ -392,6 +403,50 @@ export function AgoraApp({
       apiKey: s.apiKey,
     }));
   }
+
+  // ── Upsell modal handlers ────────────────────────────────────────────────
+
+  /** "Add your Anthropic API key" CTA: close modal → topic stage → key expanded. */
+  function handleModalAddKey() {
+    setState((s) => ({
+      ...INITIAL_STATE,
+      apiKey: s.apiKey,
+      topic: s.topic,
+    }));
+    setShowApiKey(true);
+  }
+
+  /**
+   * "Upgrade to Pro" CTA: POST to Stripe checkout with utm_campaign, then
+   * redirect to the checkout URL returned by the server.
+   */
+  async function handleModalUpgrade(payload: UpsellUpgradePayload) {
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ utm_campaign: payload.utm_campaign }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+          return;
+        }
+      }
+      // If checkout fails, fallback to pricing page
+      window.location.href = "/pricing";
+    } catch {
+      window.location.href = "/pricing";
+    }
+  }
+
+  /** "Come back tomorrow" CTA: dismiss the modal, stay on council stage. */
+  function handleModalDismiss() {
+    setState((s) => ({ ...s, showUpsellModal: false }));
+  }
+
+  // ── End upsell modal handlers ────────────────────────────────────────────
 
   const selectedMinds = state.council
     .map((slug) => minds.find((m) => m.slug === slug))
@@ -441,6 +496,8 @@ export function AgoraApp({
                 setState((s) => ({ ...s, researchEnabled: v }))
               }
               onSubmit={beginFromTopic}
+              showKey={showApiKey}
+              setShowKey={setShowApiKey}
             />
           )}
 
@@ -532,6 +589,16 @@ export function AgoraApp({
           </Link>
         </div>
       </div>
+
+      {/* Free-tier exhaustion upsell modal — rendered outside the scrollable
+          content area so it can position:fixed over the whole viewport. */}
+      {state.showUpsellModal && (
+        <UpsellModal
+          onAddKey={handleModalAddKey}
+          onUpgrade={handleModalUpgrade}
+          onDismiss={handleModalDismiss}
+        />
+      )}
     </main>
   );
 }
@@ -622,6 +689,8 @@ function TopicStage({
   researchEnabled,
   setResearchEnabled,
   onSubmit,
+  showKey,
+  setShowKey,
 }: {
   topic: string;
   setTopic: (t: string) => void;
@@ -630,8 +699,11 @@ function TopicStage({
   researchEnabled: boolean;
   setResearchEnabled: (v: boolean) => void;
   onSubmit: () => void;
+  /** Controlled by the parent so the upsell modal can pre-open this section. */
+  showKey: boolean;
+  setShowKey: (v: boolean) => void;
 }) {
-  const [showKey, setShowKey] = useState(false);
+  const topicRef = useRef<HTMLTextAreaElement | null>(null);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
@@ -671,6 +743,7 @@ function TopicStage({
       <div style={{ position: "relative", marginBottom: "10px" }}>
         <textarea
           id="agora-topic"
+          ref={topicRef}
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
@@ -803,7 +876,7 @@ function TopicStage({
       </button>
 
       {/* Example questions */}
-      <div style={{ marginTop: "56px" }}>
+      <div style={{ marginTop: "56px" }} aria-labelledby={SAMPLE_QUESTION_LABEL_ID}>
         <div
           style={{
             display: "flex",
@@ -814,6 +887,7 @@ function TopicStage({
         >
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
           <span
+            id={SAMPLE_QUESTION_LABEL_ID}
             className="font-mono"
             style={{
               fontSize: "10px",
@@ -823,7 +897,7 @@ function TopicStage({
               whiteSpace: "nowrap",
             }}
           >
-            ◆ Or borrow a question from another querent
+            ◆ Sample questions you can tap to start
           </span>
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
         </div>
@@ -838,7 +912,12 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
-              onClick={() => setTopic(ex)}
+              type="button"
+              onClick={() =>
+                chooseSampleQuestion(setTopic, topicRef, ex)
+              }
+              aria-label={`Use sample question: ${ex}`}
+              title="Prefill the topic with this sample question"
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--hairline)",
@@ -884,7 +963,7 @@ function TopicStage({
       {/* API key */}
       <div style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}>
         <button
-          onClick={() => setShowKey((v) => !v)}
+          onClick={() => setShowKey(!showKey)}
           className="font-mono"
           style={{
             background: "transparent",
