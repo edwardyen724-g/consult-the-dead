@@ -1,6 +1,79 @@
 # Change Summary
 
 ## Task
+Polish Reading Room card chrome and theme toggle for editorial surfaces, and replace the vague free-tier account copy with exact midnight-UTC reset language.
+
+## Changed Files
+- `website/package.json`
+- `website/pnpm-lock.yaml`
+- `website/src/app/account/page.tsx`
+- `website/src/app/account/page.test.tsx`
+- `website/src/components/MindCard.tsx`
+- `website/src/components/MindCard.test.tsx`
+- `website/src/components/ThemeToggle.tsx`
+- `website/src/components/ThemeToggle.test.tsx`
+
+## What Changed
+- Reframed the free-tier account status copy so it no longer says "check back tomorrow" and instead names the exact reset point: midnight UTC.
+- Gave `MindCard` a more editorial Reading Room frame with a chrome bar, subtler surface treatment, and tighter portrait framing on compact cards.
+- Restyled the theme toggle into a two-line Reading Room / Late Study pill so the header control feels closer to the rest of the editorial surfaces.
+- Added focused regression tests for the account copy, the MindCard chrome across compact and full variants, and the theme toggle's dark/light copy and click behavior.
+- Added `jsdom` as a dev dependency so the theme toggle test can run in a DOM-backed Vitest environment.
+
+## Verification
+- `cd website && pnpm vitest run src/app/account/page.test.tsx src/components/MindCard.test.tsx src/components/ThemeToggle.test.tsx`
+- `cd website && pnpm eslint src/app/account/page.tsx src/app/account/page.test.tsx src/components/MindCard.tsx src/components/MindCard.test.tsx src/components/ThemeToggle.tsx src/components/ThemeToggle.test.tsx`
+- `cd website && pnpm coverage`
+
+## Results
+- Targeted Vitest: passed.
+- Targeted ESLint: passed.
+- Full coverage run: passed, with 32 test files and 302 tests green; coverage summary reported 100% statements/branches/functions/lines on the tracked coverage set.
+
+## Task
+Refresh the app icon and apple touch icon so the brand mark matches the current visual system.
+
+## Changed Files
+- `website/src/app/icon.tsx`
+- `website/src/app/apple-icon.tsx`
+
+## What Changed
+- Replaced the older skull favicon artwork with a more deliberate bone-and-amber mark that uses the current site palette and a darker parchment background treatment.
+- Increased the visual padding and contrast for the 32px favicon and the 180px apple touch icon so the skull stays legible on modern browser tabs and iOS home screens.
+- Kept the icon routes self-contained in the existing Next `ImageResponse` files inside the capsule scope.
+
+## Verification
+- `cd website && ./node_modules/.bin/eslint src/app/icon.tsx src/app/apple-icon.tsx`
+- `cd website && ./node_modules/.bin/tsc --noEmit --pretty false --skipLibCheck --jsx preserve --module esnext --moduleResolution bundler --target es2022 src/app/icon.tsx src/app/apple-icon.tsx`
+- `cd website && ./node_modules/.bin/next build`
+
+## Results
+- Targeted ESLint: passed.
+- Targeted TypeScript compile for the two icon files: passed.
+- Full `next build`: compiled successfully, then failed during the repo-wide TypeScript step on a pre-existing unrelated error in `website/src/app/robots.ts` (`index` is not a valid `MetadataRoute.Robots` rule property).
+
+## Task
+Make the global not-found page more helpful and on-brand for dead links and stale shares.
+
+## Changed Files
+- `website/src/app/not-found.tsx`
+
+## What Changed
+- Added a global branded 404 surface with the existing dark parchment treatment, amber CTA styling, and serif headline treatment used elsewhere in the site.
+- Reframed the error copy around dead links and stale share URLs, then added direct recovery routes into the product: a fresh agon, the public explorer, and pricing.
+- Kept the layout responsive with an auto-fit two-panel grid so the help content stacks cleanly on narrow screens.
+
+## Verification
+- `cd website && wcx ./node_modules/.bin/eslint src/app/not-found.tsx`
+- `cd website && wcx ./node_modules/.bin/next build`
+
+## Results
+- Targeted ESLint on `website/src/app/not-found.tsx`: passed.
+- `next build`: compiled successfully, then failed during TypeScript verification on a pre-existing unrelated error in `website/src/app/robots.ts` (`index` / `follow` are not valid `MetadataRoute.Robots` rule properties).
+
+# Change Summary
+
+## Task
 Stabilize the company-builder demo fallback PR and make the test path reproducible from a clean checkout.
 
 ## Changed Files

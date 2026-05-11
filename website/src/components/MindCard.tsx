@@ -19,38 +19,71 @@ interface MindCardProps {
 export function MindCard({ name, slug, dates, lens, colorVar, invocations, size = 'md', packs }: MindCardProps) {
   const initials = name.split(' ').filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase()
   const portraitSrc = slug ? `/portraits/${slug}-portrait.png` : null
-  const pad = size === 'sm' ? '10px 12px' : '20px'
+  const isCompact = size === 'sm'
+  const pad = isCompact ? '10px 11px 11px' : '18px 18px 16px'
 
   return (
     <div style={{
       border: '1px solid var(--hairline)',
-      borderRadius: '6px',
+      borderRadius: '8px',
       padding: pad,
       display: 'flex',
       flexDirection: 'column',
-      gap: size === 'sm' ? '6px' : '10px',
-      background: 'var(--surface)',
+      gap: isCompact ? '7px' : '11px',
+      background: 'linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--surface)',
+      boxShadow: '0 1px 0 rgba(0, 0, 0, 0.04)',
+      transition: 'transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease',
+      overflow: 'hidden',
     }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '12px',
+        paddingBottom: '8px',
+        borderBottom: `1px solid color-mix(in srgb, ${colorVar} 18%, transparent)`,
+      }}>
+        <span style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '8px',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: 'var(--fg-faint)',
+        }}>
+          Reading Room
+        </span>
+        <span aria-hidden="true" style={{
+          width: '8px',
+          height: '8px',
+          borderRadius: '999px',
+          background: colorVar,
+          boxShadow: `0 0 0 3px color-mix(in srgb, ${colorVar} 12%, transparent)`,
+          flexShrink: 0,
+        }} />
+      </div>
+
       {/* Portrait or fallback initials */}
       {portraitSrc ? (
         <div style={{
           position: 'relative',
           width: '100%',
-          aspectRatio: size === 'sm' ? '3 / 2' : '1',
-          maxHeight: size === 'sm' ? '120px' : undefined,
-          borderRadius: '4px',
+          aspectRatio: isCompact ? '3 / 2' : '1',
+          maxHeight: isCompact ? '120px' : undefined,
+          borderRadius: '6px',
           overflow: 'hidden',
+          border: `1px solid color-mix(in srgb, ${colorVar} 16%, transparent)`,
+          background: 'var(--bg)',
         }}>
           <Image
             src={portraitSrc}
             alt={`Portrait of ${name}`}
             fill
-            sizes={size === 'sm' ? '120px' : '(max-width: 640px) 45vw, 180px'}
+            sizes={isCompact ? '120px' : '(max-width: 640px) 45vw, 180px'}
             style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
           />
         </div>
       ) : (
-        <svg width="100%" viewBox="0 0 72 72" style={{ display: 'block', maxHeight: '88px' }}>
+        <svg width="100%" viewBox="0 0 72 72" style={{ display: 'block', maxHeight: isCompact ? '88px' : '116px' }}>
           <rect width="72" height="72" fill="transparent" />
           <rect x="3" y="3" width="66" height="66" fill="none" stroke={colorVar} strokeWidth="0.6" opacity="0.4" />
           <rect x="7" y="7" width="58" height="58" fill="none" stroke={colorVar} strokeWidth="0.3" opacity="0.25" />
@@ -78,7 +111,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
       <div>
         <div style={{
           fontFamily: 'var(--font-serif)',
-          fontSize: size === 'sm' ? '0.9rem' : '1rem',
+          fontSize: isCompact ? '0.9rem' : '1rem',
           color: 'var(--fg)',
           lineHeight: 1.2,
         }}>
@@ -93,7 +126,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         }}>
           {dates}
         </div>
-        {size !== 'sm' && (
+        {!isCompact && (
           <div style={{
             fontFamily: 'var(--font-serif)',
             fontSize: '0.78rem',
@@ -107,7 +140,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         )}
       </div>
 
-      {size !== 'sm' && packs && packs.length > 0 && (
+      {!isCompact && packs && packs.length > 0 && (
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -132,7 +165,7 @@ export function MindCard({ name, slug, dates, lens, colorVar, invocations, size 
         </div>
       )}
 
-      {size !== 'sm' && invocations !== undefined && (
+      {!isCompact && invocations !== undefined && (
         <div style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '9px',

@@ -16,19 +16,24 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-[140px] h-9" />;
+    return <div className="w-[174px] h-11" />;
   }
 
   const isDark = theme === "dark";
+  const label = isDark ? "Late Study" : "Reading Room";
 
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full
+      className="flex items-center gap-3 px-4 py-2 rounded-full
         border border-border
+        bg-[var(--surface)]
         hover:border-accent/40
         transition-all duration-300 group cursor-pointer"
-      style={{ minHeight: "44px" }}
+      style={{
+        minHeight: "46px",
+        boxShadow: "0 1px 0 rgba(0, 0, 0, 0.04)",
+      }}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -38,9 +43,14 @@ export function ThemeToggle() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -4 }}
           transition={{ duration: 0.2 }}
-          className="text-[11px] tracking-wide text-muted font-sans italic"
+          className="flex flex-col items-start leading-none"
         >
-          {isDark ? "The Late Study" : "The Reading Room"}
+          <span className="text-[8px] tracking-[0.24em] uppercase text-muted/80 font-mono">
+            Mode
+          </span>
+          <span className="text-[11px] tracking-wide text-muted font-sans italic mt-1">
+            {label}
+          </span>
         </motion.span>
       </AnimatePresence>
       <span className="text-muted group-hover:text-ink transition-colors">
