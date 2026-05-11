@@ -23,6 +23,7 @@ import type { MetadataRoute } from "next";
 
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { INSIGHT_ENTRIES } from "@/lib/insights";
+import { MIND_SLUGS } from "@/lib/mind-content";
 
 import { buildSitemapEntries, fetchPublicAgonRows, type PublicAgonRow } from "@/lib/sitemap-data";
 
@@ -44,6 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     allowedSlugs: ALLOWED_SLUGS,
     insightEntries: INSIGHT_ENTRIES,
     publicAgons,
+    mindSlugs: MIND_SLUGS,
     now: new Date(),
   });
 }

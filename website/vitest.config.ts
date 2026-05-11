@@ -19,6 +19,7 @@ export default defineConfig({
       include: [
         "src/app/sign-up/**/page.tsx",
         "src/app/sign-up/**/utm-stamper.ts",
+        "src/lib/mind-content.ts",
       ],
       exclude: [
         "src/**/*.d.ts",
