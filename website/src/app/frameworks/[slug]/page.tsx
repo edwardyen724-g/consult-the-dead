@@ -11,6 +11,7 @@ import {
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { FrameworkConstructExplorer } from "@/components/FrameworkConstructExplorer";
 import { getPacksForMind } from "@/lib/packs";
+import { buildFrameworkCanonicalUrl } from "@/lib/framework-canonical-url";
 
 /* ── Static generation ── */
 
@@ -32,18 +33,24 @@ export async function generateMetadata({
   if (!fw) return { title: "Not Found" };
   const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
   const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from ${fw.meta.incident_count} documented historical incidents.`;
+  const canonicalUrl = buildFrameworkCanonicalUrl(slug);
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl ?? `https://www.consultthedead.com/frameworks/${slug}`,
+    },
     openGraph: {
       title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
       description,
       url: `https://www.consultthedead.com/frameworks/${slug}`,
+      images: [`/frameworks/${slug}/opengraph-image`],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${fw.meta.person} — ${fw.meta.domain}`,
       description,
+      images: [`/frameworks/${slug}/twitter-image`],
     },
   };
 }
@@ -398,7 +405,7 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 
 /* ── Utility functions ── */
 
-function formatValidation(
+export function formatValidation(
   v: ReturnType<typeof getValidation>
 ): string | null {
   if (!v) return null;

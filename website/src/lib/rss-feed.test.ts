@@ -11,6 +11,7 @@ import {
   RSS_FEED_DESCRIPTION,
   RSS_FEED_LANGUAGE,
   RSS_FEED_TITLE,
+  normalizeSiteUrl,
   serializeRssFeed,
 } from "./rss-feed";
 
@@ -53,6 +54,8 @@ describe("rss-feed helpers", () => {
   });
 
   it("falls back to the canonical site URL when the input site URL is empty", () => {
+    expect(normalizeSiteUrl("")).toBe("");
+
     expect(buildFeedMetadata("")).toEqual({
       title: RSS_FEED_TITLE,
       description: RSS_FEED_DESCRIPTION,

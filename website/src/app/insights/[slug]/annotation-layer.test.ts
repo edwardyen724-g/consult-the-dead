@@ -166,8 +166,9 @@ describe("getInsightAnnotatedPassages", () => {
     expect(passages).toEqual([]);
   });
 
-  it("builds annotated passages for every published insight slug", () => {
-    for (const entry of INSIGHT_ENTRIES) {
+  it("builds annotated passages for every published single-framework insight slug", () => {
+    const singleEntries = INSIGHT_ENTRIES.filter((e) => e.type === "single");
+    for (const entry of singleEntries) {
       const framework = getFramework(entry.frameworkSlug);
       if (!framework) {
         throw new Error(`Framework not found for ${entry.slug}`);

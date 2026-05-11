@@ -1,4 +1,11 @@
 import Link from "next/link";
+import { ProofStrip } from "@/components/ProofStrip";
+
+export const FOOTER_QUIZ_CTA_HREF =
+  "/quiz?utm_source=footer&utm_medium=cta&utm_campaign=guided_entry";
+
+export const FOOTER_PRICING_CTA_HREF =
+  "/pricing?utm_source=footer&utm_medium=cta&utm_campaign=upgrade";
 
 export function Footer() {
   return (
@@ -29,6 +36,61 @@ export function Footer() {
             connected to any individual whose public decisions may have informed
             these frameworks.
           </p>
+        </div>
+
+        {/* Conversion CTAs */}
+        <div className="pb-6">
+          <ProofStrip loading={false} className="mb-5" />
+          <div
+            data-testid="footer-ctas"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              justifyContent: "center",
+            }}
+          >
+            <Link
+              href={FOOTER_QUIZ_CTA_HREF}
+              data-testid="footer-quiz-cta"
+              aria-label="Take the guided quiz to find your mind"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                padding: "6px 12px",
+                borderRadius: "4px",
+                border: "1px solid var(--amber)",
+                color: "var(--amber)",
+                background: "transparent",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Take the Guided Quiz →
+            </Link>
+            <Link
+              href={FOOTER_PRICING_CTA_HREF}
+              data-testid="footer-pricing-cta"
+              aria-label="View pricing plans"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                padding: "6px 12px",
+                borderRadius: "4px",
+                border: "1px solid var(--hairline)",
+                color: "var(--fg-dim)",
+                background: "transparent",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              View Pricing
+            </Link>
+          </div>
         </div>
 
         {/* Legal links */}
