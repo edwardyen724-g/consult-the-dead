@@ -6,16 +6,19 @@ This repo holds Consult The Dead: a Next.js debate app under [`/company-builder`
 
 The landing page lives in [`/website`](./website). The framework-extraction pipeline lives in [`/framework_forge`](./framework_forge).
 
-## Pricing
+## Routes
 
-| Tier | Cost | Agons | Council | Model |
-|------|------|-------|---------|-------|
-| **Free** | $0 | 3 / day | 2–3 minds | Sonnet |
-| **BYO key** | $0 (your Anthropic key) | Unlimited | 2–3 minds | Sonnet |
-| **Pro** | $30 / mo · $25 / mo annual | 100 / month | Up to 5 minds | Opus consensus |
+| Route | Type | Description |
+|-------|------|-------------|
+| `/agora` | Live product | Debate surface — pose a decision, seat 2–5 minds |
+| `/frameworks/[slug]` | Public, static | Individual framework detail pages |
+| `/listicles/[slug]` | Public, static-generated, SEO | 5 long-tail SEO pages (startup-pivot, career-change, leadership-crisis, investing-risk, product-strategy); each pre-fills the Agora council via UTM CTA |
+| `/minds/[id]` | Public, static-generated, SEO | 25 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA |
+| `/packs` | Public | Themed pack catalog — browse curated mind packs by domain with guided-quiz CTA |
+| `/explore` | Public | Agon gallery — crawlable grid of public debate records |
+| `/feed.xml` | Public | RSS feed for public debates and insights |
+| `/pricing` | Public | Plan comparison and upgrade flow |
+| `/library` | Pro, authenticated | Saved agon library |
 
-Pro also includes persistent library, PDF export, extended research, and 48h founder support. See [/pricing](/pricing) for full feature comparison and to upgrade.
-
----
 
 Licensed under the MIT License. See [LICENSE](./LICENSE).

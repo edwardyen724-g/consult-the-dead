@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllFrameworks, SLUG_COLOR_VAR, type FrameworkSlug } from "@/lib/frameworks";
 import { getActivePackMembers, getPacksForMind, PACKS } from "@/lib/packs";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
 
@@ -26,6 +27,9 @@ const AGON_STEPS = [
     body: "Consensus distilled into a concrete recommendation — with the dissent preserved.",
   },
 ] as const;
+
+export const HOME_QUIZ_ENTRY_HREF = buildQuizEntryHref();
+
 export default function HomePage() {
   const frameworks = getAllFrameworks();
   const frameworkBySlug = new Map(frameworks.map((f) => [f.slug, f] as const));
@@ -128,7 +132,7 @@ export default function HomePage() {
                 }}>
                   Ask Your Question →
                 </Link>
-                <Link href="/quiz" style={{
+                <Link href={HOME_QUIZ_ENTRY_HREF} style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
                   letterSpacing: '0.14em',

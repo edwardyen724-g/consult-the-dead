@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "next-themes";
@@ -33,6 +34,34 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const SITE_URL = "https://www.consultthedead.com";
+const AUTH_ROUTES = ["/sign-in", "/sign-up"];
+
+function getAuthReturnUrl(referer: string | null) {
+  if (!referer) {
+    return "/";
+  }
+
+  try {
+    const url = new URL(referer);
+
+    if (url.origin !== SITE_URL) {
+      return "/";
+    }
+
+    if (
+      AUTH_ROUTES.some(
+        (route) => url.pathname === route || url.pathname.startsWith(`${route}/`),
+      )
+    ) {
+      return "/";
+    }
+
+    const pathWithQuery = `${url.pathname}${url.search}${url.hash}`;
+    return pathWithQuery || "/";
+  } catch {
+    return "/";
+  }
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -71,11 +100,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const authReturnUrl = getAuthReturnUrl(requestHeaders.get("referer"));
+
   return (
     <html
       lang="en"
@@ -83,13 +115,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ClerkProvider>
+        <ClerkProvider
+          signInFallbackRedirectUrl={authReturnUrl}
+          signUpFallbackRedirectUrl={authReturnUrl}
+        >
           <OrganizationJsonLd />
           <WebAppJsonLd />
           <FAQJsonLd />
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem={false}
           >
             <Header />
