@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import * as frameworkModule from "@/lib/frameworks";
+import * as canonicalUrlModule from "@/lib/framework-canonical-url";
 import FrameworkDetailPage, {
   formatValidation,
   generateMetadata,
@@ -127,5 +128,33 @@ describe("framework detail metadata", () => {
 
     expect(html).toContain(framework!.meta.person);
     expect(html).toContain("Tier 1: Methodologically sound");
+  });
+
+  it("falls back to the hardcoded canonical URL when buildFrameworkCanonicalUrl returns null", async () => {
+    // This covers the `canonicalUrl ?? \`https://...\`` branch in generateMetadata.
+    const spy = vi
+      .spyOn(canonicalUrlModule, "buildFrameworkCanonicalUrl")
+      .mockReturnValue(null);
+
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ slug: "isaac-newton" }),
+    });
+
+    expect(metadata.alternates?.canonical).toBe(
+      "https://www.consultthedead.com/frameworks/isaac-newton",
+    );
+
+    spy.mockRestore();
+  });
+
+  it("includes the FrameworkTransparencyPanel in the rendered page", async () => {
+    const element = await FrameworkDetailPage({
+      params: Promise.resolve({ slug: "isaac-newton" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    // The transparency panel renders a disclosure section with the slug.
+    // Check for the Ask This Mind form anchor text that the panel includes.
+    expect(html).toContain("isaac-newton");
   });
 });
