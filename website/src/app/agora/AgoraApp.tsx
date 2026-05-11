@@ -6,6 +6,11 @@ import Image from "next/image";
 import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
+  chooseSampleQuestion,
+  EXAMPLE_TOPICS,
+  SAMPLE_QUESTION_LABEL_ID,
+} from "@/lib/agora-sample-questions";
+import {
   PACKS,
   getActivePackMembers,
   getPack,
@@ -54,12 +59,6 @@ const MIND_MAX = 5;
 const DEFAULT_COUNCIL_SIZE = 3;
 const TOTAL_ROUNDS = 3;
 const API_KEY_STORAGE = "ctd-anthropic-key";
-
-const EXAMPLE_TOPICS = [
-  "Should I raise VC or bootstrap?",
-  "Should we open-source our core product?",
-  "My industry is being automated — pivot into AI, or double down on domain depth?",
-];
 
 interface RoundTurn {
   mindSlug: string;
@@ -632,6 +631,7 @@ function TopicStage({
   onSubmit: () => void;
 }) {
   const [showKey, setShowKey] = useState(false);
+  const topicRef = useRef<HTMLTextAreaElement | null>(null);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
@@ -671,6 +671,7 @@ function TopicStage({
       <div style={{ position: "relative", marginBottom: "10px" }}>
         <textarea
           id="agora-topic"
+          ref={topicRef}
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
@@ -803,7 +804,7 @@ function TopicStage({
       </button>
 
       {/* Example questions */}
-      <div style={{ marginTop: "56px" }}>
+      <div style={{ marginTop: "56px" }} aria-labelledby={SAMPLE_QUESTION_LABEL_ID}>
         <div
           style={{
             display: "flex",
@@ -814,6 +815,7 @@ function TopicStage({
         >
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
           <span
+            id={SAMPLE_QUESTION_LABEL_ID}
             className="font-mono"
             style={{
               fontSize: "10px",
@@ -823,7 +825,7 @@ function TopicStage({
               whiteSpace: "nowrap",
             }}
           >
-            ◆ Or borrow a question from another querent
+            ◆ Sample questions you can tap to start
           </span>
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
         </div>
@@ -838,7 +840,12 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
-              onClick={() => setTopic(ex)}
+              type="button"
+              onClick={() =>
+                chooseSampleQuestion(setTopic, topicRef, ex)
+              }
+              aria-label={`Use sample question: ${ex}`}
+              title="Prefill the topic with this sample question"
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--hairline)",
