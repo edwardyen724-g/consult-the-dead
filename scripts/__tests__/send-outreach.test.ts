@@ -34,7 +34,7 @@ import {
   type CliDeps,
   type SendResult,
 } from "../send-outreach";
-import { registerSendOutreachCoverageEdgeCases } from "./send-outreach.edge-cases.test";
+import { registerSendOutreachCoverageEdgeCases } from "./send-outreach.edge-cases";
 import { OUTREACH_LIST, findRecipient } from "../outreach-list";
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
