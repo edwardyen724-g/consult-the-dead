@@ -479,4 +479,195 @@ describe("POST /api/generate-analysis", () => {
 
     await expect(response.text()).rejects.toThrow("stream exploded");
   });
+
+  // ── Origin validation ────────────────────────────────────────────────────
+
+  it("rejects a non-null disallowed origin with 403", async () => {
+    // Exercises the isAllowedOrigin return-false branch after the Vercel regex
+    // (non-null, not in ALLOWED_ORIGINS, regex does not match).
+    const response = await POST(
+      makeRequest(
+        {
+          topic: "Should I ship the redesign this week or wait for another review cycle?",
+          frameworkSlug: "isaac-newton",
+        },
+        {},
+        "https://evil.example.com"
+      ) as never
+    );
+
+    expect(response.status).toBe(403);
+    expect(mocks.authMock).not.toHaveBeenCalled();
+    expect(mocks.MockAnthropic).not.toHaveBeenCalled();
+    await expect(response.json()).resolves.toMatchObject({ error: expect.stringContaining("consultthedead.com") });
+  });
+
+  it("accepts all explicit entries in ALLOWED_ORIGINS", async () => {
+    const allowedOrigins = [
+      "https://consultthedead.com",
+      "https://agora.consultthedead.com",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      "http://localhost:3001",
+    ];
+
+    for (const origin of allowedOrigins) {
+      vi.clearAllMocks();
+      process.env.ANTHROPIC_API_KEY = "sk-ant-server-key";
+      mocks.authMock.mockResolvedValue({ userId: "user_123" });
+      mocks.currentUserMock.mockResolvedValue({ publicMetadata: {} });
+      mocks.checkRateLimitMock.mockResolvedValue({ allowed: true, remaining: 2 });
+      mocks.getClientIpMock.mockReturnValue("127.0.0.1");
+      mocks.loadFrameworkRawMock.mockReturnValue({
+        meta: { person: "Isaac Newton" },
+        perceptual_lens: {
+          statement: "Newton sees decisions as systems with hidden forces.",
+          what_they_notice_first: "The governing law or constraint",
+          what_they_ignore: "Surface-level noise",
+        },
+        bipolar_constructs: [],
+        behavioral_divergence_predictions: [],
+        critical_incident_database: [],
+      });
+      mocks.mockStream.mockReturnValue(
+        (async function* () {
+          yield {
+            type: "content_block_delta" as const,
+            delta: { type: "text_delta" as const, text: "Hello." },
+          };
+        })()
+      );
+
+      const response = await POST(
+        makeRequest(
+          {
+            topic: "Should I ship the redesign this week or wait for another review cycle?",
+            frameworkSlug: "isaac-newton",
+          },
+          {},
+          origin
+        ) as never
+      );
+
+      expect(response.status, `Expected 200 for origin: ${origin}`).toBe(200);
+    }
+  });
+
+  it("rejects a Vercel-preview-style origin that fails the regex (uppercase component)", async () => {
+    const response = await POST(
+      makeRequest(
+        {
+          topic: "Should I ship the redesign this week or wait for another review cycle?",
+          frameworkSlug: "isaac-newton",
+        },
+        {},
+        // Contains uppercase letters — regex requires [a-z0-9-] only
+        "https://website-PREVIEW-edwardyen724-gs-projects.vercel.app"
+      ) as never
+    );
+
+    expect(response.status).toBe(403);
+    expect(mocks.authMock).not.toHaveBeenCalled();
+  });
+
+  // ── SSE contract ─────────────────────────────────────────────────────────
+
+  it("returns text/event-stream content-type with SSE headers on success", async () => {
+    const response = await POST(
+      makeRequest({
+        topic: "Should I ship the redesign this week or wait for another review cycle?",
+        frameworkSlug: "isaac-newton",
+      }) as never
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Content-Type")).toBe("text/event-stream");
+    expect(response.headers.get("Cache-Control")).toContain("no-cache");
+    expect(response.headers.get("Connection")).toBe("keep-alive");
+  });
+
+  it("emits every SSE event with a data: prefix and terminates cleanly", async () => {
+    const response = await POST(
+      makeRequest({
+        topic: "Should I ship the redesign this week or wait for another review cycle?",
+        frameworkSlug: "isaac-newton",
+      }) as never
+    );
+
+    const raw = await response.text();
+    // Every non-empty double-newline-delimited chunk must start with "data: "
+    const chunks = raw.split("\n\n").map((c) => c.trim()).filter(Boolean);
+    expect(chunks.length).toBeGreaterThan(0);
+    for (const chunk of chunks) {
+      expect(chunk.startsWith("data: "), `Chunk does not start with "data: ": ${chunk}`).toBe(true);
+    }
+
+    // Last event must be analysis_done
+    const lastEvent = JSON.parse(chunks[chunks.length - 1].slice(6)) as { type: string };
+    expect(lastEvent.type).toBe("analysis_done");
+  });
+
+  // ── Rate-limit headers ───────────────────────────────────────────────────
+
+  it("includes X-RateLimit-Remaining in the response when using the server key", async () => {
+    const response = await POST(
+      makeRequest({
+        topic: "Should I ship the redesign this week or wait for another review cycle?",
+        frameworkSlug: "isaac-newton",
+      }) as never
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("X-RateLimit-Remaining")).toBe("2");
+  });
+
+  it("omits X-RateLimit-Remaining when the client supplies their own API key", async () => {
+    const response = await POST(
+      makeRequest(
+        {
+          topic: "Should I ship the redesign this week or wait for another review cycle?",
+          frameworkSlug: "isaac-newton",
+        },
+        { "x-api-key": "sk-ant-client-key" },
+        "https://www.consultthedead.com"
+      ) as never
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.has("X-RateLimit-Remaining")).toBe(false);
+    expect(mocks.checkRateLimitMock).not.toHaveBeenCalled();
+  });
+
+  it("includes rateLimited: true in 429 response body regardless of rate-limit reason", async () => {
+    for (const reason of ["user", "global", "pro"] as const) {
+      vi.clearAllMocks();
+      process.env.ANTHROPIC_API_KEY = "sk-ant-server-key";
+      mocks.authMock.mockResolvedValue({ userId: "user_123" });
+      mocks.currentUserMock.mockResolvedValue({ publicMetadata: {} });
+      mocks.getClientIpMock.mockReturnValue("127.0.0.1");
+      mocks.loadFrameworkRawMock.mockReturnValue({
+        meta: { person: "Isaac Newton" },
+        perceptual_lens: {
+          statement: "Newton sees.",
+          what_they_notice_first: "Forces",
+          what_they_ignore: "Noise",
+        },
+        bipolar_constructs: [],
+        behavioral_divergence_predictions: [],
+        critical_incident_database: [],
+      });
+      mocks.checkRateLimitMock.mockResolvedValueOnce({ allowed: false, remaining: 0, reason });
+
+      const response = await POST(
+        makeRequest({
+          topic: "Should I ship the redesign this week or wait for another review cycle?",
+          frameworkSlug: "isaac-newton",
+        }) as never
+      );
+
+      expect(response.status, `Expected 429 for reason: ${reason}`).toBe(429);
+      const body = await response.json() as { rateLimited: boolean };
+      expect(body.rateLimited, `Expected rateLimited:true for reason: ${reason}`).toBe(true);
+    }
+  });
 });
