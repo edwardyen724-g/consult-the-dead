@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
 
       const message =
         result.reason === "global"
-          ? "The free tier is at capacity for today. Add your own Anthropic API key for unlimited use, or check back tomorrow."
+          ? "You've used all 3 free debates for today"
           : result.reason === "pro"
           ? "You've reached your 100 agon monthly limit. Manage your subscription from your account page."
           : "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use.";
