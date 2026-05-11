@@ -1,40 +1,50 @@
+/**
+ * Open Graph image for /pricing.
+ *
+ * Mirrors the public pricing page's canonical copy so social embeds
+ * stay aligned with the live conversion surface.
+ */
 import { ImageResponse } from "next/og";
 
 import {
-  buildListicleShareCardCopy,
-  LISTICLE_SHARE_IMAGE_HEIGHT,
-  LISTICLE_SHARE_IMAGE_WIDTH,
-  loadListicleContent,
-} from "@/lib/listicle-content";
+  PRICING_CANONICAL_COPY,
+  getPricingFoundingMemberSummary,
+  getPricingFreeTierSummary,
+  getPricingMetadataDescription,
+  getPricingMetadataTitle,
+  getPricingSharePreviewCard,
+} from "@/lib/pricing-copy";
 
 export const runtime = "nodejs";
 export const revalidate = 3600;
-export const alt = "Consult The Dead listicle share card";
-export const size = {
-  width: LISTICLE_SHARE_IMAGE_WIDTH,
-  height: LISTICLE_SHARE_IMAGE_HEIGHT,
-};
+export const alt = "Pricing share card from Consult The Dead";
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamicParams = false;
 
-const BG = "#1f1812";
-const BG_DARK = "#120d08";
-const FG = "#f0e1cd";
-const FG_DIM = "#c0a98f";
-const FG_FAINT = "#8b7057";
+const BG = "#1e1711";
+const BG_DEEP = "#130e0a";
+const BG_PANEL = "#241a14";
+const FG = "#f1e1cb";
+const FG_DIM = "#c2ab95";
+const FG_FAINT = "#8f7361";
 const HAIRLINE = "#3a2c20";
 const AMBER = "#d4a017";
 
-type RouteProps = { params: Promise<{ slug: string }> };
-
-function splitCouncilCue(councilCue: string): string[] {
-  return councilCue.split(" · ").filter(Boolean);
+function copyRows() {
+  return [
+    PRICING_CANONICAL_COPY.freeLimit,
+    PRICING_CANONICAL_COPY.freeLimitReset,
+    PRICING_CANONICAL_COPY.byoKey,
+    PRICING_CANONICAL_COPY.foundingMember,
+  ];
 }
 
-export default async function Image({ params }: RouteProps) {
-  const { slug } = await params;
-  const content = loadListicleContent(slug);
-  const copy = buildListicleShareCardCopy(content, slug);
-  const cueParts = splitCouncilCue(copy.councilCue);
+export default async function Image() {
+  const title = getPricingMetadataTitle();
+  const description = getPricingMetadataDescription();
+  const card = getPricingSharePreviewCard();
+  const rows = copyRows();
 
   return new ImageResponse(
     (
@@ -46,9 +56,9 @@ export default async function Image({ params }: RouteProps) {
           flexDirection: "column",
           padding: "60px 68px",
           color: FG,
-          background: `radial-gradient(circle at 18% 18%, rgba(212,160,23,0.18) 0%, rgba(212,160,23,0) 34%), linear-gradient(135deg, ${BG} 0%, ${BG_DARK} 100%)`,
+          background: `radial-gradient(circle at 20% 18%, rgba(212,160,23,0.18) 0%, rgba(212,160,23,0) 34%), linear-gradient(135deg, ${BG} 0%, ${BG_DEEP} 100%)`,
           fontFamily:
-            'Georgia, "Times New Roman", "Iowan Old Style", "Palatino Linotype", serif',
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
           position: "relative",
           overflow: "hidden",
         }}
@@ -65,10 +75,10 @@ export default async function Image({ params }: RouteProps) {
         <div
           style={{
             position: "absolute",
-            left: "-120px",
-            bottom: "-140px",
-            width: "380px",
-            height: "380px",
+            right: "-140px",
+            bottom: "-120px",
+            width: "420px",
+            height: "420px",
             borderRadius: "50%",
             border: "1px solid rgba(212,160,23,0.12)",
             opacity: 0.9,
@@ -78,10 +88,9 @@ export default async function Image({ params }: RouteProps) {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
             justifyContent: "space-between",
+            alignItems: "center",
             width: "100%",
-            marginBottom: "48px",
             zIndex: 1,
           }}
         >
@@ -101,7 +110,7 @@ export default async function Image({ params }: RouteProps) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: BG_DARK,
+                color: BG_DEEP,
                 fontSize: "16px",
                 fontWeight: 700,
                 fontFamily: "monospace",
@@ -139,7 +148,7 @@ export default async function Image({ params }: RouteProps) {
                   color: FG_FAINT,
                 }}
               >
-                Listicle share card
+                Pricing share card
               </div>
             </div>
           </div>
@@ -158,7 +167,7 @@ export default async function Image({ params }: RouteProps) {
               fontWeight: 700,
             }}
           >
-            Long-tail SEO
+            summary_large_image
           </div>
         </div>
 
@@ -167,6 +176,7 @@ export default async function Image({ params }: RouteProps) {
             display: "flex",
             gap: "36px",
             flex: 1,
+            alignItems: "center",
             zIndex: 1,
           }}
         >
@@ -174,10 +184,9 @@ export default async function Image({ params }: RouteProps) {
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              gap: "20px",
               flex: 1,
               maxWidth: "760px",
-              gap: "22px",
             }}
           >
             <div
@@ -198,83 +207,79 @@ export default async function Image({ params }: RouteProps) {
                 fontWeight: 700,
               }}
             >
-              {copy.eyebrow}
+              {title}
             </div>
 
             <div
               style={{
-                fontSize: "68px",
+                fontSize: "66px",
                 lineHeight: 1.02,
                 letterSpacing: "-0.03em",
                 fontWeight: 500,
-                maxWidth: "720px",
+                maxWidth: "700px",
                 textWrap: "balance",
               }}
             >
-              {copy.title}
+              Run your hardest decision through 18 historical minds.
+            </div>
+
+            <div
+              style={{
+                fontFamily:
+                  'Georgia, "Times New Roman", "Iowan Old Style", serif',
+                fontSize: "28px",
+                lineHeight: 1.28,
+                color: FG_DIM,
+                maxWidth: "650px",
+              }}
+            >
+              They&apos;ll disagree. You&apos;ll decide.
             </div>
 
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-                paddingLeft: "18px",
-                borderLeft: `3px solid ${AMBER}`,
-                maxWidth: "680px",
+                flexWrap: "wrap",
+                gap: "12px",
+                marginTop: "8px",
               }}
             >
-              <div
-                style={{
-                  fontFamily:
-                    '"JetBrains Mono", "SFMono-Regular", "Consolas", monospace',
-                  fontSize: "11px",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: FG_FAINT,
-                  fontWeight: 700,
-                }}
-              >
-                {copy.councilCueLabel}
-              </div>
-              <div
-                style={{
-                  fontSize: "24px",
-                  lineHeight: 1.35,
-                  color: FG,
-                  fontWeight: 500,
-                }}
-              >
-                {copy.councilCue}
-              </div>
-              {cueParts.length > 0 && (
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                  {cueParts.map((part) => (
-                    <span
-                      key={part}
-                      style={{
-                        padding: "6px 10px",
-                        border: `1px solid ${HAIRLINE}`,
-                        borderRadius: "999px",
-                        fontFamily:
-                          '"JetBrains Mono", "SFMono-Regular", "Consolas", monospace',
-                        fontSize: "10px",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        color: FG_DIM,
-                      }}
-                    >
-                      {part}
-                    </span>
-                  ))}
-                </div>
-              )}
+              {rows.map((row) => (
+                <span
+                  key={row}
+                  style={{
+                    padding: "9px 14px",
+                    border: `1px solid ${HAIRLINE}`,
+                    borderRadius: "999px",
+                    fontFamily:
+                      '"JetBrains Mono", "SFMono-Regular", "Consolas", monospace',
+                    fontSize: "10px",
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: FG,
+                    background: BG_PANEL,
+                  }}
+                >
+                  {row}
+                </span>
+              ))}
+            </div>
+
+            <div
+              style={{
+                fontSize: "18px",
+                lineHeight: 1.5,
+                color: FG_FAINT,
+                maxWidth: "700px",
+              }}
+            >
+              {description}
             </div>
           </div>
 
           <div
             style={{
-              width: "300px",
+              width: "306px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -304,24 +309,24 @@ export default async function Image({ params }: RouteProps) {
                   fontWeight: 700,
                 }}
               >
-                CTA
+                Pricing snapshot
               </div>
               <div
                 style={{
-                  fontSize: "28px",
+                  fontSize: "30px",
                   lineHeight: 1.08,
                   fontWeight: 500,
                   color: FG,
                 }}
               >
-                {copy.ctaHeadline}
+                {getPricingFreeTierSummary()}
               </div>
               <div
                 style={{
                   padding: "12px 16px",
                   borderRadius: "14px",
                   background: AMBER,
-                  color: BG_DARK,
+                  color: BG_DEEP,
                   fontFamily:
                     '"JetBrains Mono", "SFMono-Regular", "Consolas", monospace',
                   fontSize: "11px",
@@ -331,7 +336,7 @@ export default async function Image({ params }: RouteProps) {
                   textAlign: "center",
                 }}
               >
-                {copy.ctaButtonLabel}
+                Pro: founding-member pricing at $300/year
               </div>
               <div
                 style={{
@@ -340,7 +345,7 @@ export default async function Image({ params }: RouteProps) {
                   color: FG_DIM,
                 }}
               >
-                {copy.ctaSubtext}
+                {getPricingFoundingMemberSummary()}
               </div>
             </div>
           </div>
@@ -352,7 +357,7 @@ export default async function Image({ params }: RouteProps) {
             justifyContent: "space-between",
             alignItems: "center",
             width: "100%",
-            marginTop: "34px",
+            marginTop: "30px",
             zIndex: 1,
             color: FG_FAINT,
             fontFamily:
@@ -362,8 +367,8 @@ export default async function Image({ params }: RouteProps) {
             textTransform: "uppercase",
           }}
         >
-          <span>Generated for social sharing</span>
-          <span>1200 × 630</span>
+          <span>Consult The Dead pricing</span>
+          <span>{card}</span>
         </div>
       </div>
     ),
