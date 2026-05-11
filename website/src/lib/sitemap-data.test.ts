@@ -149,7 +149,7 @@ describe("parseLastModified", () => {
 /* ── buildSitemapEntries — base structure ──────────────────────── */
 
 describe("buildSitemapEntries", () => {
-  it("emits the four top-level pages first, in canonical order", () => {
+  it("emits the six top-level pages first, in canonical order", () => {
     const out = buildSitemapEntries({
       siteUrl: SITE_URL,
       allowedSlugs: [],
@@ -157,12 +157,14 @@ describe("buildSitemapEntries", () => {
       publicAgons: [],
       now: FIXED_NOW,
     });
-    expect(out.length).toBe(4);
+    expect(out.length).toBe(6);
     expect(out[0].url).toBe(SITE_URL);
     expect(out[0].priority).toBe(1);
     expect(out[1].url).toBe(`${SITE_URL}/essay`);
-    expect(out[2].url).toBe(`${SITE_URL}/frameworks`);
-    expect(out[3].url).toBe(`${SITE_URL}/insights`);
+    expect(out[2].url).toBe(`${SITE_URL}/agora`);
+    expect(out[3].url).toBe(`${SITE_URL}/pricing`);
+    expect(out[4].url).toBe(`${SITE_URL}/frameworks`);
+    expect(out[5].url).toBe(`${SITE_URL}/insights`);
   });
 
   it("emits a framework page per allowed slug at priority 0.7", () => {
@@ -173,8 +175,8 @@ describe("buildSitemapEntries", () => {
       publicAgons: [],
       now: FIXED_NOW,
     });
-    // 4 top-level + 2 frameworks
-    expect(out.length).toBe(6);
+    // 6 top-level + 2 frameworks
+    expect(out.length).toBe(8);
     const newton = out.find((e) => e.url === `${SITE_URL}/frameworks/isaac-newton`);
     expect(newton !== undefined).toBeTruthy();
     if (!newton) throw new Error("missing newton entry");
@@ -190,7 +192,7 @@ describe("buildSitemapEntries", () => {
       publicAgons: [],
       now: FIXED_NOW,
     });
-    expect(out.length).toBe(6);
+    expect(out.length).toBe(8);
     const machi = out.find(
       (e) => e.url === `${SITE_URL}/insights/machiavelli-cofounder`,
     );
@@ -304,8 +306,8 @@ describe("buildSitemapEntries · public agon URLs", () => {
       publicAgons: rows,
       now: FIXED_NOW,
     });
-    // 4 top + 2 frameworks + 2 insights + 1 agon
-    expect(out.length).toBe(9);
+    // 6 top + 2 frameworks + 2 insights + 1 agon
+    expect(out.length).toBe(11);
     const urls = out.map((e) => e.url);
     expect(urls).toContain(SITE_URL);
     expect(urls).toContain(`${SITE_URL}/frameworks/isaac-newton`);
@@ -321,8 +323,9 @@ describe("buildSitemapEntries · public agon URLs", () => {
       publicAgons: [{ share_id: "x", updated_at: null }],
       now: FIXED_NOW,
     });
-    // Top-level "" + /essay + /frameworks + /insights + /frameworks/isaac-newton + /agora/a/x
-    expect(out.length).toBe(6);
+    // Top-level "" + /essay + /agora + /pricing + /frameworks + /insights +
+    // /frameworks/isaac-newton + /agora/a/x
+    expect(out.length).toBe(8);
     // Home page url defaults to empty string when origin is missing.
     expect(out[0].url).toBe("");
     // Subpaths still root-relative — never an undefined origin literal.
@@ -341,8 +344,8 @@ describe("buildSitemapEntries · public agon URLs", () => {
       publicAgons: [],
       now: FIXED_NOW,
     });
-    // 4 top + 2 frameworks + 2 insights, no agons
-    expect(out.length).toBe(8);
+    // 6 top + 2 frameworks + 2 insights, no agons
+    expect(out.length).toBe(10);
     const agonUrls = out
       .map((e) => e.url)
       .filter((u) => typeof u === "string" && u.includes("/agora/a/"));

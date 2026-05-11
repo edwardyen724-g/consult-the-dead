@@ -5,7 +5,7 @@
  * or hitting Postgres. The sitemap.ts entry point composes the helpers and
  * keeps a minimal `try { fetch } catch { fall back to empty list }` so a
  * transient DB error never breaks /sitemap.xml generation for the rest of
- * the URL-set (frameworks, insights, top-level pages).
+ * the URL-set (frameworks, insights, and the top-level public pages).
  *
  * Public-agon URL emission is the SEO half of the founder distribution
  * directive: the 30 outreach-email landing pages (seed task 69b1c08d) plus
@@ -13,7 +13,6 @@
  * Console can index them.
  */
 import type { MetadataRoute } from "next";
-import { sql } from "@vercel/postgres";
 
 import type { FrameworkSlug } from "@/lib/frameworks";
 import type { InsightEntry } from "@/lib/insights";
@@ -64,10 +63,14 @@ const PG_UNDEFINED_COLUMN = "42703";
  * Postgres.
  */
 export async function fetchPublicAgonRows(
-  sqlClient: SqlClient = sql as unknown as SqlClient,
+  sqlClient?: SqlClient,
 ): Promise<PublicAgonRow[]> {
+  const client =
+    sqlClient ??
+    ((await import("@vercel/postgres")).sql as unknown as SqlClient);
+
   try {
-    const result = await sqlClient<PublicAgonRow>`
+    const result = await client<PublicAgonRow>`
       SELECT share_id, updated_at
       FROM agons
       WHERE clerk_user_id = 'system'
@@ -80,7 +83,7 @@ export async function fetchPublicAgonRows(
       // Schema migration for `is_public` hasn't run yet — fall back
       // to the seed-script subset so the 30 outreach URLs still
       // appear in /sitemap.xml.
-      const result = await sqlClient<PublicAgonRow>`
+      const result = await client<PublicAgonRow>`
         SELECT share_id, updated_at
         FROM agons
         WHERE clerk_user_id = 'system'
@@ -132,7 +135,8 @@ export interface BuildSitemapEntriesInput {
  * shape so `sitemap.ts` can simply spread it.
  *
  * Rules:
- *   - Top-level pages (home, /essay, /frameworks, /insights) come first.
+ *   - Top-level public pages (home, /essay, /agora, /pricing,
+ *     /frameworks, /insights) come first.
  *   - Per-framework + per-insight pages preserve the existing priorities
  *     (0.7 / 0.8) and changeFrequency ("monthly").
  *   - Public agon pages get changeFrequency: "weekly", priority: 0.7
@@ -158,6 +162,18 @@ export function buildSitemapEntries(
     },
     {
       url: `${origin}/essay`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${origin}/agora`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${origin}/pricing`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,

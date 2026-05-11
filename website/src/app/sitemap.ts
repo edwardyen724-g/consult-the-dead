@@ -2,7 +2,7 @@
  * /sitemap.xml — public sitemap for SEO crawlers.
  *
  * Composition:
- *   - Top-level pages (home, /essay, /frameworks, /insights)
+ *   - Top-level pages (home, /essay, /agora, /pricing, /frameworks, /insights)
  *   - Per-framework pages (`ALLOWED_SLUGS`)
  *   - Per-insight pages (`INSIGHT_ENTRIES`)
  *   - Per-public-agon pages — `clerk_user_id='system'` rows from the
