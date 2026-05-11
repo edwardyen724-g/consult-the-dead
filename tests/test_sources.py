@@ -3,10 +3,11 @@
 import json
 import pytest
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, call
+import httpx
 from framework_forge.sources.discovery import discover_sources
 from framework_forge.sources.triage import triage_sources, SourceEntry
-from framework_forge.sources.fetcher import clean_html, fetch_source
+from framework_forge.sources.fetcher import clean_html, fetch_source, FetchError
 
 
 class TestSourceEntry:
@@ -141,3 +142,74 @@ class TestFetchSource:
 
         assert text == "Plain text payload"
         assert output_path.read_text(encoding="utf-8") == "Plain text payload"
+
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_timeout_and_raises_fetch_error(
+        self, mock_get, mock_sleep, tmp_path
+    ):
+        mock_get.side_effect = httpx.TimeoutException("timed out")
+
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="Failed to fetch"):
+            fetch_source("https://slow.example.com", output_path, retries=3, retry_delay=0.1)
+
+        assert mock_get.call_count == 3
+        assert mock_sleep.call_count == 2
+
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_5xx_then_succeeds(self, mock_get, mock_sleep, tmp_path):
+        fail_response = MagicMock()
+        fail_response.status_code = 503
+        http_err = httpx.HTTPStatusError(
+            "503", request=MagicMock(), response=fail_response
+        )
+        fail_response.raise_for_status.side_effect = http_err
+
+        ok_response = MagicMock()
+        ok_response.headers = {"content-type": "text/plain"}
+        ok_response.text = "Recovered"
+        ok_response.raise_for_status.return_value = None
+
+        mock_get.side_effect = [fail_response, ok_response]
+
+        output_path = tmp_path / "out.txt"
+        text = fetch_source("https://example.com", output_path, retries=3, retry_delay=0.1)
+
+        assert text == "Recovered"
+        assert mock_get.call_count == 2
+        assert mock_sleep.call_count == 1
+
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_raises_fetch_error_on_4xx(self, mock_get, tmp_path):
+        fail_response = MagicMock()
+        fail_response.status_code = 404
+        http_err = httpx.HTTPStatusError(
+            "404", request=MagicMock(), response=fail_response
+        )
+        fail_response.raise_for_status.side_effect = http_err
+        mock_get.return_value = fail_response
+
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="HTTP 404"):
+            fetch_source("https://example.com/missing", output_path, retries=3)
+
+        # 4xx should not be retried
+        assert mock_get.call_count == 1
+
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_request_error(self, mock_get, mock_sleep, tmp_path):
+        mock_get.side_effect = httpx.RequestError("connection refused")
+
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="Failed to fetch"):
+            fetch_source("https://example.com", output_path, retries=2, retry_delay=0.0)
+
+        assert mock_get.call_count == 2
+
+    def test_fetch_source_raises_value_error_for_zero_retries(self, tmp_path):
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(ValueError, match="retries must be >= 1"):
+            fetch_source("https://example.com", output_path, retries=0)
