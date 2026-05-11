@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { frameworkToSystemPrompt } from '@/lib/frameworkPrompt';
+import { createDemoDebateResponse } from '@/lib/demo-mode';
 
 const FRAMEWORKS_DIR = join(process.cwd(), '..', 'frameworks');
 
@@ -71,9 +72,15 @@ export async function POST(request: NextRequest) {
 
     const apiKey = getApiKey();
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'ANTHROPIC_API_KEY not configured' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
+      return createDemoDebateResponse({
+        topic,
+        minds,
+        companyName,
+        companyMission,
+        rounds,
+        researchBriefing,
+        researchSources,
+        documents,
       });
     }
 
