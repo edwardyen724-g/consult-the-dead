@@ -41,10 +41,9 @@ interface GitHubRepo {
   topics: string[];
 }
 
-interface SourceFetchResult<T> {
-  items: T[];
+interface ResearchSectionPayload {
+  sectionTitle: string;
   raw: string;
-  failed: boolean;
 }
 
 function getApiKey(): string | null {
@@ -88,12 +87,11 @@ function getTavilyKey(): string | null {
 async function fetchWebSearch(
   queries: string[],
   tavilyKey: string
-): Promise<SourceFetchResult<TavilyResult>> {
+): Promise<{ sectionTitle: string; results: TavilyResult[]; raw: string }> {
   try {
     const client = tavily({ apiKey: tavilyKey });
     const allResults: TavilyResult[] = [];
     const seenUrls = new Set<string>();
-    let failed = false;
 
     await Promise.all(
       queries.map(async (query) => {
@@ -114,7 +112,7 @@ async function fetchWebSearch(
             }
           }
         } catch {
-          failed = true;
+          // individual query failure — continue
         }
       })
     );
@@ -126,18 +124,18 @@ async function fetchWebSearch(
       ? top.map((r, i) => `${i + 1}. "${r.title}" — ${r.content.slice(0, 300)} — ${r.url}`).join('\n')
       : 'No web search results found.';
 
-    return { items: top, raw, failed };
+    return { sectionTitle: 'Web Search Results', results: top, raw };
   } catch (err) {
     console.warn('[research] Tavily search failed:', err instanceof Error ? err.message : err);
-    return { items: [], raw: 'Web search unavailable.', failed: true };
+    return { sectionTitle: 'Web Search Results', results: [], raw: 'Web search unavailable.' };
   }
 }
 
-async function fetchHackerNews(query: string): Promise<SourceFetchResult<HNHit>> {
+async function fetchHackerNews(query: string): Promise<{ sectionTitle: string; stories: HNHit[]; raw: string }> {
   try {
     const url = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story&hitsPerPage=10`;
     const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-    if (!res.ok) return { items: [], raw: 'HackerNews API returned an error.', failed: true };
+    if (!res.ok) return { sectionTitle: 'Hacker News Discussions', stories: [], raw: 'HackerNews API returned an error.' };
     const data = await res.json();
     const stories: HNHit[] = (data.hits ?? []).map((h: Record<string, unknown>) => ({
       title: h.title as string,
@@ -150,20 +148,20 @@ async function fetchHackerNews(query: string): Promise<SourceFetchResult<HNHit>>
     const raw = stories
       .map((s, i) => `${i + 1}. "${s.title}" (${s.points} pts, ${s.num_comments} comments) — ${s.url}`)
       .join('\n');
-    return { items: stories, raw: raw || 'No HackerNews stories found.', failed: false };
+    return { sectionTitle: 'Hacker News Discussions', stories, raw: raw || 'No HackerNews stories found.' };
   } catch {
-    return { items: [], raw: 'Failed to fetch HackerNews data.', failed: true };
+    return { sectionTitle: 'Hacker News Discussions', stories: [], raw: 'Failed to fetch HackerNews data.' };
   }
 }
 
-async function fetchGitHub(query: string): Promise<SourceFetchResult<GitHubRepo>> {
+async function fetchGitHub(query: string): Promise<{ sectionTitle: string; repos: GitHubRepo[]; raw: string }> {
   try {
     const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=10`;
     const res = await fetch(url, {
       signal: AbortSignal.timeout(8000),
       headers: { Accept: 'application/vnd.github.v3+json', 'User-Agent': 'GreatMinds-Research/1.0' },
     });
-    if (!res.ok) return { items: [], raw: 'GitHub API returned an error.', failed: true };
+    if (!res.ok) return { sectionTitle: 'GitHub Repositories', repos: [], raw: 'GitHub API returned an error.' };
     const data = await res.json();
     const repos: GitHubRepo[] = (data.items ?? []).map((r: Record<string, unknown>) => ({
       full_name: r.full_name as string,
@@ -180,10 +178,14 @@ async function fetchGitHub(query: string): Promise<SourceFetchResult<GitHubRepo>
           `${i + 1}. ${r.full_name} (${r.stargazers_count.toLocaleString()} stars, ${r.language ?? 'N/A'}) — ${(r.description ?? 'No description').slice(0, 200)} — ${r.html_url}`
       )
       .join('\n');
-    return { items: cleanRepos, raw: raw || 'No GitHub repositories found.', failed: false };
+    return { sectionTitle: 'GitHub Repositories', repos: cleanRepos, raw: raw || 'No GitHub repositories found.' };
   } catch {
-    return { items: [], raw: 'Failed to fetch GitHub data.', failed: true };
+    return { sectionTitle: 'GitHub Repositories', repos: [], raw: 'Failed to fetch GitHub data.' };
   }
+}
+
+export function buildResearchDataSections(sections: ResearchSectionPayload[]): string[] {
+  return sections.map(({ sectionTitle, raw }) => `=== ${sectionTitle} ===\n${raw}`);
 }
 
 export async function POST(request: NextRequest) {
@@ -253,13 +255,13 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     const [webResult, hnData, ghData] = await Promise.all([
       tavilyKey
         ? fetchWebSearch(queries, tavilyKey)
-        : Promise.resolve({ items: [] as TavilyResult[], raw: 'Web search not configured.', failed: false }),
+        : Promise.resolve({ sectionTitle: 'Web Search Results', results: [] as TavilyResult[], raw: 'Web search not configured.' }),
       useHN
         ? Promise.all(queries.map(fetchHackerNews))
-        : Promise.resolve([] as SourceFetchResult<HNHit>[]),
+        : Promise.resolve(null),
       useGitHub
         ? Promise.all(queries.map(fetchGitHub))
-        : Promise.resolve([] as SourceFetchResult<GitHubRepo>[]),
+        : Promise.resolve(null),
     ]);
 
     // Merge and deduplicate HN + GitHub results across queries
@@ -268,19 +270,17 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     const seenHnIds = new Set<string>();
     const seenGhNames = new Set<string>();
 
-    for (const { items: stories } of hnData) {
-      for (const s of stories) {
-        if (!seenHnIds.has(s.objectID)) {
-          seenHnIds.add(s.objectID);
-          allHnStories.push(s);
+    if (hnData) {
+      for (const { stories } of hnData) {
+        for (const s of stories) {
+          if (!seenHnIds.has(s.objectID)) { seenHnIds.add(s.objectID); allHnStories.push(s); }
         }
       }
     }
-    for (const { items: repos } of ghData) {
-      for (const r of repos) {
-        if (!seenGhNames.has(r.full_name)) {
-          seenGhNames.add(r.full_name);
-          allGhRepos.push(r);
+    if (ghData) {
+      for (const { repos } of ghData) {
+        for (const r of repos) {
+          if (!seenGhNames.has(r.full_name)) { seenGhNames.add(r.full_name); allGhRepos.push(r); }
         }
       }
     }
@@ -289,10 +289,6 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     allGhRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     const topHnStories = allHnStories.slice(0, 10);
     const topGhRepos = allGhRepos.slice(0, 10);
-    const sourceFetchFailed =
-      webResult.failed ||
-      hnData.some((result) => result.failed) ||
-      ghData.some((result) => result.failed);
 
     const hnRaw = topHnStories.length > 0
       ? topHnStories.map((s, i) => `${i + 1}. "${s.title}" (${s.points} pts, ${s.num_comments} comments) — ${s.url}`).join('\n')
@@ -305,7 +301,7 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     const seenSourceUrls = new Set<string>();
     const sources: { title: string; url: string; snippet?: string }[] = [];
 
-    for (const r of webResult.items) {
+    for (const r of webResult.results) {
       if (!seenSourceUrls.has(r.url)) {
         seenSourceUrls.add(r.url);
         sources.push({ title: r.title, url: r.url, snippet: r.content.slice(0, 200) });
@@ -326,14 +322,14 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
 
     // Step 4: build synthesis prompt with only the sections relevant to available data
     const dataSections: string[] = [];
-    if (webResult.items.length > 0) {
-      dataSections.push(`=== WEB SEARCH RESULTS ===\n${webResult.raw}`);
+    if (webResult.results.length > 0) {
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: webResult.sectionTitle, raw: webResult.raw }]));
     }
     if (hnRaw) {
-      dataSections.push(`=== HACKERNEWS DISCUSSIONS ===\n${hnRaw}`);
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: hnData?.[0]?.sectionTitle ?? 'Hacker News Discussions', raw: hnRaw }]));
     }
     if (ghRaw) {
-      dataSections.push(`=== GITHUB REPOSITORIES ===\n${ghRaw}`);
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: ghData?.[0]?.sectionTitle ?? 'GitHub Repositories', raw: ghRaw }]));
     }
     if (dataSections.length === 0) {
       dataSections.push('=== NOTE ===\nNo external data sources were available. Provide a general briefing based on your knowledge.');
@@ -365,14 +361,6 @@ Be specific. Reference actual sources, projects, or data points from the researc
           const sourcesEvent = `data: ${JSON.stringify({ type: 'research_sources', sources })}\n\n`;
           controller.enqueue(encoder.encode(sourcesEvent));
 
-          if (sourceFetchFailed) {
-            const sourceErrorEvent = `data: ${JSON.stringify({
-              type: 'error',
-              message: 'One or more research source requests failed',
-            })}\n\n`;
-            controller.enqueue(encoder.encode(sourceErrorEvent));
-          }
-
           const messageStream = anthropic.messages.stream({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 1200,
@@ -392,10 +380,10 @@ Be specific. Reference actual sources, projects, or data points from the researc
 
           const doneEvent = `data: ${JSON.stringify({ type: 'research_complete' })}\n\n`;
           controller.enqueue(encoder.encode(doneEvent));
-        } catch {
+        } catch (err) {
           const errorEvent = `data: ${JSON.stringify({
             type: 'error',
-            message: 'Research synthesis failed',
+            message: err instanceof Error ? err.message : 'Research synthesis failed',
           })}\n\n`;
           controller.enqueue(encoder.encode(errorEvent));
         } finally {
