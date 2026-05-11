@@ -24,19 +24,13 @@ Set these in Vercel (Project → Settings → Environment Variables) before depl
 
 ### EMAIL_FROM
 
-The sender address is currently hardcoded in `website/src/lib/email.ts`:
+The sender address is hardcoded in `website/src/lib/email.ts`:
 
 ```ts
-const FROM = 'onboarding@resend.dev'
+const FROM = 'notifications@consultthedead.com'
 ```
 
-`onboarding@resend.dev` is Resend's shared sandbox domain and **only delivers to your verified email address** while your domain is unverified. To send to any address in production:
-
-1. Add your domain in Resend → Domains (e.g. `consultthedead.com`).
-2. Add DNS records as instructed by Resend.
-3. Update the constant (or add `EMAIL_FROM` env var) to `notifications@consultthedead.com` or similar.
-
-Until the domain is verified, all smoke tests must use the Resend-account owner email as the recipient.
+The branded domain `consultthedead.com` is verified in Resend, so outbound emails can be sent to any recipient address in production. If you need to revert to the sandbox for local testing, temporarily swap to `onboarding@resend.dev` (Resend's shared sandbox — only delivers to the Resend-account owner's verified address).
 
 ---
 
@@ -216,7 +210,7 @@ curl -s -X POST "$WEBHOOK_URL" \
 |---|---|---|
 | `{"received":true}` but no email | `RESEND_API_KEY` missing or wrong | Check Vercel env vars; confirm key starts with `re_` |
 | `Invalid signature` 400 | Wrong signing secret | Re-copy from Clerk/Stripe dashboard; ensure no trailing whitespace |
-| Email to inbox fails, Resend shows "Blocked" | Sender domain not verified | Verify domain in Resend or use `onboarding@resend.dev` during testing |
+| Email to inbox fails, Resend shows "Blocked" | Sender domain not verified | Verify `consultthedead.com` in Resend → Domains and confirm DNS records; use `onboarding@resend.dev` only for local sandbox testing |
 | `STRIPE_SECRET_KEY is not set` 500 | Env var missing in Vercel | Add to all environments (Production, Preview) |
 | Clerk route creates duplicate Stripe customer | Smoke test ran against production with real user | Delete the test customer in Stripe dashboard |
 
