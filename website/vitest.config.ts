@@ -19,6 +19,9 @@ export default defineConfig({
       include: [
         "src/app/sign-up/**/page.tsx",
         "src/app/sign-up/**/utm-stamper.ts",
+        "src/app/pricing/layout.tsx",
+        "src/lib/pricing-copy.ts",
+        "src/components/upsell-modal.tsx",
       ],
       exclude: [
         "src/**/*.d.ts",
