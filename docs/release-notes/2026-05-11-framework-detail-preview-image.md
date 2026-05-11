@@ -41,15 +41,43 @@ system while avoiding a second, drift-prone preview-image implementation.
 
 ## Smoke Check
 
-See the new smoke runbook:
+Smoke run completed 2026-05-11 against production commit
+`4857d03b4c568c4dd841c6f09bc91d9bac119585`. Full evidence artifact:
 
-- [`docs/runbooks/framework-detail-preview-image-smoke.md`](../runbooks/framework-detail-preview-image-smoke.md)
+- `.wanman/agents/devops/output/framework-detail-preview-image-smoke-2026-05-10.md`
 
-Use that runbook to confirm the generated image routes return `image/png`,
-render the same bytes for Open Graph and Twitter/X, and expose the expected
-framework-specific metadata on the detail page.
+Runbook used: [`docs/runbooks/framework-detail-preview-image-smoke.md`](../runbooks/framework-detail-preview-image-smoke.md)
+
+### Smoke Results
+
+| Check | Slug | Result |
+| --- | --- | --- |
+| Framework page responds | `isaac-newton` | PASS |
+| `opengraph-image` route returns `image/png` | `isaac-newton` | PASS |
+| `twitter-image` route returns `image/png` | `isaac-newton` | PASS |
+| Card renders branded composition | `isaac-newton` | PASS |
+| Framework page responds | `seneca` | PASS |
+| `opengraph-image` route returns `image/png` | `seneca` | PASS |
+| `twitter-image` route returns `image/png` | `seneca` | PASS |
+| Card renders portrait-led composition | `seneca` | **FAIL** |
+
+### Known Gaps
+
+1. **Missing Seneca portrait asset** — `/portraits/seneca-portrait.png` returns
+   404 in production. The image route pipeline works, but the portrait frame in
+   the Seneca card is blank. This is a follow-up asset task, not a route
+   rollback trigger.
+2. **Homepage canonical URL on framework detail pages** — the detail-page HTML
+   still emits `https://www.consultthedead.com/` as the canonical URL instead of
+   the route-scoped URL. The social metadata (OG/Twitter) is correctly
+   route-scoped; the canonical drift is a separate SEO-hygiene gap.
 
 ## Status
 
-Ready for promotion after smoke capture.
+Smoke captured. Route pipeline is live and functional for the shipped roster.
+Two known gaps remain (Seneca portrait asset; framework-page canonical URL) and
+are tracked as follow-up items — neither is a rollback trigger for the
+preview-image contract itself.
+
+Promoted to release-state index on 2026-05-11.
 
