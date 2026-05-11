@@ -6,6 +6,10 @@
  * the live `agora_self_run` event count from Vercel Analytics can replace
  * the static minds/debatesInLibrary numbers without changing the page JSX
  * — just swap the source feeding `formatPricingStats`.
+ *
+ * NOTE: this file is imported by the /pricing 'use client' page and must
+ * remain free of server-only dependencies (Node fs, @vercel/postgres, etc.).
+ * Live/dynamic stats live in ./live-stats.ts (server-only).
  */
 
 export type PricingStats = {
