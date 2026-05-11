@@ -36,16 +36,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     publicAgons = await fetchPublicAgonRows();
   } catch (err) {
-    // Log + swallow — the rest of the sitemap is still valuable to crawlers.
     console.error("[sitemap] failed to fetch public agon rows:", err);
   }
 
-  return buildSitemapEntries({
-    siteUrl: SITE_URL,
-    allowedSlugs: ALLOWED_SLUGS,
-    insightEntries: INSIGHT_ENTRIES,
-    publicAgons,
-    mindSlugs: MIND_SLUGS,
-    now: new Date(),
-  });
+  const now = new Date();
+  const mindPages: MetadataRoute.Sitemap = MIND_SLUGS.map((slug) => ({
+    url: `${SITE_URL}/minds/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...buildSitemapEntries({
+      siteUrl: SITE_URL,
+      allowedSlugs: ALLOWED_SLUGS,
+      insightEntries: INSIGHT_ENTRIES,
+      publicAgons,
+      now,
+    }),
+    ...mindPages,
+  ];
 }
