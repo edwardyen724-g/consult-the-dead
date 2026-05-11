@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { tavily } from '@tavily/core';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { createDemoResearchResponse } from '@/lib/demo-mode';
 
 interface ResearchRequest {
   topic: string;
@@ -193,10 +194,7 @@ export async function POST(request: NextRequest) {
 
     const apiKey = getApiKey();
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'ANTHROPIC_API_KEY not configured' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return createDemoResearchResponse({ topic, focus });
     }
 
     const tavilyKey = getTavilyKey();

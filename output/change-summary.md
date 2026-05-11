@@ -1,6 +1,35 @@
 # Change Summary
 
 ## Task
+Add a demo fallback for company-builder debate mode.
+
+## Changed Files
+- `company-builder/src/app/api/debate/route.ts`
+- `company-builder/src/app/api/research/route.ts`
+- `company-builder/src/lib/demo-mode.ts`
+- `company-builder/src/lib/demo-mode.test.ts`
+- `company-builder/vitest.config.ts`
+
+## What Changed
+- Added shared demo-mode helpers that stream deterministic SSE research and debate events when Anthropic credentials are missing.
+- Wired the debate and research API routes to return the demo stream instead of a hard 500 when `ANTHROPIC_API_KEY` is absent, while leaving the live Anthropic path unchanged when a key is present.
+- Added Vitest coverage for the demo research and debate contracts, including streamed event shape, source payloads, and convergence output.
+- Added a local Vitest config so the new helper tests can run inside the company-builder app without pulling in the broader workspace config.
+
+## Verification
+- `cd company-builder && npm ci --no-audit --no-fund`
+- `cd company-builder && /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website/node_modules/.bin/vitest run --config vitest.config.ts`
+- `cd company-builder && ./node_modules/.bin/eslint src/app/api/debate/route.ts src/app/api/research/route.ts src/lib/demo-mode.ts src/lib/demo-mode.test.ts vitest.config.ts`
+- `cd company-builder && npm run build`
+- `cd company-builder && npm run lint`
+
+## Results
+- Vitest helper tests: passed.
+- Targeted ESLint on the changed files: passed.
+- Full repository lint: failed on pre-existing company-builder issues outside this task, including existing React-hooks and `require()`-style import errors in unrelated files.
+- Next.js build: compiled successfully, then failed during type checking on a pre-existing error in `src/components/canvas/MindNode.tsx` (`showPlacementQuote` is undefined).
+
+## Task
 Add undo/redo for destructive company-builder edits.
 
 ## Changed Files
