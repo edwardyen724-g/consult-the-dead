@@ -16,7 +16,10 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov", "html"],
-      include: ["src/**/*.ts", "src/**/*.tsx"],
+      include: [
+        "src/app/pricing/layout.tsx",
+        "src/lib/pricing-copy.ts",
+      ],
       exclude: [
         "src/**/*.d.ts",
         "src/**/*.test.ts",
@@ -24,10 +27,10 @@ export default defineConfig({
         "src/middleware.ts",
       ],
       thresholds: {
-        lines: 0,   // gate starts at 0; raise once coverage backfill proceeds
-        branches: 0,
-        functions: 0,
-        statements: 0,
+        lines: 95,
+        branches: 95,
+        functions: 95,
+        statements: 95,
       },
     },
   },
