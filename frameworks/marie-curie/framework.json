@@ -8,8 +8,18 @@
     "born": "1867",
     "died": "1934",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
+    "primary_sources": [
+      "Pierre Curie by Marie Curie (1923) — autobiography_pierre_curie_memoir",
+      "Nobel Lecture on Radioactivity, Physics Prize (December 1903)",
+      "Nobel Lecture on the Discovery of Radium, Chemistry Prize (December 1911)",
+      "Radioactivity by Marie Curie (1935, posthumous) — archive.org/details/radioactivity00curi",
+      "Marie Curie's Laboratory Notebooks, 1902–1934 — bibliotheque.curie.fr/collections-numeriques"
+    ],
+    "secondary_sources": [
+      "Madame Curie by Eve Curie (1937) — firsthand biography by her daughter",
+      "Marie Curie and Her Daughters by Shelley Emling (2012)",
+      "Correspondence with Einstein, Rutherford, and Other Scientists, 1903–1934"
+    ],
     "incident_count": 5,
     "construct_count": 7,
     "prediction_count": 5
