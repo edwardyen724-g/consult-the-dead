@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
+import { runFirstAgonRecapCron } from "@/lib/cron/first-agon-recap";
 
-export const runtime = 'nodejs'
+export const runtime = "nodejs";
+export const maxDuration = 300;
 export const dynamic = 'force-dynamic'
 
 export const FIRST_AGON_RECAP_CRON_CONTRACT = {
@@ -23,4 +25,8 @@ export async function GET() {
       'Cache-Control': 'no-store',
     },
   })
+}
+
+export async function POST(request: Request) {
+  return runFirstAgonRecapCron(request);
 }
