@@ -144,6 +144,58 @@ export const db = {
     return (result.rows[0] as PublicAgonRecord) ?? null;
   },
 
+  /**
+   * Public list for the /explore gallery. Returns the public-safe field set
+   * for every agon row that should be discoverable in the gallery:
+   *
+   *   - `clerk_user_id IS NULL`        → anonymously-saved share rows, AND
+   *   - `clerk_user_id = 'system'`     → seed rows from the outreach script
+   *                                      (see scripts/seed-outreach-agons.ts).
+   *
+   * `is_public = TRUE` rows are also included once that column migration
+   * runs in production. The query falls back to the system+anonymous subset
+   * if the column does not yet exist (Postgres `42703 undefined_column`),
+   * so /explore stays usable across the schema-migration window.
+   *
+   * `limit` defaults to 200 so the v1 gallery (≈30 seed rows) is fully
+   * client-filterable without pagination, but a hostile growth in saved
+   * shares still can't blow the route's response payload.
+   */
+  async getPublicAgons({ limit = 200 }: { limit?: number } = {}): Promise<PublicAgonRecord[]> {
+    const cappedLimit = Math.max(1, Math.min(1000, Math.trunc(limit) || 200));
+    try {
+      const result = await sql`
+        SELECT id, share_id, topic, mind_slugs, rounds, turns, consensus, research, created_at
+        FROM agons
+        WHERE clerk_user_id IS NULL
+           OR clerk_user_id = 'system'
+           OR is_public = TRUE
+        ORDER BY created_at DESC
+        LIMIT ${cappedLimit}
+      `;
+      return result.rows as PublicAgonRecord[];
+    } catch (err) {
+      // Postgres `undefined_column` (42703) — the `is_public` migration
+      // hasn't run yet. Fall back to the system + anonymous subset so the
+      // 30 outreach rows still surface in /explore. Anything else surfaces
+      // up to the route handler.
+      const code = (err as { code?: string } | null)?.code;
+      const message = (err as { message?: string } | null)?.message ?? '';
+      const isUndefinedColumn =
+        code === '42703' || /column .*is_public.* does not exist/i.test(message);
+      if (!isUndefinedColumn) throw err;
+      const fallback = await sql`
+        SELECT id, share_id, topic, mind_slugs, rounds, turns, consensus, research, created_at
+        FROM agons
+        WHERE clerk_user_id IS NULL
+           OR clerk_user_id = 'system'
+        ORDER BY created_at DESC
+        LIMIT ${cappedLimit}
+      `;
+      return fallback.rows as PublicAgonRecord[];
+    }
+  },
+
   async deleteAgon(id: string, userId: string): Promise<boolean> {
     const result = await sql`
       DELETE FROM agons
