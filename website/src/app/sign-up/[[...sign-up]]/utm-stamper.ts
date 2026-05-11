@@ -14,11 +14,7 @@ function firstString(value: SpValue): string {
   return typeof value === "string" ? value : "";
 }
 
-export interface SignUpUnsafeMetadata {
-  [key: string]: string | undefined;
-  utm_source?: string;
-  utm_campaign?: string;
-}
+export type SignUpUnsafeMetadata = Record<string, string>;
 
 export interface SignUpTierCopy {
   name: string;
