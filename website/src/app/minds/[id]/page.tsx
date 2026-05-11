@@ -32,6 +32,7 @@ export async function generateMetadata({
   if (!mind) return { title: "Not Found" };
 
   const canonical = mindCanonicalUrl(mind.slug);
+  const ogImageUrl = `${canonical}/opengraph-image`;
   return {
     title: mind.h1,
     description: mind.metaDescription,
@@ -40,11 +41,13 @@ export async function generateMetadata({
       description: mind.metaDescription,
       url: canonical,
       type: "article",
+      images: [{ url: ogImageUrl, width: 1200, height: 630 }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: mind.h1,
       description: mind.metaDescription,
+      images: [ogImageUrl],
     },
     alternates: { canonical },
   };
