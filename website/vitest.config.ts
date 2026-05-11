@@ -41,6 +41,8 @@ export default defineConfig({
         "src/app/sign-up/[[...sign-up]]/UtmStamper.tsx",
         "src/lib/use-clerk-utm-stamper.ts",
         "src/lib/utm.ts",
+        "src/components/NoticePanel.tsx",
+        "src/app/agora/error.tsx",
       ],
       exclude: [
         "src/**/*.d.ts",

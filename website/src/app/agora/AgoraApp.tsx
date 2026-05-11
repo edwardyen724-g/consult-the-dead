@@ -3,14 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { NoticePanel } from "@/components/NoticePanel";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
-import {
-  AGORA_SESSION_STORAGE_KEY,
-  decodeAgoraSession,
-  encodeAgoraSession,
-  type AgoraSessionState,
-} from "@/lib/agora-session";
 import {
   PACKS,
   getActivePackMembers,
@@ -31,15 +26,6 @@ export interface MindOption {
 }
 
 export type Stage = "topic" | "research" | "council" | "agon" | "consensus";
-
-const STAGE_ORDER: Stage[] = ["topic", "research", "council", "agon", "consensus"];
-const STAGE_LABELS: Record<Stage, string> = {
-  topic: "TOPIC",
-  research: "RESEARCH",
-  council: "COUNCIL",
-  agon: "AGON",
-  consensus: "CONSENSUS",
-};
 
 const STAGE_ROMAN: Record<Stage, string> = {
   topic: "I", research: "II", council: "III", agon: "IV", consensus: "V",
@@ -158,28 +144,6 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
-function toAgoraSessionState(state: AgonState): AgoraSessionState {
-  return {
-    stage: state.stage,
-    topic: state.topic,
-    researchEnabled: state.researchEnabled,
-    council: state.council,
-    turns: state.turns,
-    activeRound: state.activeRound,
-    activeMindSlug: state.activeMindSlug,
-    consensus: state.consensus,
-    consensusNode: state.consensusNode,
-    quotaRemaining: state.quotaRemaining,
-    researchData: state.researchData,
-  };
-}
-
-const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
-
-function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
-  return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
-}
-
 export function AgoraApp({
   minds,
   isPro,
@@ -199,7 +163,6 @@ export function AgoraApp({
     ...INITIAL_STATE,
     ...(_testInitialState ?? {}),
   });
-  const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
 
@@ -221,62 +184,9 @@ export function AgoraApp({
     }
   }, []);
 
-  // Restore a previously persisted Agora session once the component mounts.
-  useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem(AGORA_SESSION_STORAGE_KEY);
-      const restored = decodeAgoraSession(saved);
-      if (!restored) return;
-
-      setState((current) => ({
-        ...current,
-        ...restored,
-        consensusNode: isConsensusNodeKey(restored.consensusNode) ? restored.consensusNode : null,
-        consensusLoading: false,
-        researchLoading: false,
-        error: null,
-        rateLimited: false,
-      }));
-    } catch {
-      // ignore
-    } finally {
-      setSessionHydrated(true);
-    }
-  }, []);
-
-  // Persist the non-transient Agora session fields after hydration completes.
-  useEffect(() => {
-    if (!sessionHydrated) return;
-
-    try {
-      const encoded = encodeAgoraSession(toAgoraSessionState(state));
-      if (encoded) sessionStorage.setItem(AGORA_SESSION_STORAGE_KEY, encoded);
-      else sessionStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
-    } catch {
-      // ignore
-    }
-  }, [
-    sessionHydrated,
-    state.stage,
-    state.topic,
-    state.researchEnabled,
-    state.council,
-    state.turns,
-    state.activeRound,
-    state.activeMindSlug,
-    state.consensus,
-    state.consensusNode,
-    state.quotaRemaining,
-    state.researchData,
-  ]);
-
   // Cancel any in-flight stream when component unmounts
   useEffect(() => {
     return () => abortRef.current?.abort();
-  }, []);
-
-  const visibleStages: Stage[] = useMemo(() => {
-    return STAGE_ORDER;
   }, []);
 
   function setApiKey(key: string) {
@@ -520,6 +430,7 @@ export function AgoraApp({
 
   return (
     <main
+      className="gm-agora-shell"
       style={{
         minHeight: "calc(100vh - 80px)",
         padding: "48px 24px 96px",
@@ -527,26 +438,91 @@ export function AgoraApp({
         color: "var(--fg)",
       }}
     >
+      <style>{`
+        @media (max-width: 720px) {
+          .gm-agora-shell {
+            padding: 28px 16px 84px !important;
+          }
+
+          .gm-agora-shell .gm-agora-consensus-split {
+            flex-direction: column !important;
+            gap: 24px !important;
+          }
+
+          .gm-agora-shell .gm-agora-consensus-split > * {
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+
+          .gm-agora-shell .gm-agora-action-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+
+          .gm-agora-shell .gm-agora-action-row > * {
+            width: 100% !important;
+          }
+
+          .gm-agora-shell .gm-agora-footer {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <StageHeader stage={state.stage} />
 
         {state.error && (
-          <div
-            style={{
-              marginBottom: "32px",
-              border: "1px solid var(--red)",
-              borderRadius: "4px",
-              padding: "12px 16px",
-              fontFamily: "var(--font-mono)",
-              fontSize: "12px",
-              color: "var(--fg-dim)",
-              lineHeight: 1.5,
-            }}
-          >
-            <span style={{ marginRight: "10px", color: "var(--red)" }}>
-              {state.rateLimited ? "RATE LIMIT" : "ERROR"}
-            </span>
-            {state.error}
+          <div style={{ marginBottom: "32px" }}>
+            <NoticePanel
+              eyebrow={state.rateLimited ? "Rate limit" : "Error"}
+              title="The Agora could not finish this run."
+              accentVar="var(--red)"
+              actions={
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void retryAgon();
+                    }}
+                    className="font-mono"
+                    style={{
+                      background: "var(--red)",
+                      color: "var(--bg)",
+                      border: "1px solid var(--red)",
+                      borderRadius: "4px",
+                      fontSize: "12px",
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      padding: "14px 20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Retry this run
+                  </button>
+                  <button
+                    type="button"
+                    onClick={reset}
+                    className="font-mono"
+                    style={{
+                      background: "transparent",
+                      color: "var(--fg-dim)",
+                      border: "1px solid var(--hairline)",
+                      borderRadius: "4px",
+                      fontSize: "12px",
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      padding: "14px 20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Start over
+                  </button>
+                </>
+              }
+            >
+              {state.error}
+            </NoticePanel>
           </div>
         )}
 
@@ -595,6 +571,7 @@ export function AgoraApp({
               turns={state.turns}
               activeMindSlug={state.activeMindSlug}
               activeRound={state.activeRound}
+              onReset={reset}
             />
           )}
 
@@ -618,6 +595,7 @@ export function AgoraApp({
 
         <div
           data-print="hide"
+          className="font-mono uppercase gm-agora-footer"
           style={{
             marginTop: "96px",
             paddingTop: "24px",
@@ -628,7 +606,6 @@ export function AgoraApp({
             gap: "16px",
             flexWrap: "wrap",
           }}
-          className="font-mono uppercase"
         >
           <div
             style={{
@@ -670,7 +647,6 @@ async function consumeSse(
   const decoder = new TextDecoder();
   let buffer = "";
 
-  // eslint-disable-next-line no-constant-condition
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -1230,6 +1206,19 @@ function CouncilStage({
   const count = council.length;
   const valid = count >= MIND_MIN && count <= mindMax;
 
+  // Show a brief upsell banner when a free user tries to seat a mind beyond
+  // their 3-mind cap. capBannerVisible is lifted into AgonState so it can be
+  // seeded in tests via _testInitialState.
+  function handleToggleMind(slug: string) {
+    const isSeated = council.includes(slug);
+    if (!isSeated && count >= mindMax) {
+      setCapBannerVisible(true);
+      return;
+    }
+    setCapBannerVisible(false);
+    toggleMind(slug);
+  }
+
   // Build a slug → mind lookup so packs can render in their declared order.
   const mindBySlug = useMemo(() => {
     const map = new Map<string, MindOption>();
@@ -1250,47 +1239,11 @@ function CouncilStage({
     return PACKS.filter((p) => getActivePackMembers(p, liveSlugs).length > 0);
   }, [liveSlugs]);
 
-  // Compute initial open packs: when a specific pack is requested, open only
-  // that pack; otherwise open every pack that already has a seated (smart-
-  // suggested) mind so the user can see their pre-selection without having to
-  // hunt across closed accordion sections. Falls back to the first active pack
-  // if none of the suggested minds are live yet.
-  const initialOpenPacks = useMemo<ReadonlySet<PackId>>(() => {
-    if (initialOpenPack) return new Set([initialOpenPack]);
-    const withSeated = activePacks
-      .filter((p) =>
-        getActivePackMembers(p, liveSlugs).some((s) => council.includes(s))
-      )
-      .map((p) => p.id);
-    const ids = withSeated.length > 0
-      ? withSeated
-      : activePacks.slice(0, 1).map((p) => p.id);
-    return new Set(ids);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // computed once on mount — we don't re-open on subsequent council changes
-
-  const [openPacks, setOpenPacks] = useState<ReadonlySet<PackId>>(initialOpenPacks);
+  const defaultOpen: PackId | null = initialOpenPack ?? activePacks[0]?.id ?? null;
+  const [openPack, setOpenPack] = useState<PackId | null>(defaultOpen);
 
   function togglePack(id: PackId) {
-    setOpenPacks((cur) => {
-      const next = new Set(cur);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  }
-
-  // Show a brief upsell banner when a free user tries to seat a mind beyond
-  // their cap. capBannerVisible is lifted into AgonState so tests can seed it
-  // via _testInitialState without needing interaction.
-  function handleToggleMind(slug: string) {
-    const isSeated = council.includes(slug);
-    if (!isSeated && count >= mindMax) {
-      setCapBannerVisible(true);
-      return;
-    }
-    setCapBannerVisible(false);
-    toggleMind(slug);
+    setOpenPack((cur) => (cur === id ? null : id));
   }
 
   return (
@@ -1362,7 +1315,7 @@ function CouncilStage({
       >
         {activePacks.map((pack, idx) => {
           const memberSlugs = getActivePackMembers(pack, liveSlugs);
-          const open = openPacks.has(pack.id);
+          const open = openPack === pack.id;
           const seatedCount = memberSlugs.filter((s) => council.includes(s)).length;
           return (
             <div
@@ -1604,12 +1557,14 @@ function AgonStage({
   turns,
   activeMindSlug,
   activeRound,
+  onReset,
 }: {
   topic: string;
   selectedMinds: MindOption[];
   turns: RoundTurn[];
   activeMindSlug: string | null;
   activeRound: number | null;
+  onReset: () => void;
 }) {
   const colorBySlug = useMemo(() => {
     const map: Record<string, string> = {};
@@ -1655,16 +1610,35 @@ function AgonStage({
       </p>
 
       {turns.length === 0 && (
-        <div
-          className="font-mono"
-          style={{
-            fontSize: "12px",
-            letterSpacing: "0.08em",
-            color: "var(--fg-dim)",
-            marginBottom: "24px",
-          }}
-        >
-          Convening the council…
+        <div style={{ marginBottom: "24px" }}>
+          <NoticePanel
+            eyebrow="Live stream"
+            title="The council is gathering its first answer."
+            accentVar="var(--amber)"
+            actions={
+              <button
+                type="button"
+                onClick={onReset}
+                className="font-mono"
+                style={{
+                  background: "transparent",
+                  color: "var(--fg-dim)",
+                  border: "1px solid var(--hairline)",
+                  borderRadius: "4px",
+                  fontSize: "12px",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  padding: "14px 20px",
+                  cursor: "pointer",
+                }}
+              >
+                Start over
+              </button>
+            }
+          >
+            If the stream stalls, retry from the beginning with the same topic
+            and council.
+          </NoticePanel>
         </div>
       )}
 
@@ -1896,6 +1870,7 @@ function ConsensusStage({
       </p>
 
       <div
+        className="gm-agora-consensus-split"
         style={{
           display: "flex",
           gap: "48px",
@@ -1913,28 +1888,44 @@ function ConsensusStage({
         </div>
         <div style={{ flex: 1, minWidth: "260px" }}>
           {loading && (
-            <div
-              className="font-mono"
-              style={{
-                fontSize: "12px",
-                letterSpacing: "0.08em",
-                color: "var(--fg-dim)",
-              }}
+            <NoticePanel
+              eyebrow="Consensus"
+              title="Synthesizing the final answer."
+              accentVar="var(--amber)"
             >
-              Synthesizing the consensus…
-            </div>
+              The debate has finished; the council is distilling its shared
+              conclusion now.
+            </NoticePanel>
           )}
           {!loading && !consensus && (
-            <div
-              className="font-mono"
-              style={{
-                fontSize: "12px",
-                letterSpacing: "0.08em",
-                color: "var(--fg-dim)",
-              }}
+            <NoticePanel
+              eyebrow="Consensus"
+              title="No consensus was finalized yet."
+              accentVar="var(--amber)"
+              actions={
+                <button
+                  type="button"
+                  onClick={onReset}
+                  className="font-mono"
+                  style={{
+                    background: "transparent",
+                    color: "var(--fg-dim)",
+                    border: "1px solid var(--hairline)",
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    padding: "14px 20px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Retry this run
+                </button>
+              }
             >
-              Waiting for the agon to finish…
-            </div>
+              The stream stopped before a final answer was recorded. Retry the
+              same run or start a new one if the topic needs a fresh council.
+            </NoticePanel>
           )}
           {consensus && (
             <ConsensusDoc consensus={consensus} active={consensusNode} />
@@ -1999,6 +1990,7 @@ function ConsensusStage({
 
       <div
         data-print="hide"
+        className="gm-agora-action-row"
         style={{ marginTop: "64px", display: "flex", gap: "16px", flexWrap: "wrap" }}
       >
         {isPro ? (
@@ -2293,12 +2285,6 @@ function PackMindCard({
   packs: Pack[];
   currentPackId: PackId;
 }) {
-  const initials = mind.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
   const otherPacks = packs.filter((p) => p.id !== currentPackId);
 
   return (
@@ -2416,26 +2402,5 @@ function PackMindCard({
         {mind.incidentCount} invocations
       </div>
     </button>
-  );
-}
-
-/* ────────────── Shared ────────────── */
-
-function PreviewBanner({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        border: "1px dashed var(--hairline)",
-        padding: "12px 16px",
-        fontFamily: "var(--font-mono)",
-        fontSize: "11px",
-        letterSpacing: "0.04em",
-        color: "var(--fg-dim)",
-        lineHeight: 1.5,
-      }}
-    >
-      <span style={{ color: "var(--amber)", marginRight: "10px" }}>PREVIEW</span>
-      {children}
-    </div>
   );
 }

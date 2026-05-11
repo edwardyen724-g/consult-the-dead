@@ -4,7 +4,7 @@
  * Covers:
  *  • Sample question panel (baseline + aria-label a11y)
  *  • Error states: RATE LIMIT label vs generic ERROR label
- *  • Agon empty state: "Convening the council…" before turns arrive
+ *  • Agon empty state: gathering message before turns arrive, NoticePanel with retry
  *  • Research stage: loading spinner, research brief, source chips
  *  • Consensus stage: loading message, waiting message, quota display
  *  • Mobile layout: flex-wrap sentinels on footer and quota container
@@ -145,7 +145,7 @@ describe("AgoraApp sample questions", () => {
 /* ── Error states ────────────────────────────────────────────────────── */
 
 describe("AgoraApp — error states", () => {
-  it("shows RATE LIMIT label when the server reports rate-limiting", () => {
+  it("shows Rate limit eyebrow when the server reports rate-limiting", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -157,13 +157,14 @@ describe("AgoraApp — error states", () => {
       />,
     );
 
-    expect(markup).toContain("RATE LIMIT");
+    // NoticePanel renders eyebrow as-is in HTML; CSS uppercase class styles it visually
+    expect(markup).toContain("Rate limit");
     expect(markup).toContain("You have exceeded the free daily limit.");
-    // Must NOT show the generic label when rate-limited
-    expect(markup).not.toMatch(/>\s*ERROR\s*</);
+    // Must NOT show the generic Error eyebrow when rate-limited
+    expect(markup).not.toContain(">Error<");
   });
 
-  it("shows generic ERROR label for non-rate-limit failures", () => {
+  it("shows generic Error eyebrow for non-rate-limit failures", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -175,29 +176,27 @@ describe("AgoraApp — error states", () => {
       />,
     );
 
-    expect(markup).toContain("ERROR");
+    expect(markup).toContain("Error");
     expect(markup).toContain("Network error — please retry.");
-    expect(markup).not.toContain("RATE LIMIT");
+    expect(markup).not.toContain("Rate limit");
   });
 
-  it("does not render the error banner when there is no error", () => {
+  it("does not render the error NoticePanel when there is no error", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp minds={minds} isPro={false} _testInitialState={{ error: null }} />,
     );
 
-    // The error banner always renders either "RATE LIMIT" or "ERROR" in its label span.
-    // When error is null, neither should appear.
-    expect(markup).not.toContain("RATE LIMIT");
-    // "ERROR" alone could collide with other text; match the banner pattern
-    // which wraps the label in a span with margin-right:10px
-    expect(markup).not.toContain("margin-right:10px");
+    // The error NoticePanel uses a red accent; when error is null it should not render.
+    expect(markup).not.toContain("Rate limit");
+    // The Agora could not finish message only appears in the error panel
+    expect(markup).not.toContain("The Agora could not finish this run");
   });
 });
 
 /* ── Agon empty state ────────────────────────────────────────────────── */
 
 describe("AgoraApp — agon empty state", () => {
-  it("shows the convening message before any turns arrive", () => {
+  it("shows the gathering message before any turns arrive", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -211,12 +210,12 @@ describe("AgoraApp — agon empty state", () => {
       />,
     );
 
-    expect(markup).toContain("Convening the council");
+    expect(markup).toContain("The council is gathering its first answer");
     // Quoted topic must be visible in the stage
     expect(markup).toContain(topic);
   });
 
-  it("hides the convening message once turns start arriving", () => {
+  it("hides the gathering message once turns start arriving", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -240,7 +239,7 @@ describe("AgoraApp — agon empty state", () => {
       />,
     );
 
-    expect(markup).not.toContain("Convening the council");
+    expect(markup).not.toContain("The council is gathering its first answer");
     expect(markup).toContain("Consider the terrain before the first move.");
     expect(markup).toContain("Round I");
   });
@@ -352,8 +351,8 @@ describe("AgoraApp — consensus stage", () => {
       />,
     );
 
-    expect(markup).toContain("Synthesizing the consensus");
-    expect(markup).not.toContain("Waiting for the agon to finish");
+    expect(markup).toContain("Synthesizing the final answer");
+    expect(markup).not.toContain("No consensus was finalized yet");
   });
 
   it("shows the waiting message when loading is done but no consensus yet", () => {
@@ -371,8 +370,8 @@ describe("AgoraApp — consensus stage", () => {
       />,
     );
 
-    expect(markup).toContain("Waiting for the agon to finish");
-    expect(markup).not.toContain("Synthesizing the consensus");
+    expect(markup).toContain("No consensus was finalized yet");
+    expect(markup).not.toContain("Synthesizing the final answer");
   });
 
   it("shows quota-exhausted message (red) when quotaRemaining is 0", () => {
@@ -574,8 +573,8 @@ describe("AgoraApp — reduced-friction topic stage", () => {
 
     // Agon stage renders the quoted topic
     expect(markup).toContain(topic);
-    // And the "Convening" message while waiting for the first turn
-    expect(markup).toContain("Convening the council");
+    // And the gathering message while waiting for the first turn
+    expect(markup).toContain("The council is gathering its first answer");
   });
 
   it("quick-start respects the 3-mind free cap — agon stage shows no more than 3 minds", () => {
@@ -649,6 +648,183 @@ describe("AgoraApp — mobile layout", () => {
 
     expect(markup).toContain("5 minds · Opus synthesis");
     expect(markup).toContain("← account");
+  });
+
+  it("renders mobile-responsive padding on the agora shell", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    // Mobile breakpoint styles should be present for overflow prevention
+    expect(markup).toContain("max-width: 720px");
+    expect(markup).toContain("gm-agora-shell");
+  });
+
+  it("renders the stage header in the initial topic stage", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    // Stage I — The Question is the initial stage header
+    expect(markup).toContain("Stage I");
+    expect(markup).toContain("The Question");
+  });
+
+  it("renders example topic cards as interactive buttons", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    // Each example topic is rendered inside a <button> element
+    expect(markup).toContain("Should I raise VC or bootstrap?");
+    // The grid container for example topics is present
+    expect(markup).toContain("auto-fit");
+    expect(markup).toContain("minmax(220px");
+  });
+
+  it("shows free-tier usage label in the footer", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    expect(markup).toContain("Free tier");
+  });
+
+  it("shows pro label in footer when isPro=true", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={true} />);
+
+    expect(markup).toContain("Pro");
+  });
+});
+
+/* ── 4th-mind cap upsell banner ─────────────────────────────────────── */
+
+describe("AgoraApp — 4th-mind cap upsell banner", () => {
+  const fiveMinds: MindOption[] = [
+    ...minds,
+    {
+      slug: "marcus-aurelius",
+      name: "Marcus Aurelius",
+      era: "Roman Empire",
+      domain: "philosophy",
+      lens: "Stoic",
+      incidentCount: 10,
+      colorVar: "--mind-marcus-aurelius",
+      packIds: ["stoic-council"] as PackId[],
+    },
+    {
+      slug: "isaac-newton",
+      name: "Isaac Newton",
+      era: "Enlightenment",
+      domain: "science",
+      lens: "First Principles",
+      incidentCount: 9,
+      colorVar: "--mind-isaac-newton",
+      packIds: ["inventors-workshop"] as PackId[],
+    },
+  ];
+
+  it("renders cap-upsell-banner when free user hits the 3-mind limit and capBannerVisible is true", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).toContain('data-testid="cap-upsell-banner"');
+  });
+
+  it("banner copy states +2 more minds benefit for Pro", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).toContain("+2 more minds");
+    expect(markup).toContain("5 total");
+  });
+
+  it("banner contains Upgrade to Pro link to /pricing", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).toContain("Upgrade to Pro");
+    expect(markup).toContain('href="/pricing"');
+  });
+
+  it("cap-upsell-banner is absent when capBannerVisible is false", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: false,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
+    expect(markup).toContain("Free plan: up to 3 minds");
+  });
+
+  it("Pro user at 4-mind council sees no cap-upsell-banner", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={true}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli", "marcus-aurelius"],
+          capBannerVisible: false,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
+  });
+
+  it("cap-upsell-banner never renders for Pro users even when capBannerVisible is true", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={fiveMinds}
+        isPro={true}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: [
+            "sun-tzu",
+            "marie-curie",
+            "niccolo-machiavelli",
+            "marcus-aurelius",
+            "isaac-newton",
+          ],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
   });
 });
 
