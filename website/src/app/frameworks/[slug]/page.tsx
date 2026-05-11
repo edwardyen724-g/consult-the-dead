@@ -8,6 +8,7 @@ import {
   getValidation,
 } from "@/lib/frameworks";
 import type { FrameworkSlug } from "@/lib/frameworks";
+import { FrameworkConstructExplorer } from "@/components/FrameworkConstructExplorer";
 import { getPacksForMind } from "@/lib/packs";
 
 /* ── Static generation ── */
@@ -190,6 +191,13 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
             {fw.perceptual_lens.statement}
           </p>
         </section>
+
+        <FrameworkConstructExplorer
+          person={fw.meta.person}
+          color={color}
+          constructs={fw.bipolar_constructs}
+          predictions={fw.behavioral_divergence_predictions}
+        />
 
         {/* ──────── DEPTH INDICATORS ──────── */}
         <section style={{ marginTop: "72px" }}>
