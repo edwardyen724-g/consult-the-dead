@@ -40,9 +40,10 @@ describe("pricing stats loader", () => {
     const stats = await getPricingStats();
 
     expect(stats).toEqual({
-      frameworkCount: 3,
+      minds: 3,
       activePackCount: 1,
       agonsRun: 42,
+      debatesInLibrary: 30,
       freeAgonsPerDay: 3,
       proAgonsPerMonth: 100,
       proTrialDays: 7,
@@ -61,9 +62,10 @@ describe("pricing stats loader", () => {
     const stats = await getPricingStats();
 
     expect(stats).toMatchObject({
-      frameworkCount: 0,
+      minds: 0,
       activePackCount: 0,
       agonsRun: 0,
+      debatesInLibrary: 30,
     });
   });
 
@@ -78,20 +80,21 @@ describe("pricing stats loader", () => {
 
     await expect(getPricingStats()).resolves.toMatchObject({
       agonsRun: 0,
-      frameworkCount: 1,
+      minds: 1,
       activePackCount: 1,
     });
 
     expect(
       buildPricingStats({
-        frameworkCount: Number.NaN,
+        minds: Number.NaN,
         activePackCount: -2,
         agonsRun: "19" as unknown as number,
       }),
     ).toEqual({
-      frameworkCount: 0,
+      minds: 0,
       activePackCount: 0,
       agonsRun: 19,
+      debatesInLibrary: 30,
       freeAgonsPerDay: 3,
       proAgonsPerMonth: 100,
       proTrialDays: 7,
@@ -106,14 +109,15 @@ describe("pricing stats loader", () => {
 
     expect(
       buildPricingStats({
-        frameworkCount: "foo" as unknown as number,
+        minds: "foo" as unknown as number,
         activePackCount: {} as unknown as number,
         agonsRun: undefined as unknown as number,
       }),
     ).toEqual({
-      frameworkCount: 0,
+      minds: 0,
       activePackCount: 0,
       agonsRun: 0,
+      debatesInLibrary: 30,
       freeAgonsPerDay: 3,
       proAgonsPerMonth: 100,
       proTrialDays: 7,
@@ -143,9 +147,10 @@ describe("stats route", () => {
 
     expect(response.status).toBe(200);
     expect(body).toMatchObject({
-      frameworkCount: 1,
+      minds: 1,
       activePackCount: 1,
       agonsRun: 7,
+      debatesInLibrary: 30,
       freeAgonsPerDay: 3,
       proAgonsPerMonth: 100,
       proTrialDays: 7,

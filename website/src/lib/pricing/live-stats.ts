@@ -12,11 +12,23 @@
 import { sql } from "@vercel/postgres";
 import { getAllFrameworks } from "@/lib/frameworks";
 import { PACKS, getActivePackMembers } from "@/lib/packs";
+import { PRICING_STATS_DEFAULT } from "./stats";
+import {
+  FREE_AGONS_PER_DAY,
+  PRO_AGONS_PER_MONTH,
+  PRO_TRIAL_DAYS,
+  PRO_MONTHLY_PRICE,
+  PRO_ANNUAL_PRICE,
+  FOUNDING_MEMBER_ANNUAL_PRICE,
+} from "./pricing-constants";
 
 export interface LivePricingStats {
-  frameworkCount: number;
+  /** Live count from getAllFrameworks() — matches PricingStats.minds contract. */
+  minds: number;
   activePackCount: number;
   agonsRun: number;
+  /** Static passthrough from PRICING_STATS_DEFAULT until a live source exists. */
+  debatesInLibrary: number;
   freeAgonsPerDay: number;
   proAgonsPerMonth: number;
   proTrialDays: number;
@@ -35,20 +47,21 @@ function toSafeInt(value: unknown): number {
 }
 
 export function buildPricingStats(input: {
-  frameworkCount: number;
+  minds: number;
   activePackCount: number;
   agonsRun: number;
 }): LivePricingStats {
   return {
-    frameworkCount: toSafeInt(input.frameworkCount),
+    minds: toSafeInt(input.minds),
     activePackCount: toSafeInt(input.activePackCount),
     agonsRun: toSafeInt(input.agonsRun),
-    freeAgonsPerDay: 3,
-    proAgonsPerMonth: 100,
-    proTrialDays: 7,
-    proMonthlyPrice: 30,
-    proAnnualPrice: 300,
-    foundingMemberAnnualPrice: 300,
+    debatesInLibrary: PRICING_STATS_DEFAULT.debatesInLibrary,
+    freeAgonsPerDay: FREE_AGONS_PER_DAY,
+    proAgonsPerMonth: PRO_AGONS_PER_MONTH,
+    proTrialDays: PRO_TRIAL_DAYS,
+    proMonthlyPrice: PRO_MONTHLY_PRICE,
+    proAnnualPrice: PRO_ANNUAL_PRICE,
+    foundingMemberAnnualPrice: FOUNDING_MEMBER_ANNUAL_PRICE,
   };
 }
 
@@ -68,12 +81,12 @@ function countActivePacks(frameworks: Array<{ slug: string }>): number {
 
 export async function getPricingStats(): Promise<LivePricingStats> {
   const frameworks = getAllFrameworks();
-  const frameworkCount = frameworks.length;
+  const minds = frameworks.length;
   const activePackCount = countActivePacks(frameworks);
   const agonsRun = await readAgonsRunCount();
 
   return buildPricingStats({
-    frameworkCount,
+    minds,
     activePackCount,
     agonsRun,
   });
