@@ -28,6 +28,22 @@ vi.mock("@/lib/db/client", () => ({
   },
 }));
 
+function makeAgon(overrides: { id: string }) {
+  return {
+    id: overrides.id,
+    clerk_user_id: "user-1",
+    share_id: `share-${overrides.id}`,
+    topic: `Topic ${overrides.id}`,
+    mind_slugs: ["sun-tzu"],
+    rounds: 1,
+    turns: [],
+    consensus: null,
+    research: null,
+    created_at: "2026-05-01T00:00:00.000Z",
+    updated_at: "2026-05-01T00:00:00.000Z",
+  };
+}
+
 vi.mock("./LibraryClient", () => ({
   LibraryClient: ({ agons }: { agons: Array<{ id: string }> }) => (
     <div data-testid="library-client">{agons.length} agons</div>
@@ -66,5 +82,41 @@ describe("LibraryPage", () => {
     currentUserMock.mockResolvedValue(null);
 
     await expect(LibraryPage()).rejects.toThrow("REDIRECT:/sign-in");
+  });
+
+  it("shows a running-low nudge when saved agons reach the threshold", async () => {
+    const agons = Array.from({ length: 92 }, (_, i) => makeAgon({ id: String(i + 1) }));
+    getUserAgonsMock.mockResolvedValue(agons);
+
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).toContain("Running low");
+    expect(html).toContain("8 consultations left this month");
+    expect(html).toContain("92/100");
+  });
+
+  it("shows a cap-reached nudge when the monthly limit is hit", async () => {
+    const agons = Array.from({ length: 100 }, (_, i) => makeAgon({ id: String(i + 1) }));
+    getUserAgonsMock.mockResolvedValue(agons);
+
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).toContain("Monthly limit reached");
+    expect(html).toContain("100-agon monthly limit");
+  });
+
+  it("suppresses the upsell nudge for users well below the threshold", async () => {
+    const agons = Array.from({ length: 5 }, (_, i) => makeAgon({ id: String(i + 1) }));
+    getUserAgonsMock.mockResolvedValue(agons);
+
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).not.toContain("Running low");
+    expect(html).not.toContain("Monthly limit reached");
+  });
+
+  it("renders a DB error inline without crashing", async () => {
+    getUserAgonsMock.mockRejectedValue(new Error("connection refused"));
+
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).toContain("DB ERROR");
+    expect(html).toContain("connection refused");
   });
 });
