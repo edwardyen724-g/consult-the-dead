@@ -198,7 +198,11 @@ def validate(framework: str, person: str, domain: str, mode: str):
             return
         tier1_data = json.loads(tier1_path.read_text())
         scenarios = [
-            {"scenario": s["scenario"], "framework_response": s["framework_response"]}
+            {
+                "scenario": s["scenario"],
+                "framework_response": s["framework_response"],
+                "baseline_response": s["baseline_response"],
+            }
             for s in tier1_data["scenario_results"]
         ]
 
@@ -211,15 +215,20 @@ def validate(framework: str, person: str, domain: str, mode: str):
 
     if mode == "full":
         click.echo("Preparing Tier 3 materials for expert review...")
-        from framework_forge.validation.tier1 import Tier1Result, ScenarioResult
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+
         tier1_data = json.loads((fw_dir / "validation" / "tier1_results.json").read_text())
         tier1_obj = Tier1Result(
             scenario_results=[
-                ScenarioResult(**{k: v for k, v in s.items() if k in ScenarioResult.__dataclass_fields__})
+                ScenarioResult(**s)
                 for s in tier1_data["scenario_results"]
             ]
         )
-        path = prepare_tier3_materials(tier1_obj, person, fw_dir / "validation" / "tier3_materials")
+        path = prepare_tier3_materials(
+            tier1_results=tier1_obj,
+            person=person,
+            output_dir=fw_dir / "validation" / "tier3_materials",
+        )
         click.echo(f"  Review packet saved to {path}")
 
     if mode == "floor-check":
