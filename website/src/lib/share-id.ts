@@ -15,19 +15,6 @@ import { randomBytes } from "node:crypto";
 const ALPHABET = "abcdefghjkmnpqrstuvwxyz23456789";
 
 /**
- * Public Agora share handles live in `/agora/a/<id>` and may be either:
- *   - generated short ids from `generateShareId()` (base32-safe, no hyphens)
- *   - pre-seeded outreach slugs such as `abhishek-chakravarty`
- *
- * Keep the contract explicit and conservative: lowercase only, no leading
- * or trailing hyphens, and no repeated separators. This stays URL-safe while
- * still matching the public handles already seeded into the database.
- */
-export const PUBLIC_SHARE_ID_PATTERN = /^[a-z2-9]+(?:-[a-z2-9]+)*$/;
-export const PUBLIC_SHARE_ID_MIN_LENGTH = 4;
-export const PUBLIC_SHARE_ID_MAX_LENGTH = 64;
-
-/**
  * Generate a short share id.
  *
  * @param length Number of characters in the returned id. Defaults to 10.
@@ -59,26 +46,13 @@ export function generateShareId(length = 10): string {
 }
 
 /**
- * Public-share shape check used by routes to decide whether an `[id]` path
- * segment should be treated as the public Agora handle (vs. an owner-scoped
- * UUID). The database layer remains the authoritative validator, but this
- * keeps the route contract explicit for downstream callers.
+ * Cheap shape check used by routes to decide whether an `[id]` path segment
+ * looks like a short share id (vs. a UUID). UUIDs contain hyphens, share ids
+ * never do, so a simple structure test suffices — the database layer is the
+ * authoritative validator.
  */
-export function looksLikeShareId(value: unknown): value is string {
-  return isPublicShareId(value);
-}
-
-/**
- * Alias for callers that want the contract named after what it does instead of
- * the historical heuristic name.
- */
-export function isPublicShareId(value: unknown): value is string {
+export function looksLikeShareId(value: string): boolean {
   if (typeof value !== "string") return false;
-  if (
-    value.length < PUBLIC_SHARE_ID_MIN_LENGTH ||
-    value.length > PUBLIC_SHARE_ID_MAX_LENGTH
-  ) {
-    return false;
-  }
-  return PUBLIC_SHARE_ID_PATTERN.test(value);
+  if (value.length < 4 || value.length > 24) return false;
+  return /^[a-z2-9]+$/.test(value);
 }

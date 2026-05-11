@@ -1,7 +1,5 @@
 'use client'
 
-import { PRICING_BYO_KEY_COPY } from '@/lib/pricing-copy'
-
 /**
  * BYO Anthropic API key settings card.
  *
@@ -157,8 +155,9 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
             lineHeight: 1.6,
           }}
         >
-          {PRICING_BYO_KEY_COPY}. Your key, your bill — Anthropic charges you
-          directly. We never see your conversations.
+          Bring your own Anthropic API key for unlimited agons (no daily cap).
+          Your key, your bill — Anthropic charges you directly. We never see
+          your conversations.
         </p>
 
         {editing ? (

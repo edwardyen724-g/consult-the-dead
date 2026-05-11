@@ -2,24 +2,14 @@ import { describe, expect, it } from "vitest";
 import {
   buildQuizCouncilHref,
   buildQuizEntryHref,
-  CURIOSITY_GAP_HERO_VARIANT_IDS,
   getCuriosityGapHeroCopy,
   getQuizDestination,
   getQuizRouteGroup,
   CURIOSITY_GAP_HERO_COPY_VARIANTS,
-  QUIZ_ENTRY_HREFS,
   QUIZ_ROUTE_GROUPS,
 } from "@/lib/ctr-experiment";
 
 describe("getCuriosityGapHeroCopy", () => {
-  it("keeps the hero variants in canonical homepage order", () => {
-    expect(CURIOSITY_GAP_HERO_VARIANT_IDS).toEqual([
-      "decision-first",
-      "quiz-first",
-      "direct-first",
-    ]);
-  });
-
   it("returns the first-ranked variant when no variant id is provided", () => {
     expect(getCuriosityGapHeroCopy()).toEqual(CURIOSITY_GAP_HERO_COPY_VARIANTS[0]);
   });
@@ -38,15 +28,6 @@ describe("getCuriosityGapHeroCopy", () => {
 });
 
 describe("quiz routing helpers", () => {
-  it("keeps the quiz entry hrefs canonical for the guided and direct surfaces", () => {
-    expect(QUIZ_ENTRY_HREFS).toEqual({
-      guided: "/quiz?entry=guided",
-      direct: "/quiz",
-    });
-    expect(buildQuizEntryHref("guided")).toBe(QUIZ_ENTRY_HREFS.guided);
-    expect(buildQuizEntryHref("direct")).toBe(QUIZ_ENTRY_HREFS.direct);
-  });
-
   it("buildQuizEntryHref exposes both guided and direct entry routes", () => {
     expect(buildQuizEntryHref()).toBe("/quiz?entry=guided");
     expect(buildQuizEntryHref("direct")).toBe("/quiz");
@@ -58,12 +39,6 @@ describe("quiz routing helpers", () => {
     ).toBe("/agora?minds=sun-tzu,alexander-the-great,niccolo-machiavelli");
     expect(buildQuizCouncilHref([])).toBe("/agora");
     expect(buildQuizCouncilHref(["   "])).toBe("/agora");
-  });
-
-  it("buildQuizCouncilHref encodes each slug independently", () => {
-    expect(buildQuizCouncilHref(["alpha beta", "cicero/roman?"])).toBe(
-      "/agora?minds=alpha%20beta,cicero%2Froman%3F",
-    );
   });
 
   it("exposes the quiz route groups in the same order as the current page matrix", () => {

@@ -132,8 +132,7 @@ export interface BuildSitemapEntriesInput {
  * shape so `sitemap.ts` can simply spread it.
  *
  * Rules:
- *   - Top-level pages (home, /agora, /essay, /pricing, /quiz,
- *     /privacy, /terms, /frameworks, /insights) come first.
+ *   - Top-level pages (home, /essay, /frameworks, /insights) come first.
  *   - Per-framework + per-insight pages preserve the existing priorities
  *     (0.7 / 0.8) and changeFrequency ("monthly").
  *   - Public agon pages get changeFrequency: "weekly", priority: 0.7
@@ -150,60 +149,32 @@ export function buildSitemapEntries(
   const { siteUrl, allowedSlugs, insightEntries, publicAgons, now } = input;
   const origin = siteUrl ?? "";
 
-  const topLevelPages = [
+  const topLevel: MetadataRoute.Sitemap = [
     {
-      path: "",
+      url: origin,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      path: "/agora",
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      path: "/essay",
+      url: `${origin}/essay`,
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      path: "/pricing",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/quiz",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      path: "/privacy",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      path: "/terms",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      path: "/frameworks",
+      url: `${origin}/frameworks`,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      path: "/insights",
+      url: `${origin}/insights`,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
-  ] as const;
-
-  const topLevel: MetadataRoute.Sitemap = topLevelPages.map((page) => ({
-    url: `${origin}${page.path}`,
-    lastModified: now,
-    changeFrequency: page.changeFrequency,
-    priority: page.priority,
-  }));
+  ];
 
   const frameworkPages: MetadataRoute.Sitemap = allowedSlugs.map((slug) => ({
     url: `${origin}/frameworks/${slug}`,

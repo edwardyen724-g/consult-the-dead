@@ -1,23 +1,29 @@
 # Change Summary
 
-## Task
-- Fix PR #86 review blockers for the pricing share-preview contract.
+- Task: `725d21a6-fba4-4d6e-9d4b-82dcd8466739`
+- Branch: `wanman/api-agon-contract-tests`
+- Commit: `pending`
+- PR: `https://github.com/edwardyen724-g/consult-the-dead/pull/85`
 
-## Changed Files
-- `website/src/lib/sitemap-data.ts`
-- `website/src/app/pricing/layout.test.ts`
+## Files Changed
+
 - `website/vitest.config.ts`
-- `output/change-summary.md`
+- `website/src/app/api/agon/route.test.ts`
 
 ## What Changed
-- Fixed the sitemap helper’s top-level page typing so `changeFrequency` stays narrow and TypeScript accepts the `MetadataRoute.Sitemap` assignment.
-- Restored `src/app/**` to Vitest’s coverage exclusions so the changed-file gate no longer counts route handlers that are integration-tested elsewhere.
-- Completed the pricing layout test’s standalone fallback shim with `toEqual`, matching the assertions already used by the file’s direct-run path.
+
+- Removed the blanket `src/app/**` Vitest coverage exclusion so route handlers can be measured.
+- Added route coverage cases for:
+  - allowed Vercel preview origins
+  - free-tier mind-count validation copy
+  - pro-tier mind-count validation copy
 
 ## Verification
-- `npm run coverage`
-  - Passed: 21 test files, 273 tests.
-- `npm run build`
-  - Passed: Next build completed successfully.
-  - Confirmed the sitemap helper no longer fails the TypeScript build step.
 
+- `pnpm --dir website coverage`
+  - Passed: 25 test files, 282 tests.
+  - `src/app/api/agon/route.ts` now reports `100%` line coverage and `89.47%` branch coverage.
+- `pnpm --dir website lint`
+  - Passed with existing repository warnings only.
+- `pnpm --dir website build`
+  - Failed in pre-existing dirty-tree code at `website/src/lib/sitemap-data.ts:201` with a TypeScript `changeFrequency` type mismatch.

@@ -2,18 +2,8 @@
 
 **Created:** 2026-04-22
 **Owner:** Edward
-**Purpose:** Cold email outreach for Agora Pro ($30/month or $300/year)
+**Purpose:** Cold email outreach for Agora Pro ($30/mo)
 **Split:** 22 solo founders + 8 solo GP / micro-VC operators
-
-This list is the research source of truth for the 30 personalized outreach recipients. The live operating plan is in [`../.wanman/agents/marketing/output/outreach-send-playbook.md`](../.wanman/agents/marketing/output/outreach-send-playbook.md) and the canonical send roster is in [`../.wanman/agents/marketing/output/outreach-send-list.csv`](../.wanman/agents/marketing/output/outreach-send-list.csv).
-
-Current campaign ground truth:
-- Live product URL: `https://consultthedead.com/agora`
-- Planning note: pricing-copy source of truth now lives in [`../website/src/lib/pricing-copy.ts`](../website/src/lib/pricing-copy.ts); keep phase-0 pricing work pointed at that helper so this target list stays aligned with the shared copy direction and does not duplicate the active pricing-page brief in `docs/phase0-pricing-page-copy.md`.
-- Pricing references in outreach copy should match the shipped contract exactly: `Always free to start with 3 agons/day`, `BYO key unlimited mode`, and `founding-member pricing at $300/year`.
-- Wave 1 voice: plainspoken founder-peer, with Brennan Dunn as the hero case study
-- Send cadence: 30 emails across 6 business days, 5 per day, with follow-ups handled from the send list
-- Day 1 opening batch prioritizes the highest-reply founders first: Julian Shapiro, Caleb Porzio, Brennan Dunn, Abhishek Chakravarty, Cameron Trew
 
 ---
 

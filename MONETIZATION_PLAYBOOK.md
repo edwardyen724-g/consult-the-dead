@@ -1,7 +1,7 @@
 # Monetization Playbook
 
 **Status:** Source of truth for monetization + GTM execution, April 2026 → April 2027.
-**Last updated:** 2026-05-10
+**Last updated:** 2026-04-22
 **Owner:** Edward
 **Supersedes:** monetization sections of [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) and §9 + §11 of [AGORA_PLAN.md](AGORA_PLAN.md). Content cadence in [CONTENT_PIPELINE.md](CONTENT_PIPELINE.md) is **reprioritized, not replaced** — see §9 below.
 
@@ -31,10 +31,9 @@ This reverses the content-led / audience-first framing from the 2026-04-19 proje
 
 The bundle:
 
-| Feature | Free | Pro ($30/mo or $25/mo annual) |
+| Feature | Free | Pro ($30/mo) |
 |---|---|---|
-| Agons per period | 3/day, anonymous | **100/mo** on our key, account-scoped |
-| Bring Your Own Key | Unlimited when you use your own Anthropic API key | Optional override |
+| Agons per period | 3/day/IP (~90/mo), anonymous | **100/mo** on our key, account-scoped |
 | Council size | 2-3 minds | Up to **5 minds** |
 | Model quality | Sonnet throughout | Sonnet debate + **Opus consensus synthesis** |
 | Debate history | localStorage, device-bound | **Persistent synced library**, searchable, taggable |
@@ -52,8 +51,7 @@ The bundle:
 
 **Pricing:**
 - Monthly: $30
-- Annual: $300/year ($25/mo billed annually; founding-member price through Q3 2026, then $360/year)
-- 7-day free trial included before the first billing cycle
+- Annual: $300 (2 months free, captures cash upfront, reduces churn optics)
 
 **Unit economics:** cost ceiling ~$0.30/agon × 100 cap = $30. Thin margin on heavy users, subsidized by light ones. Standard SaaS shape. After 30-50 paying customers we'll have real data to repackage.
 
@@ -68,10 +66,10 @@ The bundle:
 
 ## 3. Gap analysis — current → chargeable
 
-**Current state (verified 2026-05-10):**
-- Rate limit matches the live contract: 3 free debates/day, BYO key bypasses the cap, and Pro is 100/month; the Pro offer includes a 7-day free trial; Redis-backed ✓
+**Current state (verified 2026-04-22):**
+- Rate limit is IP-based (3/day/IP, global 60/day), Redis-backed ✓
 - Contact form → Discord webhook ✓
-- `src/app/agora/AgoraApp.tsx` is 1432 lines, still a single-file surface
+- `src/app/agora/AgoraApp.tsx` is 1432 lines, single file, no account concept
 - `.env` requires only `ANTHROPIC_API_KEY`
 - **Zero auth, zero Stripe, zero persistence beyond localStorage**
 - AGORA_PLAN.md §11 explicitly listed auth/login/Stripe as v1 non-goals — **this playbook reverses that decision**

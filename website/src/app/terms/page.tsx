@@ -25,7 +25,7 @@ const SECTIONS = [
   },
   {
     heading: 'Free Tier and Rate Limits',
-    body: `The Service offers an always-free tier limited to 3 agons per day. Using your own Anthropic API key bypasses the free-tier daily cap. Free-tier limits reset each day at UTC midnight. Pro subscribers are not subject to the free-tier daily cap.`,
+    body: `The free tier is provided as-is with no uptime guarantees. We reserve the right to adjust free-tier limits, temporarily suspend free access during periods of high demand, or discontinue the free tier with reasonable notice. Pro subscribers will not be affected by free-tier capacity limits.`,
   },
   {
     heading: 'Limitation of Liability',

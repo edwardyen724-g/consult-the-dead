@@ -32,17 +32,6 @@ import { looksLikeShareId } from '@/lib/share-id';
 
 export const runtime = 'nodejs';
 
-async function loadPublicAgon(id: string) {
-  try {
-    return await db.getPublicAgonByShareId(id);
-  } catch {
-    // Public share lookups should fail closed. The public page and OG image
-    // route already degrade to 404 / generic output on database errors so we
-    // keep the API route aligned with that contract here.
-    return null;
-  }
-}
-
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -56,7 +45,7 @@ export async function GET(
   try {
     // Public path: look up by share_id and return only the public-safe set.
     if (looksLikeShareId(id)) {
-      const agon = await loadPublicAgon(id);
+      const agon = await db.getPublicAgonByShareId(id);
       if (!agon) return NextResponse.json({ error: 'Not found' }, { status: 404 });
       return NextResponse.json({ agon });
     }

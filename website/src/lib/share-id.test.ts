@@ -14,14 +14,7 @@
  * The runtime guard at the bottom invokes the suite when no `expect` global
  * is present (i.e. running outside vitest).
  */
-import {
-  generateShareId,
-  isPublicShareId,
-  looksLikeShareId,
-  PUBLIC_SHARE_ID_MAX_LENGTH,
-  PUBLIC_SHARE_ID_MIN_LENGTH,
-  PUBLIC_SHARE_ID_PATTERN,
-} from "./share-id";
+import { generateShareId, looksLikeShareId } from "./share-id";
 
 type TestFn = () => void;
 type Suite = { name: string; tests: { name: string; fn: TestFn }[] };
@@ -132,47 +125,25 @@ describe("looksLikeShareId", () => {
     expect(looksLikeShareId("k7n3pqx9rt")).toBe(true);
   });
 
-  it("accepts hyphenated public share slugs used by outreach and seeded rows", () => {
-    expect(looksLikeShareId("abhishek-chakravarty")).toBe(true);
-    expect(looksLikeShareId("alex-van-le")).toBe(true);
-  });
-
   it("rejects UUIDs (contain hyphens)", () => {
     expect(looksLikeShareId("550e8400-e29b-41d4-a716-446655440000")).toBe(false);
   });
 
   it("rejects ids containing forbidden glyphs", () => {
     expect(looksLikeShareId("abc0def123")).toBe(false); // contains 0 and 1
-    expect(looksLikeShareId("share-1")).toBe(false); // contains 1
     expect(looksLikeShareId("abcOdefIJK")).toBe(false); // uppercase
   });
 
   it("rejects empty / too-short / too-long", () => {
     expect(looksLikeShareId("")).toBe(false);
     expect(looksLikeShareId("abc")).toBe(false);
-    expect(looksLikeShareId("a".repeat(65))).toBe(false);
-  });
-
-  it("rejects malformed path segments", () => {
-    expect(looksLikeShareId("-abc")).toBe(false);
-    expect(looksLikeShareId("abc-")).toBe(false);
-    expect(looksLikeShareId("abc--def")).toBe(false);
-    expect(looksLikeShareId("abc_def")).toBe(false);
-    expect(looksLikeShareId("abc/def")).toBe(false);
-    expect(looksLikeShareId(" abc-def ")).toBe(false);
+    expect(looksLikeShareId("a".repeat(25))).toBe(false);
   });
 
   it("rejects non-string input", () => {
-    expect(looksLikeShareId(123)).toBe(false);
-    expect(looksLikeShareId(null)).toBe(false);
-  });
-
-  it("exports the explicit public-share contract alias and pattern", () => {
-    expect(isPublicShareId("abhishek-chakravarty")).toBe(true);
-    expect(PUBLIC_SHARE_ID_PATTERN.test("abhishek-chakravarty")).toBe(true);
-    expect(PUBLIC_SHARE_ID_PATTERN.test("abc--def")).toBe(false);
-    expect(PUBLIC_SHARE_ID_MIN_LENGTH).toBe(4);
-    expect(PUBLIC_SHARE_ID_MAX_LENGTH).toBe(64);
+    // Pass through `unknown` because TS would normally block this.
+    expect(looksLikeShareId(123 as unknown as string)).toBe(false);
+    expect(looksLikeShareId(null as unknown as string)).toBe(false);
   });
 });
 

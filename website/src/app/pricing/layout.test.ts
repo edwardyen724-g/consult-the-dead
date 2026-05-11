@@ -4,7 +4,7 @@
  * Uses the same vitest-compatible shim pattern as the other local tests so it
  * can run under vitest and also directly via `npx tsx` when needed.
  */
-import { metadata } from "./layout";
+import PricingLayout, { metadata } from "./layout";
 import {
   getPricingMetadataDescription,
   getPricingMetadataTitle,
@@ -95,6 +95,10 @@ describe("pricing metadata", () => {
     expect(description.includes("extended research")).toBeTruthy();
     expect(description.includes("48-hour founder support")).toBeTruthy();
     expect(description.includes("founding-member pricing")).toBeTruthy();
+  });
+
+  it("returns children unchanged", () => {
+    expect(PricingLayout({ children: "Pricing child" })).toBe("Pricing child");
   });
 });
 

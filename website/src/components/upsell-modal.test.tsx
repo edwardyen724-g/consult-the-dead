@@ -271,7 +271,7 @@ describe('<UpsellModal/> rendering', () => {
     const dismiss = elementText(findByTestId(tree, 'upsell-dismiss'))
     expect(addKey).toContain('Anthropic API key')
     expect(upgrade).toContain('Upgrade to Pro')
-    expect(dismiss).toContain('Free-tier limits reset each day at UTC midnight')
+    expect(dismiss).toContain('Come back tomorrow')
   })
 
   it('exposes a dialog role for accessibility', () => {
