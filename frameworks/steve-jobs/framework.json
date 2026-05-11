@@ -2,11 +2,23 @@
   "meta": {
     "person": "Steve Jobs",
     "domain": "Technology, Design, Business",
-    "born": "",
-    "died": "",
+    "born": "1955",
+    "died": "2011",
     "generated_utc": "2026-04-01T05:37:20.909794+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
+    "primary_sources": [
+      "All Things Digital D5 Conference — Gates & Jobs joint interview transcript (2007)",
+      "All Things Digital D5 Conference — Steve Jobs solo interview transcript (2007)",
+      "All Things Digital D8 Conference — Steve Jobs interview liveblog (2010)",
+      "Computer History Museum — Oral History of Steve Jobs, interviewed by Daniel Morrow (1995)",
+      "Future of the PC — Panel discussion with Steve Jobs (1990)"
+    ],
+    "secondary_sources": [
+      "Steve Jobs by Walter Isaacson (2011) — authorized biography based on 40+ interviews",
+      "Becoming Steve Jobs by Brent Schlender & Rick Tetzeli (2015) — longitudinal reporting 1986–2011",
+      "Inside Steve's Brain by Leander Kahney (2008) — behavioral pattern analysis across product cycles",
+      "The Second Coming of Steve Jobs by Alan Deutschman (2000) — NeXT and Pixar wilderness years",
+      "Playboy Magazine Interview with Steve Jobs (February 1985)"
+    ],
     "incident_count": 30,
     "construct_count": 10,
     "prediction_count": 8
@@ -709,10 +721,39 @@
       "confidence": 0.81
     }
   ],
-  "core_problem": {},
-  "stated_principles": [],
-  "value_hierarchy": [],
-  "blind_spots": [],
-  "constraint_response": {},
-  "contextual_adaptation": {}
+  "core_problem": {
+    "statement": "Technology reaches its highest potential when hardware, software, and human experience are designed as a unified whole — not optimized separately — so that the boundary between the user and their intent disappears entirely."
+  },
+  "stated_principles": [
+    "Design is not just what it looks like and feels like. Design is how it works.",
+    "People don't know what they want until you show it to them.",
+    "It's really hard to design products by focus groups. A lot of times, people don't know what they want until you show it to them.",
+    "Simple can be harder than complex. You have to work hard to get your thinking clean to make it simple.",
+    "The best way to predict the future is to invent it.",
+    "Quality is more important than quantity. One home run is much better than two doubles.",
+    "Innovation distinguishes between a leader and a follower.",
+    "Stay hungry, stay foolish."
+  ],
+  "value_hierarchy": [
+    "Experience unity — hardware, software, and services must form a single coherent whole",
+    "Simplicity as discipline — eliminate everything that does not serve the essential function",
+    "Aesthetic honesty — form must express function, not disguise it",
+    "Market creation over market capture — define the category rather than compete within it",
+    "Long-term ecosystem thinking over short-term tactical wins",
+    "Control of the customer journey — from supply chain to retail to software update",
+    "Creative authorship — products signed by their makers carry accountability"
+  ],
+  "blind_spots": [
+    "Closed ecosystem philosophy creates lock-in risk and can alienate developers and enterprise customers who require interoperability",
+    "Rejection of market research means breakthrough bets occasionally miss real user friction — particularly for productivity and professional workflows",
+    "Expectation management through strategic ambiguity can erode trust when products underdeliver against internal ambitions that leaked publicly",
+    "Design-over-cost orientation can make pricing untenable in price-sensitive market segments, ceding those markets to lower-cost competitors",
+    "Personal intensity and dismissal of organizational history can damage institutional knowledge retention and team morale during turnaround periods"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints — regulatory, financial, or technical — Jobs reframes the constraint as a design requirement and uses it to force simplification. Resource scarcity becomes a reason to eliminate scope rather than reduce quality. Partner resistance becomes an opportunity to vertically integrate. The constraint is never accepted as a ceiling; it is treated as a requirement that the product must transcend."
+  },
+  "contextual_adaptation": {
+    "pattern": "Jobs's core perceptual framework remains fixed across contexts — he consistently seeks paradigm-level moves rather than tactical responses — but his interpersonal register shifts significantly. In public keynotes he uses theater and revelation; in product reviews he uses Socratic pressure; in partnership negotiations he uses asymmetric leverage; in press interviews he uses controlled authenticity. The strategy is invariant; the performance adapts to the audience's decision-making triggers."
+  }
 }
