@@ -1,15 +1,21 @@
-"""Validation helpers for placeholder citations in framework artifacts."""
+"""Validation helpers for placeholder citations in framework artifacts.
+
+The standalone validator scans one or more framework roots, flags any
+``mock_placeholder`` strings that survive into JSON artifacts, and can emit a
+machine-readable JSON report for CI gates.
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 
 PLACEHOLDER_TOKEN = "mock_placeholder"
+MANIFEST_NAME = "framework.json"
 
 
 @dataclass(frozen=True)
@@ -32,23 +38,23 @@ class PlaceholderCitationViolation:
 
 @dataclass
 class PlaceholderCitationValidationResult:
-    """Aggregate result for placeholder citation validation across one or more roots."""
+    """Aggregate result for placeholder citation validation."""
 
     roots: list[str]
     scanned_files: list[str]
+    missing_manifests: list[str]
     violations: list[PlaceholderCitationViolation]
-    missing_manifests: list[str] = field(default_factory=list)
 
     @property
     def passed(self) -> bool:
-        return len(self.violations) == 0 and len(self.missing_manifests) == 0
+        return not self.missing_manifests and not self.violations
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "roots": self.roots,
             "scanned_files": self.scanned_files,
-            "violations": [v.to_dict() for v in self.violations],
             "missing_manifests": self.missing_manifests,
+            "violations": [violation.to_dict() for violation in self.violations],
             "passed": self.passed,
         }
 
@@ -114,61 +120,55 @@ def validate_framework_payload(
     return PlaceholderCitationValidationResult(
         roots=[root],
         scanned_files=[artifact_path],
-        violations=violations,
         missing_manifests=[],
+        violations=violations,
     )
+
+
+def validate_framework_artifact_tree(root: Path) -> PlaceholderCitationValidationResult:
+    """Validate every JSON artifact under a single framework output tree."""
+    return validate_framework_artifact_trees([root])
 
 
 def validate_framework_artifact_trees(
     roots: list[Path],
 ) -> PlaceholderCitationValidationResult:
-    """Validate every JSON artifact under one or more framework output trees.
-
-    A root that does not contain a ``framework.json`` manifest (or does not
-    exist at all) is recorded in ``missing_manifests`` rather than raising.
-    """
-    resolved_roots: list[str] = []
+    """Validate multiple framework roots in one aggregate run."""
+    normalized_roots = [str(path.resolve()) for path in roots]
     scanned_files: list[str] = []
-    violations: list[PlaceholderCitationViolation] = []
     missing_manifests: list[str] = []
+    violations: list[PlaceholderCitationViolation] = []
 
     for root in roots:
-        root = root.resolve()
-        resolved_roots.append(str(root))
-
-        if not root.is_dir() or not (root / "framework.json").exists():
-            missing_manifests.append(str(root))
+        resolved_root = root.resolve()
+        if not resolved_root.exists():
+            missing_manifests.append(str(resolved_root))
             continue
 
-        json_files = sorted(path for path in root.rglob("*.json") if path.is_file())
+        manifest_path = resolved_root / MANIFEST_NAME
+        if not manifest_path.exists():
+            missing_manifests.append(str(resolved_root))
+
+        json_files = sorted(path for path in resolved_root.rglob("*.json") if path.is_file())
         for path in json_files:
+            relative_path = str(path.relative_to(resolved_root))
+            scanned_files.append(f"{resolved_root}:{relative_path}")
             payload = json.loads(path.read_text(encoding="utf-8"))
-            relative_path = str(path.relative_to(root))
-            scanned_files.append(f"{root}:{relative_path}")
             violations.extend(
                 _scan_payload(
                     payload,
-                    root=str(root),
+                    root=str(resolved_root),
                     artifact_path=relative_path,
                     json_path="$",
                 )
             )
 
     return PlaceholderCitationValidationResult(
-        roots=resolved_roots,
+        roots=normalized_roots,
         scanned_files=scanned_files,
-        violations=violations,
         missing_manifests=missing_manifests,
+        violations=violations,
     )
-
-
-def validate_framework_artifact_tree(root: Path) -> PlaceholderCitationValidationResult:
-    """Validate every JSON artifact under a single framework output tree.
-
-    Thin wrapper around :func:`validate_framework_artifact_trees` for
-    single-root callers.
-    """
-    return validate_framework_artifact_trees([root])
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -180,46 +180,40 @@ def main(argv: list[str] | None = None) -> int:
         "roots",
         nargs="*",
         default=["frameworks"],
-        help="Framework artifact root(s) to scan.",
+        help="One or more framework artifact roots to scan.",
     )
     parser.add_argument(
         "--json",
         action="store_true",
-        dest="json_output",
-        help="Emit a machine-readable JSON report instead of human-readable text.",
+        help="Emit a JSON validation report instead of text output.",
     )
     args = parser.parse_args(argv)
 
-    result = validate_framework_artifact_trees([Path(r) for r in args.roots])
+    result = validate_framework_artifact_trees([Path(root) for root in args.roots])
 
-    if args.json_output:
-        print(json.dumps(result.to_dict()))
-        return 0 if result.passed else 1
-
-    if result.passed:
+    if args.json:
+        print(json.dumps(result.to_dict(), indent=2, sort_keys=True))
+    elif result.passed:
         print(
             f"Checked {len(result.scanned_files)} JSON file(s) across "
-            f"{len(result.roots)} root(s). "
-            f"No {PLACEHOLDER_TOKEN} citations found."
+            f"{len(result.roots)} root(s). No {PLACEHOLDER_TOKEN} citations found."
         )
-        return 0
-
-    if result.missing_manifests:
-        print("Missing framework.json manifest for:")
-        for m in result.missing_manifests:
-            print(f"  {m}")
-
-    if result.violations:
+    else:
         print(
             f"Found {len(result.violations)} placeholder citation(s) in "
-            f"{len(result.scanned_files)} JSON file(s):"
+            f"{len(result.scanned_files)} JSON file(s) across {len(result.roots)} root(s)."
         )
+        if result.missing_manifests:
+            print("Missing framework.json manifest for:")
+            for path in result.missing_manifests:
+                print(f"- {path}")
         for violation in result.violations:
             print(
-                f"- {violation.artifact_path}:{violation.json_path} -> {violation.value}"
+                f"- {violation.root}:{violation.artifact_path}:{violation.json_path} "
+                f"-> {violation.value}"
             )
 
-    return 1
+    return 0 if result.passed else 1
 
 
 if __name__ == "__main__":
