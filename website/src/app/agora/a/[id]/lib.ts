@@ -220,3 +220,50 @@ export function buildShareDescription(topic: string, maxLen = 180): string {
   if (t.length <= maxLen) return t;
   return t.slice(0, maxLen - 1).trimEnd() + "…";
 }
+
+/* ── Highlight insight ──────────────────────────────────────────── */
+
+/**
+ * Milestone-driven recap: pick the single most shareable insight from
+ * the consensus. Priority order:
+ *   1. `action`  — the council's recommended course of action
+ *   2. `points`  — the key consensus points
+ *   3. `tensions` — if nothing else is usable
+ *
+ * Returns null when there is no consensus or the fields are blank/short
+ * (< 20 chars), so the caller can skip the highlight section cleanly.
+ *
+ * Truncated to 220 chars so the highlight fits comfortably in a
+ * pull-quote card without overflow.
+ */
+export interface HighlightInsight {
+  label: string;
+  text: string;
+}
+
+const HIGHLIGHT_MIN_LEN = 20;
+const HIGHLIGHT_MAX_LEN = 220;
+
+export function extractHighlightInsight(
+  consensus: ConsensusResult | null | undefined,
+): HighlightInsight | null {
+  if (!hasUsableConsensus(consensus)) return null;
+
+  const candidates: Array<{ label: string; text: string }> = [
+    { label: "Recommended action", text: consensus.action ?? "" },
+    { label: "Key insight", text: consensus.points ?? "" },
+    { label: "Live tension", text: consensus.tensions ?? "" },
+  ];
+
+  for (const { label, text } of candidates) {
+    const trimmed = (text ?? "").trim().replace(/\s+/g, " ");
+    if (trimmed.length < HIGHLIGHT_MIN_LEN) continue;
+    const excerpt =
+      trimmed.length <= HIGHLIGHT_MAX_LEN
+        ? trimmed
+        : trimmed.slice(0, HIGHLIGHT_MAX_LEN - 1).trimEnd() + "…";
+    return { label, text: excerpt };
+  }
+
+  return null;
+}
