@@ -241,3 +241,55 @@ describe("Footer component — CTA container", () => {
     expect(url.pathname).toBe("/pricing");
   });
 });
+
+/* ── PR#125 regression lockdown ─────────────────────────────── */
+// These tests explicitly assert the exact href values and all required
+// UTM parameters on both CTA links, locking down the guided-quiz and
+// pricing footer CTAs introduced in PR#125.
+
+describe("Footer regression — exact href values (PR#125)", () => {
+  const tree = Footer({});
+
+  it("quiz CTA href exactly matches FOOTER_QUIZ_CTA_HREF constant", () => {
+    const el = findByTestId(tree as ReactNode, "footer-quiz-cta");
+    expect((el!.props as { href: string }).href).toBe(FOOTER_QUIZ_CTA_HREF);
+  });
+
+  it("pricing CTA href exactly matches FOOTER_PRICING_CTA_HREF constant", () => {
+    const el = findByTestId(tree as ReactNode, "footer-pricing-cta");
+    expect((el!.props as { href: string }).href).toBe(FOOTER_PRICING_CTA_HREF);
+  });
+
+  it("quiz CTA href includes utm_medium=cta", () => {
+    const el = findByTestId(tree as ReactNode, "footer-quiz-cta");
+    const href = (el!.props as { href: string }).href;
+    expect(href).toContain("utm_medium=cta");
+  });
+
+  it("pricing CTA href includes utm_medium=cta", () => {
+    const el = findByTestId(tree as ReactNode, "footer-pricing-cta");
+    const href = (el!.props as { href: string }).href;
+    expect(href).toContain("utm_medium=cta");
+  });
+
+  it("pricing CTA href includes utm_source=footer", () => {
+    const el = findByTestId(tree as ReactNode, "footer-pricing-cta");
+    const href = (el!.props as { href: string }).href;
+    const url = new URL(href, "https://example.com");
+    expect(url.searchParams.get("utm_source")).toBe("footer");
+  });
+
+  it("quiz CTA href has all three required UTM params", () => {
+    const url = new URL(FOOTER_QUIZ_CTA_HREF, "https://example.com");
+    expect(url.searchParams.get("utm_source")).toBe("footer");
+    expect(url.searchParams.get("utm_medium")).toBe("cta");
+    expect(url.searchParams.get("utm_campaign")).toBe("guided_entry");
+  });
+
+  it("pricing CTA href has all three required UTM params", () => {
+    const url = new URL(FOOTER_PRICING_CTA_HREF, "https://example.com");
+    expect(url.searchParams.get("utm_source")).toBe("footer");
+    expect(url.searchParams.get("utm_medium")).toBe("cta");
+    expect(url.searchParams.get("utm_campaign")).toBe("upgrade");
+  });
+});

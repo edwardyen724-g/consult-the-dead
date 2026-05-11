@@ -1,13 +1,11 @@
-'use client'
-import { SignUp } from '@clerk/nextjs'
+import type { Metadata } from 'next'
+import { SignUpClient } from './SignUpClient'
+
+export const metadata: Metadata = {
+  title: 'Sign Up — Consult The Dead',
+  robots: { index: false, follow: false },
+}
 
 export default function SignUpPage() {
-  return (
-    <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
-      minHeight: '100vh', background: 'var(--bg)'
-    }}>
-      <SignUp />
-    </div>
-  )
+  return <SignUpClient />
 }
