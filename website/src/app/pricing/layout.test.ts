@@ -33,6 +33,13 @@ function expectFallback<T>(actual: T) {
         throw new Error(`Expected ${String(actual)} to be ${String(expected)}`);
       }
     },
+    toEqual(expected: unknown) {
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        throw new Error(
+          `Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}`,
+        );
+      }
+    },
     toBeTruthy() {
       if (!actual) throw new Error(`Expected ${String(actual)} to be truthy`);
     },

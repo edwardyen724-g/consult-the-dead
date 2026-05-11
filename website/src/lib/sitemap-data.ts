@@ -196,7 +196,7 @@ export function buildSitemapEntries(
       changeFrequency: "weekly",
       priority: 0.9,
     },
-  ];
+  ] as const;
 
   const topLevel: MetadataRoute.Sitemap = topLevelPages.map((page) => ({
     url: `${origin}${page.path}`,
