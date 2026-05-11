@@ -61,64 +61,24 @@ template when writing tests for any file in `src/lib/agon/`.
 
 ---
 
-## Coverage gate and `src/app/**` exclusion policy
+## Coverage gate and release policy
+
+The canonical release-gate policy lives in
+[`../docs/coverage-gate-policy.md`](../docs/coverage-gate-policy.md).
 
 ### Current thresholds
 
-Thresholds are set to **0% across all metrics** in `vitest.config.ts`. This
-is intentional — the gate starts permissive and will be raised incrementally
-as coverage backfill proceeds per the roadmap.
+`vitest.config.ts` currently enforces **95%** coverage thresholds for lines,
+branches, functions, and statements on the tracked coverage set.
 
-```
-coverage.thresholds = { lines: 0, branches: 0, functions: 0, statements: 0 }
-```
+### Testing guidance
 
-The CTO target is **≥ 95%** for all non-excluded files once the backfill
-tasks land.
-
-### `src/app/**` is excluded from coverage — policy rationale
-
-`vitest.config.ts` explicitly excludes `src/app/**` from the coverage report:
-
-```typescript
-exclude: [
-  "src/**/*.d.ts",
-  "src/**/*.test.ts",
-  "src/**/*.test.tsx",
-  "src/app/**",      // Next.js route handlers — integration-tested by Playwright
-  "src/middleware.ts",
-],
-```
-
-**Why the exclusion exists:** Next.js route handlers in `src/app/api/` are
-tightly coupled to the Next.js request/response pipeline. Unit-testing them
-requires mocking `NextRequest`, `NextResponse`, cookies, headers, and the
-Node.js HTTP layer — high setup cost for low signal, because the real failure
-modes (auth errors, DB timeouts, streaming edge cases) are best caught by
-integration tests.
-
-**The enforced policy is: keep the exclusion, and extract business logic.**
-
-Route handlers that contain non-trivial branching logic (e.g. `/api/library`,
-`/api/stripe/*`, `/api/agon/*`) **must** extract that logic into
-dependency-injected helpers in `src/lib/` so it can be unit-tested there.
-Route handlers themselves become thin wrappers — parse input, call the helper,
-return the response — and are covered by Playwright integration tests.
-
-**Concrete rule for dev agents:**
-
-> If you add branching logic to a route handler that warrants a test,
-> extract it into a `src/lib/<feature>/` helper and add a vitest test for
-> the helper. Do **not** add business logic directly to the handler that
-> has no test coverage path.
-
-**Thin, deterministic routes** (e.g. `/api/health` which is a static JSON
-wrapper) do not require extraction and are waived by the exclusion rule.
-
-**Route-handler coverage waiver:** Any PR that adds a new route handler
-without a corresponding `src/lib/` helper test is accepted under this waiver,
-provided the PR description explains why the handler is thin (< 10 LOC of
-logic, no branching).
+- Run `npm run coverage` before merging any PR that touches covered code.
+- Run `npm run build` before shipping release-facing changes.
+- If you add branching logic to a route handler, extract it into a
+  dependency-injected helper in `src/lib/` and cover that helper with vitest.
+- Keep route handlers thin when possible; if a handler is intentionally thin,
+  say so in the PR description.
 
 ---
 
@@ -136,9 +96,8 @@ node_modules/.bin/vitest src/lib/agon/agonEngine.test.ts
 
 ## CI / pre-merge gate
 
-`npm test` (vitest run) is the required gate before every PR merge. Coverage
-thresholds are advisory (currently 0%) and will be tightened via a dedicated
-task once the coverage backfill series lands.
+`npm run coverage` is the required coverage gate before every PR merge.
+`npm test` is still the fastest non-coverage test command for local iteration.
 
 The Playwright suite (`tests/`) runs separately and is not part of the vitest
 coverage report.
