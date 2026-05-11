@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "./ThemeToggle";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
 const NAV_LINK_STYLE = {
   fontFamily: 'var(--font-mono)',
@@ -11,6 +12,26 @@ const NAV_LINK_STYLE = {
   textTransform: 'uppercase' as const,
   color: 'var(--fg-dim)',
   textDecoration: 'none',
+};
+
+export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("direct");
+
+export const HEADER_QUIZ_CTA_HREF =
+  "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry";
+
+const QUIZ_CTA_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  padding: '6px 12px',
+  borderRadius: '4px',
+  border: '1px solid var(--amber)',
+  color: 'var(--amber)',
+  background: 'transparent',
+  textDecoration: 'none',
+  whiteSpace: 'nowrap' as const,
+  flexShrink: 0,
 };
 
 export function Header() {
@@ -25,7 +46,7 @@ export function Header() {
       <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Council
       </Link>
-      <Link href="/quiz" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+      <Link href={HEADER_QUIZ_ENTRY_HREF} style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         Find Your Mind
       </Link>
       {isSignedIn && (
@@ -43,6 +64,14 @@ export function Header() {
       </Link>
       <Link href="/essay" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         About
+      </Link>
+      <Link
+        href={HEADER_QUIZ_CTA_HREF}
+        style={QUIZ_CTA_STYLE}
+        onClick={() => setMobileOpen(false)}
+        aria-label="Take the guided quiz to find your council"
+      >
+        Take the Quiz →
       </Link>
     </>
   )

@@ -1,0 +1,17 @@
+{
+  "slug": "archimedes",
+  "h1": "Archimedes — The Mind That Finds the Lever",
+  "metaDescription": "Archimedes separates what everyone else conflates: engineering from theory, deployment from invention. Add him when the real problem is structural.",
+  "famousFor": "Separating operationally distinct streams every other mind conflates",
+  "howTheyArgue": "Archimedes argues by separating the streams. His first move in any debate is to identify which parts of the problem are operationally separable — theoretical vs. applied, patrons vs. peers, engineering vs. discovery — and insist that each stream has its own audience, its own format, and its own success criteria. He resists solutions that collapse distinct channels into a single instrument. His warrants are structural-yield arguments: handling a problem correctly requires recognizing which mode of engagement it demands. He challenges minds that conflate innovation and execution, or invention and deployment. Tactically underestimated; structurally precise.",
+  "sampleQuotes": [
+    "You are sending the same message to your engineers and your board. That is not efficiency — that is destroying two conversations by conflating them.",
+    "The lever requires a fulcrum. The fulcrum requires positioning. You have been designing the lever while assuming the fulcrum position is fixed. It is not.",
+    "Give me a problem that can be separated into its operationally distinct components and I can solve any one of them. Give me a problem that has been collapsed into a single channel and I will show you why it has been unsolvable."
+  ],
+  "ctaVariants": [
+    "Add Archimedes to Your Council — He'll find the lever no one else saw →",
+    "Consult Archimedes — What streams in your problem are being conflated? →",
+    "Add the Engineer to Your Council →"
+  ]
+}

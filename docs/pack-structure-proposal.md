@@ -1,227 +1,72 @@
-# Mind Pack Structure — Proposal
+# Mind Pack Structure — Live Proposal
 
-*Draft: 2026-05-01*
+*Draft: 2026-05-10*
 
 ## Overview
 
-Organize minds into themed "packs" — curated collections that help users navigate the Agora by use case. A mind can appear in multiple packs. Packs serve two purposes: content discovery (users find the right council for their problem) and eventual pricing leverage (subscribe to packs you care about).
+Packs are the current browse and discovery layer for the live product. They are not a separate pricing tier yet. The implementation lives in `website/src/lib/packs.ts`, the live-slug filter lives in `website/src/lib/frameworks.ts`, and the rendered routes are:
 
----
+- `/` homepage pack cards and featured minds
+- `/frameworks` the full council index, grouped by pack
+- `/agora?pack=<pack-id>` pack-seeded Agora entry
+- `/frameworks/[slug]` the individual mind page, with pack chips
 
-## Pack Definitions
+A mind can appear in multiple packs. The website only renders the live subset of each pack, so the catalog can safely include aspirational members without showing dead links.
 
-### 1. The Stoic Council
-**Tagline:** "Wisdom for turbulent times"
-**Use case:** Personal resilience, ethical decision-making, navigating adversity, leadership under pressure
+## Live Pack Surface
 
-| Mind | Status |
-|------|--------|
-| Marcus Aurelius | ✅ Live |
-| Benjamin Franklin | ✅ Live |
-| Seneca | 🔜 Candidate (priority) |
-| Abraham Lincoln | 🔜 Candidate (priority) |
-| Frederick Douglass | 🔜 Candidate |
+| Pack id | Display name | Current live members | Queued members | Route hook |
+|---|---|---|---|---|
+| `stoic-council` | Stoic Council | Marcus Aurelius, Epictetus, Cicero | Seneca | `/`, `/frameworks`, `/agora?pack=stoic-council` |
+| `inventors-workshop` | Inventors' Workshop | Thomas Edison, Archimedes, Ada Lovelace, Leonardo da Vinci, Nikola Tesla | None | `/`, `/frameworks`, `/agora?pack=inventors-workshop` |
+| `war-room` | War Room | Sun Tzu, Alexander the Great, Catherine the Great, Harriet Tubman, Cleopatra VII | Julius Caesar, Napoleon Bonaparte | `/`, `/frameworks`, `/agora?pack=war-room` |
+| `republic` | The Republic | Niccolò Machiavelli, Catherine the Great, Cicero, Cleopatra VII, Benjamin Franklin | Abraham Lincoln, Frederick Douglass | `/`, `/frameworks`, `/agora?pack=republic` |
+| `trailblazers` | Trailblazers | Harriet Tubman, Marie Curie | Florence Nightingale, Frederick Douglass | `/`, `/frameworks`, `/agora?pack=trailblazers` |
+| `moguls` | The Moguls | John D. Rockefeller, Isaac Newton | Andrew Carnegie, Julius Caesar, Napoleon Bonaparte | `/`, `/frameworks`, `/agora?pack=moguls` |
 
-**Why it works:** Stoicism and practical moral philosophy are the #1 reason people seek historical wisdom. This pack practically sells itself.
+All six packs are active today because each one has at least one live member.
 
----
+## What The Live UI Actually Says
 
-### 2. The Inventors' Workshop
-**Tagline:** "Build what doesn't exist yet"
-**Use case:** Technical innovation, creative problem-solving, product development, scientific thinking
+- The homepage frames the product as "The Six Councils" and shows one card per active pack.
+- The homepage hero currently spotlights Sun Tzu, Niccolò Machiavelli, and Marie Curie.
+- Pack cards link into `/agora?pack=<id>` so the user can open a pre-seated council instead of assembling one from scratch.
+- `/frameworks` is the canonical browse page for the whole roster.
+- `/frameworks/[slug]` shows the pack chips for each individual mind.
 
-| Mind | Status |
-|------|--------|
-| Isaac Newton | ✅ Live |
-| Nikola Tesla | ✅ Live |
-| Leonardo da Vinci | ✅ Live |
-| Marie Curie | ✅ Live |
-| Benjamin Franklin | ✅ Live |
-| Ada Lovelace | 📝 Stub |
-| Albert Einstein | 🔒 Hidden (trademark) |
+## Remaining Extraction Priorities
 
-**Why it works:** Already 5 live minds — strongest pack at launch. The Newton + Tesla + Da Vinci Agora is a dream team for any technical founder.
+Prioritize the remaining extractions by pack coverage, not by how famous the figure is.
 
----
+| Priority | Mind | Packs strengthened | Why it belongs here |
+|---|---|---|---|
+| 1 | Seneca | Stoic Council | Closest thing to a missing keystone. Stoic Council is already the cleanest philosophy pack; Seneca closes the gap with the smallest lift. |
+| 2 | Frederick Douglass | The Republic, Trailblazers | Strong cross-pack leverage and high user value. He deepens two visible packs at once and gives the product a sharper moral-strategic voice. |
+| 3 | Florence Nightingale | Trailblazers | Turns Trailblazers from a sparse duo into a real thematic lane with a distinct systems-and-data angle. |
+| 4 | Andrew Carnegie | The Moguls | Gives the business pack a true industrial anchor and makes the moguls surface feel less decorative. |
+| 5 | Abraham Lincoln | The Republic | High recognition and strong source material, but Republic already has depth, so this is slightly less urgent than the thinner packs above. |
+| 6 | Julius Caesar | War Room, The Moguls | Valuable, but it overlaps the existing strategy surfaces and is not the first bottleneck. |
+| 7 | Napoleon Bonaparte | War Room, The Moguls | Same overlap profile as Caesar, with more source volume but less incremental pack urgency. |
 
-### 3. The War Room
-**Tagline:** "Strategy is everything"
-**Use case:** Competitive strategy, negotiation, organizational politics, market positioning
+## Why The Order Looks Like This
 
-| Mind | Status |
-|------|--------|
-| Sun Tzu | ✅ Live |
-| Niccolò Machiavelli | ✅ Live |
-| Benjamin Franklin | ✅ Live |
-| Napoleon | 🔜 Candidate |
-| Julius Caesar | 🔜 Candidate |
-| Alexander the Great | 📝 Stub |
-| Cleopatra VII | 📝 Stub |
+- Fill the thinnest live packs first.
+- Prefer minds that strengthen more than one visible pack.
+- Defer the most overlapping strategist figures until the thinner discovery surfaces stop feeling empty.
+- Keep the pack catalog tied to shipped browse behavior; do not invent pack-based pricing until there is actual demand data.
 
-**Why it works:** The Sun Tzu + Machiavelli + Napoleon Agora is the single best marketing moment for the product. "Three of history's greatest strategists debate your business problem."
+## Pricing Position
 
----
+Current product pricing is still tier-based:
 
-### 4. The Republic
-**Tagline:** "How to move people and nations"
-**Use case:** Leadership, governance, persuasion, public communication, coalition building
+- Free: 3 agons/day, 2–3 minds, Sonnet, device-local library
+- Pro: $30/month or $300/year, 100 agons/month, up to 5 minds, Opus for consensus, persistent library, PDF export, extended research, and optional BYO Anthropic key
 
-| Mind | Status |
-|------|--------|
-| Benjamin Franklin | ✅ Live |
-| Niccolò Machiavelli | ✅ Live |
-| Marcus Aurelius | ✅ Live |
-| Abraham Lincoln | 🔜 Candidate (priority) |
-| Frederick Douglass | 🔜 Candidate |
-| Catherine the Great | 📝 Stub |
+Pack pricing should stay deferred until the catalog is much larger and user behavior shows that packs, not councils, are the right buying unit.
 
-**Why it works:** Bridges philosophy and strategy — the "leadership and persuasion" angle is extremely commercial. Lincoln is the keystone extraction here.
+## Implementation Notes
 
----
-
-### 5. The Trailblazers
-**Tagline:** "Change the rules, change the world"
-**Use case:** Social innovation, overcoming systemic barriers, building movements, moral courage
-
-| Mind | Status |
-|------|--------|
-| Marie Curie | ✅ Live |
-| Frederick Douglass | 🔜 Candidate |
-| Florence Nightingale | 🔜 Candidate |
-| Harriet Tubman | 🔜 Candidate |
-| Ada Lovelace | 📝 Stub |
-
-**Why it works:** Unique positioning — no other AI product offers a council of barrier-breakers. High appeal for social entrepreneurs, educators, nonprofit leaders.
-
----
-
-### 6. The Moguls
-**Tagline:** "Build an empire"
-**Use case:** Business building, wealth creation, scaling operations, deal-making
-
-| Mind | Status |
-|------|--------|
-| Benjamin Franklin | ✅ Live |
-| Niccolò Machiavelli | ✅ Live |
-| Andrew Carnegie | 🔜 Candidate |
-| Napoleon | 🔜 Candidate |
-| Julius Caesar | 🔜 Candidate |
-
-**Why it works:** The "make money" pack. Carnegie is the keystone — his philosophy of building monopolies then giving it all away is genuinely distinctive CDM material.
-
----
-
-## Extraction Priority (after Franklin)
-
-Based on pack coverage impact:
-
-| Priority | Mind | Packs filled | Rationale |
-|----------|------|-------------|-----------|
-| 1 | **Abraham Lincoln** | Stoic Council, The Republic | Completes 2 thin packs to 3+ live minds each. Excellent CDM source material (Civil War decisions, cabinet management, Emancipation timing). |
-| 2 | **Seneca** | Stoic Council | Keystone Stoic. Rich source material (Letters to Lucilius, exile decisions, Nero advising). Completes the philosophy core. |
-| 3 | **Napoleon** | The War Room, The Moguls | The "Sun Tzu + Machiavelli + Napoleon" Agora is the single best marketing screenshot. Abundant CDM material (military campaigns, legal code, institutional design). |
-| 4 | **Frederick Douglass** | The Republic, The Trailblazers | Bridges two packs. Unique voice — escaped slavery, self-taught orator, political strategist. CDM-rich (deciding to break with Garrison, recruiting for 54th, newspaper founding). |
-| 5 | **Andrew Carnegie** | The Moguls | Completes the business pack. Steel empire + Gospel of Wealth philosophy is distinctive enough to likely pass tier-1 divergence. |
-| 6 | **Florence Nightingale** | The Trailblazers | Data-driven reformer, hospital design, statistical innovation. Strong CDM material. |
-
-**Note on stubs:** Ada Lovelace, Alexander the Great, Catherine the Great, and Cleopatra VII have 5-incident stubs. They should be fully extracted when their packs need them, but aren't priority since the packs they'd fill are already anchored by live minds.
-
----
-
-## Pricing Sketch
-
-### Recommended: Simple launch model
-
-Keep pricing simple now. Use packs for content organization only. Add pack-based pricing later once you see which packs get traction.
-
-| Tier | Price | Access |
-|------|-------|--------|
-| Free | $0 | 1 consultation/week, any single mind |
-| Pro | $25/mo ($300/yr) | All packs, full Agora (multi-mind councils), unlimited consultations |
-
-### Future option: Pack-based pricing
-
-Once you have 20+ minds across 6+ packs:
-
-| Tier | Price | Access |
-|------|-------|--------|
-| Free | $0 | 1 consultation/week, Starter pack only (3 minds) |
-| Single Pack | $10/mo | 1 pack of your choice + Agora within that pack |
-| All Access | $25/mo ($300/yr) | All packs, cross-pack Agora, priority features |
-
-### Why wait on pack pricing
-
-- With 8 minds, a "pack" of 3-4 doesn't feel premium enough to charge separately
-- You need user data on which packs people actually want before pricing them
-- The simple model is easier to market: "consult history's greatest minds for $25/mo"
-- Pack pricing becomes powerful at 20+ minds when users genuinely won't need all of them
-
----
-
-## Data Model Changes
-
-### In each `framework.json`
-
-Add to the `meta` object:
-
-```json
-{
-  "meta": {
-    "person": "Benjamin Franklin",
-    "domain": "Diplomacy, Science, Entrepreneurship",
-    "born": "1706",
-    "died": "1790",
-    "packs": ["stoic-council", "inventors-workshop", "war-room", "the-republic", "the-moguls"],
-    "tags": ["diplomacy", "invention", "entrepreneurship", "philosophy", "statecraft"],
-    "status": "live",
-    "packRoles": {
-      "stoic-council": "The pragmatic moralist — tests principles against real-world outcomes",
-      "inventors-workshop": "The practical inventor — bridges science and commerce",
-      "the-moguls": "The self-made polymath — built wealth through relentless experimentation"
-    }
-  }
-}
-```
-
-**New fields:**
-- `packs`: array of pack slugs this mind belongs to
-- `tags`: freeform tags for search/filtering (not tied to packs)
-- `status`: `"live"` | `"hidden"` | `"stub"` | `"extracting"`
-- `packRoles`: optional per-pack description of what this mind contributes to that pack's council dynamic
-
-### New file: `website/data/packs.json`
-
-```json
-[
-  {
-    "slug": "stoic-council",
-    "name": "The Stoic Council",
-    "tagline": "Wisdom for turbulent times",
-    "description": "Personal resilience, ethical decision-making, navigating adversity",
-    "color": "var(--color-pack-stoic)",
-    "suggestedAgora": ["marcus-aurelius", "benjamin-franklin", "seneca"],
-    "minds": ["marcus-aurelius", "benjamin-franklin", "seneca", "abraham-lincoln", "frederick-douglass"]
-  }
-]
-```
-
-### Coverage Matrix
-
-| Mind | Stoic | Inventors | War Room | Republic | Trailblazers | Moguls |
-|------|:-----:|:---------:|:--------:|:--------:|:------------:|:------:|
-| Marcus Aurelius | ✅ | | | ✅ | | |
-| Isaac Newton | | ✅ | | | | |
-| Marie Curie | | ✅ | | | ✅ | |
-| Machiavelli | | | ✅ | ✅ | | ✅ |
-| Tesla | | ✅ | | | | |
-| Da Vinci | | ✅ | | | | |
-| Sun Tzu | | | ✅ | | | |
-| Franklin | ✅ | ✅ | ✅ | ✅ | | ✅ |
-| Lincoln* | ✅ | | | ✅ | | |
-| Seneca* | ✅ | | | | | |
-| Napoleon* | | | ✅ | | | ✅ |
-| Douglass* | | | | ✅ | ✅ | |
-| Carnegie* | | | | | | ✅ |
-| Nightingale* | | | | | ✅ | |
-
-*= not yet extracted
+- Keep pack metadata centralized in `website/src/lib/packs.ts` until there is a real reason to move it elsewhere.
+- Keep live-slug filtering in `website/src/lib/frameworks.ts`.
+- If a future PR adds a new public route that changes pack browsing, update the live route map and this proposal in the same change.
+- Treat pack names and pack ids as distinct: display names are user-facing, ids are the route and code contract.

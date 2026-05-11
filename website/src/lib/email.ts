@@ -15,6 +15,17 @@ function getResend(): Resend {
 const FROM = 'onboarding@resend.dev'
 const AGORA_URL = 'https://www.consultthedead.com/agora'
 
+type RecapEmailUser = {
+  emailAddresses: Array<{ id: string; emailAddress: string }>
+  primaryEmailAddressId?: string | null
+  firstName?: string | null
+}
+
+type RecapEmailAgon = {
+  topic: string
+  share_id: string | null
+}
+
 export async function sendWelcomeEmail(to: string, name: string): Promise<void> {
   const greeting = name ? `Hi ${name},` : 'Hi,'
 
@@ -136,6 +147,60 @@ export async function sendSubscriptionConfirmation(
       Receipt and billing details are available in your
       <a href="https://www.consultthedead.com/account" style="color:#8A8A88;">account page</a>.
       Questions? Reply here — this goes directly to Edward.
+    </p>
+
+  </div>
+</body>
+</html>`,
+  })
+}
+
+export async function sendFirstAgonRecap(user: RecapEmailUser, agon: RecapEmailAgon): Promise<void> {
+  const email =
+    user.emailAddresses.find(e => e.id === user.primaryEmailAddressId)?.emailAddress
+    ?? user.emailAddresses[0]?.emailAddress
+
+  if (!email) {
+    throw new Error('sendFirstAgonRecap: missing recipient email')
+  }
+
+  const greeting = user.firstName ? `Hi ${user.firstName},` : 'Hi,'
+  const recapUrl = agon.share_id ? `${AGORA_URL}/a/${agon.share_id}` : AGORA_URL
+
+  await getResend().emails.send({
+    from: FROM,
+    to: email,
+    subject: `Your first agon recap: ${agon.topic}`,
+    html: `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#0A0A0B;font-family:Georgia,'Times New Roman',serif;color:#EDEDEC;">
+  <div style="max-width:560px;margin:0 auto;padding:48px 32px;">
+
+    <p style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8A8A88;margin:0 0 32px;">
+      Consult The Dead
+    </p>
+
+    <p style="font-size:1.1rem;line-height:1.7;margin:0 0 20px;">${greeting}</p>
+
+    <p style="font-size:1.05rem;line-height:1.7;margin:0 0 20px;">
+      Your first agon has finished running. The council has prepared a recap for:
+    </p>
+
+    <p style="font-size:1.05rem;line-height:1.7;margin:0 0 28px;">
+      <strong style="color:#D4A574;">${agon.topic}</strong>
+    </p>
+
+    <a href="${recapUrl}"
+       style="display:inline-block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:12px 24px;background:#D4A574;color:#0A0A0B;text-decoration:none;border-radius:4px;">
+      View the recap
+    </a>
+
+    <hr style="border:none;border-top:1px solid #1F1F22;margin:48px 0 24px;">
+
+    <p style="font-size:0.8rem;line-height:1.6;color:#8A8A88;margin:0;">
+      You are receiving this because you ran an agon on consultthedead.com.
+      Questions? Reply to this email or reach Edward directly at edwardyen724@gmail.com.
     </p>
 
   </div>

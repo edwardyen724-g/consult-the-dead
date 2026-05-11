@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "paying_users": null,
+  "acquisition_channels": [],
+  "notable_channels": [],
+  "missing_credentials": [
+    "STRIPE_SECRET_KEY",
+    "STRIPE_PRICE_MONTHLY",
+    "STRIPE_PRICE_ANNUAL",
+    "VERCEL_TOKEN",
+    "VERCEL_PROJECT_ID"
+  ]
+}
