@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { debateCanonicalUrl, getAllDebateSlugs, getDebate } from '@/lib/debates'
+import { getAllDebateSlugs, getDebate } from '@/lib/debates'
 import type { Metadata } from 'next'
 
 export const dynamic = 'force-static'
-export const dynamicParams = false
 
 export function generateStaticParams() {
   return getAllDebateSlugs().map(slug => ({ slug }))
@@ -17,27 +16,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const debate = getDebate(slug)
-  if (!debate) return { title: 'Not Found' }
-
-  const title = `${debate.name} — Agora Debate`
-  const description = `Browse this sample Agora debate on ${debate.topic} and see how ${debate.council.join(', ')} argued the decision.`
+  if (!debate) return {}
   return {
-    title,
-    description,
-    alternates: {
-      canonical: debateCanonicalUrl(slug),
-    },
-    openGraph: {
-      title,
-      description,
-      url: debateCanonicalUrl(slug),
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary',
-      title,
-      description,
-    },
+    title: `${debate.name} — Agora Debate`,
     robots: { index: false, follow: false },
   }
 }

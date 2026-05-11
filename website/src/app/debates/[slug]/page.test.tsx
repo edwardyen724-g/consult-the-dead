@@ -2,7 +2,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { debateCanonicalUrl, getAllDebateSlugs, getDebate } from '@/lib/debates'
+import { getAllDebateSlugs, getDebate } from '@/lib/debates'
 
 const { notFoundMock } = vi.hoisted(() => ({
   notFoundMock: vi.fn(() => {
@@ -32,7 +32,6 @@ vi.mock('next/link', () => ({
 
 import {
   default as DebatePage,
-  dynamicParams,
   generateMetadata,
   generateStaticParams,
 } from './page'
@@ -47,6 +46,41 @@ function escapeText(value: string): string {
     .replaceAll("'", '&#x27;')
 }
 
+const coverageDebate = {
+  slug: 'coverage-debate',
+  name: 'Coverage Debate',
+  forContext: 'A case for branch coverage',
+  topic: 'Should the branch gate accept deliberate edge cases?',
+  council: ['Niccolò Machiavelli', 'Unknown Sage'],
+  date: '2026-05-11',
+  rounds: [
+    {
+      number: 1,
+      speeches: [
+        {
+          advisor: 'Niccolò Machiavelli',
+          content: 'Opening paragraph.\n\n- first point\n- second point',
+        },
+        {
+          advisor: 'Unknown Sage',
+          content: '\n\n**Bold claim** and *italic aside*.',
+        },
+      ],
+    },
+  ],
+  consensus: [],
+}
+
+beforeEach(() => {
+  notFoundMock.mockClear()
+})
+
+afterEach(() => {
+  vi.restoreAllMocks()
+  vi.doUnmock('@/lib/debates')
+  vi.resetModules()
+})
+
 describe('generateStaticParams', () => {
   it('pre-renders every shipped debate slug', () => {
     expect(generateStaticParams()).toEqual(
@@ -56,7 +90,7 @@ describe('generateStaticParams', () => {
 })
 
 describe('generateMetadata', () => {
-  it('emits canonical share metadata for a real debate', async () => {
+  it('emits the debate title and robots directives for a real debate', async () => {
     const slug = getAllDebateSlugs()[0]
     const debate = getDebate(slug)
 
@@ -66,45 +100,22 @@ describe('generateMetadata', () => {
       params: Promise.resolve({ slug }),
     })
 
-    expect(metadata).toMatchObject({
+    expect(metadata).toEqual({
       title: `${debate!.name} — Agora Debate`,
-      description: `Browse this sample Agora debate on ${debate!.topic} and see how ${debate!.council.join(', ')} argued the decision.`,
-      alternates: {
-        canonical: debateCanonicalUrl(slug),
-      },
-      openGraph: {
-        title: `${debate!.name} — Agora Debate`,
-        description: `Browse this sample Agora debate on ${debate!.topic} and see how ${debate!.council.join(', ')} argued the decision.`,
-        url: debateCanonicalUrl(slug),
-        type: 'article',
-      },
-      twitter: {
-        card: 'summary',
-        title: `${debate!.name} — Agora Debate`,
-        description: `Browse this sample Agora debate on ${debate!.topic} and see how ${debate!.council.join(', ')} argued the decision.`,
-      },
       robots: { index: false, follow: false },
     })
   })
 
-  it('returns a Not Found title for an invalid slug', async () => {
+  it('returns an empty metadata object for an invalid slug', async () => {
     const metadata = await generateMetadata({
       params: Promise.resolve({ slug: 'not-a-real-debate' }),
     })
 
-    expect(metadata).toEqual({ title: 'Not Found' })
+    expect(metadata).toEqual({})
   })
 })
 
 describe('DebatePage', () => {
-  beforeEach(() => {
-    notFoundMock.mockClear()
-  })
-
-  afterEach(() => {
-    vi.restoreAllMocks()
-  })
-
   it('renders a shipped debate and its council', async () => {
     const slug = getAllDebateSlugs()[0]
     const debate = getDebate(slug)
@@ -132,6 +143,34 @@ describe('DebatePage', () => {
   })
 })
 
+describe('DebatePage branch coverage', () => {
+  it('renders bullet lists, inline markdown, and the default advisor color branch', async () => {
+    vi.doMock('@/lib/debates', () => ({
+      getAllDebateSlugs: vi.fn(() => [coverageDebate.slug]),
+      getDebate: vi.fn((slug: string) =>
+        slug === coverageDebate.slug ? coverageDebate : null,
+      ),
+    }))
+
+    vi.resetModules()
+
+    const { default: MockedDebatePage } = await import('./page')
+    const html = renderToStaticMarkup(
+      await MockedDebatePage({
+        params: Promise.resolve({ slug: coverageDebate.slug }),
+      }),
+    )
+
+    expect(html).toContain('Should the branch gate accept deliberate edge cases?')
+    expect(html).toContain('<ul')
+    expect(html).toContain('<strong>Bold claim</strong>')
+    expect(html).toContain('<em>italic aside</em>')
+    expect(html).toContain('Unknown Sage')
+    expect(html).toContain('var(--fg-dim)')
+    expect(html).not.toContain('Council Consensus')
+  })
+})
+
 describe('debates index', () => {
   it('links each public debate card to its canonical detail route', async () => {
     const html = renderToStaticMarkup(await DebatesIndexPage())
@@ -141,11 +180,5 @@ describe('debates index', () => {
     }
 
     expect(html).toContain('Enter The Agora →')
-  })
-})
-
-describe('route contract', () => {
-  it('keeps dynamicParams disabled so unknown slugs 404', () => {
-    expect(dynamicParams).toBe(false)
   })
 })
