@@ -36,7 +36,7 @@ export const STREAMING_DEMO_PACING = {
   consensusWrapMs: 700,
 } as const;
 
-const RESEARCH_LINES = [
+export const RESEARCH_LINES = [
   '→ searching: "AI job displacement trends 2026"',
   '→ found: "The Great Reskilling" — Harvard Business Review',
   '→ scanning HackerNews: "Ask HN: Has anyone pivoted to AI mid-career?" (847 pts)',
@@ -51,7 +51,7 @@ interface AdvisorData {
   rounds: [string, string, string];
 }
 
-const ADVISORS: AdvisorData[] = [
+export const ADVISORS: AdvisorData[] = [
   {
     name: "MACHIAVELLI",
     color: "var(--color-machiavelli)",
@@ -84,7 +84,7 @@ const ADVISORS: AdvisorData[] = [
   },
 ];
 
-const CONSENSUS_FULL_TEXT = `CONSENSUS POINTS
+export const CONSENSUS_FULL_TEXT = `CONSENSUS POINTS
 All three agree the "pivot or stay" framing is a false choice. The real question is positioning — finding where domain depth and AI capability intersect to create genuinely defensible ground.
 
 RECOMMENDED ACTION
