@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
+import {
+  getPricingMetadataDescription,
+  getPricingMetadataTitle,
+  getPricingSharePreviewCard,
+} from "@/lib/pricing-copy";
+
+const title = getPricingMetadataTitle();
+const description = getPricingMetadataDescription();
+const card = getPricingSharePreviewCard();
 
 export const metadata: Metadata = {
-  title: "Pricing",
-  description:
-    "Free vs. Pro plans for Consult The Dead. Three free agons per day; Pro adds larger councils, Opus synthesis, and a persistent debate library.",
+  title,
+  description,
+  alternates: {
+    canonical: "https://www.consultthedead.com/pricing",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "https://www.consultthedead.com/pricing",
+    type: "website",
+    siteName: "Consult The Dead",
+  },
+  twitter: {
+    card,
+    title,
+    description,
+  },
 };
 
 export default function PricingLayout({
@@ -11,5 +34,5 @@ export default function PricingLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }
