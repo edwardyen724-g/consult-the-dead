@@ -11,6 +11,7 @@ import {
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { FrameworkConstructExplorer } from "@/components/FrameworkConstructExplorer";
 import { getPacksForMind } from "@/lib/packs";
+import { buildFrameworkCanonicalUrl } from "@/lib/framework-canonical-url";
 
 /* ── Static generation ── */
 
@@ -32,9 +33,13 @@ export async function generateMetadata({
   if (!fw) return { title: "Not Found" };
   const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
   const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from ${fw.meta.incident_count} documented historical incidents.`;
+  const canonicalUrl = buildFrameworkCanonicalUrl(slug);
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl ?? `https://www.consultthedead.com/frameworks/${slug}`,
+    },
     openGraph: {
       title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
       description,
