@@ -44,7 +44,7 @@ describe("sendFirstAgonRecap", () => {
     expect(ctorMock).toHaveBeenCalledWith("resend_test_key");
     expect(sendMock).toHaveBeenCalledWith(
       expect.objectContaining({
-        from: "onboarding@resend.dev",
+        from: "notifications@consultthedead.com",
         to: "ada@example.com",
         subject: "Your first agon recap: Should we launch the product now?",
       }),
