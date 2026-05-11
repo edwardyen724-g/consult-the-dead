@@ -237,7 +237,7 @@ export default async function AccountPage({
                 ? `${usage.remaining} debate${usage.remaining === 1 ? '' : 's'} remaining this ${usage.period}.`
                 : isPro
                   ? 'You’ve used all 100 debates this month. Your quota resets at the start of next month.'
-                  : 'You’ve used all 3 free debates today. Add your own API key for unlimited use, or check back tomorrow.'}
+                  : 'You’ve used all 3 free debates today. Add your own API key for unlimited use, or return when the free quota resets at midnight UTC.'}
             </p>
           </div>
         </div>
@@ -272,4 +272,3 @@ export default async function AccountPage({
     </main>
   )
 }
-
