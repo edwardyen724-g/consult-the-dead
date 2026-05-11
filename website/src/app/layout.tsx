@@ -89,7 +89,7 @@ export default function RootLayout({
           <FAQJsonLd />
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem={false}
           >
             <Header />

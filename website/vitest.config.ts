@@ -17,8 +17,8 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "lcov", "html"],
       include: [
-        "src/app/pricing/layout.tsx",
-        "src/lib/pricing-copy.ts",
+        "src/app/sign-up/**/page.tsx",
+        "src/app/sign-up/**/utm-stamper.ts",
       ],
       exclude: [
         "src/**/*.d.ts",
