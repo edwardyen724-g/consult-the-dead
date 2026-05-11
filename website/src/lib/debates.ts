@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const DEBATES_DIR = path.join(process.cwd(), 'content', 'debates')
+export const SITE_URL = 'https://www.consultthedead.com'
 
 export interface AdvisorSpeech {
   advisor: string
@@ -27,6 +28,10 @@ export interface Debate {
   date: string
   rounds: Round[]
   consensus: ConsensusSection[]
+}
+
+export function debateCanonicalUrl(slug: string): string {
+  return `${SITE_URL}/debates/${slug}`
 }
 
 function parseDebate(slug: string, raw: string): Debate {
