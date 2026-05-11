@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { ShareAgonPanel, type ShareAgonInput } from "@/components/agora/ShareAgonPanel";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
   AGORA_SESSION_STORAGE_KEY,
@@ -53,6 +54,27 @@ function toRoman(n: number): string {
   const map: [number, string][] = [[3,"III"],[2,"II"],[1,"I"]];
   for (const [v, s] of map) if (n >= v) return s;
   return String(n);
+}
+
+export function buildConsensusShareAgonInput({
+  topic,
+  selectedMinds,
+  turns,
+  consensus,
+}: {
+  topic: string;
+  selectedMinds: MindOption[];
+  turns: RoundTurn[];
+  consensus: ConsensusResult | null;
+}): ShareAgonInput {
+  return {
+    topic,
+    mindSlugs: selectedMinds.map((mind) => mind.slug),
+    rounds: TOTAL_ROUNDS,
+    turns,
+    consensus,
+    research: null,
+  };
 }
 
 const MIND_MIN = 2;
@@ -1674,7 +1696,7 @@ function AgonStage({
 
 /* ────────────── Stage 5: Consensus (real data) ────────────── */
 
-function ConsensusStage({
+export function ConsensusStage({
   topic,
   selectedMinds,
   consensus,
@@ -1697,62 +1719,6 @@ function ConsensusStage({
   isPro: boolean;
   quotaRemaining: number | undefined;
 }) {
-  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
-  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
-
-  async function handleSave() {
-    if (!consensus) return;
-    setSaveState("saving");
-    try {
-      const res = await fetch("/api/library", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          topic,
-          mindSlugs: selectedMinds.map((m) => m.slug),
-          rounds: TOTAL_ROUNDS,
-          turns,
-          consensus,
-        }),
-      });
-      setSaveState(res.ok ? "saved" : "error");
-    } catch {
-      setSaveState("error");
-    }
-  }
-
-  function handleShare() {
-    if (!consensus) return;
-    const names = selectedMinds.map((m) => m.name).join(", ");
-    const text = [
-      `I asked: "${topic}"`,
-      ``,
-      `Council: ${names}`,
-      ``,
-      `Key action: ${consensus.actionSummary}`,
-      ``,
-      `Try it yourself at consultthedead.com`,
-    ].join("\n");
-
-    if (typeof navigator !== "undefined" && navigator.share) {
-      navigator.share({ title: "Consult The Dead — Debate Result", text }).catch(() => {
-        // User cancelled or share failed — fall back to clipboard
-        copyToClipboard(text);
-      });
-    } else {
-      copyToClipboard(text);
-    }
-  }
-
-  function copyToClipboard(text: string) {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setShareState("copied");
-        setTimeout(() => setShareState("idle"), 2000);
-      });
-    }
-  }
-
   const summaries = consensus
     ? {
         POINTS: consensus.pointsSummary,
@@ -1968,87 +1934,15 @@ function ConsensusStage({
             PDF Export — Pro only →
           </Link>
         )}
-        {isPro ? (
-          saveState === "saved" ? (
-            <Link
-              href="/library"
-              className="font-mono"
-              style={{
-                display: "inline-block",
-                border: "1px solid var(--amber)",
-                borderRadius: "4px",
-                color: "var(--amber)",
-                fontSize: "12px",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                padding: "14px 28px",
-                textDecoration: "none",
-              }}
-            >
-              Saved to Library ✓
-            </Link>
-          ) : (
-            <button
-              onClick={handleSave}
-              disabled={!consensus || saveState === "saving"}
-              className="font-mono"
-              style={{
-                background: consensus && saveState !== "saving" ? "var(--amber)" : "transparent",
-                color: !consensus || saveState === "saving" ? "var(--fg-dim)" : "var(--bg)",
-                border: consensus && saveState !== "saving" ? "1px solid var(--amber)" : "1px solid var(--hairline)",
-                borderRadius: "4px",
-                fontSize: "12px",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                padding: "14px 28px",
-                cursor: !consensus || saveState === "saving" ? "not-allowed" : "pointer",
-              }}
-            >
-              {saveState === "saving"
-                ? "Saving…"
-                : saveState === "error"
-                  ? "Save failed — retry"
-                  : "Save to Library"}
-            </button>
-          )
-        ) : (
-          <Link
-            href="/pricing"
-            className="font-mono"
-            style={{
-              display: "inline-block",
-              border: "1px solid var(--hairline)",
-              borderRadius: "4px",
-              color: "var(--fg-dim)",
-              fontSize: "12px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              padding: "14px 28px",
-              textDecoration: "none",
-            }}
-          >
-            Save to Library — Pro only →
-          </Link>
-        )}
-
-        <button
-          onClick={handleShare}
+        <ShareAgonPanel
+          agon={buildConsensusShareAgonInput({
+            topic,
+            selectedMinds,
+            turns,
+            consensus,
+          })}
           disabled={!consensus}
-          className="font-mono"
-          style={{
-            background: "transparent",
-            color: consensus ? "var(--fg)" : "var(--fg-dim)",
-            border: "1px solid var(--hairline)",
-            borderRadius: "4px",
-            fontSize: "12px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            padding: "14px 28px",
-            cursor: consensus ? "pointer" : "not-allowed",
-          }}
-        >
-          {shareState === "copied" ? "Copied!" : "Share Result"}
-        </button>
+        />
 
         <button
           onClick={onReset}
