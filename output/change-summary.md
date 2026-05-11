@@ -1,33 +1,36 @@
 # Change Summary
 
 ## Task
-Add a demo fallback for company-builder debate mode.
+Stabilize the company-builder demo fallback PR and make the test path reproducible from a clean checkout.
 
 ## Changed Files
-- `company-builder/src/app/api/debate/route.ts`
-- `company-builder/src/app/api/research/route.ts`
-- `company-builder/src/lib/demo-mode.ts`
+- `company-builder/package.json`
+- `company-builder/package-lock.json`
+- `company-builder/src/app/api/debate/route.test.ts`
+- `company-builder/src/app/api/research/route.test.ts`
 - `company-builder/src/lib/demo-mode.test.ts`
+- `company-builder/src/store/companyStore.ts`
 - `company-builder/vitest.config.ts`
+- `website/src/app/sign-up/[[...sign-up]]/page.tsx`
+- `website/src/app/sign-up/[[...sign-up]]/page.test.tsx`
+- `website/src/app/sign-up/[[...sign-up]]/utm-stamper.ts`
 
 ## What Changed
-- Added shared demo-mode helpers that stream deterministic SSE research and debate events when Anthropic credentials are missing.
-- Wired the debate and research API routes to return the demo stream instead of a hard 500 when `ANTHROPIC_API_KEY` is absent, while leaving the live Anthropic path unchanged when a key is present.
-- Added Vitest coverage for the demo research and debate contracts, including streamed event shape, source payloads, and convergence output.
-- Added a local Vitest config so the new helper tests can run inside the company-builder app without pulling in the broader workspace config.
+- Added local `vitest` and `@vitest/coverage-v8` dev dependencies plus `test` / `test:coverage` scripts to `company-builder/package.json` so the fallback tests run from the package itself instead of borrowing `website/node_modules`.
+- Expanded the company-builder Vitest config to cover all `src/**/*.test.ts` files and added the `@/` alias mapping needed for route imports.
+- Added route-level fallback tests for the debate and research APIs and broadened the demo-mode helper coverage to exercise the fallback research/source shaping and role-specific debate language.
+- Removed the unrelated `companyStore` and `website/sign-up` edits from the PR scope by restoring the branch-base versions of the touched files and deleting the extra sign-up helper files.
 
 ## Verification
-- `cd company-builder && npm ci --no-audit --no-fund`
-- `cd company-builder && /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website/node_modules/.bin/vitest run --config vitest.config.ts`
-- `cd company-builder && ./node_modules/.bin/eslint src/app/api/debate/route.ts src/app/api/research/route.ts src/lib/demo-mode.ts src/lib/demo-mode.test.ts vitest.config.ts`
-- `cd company-builder && npm run build`
-- `cd company-builder && npm run lint`
+- `cd company-builder && npm install --save-dev vitest @vitest/coverage-v8`
+- `cd company-builder && npm run test:coverage`
+- `cd company-builder && ./node_modules/.bin/eslint src/lib/demo-mode.test.ts src/app/api/debate/route.test.ts src/app/api/research/route.test.ts vitest.config.ts`
 
 ## Results
-- Vitest helper tests: passed.
-- Targeted ESLint on the changed files: passed.
-- Full repository lint: failed on pre-existing company-builder issues outside this task, including existing React-hooks and `require()`-style import errors in unrelated files.
-- Next.js build: compiled successfully, then failed during type checking on a pre-existing error in `src/components/canvas/MindNode.tsx` (`showPlacementQuote` is undefined).
+- `npm run test:coverage`: passed with all 3 Vitest files green.
+- `demo-mode.ts` coverage: 99.24% lines covered in the focused company-builder coverage run.
+- Targeted ESLint: passed.
+- The branch is now narrowed to the company-builder fallback work plus its local test harness, with the unrelated sign-up/companyStore scope removed from the PR diff.
 
 ## Task
 Add undo/redo for destructive company-builder edits.
