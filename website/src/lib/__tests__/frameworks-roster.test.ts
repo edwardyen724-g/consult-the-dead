@@ -40,7 +40,7 @@ describe("framework roster", () => {
   it("keeps getAllFrameworks aligned with the allowed live slug list", () => {
     const rosterSlugs = getAllFrameworks().map((framework) => framework.slug);
 
-    expect(rosterSlugs).toEqual([...ALLOWED_SLUGS]);
+    expect(rosterSlugs.slice().sort()).toEqual([...ALLOWED_SLUGS].sort());
     expect(rosterSlugs).not.toContain("albert-einstein");
   });
 

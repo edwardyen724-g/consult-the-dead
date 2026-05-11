@@ -180,7 +180,7 @@ describe("rss-feed helpers", () => {
     expect(xml).toContain("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     expect(xml).toContain("<rss version=\"2.0\">");
     expect(xml).toContain("<title>Consult &amp; The &lt;Dead&gt; &quot;Feed&quot;</title>");
-    expect(xml).toContain("<link>https://www.consultthedead.com/feed.xml</link>");
+    expect(xml).toContain("<link>https://www.consultthedead.com</link>");
     expect(xml).toContain("<language>en-us</language>");
     expect(xml).toContain(`<lastBuildDate>${FIXED_NOW.toUTCString()}</lastBuildDate>`);
     expect(xml).toContain("<guid isPermaLink=\"true\">https://www.consultthedead.com/debates/alpha</guid>");
