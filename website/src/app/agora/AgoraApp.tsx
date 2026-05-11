@@ -3,8 +3,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
+import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
+import {
+  AGORA_SESSION_STORAGE_KEY,
+  decodeAgoraSession,
+  encodeAgoraSession,
+  type AgoraSessionState,
+} from "@/lib/agora-session";
 import {
   PACKS,
   getActivePackMembers,
@@ -149,6 +155,28 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
+function toAgoraSessionState(state: AgonState): AgoraSessionState {
+  return {
+    stage: state.stage,
+    topic: state.topic,
+    researchEnabled: state.researchEnabled,
+    council: state.council,
+    turns: state.turns,
+    activeRound: state.activeRound,
+    activeMindSlug: state.activeMindSlug,
+    consensus: state.consensus,
+    consensusNode: state.consensusNode,
+    quotaRemaining: state.quotaRemaining,
+    researchData: state.researchData,
+  };
+}
+
+const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
+
+function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
+  return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
+}
+
 export function AgoraApp({
   minds,
   isPro,
@@ -161,6 +189,7 @@ export function AgoraApp({
   initialMinds?: string[] | null;
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
+  const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
 
@@ -181,6 +210,55 @@ export function AgoraApp({
       // ignore
     }
   }, []);
+
+  // Restore a previously persisted Agora session once the component mounts.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(AGORA_SESSION_STORAGE_KEY);
+      const restored = decodeAgoraSession(saved);
+      if (!restored) return;
+
+      setState((current) => ({
+        ...current,
+        ...restored,
+        consensusNode: isConsensusNodeKey(restored.consensusNode) ? restored.consensusNode : null,
+        consensusLoading: false,
+        researchLoading: false,
+        error: null,
+        rateLimited: false,
+      }));
+    } catch {
+      // ignore
+    } finally {
+      setSessionHydrated(true);
+    }
+  }, []);
+
+  // Persist the non-transient Agora session fields after hydration completes.
+  useEffect(() => {
+    if (!sessionHydrated) return;
+
+    try {
+      const encoded = encodeAgoraSession(toAgoraSessionState(state));
+      if (encoded) sessionStorage.setItem(AGORA_SESSION_STORAGE_KEY, encoded);
+      else sessionStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+  }, [
+    sessionHydrated,
+    state.stage,
+    state.topic,
+    state.researchEnabled,
+    state.council,
+    state.turns,
+    state.activeRound,
+    state.activeMindSlug,
+    state.consensus,
+    state.consensusNode,
+    state.quotaRemaining,
+    state.researchData,
+  ]);
 
   // Cancel any in-flight stream when component unmounts
   useEffect(() => {
@@ -838,6 +916,8 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
+              type="button"
+              aria-label={`Use sample question: ${ex}`}
               onClick={() => setTopic(ex)}
               style={{
                 background: "var(--surface)",
@@ -1099,11 +1179,47 @@ function CouncilStage({
     return PACKS.filter((p) => getActivePackMembers(p, liveSlugs).length > 0);
   }, [liveSlugs]);
 
-  const defaultOpen: PackId | null = initialOpenPack ?? activePacks[0]?.id ?? null;
-  const [openPack, setOpenPack] = useState<PackId | null>(defaultOpen);
+  // Compute initial open packs: when a specific pack is requested, open only
+  // that pack; otherwise open every pack that already has a seated (smart-
+  // suggested) mind so the user can see their pre-selection without having to
+  // hunt across closed accordion sections. Falls back to the first active pack
+  // if none of the suggested minds are live yet.
+  const initialOpenPacks = useMemo<ReadonlySet<PackId>>(() => {
+    if (initialOpenPack) return new Set([initialOpenPack]);
+    const withSeated = activePacks
+      .filter((p) =>
+        getActivePackMembers(p, liveSlugs).some((s) => council.includes(s))
+      )
+      .map((p) => p.id);
+    const ids = withSeated.length > 0
+      ? withSeated
+      : activePacks.slice(0, 1).map((p) => p.id);
+    return new Set(ids);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // computed once on mount — we don't re-open on subsequent council changes
+
+  const [openPacks, setOpenPacks] = useState<ReadonlySet<PackId>>(initialOpenPacks);
 
   function togglePack(id: PackId) {
-    setOpenPack((cur) => (cur === id ? null : id));
+    setOpenPacks((cur) => {
+      const next = new Set(cur);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  // Show a brief upsell banner when a free user tries to seat a 4th mind.
+  const [showCapBanner, setShowCapBanner] = useState(false);
+
+  function handleToggleMind(slug: string) {
+    const isSeated = council.includes(slug);
+    if (!isSeated && count >= mindMax) {
+      setShowCapBanner(true);
+      return;
+    }
+    setShowCapBanner(false);
+    toggleMind(slug);
   }
 
   return (
@@ -1175,7 +1291,7 @@ function CouncilStage({
       >
         {activePacks.map((pack, idx) => {
           const memberSlugs = getActivePackMembers(pack, liveSlugs);
-          const open = openPack === pack.id;
+          const open = openPacks.has(pack.id);
           const seatedCount = memberSlugs.filter((s) => council.includes(s)).length;
           return (
             <div
@@ -1294,7 +1410,7 @@ function CouncilStage({
                           key={`${pack.id}-${slug}`}
                           mind={mind}
                           selected={council.includes(slug)}
-                          onToggle={() => toggleMind(slug)}
+                          onToggle={() => handleToggleMind(slug)}
                           packs={PACKS.filter((p) => p.members.includes(slug))}
                           currentPackId={pack.id}
                         />
@@ -1308,7 +1424,46 @@ function CouncilStage({
         })}
       </div>
 
-      {!isPro && (
+      {!isPro && showCapBanner && (
+        <div
+          data-testid="cap-upsell-banner"
+          style={{
+            marginTop: "16px",
+            padding: "14px 18px",
+            border: "1px solid var(--amber)",
+            borderRadius: "4px",
+            background: "var(--amber-wash)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            className="font-mono"
+            style={{ fontSize: "11px", letterSpacing: "0.06em", color: "var(--fg-dim)", lineHeight: 1.55 }}
+          >
+            Free plan seats up to 3 minds. Pro unlocks 5 minds, 100 agons/month, and Opus synthesis.
+          </div>
+          <Link
+            href="/pricing"
+            className="font-mono"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--amber)",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+            }}
+          >
+            Upgrade to Pro →
+          </Link>
+        </div>
+      )}
+      {!isPro && !showCapBanner && (
         <div
           className="font-mono"
           style={{

@@ -1,0 +1,66 @@
+# Coverage Gate Policy
+
+This document defines the review rule for code changes that report both branch
+and statement coverage.
+
+## Policy
+
+- Treat branch coverage as a required merge gate for any touched file that is
+  expected to be test-covered.
+- Do not approve a PR just because statement coverage looks healthy if branch
+  coverage fails the gate or leaves an important conditional path untested.
+- Use statement coverage as supporting evidence only. It does not override a
+  branch-coverage miss.
+
+## Review Checklist
+
+Before approving a PR, verify:
+
+1. The touched files are covered by an appropriate test path.
+2. Branch coverage is at or above the accepted threshold for the relevant
+   helper/module.
+3. Any uncovered branch is explained in the PR body and tracked with a follow-up
+   task.
+4. The test plan distinguishes between unit coverage and integration-only
+   coverage so reviewers do not confuse the two.
+
+## PR Template Checklist
+
+The PR template must force authors to confirm the branch-coverage gate before
+review starts.
+
+- The template must call out that branch coverage, not statement coverage, is
+  the approval gate.
+- The template must require any exception to name the missing branch path,
+  follow-up task ID, and target date.
+- The template should make it obvious when a PR is relying on statement
+  coverage while leaving a branch path untested.
+
+## Route Handler Rule
+
+For route handlers and other `src/app/**` entry points, keep business logic in
+`src/lib/` helpers where Vitest can measure branches directly. Thin wrappers may
+remain in the route file, but any branching logic that matters to correctness
+belongs in a helper with explicit unit tests.
+
+## Exception Escalation
+
+Only the CTO or an explicitly delegated reviewer may approve a temporary
+exception to the branch-coverage gate.
+
+An exception must include:
+
+- the exact file or helper path
+- the reason the branch could not be covered before merge
+- the follow-up task ID that will close the gap
+- the owner and target date for the follow-up
+
+If those details are missing, the reviewer should block the merge and request
+changes.
+
+## Example
+
+PR #80 merged on 2026-05-10 with `company-builder/src/app/api/research/route.ts`
+showing 68.42% branch coverage and 95.8% statement coverage. That is the
+failure mode this policy is meant to prevent: a PR can look acceptable on
+statement coverage while still leaving important branch paths unverified.

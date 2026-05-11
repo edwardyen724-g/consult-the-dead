@@ -5,16 +5,44 @@ import { ConsensusGraph } from "@/components/ConsensusGraph";
 
 // =================== CONTENT ===================
 
-const QUESTION =
-  "My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?";
+export const STREAMING_DEMO_QUESTION =
+  "If you had 90 days to become harder to replace, would you pivot into AI skills, deepen your domain moat, or redesign the work itself?";
 
-const RESEARCH_LINES = [
+export const STREAMING_DEMO_PROOF_POINTS = [
+  {
+    title: "Research first",
+    detail: "The council opens with live signals, not hot takes.",
+  },
+  {
+    title: "Three minds",
+    detail: "Machiavelli, Curie, and Sun Tzu disagree on purpose.",
+  },
+  {
+    title: "One next move",
+    detail: "Every run ends with a concrete recommendation.",
+  },
+] as const;
+
+export const STREAMING_DEMO_PACING = {
+  initialResearchDelayMs: 120,
+  researchLineDelayMs: 820,
+  researchToDebateDelayMs: 260,
+  debateEntryDelayMs: 120,
+  roundLabelHoldMs: 460,
+  debateRoundPauseMs: 220,
+  closerPauseMs: 380,
+  consensusLeadInMs: 320,
+  consensusRenderDelayMs: 240,
+  consensusWrapMs: 700,
+} as const;
+
+export const RESEARCH_LINES = [
   '→ searching: "AI job displacement trends 2026"',
   '→ found: "The Great Reskilling" — Harvard Business Review',
   '→ scanning HackerNews: "Ask HN: Has anyone pivoted to AI mid-career?" (847 pts)',
   "→ pulling: Bureau of Labor Statistics Q1 2026 automation data",
   "→ synthesizing research briefing...",
-];
+] as const;
 
 interface AdvisorData {
   name: string;
@@ -23,7 +51,7 @@ interface AdvisorData {
   rounds: [string, string, string];
 }
 
-const ADVISORS: AdvisorData[] = [
+export const ADVISORS: AdvisorData[] = [
   {
     name: "MACHIAVELLI",
     color: "var(--color-machiavelli)",
@@ -56,7 +84,7 @@ const ADVISORS: AdvisorData[] = [
   },
 ];
 
-const CONSENSUS_FULL_TEXT = `CONSENSUS POINTS
+export const CONSENSUS_FULL_TEXT = `CONSENSUS POINTS
 All three agree the "pivot or stay" framing is a false choice. The real question is positioning — finding where domain depth and AI capability intersect to create genuinely defensible ground.
 
 RECOMMENDED ACTION
@@ -140,6 +168,52 @@ const REDUCED_MOTION_STATE: DemoState = {
 
 const STAGE_NAMES = ["TOPIC", "RESEARCH", "AGON", "CONSENSUS"];
 const STAGE_DURATIONS_MS = [0, 7000, 13000, 8000];
+
+function OpeningProofStrip() {
+  return (
+    <div
+      style={{
+        marginTop: "18px",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+        gap: "12px",
+      }}
+    >
+      {STREAMING_DEMO_PROOF_POINTS.map((item) => (
+        <div
+          key={item.title}
+          style={{
+            border: "1px solid var(--hairline)",
+            padding: "12px 14px",
+            background: "color-mix(in srgb, var(--bg) 82%, transparent)",
+          }}
+        >
+          <div
+            className="font-mono uppercase"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.12em",
+              color: "var(--amber)",
+              marginBottom: "8px",
+            }}
+          >
+            {item.title}
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "14px",
+              lineHeight: 1.45,
+              color: "var(--fg)",
+            }}
+          >
+            {item.detail}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function stageToIndex(stage: DemoStage): number {
   const map: Record<DemoStage, number> = {
@@ -326,7 +400,7 @@ export function StreamingDemo() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   async function run() {
     if (runningRef.current) return;
@@ -411,12 +485,12 @@ export function StreamingDemo() {
     }
 
     // ---- RESEARCH ----
-    await sleep(300);
+    await sleep(STREAMING_DEMO_PACING.initialResearchDelayMs);
     set((s) => ({ ...s, stage: "research" }));
 
     for (let i = 0; i < RESEARCH_LINES.length; i++) {
       if (check()) return;
-      await sleep(1250);
+      await sleep(STREAMING_DEMO_PACING.researchLineDelayMs);
       const lineText = RESEARCH_LINES[i];
       set((s) => ({
         ...s,
@@ -427,12 +501,12 @@ export function StreamingDemo() {
       }));
     }
 
-    await sleep(700);
+    await sleep(STREAMING_DEMO_PACING.researchToDebateDelayMs);
     if (check()) return;
 
     // ---- DEBATES ----
     set((s) => ({ ...s, stage: "debates" }));
-    await sleep(200);
+    await sleep(STREAMING_DEMO_PACING.debateEntryDelayMs);
 
     // Round 1 — slow, readable
     for (let ai = 0; ai < ADVISORS.length; ai++) {
@@ -446,18 +520,18 @@ export function StreamingDemo() {
         return { ...s, advisors };
       });
       await streamAdvisor(ai, ADVISORS[ai].rounds[0], {
-        firstSentenceSpeed: 55,
-        restSpeed: 18,
-        pauseAfter: 500,
+        firstSentenceSpeed: 45,
+        restSpeed: 16,
+        pauseAfter: STREAMING_DEMO_PACING.debateRoundPauseMs,
       });
     }
 
     // Round 2 indicator
     if (check()) return;
     set((s) => ({ ...s, roundLabel: "ROUND 2" }));
-    await sleep(700);
+    await sleep(STREAMING_DEMO_PACING.roundLabelHoldMs);
     set((s) => ({ ...s, roundLabel: null }));
-    await sleep(200);
+    await sleep(120);
 
     // Round 2 — fast
     for (let ai = 0; ai < ADVISORS.length; ai++) {
@@ -470,17 +544,17 @@ export function StreamingDemo() {
         return { ...s, advisors };
       });
       await streamAdvisor(ai, ADVISORS[ai].rounds[1], {
-        uniformSpeed: 5,
-        pauseAfter: 250,
+        uniformSpeed: 4,
+        pauseAfter: STREAMING_DEMO_PACING.debateRoundPauseMs,
       });
     }
 
     // Round 3 indicator
     if (check()) return;
     set((s) => ({ ...s, roundLabel: "ROUND 3" }));
-    await sleep(700);
+    await sleep(STREAMING_DEMO_PACING.roundLabelHoldMs);
     set((s) => ({ ...s, roundLabel: null }));
-    await sleep(200);
+    await sleep(120);
 
     // Round 3 — Machiavelli + Curie fast, Sun Tzu readable (the closer)
     for (let ai = 0; ai < ADVISORS.length; ai++) {
@@ -497,8 +571,10 @@ export function StreamingDemo() {
         return { ...s, advisors };
       });
       await streamAdvisor(ai, ADVISORS[ai].rounds[2], {
-        uniformSpeed: isCloser ? 30 : 5,
-        pauseAfter: isCloser ? 700 : 250,
+        uniformSpeed: isCloser ? 22 : 4,
+        pauseAfter: isCloser
+          ? STREAMING_DEMO_PACING.closerPauseMs
+          : STREAMING_DEMO_PACING.debateRoundPauseMs,
       });
     }
 
@@ -507,12 +583,12 @@ export function StreamingDemo() {
       ...s,
       advisors: s.advisors.map((a) => ({ ...a, opacity: 1 })),
     }));
-    await sleep(800);
+    await sleep(STREAMING_DEMO_PACING.consensusLeadInMs);
     if (check()) return;
 
     // ---- CONSENSUS ----
     set((s) => ({ ...s, stage: "consensus", graphStarted: true }));
-    await sleep(500);
+    await sleep(STREAMING_DEMO_PACING.consensusRenderDelayMs);
 
     const tokens = tokenize(CONSENSUS_FULL_TEXT);
     let accumulated = "";
@@ -524,7 +600,7 @@ export function StreamingDemo() {
       set((s) => ({ ...s, consensusText: snap }));
     }
 
-    await sleep(1000);
+    await sleep(STREAMING_DEMO_PACING.consensusWrapMs);
     if (check()) return;
 
     set((s) => ({ ...s, stage: "done", ctaVisible: true }));
@@ -593,8 +669,9 @@ export function StreamingDemo() {
               maxWidth: "58ch",
             }}
           >
-            {QUESTION}
+            {STREAMING_DEMO_QUESTION}
           </p>
+          {showButton && <OpeningProofStrip />}
         </div>
 
         {/* Content area */}

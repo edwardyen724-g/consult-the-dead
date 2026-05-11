@@ -12,6 +12,7 @@ from typing import Any
 from framework_forge.llm import LLMClient
 from framework_forge.extraction.constructs import BipolarConstruct
 from framework_forge.extraction.lens import PerceptualLens
+from framework_forge.extraction.ordering import canonicalize_predictions
 
 
 @dataclass
@@ -153,4 +154,8 @@ def generate_predictions(
                 confidence=item.get("confidence", 0.5),
             )
         )
-    return predictions
+
+    canonical = canonicalize_predictions(predictions)
+    return [
+        DivergencePrediction(**p) for p in canonical
+    ]

@@ -1,0 +1,37 @@
+{
+  "slug": "product-strategy",
+  "h1": "Edison vs. Tesla on Building the Right Product Strategy",
+  "metaDescription": "Edison shipped and iterated. Tesla held for perfection. Both built world-changing products. Only one died broke. Which framework does your roadmap need?",
+  "topicForCta": "product strategy",
+  "intro": [
+    "The Edison vs. Tesla debate has been relitigated so many times in startup culture that it's lost its edge. Usually the narrative runs: Edison was a ruthless operator who stole credit; Tesla was the visionary genius who deserved better. The implication is that you should be Tesla — hold for the theoretically superior solution, fight the incumbents who suppress it, and trust that history will vindicate you.",
+    "This is a terrible product strategy framework. Tesla's approach to AC distribution was correct. His approach to product strategy was catastrophic.",
+    "What Edison understood — and what gets stripped from the mythology — is that the first shipped version doesn't need to be optimal. It needs to create the installed base, the cash flow, and the operational learning that makes the next version possible. The phonograph was objectively inferior to what Tesla thought could exist. It was also what powered Edison's laboratory for the next decade. Tesla's Wardenclyffe Tower project was theoretically superior to anything Edison built. It was also never finished.",
+    "Leonardo da Vinci and Ada Lovelace add the dimension the Edison/Tesla binary misses. Da Vinci never shipped almost anything — and the incomplete notebooks are still generating billion-dollar insights 500 years later. Ada Lovelace wrote programs for a computer that didn't exist. What does it mean to build a product when you're designing for infrastructure that's a generation away? The four of them in a room together will give you a complete map of the tradeoffs in product strategy that the Edison/Tesla headline only hints at."
+  ],
+  "minds": [
+    {
+      "slug": "thomas-edison",
+      "name": "Thomas Edison",
+      "rationale": "Serial shipper who understood that the installed base is the product — will argue Tesla's theoretical superiority was irrelevant to actually changing how people lived."
+    },
+    {
+      "slug": "nikola-tesla",
+      "name": "Nikola Tesla",
+      "rationale": "Holds that optimizing for the wrong variable (shipping speed vs. theoretical correctness) creates technical debt at civilizational scale — will tell Edison his DC network was a setback."
+    },
+    {
+      "slug": "leonardo-da-vinci",
+      "name": "Leonardo da Vinci",
+      "rationale": "Never shipped at scale — and his incomplete work is still producing value 500 years later; challenges whether \"ship it\" is the right frame when you're designing for a generation ahead."
+    },
+    {
+      "slug": "ada-lovelace",
+      "name": "Ada Lovelace",
+      "rationale": "Wrote the first algorithms for hardware that didn't exist yet; brings the \"design for infrastructure that isn't here yet\" perspective that neither Edison nor Tesla could hold simultaneously."
+    }
+  ],
+  "ctaHeadline": "Run this debate with your actual product decision",
+  "ctaButtonLabel": "Open in the Agora",
+  "ctaSubtext": "Describe your specific roadmap question. Edison will tell you to ship. Tesla will tell you you're shipping the wrong thing. Da Vinci will still be drawing."
+}
