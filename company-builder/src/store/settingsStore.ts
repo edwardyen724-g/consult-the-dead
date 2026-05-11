@@ -67,3 +67,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   },
   getFreeDebatesRemaining: () => FREE_DEBATE_LIMIT - get().freeDebatesUsed,
 }));
+
+if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+  (window as Window & { __CTD_SETTINGS_STORE__?: typeof useSettingsStore }).__CTD_SETTINGS_STORE__ = useSettingsStore;
+}

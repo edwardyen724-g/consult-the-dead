@@ -3,7 +3,7 @@
 import React from 'react';
 import { useSettingsStore } from '@/store/settingsStore';
 
-export default function ApiKeyIndicator() {
+export default function ApiKeyIndicator({ onOpen }: { onOpen?: () => void } = {}) {
   const apiKey = useSettingsStore((s) => s.apiKey);
   const openModal = useSettingsStore((s) => s.openApiKeyModal);
   const freeRemaining = useSettingsStore((s) => s.getFreeDebatesRemaining)();
@@ -32,8 +32,9 @@ export default function ApiKeyIndicator() {
 
   return (
     <button
-      onClick={openModal}
+      onClick={onOpen ?? openModal}
       className="fixed bottom-3 right-3 z-50 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-wider transition-colors"
+      aria-label={`API key controls: ${title}`}
       style={{
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.06)',

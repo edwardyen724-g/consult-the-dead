@@ -46,12 +46,12 @@ export default class ErrorBoundary extends Component<
     if (this.state.hasError) {
       const sectionLabel = this.props.section ?? 'Component';
       const errorMessage =
-        this.state.error?.message ??
+        this.state.error?.message ||
         'An unexpected runtime fault interrupted this shell section.';
 
       return (
         <div
-          className="flex items-center justify-center p-6"
+          className="glass-panel flex items-center justify-center p-6"
           style={{
             background: 'rgba(10, 10, 18, 0.94)',
             minHeight: 160,

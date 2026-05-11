@@ -7,9 +7,9 @@ import { useCompanyStore } from '@/store/companyStore';
 import { mindsMap } from '@/data/minds';
 import { rolesMap } from '@/data/roles';
 import { hexToRgb } from '@/lib/colors';
-import { appEvents } from '@/lib/events';
 import ReactMarkdown from 'react-markdown';
 import type { Debate, DebateMessage, ResearchSource } from '@/types';
+import { useFocusRestore } from '@/components/shared/useFocusRestore';
 
 /* ---- Debate Setup Modal ---- */
 function DebateSetup({ onClose }: { onClose: () => void }) {
@@ -276,7 +276,7 @@ function DebateSetup({ onClose }: { onClose: () => void }) {
     } finally {
       setAbortController(null);
     }
-  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, researchEnabled, researchFocus, uploadedFiles, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind, appendStreamingChunk, resetStreamingContent, setAbortController, setResearching, setResearchBriefing, appendResearchChunk, setResearchSources]);
+  }, [canStart, isStarting, selectedIds, topic, placedMinds, company, researchEnabled, researchFocus, uploadedFiles, startDebate, addMessage, completeDebate, failDebate, setSpeakingMind, appendStreamingChunk, resetStreamingContent, setAbortController, setResearching, setResearchBriefing, appendResearchChunk, setResearchSources, appendConvergenceChunk, setConvergenceContent, setConverging]);
 
   return (
     <div className="p-5">
@@ -779,7 +779,7 @@ function DebateSynthesis() {
 }
 
 /* ---- Main Debate Panel ---- */
-export default function DebatePanel() {
+function DebatePanelView() {
   const debatePanelOpen = useDebateStore((s) => s.debatePanelOpen);
   const activeDebate = useDebateStore((s) => s.activeDebate);
   const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
@@ -793,18 +793,20 @@ export default function DebatePanel() {
   const placedMinds = useCompanyStore((s) => s.placedMinds);
 
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [showSetup, setShowSetup] = useState(false);
+  const [showSetup, setShowSetup] = useState(() => !activeDebate || activeDebate.status !== 'complete');
   const [userScrolled, setUserScrolled] = useState(false);
+  useFocusRestore(debatePanelOpen);
 
-  // Auto-open setup when panel opens without active debate
-  // But if there's a completed debate, show its results instead
   useEffect(() => {
-    if (debatePanelOpen && !activeDebate) {
-      setShowSetup(true);
-    } else if (debatePanelOpen && activeDebate && activeDebate.status === 'complete') {
-      setShowSetup(false);
-    }
-  }, [debatePanelOpen, activeDebate]);
+    if (!debatePanelOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeDebatePanel();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [debatePanelOpen, closeDebatePanel]);
 
   const convergenceContent = useDebateStore((s) => s.convergenceContent);
   const isConverging = useDebateStore((s) => s.isConverging);
@@ -847,6 +849,9 @@ export default function DebatePanel() {
           exit={{ y: '100%', opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed bottom-0 left-0 right-0 flex flex-col custom-scrollbar"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Debate panel"
           style={{
             height: activeDebate && !isDebateRunning ? '70vh' : '50vh',
             minHeight: 340,
@@ -969,6 +974,7 @@ export default function DebatePanel() {
               )}
               <button
                 onClick={closeDebatePanel}
+                autoFocus
                 className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-white/10"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#71717a' }}
               >
@@ -1136,5 +1142,18 @@ export default function DebatePanel() {
         </motion.div>
       )}
     </AnimatePresence>
+  );
+}
+
+export default function DebatePanel() {
+  const debatePanelOpen = useDebateStore((s) => s.debatePanelOpen);
+  const activeDebate = useDebateStore((s) => s.activeDebate);
+
+  if (!debatePanelOpen) return null;
+
+  return (
+    <DebatePanelView
+      key={`debate-panel-${activeDebate?.id ?? 'none'}-${activeDebate?.status ?? 'none'}`}
+    />
   );
 }
