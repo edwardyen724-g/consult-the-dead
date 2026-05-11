@@ -206,6 +206,26 @@ describe("framework share-image routes", () => {
     expect(mocks.getValidation).toHaveBeenCalledTimes(2);
   });
 
+  it("renders branded fallback (not 500) for an unknown slug even when getFramework returns null", async () => {
+    // Explicit contract: the route must never 500 — unknown slugs get the generic branded body.
+    mocks.getFramework.mockReturnValue(null);
+
+    const response = await Image({
+      params: Promise.resolve({ slug: "completely-unknown-person" }),
+    });
+
+    // ImageResponse is constructed (not thrown), so the route handler completed safely.
+    expect(response).toMatchObject({ options: size });
+    // getValidation must NOT be called when the framework is not found.
+    expect(mocks.getValidation).not.toHaveBeenCalled();
+  });
+
+  it("content-type export is image/png (correct content-type header for the route)", () => {
+    // Regression lock: the content-type must stay image/png so CDN and social crawlers
+    // correctly identify the response as a PNG image, not HTML or JSON.
+    expect(contentType).toBe("image/png");
+  });
+
   it("falls back when validation and construct counts are missing", async () => {
     mocks.getFramework.mockReturnValueOnce(
       makeFramework({
