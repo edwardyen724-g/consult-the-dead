@@ -1,9 +1,9 @@
-"""Perceptual Lens Derivation using grounded theory methodology.
+"""Perceptual lens derivation using grounded theory methodology.
 
 Synthesizes bipolar constructs and reconstructed incidents into a single
 perceptual lens statement — the core cognitive filter through which the
-subject perceives situations. Uses grounded theory's constant comparative
-method to derive the lens from evidence rather than imposing it.
+subject perceives situations. Holdout incidents are excluded from derivation
+so the returned validation set is actually held out.
 """
 
 from dataclasses import dataclass, asdict
@@ -31,6 +31,105 @@ class PerceptualLens:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+def _incident_payload(incident: ReconstructedIncident | dict[str, Any] | Any) -> dict[str, Any]:
+    if isinstance(incident, dict):
+        return incident
+
+    if hasattr(incident, "to_dict"):
+        payload = incident.to_dict()
+        if isinstance(payload, dict):
+            return payload
+
+    return {
+        "id": getattr(incident, "id", ""),
+        "decision": getattr(incident, "decision", ""),
+        "context": getattr(incident, "context", ""),
+        "source": getattr(incident, "source", ""),
+        "cdm_probes": getattr(incident, "cdm_probes", {}),
+        "divergence_explanation": getattr(incident, "divergence_explanation", ""),
+    }
+
+
+def _incident_sort_key(incident: ReconstructedIncident | dict[str, Any] | Any) -> tuple[str, str, str]:
+    payload = _incident_payload(incident)
+    return (
+        str(payload.get("source", "")),
+        str(payload.get("decision", "")),
+        str(payload.get("id", "")),
+    )
+
+
+def _dedupe_preserve_order(values: list[str]) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for value in values:
+        if value in seen:
+            continue
+        seen.add(value)
+        ordered.append(value)
+    return ordered
+
+
+def _normalize_ids(ids: list[str], order_map: dict[str, int]) -> list[str]:
+    normalized = _dedupe_preserve_order([str(incident_id) for incident_id in ids])
+    return sorted(normalized, key=lambda incident_id: (order_map.get(incident_id, 10_000), incident_id))
+
+
+def split_holdout_incidents(
+    incidents: list[ReconstructedIncident | dict[str, Any] | Any],
+    holdout_incident_ids: list[str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[str]]:
+    """Split a full incident set into derivation and holdout groups."""
+
+    ordered_incidents = sorted(incidents, key=_incident_sort_key)
+    payloads = [_incident_payload(incident) for incident in ordered_incidents]
+    order_map = {
+        str(payload.get("id", "")): index
+        for index, payload in enumerate(payloads)
+    }
+    canonical_holdouts = _normalize_ids(holdout_incident_ids, order_map)
+    holdout_set = set(canonical_holdouts)
+
+    derivation_incidents = [payload for payload in payloads if str(payload.get("id", "")) not in holdout_set]
+    holdout_incidents = [payload for payload in payloads if str(payload.get("id", "")) in holdout_set]
+    return derivation_incidents, holdout_incidents, canonical_holdouts
+
+
+def _format_incident(payload: dict[str, Any]) -> str:
+    return (
+        f"- [{payload.get('id', '')}] {payload.get('decision', '')} | "
+        f"Source: {payload.get('source', '')} | "
+        f"Framing: {payload.get('cdm_probes', {}).get('situation_framing', 'N/A')} | "
+        f"Divergence: {payload.get('divergence_explanation', '')}"
+    )
+
+
+def _format_construct(payload: BipolarConstruct | dict[str, Any]) -> str:
+    if isinstance(payload, BipolarConstruct):
+        construct = payload.construct
+        positive = payload.positive_pole
+        negative = payload.negative_pole
+    else:
+        construct = payload.get("construct", "")
+        positive = payload.get("positive_pole", "")
+        negative = payload.get("negative_pole", "")
+    return f"- {construct}: (+) {positive} / (-) {negative}"
+
+
+def _normalize_lens_payload(data: dict[str, Any], fallback_holdouts: list[str]) -> PerceptualLens:
+    derived_from = _dedupe_preserve_order([str(incident_id) for incident_id in data.get("derived_from", [])])
+    holdout_validation_source = data.get("holdout_validation") or fallback_holdouts
+    holdout_validation = _dedupe_preserve_order([str(incident_id) for incident_id in holdout_validation_source])
+    return PerceptualLens(
+        statement=data["statement"],
+        derived_from=derived_from,
+        holdout_validation=holdout_validation,
+        what_they_notice_first=data.get("what_they_notice_first", ""),
+        what_they_ignore=data.get("what_they_ignore", ""),
+        evidence=data.get("evidence", ""),
+    )
 
 
 LENS_SYSTEM = """\
@@ -76,6 +175,9 @@ Incidents used for derivation:
 Holdout incident IDs (for validation — do NOT use these for derivation):
 {holdout_ids}
 
+Holdout incident summaries (validation only):
+{holdout_incidents_json}
+
 Return a JSON object with this structure:
 {{
   "statement": "One-sentence perceptual lens statement",
@@ -114,33 +216,25 @@ def derive_lens(
     if client is None:
         client = LLMClient()
 
-    constructs_json = "\n".join(
-        f"- {c.construct}: (+) {c.positive_pole} / (-) {c.negative_pole}"
-        for c in constructs
+    ordered_constructs = sorted(constructs, key=lambda construct: (construct.construct, construct.positive_pole, construct.negative_pole))
+    derivation_incidents, holdout_incidents, canonical_holdouts = split_holdout_incidents(
+        incidents=incidents,
+        holdout_incident_ids=holdout_incident_ids,
     )
 
-    incidents_json = "\n".join(
-        f"- [{inc.id}] {inc.decision} | Framing: "
-        f"{inc.cdm_probes.get('situation_framing', 'N/A')}"
-        for inc in incidents
-    )
-
-    holdout_ids = ", ".join(holdout_incident_ids) if holdout_incident_ids else "none"
+    constructs_json = "\n".join(_format_construct(construct) for construct in ordered_constructs)
+    incidents_json = "\n".join(_format_incident(payload) for payload in derivation_incidents)
+    holdout_incidents_json = "\n".join(_format_incident(payload) for payload in holdout_incidents)
+    holdout_ids = ", ".join(canonical_holdouts) if canonical_holdouts else "none"
 
     user_prompt = LENS_PROMPT.format(
         person=person,
         constructs_json=constructs_json,
         incidents_json=incidents_json,
         holdout_ids=holdout_ids,
+        holdout_incidents_json=holdout_incidents_json or "(no holdout incidents)",
     )
 
     data = client.prompt_json(system=LENS_SYSTEM, user=user_prompt)
 
-    return PerceptualLens(
-        statement=data["statement"],
-        derived_from=data.get("derived_from", []),
-        holdout_validation=data.get("holdout_validation", []),
-        what_they_notice_first=data.get("what_they_notice_first", ""),
-        what_they_ignore=data.get("what_they_ignore", ""),
-        evidence=data.get("evidence", ""),
-    )
+    return _normalize_lens_payload(data, canonical_holdouts)

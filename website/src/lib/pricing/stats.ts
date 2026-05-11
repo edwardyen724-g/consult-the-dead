@@ -6,6 +6,10 @@
  * the live `agora_self_run` event count from Vercel Analytics can replace
  * the static minds/debatesInLibrary numbers without changing the page JSX
  * — just swap the source feeding `formatPricingStats`.
+ *
+ * NOTE: this file is imported by the /pricing 'use client' page and must
+ * remain free of server-only dependencies (Node fs, @vercel/postgres, etc.).
+ * Live/dynamic stats live in ./live-stats.ts (server-only).
  */
 
 export type PricingStats = {
@@ -25,7 +29,7 @@ export type PricingStats = {
  * places when the roster grows.
  */
 export const PRICING_STATS_DEFAULT: PricingStats = {
-  minds: 26,
+  minds: 18,
   debatesInLibrary: 30,
 };
 
@@ -33,7 +37,7 @@ export const PRICING_STATS_DEFAULT: PricingStats = {
  * Format the stats row shown below the pricing hero.
  *
  * Returns an ordered list of short label strings, e.g.:
- *   ["26 minds", "30 debates in the library", "Free to start"]
+ *   ["18 minds", "30 debates in the library", "Free to start"]
  *
  * Pluralization: drops the trailing "s" when count === 1 so a future
  * single-mind / single-debate state still reads correctly.

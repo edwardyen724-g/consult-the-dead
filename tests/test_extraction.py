@@ -1,7 +1,7 @@
 """Tests for the extraction pipeline: incidents, CDM probes, constructs, lens, divergence."""
 
 import json
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -189,6 +189,128 @@ class TestConstructMapping:
         assert results[0].construct == "invites the person in vs. requires the person to adapt"
         mock_client.prompt_json.assert_called_once()
 
+    def test_map_constructs_uses_stable_incident_order_and_traceability(self, sample_incident):
+        from framework_forge.extraction.cdm_probes import ReconstructedIncident
+        from framework_forge.extraction.constructs import group_incident_triads, map_constructs
+
+        incident_payloads = []
+        for index in (3, 1, 2):
+            payload = dict(sample_incident)
+            payload["id"] = f"incident-00{index}"
+            payload["decision"] = f"Decision {index}"
+            payload["context"] = f"Context {index}"
+            payload["source"] = "Steve Jobs by Isaacson"
+            payload["cdm_probes"] = dict(sample_incident["cdm_probes"])
+            payload["cdm_probes"]["situation_framing"] = f"Framing {index}"
+            payload["divergence_explanation"] = f"Divergence {index}"
+            incident_payloads.append(ReconstructedIncident(**payload))
+
+        triads = group_incident_triads(incident_payloads)
+        assert len(triads) == 1
+        assert [item["id"] for item in triads[0]] == [
+            "incident-001",
+            "incident-002",
+            "incident-003",
+        ]
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "constructs": [
+                {
+                    "construct": "invites the person in vs. requires the person to adapt",
+                    "positive_pole": "Product adapts to human",
+                    "negative_pole": "Human adapts to product",
+                    "derived_from_incidents": [
+                        "incident-003",
+                        "incident-001",
+                        "incident-001",
+                    ],
+                    "behavioral_implication": "Move toward the interface disappearing",
+                }
+            ]
+        }
+
+        result = map_constructs(
+            incidents=incident_payloads,
+            person="Steve Jobs",
+            client=mock_client,
+        )
+
+        prompt = mock_client.prompt_json.call_args.kwargs["user"]
+        assert "Triad 1 (stable order):" in prompt
+        assert prompt.index("[incident-001]") < prompt.index("[incident-002]") < prompt.index("[incident-003]")
+        assert result[0].derived_from_incidents == ["incident-001", "incident-003"]
+
+    def test_group_incident_triads_handles_empty_and_singleton_merge(self, sample_incident):
+        from framework_forge.extraction.constructs import group_incident_triads
+
+        assert group_incident_triads([]) == []
+
+        payloads = []
+        for index in range(1, 5):
+            payload = dict(sample_incident)
+            payload["id"] = f"incident-00{index}"
+            payload["decision"] = f"Decision {index}"
+            payload["context"] = f"Context {index}"
+            payload["source"] = "Steve Jobs by Isaacson"
+            payload["cdm_probes"] = dict(sample_incident["cdm_probes"])
+            payload["cdm_probes"]["situation_framing"] = f"Framing {index}"
+            payload["divergence_explanation"] = f"Divergence {index}"
+            payloads.append(payload)
+
+        triads = group_incident_triads([payloads[3], payloads[1], payloads[2], payloads[0]])
+        assert len(triads) == 1
+        assert [item["id"] for item in triads[0]] == [
+            "incident-001",
+            "incident-002",
+            "incident-003",
+            "incident-004",
+        ]
+
+    def test_map_constructs_uses_default_client_and_attribute_fallback(self, sample_incident):
+        from framework_forge.extraction.constructs import map_constructs
+
+        class BareIncident:
+            def __init__(self, payload):
+                self.id = payload["id"]
+                self.decision = payload["decision"]
+                self.context = payload["context"]
+                self.source = payload["source"]
+                self.cdm_probes = payload["cdm_probes"]
+                self.divergence_explanation = payload["divergence_explanation"]
+
+        payload = dict(sample_incident)
+        payload["id"] = "incident-010"
+        payload["decision"] = "Decision 10"
+        payload["context"] = "Context 10"
+        payload["source"] = "Steve Jobs by Isaacson"
+        payload["cdm_probes"] = dict(sample_incident["cdm_probes"])
+        payload["cdm_probes"]["situation_framing"] = "Framing 10"
+        payload["divergence_explanation"] = "Divergence 10"
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "constructs": [
+                {
+                    "construct": "invites the person in vs. requires the person to adapt",
+                    "positive_pole": "Product adapts to human",
+                    "negative_pole": "Human adapts to product",
+                    "derived_from_incidents": ["incident-010"],
+                    "behavioral_implication": "Move toward the interface disappearing",
+                }
+            ]
+        }
+
+        with patch("framework_forge.extraction.constructs.LLMClient", return_value=mock_client):
+            results = map_constructs(
+                incidents=[BareIncident(payload)],
+                person="Steve Jobs",
+                client=None,
+            )
+
+        assert results[0].derived_from_incidents == ["incident-010"]
+        mock_client.prompt_json.assert_called_once()
+
 
 # ---------------------------------------------------------------------------
 # Task 7 – PerceptualLens & derive_lens
@@ -235,6 +357,138 @@ class TestLensDerivation:
 
         assert result.statement == "Jobs sees products as experiences-waiting-to-exist"
         assert isinstance(result.derived_from, list)
+        mock_client.prompt_json.assert_called_once()
+
+    def test_derive_lens_excludes_holdouts_from_derivation_prompt(self, sample_incident, sample_construct):
+        from framework_forge.extraction.cdm_probes import ReconstructedIncident
+        from framework_forge.extraction.constructs import BipolarConstruct
+        from framework_forge.extraction.lens import derive_lens, split_holdout_incidents
+
+        incidents = []
+        for index in range(1, 5):
+            payload = dict(sample_incident)
+            payload["id"] = f"incident-00{index}"
+            payload["decision"] = f"Decision {index}"
+            payload["context"] = f"Context {index}"
+            payload["source"] = "Steve Jobs by Isaacson"
+            payload["cdm_probes"] = dict(sample_incident["cdm_probes"])
+            payload["cdm_probes"]["situation_framing"] = f"Framing {index}"
+            payload["divergence_explanation"] = f"Divergence {index}"
+            incidents.append(ReconstructedIncident(**payload))
+
+        constructs = [BipolarConstruct(**sample_construct)]
+
+        derivation, holdouts, canonical_holdouts = split_holdout_incidents(
+            incidents,
+            ["incident-004", "incident-002", "incident-002"],
+        )
+
+        assert [item["id"] for item in derivation] == ["incident-001", "incident-003"]
+        assert [item["id"] for item in holdouts] == ["incident-002", "incident-004"]
+        assert canonical_holdouts == ["incident-002", "incident-004"]
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "statement": "Jobs sees products as experiences-waiting-to-exist",
+            "derived_from": ["incident-001", "incident-003"],
+            "holdout_validation": [],
+            "what_they_notice_first": "Emotional relationship between user and experience",
+            "what_they_ignore": "Feature parity, backward compatibility",
+            "evidence": "iPhone keyboard removal, iPod scroll wheel",
+        }
+
+        result = derive_lens(
+            constructs=constructs,
+            incidents=incidents,
+            person="Steve Jobs",
+            holdout_incident_ids=["incident-004", "incident-002", "incident-002"],
+            client=mock_client,
+        )
+
+        prompt = mock_client.prompt_json.call_args.kwargs["user"]
+        derivation_section = prompt.split("Holdout incident IDs", 1)[0]
+
+        assert "[incident-004]" not in derivation_section
+        assert "[incident-002]" not in derivation_section
+        assert "Holdout incident summaries (validation only):" in prompt
+        assert result.holdout_validation == ["incident-002", "incident-004"]
+
+    def test_split_holdout_incidents_accepts_dicts_and_attribute_objects(self, sample_incident):
+        from framework_forge.extraction.lens import split_holdout_incidents
+
+        class BareIncident:
+            def __init__(self, payload):
+                self.id = payload["id"]
+                self.decision = payload["decision"]
+                self.context = payload["context"]
+                self.source = payload["source"]
+                self.cdm_probes = payload["cdm_probes"]
+                self.divergence_explanation = payload["divergence_explanation"]
+
+        dict_payload = dict(sample_incident)
+        dict_payload["id"] = "incident-001"
+        dict_payload["decision"] = "Decision 1"
+        dict_payload["context"] = "Context 1"
+        dict_payload["source"] = "Steve Jobs by Isaacson"
+
+        object_payload = dict(sample_incident)
+        object_payload["id"] = "incident-002"
+        object_payload["decision"] = "Decision 2"
+        object_payload["context"] = "Context 2"
+        object_payload["source"] = "Steve Jobs by Isaacson"
+
+        derivation, holdouts, canonical_holdouts = split_holdout_incidents(
+            [BareIncident(object_payload), dict_payload],
+            ["incident-002"],
+        )
+
+        assert [item["id"] for item in derivation] == ["incident-001"]
+        assert [item["id"] for item in holdouts] == ["incident-002"]
+        assert canonical_holdouts == ["incident-002"]
+
+    def test_derive_lens_uses_default_client_and_formats_dict_constructs(self, sample_incident, sample_construct):
+        from framework_forge.extraction.cdm_probes import ReconstructedIncident
+        from framework_forge.extraction.constructs import BipolarConstruct
+        from framework_forge.extraction.lens import _format_construct, derive_lens
+
+        assert _format_construct(sample_construct) == (
+            "- invites the person in vs. requires the person to adapt: (+) "
+            "The product adapts to the human; the interface disappears / (-) "
+            "The human adapts to the product; the interface is a barrier"
+        )
+
+        incident_payload = dict(sample_incident)
+        incident_payload["id"] = "incident-001"
+        incident_payload["decision"] = "Decision 1"
+        incident_payload["context"] = "Context 1"
+        incident_payload["source"] = "Steve Jobs by Isaacson"
+        incident_payload["cdm_probes"] = dict(sample_incident["cdm_probes"])
+        incident_payload["cdm_probes"]["situation_framing"] = "Framing 1"
+        incident_payload["divergence_explanation"] = "Divergence 1"
+
+        constructs = [BipolarConstruct(**sample_construct)]
+        incidents = [ReconstructedIncident(**incident_payload)]
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "statement": "Jobs sees products as experiences-waiting-to-exist",
+            "derived_from": ["incident-001"],
+            "holdout_validation": [],
+            "what_they_notice_first": "Emotional relationship between user and experience",
+            "what_they_ignore": "Feature parity, backward compatibility",
+            "evidence": "iPhone keyboard removal, iPod scroll wheel",
+        }
+
+        with patch("framework_forge.extraction.lens.LLMClient", return_value=mock_client):
+            result = derive_lens(
+                constructs=constructs,
+                incidents=incidents,
+                person="Steve Jobs",
+                holdout_incident_ids=["incident-001"],
+                client=None,
+            )
+
+        assert result.statement == "Jobs sees products as experiences-waiting-to-exist"
         mock_client.prompt_json.assert_called_once()
 
 
@@ -296,6 +550,59 @@ class TestDivergencePredictions:
         )
 
         assert len(results) == 2
-        assert results[0].confidence == 0.85
-        assert results[1].situation_type == "Market entry timing"
+        situation_types = {r.situation_type for r in results}
+        assert "Product feature debate" in situation_types
+        assert "Market entry timing" in situation_types
+        confidences = {r.situation_type: r.confidence for r in results}
+        assert confidences["Product feature debate"] == 0.85
         mock_client.prompt_json.assert_called_once()
+
+    def test_generate_predictions_returns_stable_order(self, sample_lens, sample_construct):
+        """generate_predictions() must return predictions in canonical (alphabetical situation_type) order."""
+        from framework_forge.extraction.lens import PerceptualLens
+        from framework_forge.extraction.constructs import BipolarConstruct
+        from framework_forge.extraction.divergence import generate_predictions
+
+        lens = PerceptualLens(**sample_lens)
+        constructs = [BipolarConstruct(**sample_construct)]
+
+        mock_client = MagicMock()
+        # Return predictions in reverse-alphabetical order from LLM
+        mock_client.prompt_json.return_value = {
+            "predictions": [
+                {
+                    "situation_type": "Z - last situation",
+                    "ordinary_response": "ordinary Z",
+                    "framework_response": "framework Z",
+                    "because": "because Z",
+                    "confidence": 0.7,
+                },
+                {
+                    "situation_type": "A - first situation",
+                    "ordinary_response": "ordinary A",
+                    "framework_response": "framework A",
+                    "because": "because A",
+                    "confidence": 0.9,
+                },
+                {
+                    "situation_type": "M - middle situation",
+                    "ordinary_response": "ordinary M",
+                    "framework_response": "framework M",
+                    "because": "because M",
+                    "confidence": 0.8,
+                },
+            ]
+        }
+
+        results = generate_predictions(
+            lens=lens,
+            constructs=constructs,
+            person="Steve Jobs",
+            client=mock_client,
+        )
+
+        # Regardless of LLM return order, results must be sorted by situation_type
+        situation_types = [r.situation_type for r in results]
+        assert situation_types == sorted(situation_types)
+        assert situation_types[0].startswith("A")
+        assert situation_types[-1].startswith("Z")

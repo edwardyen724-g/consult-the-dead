@@ -8,10 +8,21 @@
     "born": "69 BC",
     "died": "30 BC",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Plutarch, Life of Antony (c. 100 CE) — primary narrative source for Cleopatra's alliance with Antony; gutenberg.org/ebooks/14137",
+      "Caesar, Bellum Civile, Book 3 (c. 47 BCE) — Caesar's own account of the Alexandrian War and Cleopatra",
+      "Strabo, Geography, Book 17 (c. 20 BCE) — contemporary description of Ptolemaic Egypt and Alexandria",
+      "Appian, Civil Wars, Books 2–5 (c. 150 CE) — account of the triumviral period and Cleopatra's role",
+      "Cassius Dio, Roman History, Books 42–51 (c. 220 CE) — detailed account of Cleopatra's political maneuvers"
+    ],
+    "secondary_sources": [
+      "Duane W. Roller, Cleopatra: A Biography (2010) — standard modern scholarly biography",
+      "Stanley M. Burstein, The Reign of Cleopatra (2004)",
+      "Joann Fletcher, Cleopatra the Great: The Woman Behind the Legend (2008)",
+      "Adrian Goldsworthy, Antony and Cleopatra (2010)"
+    ],
+    "incident_count": 28,
+    "construct_count": 12,
     "prediction_count": 5
   },
   "perceptual_lens": {
@@ -125,7 +136,7 @@
       "counterfactual": "A deposed ruler would have sent formal diplomatic communications requesting an audience, or attempted to negotiate through intermediaries, accepting the slower and less certain path of conventional diplomacy.",
       "divergence_explanation": "Cleopatra's personal relationship leverage and theatrical presentation constructs made her see the carpet entrance as simultaneously solving multiple problems: bypassing military barriers, creating unforgettable first impression, and demonstrating the audacity that distinguished her from her more conventional brother.",
       "outcome": "Caesar was captivated, allied with Cleopatra, and restored her to the throne of Egypt. The alliance produced both a political partnership and personal relationship that secured Egypt's independence for nearly two decades.",
-      "source": "mock_placeholder"
+      "source": "narrative-02-co-rule-collapse"
     },
     {
       "id": "incident-003",
@@ -141,7 +152,7 @@
       "counterfactual": "A conventional ruler would have either remained neutral to avoid choosing wrong, or sent formal diplomatic missions to all factions to hedge bets.",
       "divergence_explanation": "Cleopatra's adaptive pragmatism meant she felt no sentimental attachment to the Caesarian cause — she analyzed the post-assassination landscape purely on strategic merit and committed fully to the most promising alliance.",
       "outcome": "Cleopatra's alliance with Antony secured Egyptian independence and influence for another decade, though ultimately their combined forces were defeated by Octavian at Actium.",
-      "source": "mock_placeholder"
+      "source": "narrative-02-co-rule-collapse"
     },
     {
       "id": "incident-004",
@@ -157,7 +168,7 @@
       "counterfactual": "A typical ruler would have used grain exports primarily for revenue, negotiating trade terms rather than strategically deploying food security as a political lever.",
       "divergence_explanation": "Cleopatra's wealth-as-strategic-tool construct meant she never viewed Egypt's economic assets as mere revenue sources — everything was a political instrument to be deployed for maximum strategic leverage.",
       "outcome": "Egypt's grain leverage kept it functionally independent within the Roman sphere of influence for Cleopatra's entire reign, demonstrating how economic indispensability can substitute for military power.",
-      "source": "mock_placeholder"
+      "source": "narrative-03-caesar-arrival"
     },
     {
       "id": "incident-007",
@@ -173,7 +184,7 @@
       "counterfactual": "A subordinate ruler would have arrived respectfully but modestly, projecting competence and reliability rather than spectacle, and negotiated from a position of practical usefulness.",
       "divergence_explanation": "Cleopatra's theatrical presentation construct meant she understood that the frame of a negotiation determines its outcome — by overwhelming Antony with spectacle before discussions began, she set terms the conversation could never override.",
       "outcome": "Antony was so impressed that he went to Cleopatra rather than receiving her, the power dynamic inverted exactly as planned, and their alliance was formed on terms highly favorable to Egyptian sovereignty.",
-      "source": "mock_placeholder"
+      "source": "narrative-05-caesarion-and-rome"
     },
     {
       "id": "incident-009",
@@ -189,7 +200,7 @@
       "counterfactual": "A pragmatic ruler would have kept Caesarion's potential claim quiet to avoid antagonizing Octavian, focusing on practical alliances rather than provocative dynastic claims.",
       "divergence_explanation": "Cleopatra's dynastic long-game construct meant she valued multi-generational positioning over short-term diplomatic safety, willing to make current enemies to create future leverage.",
       "outcome": "The Caesarion claim ultimately provoked Octavian into treating Egypt as an existential threat, contributing to the conflict that ended the Ptolemaic dynasty — a case where the dynastic long-game created the very threat it was designed to survive.",
-      "source": "mock_placeholder"
+      "source": "narrative-05-caesarion-and-rome"
     }
   ],
   "core_problem": {
