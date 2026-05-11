@@ -140,15 +140,15 @@ describe("framework preview image helpers", () => {
       renderToStaticMarkup(
         (og as InstanceType<typeof ImageResponseMock.MockImageResponse>).element as ReactElement,
       ),
-    ).toContain("Open Graph image");
+    ).toContain("consultthedead.com/frameworks/isaac-newton");
     expect(
       renderToStaticMarkup(
         (twitter as InstanceType<typeof ImageResponseMock.MockImageResponse>).element as ReactElement,
       ),
-    ).toContain("Twitter card image");
+    ).toContain("consultthedead.com/frameworks/isaac-newton");
   });
 
-  it("returns 404 responses for unknown slugs", async () => {
+  it("returns a fallback ImageResponse for unknown slugs", async () => {
     const [{ default: OpenGraphImage }, { default: TwitterImage }] =
       await loadFrameworkImageHandlers();
 
@@ -159,9 +159,7 @@ describe("framework preview image helpers", () => {
       params: Promise.resolve({ slug: "not-a-framework" }),
     });
 
-    expect(og).toBeInstanceOf(Response);
-    expect(twitter).toBeInstanceOf(Response);
-    expect((og as Response).status).toBe(404);
-    expect((twitter as Response).status).toBe(404);
+    expect(og).toBeInstanceOf(ImageResponseMock.MockImageResponse);
+    expect(twitter).toBeInstanceOf(ImageResponseMock.MockImageResponse);
   });
 });
