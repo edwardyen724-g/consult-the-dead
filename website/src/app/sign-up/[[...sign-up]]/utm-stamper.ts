@@ -15,6 +15,7 @@ function firstString(value: SpValue): string {
 }
 
 export interface SignUpUnsafeMetadata {
+  [key: string]: string | undefined;
   utm_source?: string;
   utm_campaign?: string;
 }
