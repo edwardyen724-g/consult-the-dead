@@ -65,12 +65,12 @@ python -m framework_forge.cli discover-sources --person $PERSON --output $FW_DIR
 $textsDir = "$FW_DIR\sources\texts"
 $nTexts = (Get-ChildItem $textsDir -ErrorAction SilentlyContinue).Count
 if ($nTexts -gt 0) {
-    python -m framework_forge.cli identify-incidents --person $PERSON --source-dir $textsDir --output "$FW_DIR\incidents" 2>&1 | Tee-Object -FilePath $LOG -Append
+    python -m framework_forge.cli identify-incidents --person $PERSON --source-dir $textsDir --output $FW_DIR 2>&1 | Tee-Object -FilePath $LOG -Append
 
     # Stage 2b: reconstruct
     $candsFile = "$FW_DIR\incidents\candidates.json"
     if (Test-Path $candsFile) {
-        python -m framework_forge.cli reconstruct --person $PERSON --incidents-file $candsFile --output "$FW_DIR\incidents" 2>&1 | Tee-Object -FilePath $LOG -Append
+        python -m framework_forge.cli reconstruct --person $PERSON --incidents-file $candsFile --output $FW_DIR 2>&1 | Tee-Object -FilePath $LOG -Append
 
         # Stages 3-6: build
         $incFile = "$FW_DIR\incidents\incidents.json"
