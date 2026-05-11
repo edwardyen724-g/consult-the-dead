@@ -1,4 +1,4 @@
-import { sql, type VercelPoolClient } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -14,7 +14,16 @@ type ThrottleBucket = {
   resetAt: number;
 };
 
-type DbClient = VercelPoolClient;
+// Self-contained DbClient shape. We avoid importing VercelPoolClient directly
+// because TypeScript can misresolve the sql.connect() return type as void in
+// some Next.js build configurations, causing false "property not found" errors.
+type DbClient = {
+  sql<O extends Record<string, unknown>>(
+    strings: TemplateStringsArray,
+    ...values: (string | number | boolean | null | undefined)[]
+  ): Promise<{ rows: O[] }>;
+  release(err?: Error | boolean): void;
+};
 type DatabaseThrottleResult = {
   allowed: boolean;
   source: "ip" | "email" | null;
@@ -189,7 +198,9 @@ async function storeSubmission(
 async function runDatabaseThrottle<T>(
   handler: (client: DbClient) => Promise<T>,
 ) {
-  const client = await sql.connect();
+  // Cast via unknown: the real VercelPoolClient satisfies DbClient at runtime,
+  // but TypeScript may infer the no-arg connect() overload return as void.
+  const client = (await sql.connect()) as unknown as DbClient;
   try {
     await client.sql`BEGIN`;
     const result = await handler(client);
