@@ -67,17 +67,20 @@ describe("pricing metadata", () => {
     expect(metadata.title).toBe(title);
     expect(metadata.description).toBe(description);
     expect(metadata.alternates?.canonical).toBe("https://www.consultthedead.com/pricing");
+    expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(metadata.openGraph).toEqual({
       title,
       description,
       url: "https://www.consultthedead.com/pricing",
       type: "website",
       siteName: "Consult The Dead",
+      images: ["https://www.consultthedead.com/pricing/opengraph-image"],
     });
     expect(metadata.twitter).toEqual({
       card,
       title,
       description,
+      images: ["https://www.consultthedead.com/pricing/twitter-image"],
     });
   });
 
