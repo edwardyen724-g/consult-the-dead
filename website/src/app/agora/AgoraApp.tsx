@@ -916,6 +916,8 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
+              type="button"
+              aria-label={`Use sample question: ${ex}`}
               onClick={() => setTopic(ex)}
               style={{
                 background: "var(--surface)",
