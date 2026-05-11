@@ -8,13 +8,13 @@ If any other doc disagrees, update the other doc to match this one.
 - `.github/workflows/ci.yml` runs `lint`, `npm run coverage`, and `npm run build`
   on every push and pull request.
 - `website/vitest.config.ts` is the source of truth for coverage thresholds.
-- `GOAL_FOUNDER.md` sets the CTO review bar: the coverage gate stays at 95%, and
-  bug-fix-only PRs that do not move conversion or unblock conversion work go to
-  the back of the queue.
+- `GOAL_FOUNDER.md` sets the CTO review bar: the coverage gate stays at 95% on
+  lines, branches, functions, and statements, and bug-fix-only PRs that do not
+  move conversion or unblock conversion work go to the back of the queue.
 
 ## Current coverage target
 
-The active vitest thresholds are:
+The active Vitest thresholds are the canonical coverage gate:
 
 ```ts
 thresholds: {
@@ -43,7 +43,8 @@ A PR is release-ready only when:
 
 1. `npm run coverage` passes.
 2. `npm run build` passes.
-3. The PR does not lower coverage below 95% on any tracked surface.
+3. The PR does not lower coverage below 95% on any tracked surface or tracked
+   metric.
 4. The PR description explains any intentional coverage or test-scope tradeoff.
 
 ## PR checklist
