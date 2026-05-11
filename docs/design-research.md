@@ -34,11 +34,24 @@ C appears to be a hybrid. The research supports going with A's warm editorial id
 
 ## Implementation Plan
 
-1. **Direction A as primary design** — warm parchment, serif editorial, red-ink ornamental accents
-2. **AI-generated portraits** for mind cards (GPT Image 2, consistent classical painterly style)
-3. **Dark mode toggle** preserved ("The Late Study") for user preference
-4. **Pages to redesign:** Landing, Agora, Council Selection, Agon/Debate, Consensus, Pricing, Account, Library, Sign-in/Sign-up, Terms, Privacy, Debate Pages (outreach)
-5. **Tech packs** — deferred to after redesign (requires more framework extraction)
+1. **Direction A remains the primary visual system** — warm parchment, serif editorial, red-ink ornamental accents.
+2. **Reading Room baseline is already shipped in the shell** — the token palette and typography live in `website/src/app/globals.css`, the app shell boots `defaultTheme="light"` in `website/src/app/layout.tsx`, and the theme toggle already exposes "The Reading Room" / "The Late Study" for user preference.
+3. **AI-generated portraits** remain the next system-level asset for mind cards, using a consistent classical painterly style.
+4. **Landing / pricing / account hero work** stays tracked as active execution, not reopened as backlog.
+5. **Remaining page-level redesign order:**
+   1. Agora browse and council-selection surfaces
+   2. Consensus, debate, and results surfaces
+   3. Library and frameworks archive surfaces
+   4. Sign-in, sign-up, and account management surfaces
+   5. Terms, privacy, and other low-traffic utility pages
+   6. Debate/outreach pages and secondary editorial pages
+6. **Tech packs** stay deferred until the page system is stable enough to support them without another structural pass.
+
+## Execution Notes
+
+- Treat the shell baseline as complete unless a future task explicitly changes tokens, layout chrome, or theme behavior.
+- Use the prioritized page order above when converting design research into implementation capsules.
+- Do not create a fresh task for landing, pricing, or account hero treatment unless a concrete implementation gap appears in those in-flight surfaces.
 
 ## Edward's Preferences
 - Liked Direction A and C's color palette
