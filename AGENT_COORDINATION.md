@@ -22,6 +22,18 @@ The Agora website (consultthedead.com / The Agora) is the **live source of truth
 | Date | Change | Deployed by |
 |------|--------|-------------|
 | 2026-05-05 | AGENT_COORDINATION.md created | Dispatch |
+| 2026-05-08 | Added Sentry init + GET /api/health liveness probe (observability) | Dispatch |
+
+## Required Environment Variables
+
+New env vars added with the Sentry / observability work (task 38b990e6):
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry project DSN for error monitoring. App builds/runs without it. |
+| `SENTRY_AUTH_TOKEN` | CI-only | Sentry CLI token for sourcemap uploads during `next build`. |
+
+Add these to Vercel project settings → Environment Variables for production monitoring. See `docs/runbooks/sentry-smoke-test.md` for verification steps.
 
 ## Communication Protocol
 
