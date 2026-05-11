@@ -69,13 +69,17 @@ Free debates are anonymous — we don't store them. Pro debates live in your pri
 
 ---
 
-## Social Proof (placeholder — fill when available)
+## Scenario Strip
 
-> "I stopped second-guessing myself. Now I get three perspectives I trust before I commit." — *[Name], [role]*
+Use anonymized decision scenarios from the Agora library instead of customer testimonials.
+This is the shipped release-state block on `/pricing`, and it keeps the page honest about
+what we actually have today.
 
-> "Ran my pricing decision through the council. Machiavelli and Curie disagreed. The consensus was better than either." — *[Name], [role]*
+> "Should I keep competing on price at $18K MRR, or reposition as premium before the market locks me in?" — *Machiavelli · Curie · Sun Tzu*
 
-*Slot for 2–3 real testimonials once first customers are onboarded.*
+> "I built a product in a half-day hackathon. It’s at $20K MRR. Should I rebuild the fragile codebase or keep shipping?" — *da Vinci · Curie · Sun Tzu*
+
+> "Open-source project at 13K stars. Just launched a paid product on top of it. The community feels betrayed. What do I do?" — *Aurelius · Machiavelli · Curie*
 
 ---
 
@@ -99,3 +103,4 @@ Good decisions are harder with unlimited options and no outside view. Agora is y
 - **Feature count per tier** — kept to 8 rows max for scannability
 - **Opus vs Sonnet callout** — this is the real quality differentiator; make it visible
 - **"No signup" on free CTA** — removes friction for curiosity-driven visitors
+- **Scenario strip, not testimonials** — use anonymized debate cards until real customer proof exists

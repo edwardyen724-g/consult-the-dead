@@ -125,7 +125,7 @@
       "counterfactual": "An autocratic ruler would have either imposed legal reform by decree or avoided the topic entirely, viewing comprehensive legal modernization as too politically risky.",
       "divergence_explanation": "Catherine's gradual reform construct and consultative governance style meant she naturally combined ambitious intellectual vision with pragmatic political process — using consultation to build the political support that ambitious reform required.",
       "outcome": "While the Legislative Commission did not produce a completed new legal code, the Nakaz established Catherine's reputation as an Enlightenment ruler and the consultative process built political support for many subsequent reforms.",
-      "source": "mock_placeholder"
+      "source": "01_arrival_in_russia_1744"
     },
     {
       "id": "incident-003",
@@ -141,7 +141,7 @@
       "counterfactual": "A typical ruler would have focused educational investment narrowly on military and technical training, viewing broader intellectual development as a luxury for an empire with urgent practical needs.",
       "divergence_explanation": "Catherine's cultural investment construct meant she saw education as foundational infrastructure, not optional enrichment — every other reform she envisioned depended on creating a class of educated, modernized citizens.",
       "outcome": "Catherine's educational investments created the intellectual foundation for Russia's cultural flowering in the 19th century and built institutional capacity that outlasted her reign by generations.",
-      "source": "mock_placeholder"
+      "source": "02_marriage_to_peter_iii_1745_1762"
     },
     {
       "id": "incident-005",
@@ -157,7 +157,7 @@
       "counterfactual": "A cautious ruler would have focused exclusively on internal reform, while a militaristic one would have pursued expansion through unilateral force, either approach lacking Catherine's integration of diplomatic and military tools.",
       "divergence_explanation": "Catherine's strategic expansion construct combined with her pragmatic approach meant she pursued expansion opportunistically through diplomatic means, using military force as a supporting tool rather than the primary instrument.",
       "outcome": "Russia expanded significantly under Catherine, gaining critical warm-water ports and economically productive territory that supported both military security and the economic foundation for continued modernization.",
-      "source": "mock_placeholder"
+      "source": "03_coup_june_28_1762"
     },
     {
       "id": "incident-006",
@@ -173,7 +173,7 @@
       "counterfactual": "A leader might have either abandoned Enlightenment correspondence as politically dangerous or attempted to implement radical reforms that would have provoked aristocratic revolt.",
       "divergence_explanation": "Catherine's balance of enlightened idealism and power pragmatism meant she could hold both the ideal vision and the practical constraints simultaneously, advancing reform as fast as the political environment allowed without triggering destabilizing backlash.",
       "outcome": "Catherine advanced significant reforms in education, legal theory, and governance while maintaining political stability, though her failure to address serfdom became a lasting criticism of her reign.",
-      "source": "mock_placeholder"
+      "source": "03_coup_june_28_1762"
     },
     {
       "id": "incident-009",
@@ -189,7 +189,7 @@
       "counterfactual": "A traditional ruler would have filled positions from the existing aristocracy, viewing foreign recruitment as a sign of domestic weakness and social mobility as a threat to the existing order.",
       "divergence_explanation": "Catherine's meritocratic talent cultivation construct, perhaps strengthened by her own experience as a foreign-born ruler who proved her capability, meant she naturally prioritized talent over credentials.",
       "outcome": "Catherine's talent recruitment significantly strengthened Russian institutions and created a precedent for meritocratic advancement that, while not fully transforming the aristocratic system, opened pathways for talented individuals from diverse backgrounds.",
-      "source": "mock_placeholder"
+      "source": "05_pugachev_rebellion_1773_1775"
     }
   ],
   "core_problem": {

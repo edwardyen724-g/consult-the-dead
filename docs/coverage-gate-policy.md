@@ -46,7 +46,33 @@ A PR is release-ready only when:
 3. The PR does not lower coverage below 95% on any tracked surface.
 4. The PR description explains any intentional coverage or test-scope tradeoff.
 
-## PR checklist
+## Branch Coverage Rule
+
+Branch coverage is a required merge gate for any touched file that is expected
+to be test-covered.
+
+- Do not approve a PR just because statement coverage looks healthy if branch
+  coverage fails the gate or leaves an important conditional path untested.
+- Use statement coverage as supporting evidence only. It does not override a
+  branch-coverage miss.
+- For route handlers and other `src/app/**` entry points, keep business logic in
+  `src/lib/` helpers where Vitest can measure branches directly. Thin wrappers
+  may remain in the route file, but branching logic that matters to correctness
+  belongs in a helper with explicit unit tests.
+
+## Review Checklist
+
+Before approving a PR, verify:
+
+1. The touched files are covered by an appropriate test path.
+2. Branch coverage is at or above the accepted threshold for the relevant
+   helper/module.
+3. Any uncovered branch is explained in the PR body and tracked with a follow-up
+   task.
+4. The test plan distinguishes between unit coverage and integration-only
+   coverage so reviewers do not confuse the two.
+
+## PR Checklist
 
 There is no committed PR template yet, so use this checklist in the PR
 description until one is added:
@@ -56,12 +82,12 @@ description until one is added:
 - [ ] I did not introduce new uncovered logic in a tracked file.
 - [ ] If I changed route or handler logic, I extracted branching behavior into a
   testable helper in `src/lib/`.
-- [ ] If this is a thin deterministic route handler, I documented why it is safe
-  to keep thin instead of adding helper coverage.
+- [ ] If this is a thin deterministic route handler, I documented why it is
+  safe to keep thin instead of adding helper coverage.
 - [ ] If this PR needs a coverage exception, I linked the follow-up task that
   restores the gate.
 
-## Exception process
+## Exception Process
 
 There are only two acceptable exception paths:
 
@@ -75,3 +101,25 @@ There are only two acceptable exception paths:
 
 Silent waivers are not allowed. If the gate cannot be met, the work is not
 release-ready yet.
+
+## Exception Escalation
+
+Only the CTO or an explicitly delegated reviewer may approve a temporary
+exception to the branch-coverage gate.
+
+An exception must include:
+
+- the exact file or helper path
+- the reason the branch could not be covered before merge
+- the follow-up task ID that will close the gap
+- the owner and target date for the follow-up
+
+If those details are missing, the reviewer should block the merge and request
+changes.
+
+## Example
+
+PR #80 merged on 2026-05-10 with `company-builder/src/app/api/research/route.ts`
+showing 68.42% branch coverage and 95.8% statement coverage. That is the
+failure mode this policy is meant to prevent: a PR can look acceptable on
+statement coverage while still leaving important branch paths unverified.
