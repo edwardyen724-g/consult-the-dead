@@ -111,10 +111,10 @@ export async function runDay2NudgeCron(request: Request) {
   const { windowStart, windowEnd } = getDay2Window();
   const clerk = await clerkClient();
 
-  // Clerk's userList accepts createdAfter / createdBefore in epoch ms.
+  // Clerk's userList accepts createdAtAfter / createdAtBefore in epoch ms.
   const clerkUsers = await clerk.users.getUserList({
-    createdAfter: windowStart.getTime(),
-    createdBefore: windowEnd.getTime(),
+    createdAtAfter: windowStart.getTime(),
+    createdAtBefore: windowEnd.getTime(),
     limit: 500,
   });
 
