@@ -1,46 +1,40 @@
-# Sprint 2: Interactive Chat + API Layer
+# Sprint 2: Interactive Agora + API Layer
 
 ## Objective
-Build the streaming chat interface with Claude API integration, framework-specific system prompts, and session-based chat history. This is the core interactive experience.
+Document the shipped debate flow rather than the original one-mind chat spec. The live experience is the streamed Agora, the save/share pipeline, and the API/rate-limit contract that supports it.
 
 ## Features to Implement
-1. **F2: Interactive Framework Chat** — Conversational interface where users engage with a selected framework. Minimal UI: text input at bottom, framework name + lens at top. No avatar, no fake typing animation. Responses stream in real-time.
-2. **Chat API Route** — POST `/api/chat` accepts `{ frameworkSlug, messages[], userMessage }`, loads the framework's system prompt, calls Claude API with streaming, returns streamed response.
-3. **F13: Session-Based Chat History** — Chat conversations persist in browser sessionStorage. User can scroll back through conversation. History cleared on tab close. No accounts required.
-4. **Framework System Prompt Loading** — API route dynamically loads the framework JSON and converts it to a system prompt. Uses the `framework_to_system_prompt()` logic from the Python codebase, ported to TypeScript.
-5. **Rate Limiting** — 10 chat messages per session. Gentle message when limit reached. Counter stored in sessionStorage.
+1. **Interactive debate surface** - The shipped `/agora` page lets users select minds, choose packs, and run a streamed decision flow.
+2. **Debate API route** - `/api/agon` streams debate events, validates origin, enforces rate limits, and supports BYO Anthropic keys.
+3. **Session and persistence contract** - The live save/share flow stores completed agons through `/api/library` and exposes read-only public shares at `/agora/a/[id]`.
+4. **Framework system prompts** - The debate engine already loads per-framework prompts from the framework data layer.
+5. **Rate limiting** - The shipped contract is free-tier daily limits plus Pro/BYO-key allowances, not the original 10-message session cap.
 
 ## Success Criteria (Evaluator will verify these)
-- [ ] Chat page renders for "The Innovator" with framework name and lens statement visible
-- [ ] User can type a message and receive a streamed response from Claude API
-- [ ] Response content reflects the framework's reasoning patterns (not generic AI)
-- [ ] Chat history persists when navigating away and returning (within same session)
-- [ ] At least 3 messages can be exchanged in sequence with maintained context
-- [ ] Chat input is disabled with a message after 10 messages (rate limit)
-- [ ] The chat UI is minimal: no avatars, no typing indicators, no unnecessary chrome
-- [ ] Mobile responsive: chat works on 375px width with thumb-reachable input
+- [x] `/agora` renders a live decision flow with framework name, lens, and mind selection state
+- [x] User can start a streamed debate and receive incremental events from the API
+- [x] The response reflects the selected minds' reasoning patterns rather than generic chat
+- [x] Completed debates can be saved and later opened through the library/share flow
+- [x] Public share pages exist for read-only debate transcripts
+- [x] Rate limiting is enforced for free users and relaxed for Pro / BYO-key flows
+- [x] The debate UI stays minimal enough to read as a written exchange
+- [x] Mobile behavior is part of the shipped baseline
+- [ ] There is still no generic `/api/chat` endpoint with `messages[]` and `sessionStorage` history
+- [ ] The old `Ask The Innovator...` placeholder is obsolete because the shipped product is Agora-first
 
 ## Technical Requirements
-- Next.js Route Handler at `/api/chat` with streaming response
-- `@anthropic-ai/sdk` for Claude API calls
-- Framework JSON loaded from filesystem via `fs` (server-side only)
-- System prompt generated from framework JSON (port the Python logic)
-- `ANTHROPIC_API_KEY` read from environment variable
-- Session history in `sessionStorage` (client-side)
-- Streaming via ReadableStream or the Anthropic SDK's stream helper
+- Next.js streaming route at `/api/agon`
+- Anthropic SDK integration, origin checks, and structured event streaming
+- Filesystem-backed framework prompt loading
+- Save/share routes for library persistence and public transcript access
+- Rate limiting is keyed to user / IP / plan, not browser session history
 
 ## Design Requirements
-- Chat messages: clean typography matching the article reading experience
-- User messages: right-aligned or subtly differentiated
-- Framework responses: left-aligned, rendered as Markdown (use react-markdown)
-- Input: full-width text area at bottom, minimal border, placeholder "Ask The Innovator..."
-- No chat bubbles — this should feel like a written exchange, not iMessage
-- Framework name and one-line lens at top of chat, subtle, not competing with conversation
+- Debate surfaces use the same restrained reading typography as the insight pages
+- The interaction should remain transcript-first, not a chat bubble UI
+- The shipped layout already favors written exchange over messaging chrome
 
 ## Out of Scope
-- "Ask This Mind About Anything" topic submission (Sprint 3)
-- Article annotation layer (Sprint 3)
-- Framework transparency panel (Sprint 3)
+- The bootstrap-only `/api/chat` and sessionStorage history spec
+- Topic submission, transparency toggle, and annotation layers (Sprint 3)
 - Collision articles (Sprint 4)
-- Multiple simultaneous chat sessions
-- Saved chat history across browser sessions

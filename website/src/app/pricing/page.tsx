@@ -5,6 +5,12 @@ import {
   formatPricingStats,
   PRICING_STATS_DEFAULT,
 } from '@/lib/pricing/stats'
+import {
+  FREE_AGONS_PER_DAY,
+  PRO_AGONS_PER_MONTH,
+  PRO_MONTHLY_PRICE,
+  PRO_ANNUAL_PRICE,
+} from '@/lib/pricing/pricing-constants'
 
 /**
  * Social-proof debate scenario cards (marketing brief 22ee79de §Part 2).
@@ -30,7 +36,7 @@ const SOCIAL_PROOF: { topic: string; council: string }[] = [
 ]
 
 const FEATURES: { label: string; free: string; pro: string }[] = [
-  { label: 'Agons per period',   free: '3 / day',                 pro: '100 / month' },
+  { label: 'Agons per period',   free: `${FREE_AGONS_PER_DAY} / day`,           pro: `${PRO_AGONS_PER_MONTH} / month` },
   { label: 'Council size',       free: '2–3 minds',               pro: 'Up to 5 minds' },
   { label: 'Synthesis quality',  free: 'Sonnet',                  pro: 'Opus ★' },
   { label: 'Debate library',     free: 'Device only',             pro: 'Persistent + searchable' },
@@ -96,7 +102,7 @@ export default function PricingPage() {
     }
   }
 
-  const monthlyDisplay = billing === 'annual' ? '$25' : '$30'
+  const monthlyDisplay = billing === 'annual' ? '$25' : `$${PRO_MONTHLY_PRICE}`
 
   return (
     <main style={{ background: 'var(--bg)', color: 'var(--fg)', minHeight: '100vh' }}>
@@ -122,7 +128,7 @@ export default function PricingPage() {
             lineHeight: 1.12,
             marginBottom: '20px',
           }}>
-            Run your hardest decision through 26 historical minds.
+            Run your hardest decision through 18 historical minds.
             <br />
             <span style={{ color: 'var(--fg-dim)' }}>They&apos;ll disagree. You&apos;ll decide.</span>
           </h1>
@@ -365,7 +371,7 @@ export default function PricingPage() {
                 color: 'var(--fg-faint)',
                 marginTop: '4px',
               }}>
-                {billing === 'annual' ? 'billed $300/year' : 'billed monthly'}
+                {billing === 'annual' ? `billed $${PRO_ANNUAL_PRICE}/year` : 'billed monthly'}
               </div>
             </div>
           </div>
@@ -493,8 +499,8 @@ export default function PricingPage() {
             lineHeight: 1.65,
           }}>
             <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
-            Early subscribers lock in <strong>$300/year for life</strong>. After Q3 2026,
-            annual plans go to $360. Monthly stays at $30.
+            Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. After Q3 2026,
+            annual plans go to $360. Monthly stays at ${PRO_MONTHLY_PRICE}.
           </p>
         </div>
 
