@@ -1,7 +1,5 @@
 import { NextRequest } from "next/server";
-import { clerkClient } from "@clerk/nextjs/server";
 import { readMetrics, readTraffic } from "@/lib/agon/metrics";
-import { countProSubscribers } from "@/lib/admin-subscriber-count";
 
 export const runtime = "nodejs";
 
@@ -28,14 +26,12 @@ export async function GET(request: NextRequest) {
     readMetrics(days),
     readTraffic(days),
   ]);
-  const proSubscribers = await countProSubscribers(await clerkClient());
 
   return new Response(
     JSON.stringify(
       {
         days,
         generatedAt: new Date().toISOString(),
-        pro_subscribers: proSubscribers,
         metrics,
         traffic,
       },
