@@ -78,6 +78,36 @@ describe("GET /api/admin/metrics", () => {
     });
   });
 
+  it("defaults to 7 days when the query param is missing or invalid", async () => {
+    await GET(makeRequest("https://example.com/api/admin/metrics") as never);
+    expect(mocks.readMetricsMock).toHaveBeenCalledWith(7);
+    expect(mocks.readTrafficMock).toHaveBeenCalledWith(7);
+
+    vi.clearAllMocks();
+    mocks.readMetricsMock.mockResolvedValue([{ date: "2026-05-10", counters: {}, topics: [] }]);
+    mocks.readTrafficMock.mockResolvedValue([{ date: "2026-05-10", totalPageviews: 1, topPaths: [], topReferrers: [] }]);
+    mocks.countProSubscribersMock.mockResolvedValue(42);
+
+    await GET(makeRequest("https://example.com/api/admin/metrics?days=abc") as never);
+    expect(mocks.readMetricsMock).toHaveBeenCalledWith(7);
+    expect(mocks.readTrafficMock).toHaveBeenCalledWith(7);
+  });
+
+  it("clamps the days parameter to the supported range", async () => {
+    await GET(makeRequest("https://example.com/api/admin/metrics?days=-1") as never);
+    expect(mocks.readMetricsMock).toHaveBeenCalledWith(1);
+    expect(mocks.readTrafficMock).toHaveBeenCalledWith(1);
+
+    vi.clearAllMocks();
+    mocks.readMetricsMock.mockResolvedValue([{ date: "2026-05-10", counters: {}, topics: [] }]);
+    mocks.readTrafficMock.mockResolvedValue([{ date: "2026-05-10", totalPageviews: 1, topPaths: [], topReferrers: [] }]);
+    mocks.countProSubscribersMock.mockResolvedValue(42);
+
+    await GET(makeRequest("https://example.com/api/admin/metrics?days=99") as never);
+    expect(mocks.readMetricsMock).toHaveBeenCalledWith(30);
+    expect(mocks.readTrafficMock).toHaveBeenCalledWith(30);
+  });
+
   it("rejects requests without the admin token", async () => {
     const response = await GET(
       new Request("https://example.com/api/admin/metrics", {
@@ -85,6 +115,30 @@ describe("GET /api/admin/metrics", () => {
           "x-admin-token": "wrong-token",
         },
       }) as never
+    );
+
+    expect(response.status).toBe(403);
+    expect(mocks.clerkClientMock).not.toHaveBeenCalled();
+    expect(mocks.countProSubscribersMock).not.toHaveBeenCalled();
+    expect(mocks.readMetricsMock).not.toHaveBeenCalled();
+    expect(mocks.readTrafficMock).not.toHaveBeenCalled();
+  });
+
+  it("returns a service error when the admin token is not configured", async () => {
+    delete process.env.ADMIN_TOKEN;
+
+    const response = await GET(makeRequest() as never);
+
+    expect(response.status).toBe(503);
+    expect(mocks.clerkClientMock).not.toHaveBeenCalled();
+    expect(mocks.countProSubscribersMock).not.toHaveBeenCalled();
+    expect(mocks.readMetricsMock).not.toHaveBeenCalled();
+    expect(mocks.readTrafficMock).not.toHaveBeenCalled();
+  });
+
+  it("rejects requests without the x-admin-token header", async () => {
+    const response = await GET(
+      new Request("https://example.com/api/admin/metrics", {}) as never
     );
 
     expect(response.status).toBe(403);
