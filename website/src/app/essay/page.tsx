@@ -32,14 +32,19 @@ export const metadata: Metadata = {
 // Minimal markdown renderer.
 // Supports: # h1, ## h2, ### h3, paragraphs, [text](url) inline links, *italic*.
 // react-markdown is not installed and the spec says do not add deps.
-function renderMarkdown(md: string): React.ReactNode {
+function renderMarkdown(md: string): { blocks: ParsedBlock[]; firstPara: string } {
   const lines = md.split(/\r?\n/);
-  const blocks: { type: string; content: string }[] = [];
+  const blocks: ParsedBlock[] = [];
   let buf: string[] = [];
+  let firstPara = "";
 
   const flush = () => {
     if (buf.length) {
-      blocks.push({ type: "p", content: buf.join(" ") });
+      const content = buf.join(" ");
+      if (!firstPara && blocks.some((b) => b.type === "h1")) {
+        firstPara = content;
+      }
+      blocks.push({ type: "p", content });
       buf = [];
     }
   };
@@ -63,75 +68,12 @@ function renderMarkdown(md: string): React.ReactNode {
   }
   flush();
 
-  return blocks.map((b, i) => {
-    const inline = renderInline(b.content);
-    if (b.type === "h1") {
-      return (
-        <h1
-          key={i}
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 400,
-            fontSize: "clamp(32px, 4.5vw, 52px)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            marginTop: "0",
-            marginBottom: "48px",
-          }}
-        >
-          {inline}
-        </h1>
-      );
-    }
-    if (b.type === "h2") {
-      return (
-        <h2
-          key={i}
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 500,
-            fontSize: "24px",
-            lineHeight: 1.25,
-            letterSpacing: "-0.01em",
-            marginTop: "64px",
-            marginBottom: "20px",
-          }}
-        >
-          {inline}
-        </h2>
-      );
-    }
-    if (b.type === "h3") {
-      return (
-        <h3
-          key={i}
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 500,
-            fontSize: "20px",
-            marginTop: "40px",
-            marginBottom: "16px",
-          }}
-        >
-          {inline}
-        </h3>
-      );
-    }
-    return (
-      <p
-        key={i}
-        style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "19px",
-          lineHeight: 1.7,
-          marginBottom: "24px",
-          maxWidth: "62ch",
-        }}
-      >
-        {inline}
-      </p>
-    );
-  });
+  return { blocks, firstPara };
+}
+
+interface ParsedBlock {
+  type: string;
+  content: string;
 }
 
 function renderInline(text: string): React.ReactNode[] {
@@ -217,6 +159,32 @@ function renderInline(text: string): React.ReactNode[] {
   return out;
 }
 
+/**
+ * Pull-quote candidates: first sentence of h2 sections.
+ * We surface at most 3 pull-quotes at the h2 positions in the text.
+ */
+function extractPullQuotes(blocks: ParsedBlock[]): Map<number, string> {
+  const quotes = new Map<number, string>();
+  let count = 0;
+  for (let i = 0; i < blocks.length && count < 3; i++) {
+    if (blocks[i]!.type === "h2") {
+      // Look for the next paragraph to pull a quote from
+      for (let j = i + 1; j < blocks.length; j++) {
+        if (blocks[j]!.type === "p") {
+          // Take first sentence (up to 90 chars)
+          const full = blocks[j]!.content;
+          const sentence = full.split(/(?<=[.!?])\s/)[0] ?? full;
+          const trimmed = sentence.length > 100 ? sentence.slice(0, 97) + "…" : sentence;
+          quotes.set(i, trimmed);
+          count++;
+          break;
+        }
+      }
+    }
+  }
+  return quotes;
+}
+
 export default function EssayPage() {
   const filePath = path.join(
     process.cwd(),
@@ -230,33 +198,247 @@ export default function EssayPage() {
     md = "# Essay not found\n\nThe essay markdown file is missing.";
   }
 
+  const { blocks } = renderMarkdown(md);
+  const pullQuotes = extractPullQuotes(blocks);
+
+  // Approximate reading time
+  const wordCount = md.trim().split(/\s+/).length;
+  const readMins = Math.max(3, Math.round(wordCount / 200));
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "var(--bg)",
-        color: "var(--fg)",
-        padding: "120px 24px 128px",
-      }}
-    >
-      <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-        <Link
-          href="/"
+    <>
+      {/* Reading-progress bar — sticky to top, CSS-only via scroll-driven */}
+      <style>{`
+        @supports (animation-timeline: scroll()) {
+          .essay-progress {
+            animation: essay-progress-grow linear;
+            animation-timeline: scroll(root block);
+          }
+          @keyframes essay-progress-grow {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+          }
+        }
+
+        /* Drop cap on the very first paragraph */
+        .essay-first-para::first-letter {
+          float: left;
+          font-family: var(--font-serif);
+          font-size: 4.2em;
+          line-height: 0.82;
+          padding-right: 0.08em;
+          padding-top: 0.05em;
+          color: var(--fg);
+          font-weight: 400;
+        }
+
+        /* Annotation gutter pull-quotes */
+        .essay-pull-quote {
+          position: absolute;
+          left: calc(100% + 28px);
+          width: 180px;
+          top: 0;
+          font-family: var(--font-serif);
+          font-style: italic;
+          font-size: 13px;
+          line-height: 1.5;
+          color: var(--fg-dim);
+          border-left: 2px solid var(--amber);
+          padding-left: 12px;
+        }
+
+        @media (max-width: 1000px) {
+          .essay-pull-quote { display: none; }
+          .essay-layout { max-width: 680px !important; }
+        }
+
+        @media print {
+          .essay-progress { display: none !important; }
+          .essay-pull-quote {
+            position: static !important;
+            width: 100% !important;
+            margin-bottom: 16px !important;
+          }
+        }
+      `}</style>
+
+      {/* Reading progress bar */}
+      <div
+        aria-hidden
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          background: "var(--hairline)",
+          zIndex: 100,
+        }}
+      >
+        <div
+          className="essay-progress"
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "12px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: "var(--fg-dim)",
-            textDecoration: "none",
-            display: "inline-block",
-            marginBottom: "64px",
+            height: "100%",
+            background: "var(--amber)",
+            transformOrigin: "left",
+            transform: "scaleX(0)",
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "var(--bg)",
+          color: "var(--fg)",
+          padding: "112px 24px 144px",
+        }}
+      >
+        {/* Outer wrapper — wider than text col to allow gutter */}
+        <div
+          className="essay-layout"
+          style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            position: "relative",
           }}
         >
-          &larr; Consult The Dead
-        </Link>
-        <article>{renderMarkdown(md)}</article>
+          {/* Back link */}
+          <Link
+            href="/"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--fg-dim)",
+              textDecoration: "none",
+              display: "inline-block",
+              marginBottom: "56px",
+            }}
+          >
+            &larr; Consult The Dead
+          </Link>
+
+          {/* Reading time meta */}
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--fg-faint)",
+              marginBottom: "24px",
+            }}
+          >
+            Essay &middot; {readMins} min read
+          </p>
+
+          {/* Text column + gutter layout */}
+          <div style={{ position: "relative" }}>
+            <article
+              style={{
+                maxWidth: "640px",
+              }}
+            >
+              {blocks.map((b, i) => {
+                const inline = renderInline(b.content);
+                const pullQuote = pullQuotes.get(i);
+
+                if (b.type === "h1") {
+                  return (
+                    <h1
+                      key={i}
+                      style={{
+                        fontFamily: "var(--font-serif)",
+                        fontWeight: 400,
+                        fontSize: "clamp(32px, 4.5vw, 54px)",
+                        lineHeight: 1.08,
+                        letterSpacing: "-0.025em",
+                        marginTop: "0",
+                        marginBottom: "52px",
+                        color: "var(--fg)",
+                      }}
+                    >
+                      {inline}
+                    </h1>
+                  );
+                }
+                if (b.type === "h2") {
+                  return (
+                    <div key={i} style={{ position: "relative" }}>
+                      {pullQuote && (
+                        <aside
+                          className="essay-pull-quote"
+                          aria-hidden
+                        >
+                          {pullQuote}
+                        </aside>
+                      )}
+                      <h2
+                        style={{
+                          fontFamily: "var(--font-serif)",
+                          fontWeight: 400,
+                          fontSize: "22px",
+                          lineHeight: 1.3,
+                          letterSpacing: "-0.01em",
+                          marginTop: "72px",
+                          marginBottom: "20px",
+                          color: "var(--fg)",
+                          borderLeft: "2px solid var(--amber)",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {inline}
+                      </h2>
+                    </div>
+                  );
+                }
+                if (b.type === "h3") {
+                  return (
+                    <h3
+                      key={i}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontWeight: 500,
+                        fontSize: "11px",
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
+                        color: "var(--fg-dim)",
+                        marginTop: "40px",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      {inline}
+                    </h3>
+                  );
+                }
+
+                // Paragraphs — first one gets a drop-cap treatment
+                const isFirst = blocks.slice(0, i).filter((bb) => bb.type === "p").length === 0
+                  && blocks.slice(0, i).some((bb) => bb.type === "h1");
+
+                return (
+                  <p
+                    key={i}
+                    className={isFirst ? "essay-first-para" : undefined}
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "19px",
+                      lineHeight: 1.78,
+                      marginBottom: "28px",
+                      color: "var(--fg)",
+                      letterSpacing: "0.005em",
+                    }}
+                  >
+                    {inline}
+                  </p>
+                );
+              })}
+            </article>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
