@@ -10,6 +10,7 @@ from typing import Any
 
 import click
 
+from framework_forge.config import MODEL
 from framework_forge.llm import LLMClient
 
 
@@ -162,7 +163,7 @@ def chat_with_framework(
         messages.append({"role": "user", "content": user_input})
 
         response = client._client.messages.create(
-            model=model or client._client._default_headers.get("model", "claude-sonnet-4-20250514"),
+            model=model or MODEL,
             max_tokens=2048,
             system=system_prompt,
             messages=messages,
