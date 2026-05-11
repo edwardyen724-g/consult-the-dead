@@ -12,7 +12,7 @@ Add SEO infrastructure, RSS feed, collision article support, and overall polish.
 
 ## Success Criteria (Evaluator will verify these)
 - [ ] Every page has proper `<title>`, `<meta description>`, and Open Graph tags
-- [ ] `/feed.xml` returns valid RSS with all published articles
+- [x] `/feed.xml` returns valid RSS with all published articles
 - [ ] At least one collision article renders with clear dual-framework attribution
 - [ ] Collision article visually distinguishes between the two frameworks' reasoning
 - [ ] 404 page renders for invalid routes
