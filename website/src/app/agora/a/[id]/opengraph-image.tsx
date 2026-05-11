@@ -170,13 +170,20 @@ export default async function Image({ params }: RouteProps) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: BG_DEEP,
-                fontSize: "16px",
-                fontWeight: 700,
-                fontFamily: "monospace",
               }}
             >
-              ✦
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L14.7 8.3L21 11L14.7 13.7L12 20L9.3 13.7L3 11L9.3 8.3L12 2Z"
+                  fill={BG_DEEP}
+                />
+              </svg>
             </div>
             <div
               style={{
@@ -245,7 +252,7 @@ export default async function Image({ params }: RouteProps) {
               color: FG,
             }}
           >
-            “{topic}”
+            {`“${topic}”`}
           </div>
         </div>
 

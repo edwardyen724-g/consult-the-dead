@@ -165,11 +165,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url,
       type: "article",
       siteName: "Consult The Dead",
+      images: [`/agora/a/${agon.share_id}/opengraph-image`],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [`/agora/a/${agon.share_id}/twitter-image`],
     },
   };
 }
