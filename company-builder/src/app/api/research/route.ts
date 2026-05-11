@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { tavily } from '@tavily/core';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { createDemoResearchResponse } from '@/lib/demo-mode';
 
 interface ResearchRequest {
   topic: string;
@@ -39,6 +40,11 @@ interface GitHubRepo {
   stargazers_count: number;
   language: string | null;
   topics: string[];
+}
+
+interface ResearchSectionPayload {
+  sectionTitle: string;
+  raw: string;
 }
 
 function getApiKey(): string | null {
@@ -82,7 +88,7 @@ function getTavilyKey(): string | null {
 async function fetchWebSearch(
   queries: string[],
   tavilyKey: string
-): Promise<{ results: TavilyResult[]; raw: string }> {
+): Promise<{ sectionTitle: string; results: TavilyResult[]; raw: string }> {
   try {
     const client = tavily({ apiKey: tavilyKey });
     const allResults: TavilyResult[] = [];
@@ -119,18 +125,18 @@ async function fetchWebSearch(
       ? top.map((r, i) => `${i + 1}. "${r.title}" — ${r.content.slice(0, 300)} — ${r.url}`).join('\n')
       : 'No web search results found.';
 
-    return { results: top, raw };
+    return { sectionTitle: 'Web Search Results', results: top, raw };
   } catch (err) {
     console.warn('[research] Tavily search failed:', err instanceof Error ? err.message : err);
-    return { results: [], raw: 'Web search unavailable.' };
+    return { sectionTitle: 'Web Search Results', results: [], raw: 'Web search unavailable.' };
   }
 }
 
-async function fetchHackerNews(query: string): Promise<{ stories: HNHit[]; raw: string }> {
+async function fetchHackerNews(query: string): Promise<{ sectionTitle: string; stories: HNHit[]; raw: string }> {
   try {
     const url = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story&hitsPerPage=10`;
     const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-    if (!res.ok) return { stories: [], raw: 'HackerNews API returned an error.' };
+    if (!res.ok) return { sectionTitle: 'Hacker News Discussions', stories: [], raw: 'HackerNews API returned an error.' };
     const data = await res.json();
     const stories: HNHit[] = (data.hits ?? []).map((h: Record<string, unknown>) => ({
       title: h.title as string,
@@ -143,20 +149,20 @@ async function fetchHackerNews(query: string): Promise<{ stories: HNHit[]; raw: 
     const raw = stories
       .map((s, i) => `${i + 1}. "${s.title}" (${s.points} pts, ${s.num_comments} comments) — ${s.url}`)
       .join('\n');
-    return { stories, raw: raw || 'No HackerNews stories found.' };
+    return { sectionTitle: 'Hacker News Discussions', stories, raw: raw || 'No HackerNews stories found.' };
   } catch {
-    return { stories: [], raw: 'Failed to fetch HackerNews data.' };
+    return { sectionTitle: 'Hacker News Discussions', stories: [], raw: 'Failed to fetch HackerNews data.' };
   }
 }
 
-async function fetchGitHub(query: string): Promise<{ repos: GitHubRepo[]; raw: string }> {
+async function fetchGitHub(query: string): Promise<{ sectionTitle: string; repos: GitHubRepo[]; raw: string }> {
   try {
     const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=10`;
     const res = await fetch(url, {
       signal: AbortSignal.timeout(8000),
       headers: { Accept: 'application/vnd.github.v3+json', 'User-Agent': 'GreatMinds-Research/1.0' },
     });
-    if (!res.ok) return { repos: [], raw: 'GitHub API returned an error.' };
+    if (!res.ok) return { sectionTitle: 'GitHub Repositories', repos: [], raw: 'GitHub API returned an error.' };
     const data = await res.json();
     const repos: GitHubRepo[] = (data.items ?? []).map((r: Record<string, unknown>) => ({
       full_name: r.full_name as string,
@@ -173,10 +179,14 @@ async function fetchGitHub(query: string): Promise<{ repos: GitHubRepo[]; raw: s
           `${i + 1}. ${r.full_name} (${r.stargazers_count.toLocaleString()} stars, ${r.language ?? 'N/A'}) — ${(r.description ?? 'No description').slice(0, 200)} — ${r.html_url}`
       )
       .join('\n');
-    return { repos: cleanRepos, raw: raw || 'No GitHub repositories found.' };
+    return { sectionTitle: 'GitHub Repositories', repos: cleanRepos, raw: raw || 'No GitHub repositories found.' };
   } catch {
-    return { repos: [], raw: 'Failed to fetch GitHub data.' };
+    return { sectionTitle: 'GitHub Repositories', repos: [], raw: 'Failed to fetch GitHub data.' };
   }
+}
+
+export function buildResearchDataSections(sections: ResearchSectionPayload[]): string[] {
+  return sections.map(({ sectionTitle, raw }) => `=== ${sectionTitle} ===\n${raw}`);
 }
 
 export async function POST(request: NextRequest) {
@@ -193,10 +203,7 @@ export async function POST(request: NextRequest) {
 
     const apiKey = getApiKey();
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'ANTHROPIC_API_KEY not configured' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return createDemoResearchResponse({ topic, focus });
     }
 
     const tavilyKey = getTavilyKey();
@@ -246,7 +253,7 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     const [webResult, hnData, ghData] = await Promise.all([
       tavilyKey
         ? fetchWebSearch(queries, tavilyKey)
-        : Promise.resolve({ results: [] as TavilyResult[], raw: 'Web search not configured.' }),
+        : Promise.resolve({ sectionTitle: 'Web Search Results', results: [] as TavilyResult[], raw: 'Web search not configured.' }),
       useHN
         ? Promise.all(queries.map(fetchHackerNews))
         : Promise.resolve(null),
@@ -314,13 +321,13 @@ Example output: {"queries": ["AI agents framework", "LLM startup funding", "deve
     // Step 4: build synthesis prompt with only the sections relevant to available data
     const dataSections: string[] = [];
     if (webResult.results.length > 0) {
-      dataSections.push(`=== WEB SEARCH RESULTS ===\n${webResult.raw}`);
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: webResult.sectionTitle, raw: webResult.raw }]));
     }
     if (hnRaw) {
-      dataSections.push(`=== HACKERNEWS DISCUSSIONS ===\n${hnRaw}`);
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: hnData?.[0]?.sectionTitle ?? 'Hacker News Discussions', raw: hnRaw }]));
     }
     if (ghRaw) {
-      dataSections.push(`=== GITHUB REPOSITORIES ===\n${ghRaw}`);
+      dataSections.push(...buildResearchDataSections([{ sectionTitle: ghData?.[0]?.sectionTitle ?? 'GitHub Repositories', raw: ghRaw }]));
     }
     if (dataSections.length === 0) {
       dataSections.push('=== NOTE ===\nNo external data sources were available. Provide a general briefing based on your knowledge.');

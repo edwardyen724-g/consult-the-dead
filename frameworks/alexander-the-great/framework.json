@@ -8,10 +8,21 @@
     "born": "356 BC",
     "died": "323 BC",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Arrian, Anabasis of Alexander (c. 150 CE) — most reliable ancient account, drawn from Ptolemy and Aristobulus; archive.org/details/anabasisofalexan00arri",
+      "Plutarch, Life of Alexander (c. 100 CE) — in Parallel Lives; gutenberg.org/ebooks/14137",
+      "Diodorus Siculus, Library of History, Books 16–17 (c. 60–30 BCE) — contemporary synthesis; penelope.uchicago.edu/Thayer/E/Roman/Texts/Diodorus_Siculus",
+      "Quintus Curtius Rufus, Historiae Alexandri Magni (1st century CE) — detailed narrative of the Asian campaigns",
+      "Justin (Marcus Junianus Justinus), Epitome of the Philippic History of Pompeius Trogus, Books 11–12 (3rd century CE)"
+    ],
+    "secondary_sources": [
+      "A.B. Bosworth, Conquest and Empire: The Reign of Alexander the Great (1988) — standard modern military-political biography",
+      "Peter Green, Alexander of Macedon, 356–323 BC: A Historical Biography (1991)",
+      "N.G.L. Hammond, The Genius of Alexander the Great (1997)",
+      "Robin Lane Fox, Alexander the Great (1973)"
+    ],
+    "incident_count": 28,
+    "construct_count": 12,
     "prediction_count": 5
   },
   "perceptual_lens": {
@@ -125,7 +136,7 @@
       "counterfactual": "A competent military leader would have either patiently attempted the puzzle or dismissed the prophecy as superstition, missing the psychological warfare opportunity.",
       "divergence_explanation": "Alexander perceived the knot primarily as a psychological and symbolic challenge rather than a physical one, applying his audacious improvisation construct to redefine the terms of the problem entirely.",
       "outcome": "The act became legendary, reinforcing Alexander's image as someone who transcends conventional constraints, boosting army morale and intimidating future opponents.",
-      "source": "mock_placeholder"
+      "source": "02"
     },
     {
       "id": "incident-002",
@@ -141,7 +152,7 @@
       "counterfactual": "A competent general would have adopted a defensive posture, used terrain features to offset numerical disadvantage, and focused on avoiding catastrophic defeat rather than pursuing decisive victory.",
       "divergence_explanation": "Alexander's perceptual lens identified the psychological decisive point — Darius himself — while others saw only the material balance of forces. His lead-from-the-front construct made personally leading the decisive charge natural rather than reckless.",
       "outcome": "Darius fled when Alexander's cavalry broke through to within striking distance. The Persian army collapsed, giving Alexander control of the Persian Empire — the largest military victory in ancient history.",
-      "source": "mock_placeholder"
+      "source": "01"
     },
     {
       "id": "incident-003",
@@ -157,7 +168,7 @@
       "counterfactual": "A competent commander would have recognized the stalled assault as a signal to try different tactics, not to personally increase risk — the potential loss of the supreme commander would have been viewed as catastrophic.",
       "divergence_explanation": "Alexander's lead-from-the-front construct was so deeply embedded that he could not conceive of asking his troops to do what he would not do first. The risk to his person was, in his framework, always offset by the multiplicative effect on army morale.",
       "outcome": "Alexander was seriously wounded by an arrow to the chest but survived. His troops, shamed and inspired, overwhelmed the fortress. The incident became legendary but also illustrated the unsustainable nature of leadership through personal risk.",
-      "source": "mock_placeholder"
+      "source": "03"
     },
     {
       "id": "incident-006",
@@ -173,7 +184,7 @@
       "counterfactual": "A typical conqueror would have imposed their own cultural norms on conquered peoples, viewing cultural adoption as capitulation and focusing on extracting resources rather than building integrated institutions.",
       "divergence_explanation": "Alexander's cultural integration construct meant he saw conquered civilizations as sources of strength to be absorbed, not threats to be suppressed. His limitless ambition drove him to aim for something unprecedented — a truly multicultural empire.",
       "outcome": "The cultural integration policy created tensions with Macedonian officers but enabled Alexander to govern his vast empire more effectively. After his death, the Hellenistic fusion of Greek and Eastern cultures persisted for centuries.",
-      "source": "mock_placeholder"
+      "source": "06"
     },
     {
       "id": "incident-010",
@@ -189,7 +200,7 @@
       "counterfactual": "A competent commander would have recognized the army's limits earlier, planned a sustainable campaign with rest periods, and viewed the troops' refusal as valid strategic feedback rather than a failure of will.",
       "divergence_explanation": "Alexander's limitless ambition construct made it nearly impossible for him to accept any boundary as final. His lead-from-the-front construct meant he interpreted the mutiny as a personal failure of inspiration rather than a rational collective decision.",
       "outcome": "Alexander eventually yielded — the only time in his career he was forced to abandon an objective. He turned south toward the ocean and began the return journey, during which his army suffered catastrophic losses crossing the Gedrosian Desert.",
-      "source": "mock_placeholder"
+      "source": "10"
     }
   ],
   "core_problem": {

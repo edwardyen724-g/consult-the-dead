@@ -9,7 +9,7 @@ import {
 describe('formatPricingStats', () => {
   it('formats the default static stats row', () => {
     expect(formatPricingStats(PRICING_STATS_DEFAULT)).toEqual([
-      '26 minds',
+      '18 minds',
       '30 debates in the library',
       'Free to start',
     ]);
@@ -64,9 +64,9 @@ describe('formatPricingStats', () => {
 });
 
 describe('PRICING_STATS_DEFAULT', () => {
-  it('matches the live roster (26 minds) and seeded library (30 debates)', () => {
+  it('matches the live roster (18 minds) and seeded library (30 debates)', () => {
     // If this assertion ever fails, update both PRICING_STATS_DEFAULT and the
     // source noted in its docstring (frameworks ALLOWED_SLUGS / outreach-debates dir).
-    expect(PRICING_STATS_DEFAULT).toEqual({ minds: 26, debatesInLibrary: 30 });
+    expect(PRICING_STATS_DEFAULT).toEqual({ minds: 18, debatesInLibrary: 30 });
   });
 });
