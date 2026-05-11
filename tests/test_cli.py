@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import json
 import runpy
+import sys
 from pathlib import Path
 
+import pytest
 from click.testing import CliRunner
 
 from framework_forge.cli import cli
@@ -407,16 +409,15 @@ def test_validate_command_floor_check_returns_when_incidents_are_missing(tmp_pat
     assert "No incidents found for floor check." in result.output
 
 
-def test_cli_module_entrypoint_invokes_group(monkeypatch):
-    invoked = {}
+def test_cli_module_main_invokes_entrypoint(monkeypatch):
+    monkeypatch.setattr(sys, "argv", ["framework-forge", "--help"])
 
-    def fake_group_call(self, *args, **kwargs):
-        invoked["called"] = True
-        return None
+    module = sys.modules.pop("framework_forge.cli", None)
+    try:
+        with pytest.raises(SystemExit) as excinfo:
+            runpy.run_module("framework_forge.cli", run_name="__main__")
+    finally:
+        if module is not None:
+            sys.modules["framework_forge.cli"] = module
 
-    monkeypatch.setattr("click.core.Group.__call__", fake_group_call)
-
-    cli_path = Path(__file__).resolve().parents[1] / "framework_forge" / "cli.py"
-    runpy.run_path(str(cli_path), run_name="__main__")
-
-    assert invoked["called"] is True
+    assert excinfo.value.code == 0
