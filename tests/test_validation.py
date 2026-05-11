@@ -247,6 +247,75 @@ class TestTier3Prep:
             assert "response_b" in pair
             assert "labels" in pair  # which is A, which is B (for answer key)
 
+    def test_prepare_materials_supports_seed_and_random_source(self, tmp_framework_dir):
+        """prepare_tier3_materials should be deterministic with a seed and respect custom random sources."""
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+        from framework_forge.validation.tier3_prep import prepare_tier3_materials
+
+        tier1 = Tier1Result(
+            scenario_results=[
+                ScenarioResult(
+                    scenario="scenario-0",
+                    framework_response="framework-response-0",
+                    baseline_response="baseline-response-0",
+                    divergence_score=8,
+                    specificity_score=7,
+                    traceability_score=9,
+                    divergent=True,
+                ),
+                ScenarioResult(
+                    scenario="scenario-1",
+                    framework_response="framework-response-1",
+                    baseline_response="baseline-response-1",
+                    divergence_score=8,
+                    specificity_score=7,
+                    traceability_score=9,
+                    divergent=True,
+                ),
+            ]
+        )
+
+        seeded_path_one = prepare_tier3_materials(
+            tier1_results=tier1,
+            person="Steve Jobs",
+            output_dir=tmp_framework_dir / "seeded-one",
+            seed=42,
+        )
+        seeded_path_two = prepare_tier3_materials(
+            tier1_results=tier1,
+            person="Steve Jobs",
+            output_dir=tmp_framework_dir / "seeded-two",
+            seed=42,
+        )
+
+        seeded_packet_one = json.loads(seeded_path_one.read_text(encoding="utf-8"))
+        seeded_packet_two = json.loads(seeded_path_two.read_text(encoding="utf-8"))
+
+        assert seeded_packet_one == seeded_packet_two
+
+        random_values = iter([0.75, 0.25])
+
+        def custom_random_source():
+            return next(random_values)
+
+        custom_path = prepare_tier3_materials(
+            tier1_results=tier1,
+            person="Steve Jobs",
+            output_dir=tmp_framework_dir / "custom",
+            random_source=custom_random_source,
+            seed=7,
+        )
+
+        custom_packet = json.loads(custom_path.read_text(encoding="utf-8"))
+        assert custom_packet["pairs"][0]["labels"] == {
+            "response_a": "baseline",
+            "response_b": "framework",
+        }
+        assert custom_packet["pairs"][1]["labels"] == {
+            "response_a": "framework",
+            "response_b": "baseline",
+        }
+
 
 class TestFloorCheck:
     """Tests for floor check validation."""
