@@ -118,6 +118,50 @@
   hook_angles: [identity, tension]
   status: queued
 
+- slug: should-i-raise-a-seed-round
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a seed round"
+  secondary_queries:
+    - "seed round vs bootstrap"
+    - "when to raise seed funding"
+  recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-hire-my-first-employee
+  type: decision
+  search_volume_estimate: high
+  primary_query: "when to hire my first employee"
+  secondary_queries:
+    - "should I hire my first employee"
+    - "first hire startup"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [identity, proof]
+  status: queued
+
+- slug: should-i-sell-my-startup
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I sell my startup"
+  secondary_queries:
+    - "startup acquisition decision"
+    - "sell or keep my company"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-form-an-llc-or-delaware-c-corp
+  type: decision
+  search_volume_estimate: high
+  primary_query: "LLC or C corp"
+  secondary_queries:
+    - "should I form an LLC or C corp"
+    - "Delaware C corp vs LLC"
+  recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
+  hook_angles: [proof, shortcut]
+  status: queued
+
 # ─────────────────────────────────────────────────────────────────────
 # Type "insight" — "what would X say about Y" pop-philosophy queries.
 # Each is /insights/{slug}. We already have ~6 of these — extending the set.
@@ -189,13 +233,13 @@
   hook_angles: [tension, identity]
   status: queued
 
-- slug: what-would-leonardo-say-about-the-thing-youre-not-noticing
+- slug: what-would-leonardo-say-about-creative-block
   type: insight
-  search_volume_estimate: low
-  primary_query: "Leonardo da Vinci observation"
+  search_volume_estimate: medium
+  primary_query: "Leonardo da Vinci creative block"
   secondary_queries:
-    - "Leonardo da Vinci decision making"
-    - "how to notice what others miss"
+    - "how to overcome creative block"
+    - "Leonardo da Vinci perfectionism"
   recommended_council: [leonardo-da-vinci]
   hook_angles: [identity, shortcut]
   status: queued
@@ -282,13 +326,13 @@
   hook_angles: [proof, tension]
   status: queued
 
-- slug: bipolar-constructs-how-experts-actually-categorize-decisions
+- slug: cynefin-framework-explained
   type: method
-  search_volume_estimate: low
-  primary_query: "personal construct theory"
+  search_volume_estimate: high
+  primary_query: "Cynefin framework"
   secondary_queries:
-    - "Kelly construct theory"
-    - "how experts make decisions"
+    - "Cynefin framework explained"
+    - "when to use Cynefin"
   recommended_council: []
-  hook_angles: [shortcut, identity]
+  hook_angles: [shortcut, proof]
   status: queued
