@@ -29,7 +29,7 @@ export type PricingStats = {
  * places when the roster grows.
  */
 export const PRICING_STATS_DEFAULT: PricingStats = {
-  minds: 18,
+  minds: 26,
   debatesInLibrary: 30,
 };
 
@@ -37,7 +37,7 @@ export const PRICING_STATS_DEFAULT: PricingStats = {
  * Format the stats row shown below the pricing hero.
  *
  * Returns an ordered list of short label strings, e.g.:
- *   ["18 minds", "30 debates in the library", "Free to start"]
+ *   ["26 minds", "30 debates in the library", "Free to start"]
  *
  * Pluralization: drops the trailing "s" when count === 1 so a future
  * single-mind / single-debate state still reads correctly.
