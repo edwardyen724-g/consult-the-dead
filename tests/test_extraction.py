@@ -550,6 +550,59 @@ class TestDivergencePredictions:
         )
 
         assert len(results) == 2
-        assert results[0].confidence == 0.85
-        assert results[1].situation_type == "Market entry timing"
+        situation_types = {r.situation_type for r in results}
+        assert "Product feature debate" in situation_types
+        assert "Market entry timing" in situation_types
+        confidences = {r.situation_type: r.confidence for r in results}
+        assert confidences["Product feature debate"] == 0.85
         mock_client.prompt_json.assert_called_once()
+
+    def test_generate_predictions_returns_stable_order(self, sample_lens, sample_construct):
+        """generate_predictions() must return predictions in canonical (alphabetical situation_type) order."""
+        from framework_forge.extraction.lens import PerceptualLens
+        from framework_forge.extraction.constructs import BipolarConstruct
+        from framework_forge.extraction.divergence import generate_predictions
+
+        lens = PerceptualLens(**sample_lens)
+        constructs = [BipolarConstruct(**sample_construct)]
+
+        mock_client = MagicMock()
+        # Return predictions in reverse-alphabetical order from LLM
+        mock_client.prompt_json.return_value = {
+            "predictions": [
+                {
+                    "situation_type": "Z - last situation",
+                    "ordinary_response": "ordinary Z",
+                    "framework_response": "framework Z",
+                    "because": "because Z",
+                    "confidence": 0.7,
+                },
+                {
+                    "situation_type": "A - first situation",
+                    "ordinary_response": "ordinary A",
+                    "framework_response": "framework A",
+                    "because": "because A",
+                    "confidence": 0.9,
+                },
+                {
+                    "situation_type": "M - middle situation",
+                    "ordinary_response": "ordinary M",
+                    "framework_response": "framework M",
+                    "because": "because M",
+                    "confidence": 0.8,
+                },
+            ]
+        }
+
+        results = generate_predictions(
+            lens=lens,
+            constructs=constructs,
+            person="Steve Jobs",
+            client=mock_client,
+        )
+
+        # Regardless of LLM return order, results must be sorted by situation_type
+        situation_types = [r.situation_type for r in results]
+        assert situation_types == sorted(situation_types)
+        assert situation_types[0].startswith("A")
+        assert situation_types[-1].startswith("Z")
