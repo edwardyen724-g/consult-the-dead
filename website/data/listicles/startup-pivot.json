@@ -1,0 +1,38 @@
+{
+  "slug": "startup-pivot",
+  "h1": "Machiavelli vs. Sun Tzu: Should You Pivot Your Startup?",
+  "metaDescription": "Two strategic minds with radically different views on when to move, when to hold, and what a pivot actually costs. Run the debate on your startup decision.",
+  "topicForCta": "startup pivot",
+  "intro": [
+    "The word \"pivot\" has become so overloaded in startup culture that it rarely means anything anymore. Founders pivot because investors told them to. They pivot because growth stalled for a quarter. They pivot because a competitor launched something similar and they panicked. They pivot because their advisors said \"stay flexible.\" None of these are decisions — they're reactions dressed up as strategy.",
+    "What Machiavelli and Sun Tzu would immediately agree on is that this framing is wrong. What they disagree on — sharply — is what the right framing looks like.",
+    "Machiavelli would argue that a pivot is fundamentally a power move: you're not changing direction, you're seizing a moment before a closing window shuts. His analysis of Cesare Borgia's campaigns shows a leader who pivoted not when the market shifted, but when consolidation of a position made a new position available. He believes hesitation in the name of \"validation\" is how startups negotiate from weakness. You pivot through strength, not away from failure.",
+    "Sun Tzu disagrees — not about the urgency, but about the precondition. For him, a pivot executed without narrative preparation is an army moving without supply lines: fast, decisive, and doomed. The question he asks first isn't \"should we pivot?\" but \"have we won the story contest with our existing customers, and will they follow us to the new ground?\" Movement without that precondition is a retreat wearing a strategy costume.",
+    "The debate between them isn't about what to do. It's about what you have to have done first."
+  ],
+  "minds": [
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "Analyzes pivots as power-window seizures, not direction changes — he's been waiting for you to stop treating timidity as prudence."
+    },
+    {
+      "slug": "sun-tzu",
+      "name": "Sun Tzu",
+      "rationale": "Demands narrative precondition before any strategic movement — will stop the debate cold if you haven't won the story first."
+    },
+    {
+      "slug": "isaac-newton",
+      "name": "Isaac Newton",
+      "rationale": "Brings first-principles rigor: what does your traction data actually prove vs. what are you inferring? Machiavelli and Sun Tzu both move faster than Newton wants them to."
+    },
+    {
+      "slug": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "rationale": "The only mind in the room asking whether the pressure to pivot is a valid strategic signal or a corrupting external stimulus you should resist."
+    }
+  ],
+  "ctaHeadline": "Continue this debate on your actual startup decision",
+  "ctaButtonLabel": "Run this debate in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}
