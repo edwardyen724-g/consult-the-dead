@@ -25,6 +25,8 @@ export default defineConfig({
         "src/components/upsell-modal.tsx",
         "src/lib/proof-strip.ts",
         "src/components/ProofStrip.tsx",
+        "src/app/packs/page.tsx",
+        "src/app/frameworks/[slug]/page.tsx",
       ],
       exclude: [
         "src/**/*.d.ts",

@@ -265,6 +265,28 @@ describe("normalizeResearch", () => {
 
   it("returns null when JSON has no usable summary or sources", () => {
     expect(normalizeResearch(JSON.stringify({ summary: "", sources: [] }))).toBeNull();
+    expect(
+      normalizeResearch(JSON.stringify({ summary: "", sources: "not-an-array" })),
+    ).toBeNull();
+  });
+
+  it("skips sources with non-string title or url fields", () => {
+    const out = normalizeResearch(
+      JSON.stringify({
+        summary: "Research summary.",
+        sources: [
+          { title: 123, url: "https://example.com/title" },
+          { title: "No URL", url: 456 },
+          { title: "Valid", url: "https://example.com/valid" },
+        ],
+      }),
+    );
+
+    expect(out).not.toBeNull();
+    if (!out) throw new Error("expected non-null");
+    expect(out.sources).toEqual([
+      { title: "Valid", url: "https://example.com/valid" },
+    ]);
   });
 });
 
@@ -330,6 +352,12 @@ describe("buildShareDescription", () => {
 
   it("returns the topic verbatim when below the limit", () => {
     expect(buildShareDescription("short topic", 100)).toBe("short topic");
+  });
+
+  it("handles a nullish topic input when cast through the public boundary", () => {
+    expect(buildShareDescription(null as unknown as string)).toBe(
+      "A debate from Consult The Dead — The Agora.",
+    );
   });
 });
 
