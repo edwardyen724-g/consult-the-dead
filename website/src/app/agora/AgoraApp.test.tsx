@@ -28,6 +28,7 @@ vi.mock("next/image", () => ({
 
 vi.mock("@/components/ConsensusGraph", () => ({
   ConsensusGraph: () => <div data-testid="consensus-graph" />,
+  NODE_LABELS: ["POINTS", "TENSIONS", "ACTION", "STEPS", "RISKS"],
 }));
 
 import { AgoraApp, type MindOption } from "./AgoraApp";
