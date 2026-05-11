@@ -69,7 +69,7 @@ describe('AgoraLoading', () => {
     const tree = AgoraLoading()
 
     const status = findByType(tree, 'status')
-    expect(status?.props?.['aria-busy']).toBe('true')
+    expect(status?.props?.['aria-busy']).toBe(true)
     expect(elementText(status)).toContain('Gathering the council')
     expect(elementText(status)).toContain('Inviting minds')
     expect(elementText(status)).toContain('Aligning context')
