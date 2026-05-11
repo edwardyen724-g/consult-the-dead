@@ -101,3 +101,9 @@ export interface SaveState {
   debates: Debate[];
   savedAt: string;
 }
+
+export interface HistoryState<T> {
+  past: readonly T[];
+  present: T;
+  future: readonly T[];
+}

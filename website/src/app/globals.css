@@ -52,6 +52,15 @@
   --color-alexander:    #b07840;  /* bronze */
   --color-cleopatra:    #2f8085;  /* royal teal */
 
+  /* Roster expansion 2026-05 — 7 new minds (task 8987b12a) */
+  --color-lincoln:      #4a6dbf;  /* constitutional blue */
+  --color-carnegie:     #5a7080;  /* steel */
+  --color-nightingale:  #cf8a8e;  /* dawn rose / lady-with-the-lamp */
+  --color-douglass:     #b86840;  /* rust / oratorical copper */
+  --color-caesar:       #8f3a4a;  /* imperial wine */
+  --color-napoleon:     #3a5fa8;  /* French royal blue */
+  --color-seneca:       #7d8c5e;  /* stoic sage / olive */
+
   /* Pack accent colors — used for pack cards, badges, headers */
   --pack-stoic-council:        #b08050;
   --pack-inventors-workshop:   #6a7abf;
@@ -105,6 +114,15 @@ html.light {
   --color-catherine:    #9a7510;  /* imperial gold */
   --color-alexander:    #7a5028;  /* bronze */
   --color-cleopatra:    #1f5a5f;  /* royal teal */
+
+  /* Roster expansion 2026-05 — 7 new minds (parchment palette) */
+  --color-lincoln:      #2e4a82;  /* constitutional blue */
+  --color-carnegie:     #344657;  /* steel */
+  --color-nightingale:  #8e4858;  /* dawn rose */
+  --color-douglass:     #7a3e1c;  /* rust / oratorical copper */
+  --color-caesar:       #5a1f2c;  /* imperial wine */
+  --color-napoleon:     #1f3e7a;  /* French royal blue */
+  --color-seneca:       #4a5a36;  /* stoic sage / olive */
 
   /* Pack accent colors */
   --pack-stoic-council:        #7a5a2a;
@@ -200,6 +218,18 @@ body {
   100% { opacity: 1; }
 }
 .gm-name-pulse { animation: gm-name-pulse 400ms ease-out; }
+
+/* Shared loading pulse used by the Agora loading surface */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
 
 /* Blinking caret while a block is streaming */
 .gm-caret {
@@ -354,6 +384,14 @@ body {
     --color-catherine:    #9a7510 !important;
     --color-alexander:    #7a5028 !important;
     --color-cleopatra:    #1f5a5f !important;
+    /* Roster expansion 2026-05 — 7 new minds (parchment palette) */
+    --color-lincoln:      #2e4a82 !important;
+    --color-carnegie:     #344657 !important;
+    --color-nightingale:  #8e4858 !important;
+    --color-douglass:     #7a3e1c !important;
+    --color-caesar:       #5a1f2c !important;
+    --color-napoleon:     #1f3e7a !important;
+    --color-seneca:       #4a5a36 !important;
 
     --pack-stoic-council:        #7a5a2a !important;
     --pack-inventors-workshop:   #4a5a8a !important;

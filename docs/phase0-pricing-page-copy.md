@@ -24,10 +24,11 @@ Think through your hardest decisions with historical minds. Unbiased, rigorous, 
 | **Price** | Always free | **$30/month** or **$300/year** (2 months free) |
 | Agons per period | 3/day | 100/month |
 | Council size | 2–3 minds | Up to 5 minds |
-| Synthesis quality | Sonnet | **Opus** |
+| Synthesis quality | Sonnet | **Opus ★** |
 | Debate library | Device only | **Persistent + searchable** |
 | PDF export | — | ✓ |
 | Extended research | — | ✓ |
+| Bring your own key | Unlimited (you pay Anthropic) | Optional override |
 | Founder support | — | **48h email response** |
 | Account | Anonymous, no signup | Private, synced |
 
@@ -59,7 +60,10 @@ Yes. Monthly and yearly plans cancel at end of billing period. No refund for par
 Free uses Claude Sonnet for all turns. Pro uses Sonnet for debate rounds and Opus for the consensus synthesis — the final recommendation gets the strongest model.
 
 **Do I need an Anthropic account?**
-No. We handle all AI calls. You don't manage API keys or pay Anthropic directly. Free users don't even need an account with us.
+No, not for the default flow. We handle all AI calls and billing on Free and Pro, so you don't need an Anthropic account or API key. If you'd rather pay Anthropic directly and skip our limits, you can plug in your own key. Free users don't need an account with us either.
+
+**Can I use my own Anthropic API key (BYO key)?**
+Yes, on any tier. Open /agora, expand the optional Anthropic key drawer on the topic screen, and paste your `sk-ant-…` key. The key stays in browser localStorage and is forwarded in the request header; it is never written to server logs or our database. Using your own key bypasses the free-tier daily cap, so you get unlimited debates for as long as your Anthropic account has credit. Pro subscribers can use a BYO key too if they want to spend their own quota on heavy days.
 
 **What's "founder support"?**
 Direct email to Edward (the founder). 48-hour response. Real answers about the product, feature requests, decision-framing help. Not a template bot.
@@ -69,13 +73,9 @@ Free debates are anonymous — we don't store them. Pro debates live in your pri
 
 ---
 
-## Social Proof (placeholder — fill when available)
+## Social Proof
 
-> "I stopped second-guessing myself. Now I get three perspectives I trust before I commit." — *[Name], [role]*
-
-> "Ran my pricing decision through the council. Machiavelli and Curie disagreed. The consensus was better than either." — *[Name], [role]*
-
-*Slot for 2–3 real testimonials once first customers are onboarded.*
+No published customer testimonials yet. Keep this page free of fake quote blocks until real customer quotes are approved.
 
 ---
 
@@ -99,3 +99,4 @@ Good decisions are harder with unlimited options and no outside view. Agora is y
 - **Feature count per tier** — kept to 8 rows max for scannability
 - **Opus vs Sonnet callout** — this is the real quality differentiator; make it visible
 - **"No signup" on free CTA** — removes friction for curiosity-driven visitors
+- **No testimonial placeholders** — leave social proof blank until a real customer quote lands
