@@ -182,7 +182,7 @@ export default async function Image({ params }: RouteProps) {
           >
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 gap: "8px",
                 padding: "8px 14px",
