@@ -79,5 +79,6 @@ Two known gaps remain (Seneca portrait asset; framework-page canonical URL) and
 are tracked as follow-up items — neither is a rollback trigger for the
 preview-image contract itself.
 
-Promoted to release-state index on 2026-05-11.
+Promoted to release-state index on 2026-05-11. CHANGELOG entry recorded
+2026-05-11 (PR #136). Shipped via PR #110 and PR #71.
 
