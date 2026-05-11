@@ -110,6 +110,85 @@ class TestTier1:
         assert tier1.divergent_count == 2
         assert tier1.passed is False
 
+    def test_tier1_helpers_and_result_serialization(self):
+        """Tier 1 helper functions should work through the default client path."""
+        from framework_forge.validation import tier1 as tier1_module
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.side_effect = [
+            {
+                "scenario": "Launch a stripped-down product now",
+                "domain_context": "Product strategy",
+                "decision_required": "Launch timing",
+            },
+            {
+                "divergence_score": 9,
+                "specificity_score": 8,
+                "traceability_score": 7,
+                "divergent": True,
+                "reasoning": "Strong framework-specific advice.",
+            },
+            {
+                "scenario": "Ship a smaller product first",
+                "domain_context": "Product strategy",
+                "decision_required": "Launch timing",
+            },
+            {
+                "divergence_score": 9,
+                "specificity_score": 8,
+                "traceability_score": 7,
+                "divergent": True,
+                "reasoning": "Strong framework-specific advice.",
+            },
+        ]
+        mock_response = MagicMock()
+        mock_response.raw_text = "Framework answer"
+        mock_client.prompt.return_value = mock_response
+
+        with patch("framework_forge.llm.LLMClient", return_value=mock_client):
+            scenario = tier1_module.generate_scenario(
+                person="Steve Jobs",
+                domain="product design",
+                existing_scenarios=[],
+                client=None,
+            )
+            framework_response = tier1_module.generate_framework_response(
+                scenario=scenario,
+                framework={"perceptual_lens": {"statement": "test"}},
+                person="Steve Jobs",
+                client=None,
+            )
+            baseline_response = tier1_module.generate_baseline_response(
+                scenario=scenario,
+                person="Steve Jobs",
+                client=None,
+            )
+            scores = tier1_module.score_divergence(
+                framework_response=framework_response,
+                baseline_response=baseline_response,
+                scenario=scenario,
+                client=None,
+            )
+            result = tier1_module.run_tier1(
+                framework={"perceptual_lens": {"statement": "test"}},
+                person="Steve Jobs",
+                domain="product design",
+                num_scenarios=1,
+                client=None,
+            )
+
+        assert scenario["scenario"] == "Launch a stripped-down product now"
+        assert framework_response == "Framework answer"
+        assert baseline_response == "Framework answer"
+        assert scores["divergent"] is True
+        assert result.divergent_count == 1
+        assert result.passed is False
+
+        summary = result.to_dict()
+        assert summary["divergent_count"] == 1
+        assert summary["total_scenarios"] == 1
+        assert summary["scenario_results"][0]["scenario"] == "Ship a smaller product first"
+
 
 # ---------------------------------------------------------------------------
 # Task 11: Tier 2 — Internal Consistency
@@ -194,6 +273,52 @@ class TestTier2:
         )
 
         assert result.passed is False
+
+    def test_tier2_default_client_and_serialization(self):
+        """run_tier2 should work through the default client path and serialize cleanly."""
+        from framework_forge.validation.tier2 import Tier2Result, run_tier2
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "traceability_ratio": 0.95,
+            "lens_consistent": True,
+            "contradictions": [],
+            "per_scenario_details": [
+                {
+                    "scenario": "Launch timing",
+                    "traceable_steps": 9,
+                    "total_steps": 10,
+                    "lens_aligned": True,
+                    "contradiction": None,
+                }
+            ],
+        }
+
+        framework = {"perceptual_lens": {"statement": "test lens"}, "bipolar_constructs": []}
+        tier1_scenarios = [
+            {
+                "scenario": "Launch timing",
+                "framework_response": "Ship now",
+                "baseline_response": "Wait",
+            }
+        ]
+
+        with patch("framework_forge.llm.LLMClient", return_value=mock_client):
+            result = run_tier2(framework, tier1_scenarios, client=None)
+
+        assert result.passed is True
+        summary = result.to_dict()
+        assert summary["traceability_ratio"] == 0.95
+        assert summary["passed"] is True
+        assert summary["per_scenario_details"][0]["scenario"] == "Launch timing"
+
+        direct = Tier2Result(
+            traceability_ratio=0.95,
+            lens_consistent=True,
+            contradictions=[],
+            per_scenario_details=[],
+        )
+        assert direct.to_dict()["passed"] is True
 
 
 # ---------------------------------------------------------------------------
@@ -303,6 +428,38 @@ class TestFloorCheck:
         )
 
         assert result.passed is False
+
+    def test_floor_check_default_client_and_serialization(self):
+        """run_floor_check should work through the default client path and serialize cleanly."""
+        from framework_forge.validation.floor_check import FloorCheckResult, run_floor_check
+
+        mock_client = MagicMock()
+        mock_client.prompt_json.return_value = {
+            "alignment_ratio": 0.75,
+            "per_decision_results": [
+                {
+                    "decision": "Remove the keyboard",
+                    "framework_would_predict": "Remove it",
+                    "aligned": True,
+                    "reasoning": "Matches the documented lens.",
+                }
+            ],
+        }
+
+        framework = {"perceptual_lens": {"statement": "test"}}
+        historical = [{"decision": "Remove the keyboard", "context": "iPhone design"}]
+
+        with patch("framework_forge.llm.LLMClient", return_value=mock_client):
+            result = run_floor_check(framework, historical, client=None)
+
+        assert result.passed is True
+        summary = result.to_dict()
+        assert summary["alignment_ratio"] == 0.75
+        assert summary["passed"] is True
+        assert summary["per_decision_results"][0]["decision"] == "Remove the keyboard"
+
+        direct = FloorCheckResult(alignment_ratio=0.75, per_decision_results=[])
+        assert direct.to_dict()["passed"] is True
 
 
 class TestValidationCliSmoke:
