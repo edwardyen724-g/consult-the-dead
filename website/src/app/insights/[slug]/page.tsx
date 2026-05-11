@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { INSIGHT_ENTRIES } from "@/lib/insights";
+import { InsightAnnotationPanel } from "./InsightAnnotationPanel";
+import { INSIGHT_ENTRIES, getInsightAnnotatedPassages } from "@/lib/insights";
 import { getFramework } from "@/lib/frameworks";
-import type { FrameworkSlug } from "@/lib/frameworks";
 
 /* ── Static generation ── */
 
@@ -23,8 +23,6 @@ export async function generateMetadata({
   const { slug } = await params;
   const entry = INSIGHT_ENTRIES.find((e) => e.slug === slug);
   if (!entry) return { title: "Not Found" };
-  const fw = getFramework(entry.frameworkSlug);
-  const person = fw?.meta.person ?? entry.frameworkSlug;
   return {
     title: entry.title,
     description: entry.description,
@@ -60,6 +58,7 @@ export default async function InsightPage({ params }: PageProps) {
 
   const person = fw.meta.person;
   const lens = fw.perceptual_lens;
+  const annotatedPassages = getInsightAnnotatedPassages(entry, fw);
   const constructs = fw.bipolar_constructs.slice(0, 4);
   const predictions = fw.behavioral_divergence_predictions.slice(0, 3);
   const blindSpots = fw.blind_spots.slice(0, 2);
@@ -127,6 +126,10 @@ export default async function InsightPage({ params }: PageProps) {
       >
         {entry.hookQuestion}
       </p>
+
+      {annotatedPassages.length > 0 && (
+        <InsightAnnotationPanel passages={annotatedPassages} />
+      )}
 
       {/* Perceptual Lens */}
       <Section label={`HOW ${person.toUpperCase()} SEES THE WORLD`}>
