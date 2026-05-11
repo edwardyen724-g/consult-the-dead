@@ -213,3 +213,20 @@ export function agoraUrlForPack(
 export function packCanonicalUrl(id: PackId): string {
   return `${PACK_CANONICAL_BASE}/packs/${id}`;
 }
+
+/**
+ * Build the guided-quiz entry URL for the "Find my council" CTA on a pack
+ * landing page.
+ *
+ * Stamps utm_source=pack, utm_campaign=longtail_seo, and utm_content=<id> so
+ * analytics can attribute quiz entries to specific pack pages.
+ */
+export function buildPackQuizHref(id: PackId): string {
+  const params = new URLSearchParams({
+    entry: "guided",
+    utm_source: PACK_UTM_SOURCE,
+    utm_campaign: PACK_UTM_CAMPAIGN,
+    utm_content: id,
+  });
+  return `/quiz?${params.toString()}`;
+}

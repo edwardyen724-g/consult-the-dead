@@ -19,9 +19,10 @@ import {
   type Framework,
   type FrameworkSlug,
 } from "@/lib/frameworks";
-import { type PackId } from "@/lib/packs";
+import { PACKS, type PackId } from "@/lib/packs";
 import {
   agoraUrlForPack,
+  buildPackQuizHref,
   getPackOrThrow,
   getPackPrompts,
   getPackSeoMeta,
@@ -88,6 +89,7 @@ export default async function PackLandingPage({ params }: PageProps) {
   const frameworks = getAllFrameworks();
   const liveSlugs = new Set<string>(frameworks.map((f) => f.slug));
   const memberSlugs = resolvePackMembers(packId, liveSlugs);
+  const quizHref = buildPackQuizHref(packId);
 
   // If a pack has no live members yet (e.g. data was rolled back), 404
   // rather than render a CTA that prefills no minds.
@@ -225,11 +227,33 @@ export default async function PackLandingPage({ params }: PageProps) {
             color: "var(--bg)",
             textDecoration: "none",
             borderRadius: "4px",
-            marginBottom: "72px",
           }}
         >
           Convene this Council &rarr;
         </Link>
+
+        {/* Proof strip */}
+        <div
+          style={{
+            marginTop: "28px",
+            paddingTop: "24px",
+            borderTop: "1px solid var(--hairline)",
+            marginBottom: "72px",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--fg-faint)",
+              margin: 0,
+            }}
+          >
+            No signup for your first debate &middot; {frameworks.length} minds in the corpus &middot; {PACKS.length} themed packs
+          </p>
+        </div>
 
         {/* Member cards */}
         <section style={{ marginBottom: "72px" }}>
@@ -371,6 +395,59 @@ export default async function PackLandingPage({ params }: PageProps) {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Guided quiz CTA — alternative path for visitors who aren't sure this pack fits */}
+        <section
+          style={{
+            marginBottom: "72px",
+            background: "var(--surface)",
+            border: "1px solid var(--hairline)",
+            padding: "28px 32px",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--fg-faint)",
+              marginBottom: "10px",
+            }}
+          >
+            Not sure this pack fits your question?
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              fontSize: "1rem",
+              lineHeight: 1.55,
+              color: "var(--fg-dim)",
+              marginBottom: "20px",
+              maxWidth: "56ch",
+            }}
+          >
+            Answer two questions and we&rsquo;ll route you to the minds who think most differently about your specific problem.
+          </p>
+          <Link
+            href={quizHref}
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "12px 24px",
+              border: "1px solid var(--hairline)",
+              color: "var(--fg)",
+              textDecoration: "none",
+              borderRadius: "4px",
+            }}
+          >
+            Find my council &rarr;
+          </Link>
         </section>
 
         {/* Bottom CTA */}

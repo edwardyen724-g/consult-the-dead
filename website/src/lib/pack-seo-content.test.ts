@@ -19,6 +19,7 @@ import {
   PACK_UTM_CAMPAIGN,
   PACK_UTM_SOURCE,
   agoraUrlForPack,
+  buildPackQuizHref,
   getPackOrThrow,
   getPackPrompts,
   getPackSeoMeta,
@@ -165,5 +166,38 @@ describe("packCanonicalUrl", () => {
 
   it("base constant uses https + www host (canonical for SEO)", () => {
     expect(PACK_CANONICAL_BASE.startsWith("https://www.")).toBe(true);
+  });
+});
+
+describe("buildPackQuizHref", () => {
+  it("routes to /quiz with entry=guided", () => {
+    const href = buildPackQuizHref("stoic-council");
+    expect(href.startsWith("/quiz?")).toBe(true);
+    const params = new URLSearchParams(href.slice("/quiz?".length));
+    expect(params.get("entry")).toBe("guided");
+  });
+
+  it("stamps utm_source=pack and utm_campaign=longtail_seo", () => {
+    const href = buildPackQuizHref("war-room");
+    const params = new URLSearchParams(href.slice("/quiz?".length));
+    expect(params.get("utm_source")).toBe(PACK_UTM_SOURCE);
+    expect(params.get("utm_campaign")).toBe(PACK_UTM_CAMPAIGN);
+  });
+
+  it("stamps utm_content with the pack id so analytics can attribute quiz entries per pack", () => {
+    for (const id of ALL_PACK_IDS) {
+      const href = buildPackQuizHref(id);
+      const params = new URLSearchParams(href.slice("/quiz?".length));
+      expect(params.get("utm_content")).toBe(id);
+    }
+  });
+
+  it("produces a parseable relative URL for every pack", () => {
+    for (const id of ALL_PACK_IDS) {
+      const href = buildPackQuizHref(id);
+      const parsed = new URL(href, "https://www.consultthedead.com");
+      expect(parsed.pathname).toBe("/quiz");
+      expect(parsed.searchParams.get("entry")).toBe("guided");
+    }
   });
 });
