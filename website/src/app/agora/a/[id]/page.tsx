@@ -47,6 +47,7 @@ import {
   getFramework,
   type FrameworkSlug,
 } from "@/lib/frameworks";
+import { buildOgImageUrl } from "@/lib/og-image-url";
 import { SHARE_SOCIAL_PROOF_LINE } from "@/lib/share-cta-link";
 
 import {
@@ -157,21 +158,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = buildShareDescription(agon.topic);
   const url = `${SITE_ORIGIN}/agora/a/${agon.share_id}`;
   const title = `Agon: ${truncateForTitle(agon.topic)}`;
+  const image = buildOgImageUrl(agon.share_id);
   return {
     title,
     description,
     alternates: { canonical: url },
+    robots: { index: true, follow: true },
     openGraph: {
       title,
       description,
       url,
       type: "article",
       siteName: "Consult The Dead",
+      images: image ? [image] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: image ? [image] : undefined,
     },
   };
 }
