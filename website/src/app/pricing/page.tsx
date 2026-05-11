@@ -122,7 +122,7 @@ export default function PricingPage() {
             lineHeight: 1.12,
             marginBottom: '20px',
           }}>
-            Run your hardest decision through 26 historical minds.
+            Run your hardest decision through 18 historical minds.
             <br />
             <span style={{ color: 'var(--fg-dim)' }}>They&apos;ll disagree. You&apos;ll decide.</span>
           </h1>

@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Consult The Dead Website
 
-## Getting Started
+`website/` is the Next.js app for Consult The Dead: a decision-support product that runs a question through historical frameworks, a live Agora debate flow, and a saved debate library.
 
-First, run the development server:
+The site exposes the public home page, council and debate browsers, pricing and account surfaces, and the API routes that power debate execution, billing, saved library items, auth, and telemetry.
+
+## App Surface
+
+- `/` - home page, featured minds, and entry points into the product
+- `/agora` - live debate surface where a user poses a decision and seats 2-5 minds
+- `/agora/a/[id]` - public share pages for saved agons, including generated social images
+- `/quiz` - decision-finder that recommends a council based on the type of problem
+- `/frameworks` - index of all live frameworks
+- `/frameworks/[slug]` - individual framework detail pages
+- `/debates` - sample Agon debates curated from the library
+- `/debates/[slug]` - individual sample debate pages
+- `/library` - signed-in Pro library for saved agons
+- `/pricing` - plan comparison and upgrade flow
+- `/account` - subscription status, usage, and BYO key settings
+- `/listicles/[slug]` — 5 long-tail SEO pages (startup-pivot, career-change, leadership-crisis, investing-risk, product-strategy); each pre-fills the Agora council via UTM CTA
+- `/minds/[id]` — 25 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA
+- Supporting routes: `/essay`, `/insights`, `/privacy`, `/terms`, `/sign-in`, `/sign-up`
+
+## API Surface
+
+- `/api/health` - liveness probe for deploys and smoke checks
+- `/api/agon` - streamed debate execution endpoint
+- `/api/library` - list/save agons
+- `/api/library/[id]` - fetch a saved agon by share id
+- `/api/usage` - current quota and period usage
+- `/api/stripe/checkout` - create a checkout session
+- `/api/stripe/portal` - open the customer portal
+- `/api/stripe/webhook` - Stripe event handler
+- `/api/user/api-key` - store or remove a BYO Anthropic key
+- `/api/contact` - contact form submission endpoint
+- `/api/webhooks/clerk` - Clerk webhook handler
+- `/api/admin/metrics` - internal metrics endpoint
+- `/api/ingest/pageview` - pageview ingestion hook
+
+## Local Development
+
+Run the website from this directory:
 
 ```bash
+cd website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Common scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run test
+npm run coverage
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000` after `npm run dev` starts.
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+The production entrypoint is the built Next.js app in `website/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For a release build:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cd website
+npm run build
+npm run start
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy the built app to the project host used for this repository, and make sure the deployment environment provides the required Clerk, Anthropic, Stripe, Postgres, Redis, Resend, Tavily, and Sentry settings.

@@ -111,7 +111,7 @@
       "counterfactual": "Even mathematically sophisticated observers viewed the Analytical Engine as essentially a faster, more reliable calculator — a quantitative improvement over existing tools rather than a qualitatively new kind of machine.",
       "divergence_explanation": "Lovelace's abstract potential construct allowed her to see past the specific implementation to the general capability — the same architectural leap that later computer scientists would make, but over a century earlier.",
       "outcome": "Lovelace's vision of the Analytical Engine as a general-purpose computing machine anticipated the conceptual foundations of modern computer science by nearly a century.",
-      "source": "mock_placeholder"
+      "source": "N02"
     },
     {
       "id": "incident-002",
@@ -127,7 +127,7 @@
       "counterfactual": "A competent translator would have produced an accurate translation with perhaps minor clarifying notes, staying within the scope of the original work.",
       "divergence_explanation": "Lovelace's documentation-as-thinking construct meant the translation became a vehicle for her own extensive analysis, with the notes becoming far more important than the original text they were nominally supplementing.",
       "outcome": "Lovelace's notes, particularly Note G containing the Bernoulli number algorithm, are recognized as the first published computer program and a foundational document in computing history.",
-      "source": "mock_placeholder"
+      "source": "N01"
     },
     {
       "id": "incident-003",
@@ -143,7 +143,7 @@
       "counterfactual": "Most commentators would have either dismissed the Engine's potential entirely or overstated it without carefully articulating the boundary between symbolic manipulation and genuine origination.",
       "divergence_explanation": "Lovelace's principled machine limitations construct meant she insisted on precise capability boundaries, while her abstract potential construct ensured she fully appreciated the capabilities within those boundaries.",
       "outcome": "Lovelace's distinction between machine execution and machine origination anticipated the central debate in artificial intelligence by over a century, and her precise articulation of both capability and limitation remains relevant in modern AI discussions.",
-      "source": "mock_placeholder"
+      "source": "N03"
     },
     {
       "id": "incident-004",
@@ -159,7 +159,7 @@
       "counterfactual": "A Victorian-era woman seeking credibility in mathematics would have suppressed any association with poetic or artistic thinking, viewing it as undermining her scientific seriousness.",
       "divergence_explanation": "Lovelace's poetic science construct meant she actively cultivated the synthesis of imagination and rigor that her unique background made possible, viewing it as her distinctive intellectual advantage.",
       "outcome": "Lovelace's integrated approach enabled her to see computational possibilities that purely mathematical thinkers missed, producing the visionary insights that distinguish her notes on the Analytical Engine.",
-      "source": "mock_placeholder"
+      "source": "N04"
     },
     {
       "id": "incident-005",
@@ -175,7 +175,7 @@
       "counterfactual": "Others working with the Engine focused on the mechanical implementation rather than developing abstract notation for its operations.",
       "divergence_explanation": "Lovelace's architectural vision and documentation-as-thinking constructs meant she naturally focused on the abstract representation layer rather than the mechanical implementation, understanding that notation shapes thought.",
       "outcome": "Lovelace's notation systems anticipated the development of programming languages and established the principle that abstract program representation is as important as the machine that executes it.",
-      "source": "mock_placeholder"
+      "source": "N05"
     }
   ],
   "core_problem": {
