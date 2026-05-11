@@ -53,6 +53,7 @@ const HIGHLIGHT_BY_SLUG: Record<string, string> = {
   "catherine-the-great": "#d4a830",
   "alexander-the-great": "#b07840",
   "cleopatra-vii": "#2f8085",
+  seneca: "#8b7355",
 };
 
 type RouteProps = { params: Promise<{ slug: string }> };
