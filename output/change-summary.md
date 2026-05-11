@@ -1,20 +1,23 @@
 # Change Summary
 
-Task: `fac8ad62-0710-49eb-99a9-ecbd67b35699`
+## Task
+Restore `/pricing` OG/Twitter preview image routes and regression coverage.
 
-Changed files:
-- `company-builder/src/app/api/research/route.ts`
-- `company-builder/tests/research-route.test.ts`
+## Changed Files
+- `website/src/app/pricing/opengraph-image.tsx`
+- `website/src/app/pricing/twitter-image.tsx`
+- `website/src/app/pricing/opengraph-image.test.tsx`
+- `website/src/app/pricing/twitter-image.test.tsx`
 
-What changed:
-- Added stable SSE error events for research source fetch failures and synthesis stream failures.
-- Kept `research_sources` as the first streamed event before any chunks.
-- Preserved and regression-tested deterministic source ordering and deduplication across web, Hacker News, and GitHub results.
-- Added route-level regression coverage for the success path, source-failure fallback path, and synthesis-failure path.
+## What Changed
+- Restored explicit `/pricing/opengraph-image.tsx` and `/pricing/twitter-image.tsx` route files.
+- Added a dedicated pricing share-card composition that mirrors the canonical pricing copy and renders a 1200x630 social preview.
+- Locked the routes with regression tests for route metadata, OG/Twitter alignment, and rendered pricing copy.
 
-Verification:
-- `cd company-builder && /var/folders/nj/6nhbccys34393w3xv9vxpzfh0000gn/T/wanman-agent-homes/run-mozn9oyg-p70587-ad97d2d0/dev/.wanman/bin/wcx /Users/haotingyen/projects/wanman.dev/node_modules/.bin/vitest run tests/research-route.test.ts`
-
-Result:
-- Passed: 3 tests green.
-- ESLint verification was blocked because the company-builder app tree does not have the ESLint dependency set installed locally, and its `eslint.config.mjs` cannot resolve `eslint/config` in this capsule environment.
+## Verification
+- `./node_modules/.bin/vitest run src/app/pricing/opengraph-image.test.tsx src/app/pricing/twitter-image.test.tsx src/app/pricing/layout.test.ts`
+  - Passed: 3 files, 7 tests.
+- `./node_modules/.bin/vitest run --coverage`
+  - Passed: 72 files, 795 tests, 100% coverage across the configured include set.
+- `./node_modules/.bin/eslint .`
+  - Passed with existing repository warnings only; no errors.
