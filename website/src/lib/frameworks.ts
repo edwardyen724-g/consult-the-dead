@@ -25,6 +25,15 @@ export const ALLOWED_SLUGS = [
   "catherine-the-great",
   "alexander-the-great",
   "cleopatra-vii",
+  // Roster expansion 2026-05 (task 8987b12a / capsule ff13fd3d) — 7 new minds
+  // taking the live roster from 19 → 26. Einstein remains hidden pending legal review.
+  "abraham-lincoln",
+  "andrew-carnegie",
+  "florence-nightingale",
+  "frederick-douglass",
+  "julius-caesar",
+  "napoleon-bonaparte",
+  "seneca",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -50,6 +59,14 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "catherine-the-great": "var(--color-catherine)",
   "alexander-the-great": "var(--color-alexander)",
   "cleopatra-vii": "var(--color-cleopatra)",
+  // Roster expansion 2026-05 — 7 new minds
+  "abraham-lincoln": "var(--color-lincoln)",
+  "andrew-carnegie": "var(--color-carnegie)",
+  "florence-nightingale": "var(--color-nightingale)",
+  "frederick-douglass": "var(--color-douglass)",
+  "julius-caesar": "var(--color-caesar)",
+  "napoleon-bonaparte": "var(--color-napoleon)",
+  "seneca": "var(--color-seneca)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -73,6 +90,14 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "catherine-the-great": "1729\u20131796",
   "alexander-the-great": "356\u2013323 BC",
   "cleopatra-vii": "69\u201330 BC",
+  // Roster expansion 2026-05 \u2014 7 new minds
+  "abraham-lincoln": "1809\u20131865",
+  "andrew-carnegie": "1835\u20131919",
+  "florence-nightingale": "1820\u20131910",
+  "frederick-douglass": "1818\u20131895",
+  "julius-caesar": "100\u201344 BC",
+  "napoleon-bonaparte": "1769\u20131821",
+  "seneca": "c.\u20094 BC\u201365 AD",
 };
 
 /* ── Display order for the index page ── */
@@ -85,16 +110,23 @@ export const DISPLAY_ORDER: FrameworkSlug[] = [
   "leonardo-da-vinci",
   "sun-tzu",
   "marcus-aurelius",
-  "benjamin-franklin",
-  "cicero",
+  "seneca",
   "epictetus",
+  "cicero",
+  "benjamin-franklin",
+  "abraham-lincoln",
+  "frederick-douglass",
   "thomas-edison",
   "archimedes",
   "john-d-rockefeller",
+  "andrew-carnegie",
   "harriet-tubman",
+  "florence-nightingale",
   "ada-lovelace",
   "catherine-the-great",
   "alexander-the-great",
+  "julius-caesar",
+  "napoleon-bonaparte",
   "cleopatra-vii",
 ];
 
