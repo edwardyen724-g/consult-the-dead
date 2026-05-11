@@ -259,7 +259,7 @@ Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATE
 
 ## 11. Non-goals for v1
 
-- No editable framework library — the 26 minds are what you get; users cannot add or modify frameworks.
+- No editable framework library — the 18 minds are what you get; users cannot add or modify frameworks.
 - No multi-user / collaborative agons.
 - No voice, no video, no avatars.
 - No "chat with Newton" mode — this is a contest of reasoning, not a chatbot.
