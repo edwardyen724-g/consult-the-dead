@@ -1,13 +1,11 @@
-'use client'
-import { SignIn } from '@clerk/nextjs'
+import type { Metadata } from 'next'
+import { AuthLanding } from '@/components/AuthLanding'
+
+export const metadata: Metadata = {
+  title: 'Sign In — Consult The Dead',
+  robots: { index: false, follow: false },
+}
 
 export default function SignInPage() {
-  return (
-    <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
-      minHeight: '100vh', background: 'var(--bg)'
-    }}>
-      <SignIn />
-    </div>
-  )
+  return <AuthLanding />
 }

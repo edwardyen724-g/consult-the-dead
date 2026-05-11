@@ -3,14 +3,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ConsensusGraph, type ConsensusNodeKey } from "@/components/ConsensusGraph";
-import { UpsellModal, type UpsellUpgradePayload } from "@/components/upsell-modal";
+import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
-  chooseSampleQuestion,
-  EXAMPLE_TOPICS,
-  SAMPLE_QUESTION_LABEL_ID,
-} from "@/lib/agora-sample-questions";
+  AGORA_SESSION_STORAGE_KEY,
+  decodeAgoraSession,
+  encodeAgoraSession,
+  type AgoraSessionState,
+} from "@/lib/agora-session";
 import {
   PACKS,
   getActivePackMembers,
@@ -61,6 +61,12 @@ const DEFAULT_COUNCIL_SIZE = 3;
 const TOTAL_ROUNDS = 3;
 const API_KEY_STORAGE = "ctd-anthropic-key";
 
+const EXAMPLE_TOPICS = [
+  "Should I raise VC or bootstrap?",
+  "Should we open-source our core product?",
+  "My industry is being automated — pivot into AI, or double down on domain depth?",
+];
+
 interface RoundTurn {
   mindSlug: string;
   mindName: string;
@@ -88,8 +94,6 @@ interface AgonState {
   consensusNode: ConsensusNodeKey | null;
   error: string | null;
   rateLimited: boolean;
-  /** True while the free-tier exhaustion upsell modal is visible. */
-  showUpsellModal: boolean;
   quotaRemaining: number | undefined;
   researchLoading: boolean;
   researchData: ResearchData | null;
@@ -109,7 +113,6 @@ const INITIAL_STATE: AgonState = {
   consensusNode: null,
   error: null,
   rateLimited: false,
-  showUpsellModal: false,
   quotaRemaining: undefined,
   researchLoading: false,
   researchData: null,
@@ -152,6 +155,28 @@ function suggestCouncil(topic: string, minds: MindOption[]): string[] {
   return fallback;
 }
 
+function toAgoraSessionState(state: AgonState): AgoraSessionState {
+  return {
+    stage: state.stage,
+    topic: state.topic,
+    researchEnabled: state.researchEnabled,
+    council: state.council,
+    turns: state.turns,
+    activeRound: state.activeRound,
+    activeMindSlug: state.activeMindSlug,
+    consensus: state.consensus,
+    consensusNode: state.consensusNode,
+    quotaRemaining: state.quotaRemaining,
+    researchData: state.researchData,
+  };
+}
+
+const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
+
+function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
+  return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
+}
+
 export function AgoraApp({
   minds,
   isPro,
@@ -164,11 +189,9 @@ export function AgoraApp({
   initialMinds?: string[] | null;
 }) {
   const [state, setState] = useState<AgonState>(INITIAL_STATE);
+  const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
-  // showApiKey is lifted here so the upsell modal's "Add API key" CTA can
-  // navigate back to the topic stage with the key section pre-expanded.
-  const [showApiKey, setShowApiKey] = useState(false);
 
   // Fetch live usage on mount
   useEffect(() => {
@@ -187,6 +210,55 @@ export function AgoraApp({
       // ignore
     }
   }, []);
+
+  // Restore a previously persisted Agora session once the component mounts.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(AGORA_SESSION_STORAGE_KEY);
+      const restored = decodeAgoraSession(saved);
+      if (!restored) return;
+
+      setState((current) => ({
+        ...current,
+        ...restored,
+        consensusNode: isConsensusNodeKey(restored.consensusNode) ? restored.consensusNode : null,
+        consensusLoading: false,
+        researchLoading: false,
+        error: null,
+        rateLimited: false,
+      }));
+    } catch {
+      // ignore
+    } finally {
+      setSessionHydrated(true);
+    }
+  }, []);
+
+  // Persist the non-transient Agora session fields after hydration completes.
+  useEffect(() => {
+    if (!sessionHydrated) return;
+
+    try {
+      const encoded = encodeAgoraSession(toAgoraSessionState(state));
+      if (encoded) sessionStorage.setItem(AGORA_SESSION_STORAGE_KEY, encoded);
+      else sessionStorage.removeItem(AGORA_SESSION_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+  }, [
+    sessionHydrated,
+    state.stage,
+    state.topic,
+    state.researchEnabled,
+    state.council,
+    state.turns,
+    state.activeRound,
+    state.activeMindSlug,
+    state.consensus,
+    state.consensusNode,
+    state.quotaRemaining,
+    state.researchData,
+  ]);
 
   // Cancel any in-flight stream when component unmounts
   useEffect(() => {
@@ -289,12 +361,10 @@ export function AgoraApp({
 
       if (!res.ok) {
         const errBody = await res.json().catch(() => ({}));
-        const isRateLimited = !!errBody.rateLimited;
         setState((s) => ({
           ...s,
-          error: isRateLimited ? null : (errBody.error ?? `Request failed: ${res.status}`),
-          rateLimited: isRateLimited,
-          showUpsellModal: isRateLimited,
+          error: errBody.error ?? `Request failed: ${res.status}`,
+          rateLimited: !!errBody.rateLimited,
           stage: "council",
         }));
         return;
@@ -380,16 +450,13 @@ export function AgoraApp({
             .then((data) => setUsageInfo(data))
             .catch(() => {});
           return { ...s, quotaRemaining: event.remaining };
-        case "error": {
-          const isRateLimited = !!event.rateLimited;
+        case "error":
           return {
             ...s,
-            error: isRateLimited ? null : event.message,
-            rateLimited: isRateLimited,
-            showUpsellModal: isRateLimited,
+            error: event.message,
+            rateLimited: !!event.rateLimited,
             consensusLoading: false,
           };
-        }
         default:
           return s;
       }
@@ -403,50 +470,6 @@ export function AgoraApp({
       apiKey: s.apiKey,
     }));
   }
-
-  // ── Upsell modal handlers ────────────────────────────────────────────────
-
-  /** "Add your Anthropic API key" CTA: close modal → topic stage → key expanded. */
-  function handleModalAddKey() {
-    setState((s) => ({
-      ...INITIAL_STATE,
-      apiKey: s.apiKey,
-      topic: s.topic,
-    }));
-    setShowApiKey(true);
-  }
-
-  /**
-   * "Upgrade to Pro" CTA: POST to Stripe checkout with utm_campaign, then
-   * redirect to the checkout URL returned by the server.
-   */
-  async function handleModalUpgrade(payload: UpsellUpgradePayload) {
-    try {
-      const res = await fetch("/api/stripe/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ utm_campaign: payload.utm_campaign }),
-      });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.url) {
-          window.location.href = data.url;
-          return;
-        }
-      }
-      // If checkout fails, fallback to pricing page
-      window.location.href = "/pricing";
-    } catch {
-      window.location.href = "/pricing";
-    }
-  }
-
-  /** "Come back tomorrow" CTA: dismiss the modal, stay on council stage. */
-  function handleModalDismiss() {
-    setState((s) => ({ ...s, showUpsellModal: false }));
-  }
-
-  // ── End upsell modal handlers ────────────────────────────────────────────
 
   const selectedMinds = state.council
     .map((slug) => minds.find((m) => m.slug === slug))
@@ -496,8 +519,6 @@ export function AgoraApp({
                 setState((s) => ({ ...s, researchEnabled: v }))
               }
               onSubmit={beginFromTopic}
-              showKey={showApiKey}
-              setShowKey={setShowApiKey}
             />
           )}
 
@@ -589,16 +610,6 @@ export function AgoraApp({
           </Link>
         </div>
       </div>
-
-      {/* Free-tier exhaustion upsell modal — rendered outside the scrollable
-          content area so it can position:fixed over the whole viewport. */}
-      {state.showUpsellModal && (
-        <UpsellModal
-          onAddKey={handleModalAddKey}
-          onUpgrade={handleModalUpgrade}
-          onDismiss={handleModalDismiss}
-        />
-      )}
     </main>
   );
 }
@@ -689,8 +700,6 @@ function TopicStage({
   researchEnabled,
   setResearchEnabled,
   onSubmit,
-  showKey,
-  setShowKey,
 }: {
   topic: string;
   setTopic: (t: string) => void;
@@ -699,11 +708,8 @@ function TopicStage({
   researchEnabled: boolean;
   setResearchEnabled: (v: boolean) => void;
   onSubmit: () => void;
-  /** Controlled by the parent so the upsell modal can pre-open this section. */
-  showKey: boolean;
-  setShowKey: (v: boolean) => void;
 }) {
-  const topicRef = useRef<HTMLTextAreaElement | null>(null);
+  const [showKey, setShowKey] = useState(false);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
@@ -743,7 +749,6 @@ function TopicStage({
       <div style={{ position: "relative", marginBottom: "10px" }}>
         <textarea
           id="agora-topic"
-          ref={topicRef}
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="My industry is being automated faster than I expected. Should I pivot hard into AI skills now, or double down on being irreplaceable in my domain?"
@@ -876,7 +881,7 @@ function TopicStage({
       </button>
 
       {/* Example questions */}
-      <div style={{ marginTop: "56px" }} aria-labelledby={SAMPLE_QUESTION_LABEL_ID}>
+      <div style={{ marginTop: "56px" }}>
         <div
           style={{
             display: "flex",
@@ -887,7 +892,6 @@ function TopicStage({
         >
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
           <span
-            id={SAMPLE_QUESTION_LABEL_ID}
             className="font-mono"
             style={{
               fontSize: "10px",
@@ -897,7 +901,7 @@ function TopicStage({
               whiteSpace: "nowrap",
             }}
           >
-            ◆ Sample questions you can tap to start
+            ◆ Or borrow a question from another querent
           </span>
           <div style={{ flex: 1, height: "1px", background: "var(--hairline)" }} />
         </div>
@@ -912,12 +916,7 @@ function TopicStage({
           {EXAMPLE_TOPICS.map((ex, i) => (
             <button
               key={ex}
-              type="button"
-              onClick={() =>
-                chooseSampleQuestion(setTopic, topicRef, ex)
-              }
-              aria-label={`Use sample question: ${ex}`}
-              title="Prefill the topic with this sample question"
+              onClick={() => setTopic(ex)}
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--hairline)",
@@ -963,7 +962,7 @@ function TopicStage({
       {/* API key */}
       <div style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}>
         <button
-          onClick={() => setShowKey(!showKey)}
+          onClick={() => setShowKey((v) => !v)}
           className="font-mono"
           style={{
             background: "transparent",
@@ -1178,11 +1177,47 @@ function CouncilStage({
     return PACKS.filter((p) => getActivePackMembers(p, liveSlugs).length > 0);
   }, [liveSlugs]);
 
-  const defaultOpen: PackId | null = initialOpenPack ?? activePacks[0]?.id ?? null;
-  const [openPack, setOpenPack] = useState<PackId | null>(defaultOpen);
+  // Compute initial open packs: when a specific pack is requested, open only
+  // that pack; otherwise open every pack that already has a seated (smart-
+  // suggested) mind so the user can see their pre-selection without having to
+  // hunt across closed accordion sections. Falls back to the first active pack
+  // if none of the suggested minds are live yet.
+  const initialOpenPacks = useMemo<ReadonlySet<PackId>>(() => {
+    if (initialOpenPack) return new Set([initialOpenPack]);
+    const withSeated = activePacks
+      .filter((p) =>
+        getActivePackMembers(p, liveSlugs).some((s) => council.includes(s))
+      )
+      .map((p) => p.id);
+    const ids = withSeated.length > 0
+      ? withSeated
+      : activePacks.slice(0, 1).map((p) => p.id);
+    return new Set(ids);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // computed once on mount — we don't re-open on subsequent council changes
+
+  const [openPacks, setOpenPacks] = useState<ReadonlySet<PackId>>(initialOpenPacks);
 
   function togglePack(id: PackId) {
-    setOpenPack((cur) => (cur === id ? null : id));
+    setOpenPacks((cur) => {
+      const next = new Set(cur);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  // Show a brief upsell banner when a free user tries to seat a 4th mind.
+  const [showCapBanner, setShowCapBanner] = useState(false);
+
+  function handleToggleMind(slug: string) {
+    const isSeated = council.includes(slug);
+    if (!isSeated && count >= mindMax) {
+      setShowCapBanner(true);
+      return;
+    }
+    setShowCapBanner(false);
+    toggleMind(slug);
   }
 
   return (
@@ -1254,7 +1289,7 @@ function CouncilStage({
       >
         {activePacks.map((pack, idx) => {
           const memberSlugs = getActivePackMembers(pack, liveSlugs);
-          const open = openPack === pack.id;
+          const open = openPacks.has(pack.id);
           const seatedCount = memberSlugs.filter((s) => council.includes(s)).length;
           return (
             <div
@@ -1373,7 +1408,7 @@ function CouncilStage({
                           key={`${pack.id}-${slug}`}
                           mind={mind}
                           selected={council.includes(slug)}
-                          onToggle={() => toggleMind(slug)}
+                          onToggle={() => handleToggleMind(slug)}
                           packs={PACKS.filter((p) => p.members.includes(slug))}
                           currentPackId={pack.id}
                         />
@@ -1387,7 +1422,46 @@ function CouncilStage({
         })}
       </div>
 
-      {!isPro && (
+      {!isPro && showCapBanner && (
+        <div
+          data-testid="cap-upsell-banner"
+          style={{
+            marginTop: "16px",
+            padding: "14px 18px",
+            border: "1px solid var(--amber)",
+            borderRadius: "4px",
+            background: "var(--amber-wash)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            className="font-mono"
+            style={{ fontSize: "11px", letterSpacing: "0.06em", color: "var(--fg-dim)", lineHeight: 1.55 }}
+          >
+            Free plan seats up to 3 minds. Pro unlocks 5 minds, 100 agons/month, and Opus synthesis.
+          </div>
+          <Link
+            href="/pricing"
+            className="font-mono"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--amber)",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+            }}
+          >
+            Upgrade to Pro →
+          </Link>
+        </div>
+      )}
+      {!isPro && !showCapBanner && (
         <div
           className="font-mono"
           style={{

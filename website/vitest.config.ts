@@ -13,6 +13,9 @@ export default defineConfig({
     // share-id.test.ts uses a globals-or-shim pattern so it can also run
     // standalone via `npx tsx`; turning globals on lets vitest collect it.
     globals: true,
+    // Exclude Playwright e2e specs — they use playwright/test which is
+    // incompatible with the Vitest runner and must be run via `playwright test`.
+    exclude: ["**/node_modules/**", "**/dist/**", "e2e/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov", "html"],
