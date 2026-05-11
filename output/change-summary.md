@@ -1,28 +1,17 @@
 # Change Summary
 
-Task: `1d6f42ad` - Add one more send-outreach branch-coverage test to clear the CTO gate
-Capsule: `1b2feb4a` - `wanman/send-outreach-script`
+Task: `f6405c23-3846-4f00-a1c8-ade03fd9bedd`
 
-## Changed Files
+## Result
 
-- `scripts/__tests__/send-outreach.branch-coverage.test.ts`
-
-## What Changed
-
-- Added a dedicated branch-coverage test file for the send-outreach script.
-- Covered the remaining branch-sensitive paths:
-  - `firstName()` fallback when a string-like input trims to an empty token
-  - `sendOutreach()` with `env` omitted so it falls back to `process.env`
-  - `sendOutreach()` dry-run placeholder handling when a roster email is blank or missing
+- Linked the task to initiative `9e0f2ccd` and capsule `9a6b2da4-d66e-4eb5-8b95-61b8bfa28243`.
+- Verified both target surfaces already have no `mock_placeholder` matches.
+- No repository files required edits.
+- Marked the task done in Wanman.
 
 ## Verification
 
-- `npx tsx -e '(async () => { await import("./scripts/__tests__/send-outreach.test.ts"); await import("./scripts/__tests__/send-outreach.branch-coverage.test.ts"); })();'`
-  - Result: `58 tests passed`
-- `npx c8 --reporter=text --reporter=lcov npx tsx -e '(async () => { await import("./scripts/__tests__/send-outreach.test.ts"); await import("./scripts/__tests__/send-outreach.branch-coverage.test.ts"); })();'`
-  - Result: `scripts/send-outreach.ts` reached `97.19%` branch coverage and overall branch coverage hit `95.86%`
+- `grep -RIn "mock_placeholder" website/data/frameworks`
+- `grep -RIn "mock_placeholder" docs/phase0-pricing-page-copy.md`
 
-## Notes
-
-- Scope stayed inside `scripts/send-outreach*` only.
-- No runtime script changes were required; this was a test-only lift.
+Both commands returned no matches.
