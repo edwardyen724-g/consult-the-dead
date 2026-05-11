@@ -125,7 +125,7 @@
       "counterfactual": "A competent physicist would have worked with available mathematical tools, using geometric methods and approximations to get useful if imprecise results.",
       "divergence_explanation": "Newton's mathematical precision construct meant approximate solutions were unacceptable — he needed exact tools and would create entirely new branches of mathematics to get them.",
       "outcome": "Calculus became the most important mathematical tool in science and engineering, enabling precise analysis of everything from planetary orbits to engineering design to economic optimization.",
-      "source": "mock_placeholder"
+      "source": "annus_mirabilis_notebooks"
     },
     {
       "id": "incident-002",
@@ -141,7 +141,7 @@
       "counterfactual": "A competent physicist might have established the inverse-square law empirically for either terrestrial or celestial contexts without insisting on universal unification.",
       "divergence_explanation": "Newton's universal law-seeking construct meant he could not accept separate explanations for what he perceived as a single phenomenon — the unification had to be mathematically exact and universally applicable.",
       "outcome": "Universal gravitation unified physics, enabled precise prediction of celestial mechanics, and established the paradigm of universal mathematical law that governed science for two centuries until Einstein's revision.",
-      "source": "mock_placeholder"
+      "source": "annus_mirabilis_notebooks"
     },
     {
       "id": "incident-005",
@@ -157,7 +157,7 @@
       "counterfactual": "A generous scientist would have acknowledged Leibniz's independent contribution and focused on the collaborative advance of mathematics rather than personal priority.",
       "divergence_explanation": "Newton's fierce priority defense construct made it impossible for him to share credit for what he viewed as his most important contribution — the threat to his priority triggered a response disproportionate to any rational assessment of the stakes.",
       "outcome": "Newton effectively won the priority dispute during his lifetime, but historians now generally credit both Newton and Leibniz as independent co-inventors. The dispute damaged both men's reputations and hindered mathematical progress in England for decades.",
-      "source": "mock_placeholder"
+      "source": "opticks_and_light_experiments"
     },
     {
       "id": "incident-006",
@@ -173,7 +173,7 @@
       "counterfactual": "Most scholars used the plague years for limited study, correspondence, and preparation for return to academic life, not for the obsessive, multi-front intellectual campaign Newton conducted.",
       "divergence_explanation": "Newton's solitary concentration and obsessive completeness constructs meant that isolation was his ideal working condition — the plague removed social obligations he likely viewed as impediments to his real work.",
       "outcome": "The annus mirabilis produced the foundations of calculus, the theory of colors, and the beginnings of universal gravitation — arguably the most productive period of individual scientific work in history.",
-      "source": "mock_placeholder"
+      "source": "opticks_and_light_experiments"
     },
     {
       "id": "incident-003",
@@ -189,7 +189,7 @@
       "counterfactual": "A typical natural philosopher would have proposed the composition theory as a hypothesis and engaged in theoretical debate with proponents of the modification theory.",
       "divergence_explanation": "Newton's empirical rigor construct meant he could not accept theoretical debate as a path to truth — only precise, repeatable experiment could establish physical reality, and he designed experiments specifically to be unchallengeable.",
       "outcome": "Newton's experiments decisively established the composition theory of white light, becoming a model for how experimental science should be conducted.",
-      "source": "mock_placeholder"
+      "source": "annus_mirabilis_notebooks"
     }
   ],
   "core_problem": {
