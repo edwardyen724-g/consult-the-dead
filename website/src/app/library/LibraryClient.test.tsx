@@ -98,8 +98,8 @@ describe("LibraryClient", () => {
 
     const text = flattenText(tree);
     expect(text).toContain("Saved library");
-    expect(text).toContain("No saved agons yet.");
-    expect(text).toContain("Run your first one →");
+    expect(text).toContain("Start your first consultation.");
+    expect(text).toContain("Start your first consultation →");
     expect(findElementWithProp(tree, "href", "/agora")).not.toBeNull();
   });
 
