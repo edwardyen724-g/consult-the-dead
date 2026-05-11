@@ -703,6 +703,7 @@ function TopicStage({
   showKey: boolean;
   setShowKey: (v: boolean) => void;
 }) {
+  const topicRef = useRef<HTMLTextAreaElement | null>(null);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
