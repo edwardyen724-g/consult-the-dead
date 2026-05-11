@@ -53,6 +53,7 @@ import { SHARE_SOCIAL_PROOF_LINE } from "@/lib/share-cta-link";
 import {
   buildAgoraCtaHref,
   buildShareDescription,
+  extractHighlightInsight,
   groupTurnsByRound,
   hasUsableConsensus,
   normalizeResearch,
@@ -205,8 +206,10 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
   const grouped = groupTurnsByRound(turns);
   const research = normalizeResearch(agon.research ?? null);
   const consensus = hasUsableConsensus(agon.consensus) ? agon.consensus : null;
+  const highlight = extractHighlightInsight(agon.consensus);
 
   const council = (agon.mind_slugs ?? []).map((s) => lookupMind(s));
+  const shareUrl = `https://www.consultthedead.com/agora/a/${agon.share_id}`;
 
   return (
     <main
@@ -428,6 +431,51 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
           </Section>
         )}
 
+        {/* Highlight insight pull-quote — the most notable single
+            takeaway from the council's consensus, surfaced near the
+            bottom so readers leave with a clear hook. Hidden in print
+            so the pull-quote box doesn't interrupt a clean PDF export.
+            Only shown when the consensus has usable content. */}
+        {highlight && (
+          <div
+            data-print="hide"
+            style={{
+              marginTop: "56px",
+              padding: "28px 32px",
+              background: "var(--surface)",
+              borderLeft: "4px solid var(--amber)",
+              border: "1px solid var(--hairline)",
+              borderLeft: "4px solid var(--amber)",
+              maxWidth: "860px",
+            }}
+          >
+            <p
+              className="font-mono"
+              style={{
+                fontSize: "9px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--amber)",
+                margin: "0 0 12px",
+              }}
+            >
+              {highlight.label}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(1rem, 2.2vw, 1.25rem)",
+                fontStyle: "italic",
+                lineHeight: 1.6,
+                color: "var(--fg)",
+                margin: 0,
+              }}
+            >
+              &ldquo;{highlight.text}&rdquo;
+            </p>
+          </div>
+        )}
+
         {/* Generated-by line — visible in print on purpose so the
             attribution survives any printed/saved share. */}
         <div
@@ -461,19 +509,23 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
           </p>
         </div>
 
-        {/* Interactive CTA row — hidden in print, but the
-            attribution line above carries the brand into the PDF. */}
+        {/* Next-step CTA block — hidden in print. Two actions:
+            1. Start a new consultation (primary)
+            2. Share this agon (secondary — copies/opens the share URL)
+            Both forward utm attribution. */}
         <div
           data-print="hide"
           style={{
             marginTop: "32px",
             display: "flex",
+            flexWrap: "wrap",
             justifyContent: "center",
+            gap: "16px",
           }}
         >
           <Link
             href={ctaHref}
-            data-cta="run-your-own-agon"
+            data-cta="start-new-consultation"
             className="font-mono"
             style={{
               display: "inline-block",
@@ -488,7 +540,26 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
               textDecoration: "none",
             }}
           >
-            Run your own agon →
+            Start a new consultation →
+          </Link>
+          <Link
+            href={shareUrl}
+            data-cta="share-this-agon"
+            className="font-mono"
+            style={{
+              display: "inline-block",
+              background: "transparent",
+              color: "var(--fg-dim)",
+              border: "1px solid var(--hairline)",
+              borderRadius: 0,
+              fontSize: "12px",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              padding: "16px 36px",
+              textDecoration: "none",
+            }}
+          >
+            Share this agon
           </Link>
         </div>
       </div>
