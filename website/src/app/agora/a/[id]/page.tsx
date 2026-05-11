@@ -443,7 +443,6 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
               marginTop: "56px",
               padding: "28px 32px",
               background: "var(--surface)",
-              borderLeft: "4px solid var(--amber)",
               border: "1px solid var(--hairline)",
               borderLeft: "4px solid var(--amber)",
               maxWidth: "860px",
