@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPricingStats } from "@/lib/pricing/stats";
+import { getPricingStats } from "@/lib/pricing/live-stats";
 
 export const runtime = "nodejs";
 

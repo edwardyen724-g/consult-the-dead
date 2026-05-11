@@ -36,7 +36,7 @@ describe("pricing stats loader", () => {
     );
     mockSql.mockResolvedValue({ rows: [{ count: "42" }] });
 
-    const { getPricingStats } = await import("@/lib/pricing/stats");
+    const { getPricingStats } = await import("@/lib/pricing/live-stats");
     const stats = await getPricingStats();
 
     expect(stats).toEqual({
@@ -57,7 +57,7 @@ describe("pricing stats loader", () => {
     mockGetActivePackMembers.mockReturnValue([]);
     mockSql.mockResolvedValue({ rows: [] });
 
-    const { getPricingStats } = await import("@/lib/pricing/stats");
+    const { getPricingStats } = await import("@/lib/pricing/live-stats");
     const stats = await getPricingStats();
 
     expect(stats).toMatchObject({
@@ -74,7 +74,7 @@ describe("pricing stats loader", () => {
     );
     mockSql.mockResolvedValue({ rows: [{ count: "-7" }] });
 
-    const { getPricingStats, buildPricingStats } = await import("@/lib/pricing/stats");
+    const { getPricingStats, buildPricingStats } = await import("@/lib/pricing/live-stats");
 
     await expect(getPricingStats()).resolves.toMatchObject({
       agonsRun: 0,
@@ -102,7 +102,7 @@ describe("pricing stats loader", () => {
   });
 
   it("clamps non-number inputs to zero", async () => {
-    const { buildPricingStats } = await import("@/lib/pricing/stats");
+    const { buildPricingStats } = await import("@/lib/pricing/live-stats");
 
     expect(
       buildPricingStats({

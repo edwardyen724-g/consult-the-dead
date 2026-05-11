@@ -1,11 +1,16 @@
-import { sql } from "@vercel/postgres";
-import { PACKS, getActivePackMembers } from "@/lib/packs";
-
-// ── Static pricing stats (used by /pricing client component) ───────────────────
-//
-// Kept as static values rather than computed at build time so that the
-// framework registry (which reads from the filesystem) is never bundled into
-// the client-side pricing page.
+/**
+ * Pricing page stats counter.
+ *
+ * Static values for v1 (per marketing brief 22ee79de §Part 4 Variant A:
+ * "Capability signal — available now, static"). When task 55af6ebe lands,
+ * the live `agora_self_run` event count from Vercel Analytics can replace
+ * the static minds/debatesInLibrary numbers without changing the page JSX
+ * — just swap the source feeding `formatPricingStats`.
+ *
+ * NOTE: this file is imported by the /pricing 'use client' page and must
+ * remain free of server-only dependencies (Node fs, @vercel/postgres, etc.).
+ * Live/dynamic stats live in ./live-stats.ts (server-only).
+ */
 
 export type PricingStats = {
   /** Number of historical minds available in the council. */
@@ -58,80 +63,4 @@ export function formatPricingStats(stats: PricingStats): string[] {
     `${debatesInLibrary} ${debateLabel} in the library`,
     'Free to start',
   ];
-}
-
-// ── Live pricing stats (used by /api/stats server route) ────────────────────────
-//
-// These are fetched dynamically from the database and framework registry.
-// getAllFrameworks() uses Node.js `fs` so it must only be called server-side.
-
-export interface LivePricingStats {
-  frameworkCount: number;
-  activePackCount: number;
-  agonsRun: number;
-  freeAgonsPerDay: number;
-  proAgonsPerMonth: number;
-  proTrialDays: number;
-  proMonthlyPrice: number;
-  proAnnualPrice: number;
-  foundingMemberAnnualPrice: number;
-}
-
-function toSafeInt(value: unknown): number {
-  if (typeof value === "number" && Number.isFinite(value)) return Math.max(0, Math.trunc(value));
-  if (typeof value === "string") {
-    const parsed = Number.parseInt(value, 10);
-    return Number.isFinite(parsed) ? Math.max(0, parsed) : 0;
-  }
-  return 0;
-}
-
-export function buildPricingStats(input: {
-  frameworkCount: number;
-  activePackCount: number;
-  agonsRun: number;
-}): LivePricingStats {
-  return {
-    frameworkCount: toSafeInt(input.frameworkCount),
-    activePackCount: toSafeInt(input.activePackCount),
-    agonsRun: toSafeInt(input.agonsRun),
-    freeAgonsPerDay: 3,
-    proAgonsPerMonth: 100,
-    proTrialDays: 7,
-    proMonthlyPrice: 30,
-    proAnnualPrice: 300,
-    foundingMemberAnnualPrice: 300,
-  };
-}
-
-async function readAgonsRunCount(): Promise<number> {
-  const result = await sql<{ count: string | number }>`
-    SELECT COUNT(*)::int AS count
-    FROM agons
-  `;
-  return toSafeInt(result.rows[0]?.count ?? 0);
-}
-
-function countActivePacks(frameworks: Array<{ slug: string }>): number {
-  const liveSlugs = new Set(frameworks.map((framework) => framework.slug));
-
-  return PACKS.filter((pack) => getActivePackMembers(pack, liveSlugs).length > 0).length || 0;
-}
-
-export async function getPricingStats(): Promise<LivePricingStats> {
-  // Dynamic import keeps getAllFrameworks (which reads from the filesystem via
-  // Node's `fs`) out of the client bundle. The /pricing page is 'use client'
-  // and imports this module for the static formatPricingStats helper; a
-  // top-level static import of frameworks.ts would break the browser build.
-  const { getAllFrameworks } = await import("@/lib/frameworks");
-  const frameworks = getAllFrameworks();
-  const frameworkCount = frameworks.length;
-  const activePackCount = countActivePacks(frameworks);
-  const agonsRun = await readAgonsRunCount();
-
-  return buildPricingStats({
-    frameworkCount,
-    activePackCount,
-    agonsRun,
-  });
 }
