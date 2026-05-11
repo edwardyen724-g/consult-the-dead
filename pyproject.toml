@@ -19,5 +19,8 @@ dev = [
 [tool.setuptools.packages.find]
 include = ["framework_forge*"]
 
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
 [project.scripts]
 framework-forge = "framework_forge.cli:cli"
