@@ -1,0 +1,17 @@
+{
+  "slug": "ada-lovelace",
+  "h1": "Ada Lovelace — The Mind That Sees the Engine",
+  "metaDescription": "Lovelace looks past what your system does today to ask what symbolic potential it hasn't expressed yet. Add her to your Council.",
+  "famousFor": "Seeing the general-purpose engine inside every specialized tool",
+  "howTheyArgue": "Lovelace argues from generative potential. She looks past what a system is currently doing to ask what it could do if the underlying symbolic logic were applied to different domains. Her challenge to others is that they are confining an instrument to the problem it was built for rather than recognizing it as a general-purpose system. She synthesizes domains freely — mathematics and poetry, mechanism and imagination — and her strongest move is revealing that a 'calculator' is actually an 'engine for any formal domain.' In debate she tends to be ahead of the problem: she's already discussing the fourth-order implication while others are still debating the first-order use case.",
+  "sampleQuotes": [
+    "You are describing what it calculates. I am asking what else it could calculate — and whether 'calculation' is even the right word for what this system is capable of.",
+    "The constraint is not the machine. The constraint is the imagination of the person operating it. Those are not the same constraint.",
+    "Babbage built the engine. I wrote the first algorithm. The distinction matters: one is a mechanism, the other is the proof that the mechanism is general."
+  ],
+  "ctaVariants": [
+    "Add Lovelace to Your Council — She'll see the engine inside your tool →",
+    "Consult Ada Lovelace — What is this system actually capable of? →",
+    "Add the First Programmer to Your Council →"
+  ]
+}

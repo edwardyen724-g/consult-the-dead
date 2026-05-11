@@ -1,0 +1,17 @@
+{
+  "slug": "thomas-edison",
+  "h1": "Thomas Edison — The Mind That Ships",
+  "metaDescription": "Edison runs the experiment, eliminates what doesn't work, and ships what does. Add him to your Council when you need to move fast.",
+  "famousFor": "Proving that genius is systematic iteration, not inspired insight",
+  "howTheyArgue": "Edison argues from throughput engineering. He reads every strategic question as a structural-engineering problem with three variables: theoretical determinacy (is the correct answer knowable in advance?), empirical test cost (how cheaply can a hypothesis be falsified?), and commercial payoff (is the resulting solution patentable and deployable?). Where those three conditions align, he advocates relentless systematic iteration — not creativity, not elegance, but operational throughput. He challenges Tesla for solving problems that can't be shipped and Curie for measuring when you could just try. His weakness: he will iterate on a commercially defined solution space without questioning whether the space is correctly drawn.",
+  "sampleQuotes": [
+    "You don't need to understand the mechanism. You need to run the experiment. I've run ten thousand experiments that didn't work. That's not failure — that's the process.",
+    "Tesla wants to calculate the optimal solution. I want to find the one that works in the next ninety days and can be shipped to a customer. Those are different problems, and mine is the one that gets built.",
+    "The correct method is the one whose enabling conditions match the problem's structure. Theoretical underdetermination plus cheap empirical test plus patentable output equals systematic iteration. That's not a guess — it's a formula."
+  ],
+  "ctaVariants": [
+    "Add Edison to Your Council — He'll run the experiment you're overthinking →",
+    "Consult Thomas Edison — What's the fastest path to a testable prototype? →",
+    "Add the Inventor to Your Council →"
+  ]
+}

@@ -38,7 +38,10 @@ export function ConsensusGraph({
   selected,
 }: ConsensusGraphProps) {
   const [hovered, setHovered] = useState<ConsensusNodeKey | null>(null);
+  const [focused, setFocused] = useState<ConsensusNodeKey | null>(null);
   const active = hovered ?? selected ?? null;
+  const focusActive = focused ?? active;
+  const interactive = !!onNodeSelect || !!summaries;
 
   const outerNodes = NODE_LABELS.map((label, i) => {
     const angle = -Math.PI / 2 + (2 * Math.PI * i) / 5;
@@ -59,6 +62,7 @@ export function ConsensusGraph({
         height={GRAPH_SIZE}
         className={`gm-consensus-graph${started ? " gm-consensus-play" : ""}`}
         aria-hidden="true"
+        focusable="false"
         overflow="visible"
       >
         {outerNodes.map((node, i) => {
@@ -83,8 +87,7 @@ export function ConsensusGraph({
         })}
 
         {outerNodes.map((node, i) => {
-          const isActive = active === node.label;
-          const interactive = !!onNodeSelect || !!summaries;
+          const isActive = focusActive === node.label;
           return (
             <circle
               key={i}
@@ -97,11 +100,7 @@ export function ConsensusGraph({
               className="gm-consensus-node"
               style={{
                 transitionDelay: `${i * 120}ms`,
-                cursor: interactive ? "pointer" : "default",
               }}
-              onMouseEnter={() => interactive && setHovered(node.label)}
-              onMouseLeave={() => interactive && setHovered(null)}
-              onClick={() => onNodeSelect?.(node.label)}
             />
           );
         })}
@@ -163,6 +162,78 @@ export function ConsensusGraph({
           SENSUS
         </text>
       </svg>
+
+      {interactive && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 1,
+          }}
+        >
+          {outerNodes.map((node) => {
+            const summary = summaries?.[node.label];
+            const isActive = active === node.label;
+            const isFocused = focused === node.label;
+            return (
+              <button
+                key={node.label}
+                type="button"
+                aria-label={
+                  summary
+                    ? `${node.label}: ${summary}`
+                    : `${node.label} consensus node`
+                }
+                aria-pressed={selected === node.label}
+                onMouseEnter={() => setHovered(node.label)}
+                onMouseLeave={() => setHovered(null)}
+                onFocus={() => {
+                  setFocused(node.label);
+                  setHovered(node.label);
+                }}
+                onBlur={() => {
+                  setFocused((current) =>
+                    current === node.label ? null : current,
+                  );
+                  setHovered((current) =>
+                    current === node.label ? null : current,
+                  );
+                }}
+                onClick={() => {
+                  setHovered(node.label);
+                  onNodeSelect?.(node.label);
+                }}
+                style={{
+                  position: "absolute",
+                  left: node.x - 20,
+                  top: node.y - 20,
+                  width: 40,
+                  height: 40,
+                  margin: 0,
+                  padding: 0,
+                  border: "none",
+                  borderRadius: "9999px",
+                  background: "transparent",
+                  cursor: "pointer",
+                  outline: "none",
+                  appearance: "none",
+                  WebkitAppearance: "none",
+                  transition:
+                    "transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease",
+                  transform: isFocused ? "scale(1.06)" : "scale(1)",
+                  boxShadow: isFocused
+                    ? "0 0 0 2px var(--bg), 0 0 0 4px var(--amber)"
+                    : "none",
+                  backgroundColor:
+                    isActive || isFocused
+                      ? "rgba(227, 181, 40, 0.08)"
+                      : "transparent",
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
       {activeNode && activeSummary && (
         <div

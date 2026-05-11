@@ -2,7 +2,7 @@
 
 import json
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 import anthropic
@@ -51,6 +51,37 @@ class LLMClient:
             )
         self._client = anthropic.Anthropic(api_key=self.api_key)
 
+    @staticmethod
+    def _build_message_request(
+        system: str,
+        user: str,
+        model: str | None,
+        max_tokens: int,
+    ) -> dict[str, Any]:
+        """Build the Anthropic request payload in one place."""
+        return {
+            "model": model or MODEL,
+            "max_tokens": max_tokens,
+            "system": system,
+            "messages": [{"role": "user", "content": user}],
+        }
+
+    @staticmethod
+    def _extract_response_text(response: Any) -> str:
+        """Join all returned text blocks into a single deterministic string."""
+        content = getattr(response, "content", None) or []
+        text_parts: list[str] = []
+
+        for block in content:
+            text = getattr(block, "text", None)
+            if text:
+                text_parts.append(text)
+
+        if not text_parts:
+            raise ValueError("Expected a text response from Anthropic, but no text content was returned.")
+
+        return "".join(text_parts)
+
     def prompt(
         self,
         system: str,
@@ -59,14 +90,10 @@ class LLMClient:
         max_tokens: int = 4096,
     ) -> StructuredResponse:
         """Send a structured prompt and return a parsed response."""
-        response = self._client.messages.create(
-            model=model or MODEL,
-            max_tokens=max_tokens,
-            system=system,
-            messages=[{"role": "user", "content": user}],
-        )
+        request = self._build_message_request(system=system, user=user, model=model, max_tokens=max_tokens)
+        response = self._client.messages.create(**request)
 
-        raw_text = response.content[0].text
+        raw_text = self._extract_response_text(response)
         return StructuredResponse(
             raw_text=raw_text,
             input_tokens=response.usage.input_tokens,
@@ -82,6 +109,7 @@ class LLMClient:
     ) -> dict[str, Any]:
         """Send a prompt expecting JSON back. Raises if no JSON found."""
         resp = self.prompt(system=system, user=user, model=model, max_tokens=max_tokens)
-        if resp.json_content is None:
+        json_content = resp.json_content
+        if json_content is None:
             raise ValueError(f"Expected JSON response but got:\n{resp.raw_text[:500]}")
-        return resp.json_content
+        return json_content

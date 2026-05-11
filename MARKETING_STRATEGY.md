@@ -162,7 +162,7 @@ The biweekly metrics report (`ctd-biweekly-metrics-report` scheduled task) track
 | Weekly site visitors | 50 | 200 | 500+ |
 | Weekly agons started | 5 | 20 | 50+ |
 | Instagram followers | 100 | 500 | 2,000+ |
-| Email subscribers | n/a (TBD) | 50 | 200+ |
+| Email subscribers (Beehiiv dashboard source of truth) | n/a | 50 | 200+ |
 
 If Day 90 numbers are met or exceeded → keep compounding, no launch event needed.
 If Day 90 numbers are missed by 3× → the format isn't working; revisit.
@@ -186,7 +186,7 @@ If Day 90 numbers are missed by 3× → the format isn't working; revisit.
 - Email capture provider chosen + integrated on consensus stage
 
 ### Phase 2 — Instagram launch (weeks 3–4)
-- Faceless brand account created (handle TBD: @consultthedead or @councilofthedead)
+- Faceless brand account created (handle `@consultthedead`; defensive registrations: `@consultthedead_official`, `@theconsultthedead`)
 - Profile bio + Stories highlights + first 5 reels published manually
 - Tracking established (UTM links, Vercel attribution)
 - 8+ articles shipped by end of phase
@@ -237,7 +237,7 @@ These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PI
 1. **Voice:** real Edward voiceover OR ElevenLabs clone of Edward's voice?
 2. **Email provider:** ConvertKit / Beehiiv / Resend / build-our-own?
 3. **`/decisions/` slug pattern:** want pre-loaded agons, or just landing pages with "run yours" CTAs?
-4. **Instagram handle:** @consultthedead, @councilofthedead, or alternative?
+4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
 5. ~~Concierge offer~~ — resolved 2026-04-20: out of scope until Day 90 evaluation.
 
 ---
