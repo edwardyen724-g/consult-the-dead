@@ -55,11 +55,25 @@ export async function POST(request: NextRequest) {
       publicMetadata: { subscription_tier: 'pro' },
     })
 
+    const sessionMetadata = session.metadata ?? {}
+    const utmCampaign = sessionMetadata.utm_campaign
+    const utmContent = sessionMetadata.utm_content
     const customerEmail = (customer as Stripe.Customer).email ?? undefined
     const billingInterval = (session.subscription
       ? ((await stripe.subscriptions.retrieve(session.subscription as string))
           .items.data[0]?.price.recurring?.interval === 'year' ? 'annual' : 'monthly')
       : 'monthly')
+
+    try {
+      await trackEvent('paid_subscription', {
+        plan: billingInterval,
+        ...(utmCampaign ? { utm_campaign: utmCampaign } : {}),
+        ...(utmContent ? { utm_content: utmContent } : {}),
+      })
+    } catch {
+      // Analytics must not block the webhook response.
+    }
+
     if (customerEmail) {
       try {
         await sendSubscriptionConfirmation(customerEmail, '', billingInterval)
@@ -68,27 +82,6 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Conversion-funnel telemetry: forward to Vercel Analytics so the
-    // marketing dashboard can attribute paid conversions back to the
-    // outreach campaign that originated them. UTM fields were stamped
-    // onto the session metadata at checkout-creation time
-    // (see api/stripe/checkout/route.ts). The helper itself is a no-op
-    // outside production and never throws — see lib/analytics.ts.
-    try {
-      const md = (session.metadata ?? {}) as Record<string, string | undefined>
-      // Prefer the plan stamped at checkout time; fall back to the price
-      // interval we just resolved above so older sessions still attribute.
-      const plan = md.plan ?? billingInterval
-      await trackEvent('paid_subscription', {
-        plan,
-        utm_campaign: md.utm_campaign,
-        utm_content: md.utm_content,
-      })
-    } catch {
-      // Defensive: trackEvent already swallows analytics errors, but the
-      // surrounding try/catch is here to make the contract explicit —
-      // analytics MUST NOT break Stripe webhook delivery.
-    }
   } else if (event.type === 'customer.subscription.deleted') {
     const subscription = event.data.object as Stripe.Subscription
     const customerId = subscription.customer as string

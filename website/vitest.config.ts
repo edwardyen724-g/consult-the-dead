@@ -23,6 +23,8 @@ export default defineConfig({
         "src/app/pricing/layout.tsx",
         "src/lib/pricing-copy.ts",
         "src/components/upsell-modal.tsx",
+        "src/lib/proof-strip.ts",
+        "src/components/ProofStrip.tsx",
       ],
       exclude: [
         "src/**/*.d.ts",
