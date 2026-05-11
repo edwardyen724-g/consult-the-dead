@@ -1,13 +1,19 @@
 import { defineConfig } from 'vitest/config';
 
-const config = defineConfig({
+export default defineConfig({
   test: {
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
   },
   coverage: {
-    include: ['src/store/companyStore.ts'],
-    exclude: ['src/lib/events.ts'],
+    provider: 'v8',
+    include: ['src/app/api/research/route.ts'],
+    thresholds: {
+      lines: 95,
+      branches: 95,
+      functions: 95,
+      statements: 95,
+    },
   },
   resolve: {
     alias: {
@@ -15,5 +21,3 @@ const config = defineConfig({
     },
   },
 });
-
-export default config;
