@@ -39,11 +39,13 @@ export async function generateMetadata({
       title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
       description,
       url: `https://www.consultthedead.com/frameworks/${slug}`,
+      images: [`/frameworks/${slug}/opengraph-image`],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${fw.meta.person} — ${fw.meta.domain}`,
       description,
+      images: [`/frameworks/${slug}/twitter-image`],
     },
   };
 }
@@ -398,7 +400,7 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 
 /* ── Utility functions ── */
 
-function formatValidation(
+export function formatValidation(
   v: ReturnType<typeof getValidation>
 ): string | null {
   if (!v) return null;

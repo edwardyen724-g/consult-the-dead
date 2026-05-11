@@ -197,7 +197,7 @@ describe("generateMetadata", () => {
         url: "https://www.consultthedead.com/frameworks/isaac-newton",
       },
       twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "Isaac Newton — Physics",
       },
     });
