@@ -122,3 +122,54 @@ class TestLLMClient:
 
         with pytest.raises(ValueError, match="Expected JSON response"):
             client.prompt_json(system="sys", user="usr")
+
+    @patch("framework_forge.llm.anthropic.Anthropic")
+    def test_prompt_json_raises_on_malformed_json_in_fence(self, mock_anthropic_cls):
+        """prompt_json() should raise when the fenced block contains invalid JSON and there
+        is no valid fallback JSON object elsewhere in the response."""
+        mock_client = MagicMock()
+        mock_anthropic_cls.return_value = mock_client
+
+        mock_response = MagicMock()
+        # Fence content is syntactically broken; no valid {…} elsewhere in the text.
+        mock_response.content = [MagicMock(text="```json\n{broken: [}\n```")]
+        mock_response.usage.input_tokens = 12
+        mock_response.usage.output_tokens = 8
+        mock_client.messages.create.return_value = mock_response
+
+        client = LLMClient(api_key="sk-ant-test-key")
+
+        with pytest.raises(ValueError, match="Expected JSON response"):
+            client.prompt_json(system="sys", user="usr")
+
+    def test_structured_response_malformed_json_fence_blocks_raw_fallback(self):
+        """When the fence JSON is malformed AND the raw-JSON fallback regex greedily spans
+        the broken fence content all the way to the last '}', json.loads also fails on the
+        combined match.  json_content must return None rather than silently returning garbage."""
+        # The raw regex r"\{.*\}" with re.DOTALL is greedy: it matches from the first '{' in
+        # '{broken: [}' all the way to the closing '}' of '{"key": "val"}', producing a
+        # multi-line blob that is not valid JSON.  Both extraction paths therefore fail.
+        raw_text = '```json\n{broken: [}\n```\n{"key": "val"}'
+        resp = StructuredResponse(raw_text=raw_text, input_tokens=10, output_tokens=5)
+        assert resp.json_content is None
+
+    @patch("framework_forge.llm.anthropic.Anthropic")
+    def test_prompt_json_raises_on_empty_response(self, mock_anthropic_cls):
+        """prompt_json() should raise when the API returns an empty content list.
+
+        _extract_response_text raises ValueError (not IndexError) when content=[] because
+        the method guards the empty-list case explicitly before accessing any index.
+        """
+        mock_client = MagicMock()
+        mock_anthropic_cls.return_value = mock_client
+
+        mock_response = MagicMock()
+        mock_response.content = []  # empty — no text blocks at all
+        mock_response.usage.input_tokens = 0
+        mock_response.usage.output_tokens = 0
+        mock_client.messages.create.return_value = mock_response
+
+        client = LLMClient(api_key="sk-ant-test-key")
+
+        with pytest.raises(ValueError, match="Expected a text response"):
+            client.prompt_json(system="sys", user="usr")

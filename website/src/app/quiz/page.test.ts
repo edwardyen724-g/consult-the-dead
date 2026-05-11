@@ -43,6 +43,6 @@ describe("quiz contract", () => {
 
   it("keeps homepage and header quiz entry URLs in sync with the shared helper", () => {
     expect(HOME_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref())
-    expect(HEADER_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref("direct"))
+    expect(HEADER_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref("guided"))
   })
 })
