@@ -212,3 +212,46 @@
 ### Results
 - `5 passed`
 - `framework_forge/pipeline.py` coverage: `99%` line coverage in the targeted run
+
+---
+
+Task: `a3a03ac0-fc6f-42e0-b687-9afd75d389af` - Finish RSS, 404/loading, collision article, and generation polish
+Capsule: `c5c1ee7e-6e78-478b-b7d3-ce1758c2c06a` - `wanman/rss-404-loading-polish`
+
+## Changed Files
+
+- `website/src/app/feed.xml/route.ts`
+- `website/src/app/loading.tsx`
+- `website/src/app/insights/loading.tsx`
+- `website/src/app/frameworks/loading.tsx`
+- `website/src/app/not-found.tsx`
+- `website/src/app/insights/[slug]/page.tsx`
+- `website/src/lib/insights.ts`
+- `website/scripts/generate-article.ts`
+- `website/next.config.ts`
+
+## What Changed
+
+- Added `/feed.xml` as an RSS route that merges debate and insight content, emits stable RSS XML, and caches at the edge for one hour.
+- Added branded loading shells for the app root, `/insights`, and `/frameworks` without spinner UI.
+- Added a more helpful root 404 page that points users back to the Library and Agora.
+- Extended the insight article model to support collision articles with paired frameworks and collision-aware rendering.
+- Upgraded `/insights/[slug]` metadata and JSON-LD so article pages expose proper SEO data and structured article schema.
+- Added a Claude-backed article generator CLI that writes article JSON with snake_case metadata fields.
+- Added a Vercel/Next cache header for `/feed.xml` in `next.config.ts`.
+
+## Verification
+
+- `wcx pnpm test`
+  - Result: `21 test files passed, 268 tests passed`
+- `wcx pnpm build`
+  - Result: build completed successfully; `/feed.xml` and `/insights/[slug]` were generated with `revalidate = 1h`
+- `wcx pnpm exec eslint 'src/app/insights/[slug]/page.tsx' src/app/feed.xml/route.ts src/app/loading.tsx src/app/insights/loading.tsx src/app/frameworks/loading.tsx src/app/not-found.tsx src/lib/insights.ts next.config.ts scripts/generate-article.ts`
+  - Result: passed for the capsule files
+- `wcx pnpm lint`
+  - Result: failed because of an unrelated existing repo-wide error in `src/app/worked-example.tsx` (`react-hooks/set-state-in-effect`)
+
+## Notes
+
+- The repo-wide lint failure is outside this capsule's allowed paths.
+- The website package needed a one-time `pnpm install` so `eslint`/`next` binaries were available for verification.

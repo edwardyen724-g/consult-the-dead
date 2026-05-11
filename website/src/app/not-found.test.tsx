@@ -11,26 +11,22 @@ vi.mock('next/link', () => ({
 import NotFound from './not-found'
 
 describe('NotFound', () => {
-  it('renders the dead-link recovery copy and the three re-entry links', () => {
+  it('renders the dead-link recovery copy and the re-entry links', () => {
     const html = renderToStaticMarkup(<NotFound />)
 
-    expect(html).toContain('This path has gone still.')
-    expect(html).toContain('dead link / stale share')
-    expect(html).toContain('Start a new agon')
-    expect(html).toContain('Browse the Council')
-    expect(html).toContain('Return home')
-    expect(html).toContain('Dead links happen. The Council still listens.')
+    expect(html).toContain('This link has gone cold.')
+    expect(html).toContain('404')
+    expect(html).toContain('Open the Library')
+    expect(html).toContain('Return to the Agora')
+    expect(html).toContain('href="/library"')
     expect(html).toContain('href="/agora"')
-    expect(html).toContain('href="/frameworks"')
-    expect(html).toContain('href="/"')
   })
 
-  it('keeps the stale-share guidance and mobile collapse rule visible', () => {
+  it('keeps the stale-share guidance visible', () => {
     const html = renderToStaticMarkup(<NotFound />)
 
-    expect(html).toContain('share that no longer exists')
-    expect(html).toContain('Open a fresh consultation in the Agora')
-    expect(html).toContain('@media (max-width: 860px)')
-    expect(html).toContain('.gm-not-found-shell > div')
+    expect(html).toContain('stale share')
+    expect(html).toContain('Library')
+    expect(html).toContain('Agora')
   })
 })
