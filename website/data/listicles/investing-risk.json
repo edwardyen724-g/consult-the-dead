@@ -1,0 +1,37 @@
+{
+  "slug": "investing-risk",
+  "h1": "Carnegie vs. Newton on How Much Investing Risk to Take",
+  "metaDescription": "Carnegie concentrated risk and won. Newton distributed it and lost a fortune. Their debate on how much investment risk to take is still unresolved.",
+  "topicForCta": "investing risk",
+  "intro": [
+    "Isaac Newton is one of the greatest minds in history. He also lost the equivalent of $3 million in the South Sea Bubble in 1720 — reportedly saying afterward that he could calculate the motion of heavenly bodies, but not the madness of men. He knew he was overexposed. He watched the bubble inflate. He sold at a profit, watched it keep going, and bought back in at the top. He's a better cautionary tale about investment psychology than almost any professional investor.",
+    "Andrew Carnegie had the opposite disposition. His entire wealth-building strategy was concentrated risk. He went all-in on steel during a period when the industry could have collapsed. He borrowed heavily to buy out partners during downturns. His principle wasn't diversification — it was total conviction in the sector he understood better than anyone else, and the nerve to act on it without hedging.",
+    "What's interesting about putting these two in a room together is that Newton's failure isn't an intelligence failure. It's a confidence calibration failure — he knew the theory and then violated it under emotional pressure. Carnegie's success isn't a luck story. It was a deliberate epistemology: identify the domain you have genuine edge in, and concentrate there.",
+    "John D. Rockefeller and Machiavelli fill in the operational layer: Rockefeller on how to structure concentrated risk so that control stays intact even in downturns, and Machiavelli on the political economy of capital — who holds leverage when prices fall, and whether that's you or someone else."
+  ],
+  "minds": [
+    {
+      "slug": "andrew-carnegie",
+      "name": "Andrew Carnegie",
+      "rationale": "Built his fortune through concentrated sector conviction — will argue Newton lost because he had no genuine edge in his position, not because concentration is wrong."
+    },
+    {
+      "slug": "isaac-newton",
+      "name": "Isaac Newton",
+      "rationale": "Lost a fortune to the South Sea Bubble while possessing the theoretical tools to know better — the most honest case study on the gap between knowing the framework and executing it under pressure."
+    },
+    {
+      "slug": "john-d-rockefeller",
+      "name": "John D. Rockefeller",
+      "rationale": "Focused on controlling the variable (distribution infrastructure) that made concentration survivable through downturns — brings the operational layer Carnegie abstracts away."
+    },
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "Analyzes investment risk as a political economy problem — who holds leverage when prices fall is a power question, not a financial one. Will reframe the debate entirely."
+    }
+  ],
+  "ctaHeadline": "Run this debate against your actual risk question",
+  "ctaButtonLabel": "Open in the Agora",
+  "ctaSubtext": "Tell them your specific situation. Newton will tell you what you're miscalculating."
+}

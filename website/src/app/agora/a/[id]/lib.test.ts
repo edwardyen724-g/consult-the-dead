@@ -10,6 +10,7 @@
 import {
   buildAgoraCtaHref,
   buildShareDescription,
+  extractHighlightInsight,
   groupTurnsByRound,
   hasUsableConsensus,
   normalizeResearch,
@@ -265,6 +266,28 @@ describe("normalizeResearch", () => {
 
   it("returns null when JSON has no usable summary or sources", () => {
     expect(normalizeResearch(JSON.stringify({ summary: "", sources: [] }))).toBeNull();
+    expect(
+      normalizeResearch(JSON.stringify({ summary: "", sources: "not-an-array" })),
+    ).toBeNull();
+  });
+
+  it("skips sources with non-string title or url fields", () => {
+    const out = normalizeResearch(
+      JSON.stringify({
+        summary: "Research summary.",
+        sources: [
+          { title: 123, url: "https://example.com/title" },
+          { title: "No URL", url: 456 },
+          { title: "Valid", url: "https://example.com/valid" },
+        ],
+      }),
+    );
+
+    expect(out).not.toBeNull();
+    if (!out) throw new Error("expected non-null");
+    expect(out.sources).toEqual([
+      { title: "Valid", url: "https://example.com/valid" },
+    ]);
   });
 });
 
@@ -330,6 +353,81 @@ describe("buildShareDescription", () => {
 
   it("returns the topic verbatim when below the limit", () => {
     expect(buildShareDescription("short topic", 100)).toBe("short topic");
+  });
+
+  it("handles a nullish topic input when cast through the public boundary", () => {
+    expect(buildShareDescription(null as unknown as string)).toBe(
+      "A debate from Consult The Dead — The Agora.",
+    );
+  });
+});
+
+/* ── extractHighlightInsight ─────────────────────────────────── */
+
+describe("extractHighlightInsight", () => {
+  const validConsensus: ConsensusResult = {
+    points: "The team needs a clear owner and a deadline.",
+    pointsSummary: "clear owner",
+    tensions: "Speed conflicts with thoroughness.",
+    tensionsSummary: "speed vs thoroughness",
+    action: "Assign one lead and set a 72-hour decision window.",
+    actionSummary: "assign lead",
+    steps: ["Pick one owner", "Set a deadline"],
+    stepsSummary: "two steps",
+    risks: "Analysis paralysis if accountability blurs.",
+    risksSummary: "paralysis risk",
+  };
+
+  it("returns the action as the highest-priority insight", () => {
+    const insight = extractHighlightInsight(validConsensus);
+    expect(insight).not.toBeNull();
+    if (!insight) throw new Error("unreachable");
+    expect(insight.label).toBe("Recommended action");
+    expect(insight.text).toBe("Assign one lead and set a 72-hour decision window.");
+  });
+
+  it("falls back to points when action is too short", () => {
+    const insight = extractHighlightInsight({
+      ...validConsensus,
+      action: "short",
+    });
+    expect(insight?.label).toBe("Key insight");
+    expect(insight?.text).toBe("The team needs a clear owner and a deadline.");
+  });
+
+  it("falls back to tensions when action and points are too short", () => {
+    const insight = extractHighlightInsight({
+      ...validConsensus,
+      action: "too short",
+      points: "also short",
+    });
+    expect(insight?.label).toBe("Live tension");
+    expect(insight?.text).toBe("Speed conflicts with thoroughness.");
+  });
+
+  it("truncates very long text at 220 chars with an ellipsis", () => {
+    const longAction = "a".repeat(300);
+    const insight = extractHighlightInsight({
+      ...validConsensus,
+      action: longAction,
+    });
+    expect(insight?.text.length).toBe(220);
+    expect(insight?.text.endsWith("…")).toBe(true);
+  });
+
+  it("returns null for null / undefined consensus", () => {
+    expect(extractHighlightInsight(null)).toBeNull();
+    expect(extractHighlightInsight(undefined)).toBeNull();
+  });
+
+  it("returns null when all candidate fields are too short", () => {
+    const insight = extractHighlightInsight({
+      ...validConsensus,
+      action: "short",
+      points: "brief",
+      tensions: "also",
+    });
+    expect(insight).toBeNull();
   });
 });
 

@@ -1,0 +1,17 @@
+{
+  "slug": "sun-tzu",
+  "h1": "Sun Tzu — The Mind That Wins Before the Battle",
+  "metaDescription": "Sun Tzu argues the fight is won or lost before engagement. Add him to your Council when you need to see upstream what everyone else misses.",
+  "famousFor": "Winning before the battle by refusing the enemy's terrain entirely",
+  "howTheyArgue": "Sun Tzu argues that the engagement is already lost or won before it begins — and that what others are debating are downstream consequences of upstream configuration failures. He challenges Machiavelli for mistaking decisive action for victory (action without narrative precondition is a claim without an army), and Curie for measuring equilibria that no longer apply once the narrative has shifted. His warrants are doctrinal: specific strategic preconditions that must be satisfied before any tactical move is valid. He speaks in fewer words than anyone else in the room and usually lands closer to the underlying structure of the problem. He concedes on timing; he holds firm on prerequisite architecture.",
+  "sampleQuotes": [
+    "The race to the bottom is already lost before you engage in it — your $18K MRR is not proof that low pricing works, it is proof that you have survived long enough to recognize the trap before it closes.",
+    "Your competitors do not yet know what your product has revealed about the structural flaw in their own architecture. That ignorance is your most valuable asset, and it is perishable.",
+    "The pressure you are feeling to invest heavily in features is the same pressure King Ho Lu applied to me after the Ch'u campaigns — the momentum signal masquerading as readiness."
+  ],
+  "ctaVariants": [
+    "Add Sun Tzu to Your Council — He'll tell you if you're fighting the right battle →",
+    "Consult Sun Tzu — Supreme excellence is avoiding the war →",
+    "Add the Strategist to Your Council →"
+  ]
+}
