@@ -70,7 +70,7 @@ Task: `takeover-pr-allocator`
 
 ## Result
 
-- Captured release-state feedback in `output/feedback-report.md` for the `/feed.xml` route and the pricing brief placeholder-social-proof gap.
+- Captured release-state feedback in `output/feedback-report.md` covering the PR #80 coverage-gate gap, the website route-map drift, the stale `/feed.xml` claim, the MARKETING_STRATEGY subscriber/handle cleanup, and the pricing brief social-proof guardrail.
 - Kept the scope inside `output/` with no source-code changes.
 - Prepared the branch for commit, push, and PR publication.
 
