@@ -580,7 +580,8 @@ class TestValidationCliSmoke:
         assert tier2_data["traceability_ratio"] == 0.9
         assert tier3_data["person"] == "Steve Jobs"
         assert len(tier3_data["pairs"]) == 5
-=======
+
+
 class TestPlaceholderCitations:
     """Tests for placeholder citation validation."""
 
@@ -639,6 +640,7 @@ class TestPlaceholderCitations:
         assert violation.json_path == "$.meta.primary_sources[0]"
         assert violation.value == "mock_placeholder"
         assert violation.to_dict() == {
+            "root": "<memory>",
             "artifact_path": "framework.json",
             "json_path": "$.meta.primary_sources[0]",
             "value": "mock_placeholder",
@@ -672,10 +674,14 @@ class TestPlaceholderCitations:
         bibliography_path = tmp_framework_dir / "sources" / "bibliography.json"
         bibliography_path.write_text(json.dumps(bad_bibliography), encoding="utf-8")
 
+        resolved = str(tmp_framework_dir.resolve())
         result = validate_framework_artifact_tree(tmp_framework_dir)
 
         assert result.passed is False
-        assert result.scanned_files == ["framework.json", "sources/bibliography.json"]
+        assert result.scanned_files == [
+            f"{resolved}:framework.json",
+            f"{resolved}:sources/bibliography.json",
+        ]
         assert any(v.artifact_path == "sources/bibliography.json" for v in result.violations)
         assert any(v.value == "mock_placeholder" for v in result.violations)
         assert result.to_dict()["passed"] is False
@@ -719,4 +725,3 @@ class TestPlaceholderCitations:
 
         assert exit_code == 1
         assert "mock_placeholder" in captured.out
->>>>>>> 28a9138 (feat: block mock_placeholder framework citations)
