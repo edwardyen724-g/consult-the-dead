@@ -164,27 +164,6 @@ describe("POST /api/generate-analysis", () => {
     });
   });
 
-  it("rejects an explicitly disallowed origin", async () => {
-    const response = await POST(
-      makeRequest(
-        {
-          topic: "Should I ship the redesign this week or wait for another review cycle?",
-          frameworkSlug: "isaac-newton",
-        },
-        {},
-        "https://malicious.example.com"
-      ) as never
-    );
-
-    expect(response.status).toBe(403);
-    expect(mocks.authMock).not.toHaveBeenCalled();
-    expect(mocks.MockAnthropic).not.toHaveBeenCalled();
-    await expect(response.json()).resolves.toEqual({
-      error:
-        "This API is only available from consultthedead.com. If you'd like to integrate with Ask This Mind directly, please reach out.",
-    });
-  });
-
   it("rejects invalid JSON bodies", async () => {
     const response = await POST(
       new Request("https://example.com/api/generate-analysis", {

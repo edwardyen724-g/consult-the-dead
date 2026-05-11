@@ -145,7 +145,11 @@ export async function POST(request: NextRequest) {
           controller.enqueue(encoder.encode(payload));
         };
 
-        send({ type: "analysis_started", frameworkSlug, frameworkName: rawFramework.meta?.person ?? frameworkSlug });
+        send({
+          type: "analysis_started",
+          frameworkSlug,
+          frameworkName: rawFramework.meta?.person ?? frameworkSlug,
+        });
 
         const response = anthropic.messages.stream({
           model: ANALYSIS_MODEL,
