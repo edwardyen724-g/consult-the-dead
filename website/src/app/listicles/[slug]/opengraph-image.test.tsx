@@ -19,6 +19,8 @@ vi.mock("next/og", () => ({
 import Image, {
   alt,
   contentType,
+  dynamicParams,
+  generateStaticParams,
   revalidate,
   runtime,
   size,
@@ -60,6 +62,16 @@ describe("opengraph-image route", () => {
     expect(contentType).toBe("image/png");
     expect(size).toEqual({ width: 1200, height: 630 });
     expect(alt).toContain("listicle share card");
+    expect(dynamicParams).toBe(false);
+  });
+
+  it("generates static params for all known listicle slugs", () => {
+    const params = generateStaticParams();
+    expect(Array.isArray(params)).toBe(true);
+    expect(params.length).toBeGreaterThan(0);
+    for (const p of params) {
+      expect(typeof p.slug).toBe("string");
+    }
   });
 });
 
@@ -70,5 +82,12 @@ describe("twitter-image route", () => {
     expect(twitterImage.contentType).toBe("image/png");
     expect(twitterImage.size).toEqual({ width: 1200, height: 630 });
     expect(twitterImage.alt).toContain("listicle share card");
+    expect(twitterImage.dynamicParams).toBe(false);
+  });
+
+  it("generates matching static params for twitter-image route", () => {
+    const ogParams = generateStaticParams();
+    const twParams = twitterImage.generateStaticParams();
+    expect(twParams).toEqual(ogParams);
   });
 });
