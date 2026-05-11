@@ -17,10 +17,30 @@ if TYPE_CHECKING:
     from framework_forge.validation.tier1 import Tier1Result
 
 
+def _resolve_random_source(
+    random_source: Any | None = None,
+    seed: int | None = None,
+) -> Any:
+    """Return a random source with a ``random()`` method.
+
+    An explicit random source takes precedence over a seed so tests can inject
+    a custom deterministic sequence, while operators can still reproduce a
+    packet by passing a seed.
+    """
+    if random_source is not None:
+        return random_source
+    if seed is not None:
+        return random.Random(seed)
+    return random.Random()
+
+
 def prepare_tier3_materials(
     tier1_results: Tier1Result,
     person: str,
     output_dir: Path,
+    *,
+    random_source: Any | None = None,
+    seed: int | None = None,
 ) -> Path:
     """Generate review_packet.json with randomized A/B paired responses.
 
@@ -36,11 +56,12 @@ def prepare_tier3_materials(
     Returns:
         Path to the written review_packet.json.
     """
+    rng = _resolve_random_source(random_source=random_source, seed=seed)
     pairs = []
 
     for sr in tier1_results.scenario_results:
         # Randomize which response is A and which is B
-        if random.random() < 0.5:
+        if rng.random() < 0.5:
             response_a = sr.framework_response
             response_b = sr.baseline_response
             labels = {"response_a": "framework", "response_b": "baseline"}

@@ -1,62 +1,57 @@
-# CTR & Engagement Research Notes (2026-05-03)
+# CTR & Engagement Research Brief
 
-## Highest-Impact Quick Wins (Priority Order)
+**Date:** 2026-05-10
 
-### 1. Curiosity-Gap Hero Headlines
-Lead with tension/question, not features. Examples:
-- "What would Sun Tzu actually say about your competitor's next move?"
-- "Newton never saw this business problem coming. You will."
-Test 3 variants, measure bounce rate.
+This brief turns the engagement notes into a ranked experiment plan for the next homepage and pricing iteration. The key constraint is that the live product already ships:
 
-### 2. Interactive Demo Above Fold
-Already have StreamingDemo with auto-play (IntersectionObserver). 
-Next step: make it more prominent, ensure it starts within 2s of page load.
-Consider: pre-fill with a compelling question instead of generic.
+- a curiosity-led homepage hero
+- a streaming demo below the fold
+- a quiz entry path
+- six themed pack cards
+- a simple Free vs Pro pricing page
 
-### 3. Personalization via Quick Quiz
-3-5 question quiz routes to personalized hero:
-- "What's your challenge?" → Strategy / Pricing / Competition / Leadership / Scaling
-- Dynamically selects spotlight figure
-- Personalized CTA: "Get [Figure]'s take on your [challenge]"
-Impact: 20-40% conversion lift per research.
+The next batch should sharpen those shipped surfaces instead of starting a redesign.
 
-### 4. Reduce Signup Friction
-- OAuth only (Google/Apple), no password creation
-- Skip onboarding, land user in conversation immediately
-- Character.ai model: instant gratification
+## Current Shipped Baseline
 
-### 5. Social Proof
-- Video testimonials from founders (when available)
-- Specific results, not generic praise
-- "Peer-level proof" — founders/CEOs, not random users
+- Homepage CTA path: `/` → `/agora` or `/quiz`
+- Pack browsing path: `/` and `/frameworks`
+- Pricing path: `/pricing`
+- Demo path: the homepage `StreamingDemo`
+- Free pricing state: 3 agons/day, anonymous, no signup
+- Pro pricing state: $30/month or $300/year, 7-day trial, Opus consensus, persistent library, PDF export, extended research, optional BYO key
 
-### 6. Feature Gating + Loss Aversion
-Already have: 3-mind free / 5-mind Pro, PDF export Pro-only
-Next: Add quota reminders ("2 consultations left this month")
-Show what premium feature would have added after free debate ends
+## Prioritized Experiments
 
-### 7. Gamification / Collection
-- Show row of figure avatars consulted
-- "You've consulted 5 minds" progress
-- Sharing: "I consulted Sun Tzu on my competitor strategy" → Twitter
+| Priority | Experiment | Surface | Why now | Expected lift | Effort |
+|---|---|---|---|---|---|
+| 1 | Curiosity-gap hero rewrite | Homepage hero | This is the highest-exposure surface and already exists; the fastest win is tighter copy, not a new layout. | Lower bounce, higher CTA clickthrough | Small |
+| 2 | Quiz-driven personalization | Homepage + `/quiz` | The quiz route already exists, so we can route users into a relevant pack or featured mind instead of sending everyone to the same generic entry point. | Higher CTR and better first-session relevance | Small to medium |
+| 3 | Move the streaming demo earlier | Homepage | The demo is already shipped; the work is to make it more visually dominant and faster to start so it earns attention before the first scroll. | Better engagement and more time on page | Small |
+| 4 | Pricing-page proof without fake testimonials | `/pricing` | The pricing copy still needs real social proof discipline. Until there are approved customer quotes, the page should rely on shipped-product proof and concrete feature framing. | Higher trust, fewer credibility leaks | Small |
+| 5 | Loss-aversion / quota reminders | `/pricing` and `/agora` | The free cap and Pro trial already exist. A careful reminder system can make the upgrade trigger feel obvious without inventing new pricing complexity. | Better free-to-paid conversion | Medium |
+| 6 | Collection feedback | Homepage + library | The product already has multiple minds and packs; showing progress or "you have consulted X minds" can make the system feel cumulative instead of one-off. | Higher return visits and shareability | Medium |
 
-## Comparable Products Analyzed
-- Character.ai (instant interaction, OAuth, no onboarding)
-- Hello History (streaming responses, 4.6+ rating)
-- Mailchimp freemium (quota-based upsell)
-- HubSpot (quiz personalization, specific social proof)
+## Recommended Next Batch
 
-## Landing Page Structure (High-Converting)
-1. Hero — Curiosity hook + CTA
-2. Live demo — Interactive streaming conversation
-3. Social proof — Testimonials
-4. How it works — 3-step visual
-5. Pricing / freemium
-6. FAQ / objection handling
-7. Final CTA — Personalized
+Ship these first:
 
-## Key Metrics to Target
-- Bounce rate: reduce 30-40% via demo + curiosity
-- CTR: 2-3x via personalized CTA + demo
-- Signup-to-trial: 40-60% via low-friction auth
-- Free-to-premium: 6-8% via feature gating
+1. Hero copy variants that are more specific about the decision being solved.
+2. Quiz routing that selects a matching pack or featured mind.
+3. Demo prominence and start-time work so it is visible within the first screen.
+4. Pricing page cleanup that removes any placeholder social proof and keeps the proof story tied to live product behavior.
+
+## Metrics To Watch
+
+- Homepage CTA clickthrough
+- Bounce rate on `/`
+- Quiz start rate and quiz completion rate
+- Pricing page conversion to checkout
+- Free-to-Pro upgrade rate after cap hit
+- Demo interaction rate
+
+## Guardrails
+
+- Do not add fake testimonials to compensate for missing social proof.
+- Do not introduce pack-based pricing before there is evidence that users buy by pack instead of by tier.
+- Do not widen the homepage before the current hero, demo, and quiz path have been tested.

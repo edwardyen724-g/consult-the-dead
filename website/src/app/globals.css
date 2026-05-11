@@ -219,6 +219,18 @@ body {
 }
 .gm-name-pulse { animation: gm-name-pulse 400ms ease-out; }
 
+/* Shared loading pulse used by the Agora loading surface */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
 /* Blinking caret while a block is streaming */
 .gm-caret {
   display: inline-block;

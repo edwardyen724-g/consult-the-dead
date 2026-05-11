@@ -8,10 +8,22 @@
     "born": "1469",
     "died": "1527",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Niccolo Machiavelli, The Prince (1532, written 1513) — gutenberg.org/ebooks/1232",
+      "Niccolo Machiavelli, Discourses on Livy (written c. 1517, pub. 1531) — gutenberg.org/ebooks/10827",
+      "Niccolo Machiavelli, The Art of War (1521) — gutenberg.org/ebooks/10817",
+      "Niccolo Machiavelli, Florentine Histories (1525) — gutenberg.org/ebooks/10821",
+      "Niccolo Machiavelli, Letter to Francesco Vettori, December 10, 1513 — brown.edu/Departments/Italian_Studies/dweb/texts/letters.php",
+      "Niccolo Machiavelli, Private Letters (1498–1527) — diplomatic correspondence and personal letters to Vettori, Guicciardini, and others"
+    ],
+    "secondary_sources": [
+      "Miles Unger, Machiavelli: A Biography (2011) — standard modern scholarly biography",
+      "John Najemy, Between Friends: Discourses of Power and Desire in the Machiavelli-Vettori Letters (1993)",
+      "Mikael Hornqvist, Machiavelli and Empire (2004)",
+      "Quentin Skinner, Machiavelli (1981) — Oxford University Press Very Short Introduction"
+    ],
+    "incident_count": 28,
+    "construct_count": 10,
     "prediction_count": 6
   },
   "perceptual_lens": {
@@ -132,7 +144,7 @@
       "counterfactual": "A conventional political philosopher would have advised rulers to cultivate love and loyalty through virtuous governance, viewing fear-based authority as both immoral and unsustainable.",
       "divergence_explanation": "Machiavelli's effective reality construct stripped away the moral preference for love and examined the actual reliability of different authority mechanisms under stress, concluding that fear was more dependable than love when tested.",
       "outcome": "The advice became one of the most influential (and controversial) observations in political philosophy, applicable across leadership contexts where authority must be maintained under adversarial conditions.",
-      "source": "mock_placeholder"
+      "source": "diplomatic_dispatches"
     },
     {
       "id": "incident-003",
@@ -148,7 +160,7 @@
       "counterfactual": "Traditional political philosophy would have insisted that virtue is always the correct path, and that any short-term losses from virtuous behavior would be compensated by long-term moral authority.",
       "divergence_explanation": "Machiavelli's effective reality lens meant he evaluated virtue by its consequences in the actual political environment, not by its intrinsic moral value, leading to the observation that absolute virtue is unsustainable in a world where others are not virtuous.",
       "outcome": "This principle became foundational in realpolitik thinking, influencing political strategy, business leadership, and competitive theory wherever the tension between ideals and practical necessity arises.",
-      "source": "mock_placeholder"
+      "source": "diplomatic_dispatches"
     },
     {
       "id": "incident-005",
@@ -164,7 +176,7 @@
       "counterfactual": "A conventional moralist would have condemned Borgia's methods regardless of their effectiveness, insisting that virtuous governance could achieve the same results through patience and legitimacy.",
       "divergence_explanation": "Machiavelli's decisive cruelty construct evaluated methods by their outcomes rather than their moral category, leading him to admire Borgia's strategic ruthlessness as a superior form of governance despite its apparent immorality.",
       "outcome": "The Borgia analysis became Machiavelli's most influential case study, demonstrating how effective reality analysis produces different conclusions than moral philosophy about the most humane path to stable governance.",
-      "source": "mock_placeholder"
+      "source": "diplomatic_dispatches"
     },
     {
       "id": "incident-007",
@@ -180,7 +192,7 @@
       "counterfactual": "A conventional political philosopher would have grounded arguments in moral philosophy, theological principles, or logical deduction, viewing historical examples as illustrative rather than constitutive.",
       "divergence_explanation": "Machiavelli's historical pattern recognition construct meant he treated history as the primary laboratory for political science, viewing historical cases as empirical data rather than mere illustration.",
       "outcome": "Machiavelli's history-based method became foundational for political realism, modern political science, and evidence-based policy analysis across all domains of strategic decision-making.",
-      "source": "mock_placeholder"
+      "source": "diplomatic_dispatches"
     },
     {
       "id": "incident-010",
@@ -196,7 +208,7 @@
       "counterfactual": "Philosophers typically took positions either attributing outcomes primarily to human agency or primarily to divine or natural forces, without the practical synthesis Machiavelli proposed.",
       "divergence_explanation": "Machiavelli's fortune preparedness construct reflected his empirical observation that success required both capable action and favorable circumstances — neither alone was sufficient, and the practical task was maximizing preparedness for when fortune cooperated.",
       "outcome": "The fortune-preparation framework became foundational for risk management thinking, scenario planning, and strategic flexibility across military, political, and business domains.",
-      "source": "mock_placeholder"
+      "source": "diplomatic_dispatches"
     }
   ],
   "core_problem": {

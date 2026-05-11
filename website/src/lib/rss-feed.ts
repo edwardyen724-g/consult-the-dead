@@ -90,7 +90,7 @@ export function serializeRssFeed(input: SerializeRssFeedInput): string {
     '<rss version="2.0">',
     "  <channel>",
     `    <title>${escapeXml(metadata.title)}</title>`,
-    `    <link>${escapeXml(metadata.feedUrl)}</link>`,
+    `    <link>${escapeXml(metadata.link)}</link>`,
     `    <description>${escapeXml(metadata.description)}</description>`,
     `    <language>${escapeXml(metadata.language)}</language>`,
     `    <lastBuildDate>${escapeXml(now.toUTCString())}</lastBuildDate>`,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FrameworkTransparencyPanel } from "@/components/framework-transparency-panel";
 import {
   ALLOWED_SLUGS,
   SLUG_COLOR_VAR,
@@ -10,6 +11,7 @@ import {
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { FrameworkConstructExplorer } from "@/components/FrameworkConstructExplorer";
 import { getPacksForMind } from "@/lib/packs";
+import { buildFrameworkCanonicalUrl } from "@/lib/framework-canonical-url";
 
 /* ── Static generation ── */
 
@@ -31,18 +33,24 @@ export async function generateMetadata({
   if (!fw) return { title: "Not Found" };
   const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
   const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from ${fw.meta.incident_count} documented historical incidents.`;
+  const canonicalUrl = buildFrameworkCanonicalUrl(slug);
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl ?? `https://www.consultthedead.com/frameworks/${slug}`,
+    },
     openGraph: {
       title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
       description,
       url: `https://www.consultthedead.com/frameworks/${slug}`,
+      images: [`/frameworks/${slug}/opengraph-image`],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${fw.meta.person} — ${fw.meta.domain}`,
       description,
+      images: [`/frameworks/${slug}/twitter-image`],
     },
   };
 }
@@ -339,23 +347,14 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
           </p>
         </section>
 
-        {/* ──────── VALIDATION ──────── */}
-        {validationLine && (
-          <section style={{ marginTop: "72px" }}>
-            <SectionLabel>Validation</SectionLabel>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                lineHeight: 1.6,
-                color: "var(--fg-dim)",
-                maxWidth: "62ch",
-              }}
-            >
-              {validationLine}
-            </p>
-          </section>
-        )}
+        <FrameworkTransparencyPanel
+          frameworkSlug={slug as FrameworkSlug}
+          frameworkName={fw.meta.person}
+          constructCount={constructCount}
+          incidentCount={incidentCount}
+          blindSpotCount={fw.blind_spots.length}
+          validationLine={validationLine}
+        />
 
         {/* ──────── CTA ──────── */}
         <div
@@ -406,7 +405,7 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
 
 /* ── Utility functions ── */
 
-function formatValidation(
+export function formatValidation(
   v: ReturnType<typeof getValidation>
 ): string | null {
   if (!v) return null;

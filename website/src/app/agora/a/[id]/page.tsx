@@ -39,6 +39,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ShareCtaStrip, ShareCtaStyles } from "@/components/ShareCtaStrip";
 import { db, type PublicAgonRecord } from "@/lib/db/client";
 import {
   ALLOWED_SLUGS,
@@ -46,6 +47,8 @@ import {
   getFramework,
   type FrameworkSlug,
 } from "@/lib/frameworks";
+import { buildOgImageUrl } from "@/lib/og-image-url";
+import { SHARE_SOCIAL_PROOF_LINE } from "@/lib/share-cta-link";
 
 import {
   buildAgoraCtaHref,
@@ -155,21 +158,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = buildShareDescription(agon.topic);
   const url = `${SITE_ORIGIN}/agora/a/${agon.share_id}`;
   const title = `Agon: ${truncateForTitle(agon.topic)}`;
+  const image = buildOgImageUrl(agon.share_id);
   return {
     title,
     description,
     alternates: { canonical: url },
+    robots: { index: true, follow: true },
     openGraph: {
       title,
       description,
       url,
       type: "article",
       siteName: "Consult The Dead",
+      images: image ? [image] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: image ? [image] : undefined,
     },
   };
 }
@@ -211,7 +218,16 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        {/* Responsive show/hide rules for the inline + sticky CTA
+            variants. Rendered once per page so both <ShareCtaStrip>
+            instances pick up the same media query. */}
+        <ShareCtaStyles />
         <Header />
+
+        {/* Above-the-fold conversion CTA. Hidden in print + on
+            screens ≤720px (the sticky bar at the bottom carries the
+            same message there to avoid stacking on mobile). */}
+        <ShareCtaStrip shareId={agon.share_id} variant="inline" />
 
         <Section label="The Question">
           <p
@@ -226,6 +242,21 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
             }}
           >
             &ldquo;{agon.topic}&rdquo;
+          </p>
+          {/* One-line social-proof strip near the topic. The
+              attribution line is also visible in print (kept on
+              purpose so a saved PDF still names the source). */}
+          <p
+            data-social-proof="agon-share"
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontStyle: "italic",
+              fontSize: "0.85rem",
+              color: "var(--fg-faint)",
+              margin: "14px 0 0",
+            }}
+          >
+            {SHARE_SOCIAL_PROOF_LINE}
           </p>
         </Section>
 
@@ -461,6 +492,12 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
           </Link>
         </div>
       </div>
+
+      {/* Sticky bottom CTA bar — mobile only (≤720px). Hidden in
+          print so it never obscures the agon transcript on a saved
+          PDF. Sits outside the centered content wrapper so it spans
+          the full viewport width. */}
+      <ShareCtaStrip shareId={agon.share_id} variant="sticky" />
     </main>
   );
 }
