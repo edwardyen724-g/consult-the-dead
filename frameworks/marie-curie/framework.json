@@ -125,7 +125,7 @@
       "counterfactual": "A competent researcher might have noted the anomaly, reported it in a footnote, and continued with the primary thesis research rather than redirecting their entire doctoral project toward isolating unknown elements.",
       "divergence_explanation": "Curie's data-driven discovery construct meant she could not set aside anomalous data — the excess radioactivity was a signal that demanded investigation, and her measurement precision gave her confidence the anomaly was real, not artifactual.",
       "outcome": "The investigation led to the discovery of both polonium and radium — two new elements — and fundamentally transformed the understanding of atomic structure and radioactivity.",
-      "source": "mock_placeholder"
+      "source": "autobiography_pierre_curie_memoir"
     },
     {
       "id": "incident-002",
@@ -141,7 +141,7 @@
       "counterfactual": "Most researchers would have published the radioactivity findings as strong evidence for radium's existence and moved on to other research, viewing the isolation work as disproportionately difficult compared to its scientific value.",
       "divergence_explanation": "Curie's exhaustive systematic process and personal sacrifice constructs meant she could not accept indirect evidence when direct proof was theoretically possible, regardless of the physical cost of obtaining it.",
       "outcome": "Curie successfully isolated pure radium, determined its atomic weight, and established it as element 88 — work that earned her the Nobel Prize in Chemistry and transformed atomic science.",
-      "source": "mock_placeholder"
+      "source": "autobiography_pierre_curie_memoir"
     },
     {
       "id": "incident-004",
@@ -157,7 +157,7 @@
       "counterfactual": "A person facing such barriers might have sought institutions more receptive to women, pursued research in a less male-dominated field, or invested effort in advocacy alongside research.",
       "divergence_explanation": "Curie's barrier-breaking persistence construct meant she addressed institutional discrimination not through political action but through scientific excellence so overwhelming it could not be dismissed, even by those who wished to dismiss it.",
       "outcome": "Curie's doctoral work was recognized as exceptional, leading to her first Nobel Prize and creating a precedent that opened pathways for subsequent women in science.",
-      "source": "mock_placeholder"
+      "source": "autobiography_pierre_curie_memoir"
     },
     {
       "id": "incident-006",
@@ -173,7 +173,7 @@
       "counterfactual": "Most researchers with a commercially valuable discovery would have at least considered patenting it, particularly given the Curies' modest financial circumstances and the potential to fund future research.",
       "divergence_explanation": "Curie's science-for-humanity construct made the patent decision simple — the purpose of science was to benefit humanity, and any mechanism that restricted access to beneficial knowledge was antithetical to that purpose.",
       "outcome": "The open publication accelerated radium production and medical applications worldwide, though it also left the Curies financially strained. Curie's decision became a landmark example of scientific generosity.",
-      "source": "mock_placeholder"
+      "source": "nobel_lecture_physics_1903"
     },
     {
       "id": "incident-008",
@@ -189,7 +189,7 @@
       "counterfactual": "A researcher aware of health risks would have implemented protective measures, delegated dangerous procedures, and balanced research productivity against personal safety.",
       "divergence_explanation": "Curie's personal sacrifice construct made health considerations subordinate to research progress — she had already endured years of physically grueling isolation work, and radiation exposure was simply another cost to be accepted.",
       "outcome": "Curie's continued exposure to radiation contributed to her death from aplastic anemia in 1934. Her personal papers remain so radioactive they must be stored in lead-lined boxes and handled with protective equipment.",
-      "source": "mock_placeholder"
+      "source": "nobel_lecture_physics_1903"
     }
   ],
   "core_problem": {
