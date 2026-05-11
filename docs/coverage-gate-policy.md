@@ -48,7 +48,8 @@ A PR is release-ready only when:
 
 ## PR checklist
 
-Use this checklist in the PR description until a formal template is added:
+There is no committed PR template yet, so use this checklist in the PR
+description until one is added:
 
 - [ ] I ran `npm run coverage` locally.
 - [ ] I ran the relevant targeted tests for the change.
