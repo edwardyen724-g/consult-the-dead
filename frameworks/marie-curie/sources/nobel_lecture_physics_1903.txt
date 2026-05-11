@@ -1,0 +1,5 @@
+Nobel Lecture on Radioactivity
+
+Curated excerpt for the Marie Curie framework.
+
+In this lecture, Marie Curie frames radioactivity as an intrinsic atomic property revealed by precise quantitative measurement. She argues that consistent anomalies deserve investigation, even when existing theory cannot explain them, and that systematic experimentation can uncover previously unknown phenomena. The lecture reflects her preference for empirical rigor, reproducibility, and patient isolation of the underlying cause over speculative shortcuts.
