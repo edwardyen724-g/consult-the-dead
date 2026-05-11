@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
   }
   const stripe = getStripe()
 
+  const searchParams = request.nextUrl.searchParams
   const body = await request.json().catch(() => ({}))
   const billingPeriod: 'monthly' | 'annual' = body.billingPeriod === 'annual' ? 'annual' : 'monthly'
   const priceId = billingPeriod === 'annual'
@@ -41,12 +42,11 @@ export async function POST(request: NextRequest) {
   // Vercel Analytics. See marketing playbook §8 ("Conversion funnel
   // instrumentation"). Both fields are optional and clipped to Stripe's
   // 500-char metadata-value limit defensively.
-  const url = new URL(request.url)
   const utmCampaign = sanitiseUtm(
-    typeof body.utm_campaign === 'string' ? body.utm_campaign : url.searchParams.get('utm_campaign'),
+    typeof body.utm_campaign === 'string' ? body.utm_campaign : searchParams.get('utm_campaign'),
   )
   const utmContent = sanitiseUtm(
-    typeof body.utm_content === 'string' ? body.utm_content : url.searchParams.get('utm_content'),
+    typeof body.utm_content === 'string' ? body.utm_content : searchParams.get('utm_content'),
   )
 
   const clerk = await clerkClient()
