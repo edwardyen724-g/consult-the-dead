@@ -23,8 +23,14 @@ vi.mock('@/lib/utm', () => ({
   }),
 }))
 
+// use-clerk-utm-stamper: mock so SignUpClient tests can verify it is invoked.
+vi.mock('@/lib/use-clerk-utm-stamper', () => ({
+  useClerkUtmStamper: vi.fn(),
+}))
+
 import { useSignUp } from '@clerk/nextjs'
 import { getUtmOrNull } from '@/lib/utm'
+import { useClerkUtmStamper } from '@/lib/use-clerk-utm-stamper'
 import SignUpPage, { metadata } from './page'
 import { SignUpClient } from './SignUpClient'
 import { UtmStamper } from './UtmStamper'
@@ -74,6 +80,12 @@ describe('SignUpClient', () => {
     const html = renderToStaticMarkup(<SignUpClient />)
     expect(html).toContain('display:flex')
     expect(html).toContain('min-height:100vh')
+  })
+
+  it('invokes useClerkUtmStamper when rendered (hook is wired into component)', () => {
+    vi.clearAllMocks()
+    render(<SignUpClient />)
+    expect(vi.mocked(useClerkUtmStamper)).toHaveBeenCalled()
   })
 })
 
