@@ -92,8 +92,8 @@ function findAll(
 /* ── Exported constant tests ──────────────────────────────────── */
 
 describe("Header exported constants", () => {
-  it("HEADER_QUIZ_ENTRY_HREF resolves to /quiz (direct mode)", () => {
-    expect(HEADER_QUIZ_ENTRY_HREF).toBe("/quiz");
+  it("HEADER_QUIZ_ENTRY_HREF resolves to /quiz?entry=guided (guided mode)", () => {
+    expect(HEADER_QUIZ_ENTRY_HREF).toBe("/quiz?entry=guided");
   });
 
   it("HEADER_QUIZ_CTA_HREF includes the required UTM params", () => {
