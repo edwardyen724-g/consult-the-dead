@@ -117,3 +117,51 @@ class TestLLMClient:
 
         with pytest.raises(ValueError, match="no text content was returned"):
             client.prompt(system="sys", user="usr")
+
+    @patch("framework_forge.llm.anthropic.Anthropic")
+    def test_prompt_json_raises_on_malformed_json_in_fence(self, mock_anthropic_cls):
+        """prompt_json() should raise ValueError when the fenced block contains invalid JSON
+        and there is no valid JSON object elsewhere in the response."""
+        mock_client = MagicMock()
+        mock_anthropic_cls.return_value = mock_client
+
+        # Fence content is syntactically broken; no valid {…} anywhere else.
+        mock_response = MagicMock()
+        mock_response.content = [SimpleNamespace(text="```json\n{broken: [}\n```")]
+        mock_response.usage = SimpleNamespace(input_tokens=12, output_tokens=8)
+        mock_client.messages.create.return_value = mock_response
+
+        client = LLMClient(api_key="sk-ant-test-key")
+
+        with pytest.raises(ValueError, match="Expected JSON response"):
+            client.prompt_json(system="sys", user="usr")
+
+    def test_structured_response_malformed_json_fence_blocks_raw_fallback(self):
+        """When fence JSON is malformed AND the raw-regex spans both the broken fence
+        content and any trailing JSON (due to greedy DOTALL matching), both extraction
+        paths fail and json_content returns None.
+
+        Concretely: r"\\{.*\\}" with re.DOTALL matches from the first '{' in the fence
+        all the way to the last '}' in the text, producing a multi-line blob that
+        json.loads rejects — so no partial recovery occurs.
+        """
+        raw_text = "```json\n{broken: [}\n```\n{\"key\": \"val\"}"
+        resp = StructuredResponse(raw_text=raw_text, input_tokens=10, output_tokens=5)
+        assert resp.json_content is None
+
+    @patch("framework_forge.llm.anthropic.Anthropic")
+    def test_prompt_json_raises_on_empty_response(self, mock_anthropic_cls):
+        """prompt_json() should propagate the ValueError raised by _extract_response_text
+        when the API returns an empty content list (no text blocks at all)."""
+        mock_client = MagicMock()
+        mock_anthropic_cls.return_value = mock_client
+
+        mock_response = MagicMock()
+        mock_response.content = []  # empty — no text blocks at all
+        mock_response.usage = SimpleNamespace(input_tokens=0, output_tokens=0)
+        mock_client.messages.create.return_value = mock_response
+
+        client = LLMClient(api_key="sk-ant-test-key")
+
+        with pytest.raises(ValueError, match="no text content was returned"):
+            client.prompt_json(system="sys", user="usr")
