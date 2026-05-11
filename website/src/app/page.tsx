@@ -66,7 +66,9 @@ export default function HomePage() {
     <div style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
 
       {/* ── HERO ── */}
-      <section style={{ padding: '88px 24px 80px' }}>
+      {/* Top/bottom padding trimmed (88→52px, 80→48px) so the Six Councils
+          section crests the fold on a 768px viewport without feeling cramped. */}
+      <section style={{ padding: '52px 24px 48px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{
             display: 'flex',
@@ -105,13 +107,13 @@ export default function HomePage() {
                 fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
                 lineHeight: 1.65,
                 color: 'var(--fg-dim)',
-                marginTop: '28px',
+                marginTop: '18px',
                 maxWidth: '50ch',
               }}>
                 Bring the question keeping you up. We seat {totalMinds} minds —                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
               </p>
 
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '28px' }}>
                 <Link href="/agora" style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '11px',
@@ -167,8 +169,8 @@ export default function HomePage() {
 
           {/* Stats bar */}
           <div style={{
-            marginTop: '56px',
-            paddingTop: '28px',
+            marginTop: '36px',
+            paddingTop: '20px',
             borderTop: '1px solid var(--hairline)',
           }}>
             <p style={{
