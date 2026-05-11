@@ -60,3 +60,53 @@ export function formatLibraryProgressStats(
     "Growing with every return",
   ];
 }
+
+/* ── Upsell nudge ───────────────────────────────────────────────── */
+
+/**
+ * Returns an upgrade nudge when a Pro user's saved-debate count is
+ * approaching or at the monthly cap (100 agons/month), otherwise null.
+ *
+ * Thresholds:
+ *   - ≥ 90 saved (≤ 10 remaining): show "running low" nudge
+ *   - ≥ 100 saved (cap reached): show "cap reached" nudge
+ *
+ * The nudge is purely informational — there is no hard block in the
+ * library UI. Rate-limit enforcement happens at /api/agon. This helper
+ * drives the notice only.
+ */
+export type LibraryUpsellNudge = {
+  kind: "running-low" | "cap-reached";
+  message: string;
+  remaining: number;
+};
+
+const PRO_MONTHLY_CAP = 100;
+const NUDGE_THRESHOLD = 90;
+
+export function getLibraryUpsellNudge(
+  savedDebates: number,
+): LibraryUpsellNudge | null {
+  if (!Number.isFinite(savedDebates) || savedDebates < 0) return null;
+
+  const remaining = Math.max(0, PRO_MONTHLY_CAP - savedDebates);
+
+  if (savedDebates >= PRO_MONTHLY_CAP) {
+    return {
+      kind: "cap-reached",
+      message: `You've reached your 100-agon monthly limit. Older agons are still safe in your library — new consultations resume next month.`,
+      remaining: 0,
+    };
+  }
+
+  if (savedDebates >= NUDGE_THRESHOLD) {
+    const plural = remaining === 1 ? "" : "s";
+    return {
+      kind: "running-low",
+      message: `You have ${remaining} consultation${plural} left this month (${savedDebates}/${PRO_MONTHLY_CAP} used).`,
+      remaining,
+    };
+  }
+
+  return null;
+}
