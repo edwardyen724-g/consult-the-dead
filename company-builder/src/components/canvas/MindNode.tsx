@@ -9,6 +9,7 @@ import { getRoleFit, getFitColor } from '@/data/roleFit';
 import { useCompanyStore } from '@/store/companyStore';
 import { useDebateStore } from '@/store/debateStore';
 import { hexToRgb } from '@/lib/colors';
+import { getDomainSilhouetteStyle } from './domainSilhouettes.mjs';
 import type { RoleId, DomainCategory } from '@/types';
 
 interface MindNodeData {
@@ -213,7 +214,6 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const setSelectedMindId = useCompanyStore((s) => s.setSelectedMindId);
 
   const speakingMindId = useDebateStore((s) => s.speakingMindId);
-  const isDebateRunning = useDebateStore((s) => s.isDebateRunning);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isRemoving, setIsRemoving] = useState(false);
@@ -223,7 +223,13 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
 
   const isHighlightedFromSidebar = hoveredSidebarArchetypeId === nodeData.archetypeId;
   const isSpeaking = speakingMindId === id;
-  const phaseOffset = useMemo(() => Math.random() * 4, []);
+  const phaseOffset = useMemo(() => {
+    let hash = 0;
+    for (let i = 0; i < id.length; i += 1) {
+      hash = (hash * 31 + id.charCodeAt(i)) % 1000;
+    }
+    return (hash % 400) / 100;
+  }, [id]);
 
   // Role fit indicator
   const roleFit = useMemo(() => {
@@ -237,12 +243,15 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   // Placement ceremony (F13 enhanced: longer quote hold, more prominent)
   useEffect(() => {
     if (justPlaced) {
-      setShowFlash(true);
-      setShowPlacementQuote(true);
+      const startTimer = setTimeout(() => {
+        setShowFlash(true);
+        setShowPlacementQuote(true);
+      }, 0);
       const flashTimer = setTimeout(() => setShowFlash(false), 500);
       const quoteTimer = setTimeout(() => setShowPlacementQuote(false), 2800);
       const clearTimer = setTimeout(() => clearJustPlaced(id), 3000);
       return () => {
+        clearTimeout(startTimer);
         clearTimeout(flashTimer);
         clearTimeout(quoteTimer);
         clearTimeout(clearTimer);
@@ -284,6 +293,7 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
   const rgb = hexToRgb(accent);
   const monogram = mind.name.charAt(0).toUpperCase();
   const domainMotif = getDomainMotifStyle(mind.domainCategory, rgb);
+  const domainSilhouette = getDomainSilhouetteStyle(mind.domainCategory);
 
   return (
     <motion.div
@@ -436,6 +446,8 @@ function MindNodeComponent({ id, data, selected }: NodeProps) {
       <div
         className="relative rounded-2xl overflow-hidden transition-all duration-300"
         style={{
+          clipPath: domainSilhouette.clipPath,
+          WebkitClipPath: domainSilhouette.clipPath,
           background: `radial-gradient(ellipse at top center, rgba(${rgb}, 0.1) 0%, transparent 60%), rgba(14, 14, 24, 0.94)`,
           border: selected
             ? `1.5px solid rgba(${rgb}, 0.7)`
