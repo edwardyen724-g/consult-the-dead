@@ -3,9 +3,30 @@ import path from "path";
 import Link from "next/link";
 import type { Metadata } from "next";
 
+const ESSAY_OG_IMAGE_URL = "https://www.consultthedead.com/essay/opengraph-image";
+
 export const metadata: Metadata = {
   title: "Consulting the Dead, Not Distilling the Living — Consult The Dead",
   description: "The operation we are doing instead.",
+  openGraph: {
+    title: "Consulting the Dead, Not Distilling the Living",
+    description: "The operation we are doing instead.",
+    url: "https://www.consultthedead.com/essay",
+    images: [
+      {
+        url: ESSAY_OG_IMAGE_URL,
+        width: 1200,
+        height: 630,
+        alt: "Consulting the Dead, Not Distilling the Living — Consult The Dead",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Consulting the Dead, Not Distilling the Living",
+    description: "The operation we are doing instead.",
+    images: [ESSAY_OG_IMAGE_URL],
+  },
 };
 
 // Minimal markdown renderer.
