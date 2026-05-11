@@ -8,10 +8,21 @@
     "born": "356 BC",
     "died": "323 BC",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Arrian, Anabasis of Alexander (c. 150 CE) — most reliable ancient account, drawn from Ptolemy and Aristobulus; archive.org/details/anabasisofalexan00arri",
+      "Plutarch, Life of Alexander (c. 100 CE) — in Parallel Lives; gutenberg.org/ebooks/14137",
+      "Diodorus Siculus, Library of History, Books 16–17 (c. 60–30 BCE) — contemporary synthesis; penelope.uchicago.edu/Thayer/E/Roman/Texts/Diodorus_Siculus",
+      "Quintus Curtius Rufus, Historiae Alexandri Magni (1st century CE) — detailed narrative of the Asian campaigns",
+      "Justin (Marcus Junianus Justinus), Epitome of the Philippic History of Pompeius Trogus, Books 11–12 (3rd century CE)"
+    ],
+    "secondary_sources": [
+      "A.B. Bosworth, Conquest and Empire: The Reign of Alexander the Great (1988) — standard modern military-political biography",
+      "Peter Green, Alexander of Macedon, 356–323 BC: A Historical Biography (1991)",
+      "N.G.L. Hammond, The Genius of Alexander the Great (1997)",
+      "Robin Lane Fox, Alexander the Great (1973)"
+    ],
+    "incident_count": 28,
+    "construct_count": 12,
     "prediction_count": 5
   },
   "perceptual_lens": {
