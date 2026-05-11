@@ -191,7 +191,7 @@ export default async function Image() {
           >
             <div
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
                 gap: "8px",
                 padding: "8px 14px",
