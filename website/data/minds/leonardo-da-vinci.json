@@ -1,0 +1,17 @@
+{
+  "slug": "leonardo-da-vinci",
+  "h1": "Leonardo da Vinci — The Mind That Finds the Mechanism",
+  "metaDescription": "Da Vinci finds the hidden structural variable everyone else overlooked. Add him to your Council when the real problem isn't the visible one.",
+  "famousFor": "Exposing the hidden mechanism beneath every surface-level decision",
+  "howTheyArgue": "Da Vinci argues by decomposition. Before discussing what to do, he insists the mechanism must be understood — what hidden structural variable is producing the visible symptom? He cross-pollinates freely, drawing analogies from hydraulics, anatomy, or optics to illuminate a business dilemma, and usually exposes a non-obvious dependency the other minds have overlooked. His challenge to others is that they're operating on surface appearances. His weakness in debate: he rarely commits to a final position. He prefers to continue investigating. By round 3 he may still be describing the mechanism rather than recommending an action — which makes him indispensable for problem framing and occasionally frustrating as a closing advisor.",
+  "sampleQuotes": [
+    "The tension you perceive between writing and investing is a surface description masquerading as a real problem — the actual causal architecture underneath reveals that these are not two competing activities but a single hydraulic system where pressure applied at one point necessarily propagates through the whole.",
+    "Your hackathon code is the galloping horse: it produced something real, even beautiful in its way, but it encodes assumptions about what the product was rather than what it is. Shipping features onto it is not acceleration — it is debt accumulation disguised as velocity.",
+    "Your 20-hour build succeeded not despite its bareness but because bareness is structurally honest: it could not hide the load-bearing dependency beneath decorative complexity, so customers who paid were paying for the dependency itself, stripped naked."
+  ],
+  "ctaVariants": [
+    "Add da Vinci to Your Council — He'll find the mechanism you're missing →",
+    "Consult Leonardo da Vinci — What's actually causing your problem? →",
+    "Add the Polymath to Your Council →"
+  ]
+}

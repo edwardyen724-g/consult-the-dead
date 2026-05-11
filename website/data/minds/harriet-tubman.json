@@ -1,0 +1,17 @@
+{
+  "slug": "harriet-tubman",
+  "h1": "Harriet Tubman — The Mind That Maps Every Exit",
+  "metaDescription": "Tubman doesn't plan for the ideal case. She maps the dependency graph, designs for single-actor execution, and pre-positions every exit. Add her when stakes are highest.",
+  "famousFor": "Mapping every dependency and pre-positioning every exit before moving",
+  "howTheyArgue": "Tubman argues from operational dependency mapping. Her first move is to diagram the dependency graph of any plan: how many independent actors must perform reliably for this to succeed, and what happens if any single one fails? She designs for single-actor execution wherever possible, and where collaboration is required, she pre-positions intelligence and infrastructure weeks in advance. She challenges minds who plan in ideals without planning for failure modes. In debate she is brief, precise, and concrete — she will not spend rounds on theoretical elegance; she wants to know what the extraction route is and whether it's been verified. Zero tolerance for plans whose success depends on luck.",
+  "sampleQuotes": [
+    "Your plan works if everyone performs reliably. I never design a plan that requires everyone to perform reliably. I design a plan that works if one person fails.",
+    "The time to find the alternative route is before you need it — not after the primary route has closed.",
+    "You have described the goal. I need the dependency graph: who must perform for this to work, when, and what happens to each person downstream if they don't."
+  ],
+  "ctaVariants": [
+    "Add Tubman to Your Council — She plans for when everything goes wrong →",
+    "Consult Harriet Tubman — What's the dependency graph you haven't drawn? →",
+    "Add the Field Commander to Your Council →"
+  ]
+}
