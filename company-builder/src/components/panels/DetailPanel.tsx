@@ -8,6 +8,7 @@ import { rolesMap } from '@/data/roles';
 import { getRoleFit, getFitColor } from '@/data/roleFit';
 import { getChemistry } from '@/data/chemistry';
 import { hexToRgb } from '@/lib/colors';
+import { useFocusRestore } from '@/components/shared/useFocusRestore';
 
 export default function DetailPanel() {
   const selectedMindId = useCompanyStore((s) => s.selectedMindId);
@@ -21,6 +22,7 @@ export default function DetailPanel() {
   }, [selectedMindId, placedMinds]);
 
   const archetype = selectedMind ? mindsMap.get(selectedMind.archetypeId) : null;
+  useFocusRestore(!!selectedMindId);
 
   // Escape key to close
   useEffect(() => {
@@ -92,6 +94,9 @@ export default function DetailPanel() {
           exit={{ x: 400, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed top-0 right-0 h-full flex flex-col custom-scrollbar"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mind detail panel"
           style={{
             width: 340,
             zIndex: 30,
@@ -105,6 +110,7 @@ export default function DetailPanel() {
           {/* Close button */}
           <button
             onClick={() => setSelectedMindId(null)}
+            autoFocus
             className="absolute top-4 right-4 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-white/10 z-10"
             style={{
               background: 'rgba(255,255,255,0.04)',

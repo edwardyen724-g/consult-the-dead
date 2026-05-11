@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useDebateStore } from '@/store/debateStore';
 import { mindsMap } from '@/data/minds';
-import { hexToRgb } from '@/lib/colors';
 import type { Debate } from '@/types';
+import { useFocusRestore } from '@/components/shared/useFocusRestore';
 
 function formatTimestamp(iso: string): string {
   try {
@@ -99,6 +99,18 @@ export default function DebateHistory() {
   const historyPanelOpen = useDebateStore((s) => s.historyPanelOpen);
   const debateHistory = useDebateStore((s) => s.debateHistory);
   const closeHistoryPanel = useDebateStore((s) => s.closeHistoryPanel);
+  useFocusRestore(historyPanelOpen);
+
+  useEffect(() => {
+    if (!historyPanelOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeHistoryPanel();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [historyPanelOpen, closeHistoryPanel]);
 
   return (
     <AnimatePresence>
@@ -110,6 +122,9 @@ export default function DebateHistory() {
           exit={{ x: 400, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed top-0 right-0 h-full flex flex-col custom-scrollbar"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Debate history panel"
           style={{
             width: 320,
             zIndex: 32,
@@ -129,6 +144,7 @@ export default function DebateHistory() {
             </h2>
             <button
               onClick={closeHistoryPanel}
+              autoFocus
               className="w-6 h-6 rounded-full flex items-center justify-center transition-colors hover:bg-white/10"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#71717a' }}
             >

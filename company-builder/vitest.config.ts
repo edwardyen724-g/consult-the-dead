@@ -1,19 +1,54 @@
 import { defineConfig } from 'vitest/config';
+import { resolve } from 'path';
 
-const config = defineConfig({
+export default defineConfig({
   test: {
-    environment: 'node',
-    include: ['src/**/*.test.ts'],
-  },
-  coverage: {
-    include: ['src/store/companyStore.ts'],
-    exclude: ['src/lib/events.ts'],
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./src/test-setup.ts'],
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    coverage: {
+      provider: 'v8',
+      include: [
+        'src/components/shared/ErrorBoundary.tsx',
+        'src/components/shared/useFocusRestore.ts',
+        'src/app/loading.tsx',
+        'src/app/error.tsx',
+        'src/store/companyStore.ts',
+      ],
+      exclude: ['src/lib/events.ts'],
+      thresholds: {
+        // Per-file thresholds for the new/modified shell files
+        'src/components/shared/ErrorBoundary.tsx': {
+          lines: 95,
+          functions: 95,
+          branches: 95,
+          statements: 95,
+        },
+        'src/components/shared/useFocusRestore.ts': {
+          lines: 95,
+          functions: 95,
+          branches: 95,
+          statements: 95,
+        },
+        'src/app/loading.tsx': {
+          lines: 95,
+          functions: 95,
+          branches: 95,
+          statements: 95,
+        },
+        'src/app/error.tsx': {
+          lines: 95,
+          functions: 95,
+          branches: 95,
+          statements: 95,
+        },
+      },
+    },
   },
   resolve: {
     alias: {
-      '@': new URL('./src', import.meta.url).pathname,
+      '@': resolve(__dirname, './src'),
     },
   },
 });
-
-export default config;
