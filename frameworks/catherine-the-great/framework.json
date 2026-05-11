@@ -8,10 +8,23 @@
     "born": "1729",
     "died": "1796",
     "generated_utc": "2026-04-02T00:00:00.000000+00:00",
-    "primary_sources": [],
-    "secondary_sources": [],
-    "incident_count": 30,
-    "construct_count": 7,
+    "primary_sources": [
+      "Catherine the Great: Memoirs (written c. 1771–1794; published posthumously) — autocritical account of her early life and path to the throne",
+      "Nakaz (Instruction to the Legislative Commission, 1767) — 526-article legal-political document composed by Catherine, drawing on Montesquieu and Beccaria",
+      "Catherine's correspondence with Voltaire (1763–1778, ~200 surviving letters)",
+      "Catherine's correspondence with Friedrich Melchior Grimm (1764–1796, 800+ surviving letters)",
+      "Catherine's correspondence with Diderot (1762–1784, including records of his 1773–1774 St. Petersburg visit)",
+      "Charter to the Nobility (1785) — primary legal text issued by Catherine",
+      "Statute on the Administration of the Governorates (November 7, 1775) — provincial reform statute authored by Catherine"
+    ],
+    "secondary_sources": [
+      "Isabel de Madariaga, Russia in the Age of Catherine the Great (1981) — standard scholarly biography",
+      "Robert K. Massie, Catherine the Great: Portrait of a Woman (2011)",
+      "Simon Dixon, Catherine the Great (2009)",
+      "John T. Alexander, Catherine the Great: Life and Legend (1989)"
+    ],
+    "incident_count": 28,
+    "construct_count": 12,
     "prediction_count": 5
   },
   "perceptual_lens": {
