@@ -20,7 +20,13 @@ export default async function LibraryPage() {
       }}
     >
       <div
-        style={{ maxWidth: "860px", margin: "0 auto", padding: "64px 24px 120px" }}
+        style={{
+          maxWidth: "860px",
+          margin: "0 auto",
+          padding: "48px 16px 96px",
+          boxSizing: "border-box",
+          width: "100%",
+        }}
       >
         <p
           className="font-mono"
@@ -42,7 +48,7 @@ export default async function LibraryPage() {
             fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)",
             letterSpacing: "-0.01em",
             lineHeight: 1.2,
-            margin: "0 0 48px",
+            margin: "0 0 32px",
           }}
         >
           Library
@@ -58,23 +64,40 @@ export default async function LibraryPage() {
   );
 }
 
-function UpgradePrompt() {
+export function UpgradePrompt() {
   return (
     <div
+      className="font-mono"
       style={{
         border: "1px solid var(--hairline)",
-        borderRadius: "6px",
-        padding: "40px 32px",
-        maxWidth: "480px",
+        borderRadius: "8px",
+        padding: "32px 24px",
+        maxWidth: "520px",
+        width: "100%",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        gap: "14px",
       }}
     >
       <p
         style={{
+          fontSize: "9px",
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "var(--amber)",
+          margin: 0,
+        }}
+      >
+        Pro feature
+      </p>
+      <p
+        style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "18px",
+          fontSize: "19px",
           lineHeight: 1.55,
           color: "var(--fg)",
-          margin: "0 0 8px",
+          margin: 0,
         }}
       >
         Save every debate. Revisit any decision.
@@ -86,7 +109,7 @@ function UpgradePrompt() {
           lineHeight: 1.6,
           color: "var(--fg-dim)",
           fontStyle: "italic",
-          margin: "0 0 28px",
+          margin: 0,
         }}
       >
         Library is a Pro feature. Upgrade to save agons, export reports, and
@@ -96,6 +119,7 @@ function UpgradePrompt() {
         href="/pricing"
         style={{
           display: "inline-block",
+          width: "fit-content",
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
           letterSpacing: "0.14em",
@@ -112,7 +136,7 @@ function UpgradePrompt() {
   );
 }
 
-async function ProLibrary({ userId }: { userId: string }) {
+export async function ProLibrary({ userId }: { userId: string }) {
   let agons: AgonRecord[] = [];
   let dbError: string | null = null;
 

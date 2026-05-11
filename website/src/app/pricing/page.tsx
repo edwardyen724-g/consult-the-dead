@@ -1,6 +1,33 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import {
+  formatPricingStats,
+  PRICING_STATS_DEFAULT,
+} from '@/lib/pricing/stats'
+
+/**
+ * Social-proof debate scenario cards (marketing brief 22ee79de §Part 2).
+ * Anonymized debate topics + council composition harvested from
+ * docs/outreach-debates/. No attribution — only the decision and the council.
+ */
+const SOCIAL_PROOF: { topic: string; council: string }[] = [
+  {
+    topic:
+      'Should I keep competing on price at $18K MRR, or reposition as premium before the market locks me in?',
+    council: 'Machiavelli · Curie · Sun Tzu',
+  },
+  {
+    topic:
+      'I built a product in a half-day hackathon. It’s at $20K MRR. Should I rebuild the fragile codebase or keep shipping?',
+    council: 'da Vinci · Curie · Sun Tzu',
+  },
+  {
+    topic:
+      'Open-source project at 13K stars. Just launched a paid product on top of it. The community feels betrayed. What do I do?',
+    council: 'Aurelius · Machiavelli · Curie',
+  },
+]
 
 const FEATURES: { label: string; free: string; pro: string }[] = [
   { label: 'Agons per period',   free: '3 / day',                 pro: '100 / month' },
@@ -95,19 +122,90 @@ export default function PricingPage() {
             lineHeight: 1.12,
             marginBottom: '20px',
           }}>
-            Get Better Counsel
+            Run your hardest decision through 26 historical minds.
+            <br />
+            <span style={{ color: 'var(--fg-dim)' }}>They&apos;ll disagree. You&apos;ll decide.</span>
           </h1>
           <p style={{
             fontFamily: 'var(--font-serif)',
             fontSize: '1.1rem',
             color: 'var(--fg-dim)',
-            maxWidth: '480px',
+            maxWidth: '520px',
             margin: '0 auto',
             lineHeight: 1.6,
           }}>
-            Think through your hardest decisions with historical minds.
-            Unbiased, rigorous, immediate.
+            Three rounds. One consensus. No consultants, no waiting, no calendar invite.
           </p>
+
+          {/* Stats counter row (marketing brief §Part 4 Variant A — static) */}
+          <div
+            data-testid="pricing-stats"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '14px',
+              flexWrap: 'wrap',
+              marginTop: '24px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-faint)',
+            }}
+          >
+            {formatPricingStats(PRICING_STATS_DEFAULT).map((label, i, arr) => (
+              <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: '14px' }}>
+                {label}
+                {i < arr.length - 1 && (
+                  <span aria-hidden="true" style={{ color: 'var(--hairline)' }}>·</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Social-proof debate scenario strip (marketing brief §Part 2) */}
+        <div
+          aria-label="Real debate scenarios from the Agora library"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '12px',
+            marginBottom: '40px',
+          }}
+        >
+          {SOCIAL_PROOF.map((s) => (
+            <div
+              key={s.topic}
+              style={{
+                border: '1px solid var(--hairline)',
+                borderRadius: '6px',
+                padding: '16px 18px',
+                background: 'var(--surface)',
+              }}
+            >
+              <p style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '0.92rem',
+                color: 'var(--fg)',
+                lineHeight: 1.5,
+                margin: 0,
+                marginBottom: '10px',
+              }}>
+                &ldquo;{s.topic}&rdquo;
+              </p>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--fg-faint)',
+                margin: 0,
+              }}>
+                {s.council}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Billing toggle */}
@@ -372,7 +470,7 @@ export default function PricingPage() {
                   transition: 'opacity 150ms',
                 }}
               >
-                {loading ? 'Redirecting…' : 'Try Pro free for 7 days'}
+                {loading ? 'Redirecting…' : 'Start 7-day Pro trial — Opus + Library'}
               </button>
             </div>
           </div>
@@ -399,6 +497,41 @@ export default function PricingPage() {
             annual plans go to $360. Monthly stays at $30.
           </p>
         </div>
+
+        {/* Founder note (marketing brief §Part 1 Variant A) */}
+        <figure style={{
+          margin: '0 0 64px',
+          padding: '24px 28px',
+          borderLeft: '2px solid var(--fg-faint)',
+          background: 'var(--surface)',
+          borderRadius: '0 6px 6px 0',
+        }}>
+          <blockquote style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '1rem',
+            color: 'var(--fg)',
+            lineHeight: 1.7,
+            margin: 0,
+            fontStyle: 'italic',
+          }}>
+            &ldquo;I built Agora because I kept making decisions alone that should
+            have had a better sounding board. Not a chatbot that agrees with me — an
+            actual disagreement. Machiavelli telling me the plan is naïve. Curie
+            asking what I haven&apos;t measured. I&apos;m offering lifetime pricing
+            now because I want the people who find it early to be the founding
+            community that shapes where it goes.&rdquo;
+          </blockquote>
+          <figcaption style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            marginTop: '14px',
+          }}>
+            — Edward, founder
+          </figcaption>
+        </figure>
 
         {/* FAQ */}
         <div style={{ marginBottom: '80px' }}>

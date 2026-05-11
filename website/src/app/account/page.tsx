@@ -2,7 +2,9 @@ import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ManageSubscriptionButton } from '@/components/ManageSubscriptionButton'
+import { ApiKeySettings } from '@/components/ApiKeySettings'
 import { getUsage } from '@/lib/agon/rateLimit'
+import { maskApiKey } from '@/lib/api-key-mask'
 
 export const metadata = { title: 'Account' }
 
@@ -19,6 +21,16 @@ export default async function AccountPage({
 
   const tier = user.publicMetadata?.subscription_tier as string | undefined
   const isPro = tier === 'pro'
+
+  // Read the BYO Anthropic API key from Clerk privateMetadata and mask it
+  // server-side. Only the masked string is shipped to the client; the raw
+  // key never leaves the server. See /api/user/api-key/route.ts for the
+  // write/delete sibling endpoints.
+  const storedAnthropicKey =
+    typeof user.privateMetadata?.anthropic_api_key === 'string'
+      ? (user.privateMetadata.anthropic_api_key as string)
+      : null
+  const initialMaskedKey = storedAnthropicKey ? maskApiKey(storedAnthropicKey) : null
 
   const usage = await getUsage({ userId: user.id, isPro, ip: '0.0.0.0' })
 
@@ -229,6 +241,9 @@ export default async function AccountPage({
             </p>
           </div>
         </div>
+
+        {/* BYO Anthropic API key — unblocks the free-cap modal CTA. */}
+        <ApiKeySettings initialMaskedKey={initialMaskedKey} />
 
         <div style={{
           display: 'flex',
