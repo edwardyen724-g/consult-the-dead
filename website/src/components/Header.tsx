@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "./ThemeToggle";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
 const NAV_LINK_STYLE = {
   fontFamily: 'var(--font-mono)',
@@ -12,6 +13,8 @@ const NAV_LINK_STYLE = {
   color: 'var(--fg-dim)',
   textDecoration: 'none',
 };
+
+export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("direct");
 
 export function Header() {
   const { isSignedIn } = useAuth()
@@ -25,7 +28,7 @@ export function Header() {
       <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Council
       </Link>
-      <Link href="/quiz" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+      <Link href={HEADER_QUIZ_ENTRY_HREF} style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         Find Your Mind
       </Link>
       {isSignedIn && (
