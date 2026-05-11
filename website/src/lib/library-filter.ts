@@ -93,9 +93,9 @@ export function getLibraryEmptyState(
   if (totalCount === 0) {
     return {
       kind: "saved-empty",
-      title: "No saved agons yet.",
-      body: "Run your first agon in the Agora and the library will keep it here for later review.",
-      primaryActionLabel: "Run your first one →",
+      title: "Start your first consultation.",
+      body: "Bring a real decision to the council — a question you're wrestling with right now. Every agon you run is saved here so you can revisit the reasoning later.",
+      primaryActionLabel: "Start your first consultation →",
       primaryActionHref: "/agora",
     };
   }
