@@ -95,8 +95,8 @@
       "layer2",
       "layer3"
     ],
-    "fetched": false,
-    "text_path": null
+    "fetched": true,
+    "text_path": "autobiography_pierre_curie_memoir.txt"
   },
   {
     "title": "Marie Curie's Laboratory Notebooks (1902-1934)",
@@ -132,8 +132,8 @@
       "layer1",
       "layer3"
     ],
-    "fetched": false,
-    "text_path": null
+    "fetched": true,
+    "text_path": "nobel_lecture_physics_1903.txt"
   },
   {
     "title": "Marie Curie's Teaching Philosophy at the Sorbonne",

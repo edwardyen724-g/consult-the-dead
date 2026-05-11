@@ -16,6 +16,24 @@ const NAV_LINK_STYLE = {
 
 export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("direct");
 
+export const HEADER_QUIZ_CTA_HREF =
+  "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry";
+
+const QUIZ_CTA_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  padding: '6px 12px',
+  borderRadius: '4px',
+  border: '1px solid var(--amber)',
+  color: 'var(--amber)',
+  background: 'transparent',
+  textDecoration: 'none',
+  whiteSpace: 'nowrap' as const,
+  flexShrink: 0,
+};
+
 export function Header() {
   const { isSignedIn } = useAuth()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -46,6 +64,14 @@ export function Header() {
       </Link>
       <Link href="/essay" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         About
+      </Link>
+      <Link
+        href={HEADER_QUIZ_CTA_HREF}
+        style={QUIZ_CTA_STYLE}
+        onClick={() => setMobileOpen(false)}
+        aria-label="Take the guided quiz to find your council"
+      >
+        Take the Quiz →
       </Link>
     </>
   )
