@@ -14,7 +14,35 @@ const NAV_LINK_STYLE = {
   textDecoration: 'none',
 };
 
-export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("direct");
+const QUIZ_CTA_NAV_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  color: 'var(--amber)',
+  textDecoration: 'none',
+  fontWeight: 500,
+};
+
+export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("guided");
+
+export const HEADER_QUIZ_CTA_HREF =
+  "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry";
+
+const QUIZ_CTA_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  padding: '6px 12px',
+  borderRadius: '4px',
+  border: '1px solid var(--amber)',
+  color: 'var(--amber)',
+  background: 'transparent',
+  textDecoration: 'none',
+  whiteSpace: 'nowrap' as const,
+  flexShrink: 0,
+};
 
 export function Header() {
   const { isSignedIn } = useAuth()
@@ -28,7 +56,7 @@ export function Header() {
       <Link href="/frameworks" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Council
       </Link>
-      <Link href={HEADER_QUIZ_ENTRY_HREF} style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+      <Link href={HEADER_QUIZ_ENTRY_HREF} style={QUIZ_CTA_NAV_STYLE} onClick={() => setMobileOpen(false)}>
         Find Your Mind
       </Link>
       {isSignedIn && (
@@ -46,6 +74,14 @@ export function Header() {
       </Link>
       <Link href="/essay" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         About
+      </Link>
+      <Link
+        href={HEADER_QUIZ_CTA_HREF}
+        style={QUIZ_CTA_STYLE}
+        onClick={() => setMobileOpen(false)}
+        aria-label="Take the guided quiz to find your council"
+      >
+        Take the Quiz →
       </Link>
     </>
   )

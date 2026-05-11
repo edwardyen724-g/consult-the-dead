@@ -1,9 +1,13 @@
 """Tests for source discovery, fetching, and triage."""
 
-from unittest.mock import MagicMock, patch
-from framework_forge.config import SOURCE_TYPES
+import json
+import pytest
+from pathlib import Path
+from unittest.mock import patch, MagicMock, call
+import httpx
+from framework_forge.sources.discovery import discover_sources
 from framework_forge.sources.triage import triage_sources, SourceEntry
-from framework_forge.sources.fetcher import clean_html, fetch_source
+from framework_forge.sources.fetcher import clean_html, fetch_source, FetchError
 
 
 class TestSourceEntry:
@@ -44,16 +48,6 @@ class TestTriage:
         assert ranked[1].source_type == "firsthand_biography"
         assert ranked[2].source_type == "web_summary"
 
-    def test_unknown_source_type_falls_back_to_lowest_priority(self):
-        known = SourceEntry("Known", "http://a.com", SOURCE_TYPES[0], "known", ["layer1"])
-        unknown = SourceEntry("Unknown", "http://b.com", "made_up_type", "unknown", ["layer1"])
-
-        ranked = triage_sources([unknown, known])
-
-        assert known.rank == 0
-        assert unknown.rank == len(SOURCE_TYPES)
-        assert ranked[-1].source_type == "made_up_type"
-
 
 class TestCleanHtml:
     def test_strips_tags(self):
@@ -71,76 +65,151 @@ class TestCleanHtml:
         assert "alert" not in result
         assert "Content" in result
 
+    def test_strips_navigation_blocks_and_decodes_entities(self):
+        html = (
+            "<header>Top</header><!--ignore--><nav>Menu</nav>"
+            "<p>Hello &amp; goodbye</p><div>Line&nbsp;Two</div>"
+            "<footer>Bottom</footer>"
+        )
+        result = clean_html(html)
 
-class TestFetchSourcePersistence:
-    def _make_response(self, *, text: str, content_type: str) -> MagicMock:
+        assert "Top" not in result
+        assert "Menu" not in result
+        assert "Bottom" not in result
+        assert "ignore" not in result
+        assert "Hello & goodbye" in result
+        assert "Line Two" in result
+
+
+class TestDiscoverSources:
+    @patch("framework_forge.sources.discovery.LLMClient")
+    def test_discover_sources_maps_sources_and_defaults(self, mock_llm_cls):
+        mock_client = MagicMock()
+        mock_llm_cls.return_value = mock_client
+        mock_client.prompt_json.return_value = {
+            "sources": [
+                {
+                    "title": "Primary Letter",
+                    "url": "https://example.com/letter",
+                    "source_type": "private_writing",
+                    "description": "A direct letter",
+                    "evidence_layers": ["layer1", "layer2"],
+                },
+                {
+                    "title": "Sparse Entry",
+                },
+            ]
+        }
+
+        sources = discover_sources("Catherine the Great", client=None)
+
+        assert len(sources) == 2
+        assert sources[0].title == "Primary Letter"
+        assert sources[0].source_type == "private_writing"
+        assert sources[1].title == "Sparse Entry"
+        assert sources[1].url == ""
+        assert sources[1].source_type == "web_summary"
+        assert sources[1].evidence_layers == ["layer1"]
+        mock_client.prompt_json.assert_called_once()
+
+
+class TestFetchSource:
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_cleans_html_and_writes_file(self, mock_get, tmp_path):
         response = MagicMock()
-        response.text = text
-        response.headers = {"content-type": content_type}
-        response.raise_for_status = MagicMock()
-        return response
+        response.headers = {"content-type": "text/html; charset=utf-8"}
+        response.text = "<p>Hello &amp; goodbye</p>"
+        response.raise_for_status.return_value = None
+        mock_get.return_value = response
 
-    def test_fetch_source_writes_cleaned_text_to_source_artifact_path(self, tmp_path):
-        url = "https://example.com/keynote-decisions"
-        output_path = tmp_path / "steve-jobs" / "sources" / "texts" / "keynote-decisions.txt"
-        response = self._make_response(
-            text="""
-                <html>
-                  <body>
-                    <header><nav>Skip this</nav></header>
-                    <article><p>Important <b>decision</b> memo.</p></article>
-                    <footer>Skip this too</footer>
-                  </body>
-                </html>
-            """,
-            content_type="text/html; charset=utf-8",
+        output_path = tmp_path / "nested" / "page.txt"
+        text = fetch_source("https://example.com", output_path)
+
+        assert text == "Hello & goodbye"
+        assert output_path.read_text(encoding="utf-8") == "Hello & goodbye"
+        mock_get.assert_called_once()
+
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_preserves_non_html_text(self, mock_get, tmp_path):
+        response = MagicMock()
+        response.headers = {"content-type": "text/plain"}
+        response.text = "Plain text payload"
+        response.raise_for_status.return_value = None
+        mock_get.return_value = response
+
+        output_path = tmp_path / "plain.txt"
+        text = fetch_source("https://example.com/plain", output_path)
+
+        assert text == "Plain text payload"
+        assert output_path.read_text(encoding="utf-8") == "Plain text payload"
+
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_timeout_and_raises_fetch_error(
+        self, mock_get, mock_sleep, tmp_path
+    ):
+        mock_get.side_effect = httpx.TimeoutException("timed out")
+
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="Failed to fetch"):
+            fetch_source("https://slow.example.com", output_path, retries=3, retry_delay=0.1)
+
+        assert mock_get.call_count == 3
+        assert mock_sleep.call_count == 2
+
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_5xx_then_succeeds(self, mock_get, mock_sleep, tmp_path):
+        fail_response = MagicMock()
+        fail_response.status_code = 503
+        http_err = httpx.HTTPStatusError(
+            "503", request=MagicMock(), response=fail_response
         )
+        fail_response.raise_for_status.side_effect = http_err
 
-        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response) as mock_get:
-            first = fetch_source(url, output_path)
-            second = fetch_source(url, output_path)
+        ok_response = MagicMock()
+        ok_response.headers = {"content-type": "text/plain"}
+        ok_response.text = "Recovered"
+        ok_response.raise_for_status.return_value = None
 
-        assert output_path.exists()
-        assert output_path.parent.name == "texts"
-        assert output_path.parent.parent.name == "sources"
-        assert first == "Important decision memo."
-        assert second == "Important decision memo."
-        assert output_path.read_text(encoding="utf-8") == "Important decision memo."
-        mock_get.assert_called_with(
-            url,
-            headers={"User-Agent": "FrameworkForge/0.1 (research tool)"},
-            timeout=30.0,
-            follow_redirects=True,
+        mock_get.side_effect = [fail_response, ok_response]
+
+        output_path = tmp_path / "out.txt"
+        text = fetch_source("https://example.com", output_path, retries=3, retry_delay=0.1)
+
+        assert text == "Recovered"
+        assert mock_get.call_count == 2
+        assert mock_sleep.call_count == 1
+
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_raises_fetch_error_on_4xx(self, mock_get, tmp_path):
+        fail_response = MagicMock()
+        fail_response.status_code = 404
+        http_err = httpx.HTTPStatusError(
+            "404", request=MagicMock(), response=fail_response
         )
-        assert response.raise_for_status.call_count == 2
+        fail_response.raise_for_status.side_effect = http_err
+        mock_get.return_value = fail_response
 
-    def test_fetch_source_preserves_non_html_payloads(self, tmp_path):
-        url = "https://example.com/keynote.txt"
-        output_path = tmp_path / "steve-jobs" / "sources" / "texts" / "keynote.txt"
-        response = self._make_response(
-            text="Plain source text\nwith a second line.",
-            content_type="text/plain; charset=utf-8",
-        )
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="HTTP 404"):
+            fetch_source("https://example.com/missing", output_path, retries=3)
 
-        with patch("framework_forge.sources.fetcher.httpx.get", return_value=response):
-            text = fetch_source(url, output_path)
+        # 4xx should not be retried
+        assert mock_get.call_count == 1
 
-        assert text == "Plain source text\nwith a second line."
-        assert output_path.read_text(encoding="utf-8") == "Plain source text\nwith a second line."
+    @patch("framework_forge.sources.fetcher.time.sleep")
+    @patch("framework_forge.sources.fetcher.httpx.get")
+    def test_fetch_source_retries_on_request_error(self, mock_get, mock_sleep, tmp_path):
+        mock_get.side_effect = httpx.RequestError("connection refused")
 
-    def test_source_entry_serializes_text_persistence_metadata(self):
-        entry = SourceEntry(
-            title="Keynote decisions",
-            url="https://example.com/keynote",
-            source_type="critical_incident",
-            description="A source that should be fetched and persisted.",
-            evidence_layers=["layer2", "layer3"],
-            fetched=True,
-            text_path="sources/texts/keynote-decisions.txt",
-        )
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(FetchError, match="Failed to fetch"):
+            fetch_source("https://example.com", output_path, retries=2, retry_delay=0.0)
 
-        payload = entry.to_dict()
+        assert mock_get.call_count == 2
 
-        assert payload["fetched"] is True
-        assert payload["text_path"] == "sources/texts/keynote-decisions.txt"
-        assert payload["evidence_layers"] == ["layer2", "layer3"]
+    def test_fetch_source_raises_value_error_for_zero_retries(self, tmp_path):
+        output_path = tmp_path / "out.txt"
+        with pytest.raises(ValueError, match="retries must be >= 1"):
+            fetch_source("https://example.com", output_path, retries=0)

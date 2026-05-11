@@ -17,6 +17,11 @@ The site exposes the public home page, council and debate browsers, pricing and 
 - `/library` - signed-in Pro library for saved agons
 - `/pricing` - plan comparison and upgrade flow
 - `/account` - subscription status, usage, and BYO key settings
+- `/listicles/[slug]` — 5 long-tail SEO pages (startup-pivot, career-change, leadership-crisis, investing-risk, product-strategy); each pre-fills the Agora council via UTM CTA
+- `/minds/[id]` — 25 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA
+- `/packs` — themed pack catalog; browse curated mind packs by domain (stoics, inventors, strategists, etc.) with guided-quiz CTA and proof strip
+- `/explore` — public agon gallery; crawlable grid of public debate records with chip-strip and search
+- `/feed.xml` — RSS feed of public debates and insights
 - Supporting routes: `/essay`, `/insights`, `/privacy`, `/terms`, `/sign-in`, `/sign-up`
 
 ## API Surface

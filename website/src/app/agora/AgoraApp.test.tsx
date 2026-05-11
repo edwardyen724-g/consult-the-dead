@@ -73,11 +73,11 @@ describe("AgoraApp sample questions", () => {
   it("renders the tap-to-start sample question panel", () => {
     const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
 
-    expect(markup).toContain("Sample questions you can tap to start");
-    expect(markup).toContain("Use sample question: Should I raise VC or bootstrap?");
-    expect(markup).toContain("Use sample question: Should we open-source our core product?");
+    expect(markup).toContain("Or borrow a question from another querent");
+    expect(markup).toContain("Should I raise VC or bootstrap?");
+    expect(markup).toContain("Should we open-source our core product?");
     expect(markup).toContain(
-      "Use sample question: My industry is being automated — pivot into AI, or double down on domain depth?",
+      "My industry is being automated — pivot into AI, or double down on domain depth?",
     );
   });
 });

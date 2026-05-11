@@ -12,7 +12,7 @@ function getResend(): Resend {
   return _resend
 }
 
-const FROM = 'onboarding@resend.dev'
+const FROM = 'notifications@consultthedead.com'
 const AGORA_URL = 'https://www.consultthedead.com/agora'
 
 type RecapEmailUser = {
