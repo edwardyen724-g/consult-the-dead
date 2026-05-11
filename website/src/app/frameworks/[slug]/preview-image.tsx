@@ -21,6 +21,14 @@ const ACCENT_COLORS: Record<FrameworkSlug, string> = {
   "catherine-the-great": "#d4a830",
   "alexander-the-great": "#b07840",
   "cleopatra-vii": "#2f8085",
+  // Roster expansion 2026-05 (task 8987b12a)
+  "abraham-lincoln": "#4a6dbf",
+  "andrew-carnegie": "#5a7080",
+  "florence-nightingale": "#cf8a8e",
+  "frederick-douglass": "#b86840",
+  "julius-caesar": "#8f3a4a",
+  "napoleon-bonaparte": "#3a5fa8",
+  "seneca": "#7d8c5e",
 };
 
 export interface FrameworkPreviewData {

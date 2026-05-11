@@ -126,24 +126,25 @@ describe("framework preview image helpers", () => {
       params: Promise.resolve({ slug: "isaac-newton" }),
     });
 
+    type MockIR = InstanceType<typeof ImageResponseMock.MockImageResponse>;
     expect(og).toBeInstanceOf(ImageResponseMock.MockImageResponse);
     expect(twitter).toBeInstanceOf(ImageResponseMock.MockImageResponse);
-    expect((og as InstanceType<typeof ImageResponseMock.MockImageResponse>).options).toEqual({
+    expect((og as unknown as MockIR).options).toEqual({
       width: 1200,
       height: 630,
     });
-    expect((twitter as InstanceType<typeof ImageResponseMock.MockImageResponse>).options).toEqual({
+    expect((twitter as unknown as MockIR).options).toEqual({
       width: 1200,
       height: 630,
     });
     expect(
       renderToStaticMarkup(
-        (og as InstanceType<typeof ImageResponseMock.MockImageResponse>).element as ReactElement,
+        (og as unknown as MockIR).element as ReactElement,
       ),
     ).toContain("consultthedead.com/frameworks/isaac-newton");
     expect(
       renderToStaticMarkup(
-        (twitter as InstanceType<typeof ImageResponseMock.MockImageResponse>).element as ReactElement,
+        (twitter as unknown as MockIR).element as ReactElement,
       ),
     ).toContain("consultthedead.com/frameworks/isaac-newton");
   });
