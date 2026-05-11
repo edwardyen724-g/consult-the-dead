@@ -1,4 +1,4 @@
-import type { FrameworkSlug } from "./frameworks";
+import type { BipolarConstruct, Framework, FrameworkSlug } from "./frameworks";
 
 export interface InsightEntry {
   slug: string;
@@ -8,6 +8,26 @@ export interface InsightEntry {
   targetKeywords: string[];
   decisionType: string;
   hookQuestion: string;
+}
+
+export interface InsightPassageSegment {
+  text: string;
+  highlighted: boolean;
+}
+
+export interface InsightAnnotatedPassage {
+  label: string;
+  text: string;
+  excerpt: string;
+  construct: BipolarConstruct;
+  detail: string;
+}
+
+interface InsightAnnotationBlueprint {
+  label: string;
+  source: (entry: InsightEntry, framework: Framework) => string;
+  excerpt: string;
+  constructIndex: number;
 }
 
 export const INSIGHT_ENTRIES: InsightEntry[] = [
@@ -120,3 +140,160 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   //     "You asked ChatGPT for strategic advice and got the same answer your competitor got. A 2026 HBR study proved this isn't a bug — it's how LLMs work. So what's the alternative?",
   // },
 ];
+
+const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
+  string,
+  InsightAnnotationBlueprint[]
+> = {
+  "how-newton-would-approach-your-pivot-decision": [
+    {
+      label: "Runway pressure",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "running out of runway",
+      constructIndex: 0,
+    },
+    {
+      label: "Proof threshold",
+      source: (entry) => entry.description,
+      excerpt: "mathematical certainty",
+      constructIndex: 1,
+    },
+  ],
+  "machiavelli-on-when-to-fire-your-cofounder": [
+    {
+      label: "Equity leverage",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "40% equity",
+      constructIndex: 0,
+    },
+    {
+      label: "Power calculation",
+      source: (entry) => entry.description,
+      excerpt: "power dynamics",
+      constructIndex: 1,
+    },
+  ],
+  "sun-tzu-on-entering-a-market-with-incumbents": [
+    {
+      label: "Wrong question",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "wrong question",
+      constructIndex: 0,
+    },
+    {
+      label: "Terrain analysis",
+      source: (entry) => entry.description,
+      excerpt: "terrain analysis",
+      constructIndex: 1,
+    },
+  ],
+  "curie-on-whether-you-have-enough-data-to-decide": [
+    {
+      label: "Evidence budget",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "move fast",
+      constructIndex: 0,
+    },
+    {
+      label: "Time to isolate",
+      source: (entry) => entry.description,
+      excerpt: "four years isolating radium",
+      constructIndex: 1,
+    },
+  ],
+  "tesla-on-whether-to-build-the-future-or-ship-today": [
+    {
+      label: "Future bet",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "build the future",
+      constructIndex: 0,
+    },
+    {
+      label: "Innovation timing",
+      source: (entry) => entry.description,
+      excerpt: "betting on the future",
+      constructIndex: 1,
+    },
+  ],
+  "da-vinci-on-what-youre-not-seeing-in-your-business": [
+    {
+      label: "Blind spots",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "answer isn't in your domain",
+      constructIndex: 0,
+    },
+    {
+      label: "Cross-domain pattern",
+      source: (entry) => entry.description,
+      excerpt: "cross-domain pattern recognition",
+      constructIndex: 1,
+    },
+  ],
+};
+
+function buildConstructDetail(construct: BipolarConstruct): string {
+  return `${construct.positive_pole} vs. ${construct.negative_pole}. ${construct.behavioral_implication}`;
+}
+
+export function splitPassageByExcerpt(
+  text: string,
+  excerpt: string
+): InsightPassageSegment[] {
+  const source = text.trim();
+  const needle = excerpt.trim();
+
+  if (!source || !needle) {
+    return [{ text: source, highlighted: false }];
+  }
+
+  const lowerSource = source.toLowerCase();
+  const lowerNeedle = needle.toLowerCase();
+  const index = lowerSource.indexOf(lowerNeedle);
+
+  if (index < 0) {
+    return [{ text: source, highlighted: false }];
+  }
+
+  const end = index + needle.length;
+  const segments: InsightPassageSegment[] = [];
+
+  if (index > 0) {
+    segments.push({ text: source.slice(0, index), highlighted: false });
+  }
+
+  segments.push({
+    text: source.slice(index, end),
+    highlighted: true,
+  });
+
+  if (end < source.length) {
+    segments.push({ text: source.slice(end), highlighted: false });
+  }
+
+  return segments;
+}
+
+export function getInsightAnnotatedPassages(
+  entry: InsightEntry,
+  framework: Framework
+): InsightAnnotatedPassage[] {
+  const blueprints = INSIGHT_ANNOTATION_BLUEPRINTS[entry.slug] ?? [];
+
+  return blueprints.flatMap((blueprint) => {
+    const construct = framework.bipolar_constructs[blueprint.constructIndex];
+    if (!construct) return [];
+
+    const text = blueprint.source(entry, framework).trim();
+    if (!text) return [];
+
+    return [
+      {
+        label: blueprint.label,
+        text,
+        excerpt: blueprint.excerpt,
+        construct,
+        detail: buildConstructDetail(construct),
+      },
+    ];
+  });
+}
