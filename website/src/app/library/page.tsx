@@ -5,6 +5,7 @@ import { db, type AgonRecord } from "@/lib/db/client";
 import {
   formatLibraryProgressStats,
   getLibraryProgressStats,
+  getLibraryUpsellNudge,
 } from "@/lib/library-stats";
 import { LibraryClient } from "./LibraryClient";
 
@@ -169,7 +170,9 @@ export async function ProLibrary({ userId }: { userId: string }) {
     );
   }
 
-  const progressLabels = formatLibraryProgressStats(getLibraryProgressStats(agons));
+  const stats = getLibraryProgressStats(agons);
+  const progressLabels = formatLibraryProgressStats(stats);
+  const upsellNudge = getLibraryUpsellNudge(stats.savedDebates);
 
   return (
     <>
@@ -201,6 +204,44 @@ export async function ProLibrary({ userId }: { userId: string }) {
           </p>
         ))}
       </div>
+
+      {upsellNudge && (
+        <div
+          style={{
+            border: `1px solid ${upsellNudge.kind === "cap-reached" ? "var(--amber)" : "var(--hairline)"}`,
+            borderRadius: "6px",
+            padding: "16px 20px",
+            marginBottom: "28px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
+          <p
+            className="font-mono"
+            style={{
+              fontSize: "9px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--amber)",
+              margin: 0,
+            }}
+          >
+            {upsellNudge.kind === "cap-reached" ? "Monthly limit reached" : "Running low"}
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "15px",
+              lineHeight: 1.6,
+              color: "var(--fg-dim)",
+              margin: 0,
+            }}
+          >
+            {upsellNudge.message}
+          </p>
+        </div>
+      )}
 
       <div
         style={{
