@@ -1,0 +1,49 @@
+{
+  "traceability_ratio": 0.92,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "Marcus (career transition)",
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Strong traceability. Opens with diagnostic register construct ('you present this as a choice... but that framing itself is the diagnostic'). Uses externals-as-instrument vs identity-residue construct extensively. Applies permissive-conditions test ('constraint is lifted... makes principled choice diagnostically meaningful'). Uses role-duty as primary action-frame. Employs affective-audit logic ('intensity of resistance... proportional to how much self you've located'). Only untraceable step is specific recommendation for government position, but reasoning is traceable."
+    },
+    {
+      "scenario": "Elena (hospital whistleblowing)",
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Excellent traceability. Opens with perceptual lens ('where has Elena mis-located her self... what structural operation corrects this'). Uses architectural domain-separation construct explicitly. Applies role-duty as primary action-frame construct. Uses permissive-conditions test. Employs reductionist diagnosis construct. References discipline of desire. Only minor untraceable element is some phrasing around 'what ought to happen,' but core reasoning fully traceable."
+    },
+    {
+      "scenario": "Sarah (plagiarism)",
+      "traceable_steps": 12,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Perfect traceability. Explicitly references 6 constructs by name: reductionist diagnosis, role-duty as primary action-frame, diagnostic register, permissive conditions test, affective audit-data, architectural domain-separation. References topic-specific exemption and structural choice as transmission. All reasoning steps trace to documented constructs or perceptual lens elements."
+    },
+    {
+      "scenario": "Rodriguez (military interrogation)",
+      "traceable_steps": 9,
+      "total_steps": 10,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Strong traceability. Opens with perceptual lens diagnostic approach. Uses role-duty as primary action-frame construct extensively. References externals vs prohairesis partition. Uses diagnostic register logic. Applies affective-audit data concept. Only minor gap in the physician analogy, but core reasoning fully traceable to framework constructs."
+    },
+    {
+      "scenario": "Maria (custody battle)",
+      "traceable_steps": 8,
+      "total_steps": 9,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Good traceability. Opens with refusing-the-requested-service construct ('you want me to tell you which path... this request itself is the diagnosis'). Uses diagnostic register approach. Applies role-duty framework. References externals vs prohairesis distinction extensively. Uses affective-audit logic. Minor gap in some phrasing about modeling for Sofia, but reasoning structure aligns with framework."
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}

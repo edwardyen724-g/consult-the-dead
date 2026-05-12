@@ -1,0 +1,136 @@
+{
+  "traceability_ratio": 0.92,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": 1,
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": {
+        "traceable_reasoning": [
+          "Dependency graph analysis of 45-person evacuation vs network preservation",
+          "Surveillance asymmetry exploitation (urban vs rural)",
+          "Phase-segmentation with delegation to reconnaissance specialists",
+          "Pre-positioning infrastructure before action",
+          "Long-arc structural asset preservation (network over immediate extraction)",
+          "Architectural adaptation from rural to urban terrain",
+          "Calendar and adversarial attention as controllable parameters",
+          "Mode-switching from rural to urban operations",
+          "Single-actor architecture for critical phases",
+          "Bounded acceptance of safe house risk without program abandonment",
+          "Multi-layer operational design"
+        ],
+        "untraceable_reasoning": [
+          "Medical triage implementation detail (not framework-derived)"
+        ],
+        "lens_application": "Consistently treats situation as covert-operational problem focusing on dependency graphs, surveillance asymmetry, and long-arc asset preservation rather than moral urgency"
+      }
+    },
+    {
+      "scenario": 2,
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": {
+        "traceable_reasoning": [
+          "Phase-segmentation of disinformation vs route modification",
+          "Calendar and adversarial attention as controllable parameters",
+          "Surveillance asymmetry exploitation via directional misdirection",
+          "Long-arc structural asset preservation over immediate extraction",
+          "Dependency graph minimization (avoiding Routes B/C overload)",
+          "Architectural adaptation per specific situation",
+          "Separable variables (disinformation source vs operational content)",
+          "Complete delegation at operational boundaries",
+          "Bounded acceptance of extraction delays",
+          "Single-actor architecture concentration on modified Route A"
+        ],
+        "untraceable_reasoning": [
+          "Specific 70-80% capacity preservation estimate"
+        ],
+        "lens_application": "Consistently applies operational lens, treating Sarah's capture as parameter change requiring architectural adaptation rather than moral crisis"
+      }
+    },
+    {
+      "scenario": 3,
+      "traceable_steps": 12,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": {
+        "traceable_reasoning": [
+          "Dependency graph analysis of Maria's single-point failure",
+          "Surveillance asymmetry exploitation during maintenance windows",
+          "Long-arc operational asset preservation",
+          "Phase-segmentation (high-value vs lower-value extractions)",
+          "Single-actor architecture for highest-risk phase",
+          "Mode-switching from network conduction to emergency extraction",
+          "Architectural adaptation (not forcing all 15 into mountain template)",
+          "Body positioning where contribution dominates",
+          "Bounded mission outcome acceptance",
+          "Calendar timing optimization (maintenance window)",
+          "Pre-positioned operational advantage",
+          "Complete delegation by phase"
+        ],
+        "untraceable_reasoning": [],
+        "lens_application": "Perfect lens alignment - treats as operational architecture problem with controllable parameters rather than moral dilemma"
+      }
+    },
+    {
+      "scenario": 4,
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": {
+        "traceable_reasoning": [
+          "Dependency graph analysis across all three options",
+          "Surveillance asymmetry exploitation via diversion",
+          "Architectural adaptation of option 3",
+          "Phase-segmentation (diversion vs extraction)",
+          "Long-arc asset preservation through intelligence gathering",
+          "Body positioning optimization (personal extraction vs community diversion)",
+          "Bounded mission outcome acceptance (8 people delayed)",
+          "Pre-positioning for follow-up operations",
+          "Single-actor architecture for vulnerable refugee extraction",
+          "Complete delegation to community members for diversion",
+          "Multi-layer operational design"
+        ],
+        "untraceable_reasoning": [
+          "Specific choice of 4 people vs other numbers"
+        ],
+        "lens_application": "Consistent operational lens treating hunter surveillance as parameter to exploit rather than obstacle to overcome"
+      }
+    },
+    {
+      "scenario": 5,
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": {
+        "traceable_reasoning": [
+          "Dependency graph assessment across all options",
+          "Long-arc asset preservation vs immediate extraction",
+          "Phase-segmentation analysis and delegation",
+          "Surveillance asymmetry (rival group's risk tolerance advantage)",
+          "Bounded mission failure acceptance",
+          "Calendar constraints as operational parameters",
+          "Complete delegation to optimal actors per phase",
+          "Single-actor architecture for handoff operation",
+          "Pre-positioned operational intelligence extraction",
+          "Architectural adaptation to compressed timeline"
+        ],
+        "untraceable_reasoning": [
+          "Specific strategic value ranking of doctor vs witness"
+        ],
+        "lens_application": "Maintains operational lens, treating infrastructure transfer as force multiplication rather than loss"
+      }
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}

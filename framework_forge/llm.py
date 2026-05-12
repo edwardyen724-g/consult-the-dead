@@ -1,6 +1,7 @@
 """Claude API wrapper for structured analytical prompts."""
 
 import json
+import os
 import re
 from dataclasses import dataclass
 from typing import Any
@@ -8,6 +9,8 @@ from typing import Any
 import anthropic
 
 from framework_forge.config import ANTHROPIC_API_KEY, MODEL
+
+ANTHROPIC_BASE_URL = os.getenv("ANTHROPIC_BASE_URL", None)
 
 
 @dataclass
@@ -61,7 +64,10 @@ class LLMClient:
             raise ValueError(
                 "ANTHROPIC_API_KEY is required. Set it in .env or pass api_key= to LLMClient."
             )
-        self._client = anthropic.Anthropic(api_key=self.api_key)
+        kwargs: dict = {"api_key": self.api_key}
+        if ANTHROPIC_BASE_URL:
+            kwargs["base_url"] = ANTHROPIC_BASE_URL
+        self._client = anthropic.Anthropic(**kwargs)
 
     @staticmethod
     def _validate_prompt_inputs(system: str, user: str, max_tokens: int) -> None:

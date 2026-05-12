@@ -1,0 +1,49 @@
+{
+  "traceability_ratio": 0.92,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "corrupt_governors",
+      "traceable_steps": 18,
+      "total_steps": 19,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": "Strong traceability - explicitly cites gradual reform, consultative governance, meritocratic talent cultivation, cultural investment as modernization, and enlightened idealism balanced with power pragmatism. Only untraceable element is the specific 3-year timeline prediction. Lens consistently applied - notices gap between current function and potential with modern principles, focuses on political landscape of support/resistance."
+    },
+    {
+      "scenario": "noble_privileges",
+      "traceable_steps": 14,
+      "total_steps": 16,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": "Good traceability - references gradual reform, consultative governance, meritocratic talent cultivation, and cultural investment constructs. Two steps (specific Commission timeline and foreign interference threat assessment) lack direct construct support but align with framework logic. Lens properly applied - sees modernization opportunity while managing political constraints."
+    },
+    {
+      "scenario": "territorial_integration",
+      "traceable_steps": 13,
+      "total_steps": 15,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": "Strong construct alignment - explicitly invokes gradual reform, consultative governance, adaptive learning, strategic expansion, and the core perceptual lens. Two elements (specific commission timeline and Imperial Academy creation) extend beyond documented constructs but follow framework logic. Lens consistently applied - treats diversity as institutional innovation opportunity."
+    },
+    {
+      "scenario": "serfdom_reform",
+      "traceable_steps": 16,
+      "total_steps": 17,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": "Excellent traceability - directly cites gradual institutional reform, consultative governance, cultural investment as modernization, and the stated principle about partial progress. Only the specific tax incentive details lack construct support. Lens perfectly aligned - sees serfdom as institutional gap requiring strategic modernization while managing entrenched resistance."
+    },
+    {
+      "scenario": "succession_crisis",
+      "traceable_steps": 15,
+      "total_steps": 17,
+      "lens_aligned": true,
+      "contradiction": null,
+      "analysis": "Strong construct usage - references gradual reform vs revolutionary change, consultative governance, meritocratic talent cultivation, and strategic expansion. Two elements (specific timeline phases and constitutional amendment process) extend beyond documented constructs. Lens appropriately applied - sees crisis as modernization opportunity while managing political constraints."
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}
