@@ -4,6 +4,15 @@ const mockSql = vi.fn();
 const mockGetAllFrameworks = vi.fn();
 const mockGetActivePackMembers = vi.fn();
 
+vi.mock("next/server", () => ({
+  NextResponse: {
+    json: vi.fn((body: unknown, init?: { status?: number }) => ({
+      body,
+      status: init?.status ?? 200,
+    })),
+  },
+}));
+
 vi.mock("@vercel/postgres", () => ({
   sql: mockSql,
 }));
@@ -143,10 +152,9 @@ describe("stats route", () => {
 
     const { GET } = await import("@/app/api/stats/route");
     const response = await GET();
-    const body = (await response.json()) as Record<string, unknown>;
 
     expect(response.status).toBe(200);
-    expect(body).toMatchObject({
+    expect(response.body).toMatchObject({
       minds: 1,
       activePackCount: 1,
       agonsRun: 7,
@@ -168,9 +176,8 @@ describe("stats route", () => {
 
     const { GET } = await import("@/app/api/stats/route");
     const response = await GET();
-    const body = (await response.json()) as { error?: string };
 
     expect(response.status).toBe(503);
-    expect(body.error).toBe("Unable to load pricing stats");
+    expect(response.body.error).toBe("Unable to load pricing stats");
   });
 });
