@@ -46,6 +46,7 @@ export default defineConfig({
         "src/lib/utm.ts",
         "src/lib/sitemap-data.ts",
         "src/app/decisions/[slug]/page.tsx",
+        "src/lib/frameworks.ts",
       ],
       exclude: [
         "src/**/*.d.ts",
