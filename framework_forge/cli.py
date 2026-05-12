@@ -41,6 +41,50 @@ def discover_sources(person: str, output: str | None):
 
 
 @cli.command()
+@click.option(
+    "--bibliography",
+    "bibliography",
+    type=click.Path(exists=True),
+    required=True,
+    help="Path to bibliography.json produced by discover-sources.",
+)
+@click.option(
+    "--output-dir",
+    "output_dir",
+    type=click.Path(),
+    required=True,
+    help="Directory where source text files will be written.",
+)
+def fetch_sources(bibliography: str, output_dir: str):
+    """Stage 1b: Materialise source texts from a saved bibliography.
+
+    Reads bibliography.json, fetches each URL that is not already present on
+    disk, and writes one .txt file per source.  Offline entries and sources
+    that cannot be fetched (network errors, 4xx responses, etc.) are skipped
+    with a warning so the pipeline can proceed with whatever texts are
+    available.
+    """
+    import warnings as _warnings
+    from framework_forge.pipeline import materialize_source_texts
+
+    bib_path = Path(bibliography)
+    text_dir = Path(output_dir)
+
+    click.echo(f"Materialising source texts from {bib_path} into {text_dir} ...")
+    with _warnings.catch_warnings(record=True) as caught:
+        _warnings.simplefilter("always")
+        try:
+            text_files = materialize_source_texts(bib_path, text_dir)
+        except FileNotFoundError as exc:
+            click.echo(f"Error: {exc}", err=True)
+            raise SystemExit(1)
+
+    for w in caught:
+        click.echo(f"  Warning: {w.message}", err=True)
+
+    click.echo(f"  {len(text_files)} source text file(s) ready in {text_dir}")
+
+@cli.command()
 @click.option("--person", required=True, help="Full name of the historical figure.")
 @click.option("--source-dir", type=click.Path(exists=True), required=True, help="Directory with source text files.")
 @click.option("--output", type=click.Path(), default=None, help="Output directory.")
