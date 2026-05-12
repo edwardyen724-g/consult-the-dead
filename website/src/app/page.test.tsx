@@ -107,6 +107,11 @@ describe("HomePage — HOME_HERO_CTA_HREF constant", () => {
     expect(url.searchParams.get("utm_content")).toBeTruthy();
   });
 
+  it("utm_content reflects 'start_your_first_agon' CTA copy", () => {
+    const url = new URL(HOME_HERO_CTA_HREF, "https://example.com");
+    expect(url.searchParams.get("utm_content")).toBe("start_your_first_agon");
+  });
+
   it("does NOT contain utm_source", () => {
     const url = new URL(HOME_HERO_CTA_HREF, "https://example.com");
     expect(url.searchParams.has("utm_source")).toBe(false);
@@ -189,9 +194,9 @@ describe("HomePage — hero CTA UTM contract (rendered HTML)", () => {
     }
   });
 
-  it("renders the 'Ask Your Question' label on the hero CTA", () => {
+  it("renders the 'Start your first agon' label on the hero CTA", () => {
     const html = renderToStaticMarkup(HomePage() as React.ReactElement);
-    expect(html).toContain("Ask Your Question");
+    expect(html).toContain("Start your first agon");
   });
 
   it("renders without throwing", () => {

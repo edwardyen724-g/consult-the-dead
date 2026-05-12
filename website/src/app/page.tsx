@@ -39,7 +39,7 @@ export const HOME_QUIZ_ENTRY_HREF = buildQuizEntryHref();
  * homepage into the Agora URL.
  */
 export const HOME_HERO_CTA_HREF =
-  "/agora?utm_campaign=homepage_hero&utm_content=ask_your_question";
+  "/agora?utm_campaign=homepage_hero&utm_content=start_your_first_agon";
 
 export default function HomePage() {
   const frameworks = getAllFrameworks();
@@ -110,8 +110,8 @@ export default function HomePage() {
                 letterSpacing: '-0.025em',
                 margin: 0,
               }}>
-                You have a decision.<br />
-                <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>History has a council.</em>
+                Consult history&rsquo;s greatest minds<br />
+                <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>on any question.</em>
               </h1>
 
               <p style={{
@@ -130,7 +130,7 @@ export default function HomePage() {
                 <Link
                   href={HOME_HERO_CTA_HREF}
                   data-testid="hero-cta"
-                  aria-label="Ask your question in the Agora"
+                  aria-label="Start your first agon in the Agora"
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '11px',
@@ -144,9 +144,9 @@ export default function HomePage() {
                     display: 'inline-block',
                   }}
                 >
-                  Ask Your Question →
+                  Start your first agon →
                 </Link>
-                <Link href={HOME_QUIZ_ENTRY_HREF} style={{
+                <Link href="/frameworks" style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
                   letterSpacing: '0.14em',
@@ -158,7 +158,7 @@ export default function HomePage() {
                   borderRadius: '4px',
                   display: 'inline-block',
                 }}>
-                  Not sure who to ask? →
+                  Browse frameworks →
                 </Link>
                 <Link href="/essay" style={{
                   fontFamily: 'var(--font-serif)',
@@ -657,7 +657,7 @@ export default function HomePage() {
           <Link
             href={HOME_HERO_CTA_HREF}
             data-testid="footer-cta"
-            aria-label="Ask your question in the Agora"
+            aria-label="Start your first agon in the Agora"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',
@@ -671,7 +671,7 @@ export default function HomePage() {
               display: 'inline-block',
             }}
           >
-            Ask Your Question →
+            Start your first agon →
           </Link>
         </div>
       </section>
