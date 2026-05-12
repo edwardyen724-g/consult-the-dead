@@ -178,13 +178,25 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "Sun Tzu treats tariff shocks as terrain, not theater. His framework clarifies when to reposition supply lines, when to wait, and when to strike through the flank.",
     targetKeywords: [
       "Sun Tzu on trade war",
-      "tariff strategy",
+      "Art of War tariff strategy",
       "startup trade war strategy",
+      "Sun Tzu economics",
+      "tariff supply chain strategy",
     ],
     decisionType: "strategy",
     hookQuestion:
       "Tariff shocks are hitting your margins and your competitors are panicking. Do you read the market as terrain, or as a price war you have to win head-on?",
     publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The general who knows the terrain does not curse the weather. He maneuvers inside it. A tariff is not an attack on your product — it is a change in the ground beneath your competitor's feet and yours. The question is not how to survive it. The question is which of you is better positioned to move.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "He who panics first concedes the repositioning advantage to those who did not. Your supply chain is not a liability — it is a concealed flank. Map it now, before your opponent does.",
+      },
+    ],
   },
   {
     slug: "what-would-machiavelli-say-about-firing-someone-you-respect",
@@ -195,13 +207,54 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "Machiavelli separates personal respect from institutional necessity. His framework helps founders act when loyalty is real, but the power balance has already shifted.",
     targetKeywords: [
       "Machiavelli on firing employees",
+      "Machiavelli leadership advice",
       "how to fire someone you respect",
       "founder leadership conflict",
+      "how would Machiavelli handle conflict",
     ],
     decisionType: "leadership",
     hookQuestion:
       "You respect the person, but the team is losing confidence. Do you preserve the relationship, or make the hard call before trust erodes further?",
     publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Machiavelli",
+        text: "A prince who delays the necessary wound out of affection inflicts a deeper one in the end. The team watching you hesitate learns that sentiment governs the institution — and that lesson spreads faster than any policy.",
+      },
+      {
+        speaker: "Machiavelli",
+        text: "Respect the person privately. Act on the power problem publicly, cleanly, and without theater. The cruelty of half-measures — a demotion, a narrowed scope, a private warning — is that it signals weakness while solving nothing.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-marcus-aurelius-say-about-imposter-syndrome",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "What Would Marcus Aurelius Say About Imposter Syndrome?",
+    description:
+      "Marcus Aurelius ruled an empire while privately doubting his own adequacy — and left a record of how he handled it. His Stoic framework reframes imposter syndrome not as a defect to cure, but as a signal that duty is still alive.",
+    targetKeywords: [
+      "Marcus Aurelius imposter syndrome",
+      "stoic advice for self-doubt",
+      "stoicism for founders",
+      "Marcus Aurelius founder advice",
+      "overcoming imposter syndrome",
+    ],
+    decisionType: "identity",
+    hookQuestion:
+      "You feel like a fraud in the room — like the moment someone looks closely enough, the gap between your confidence and your actual capability will collapse. Marcus Aurelius felt this too. His answer wasn't reassurance.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "Ask yourself whether the discomfort you feel is the voice of inadequacy or the voice of duty. A man who has stopped caring whether he is adequate has also stopped caring whether he performs his role well. The two are not separable. The unease is not your enemy — it is the guard that keeps you honest.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "You were not appointed to this role because you had conquered all doubt. You were appointed to this role because the work requires you. Do the work. The question of whether you deserve to do it is a distraction — and the Stoic notices distractions.",
+      },
+    ],
   },
   {
     slug: "marcus-aurelius-vs-sun-tzu-on-product-decisions",
@@ -548,6 +601,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Institutional necessity",
       source: (entry) => entry.description,
       excerpt: "power balance",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-marcus-aurelius-say-about-imposter-syndrome": [
+    {
+      label: "Duty vs. doubt",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "like a fraud",
+      constructIndex: 0,
+    },
+    {
+      label: "Stoic framing",
+      source: (entry) => entry.description,
+      excerpt: "duty is still alive",
       constructIndex: 1,
     },
   ],
