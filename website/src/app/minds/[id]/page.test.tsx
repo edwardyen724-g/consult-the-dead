@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import MindPage, {
   buildMindProgressCue,
+  generateMetadata,
   loadAllUserAgons,
 } from "./page";
 
@@ -175,5 +176,53 @@ describe("MindPage", () => {
 
     expect(html).not.toContain("YOUR CONSULTATION ARCHIVE");
     expect(html).toContain("Sun Tzu — The Strategist of Indirect Victory");
+  });
+});
+
+describe("generateMetadata", () => {
+  it("title is the person's name only (root layout template adds — Consult The Dead)", async () => {
+    // h1 is "Sun Tzu — The Strategist of Indirect Victory";
+    // title should be just "Sun Tzu" so the root layout template produces
+    // "Sun Tzu — Consult The Dead" (≤40 chars, well within the 60-char SEO limit).
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    expect(meta.title).toBe("Sun Tzu");
+  });
+
+  it("sets robots to index+follow", async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    expect(meta.robots).toEqual({ index: true, follow: true });
+  });
+
+  it("sets description from the mind's metaDescription", async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    expect(meta.description).toBe("Add Sun Tzu to your Council.");
+  });
+
+  it("sets openGraph.title to the full h1 for social sharing", async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    expect((meta.openGraph as { title?: string })?.title).toBe(
+      "Sun Tzu — The Strategist of Indirect Victory",
+    );
+  });
+
+  it("sets openGraph.images pointing to the opengraph-image route", async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    const images = (meta.openGraph as { images?: unknown })?.images;
+    expect(Array.isArray(images)).toBe(true);
+    const first = (images as Array<{ url: string }>)[0];
+    expect(first.url).toContain("/minds/sun-tzu/opengraph-image");
+  });
+
+  it("sets alternates.canonical to the mind's canonical URL", async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) });
+    expect((meta.alternates as { canonical?: string })?.canonical).toBe(
+      "https://example.com/minds/sun-tzu",
+    );
+  });
+
+  it("returns Not Found metadata for an unknown slug", async () => {
+    isMindSlugMock.mockReturnValue(false);
+    const meta = await generateMetadata({ params: Promise.resolve({ id: "not-a-mind" }) });
+    expect(meta.title).toBe("Not Found");
   });
 });
