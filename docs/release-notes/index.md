@@ -10,11 +10,16 @@ _(none)_
 
 ## Promoted
 
+- `2026-05-12` - [Vercel PR Preview Rate Limit](2026-05-12-vercel-preview-rate-limit.md) — PR #371
+  - Verified preview blocker: `Vercel FAILURE: upgradeToPro=build-rate-limit` and `Resource is limited - try again in 24 hours (code: api-deployments-free-per-day)`
+  - CI passes independently; this is a Vercel free-tier quota issue, not an application regression
+  - Unblock path: wait for the 24-hour reset or move off the free-tier deployment limit
+
 - `2026-05-12` - [Decisions Expansion Wave 2](2026-05-12-decisions-expansion-wave2.md)
-  - Batches 3–6: 12 new `should-i-*` decisions pages (PRs #313, #320, #326, and 2026-05-12 batch)
-  - Decisions library now 21 pages total; all slugs confirmed shipped in `website/content/decisions.ts`
+  - Batches 3–7: 15 new `should-i-*` decisions pages (PRs #313, #320, #326, #355, and 2026-05-12 batch)
+  - Decisions library now 24 pages total; all slugs confirmed shipped in `website/content/decisions.ts`
   - Framework validation pipeline ships (PR #322); 8 frameworks validated; live roster 19 → 26
-  - Sitemap updated (PR #321); all 21 decisions pages crawlable
+  - Sitemap updated (PR #321); all 24 decisions pages crawlable
 
 - `2026-05-12` - [Decisions Five-Page Expansion](2026-05-12-decisions-expansion.md) — PR #292
   - Five new decisions pages: fire-my-cofounder, pivot-or-persist, take-this-job-offer, sell-my-startup, shut-down-my-startup
