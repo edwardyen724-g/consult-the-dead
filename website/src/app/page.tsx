@@ -70,7 +70,7 @@ export default function HomePage() {
     <div style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
 
       {/* ── HERO ── */}
-      <section style={{ padding: '88px 24px 80px' }}>
+      <section style={{ padding: '72px 24px 56px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{
             display: 'flex',
@@ -171,7 +171,7 @@ export default function HomePage() {
 
           {/* Stats bar */}
           <div style={{
-            marginTop: '56px',
+            marginTop: '40px',
             paddingTop: '28px',
             borderTop: '1px solid var(--hairline)',
           }}>
@@ -190,7 +190,7 @@ export default function HomePage() {
 
       {/* ── SIX COUNCILS / PACKS ── */}
       <section style={{
-        padding: '96px 24px',
+        padding: '72px 24px',
         borderTop: '1px solid var(--hairline)',
       }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -331,7 +331,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* ── HOW AN AGON UNFOLDS ── */}
-      <section style={{ padding: '96px 24px' }}>
+      <section style={{ padding: '72px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{
             fontFamily: 'var(--font-mono)',
@@ -429,7 +429,7 @@ export default function HomePage() {
 
       {/* ── BROWSE SECTION ── */}
       <section style={{
-        padding: '72px 24px',
+        padding: '56px 24px',
         borderTop: '1px solid var(--hairline)',
       }}>
         <div style={{
@@ -539,7 +539,7 @@ export default function HomePage() {
       </section>
       {/* ── FAQ ── */}
       <section style={{
-        padding: '96px 24px',
+        padding: '72px 24px',
         borderTop: '1px solid var(--hairline)',
       }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
@@ -612,7 +612,7 @@ export default function HomePage() {
 
       {/* ── CTA FOOTER ── */}
       <section style={{
-        padding: '80px 24px 120px',
+        padding: '64px 24px 96px',
         borderTop: '1px solid var(--hairline)',      }}>
         <div style={{
           maxWidth: '640px',
