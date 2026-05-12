@@ -4,5 +4,10 @@ Changed files:
 - website/pnpm-lock.yaml
 
 Verification:
-- ./node_modules/.bin/vitest run --coverage --coverage.reportsDirectory /tmp/consult-the-dead-vitest-coverage (pass)
-- The default repo-local coverage directory path failed in this environment with Vitest ENOENT on coverage/.tmp, so the validation was rerun successfully with an external reports directory.
+- `pnpm coverage -- --coverage.reportsDirectory /tmp/consult-the-dead-vitest-coverage` (pass)
+- The full website coverage run passed after rerouting the coverage output to `/tmp/consult-the-dead-vitest-coverage` to avoid the repo-local Vitest ENOENT on `coverage/.tmp`.
+
+Results:
+- 118 test files passed
+- 1404 tests passed
+- Coverage: 99.33% statements, 97.94% branches, 100% functions, 100% lines
