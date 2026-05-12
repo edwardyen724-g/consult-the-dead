@@ -1,5 +1,15 @@
 # Change Summary
 
+## 2026-05-12 RSS feed canonical metadata and route coverage
+
+- Task: `3c6cd63c-071f-40e0-a7b4-a0f69d08d27f`
+- Branch: `wanman/rss-feed-canonical-metadata`
+- Changed files: `website/src/app/feed.xml/route.ts`, `website/src/app/feed.xml/route.test.ts`
+- Update: rewired `/feed.xml` to build from the shared RSS helper with real public debate and insight entries, preserving canonical `link`/`guid` URLs and the shipped cache headers while removing the route-local XML duplication.
+- Verification:
+  - `wcx pnpm vitest run src/app/feed.xml/route.test.ts src/lib/rss-feed.test.ts`
+  - `wcx pnpm coverage`
+
 ## Branch
 
 - `wanman/should-i-sell-my-startup-phase1-content-bundle`
@@ -102,3 +112,24 @@
 
 - The targeted pricing tests passed.
 - The full website coverage run passed with 139 test files green and 99.49% statements / 98.1% branches / 100% functions / 99.81% lines.
+## 2026-05-12 Sprint 4 polish note refresh
+
+- Task: `d814464a-57da-4ba2-9069-28a370a02716`
+- Changed file: `output/feedback-report.md`
+- Update: rewrote the Sprint 4 polish note so it no longer implies `/feed.xml` or the app shell are missing; the note now treats the shipped RSS feed and app shell as baseline and limits follow-up language to genuine polish cleanup.
+- Verification: `git diff --check`
+
+## 2026-05-12 README route inventory refresh
+
+- Task: `33a7d2b3-86ea-4d95-a93c-0e90505553d8`
+- Changed files: `README.md`, `website/README.md`
+- Update: added the shipped `/debates` index and `/debates/[slug]` public route to the route tables, and clarified that the debate pages are public Agora samples that link readers back to `/agora` for a fresh run.
+- Verification: `git diff --check`
+
+## 2026-05-12 monetization playbook and CTR brief reconciliation
+
+- Task: `fd6084f9-1625-4dc4-a4bb-3fb806a1256d`
+- Branch: `wanman/rss-feed-canonical-metadata` (current worktree branch)
+- Changed files: `docs/pricing.md`, `docs/ctr-research-notes.md`, `docs/phase0-pricing-page-copy.md`
+- Update: reconciled the monetization reference with the shipped public debate archive, `/agora` conversion surface, pricing proof strip, and production email sender so the playbook and CTR brief now describe the same canonical funnel.
+- Verification: `git diff --check`
