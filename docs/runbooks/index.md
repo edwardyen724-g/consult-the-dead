@@ -48,9 +48,24 @@ after deployments touching the relevant feature areas.
   - Covers tier copy (Free/Pro/BYO), OG/Twitter metadata, canonical URL, and upsell surface copy
   - Run after any deployment touching `website/src/app/pricing/` or upsell components
 
-## Infrastructure
+## Infrastructure & Monitoring
+
+- [External Uptime Monitoring](external-uptime-monitoring.md)
+  - Sets up and verifies third-party uptime monitoring for `/api/health`
+  - Covers UptimeRobot, Updown.io, or equivalent services
+  - Includes alert setup and testing procedures
 
 - [Sentry Smoke Test](sentry-smoke-test.md)
   - Verifies Sentry error monitoring is wired correctly after a production deploy
   - Run once after initial Sentry setup, and after any changes to
     `sentry.client.config.ts` or `sentry.server.config.ts`
+
+- [Database Backup & Restore](database-backup-restore.md)
+  - Operational guide for database backup and recovery procedures
+  - Covers automated backups, manual snapshots, and restore verification
+
+## Observability
+
+- [Founder Checkpoint Metrics Pull](founder-checkpoint-metrics-pull.md)
+  - Retrieves live metrics from the database for leadership reporting
+  - Covers subscriber count, debate activity, and engagement metrics
