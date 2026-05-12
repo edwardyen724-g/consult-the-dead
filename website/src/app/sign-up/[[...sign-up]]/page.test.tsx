@@ -87,6 +87,14 @@ describe('SignUpClient', () => {
     render(<SignUpClient />)
     expect(vi.mocked(useClerkUtmStamper)).toHaveBeenCalled()
   })
+
+  it('shows a value proposition header above the sign-up form', () => {
+    const html = renderToStaticMarkup(<SignUpClient />)
+    expect(html).toContain('data-testid="signup-value-header"')
+    expect(html).toContain('Run your first agon')
+    expect(html).toContain('3 free debates per day')
+    expect(html).toContain('No credit card required')
+  })
 })
 
 // ── UtmStamper ────────────────────────────────────────────────────────────

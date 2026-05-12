@@ -175,6 +175,36 @@ describe("pricing page", () => {
     expect(html).toContain("If you are already sold on the workflow, the Pro checkout is the shortest path to Opus and the persistent library.");
   });
 
+  it("renders the trust badge near the Pro CTA", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain('data-testid="pro-cta-trust-badge"');
+    expect(html).toContain("Used by indie hackers, founders, and researchers");
+  });
+
+  it("renders the pricing stats strip with valid stat values", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain('data-testid="pricing-stats"');
+    expect(html).toContain("18 minds");
+    expect(html).toContain("30 debates in the library");
+    expect(html).toContain("Free to start");
+  });
+
+  it("renders social-proof debate scenario cards below the tier strip", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain("Should I keep competing on price at $18K MRR");
+    expect(html).toContain("I built a product in a half-day hackathon");
+    expect(html).toContain("Open-source project at 13K stars");
+    expect(html).toContain("Machiavelli");
+    expect(html).toContain("Curie");
+    expect(html).toContain("Sun Tzu");
+  });
+
   it("toggles the billing branch between annual and monthly pricing", () => {
     const annual = renderPricingPage("annual", false);
 
