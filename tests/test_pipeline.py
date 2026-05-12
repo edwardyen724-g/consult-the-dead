@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 
 import pytest
@@ -21,6 +22,7 @@ from framework_forge.pipeline import (
     run_pipeline,
     run_source_discovery,
 )
+from framework_forge.sources.fetcher import FetchError
 from framework_forge.sources.triage import SourceEntry
 from framework_forge.validation.floor_check import FloorCheckResult
 from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
@@ -53,6 +55,142 @@ def test_run_source_discovery_writes_ranked_bibliography(tmp_path, monkeypatch):
     assert bibliography_path == tmp_path / "steve-jobs" / "sources" / "bibliography.json"
     written = json.loads(bibliography_path.read_text(encoding="utf-8"))
     assert [item["title"] for item in written] == ["Source A", "Source B"]
+
+
+def test_run_source_discovery_reuses_existing_bibliography(tmp_path, monkeypatch):
+    """If bibliography.json already exists, return it without calling the LLM."""
+    output_dir = tmp_path / "steve-jobs"
+    bibliography_path = output_dir / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([{"title": "Cached"}]), encoding="utf-8")
+
+    discover_calls: list[str] = []
+    monkeypatch.setattr(
+        "framework_forge.pipeline.discover_framework_sources",
+        lambda person: discover_calls.append(person) or [],
+    )
+
+    result = run_source_discovery("Steve Jobs", output_dir)
+
+    assert result == bibliography_path
+    assert discover_calls == [], "LLM discovery must not be called when bibliography already exists"
+
+
+def test_run_source_discovery_force_reruns_discovery(tmp_path, monkeypatch):
+    """force=True must re-run discovery even when bibliography.json exists."""
+    output_dir = tmp_path / "steve-jobs"
+    bibliography_path = output_dir / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([{"title": "Stale"}]), encoding="utf-8")
+
+    fresh_source = SourceEntry(
+        title="Fresh Source",
+        url="https://example.com",
+        source_type="critical_incident",
+        description="fresh",
+        evidence_layers=["layer2"],
+    )
+    monkeypatch.setattr(
+        "framework_forge.pipeline.discover_framework_sources",
+        lambda person: [fresh_source],
+    )
+    monkeypatch.setattr(
+        "framework_forge.pipeline.triage_sources",
+        lambda entries: entries,
+    )
+
+    result = run_source_discovery("Steve Jobs", output_dir, force=True)
+
+    assert result == bibliography_path
+    written = json.loads(bibliography_path.read_text(encoding="utf-8"))
+    assert written[0]["title"] == "Fresh Source"
+
+
+def test_materialize_source_texts_warns_on_fetch_error_and_continues(tmp_path, monkeypatch):
+    """A FetchError for one source must emit a warning but not crash the pipeline."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(
+        json.dumps(
+            [
+                {
+                    "title": "Source Good",
+                    "url": "https://example.com/good",
+                    "source_type": "critical_incident",
+                    "description": "Good source",
+                    "evidence_layers": ["layer2"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+                {
+                    "title": "Source Bad",
+                    "url": "https://example.com/bad",
+                    "source_type": "value_conflict",
+                    "description": "Bad source",
+                    "evidence_layers": ["layer3"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+            ],
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    source_text_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+
+    def fake_fetch(url: str, output_path: Path, timeout: float = 30.0):
+        if "bad" in url:
+            raise FetchError(f"Connection refused for {url!r}")
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(f"Content from {url}", encoding="utf-8")
+        return output_path.read_text(encoding="utf-8")
+
+    monkeypatch.setattr("framework_forge.pipeline.fetch_source", fake_fetch)
+
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        text_files = materialize_source_texts(bibliography_path, source_text_dir)
+
+    assert len(text_files) == 1
+    assert text_files[0].name == "01-source-good.txt"
+    assert len(caught) == 1
+    assert "Source Bad" in str(caught[0].message)
+
+
+def test_materialize_source_texts_all_fetch_error_raises_file_not_found(tmp_path, monkeypatch):
+    """If every fetchable source fails, FileNotFoundError must still be raised."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(
+        json.dumps(
+            [
+                {
+                    "title": "Bad Source",
+                    "url": "https://example.com/bad",
+                    "source_type": "critical_incident",
+                    "description": "Bad",
+                    "evidence_layers": ["layer2"],
+                    "fetched": False,
+                    "text_path": None,
+                }
+            ],
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(
+        "framework_forge.pipeline.fetch_source",
+        lambda url, output_path, timeout=30.0: (_ for _ in ()).throw(FetchError("network error")),
+    )
+
+    with warnings.catch_warnings(record=True):
+        warnings.simplefilter("always")
+        with pytest.raises(FileNotFoundError, match="fetchable URLs"):
+            materialize_source_texts(
+                bibliography_path, tmp_path / "steve-jobs" / "sources" / "texts"
+            )
 
 
 def test_run_incident_identification_collects_all_text_files(tmp_path, monkeypatch):
@@ -177,6 +315,52 @@ def test_materialize_source_texts_requires_fetchable_sources(tmp_path):
 
     with pytest.raises(FileNotFoundError, match="fetchable URLs"):
         materialize_source_texts(bibliography_path, tmp_path / "steve-jobs" / "sources" / "texts")
+
+
+def test_materialize_source_texts_warns_on_offline_and_empty_urls(tmp_path):
+    """Offline or empty URL sources must emit a warning with a skip reason."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    source_text_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    # Pre-create a text file so the directory check won't raise FileNotFoundError
+    source_text_dir.mkdir(parents=True, exist_ok=True)
+    (source_text_dir / "00-preexisting.txt").write_text("preexisting", encoding="utf-8")
+
+    bibliography_path.write_text(
+        json.dumps(
+            [
+                {
+                    "title": "Offline Book",
+                    "url": "offline",
+                    "source_type": "firsthand_biography",
+                    "description": "A physical book",
+                    "evidence_layers": ["layer2"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+                {
+                    "title": "No URL Source",
+                    "url": "",
+                    "source_type": "private_writing",
+                    "description": "No URL available",
+                    "evidence_layers": ["layer1"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+            ],
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        materialize_source_texts(bibliography_path, source_text_dir)
+
+    assert len(caught) == 2
+    messages = [str(w.message) for w in caught]
+    assert any("Offline Book" in m and "offline" in m for m in messages)
+    assert any("No URL Source" in m for m in messages)
 
 
 def test_run_incident_reconstruction_preserves_order_and_ids(tmp_path, monkeypatch):
