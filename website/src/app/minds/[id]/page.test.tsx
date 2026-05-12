@@ -142,6 +142,51 @@ describe("loadAllUserAgons", () => {
   });
 });
 
+describe("generateMetadata", () => {
+  it("sets openGraph.description to mind.metaDescription", async () => {
+    const meta = await import("./page").then((m) =>
+      m.generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) }),
+    );
+    expect((meta.openGraph as { description?: string })?.description).toBe(
+      "Add Sun Tzu to your Council.",
+    );
+  });
+
+  it("sets twitter.card to summary_large_image", async () => {
+    const meta = await import("./page").then((m) =>
+      m.generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) }),
+    );
+    expect((meta.twitter as { card?: string })?.card).toBe("summary_large_image");
+  });
+
+  it("sets twitter.title to mind.h1", async () => {
+    const meta = await import("./page").then((m) =>
+      m.generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) }),
+    );
+    expect((meta.twitter as { title?: string })?.title).toBe(
+      "Sun Tzu — The Strategist of Indirect Victory",
+    );
+  });
+
+  it("sets twitter.description to mind.metaDescription", async () => {
+    const meta = await import("./page").then((m) =>
+      m.generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) }),
+    );
+    expect((meta.twitter as { description?: string })?.description).toBe(
+      "Add Sun Tzu to your Council.",
+    );
+  });
+
+  it("sets twitter.images to contain the opengraph-image url", async () => {
+    const meta = await import("./page").then((m) =>
+      m.generateMetadata({ params: Promise.resolve({ id: "sun-tzu" }) }),
+    );
+    expect((meta.twitter as { images?: string[] })?.images).toContain(
+      "https://example.com/minds/sun-tzu/opengraph-image",
+    );
+  });
+});
+
 describe("MindPage", () => {
   it("renders the cumulative progress cue for a signed-in user", async () => {
     currentUserMock.mockResolvedValue({ id: "user-1" });
