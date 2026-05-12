@@ -671,6 +671,41 @@ describe("InsightPage — collision insight", () => {
     expect(html).toContain("Marcus Aurelius");
   });
 
+  it("falls back to slug and amber accents when collision framework metadata is sparse", async () => {
+    const primaryFw = makeFramework("isaac-newton", "Isaac Newton", {
+      slug: "unknown-framework" as FrameworkSlug,
+      meta: {
+        person: undefined as unknown as string,
+        domain: "Physics",
+        incident_count: 5,
+        construct_count: 3,
+      },
+    });
+    const secondaryFw = makeFramework("marie-curie", "Marie Curie", {
+      meta: {
+        person: undefined as unknown as string,
+        domain: "Chemistry",
+        incident_count: 5,
+        construct_count: 3,
+      },
+    });
+    mocks.getInsightEntry.mockReturnValue(makeCollisionEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([primaryFw, secondaryFw]);
+    mocks.notFound.mockReset();
+    mocks.notFound.mockImplementation(() => {
+      throw new Error("NEXT_NOT_FOUND");
+    });
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("niccolo-machiavelli’s framework");
+    expect(html).toContain("Collision Article");
+  });
+
   it("renders the agon excerpt section when the collision entry has agonExcerpt", async () => {
     const primaryFw = makeFramework("marcus-aurelius", "Marcus Aurelius");
     const secondaryFw = makeFramework("sun-tzu", "Sun Tzu");
@@ -698,6 +733,7 @@ describe("InsightPage — collision insight", () => {
   it("renders accentForSlug with multiple slug types in a collision", async () => {
     // Exercise the accentForSlug switch across different slug values
     const slugsToTest: Array<[FrameworkSlug, FrameworkSlug, string, string]> = [
+      ["isaac-newton", "marie-curie", "Isaac Newton", "Marie Curie"],
       ["nikola-tesla", "leonardo-da-vinci", "Nikola Tesla", "Leonardo da Vinci"],
       ["sun-tzu", "marcus-aurelius", "Sun Tzu", "Marcus Aurelius"],
     ];
@@ -720,6 +756,30 @@ describe("InsightPage — collision insight", () => {
       const html = renderToStaticMarkup(element);
       expect(html).toContain(name1);
       expect(html).toContain(name2);
+    }
+  });
+
+  it("falls back to the published-at prefix when date formatting throws", async () => {
+    const fw = makeFramework("isaac-newton", "Isaac Newton");
+    mocks.getInsightEntry.mockReturnValue(makeSingleEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const dateTimeFormatSpy = vi
+      .spyOn(Intl, "DateTimeFormat")
+      .mockImplementation(() => ({ format: () => { throw new Error("format failed"); } }) as Intl.DateTimeFormat);
+
+    try {
+      const element = await InsightPage({
+        params: Promise.resolve({
+          slug: "how-newton-would-approach-your-pivot-decision",
+        }),
+      });
+      const html = renderToStaticMarkup(element);
+
+      expect(html).toContain("2026-04-18");
+    } finally {
+      dateTimeFormatSpy.mockRestore();
     }
   });
 });
