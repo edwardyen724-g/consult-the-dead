@@ -11,7 +11,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllFrameworks } from "@/lib/frameworks";
 import { PACKS, getActivePackMembers } from "@/lib/packs";
-import { ProofStrip } from "@/components/ProofStrip";
+import { db } from "@/lib/db/client";
 
 export const metadata: Metadata = {
   title: "Mind Packs — Themed Councils for Every Decision",
@@ -26,9 +26,26 @@ export const PACKS_QUIZ_CTA_HREF =
 
 const MAX_COL = "1100px";
 
-export default function PacksPage() {
+export default async function PacksPage() {
   const frameworks = getAllFrameworks();
   const liveSlugs = new Set(frameworks.map((f) => f.slug));
+
+  // Fetch live public agon data for collection-feedback stats
+  const publicAgons = await db.getPublicAgons({ limit: 200 });
+  const uniqueMinds = new Set(publicAgons.flatMap((a) => a.mind_slugs)).size;
+  const totalDebates = publicAgons.length;
+  const collectionStats =
+    publicAgons.length > 0
+      ? {
+          labels: [
+            uniqueMinds === 1
+              ? "1 mind consulted so far"
+              : `${uniqueMinds} minds consulted so far`,
+            totalDebates === 1 ? "1 saved debate" : `${totalDebates} saved debates`,
+            "Growing with every return",
+          ],
+        }
+      : null;
 
   const packCards = PACKS.map((pack) => {
     const liveMembers = getActivePackMembers(pack, liveSlugs);
@@ -113,8 +130,29 @@ export default function PacksPage() {
             Take the Guided Quiz &rarr;
           </Link>
 
-          {/* Social-proof strip */}
-          <ProofStrip />
+          {/* Live collection feedback strip */}
+          {collectionStats && (
+            <div
+              data-testid="collection-feedback"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "14px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--fg-faint)",
+              }}
+            >
+              <span style={{ fontWeight: 500, color: "var(--fg-dim)" }}>
+                Collection feedback
+              </span>
+              {collectionStats.labels.map((label, i) => (
+                <span key={i}>{label}</span>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* ── Pack grid ── */}

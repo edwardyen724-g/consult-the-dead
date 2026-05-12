@@ -76,7 +76,16 @@ export async function POST(request: NextRequest) {
 
     if (customerEmail) {
       try {
-        await sendSubscriptionConfirmation(customerEmail, '', billingInterval)
+        // Fetch the Clerk user to personalise the welcome email greeting.
+        // Failure to fetch is non-fatal: we fall back to an anonymous greeting.
+        let firstName = ''
+        try {
+          const clerkUser = await clerk.users.getUser(clerkUserId)
+          firstName = clerkUser.firstName ?? ''
+        } catch {
+          // Non-fatal — greeting falls back to "Hi,"
+        }
+        await sendSubscriptionConfirmation(customerEmail, firstName, billingInterval)
       } catch {
         // Email failure must not block the webhook response
       }
