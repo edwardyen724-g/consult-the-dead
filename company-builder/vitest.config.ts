@@ -9,6 +9,7 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
+    globals: true,
     include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     coverage: {
       provider: 'v8',
@@ -17,7 +18,10 @@ export default defineConfig({
   },
   coverage: {
     provider: 'v8',
-    include: ['src/app/api/research/route.ts'],
+    include: [
+      'src/app/api/research/route.ts',
+      'src/components/shared/ErrorBoundary.tsx',
+    ],
     thresholds: {
       lines: 95,
       branches: 95,
