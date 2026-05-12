@@ -1,3 +1,70 @@
+# Task
+- `301b2fa9-3dc6-426c-9ae2-e363c6a88305` - Replace hand-encoded lifecycle pricing strings with canonical pricing fragments
+
+## Changed Files
+- `website/src/lib/email.ts`
+- `website/src/lib/emails/templates/drip.ts`
+- `website/src/lib/emails/templates/welcome.ts`
+- `website/src/app/checkout/success/page.tsx`
+
+## What Changed
+- Replaced hardcoded free-tier and Pro pricing numbers in the lifecycle mailer with shared pricing constants and the canonical founding-member summary helper.
+- Updated the drip email templates to derive the Pro trial, monthly, annual, and agons-per-month language from the shared pricing constants instead of embedding the numbers directly.
+- Normalized the welcome template to read the free-debate limit from the shared pricing constants so the onboarding copy stays aligned with the pricing contract.
+- Switched the checkout success confirmation copy to the shared Pro agons-per-month constant so the post-purchase banner tracks the pricing contract automatically.
+
+## Verification
+- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && npm run coverage -- src/lib/pricing-copy.test.ts src/lib/emails/templates/drip.test.ts src/lib/emails/templates/welcome.test.ts src/lib/__tests__/email.test.ts src/app/checkout/success/page.test.tsx`
+- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && npm run coverage`
+
+## Results
+- Targeted coverage run passed the tests but failed the repo-wide 95% threshold because Vitest was only measuring the selected subset of files.
+- Full website coverage passed: `147 test files`, `2072 tests`, `99.58% statements`, `98.48% branches`, `100% functions`, `99.84% lines`.
+
+# Task
+- `fc0adcbe-ac29-4a67-9b0e-9c3d53c52338` - Centralize Agora origin allowlists for API and ingest routes
+
+## Changed Files
+- `website/src/lib/agon/origin.ts`
+- `website/src/lib/agon/origin.test.ts`
+- `website/src/app/api/generate-analysis/route.ts`
+- `website/src/app/api/generate-analysis/route.test.ts`
+- `website/src/app/api/ingest/pageview/route.ts`
+- `website/src/app/api/ingest/pageview/route.test.ts`
+
+## What Changed
+- Extracted the repeated Agora origin policy into a shared `isAllowedAgoraOrigin()` helper with one canonical production allowlist and the existing localhost / Vercel preview support.
+- Updated both Agora-facing API routes to use the shared helper instead of maintaining separate origin sets and regex checks.
+- Added helper coverage for the production hosts plus preview/local/dev cases, and added an ingest-route regression test to prove the production origins still pass through the pageview collector.
+- Extended the generate-analysis origin regression to explicitly include `https://www.consultthedead.com` in the explicit allowlist coverage.
+
+## Verification
+- `cd website && ./node_modules/.bin/vitest run src/lib/agon/origin.test.ts src/app/api/ingest/pageview/route.test.ts src/app/api/generate-analysis/route.test.ts`
+- `cd website && ./node_modules/.bin/vitest run --coverage`
+- `cd website && ./node_modules/.bin/eslint src/lib/agon/origin.ts src/lib/agon/origin.test.ts src/app/api/ingest/pageview/route.ts src/app/api/ingest/pageview/route.test.ts src/app/api/generate-analysis/route.ts src/app/api/generate-analysis/route.test.ts`
+
+## Results
+- Targeted route/helper tests passed: `34 tests passed`.
+- Full website coverage passed: `147 test files`, `2072 tests`, `99.58% statements`, `98.48% branches`, `100% functions`, `99.84% lines`.
+- ESLint passed on the touched files.
+
+# Task
+- `e9be6b1d-3e44-4efd-b29f-bd4a8572d647` - Align README intro and repo map with Agora-first live architecture
+
+## Changed Files
+- `README.md`
+
+## What Changed
+- Rewrote the opening repo summary to make `website/` the live Agora host and `company-builder/` reference-only legacy material.
+- Clarified the repo as Agora-first so the marketing site, product UI, and shared public routes are all described as living in `website/`.
+- Updated the route table entries for `/agora` and `/agora/a/[id]` so the live product map reflects the current implementation.
+
+## Verification
+- `git -C /Users/haotingyen/projects/consult-the-dead/.wanman/worktree diff --check -- README.md`
+
+## Results
+- Diff check passed with no whitespace or patch-format issues.
+
 ## Task
 - `b868f468-9656-445c-956e-263d88e9a961` - Align the pricing canonical reference with the live product and proof strip
 
@@ -316,3 +383,23 @@
 ## Results
 - The focused share-strip test file passed: `11 tests passed`.
 - The scoped coverage run passed with `100%` statements, branches, functions, and lines for `src/components/ShareCtaStrip.tsx`.
+
+## Task
+- `28052544-0e23-4c35-b992-90fbf0650194` - Reconcile branch-coverage exception registry with completed follow-ups
+
+## Changed Files
+- `docs/branch-coverage-exceptions.md`
+- `docs/coverage-gate-policy.md`
+- `output/change-summary.md`
+
+## What Changed
+- Moved the `219eebec-f47b-469b-83d2-60eadb19552c` and `c2eb93e7-255e-4a84-b371-1bd74cf4e233` exception rows out of the active registry table and into the resolved table.
+- Updated the coverage gate policy so both follow-up records now read `RESOLVED`, matching the completed work state.
+
+## Verification
+- `rg -n "219eebec|c2eb93e7|RESOLVED|IN PROGRESS|\\bOPEN\\b" docs/branch-coverage-exceptions.md docs/coverage-gate-policy.md`
+- `git -C /Users/haotingyen/projects/consult-the-dead/.wanman/worktree diff --check`
+
+## Results
+- The registry and policy docs now agree on the resolved state for both follow-up tasks.
+- `git diff --check` reported an unrelated pre-existing trailing-whitespace issue in `docs/runbooks/database-backup-restore.md`, but the edited files themselves are clean.

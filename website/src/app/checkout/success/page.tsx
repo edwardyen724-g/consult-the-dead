@@ -1,6 +1,7 @@
 import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { PRO_AGONS_PER_MONTH } from '@/lib/pricing/pricing-constants'
 
 export const metadata = {
   title: 'Welcome to Pro',
@@ -90,7 +91,7 @@ export default async function CheckoutSuccessPage() {
           }}>
             Your subscription is active
             {email ? ` and linked to ${email}` : ''}.{' '}
-            Opus synthesis, 100 agons/month, a full 5-mind council, persistent
+            Opus synthesis, {PRO_AGONS_PER_MONTH} agons/month, a full 5-mind council, persistent
             library, and PDF export are all unlocked.
           </p>
         </div>

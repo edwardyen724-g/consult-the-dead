@@ -11,6 +11,13 @@
  */
 
 import { buildUtmUrl } from '../utm'
+import { getPricingFoundingMemberSummary } from '../../pricing-copy'
+import {
+  PRO_AGONS_PER_MONTH,
+  PRO_ANNUAL_PRICE,
+  PRO_MONTHLY_PRICE,
+  PRO_TRIAL_DAYS,
+} from '../../pricing/pricing-constants'
 import type { RenderedEmail } from '../types'
 
 const SITE_URL = 'https://www.consultthedead.com'
@@ -136,7 +143,7 @@ export function renderDripDay3(vars: DripVariables = {}): RenderedEmail {
     '  • Persistent, searchable library of every debate',
     '  • PDF export',
     '',
-    `7-day free trial, then $25/mo annual: ${proUrl}`,
+    `${PRO_TRIAL_DAYS}-day free trial, then $${PRO_MONTHLY_PRICE}/mo monthly or $${PRO_ANNUAL_PRICE}/yr annual: ${proUrl}`,
     '',
     `Or use your free debates today: ${ctaUrl}`,
     '',
@@ -161,14 +168,14 @@ export function renderDripDay3(vars: DripVariables = {}): RenderedEmail {
     <div style="border:1px solid #2A2218;border-radius:6px;padding:20px 24px;margin:0 0 28px;background:#1A1410;">
       <p style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#D4A574;margin:0 0 12px;">★ Agora Pro</p>
       <p style="font-size:0.95rem;line-height:1.8;margin:0;color:#EDEDEC;">
-        100 debates / month<br>
+        ${PRO_AGONS_PER_MONTH} debates / month<br>
         Claude Opus for the final synthesis<br>
         Persistent, searchable library<br>
         PDF export
       </p>
     </div>
     <a href="${proUrl}" style="display:inline-block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:12px 24px;background:#D4A574;color:#0A0A0B;text-decoration:none;border-radius:4px;margin-bottom:16px;">
-      Start 7-day free trial →
+      Start ${PRO_TRIAL_DAYS}-day free trial →
     </a>
     <br>
     <a href="${ctaUrl}" style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8A88;text-decoration:underline;">
@@ -217,9 +224,9 @@ export function renderDripDay7(vars: DripVariables = {}): RenderedEmail {
     '',
     'These are real debates from the library — anonymized, but unedited. The councils genuinely disagree.',
     '',
-    'Pro gives you 100 debates a month, Opus for synthesis, and a permanent library so nothing is lost.',
+    `Pro gives you ${PRO_AGONS_PER_MONTH} debates a month, Opus for synthesis, and a permanent library so nothing is lost.`,
     '',
-    `7-day trial, then $25/mo (or $300/yr, locked in for life): ${proUrl}`,
+    `7-day trial, then $${PRO_MONTHLY_PRICE}/mo monthly or $${PRO_ANNUAL_PRICE}/yr annual (${getPricingFoundingMemberSummary()}): ${proUrl}`,
     '',
     'If free is working for you, no action needed. The 3 debates/day will always be there.',
     '',
@@ -254,10 +261,10 @@ export function renderDripDay7(vars: DripVariables = {}): RenderedEmail {
       </div>
     </div>
     <p style="font-size:1.05rem;line-height:1.7;margin:0 0 28px;">
-      Pro gives you 100 debates a month, Opus for the synthesis, and a permanent library so nothing is lost.
+      Pro gives you ${PRO_AGONS_PER_MONTH} debates a month, Opus for the synthesis, and a permanent library so nothing is lost.
     </p>
     <a href="${proUrl}" style="display:inline-block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:12px 24px;background:#D4A574;color:#0A0A0B;text-decoration:none;border-radius:4px;">
-      Start 7-day trial — $25/mo after
+      Start ${PRO_TRIAL_DAYS}-day trial — $${PRO_MONTHLY_PRICE}/mo after
     </a>
     <hr style="border:none;border-top:1px solid #1F1F22;margin:48px 0 24px;">
     <p style="font-size:0.8rem;line-height:1.6;color:#8A8A88;margin:0;">— Edward · If free is working for you, no action needed.</p>

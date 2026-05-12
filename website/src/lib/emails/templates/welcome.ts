@@ -11,6 +11,7 @@
  */
 
 import { buildUtmUrl } from '../utm'
+import { FREE_AGONS_PER_DAY } from '../../pricing/pricing-constants'
 import type { RenderedEmail } from '../types'
 
 export const WELCOME_EMAIL_ID = 'welcome_v1'
@@ -43,7 +44,7 @@ export function renderWelcome(vars: WelcomeVariables = {}): RenderedEmail {
   const text = [
     `${greeting},`,
     '',
-    'Welcome to Consult The Dead. You have 3 free debates today — each one puts a question in front of a council of history\'s sharpest minds, who argue in real time until they reach a verdict.',
+    `Welcome to Consult The Dead. You have ${FREE_AGONS_PER_DAY} free debates today — each one puts a question in front of a council of history\'s sharpest minds, who argue in real time until they reach a verdict.`,
     '',
     'Here\'s a real example: a founder asked whether to raise prices on his $18K MRR product. Machiavelli said act now. Marie Curie said measure first. Sun Tzu said win the narrative war before changing any number.',
     '',
@@ -66,7 +67,7 @@ export function renderWelcome(vars: WelcomeVariables = {}): RenderedEmail {
     </p>
     <p style="font-size:1.1rem;line-height:1.7;margin:0 0 20px;">${escapeHtml(greeting)},</p>
     <p style="font-size:1.05rem;line-height:1.7;margin:0 0 20px;">
-      Welcome to Consult The Dead. You have 3 free debates today — each one puts a question in front of a council of history's sharpest minds, who argue in real time until they reach a verdict.
+      Welcome to Consult The Dead. You have ${FREE_AGONS_PER_DAY} free debates today — each one puts a question in front of a council of history's sharpest minds, who argue in real time until they reach a verdict.
     </p>
     <p style="font-size:1.05rem;line-height:1.7;margin:0 0 20px;">
       Here's a real example: a founder asked whether to raise prices on his $18K MRR product. Machiavelli said act now. Marie Curie said measure first. Sun Tzu said win the narrative war before changing any number.
