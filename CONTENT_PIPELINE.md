@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. Hand-curated to start (50+ entries seeded). Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. Hand-curated and pruned for Phase 1 publishing (20+ active entries seeded). Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml
@@ -249,9 +249,9 @@ If a Reel hits 3× our typical reach AND the topic has search volume:
 2. ~~Email~~ → **Beehiiv** (newsletter, free 2.5k subs). Resend reserved for future transactional.
 3. ~~`/decisions/` slug pattern~~ → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
 4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
-5. ~~First topic batch~~ → seeded in [topics.yaml](topics.yaml). Edward to review and adjust before Phase 1 starts publishing.
+5. ~~First topic batch~~ → seeded in [topics.yaml](topics.yaml), reviewed, and pruned for Phase 1 publishing.
 
-The remaining unresolved item is Edward's review of the topics.yaml seed list before we start auto-generating articles from it.
+The first batch has been reviewed and the active queue is ready for Phase 1 article generation.
 
 ---
 
