@@ -31,6 +31,10 @@ The project does not currently use semantic releases, so this changelog records 
 - Value proposition header on sign-up page (PR #274): Clerk sign-up form is now preceded by a value proposition header summarising the product.
 - CTR research baseline sync (PR #277): `docs/ctr-research-notes.md` updated to mark LibraryProofStrip and transcript-share as shipped baseline and tighten open gaps.
 - Design research retention helpers shipped baseline (PR #278): `docs/design-research.md` updated to reflect shipped retention helpers and document remaining open gaps.
+- Homepage StreamingDemo moved above the fold (PR #279): the streaming demo section now appears immediately after the hero, before the packs grid, so it earns attention before the first scroll — CTR experiment 3.
+- Phase 1 insight launch trio (PR #281): first three high-intent insight pages published under `/insights` from the Phase 1 queue; annotation blueprints added and index tests extended for the new entries.
+- `/decisions` surface and first two Phase 1 pages (PR #282): static `/decisions/[slug]` route with indexable metadata, Article JSON-LD, and a "start your own agon" CTA; `should-i-raise-vc-or-bootstrap` and `should-i-quit-my-job-to-start-a-company` published with 100% route coverage.
+- CODEOWNERS and frameworks CI guard (PR #284): `.github/CODEOWNERS` now requires owner review for `frameworks/` changes; a new `frameworks-guard` workflow blocks PRs that modify framework files outside a `wanman/*` capsule branch.
 
 ### Fixed
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
