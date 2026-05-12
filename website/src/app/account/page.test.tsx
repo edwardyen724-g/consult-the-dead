@@ -65,9 +65,9 @@ describe("AccountPage", () => {
 
     expect(html).toContain("Account");
     expect(html).toContain("Ada Lovelace");
-    expect(html).toContain("Pro access");
+    expect(html).toContain("Pro access active");
     expect(html).toContain("Manage subscription");
-    expect(html).toContain("Debate quota");
+    expect(html).toContain("Quota window");
     expect(html).toContain("Bring your own Anthropic key");
     expect(html).toContain("sk-ant-***...***1234");
     expect(html).toContain('href="/agora"');
@@ -96,10 +96,61 @@ describe("AccountPage", () => {
     );
 
     expect(html).toContain("Welcome to Pro. Your subscription is active.");
-    expect(html).toContain("Free access");
+    expect(html).toContain("Free access active");
     expect(html).toContain("Upgrade to Pro");
+    expect(html).toContain("View pricing");
     expect(html).toContain("You have used all 3 free debates today.");
     expect(html).toContain("none");
+  });
+
+  it("falls back to the primary email and singular quota copy when no display name is set", async () => {
+    currentUserMock.mockResolvedValue({
+      id: "user-3",
+      firstName: undefined,
+      lastName: undefined,
+      emailAddresses: [{ id: "email-3", emailAddress: "fallback@example.com" }],
+      publicMetadata: {},
+      privateMetadata: {},
+    });
+    getUsageMock.mockResolvedValue({
+      used: 2,
+      limit: 3,
+      period: "day",
+      remaining: 1,
+    });
+
+    const html = renderToStaticMarkup(
+      await AccountPage({ searchParams: Promise.resolve({}) }),
+    );
+
+    expect(html).toContain("fallback@example.com");
+    expect(html).toContain("1 debate remaining this day.");
+    expect(html).toContain("Free access active");
+  });
+
+  it("renders the Pro cap-reached message when no quota remains", async () => {
+    currentUserMock.mockResolvedValue({
+      id: "user-4",
+      firstName: "Ava",
+      lastName: "Taylor",
+      primaryEmailAddressId: "email-4",
+      emailAddresses: [{ id: "email-4", emailAddress: "ava@example.com" }],
+      publicMetadata: { subscription_tier: "pro" },
+      privateMetadata: {},
+    });
+    getUsageMock.mockResolvedValue({
+      used: 100,
+      limit: 100,
+      period: "month",
+      remaining: 0,
+    });
+
+    const html = renderToStaticMarkup(
+      await AccountPage({ searchParams: Promise.resolve({}) }),
+    );
+
+    expect(html).toContain("Monthly cap reached");
+    expect(html).toContain("You have used all 100 debates this month.");
   });
 
   it("redirects unauthenticated users", async () => {
