@@ -228,35 +228,6 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
     ],
   },
   {
-    slug: "what-would-marcus-aurelius-say-about-imposter-syndrome",
-    type: "single",
-    frameworkSlug: "marcus-aurelius",
-    title: "What Would Marcus Aurelius Say About Imposter Syndrome?",
-    description:
-      "Marcus Aurelius ruled an empire while privately doubting his own adequacy — and left a record of how he handled it. His Stoic framework reframes imposter syndrome not as a defect to cure, but as a signal that duty is still alive.",
-    targetKeywords: [
-      "Marcus Aurelius imposter syndrome",
-      "stoic advice for self-doubt",
-      "stoicism for founders",
-      "Marcus Aurelius founder advice",
-      "overcoming imposter syndrome",
-    ],
-    decisionType: "identity",
-    hookQuestion:
-      "You feel like a fraud in the room — like the moment someone looks closely enough, the gap between your confidence and your actual capability will collapse. Marcus Aurelius felt this too. His answer wasn't reassurance.",
-    publishedAt: "2026-05-12",
-    agonExcerpt: [
-      {
-        speaker: "Marcus Aurelius",
-        text: "Ask yourself whether the discomfort you feel is the voice of inadequacy or the voice of duty. A man who has stopped caring whether he is adequate has also stopped caring whether he performs his role well. The two are not separable. The unease is not your enemy — it is the guard that keeps you honest.",
-      },
-      {
-        speaker: "Marcus Aurelius",
-        text: "You were not appointed to this role because you had conquered all doubt. You were appointed to this role because the work requires you. Do the work. The question of whether you deserve to do it is a distraction — and the Stoic notices distractions.",
-      },
-    ],
-  },
-  {
     slug: "marcus-aurelius-vs-sun-tzu-on-product-decisions",
     type: "collision",
     frameworkSlug: "marcus-aurelius",
@@ -426,7 +397,7 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
     slug: "what-would-marcus-aurelius-say-about-imposter-syndrome",
     type: "single",
     frameworkSlug: "marcus-aurelius",
-    title: "What Marcus Aurelius Would Say About Imposter Syndrome",
+    title: "What Would Marcus Aurelius Say About Imposter Syndrome",
     description:
       "The most powerful man in the ancient world wrote privately about feeling unworthy of his role. His framework for dealing with imposter syndrome is more demanding — and more useful — than most modern advice.",
     targetKeywords: [
@@ -473,6 +444,123 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
     hookQuestion:
       "You've been told to 'reason from first principles.' But what is a first principle? How do you know when you've found one? And why does this method work for physics and engineering but fail spectacularly for social, political, and human decisions?",
     publishedAt: "2026-05-12",
+  },
+  // ── Batch 2: 'What Would X Say' articles (task bbb0c9bb) ─────────────
+  {
+    slug: "what-would-newton-say-about-rebuilding-from-first-principles",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "What Would Newton Say About Rebuilding From First Principles?",
+    description:
+      "Newton did not accept inherited wisdom — he derived mechanics from scratch, working alone until every calculation was verified. His framework for rebuilding from first principles shows when starting over is rational, not nostalgic.",
+    targetKeywords: [
+      "Newton first principles",
+      "first principles thinking Newton",
+      "how to rebuild a product from scratch",
+      "when to start over in a startup",
+      "first principles rebuilding strategy",
+    ],
+    decisionType: "rebuild",
+    hookQuestion:
+      "Your architecture is a mess of patches and workarounds. Everyone says 'just refactor incrementally.' But Newton would hand you a different question: have you actually derived what this system needs to do, or are you still inheriting someone else's assumptions?",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "The question is not whether the current structure can be improved. The question is whether you understand the actual phenomenon well enough to build anything at all. Most rebuilds fail not because the engineers are incompetent, but because they begin with assumptions they inherited rather than truths they derived.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "I did not improve upon Descartes' optics. I discarded his assumptions and measured what light actually does. If your rebuild begins by accepting the existing data model, the existing user flow, or the existing team's mental model of the problem, you have not rebuilt from first principles — you have merely repainted the inherited structure.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-tesla-say-about-shipping-vs-perfecting",
+    type: "single",
+    frameworkSlug: "nikola-tesla",
+    title: "What Would Tesla Say About Shipping vs. Perfecting?",
+    description:
+      "Tesla ran complete mental simulations of his inventions before building a single component. His framework reveals when the drive to ship is wisdom and when it is impatience disguised as pragmatism.",
+    targetKeywords: [
+      "Tesla on perfectionism",
+      "Nikola Tesla shipping vs perfecting",
+      "when to ship vs when to wait",
+      "perfectionism in startups",
+      "ship early or build it right",
+    ],
+    decisionType: "shipping",
+    hookQuestion:
+      "Your team is split: ship the working version now and iterate, or spend two more months finishing the version that actually solves the problem. Tesla had a strong opinion — and it is not the one startup culture wants you to hear.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "I do not build until the machine is complete in my mind. Every dimension, every tolerance, every interaction between components — I run it until it fails or it works. When I build the physical version, it performs as calculated. The men who ship quickly and iterate are not being pragmatic. They are paying for the thinking they refused to do upfront.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "There is a difference between shipping because you have understood the system and shipping because you are afraid to think it through. The first produces iteration with a direction. The second produces a faster path to a wrong destination.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-leonardo-say-about-creative-block",
+    type: "single",
+    frameworkSlug: "leonardo-da-vinci",
+    title: "What Would Leonardo Da Vinci Say About Creative Block?",
+    description:
+      "Leonardo never stayed stuck in one domain when he was blocked. His framework for creative block treats it as a signal to switch fields, not a reason to push harder in the same direction.",
+    targetKeywords: [
+      "Leonardo da Vinci creative block",
+      "how to overcome creative block",
+      "creative block solution",
+      "creativity techniques from history",
+      "da Vinci on creativity",
+    ],
+    decisionType: "creativity",
+    hookQuestion:
+      "You have been staring at the same problem for two weeks. Every approach you try hits the same wall. Leonardo would tell you the wall is not in the problem — it is in the domain you are refusing to leave.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Leonardo da Vinci",
+        text: "When I could not resolve the proportions of the wing, I studied the structure of the bird's sternum. When I could not render the muscle correctly, I opened the cadaver. The block is never in the work itself — it is in the boundary you have drawn around the relevant evidence. Every domain is a facet of a single reality. The stuck painter needs to become a better anatomist.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The artist who sits waiting for inspiration has confused a symptom with a diagnosis. Creative block is not the absence of ideas — it is the exhaustion of a particular angle of approach. Change the angle. Study something adjacent. The connection you need is not in the domain where you are stuck.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-sun-tzu-say-about-entering-saturated-markets",
+    type: "single",
+    frameworkSlug: "sun-tzu",
+    title: "What Would Sun Tzu Say About Entering a Saturated Market?",
+    description:
+      "Sun Tzu never attacked a fortified position head-on. His framework for market entry treats incumbents as terrain features to be mapped, not walls to be broken through.",
+    targetKeywords: [
+      "Sun Tzu market entry strategy",
+      "how to enter a saturated market",
+      "Art of War startup competition",
+      "competing in crowded market",
+      "Sun Tzu on competition",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "The market already has five funded competitors. Three advisors have told you to 'find a niche.' Sun Tzu would tell you the niche question is wrong — you have not finished mapping the terrain.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "You enter a saturated market the way a river enters a plain — not by breaking through the center but by finding where the resistance is absent. The incumbents have fortified the positions they believe matter. They have left unguarded the positions they do not yet understand. Your analysis begins there, not with your own product.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "The general who attacks a fortified position because his army is enthusiastic has substituted morale for intelligence. Map first. The saturated market is never uniformly defended. Find the exhausted flank — the customer segment the incumbents are serving badly because their cost structure or legacy assumptions make serving it well impossible for them.",
+      },
+    ],
   },
 ];
 
@@ -656,20 +744,6 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       constructIndex: 1,
     },
   ],
-  "what-would-marcus-aurelius-say-about-imposter-syndrome": [
-    {
-      label: "Duty vs. doubt",
-      source: (entry) => entry.hookQuestion,
-      excerpt: "like a fraud",
-      constructIndex: 0,
-    },
-    {
-      label: "Stoic framing",
-      source: (entry) => entry.description,
-      excerpt: "duty is still alive",
-      constructIndex: 1,
-    },
-  ],
   "stoics-on-failure": [
     {
       label: "Moral system under stress",
@@ -738,6 +812,63 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "unfamiliar domains",
       constructIndex: 0,
+    },
+  ],
+  // ── Batch 2 annotation blueprints (task bbb0c9bb) ─────────────────────
+  "what-would-newton-say-about-rebuilding-from-first-principles": [
+    {
+      label: "Derived vs. inherited",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "inheriting someone else's assumptions",
+      constructIndex: 0,
+    },
+    {
+      label: "Complete understanding",
+      source: (entry) => entry.description,
+      excerpt: "every calculation was verified",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-tesla-say-about-shipping-vs-perfecting": [
+    {
+      label: "Technical superiority",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "actually solves the problem",
+      constructIndex: 0,
+    },
+    {
+      label: "Mental simulation",
+      source: (entry) => entry.description,
+      excerpt: "mental simulations",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-leonardo-say-about-creative-block": [
+    {
+      label: "Cross-domain boundary",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "domain you are refusing to leave",
+      constructIndex: 4,
+    },
+    {
+      label: "Causal understanding",
+      source: (entry) => entry.description,
+      excerpt: "switch fields",
+      constructIndex: 0,
+    },
+  ],
+  "what-would-sun-tzu-say-about-entering-saturated-markets": [
+    {
+      label: "Terrain over confrontation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "mapping the terrain",
+      constructIndex: 2,
+    },
+    {
+      label: "Pre-contact positioning",
+      source: (entry) => entry.description,
+      excerpt: "terrain features",
+      constructIndex: 10,
     },
   ],
 };
