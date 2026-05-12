@@ -1,8 +1,8 @@
 # The New Agora — Plan
 
-**Status:** approved, ready for Phase 1
+**Status:** all phases shipped — live at [consultthedead.com/agora](https://www.consultthedead.com/agora)
 **Owner:** Edward
-**Last updated:** 2026-04-18
+**Last updated:** 2026-05-12
 
 ---
 
@@ -183,7 +183,7 @@ Option 1 is the plan. No Vercel action needed until Phase 1 completes.
 
 **Action:** commit + push these to Vercel.
 
-### Phase 1 — Agora skeleton
+### Phase 1 — Agora skeleton ✅
 
 - Create `website/src/app/agora/page.tsx`, `website/src/app/agora/layout.tsx`.
 - Build the 5-stage client-side state machine, static content only, no API calls.
@@ -191,7 +191,7 @@ Option 1 is the plan. No Vercel action needed until Phase 1 completes.
 - Add "Enter the Agora" link back to Header, pointing to `/agora`.
 - Visual continuity with the landing page demo is the first-order requirement.
 
-### Phase 2 — agon engine
+### Phase 2 — agon engine ✅
 
 - Port streaming orchestration from [company-builder/src/app/api/debate/route.ts](company-builder/src/app/api/debate/route.ts) into `website/src/lib/agon/` as pure functions.
 - New SSE route at `website/src/app/api/agon/route.ts`. Contract:
@@ -201,19 +201,19 @@ Option 1 is the plan. No Vercel action needed until Phase 1 completes.
 - Rewrite the convergence prompt to produce `{ points, tensions, action, steps, risks, pointsExplanation, tensionsExplanation, ... }` so Stage 5's hover/click expansions have real content.
 - Rate limiter applied from first deploy.
 
-### Phase 3 — research stage
+### Phase 3 — research stage ✅
 
 - Wire Tavily against the user's actual topic. No mock lines.
 - Source citations shown inline per research line.
 - Toggle: if off, skip entirely; if on, run to completion, no fast-forward.
 
-### Phase 4 — persistence + sharing
+### Phase 4 — persistence + sharing ✅
 
 - Save each completed agon (topic + council + full debate + consensus) in a lightweight store (Vercel KV or Postgres — cheapest that persists). Anonymous, keyed by short ID.
-- Shareable URL: `/agora/a/{id}`. Public read, no auth needed.
+- Shareable URL: `/agora/a/{id}`. Public read, no auth needed. ✅ Live at `website/src/app/agora/a/[id]/` with OG images and a share CTA strip.
 - "Revisit" list in localStorage so users see their own prior agons even without an account.
 
-### Phase 5 — polish + launch
+### Phase 5 — polish + launch ✅
 
 - Mobile pass (thread and graph on small screens).
 - Copy pass across all stages.
@@ -223,13 +223,15 @@ Option 1 is the plan. No Vercel action needed until Phase 1 completes.
 
 ---
 
-## 9. Monetization — confirmed model
+## 9. Monetization — live model
 
-Same as the original BYO-key approach, now with a planned upgrade path:
+> **Note (updated 2026-05-12):** Pro subscription is **shipped and live**. The
+> section below reflects the current state; canonical numbers live in
+> [docs/pricing.md](docs/pricing.md).
 
 - **Free tier:** 3 agons / IP / day, using a server-side Anthropic key. No account required.
 - **BYO key:** unlimited. API key entered in a settings drawer (not a blocking modal).
-- **Subscription tiers (future, not v1):** monthly plans with progressively higher rate limits on the server-side key, so users don't have to hold an Anthropic account. Pricing and tier breakpoints TBD.
+- **Pro tier (live):** $30/month or $300/year (founding-member price locked before Q3 2026). 100 agons/month, up to 5 minds, Opus for consensus, persistent library, PDF export, extended Tavily research. Enforced in `website/src/lib/agon/rateLimit.ts` and `website/src/app/api/agon/route.ts`. See [docs/pricing.md](docs/pricing.md) for the full feature matrix.
 
 Concierge offer ($29 manual debate from [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) §6) is **not** an integrated Agora feature. It only makes sense if it delivers meaningfully higher value than the automated flow — e.g. Edward's hand-written synthesis on top, or running the debate with 5 minds + custom research the free tier doesn't do. Keep as an optional landing-page CTA for now; revisit if user feedback shows demand.
 

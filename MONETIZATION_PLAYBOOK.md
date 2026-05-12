@@ -1,7 +1,7 @@
 # Monetization Playbook
 
 **Status:** Source of truth for monetization + GTM execution, April 2026 → April 2027.
-**Last updated:** 2026-04-22
+**Last updated:** 2026-05-12
 **Owner:** Edward
 **Supersedes:** monetization sections of [MARKETING_STRATEGY.md](MARKETING_STRATEGY.md) and §9 + §11 of [AGORA_PLAN.md](AGORA_PLAN.md). Content cadence in [CONTENT_PIPELINE.md](CONTENT_PIPELINE.md) is **reprioritized, not replaced** — see §9 below.
 
@@ -37,7 +37,7 @@ The bundle:
 | Council size | 2-3 minds | Up to **5 minds** |
 | Model quality | Sonnet throughout | Sonnet debate + **Opus consensus synthesis** |
 | Debate history | localStorage, device-bound | **Persistent synced library**, searchable, taggable |
-| Sharing | Read-only link | Private by default, optional share |
+| Sharing | Public `/agora/a/{id}` shareable link (✅ shipped) | Public `/agora/a/{id}` shareable link with OG images and share CTA strip |
 | PDF export | — | Full debate + consensus, clean format |
 | Research depth | Short Tavily pass | Extended: more sources, longer window |
 | New frameworks | Released publicly | **Early access 2 weeks ahead** |
@@ -66,13 +66,16 @@ The bundle:
 
 ## 3. Gap analysis — current → chargeable
 
-**Current state (verified 2026-04-22):**
-- Rate limit is IP-based (3/day/IP, global 60/day), Redis-backed ✓
-- Contact form → Discord webhook ✓
-- `src/app/agora/AgoraApp.tsx` is 1432 lines, single file, no account concept
-- `.env` requires only `ANTHROPIC_API_KEY`
-- **Zero auth, zero Stripe, zero persistence beyond localStorage**
-- AGORA_PLAN.md §11 explicitly listed auth/login/Stripe as v1 non-goals — **this playbook reverses that decision**
+**Current state (as of 2026-05-12 — all Tier 1 + 2 + 3 items shipped):**
+- Clerk auth ✅, Stripe Checkout + Billing Portal ✅, webhook handler ✅
+- User-scoped rate limits ✅ (3/day free, 100/month Pro)
+- Pricing page ✅, ToS + Privacy ✅, Resend transactional email ✅, account page ✅
+- Neon Postgres + persistent debate library ✅, library view ✅
+- PDF export (Pro-gated) ✅, Opus synthesis flag ✅, 5-mind gating ✅, extended research ✅
+- Annual plan ($300/yr) ✅, 7-day trial ✅
+- Shareable agon URLs ✅ (`/agora/a/{id}` with OG images, Twitter card, share CTA strip)
+
+> Gap analysis below is preserved for historical reference; all items shipped as of 2026-05-12.
 
 ### Tier 1 — blocks first dollar
 
@@ -126,7 +129,7 @@ Team seats, SSO, API, Forge submission portal, enterprise contracts, white-label
 - [x] Choose auth provider → **Clerk** (50K free MAU, ships in 1 day, first-class Next.js 16 + Stripe)
 - [x] Write pricing page copy → `docs/phase0-pricing-page-copy.md`
 
-### Phase 1 — Apr 24 – May 5 (~10 working days): payment rails
+### Phase 1 — Apr 24 – May 5 (~10 working days): payment rails ✅ COMPLETE
 
 Sequential, do not parallelize solo:
 1. Clerk integration (day 1-2)
