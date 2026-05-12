@@ -1,0 +1,49 @@
+{
+  "traceability_ratio": 0.92,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "Coalition army approaching fortified capital",
+      "traceable_steps": 12,
+      "total_steps": 13,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Response directly applies perceptual lens by identifying 'decisive point' (city as psychological heart), uses psychological warfare construct (attacking strength directly), velocity construct (speed over siege), and lead-from-the-front construct (personally leading assault). Only untraceable element is tactical detail about gate selection."
+    },
+    {
+      "scenario": "Post-Tyros exhausted army decisions",
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Perfectly applies velocity construct (momentum as wasting asset), limitless ambition construct (viewing obstacles as opportunities), audacious improvisation (desert march creating advantage), and perceptual lens (seeing opportunity where others see constraint). Minor tactical detail about arrival timing not directly traced."
+    },
+    {
+      "scenario": "Deep territory crossroads decision",
+      "traceable_steps": 14,
+      "total_steps": 15,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Strong application of psychological warfare construct (breaking emperor's will), velocity construct (speed as greatest weapon), lead-from-the-front construct (personal leadership), and perceptual lens (seeing cascading victory). Only untraceable element is specific timeline estimate."
+    },
+    {
+      "scenario": "Hindu Kush river crossing with elephants",
+      "traceable_steps": 9,
+      "total_steps": 10,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Applies psychological warfare construct (Porus's terms reveal weakness), velocity construct (delay strengthens enemy), audacious improvisation (night crossing), and perceptual lens (river as decisive point). Minor tactical detail about storm timing not traced."
+    },
+    {
+      "scenario": "Parmenion conspiracy crisis",
+      "traceable_steps": 13,
+      "total_steps": 14,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": "Excellent application of perceptual lens (Parmenion as decisive point), psychological warfare construct (dramatic resolution ending conspiracies), cultural integration construct (protecting Persian appointments), velocity construct (speed over safety), and lead-from-the-front construct (personal authority required). Only minor procedural detail untraceable."
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}
