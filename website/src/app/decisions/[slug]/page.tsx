@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getFramework, SLUG_COLOR_VAR, type Framework, type FrameworkSlug } from "@/lib/frameworks";
+import { getDebate } from "@/lib/debates";
 import {
   buildDecisionAgoraHref,
   DECISION_ENTRIES,
@@ -64,6 +65,8 @@ export default async function DecisionPage({ params }: PageProps) {
     notFound();
   }
 
+  const debate = getDebate(slug);
+
   const publishedAt = getDecisionPublishedAt(entry).toISOString();
   const ctaHref = buildDecisionAgoraHref(entry);
   const jsonLd = buildArticleJsonLd(entry.title, entry.description, slug, publishedAt, entry.targetKeywords);
@@ -120,6 +123,31 @@ export default async function DecisionPage({ params }: PageProps) {
             ))}
           </div>
         </Section>
+
+        {debate && debate.rounds[0] && (
+          <Section label="How the council debates this question">
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+              {debate.rounds[0].speeches.map((speech) => (
+                <div key={speech.advisor}>
+                  <p style={{
+                    fontWeight: 600,
+                    fontSize: "0.875rem",
+                    letterSpacing: "0.02em",
+                    textTransform: "uppercase",
+                    color: "var(--fg-muted)",
+                    margin: "0 0 8px",
+                  }}>
+                    {speech.advisor}
+                  </p>
+                  <div style={prose} dangerouslySetInnerHTML={{ __html: renderDebateContent(speech.content) }} />
+                </div>
+              ))}
+            </div>
+            <p style={{ ...prose, marginTop: 24, color: "var(--fg-muted)", fontStyle: "italic" }}>
+              This is Round 1 of a 3-round debate. Start your own agon to go deeper.
+            </p>
+          </Section>
+        )}
 
         <Section label="Why this page exists">
           <p style={prose}>
@@ -211,6 +239,15 @@ function FooterCta({ href }: { href: string }) {
       </Link>
     </div>
   );
+}
+
+function renderDebateContent(text: string): string {
+  return text
+    .split(/\n\n+/)
+    .map(para => para.trim())
+    .filter(Boolean)
+    .map(para => `<p style="margin:0 0 1em;">${para.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')}</p>`)
+    .join('');
 }
 
 function formatPublishedDate(dateTime: string): string {
