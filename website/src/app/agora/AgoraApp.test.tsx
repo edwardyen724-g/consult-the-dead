@@ -79,6 +79,26 @@ const minds: MindOption[] = [
     colorVar: "--mind-niccolo-machiavelli",
     packIds: ["war-room"] as PackId[],
   },
+  {
+    slug: "marcus-aurelius",
+    name: "Marcus Aurelius",
+    era: "Roman Empire",
+    domain: "philosophy",
+    lens: "Stoic",
+    incidentCount: 10,
+    colorVar: "--mind-marcus-aurelius",
+    packIds: ["stoic-council"] as PackId[],
+  },
+  {
+    slug: "isaac-newton",
+    name: "Isaac Newton",
+    era: "Enlightenment",
+    domain: "science",
+    lens: "First Principles",
+    incidentCount: 9,
+    colorVar: "--mind-isaac-newton",
+    packIds: ["war-room"] as PackId[],
+  },
 ];
 
 const council = ["sun-tzu", "marie-curie"];
@@ -649,5 +669,119 @@ describe("AgoraApp — mobile layout", () => {
 
     expect(markup).toContain("5 minds · Opus synthesis");
     expect(markup).toContain("← account");
+  });
+});
+
+/* ── 4th-mind cap upsell banner ─────────────────────────────────────── */
+
+describe("AgoraApp — 4th-mind cap upsell banner", () => {
+  it("renders cap-upsell-banner when free user hits the 3-mind limit and capBannerVisible is true", () => {
+    // Simulate the state after handleToggleMind fires the cap: 3 minds seated,
+    // capBannerVisible = true (lifted into AgonState for testability).
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).toContain('data-testid="cap-upsell-banner"');
+  });
+
+  it("banner copy prominently states +2 more minds benefit for Pro", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    // Must reference the concrete +2 and 5-total benefit so the value is clear.
+    expect(markup).toContain("+2 more minds");
+    expect(markup).toContain("5 total");
+  });
+
+  it("banner contains Upgrade to Pro link pointing to /pricing", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).toContain("Upgrade to Pro");
+    expect(markup).toContain('href="/pricing"');
+  });
+
+  it("cap-upsell-banner is absent when capBannerVisible is false (initial state)", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          capBannerVisible: false,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
+    // The static hint should appear instead.
+    expect(markup).toContain("Free plan: up to 3 minds");
+  });
+
+  it("Pro user at 4-mind council sees no cap-upsell-banner (Pro max is 5)", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={true}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli", "marcus-aurelius"],
+          capBannerVisible: false,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
+  });
+
+  it("cap-upsell-banner is never rendered for Pro users even when capBannerVisible is true", () => {
+    // The banner is gated by !isPro so Pro users never see it regardless of state.
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={true}
+        _testInitialState={{
+          stage: "council",
+          topic,
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli", "marcus-aurelius", "isaac-newton"],
+          capBannerVisible: true,
+        }}
+      />,
+    );
+
+    expect(markup).not.toContain('data-testid="cap-upsell-banner"');
   });
 });
