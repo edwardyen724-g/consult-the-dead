@@ -101,10 +101,14 @@ export default function PricingPage() {
   async function handleProCheckout() {
     setLoading(true)
     try {
+      const params = new URLSearchParams(window.location.search)
+      const utm_campaign = params.get('utm_campaign') ?? undefined
+      const utm_content = params.get('utm_content') ?? undefined
+
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ billingPeriod: billing }),
+        body: JSON.stringify({ billingPeriod: billing, utm_campaign, utm_content }),
       })
       if (res.status === 401) {
         router.push('/sign-in')
@@ -641,6 +645,20 @@ export default function PricingPage() {
                 margin: '10px 0 0',
               }}>
                 {proCtaSubtext}
+              </p>
+              <p
+                data-testid="pro-cta-trust-badge"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '9px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  textAlign: 'center',
+                  margin: '8px 0 0',
+                }}
+              >
+                Used by indie hackers, founders, and researchers
               </p>
             </div>
           </div>
