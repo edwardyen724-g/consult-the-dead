@@ -98,6 +98,7 @@ const TWO_SLUGS: readonly FrameworkSlug[] = [
 
 const TWO_INSIGHTS: readonly InsightEntry[] = [
   {
+    type: "single",
     slug: "newton-pivot",
     frameworkSlug: "isaac-newton",
     title: "Newton on pivots",
@@ -105,8 +106,10 @@ const TWO_INSIGHTS: readonly InsightEntry[] = [
     targetKeywords: [],
     decisionType: "pivot",
     hookQuestion: "x",
+    publishedAt: "2026-04-18",
   },
   {
+    type: "single",
     slug: "machiavelli-cofounder",
     frameworkSlug: "niccolo-machiavelli",
     title: "Machiavelli on cofounders",
@@ -114,6 +117,7 @@ const TWO_INSIGHTS: readonly InsightEntry[] = [
     targetKeywords: [],
     decisionType: "fire",
     hookQuestion: "x",
+    publishedAt: "2026-04-19",
   },
 ];
 
