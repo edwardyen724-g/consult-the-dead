@@ -549,3 +549,91 @@ describe("pricing page", () => {
     expect(tree.props.initialStats).toEqual(PRICING_STATS_DEFAULT);
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────────
+//  Live count refresh regression — pricing stats strip
+// ──────────────────────────────────────────────────────────────────────────
+
+describe("live count refresh regression — pricing stats strip", () => {
+  it("PRICING_STATS_DEFAULT carries no agonsRun so the strip shows no stale-zero before the live fetch resolves", () => {
+    expect(PRICING_STATS_DEFAULT.agonsRun).toBeUndefined();
+    const { tree } = renderPricingClient("annual", false, PRICING_STATS_DEFAULT);
+    const html = renderToStaticMarkup(tree as ReactElement);
+    expect(html).not.toContain("agons run");
+    expect(html).toContain("18 minds");
+    expect(html).toContain("Free to start");
+  });
+
+  it("renders the agonsRun label even for agonsRun=0 (zero-count confirms live wiring is active)", () => {
+    const zeroStats: PricingStats = { ...PRICING_STATS_DEFAULT, agonsRun: 0 };
+    const { tree } = renderPricingClient("annual", false, zeroStats);
+    const html = renderToStaticMarkup(tree as ReactElement);
+    expect(html).toContain('data-testid="pricing-stats"');
+    expect(html).toContain("0 agons run");
+    expect(html).toContain("18 minds");
+    expect(html).toContain("30 debates in the library");
+    expect(html).toContain("Free to start");
+  });
+
+  it("applies agonsRun=0 from /api/stats without silently dropping the zero (zero is real data)", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    const setStats = vi.fn();
+    mockUseState.mockReset();
+    mockUseEffect.mockReset();
+    mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ agonsRun: 0 }),
+    });
+
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
+
+    const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
+    effectCallback();
+    await flushMicrotasks(4);
+
+    expect(fetchMock).toHaveBeenCalledWith("/api/stats");
+    expect(setStats).toHaveBeenCalledTimes(1);
+    const updater = setStats.mock.calls[0][0] as (prev: PricingStats) => PricingStats;
+    const updated = updater(PRICING_STATS_DEFAULT);
+    expect(Object.prototype.hasOwnProperty.call(updated, "agonsRun")).toBe(true);
+    expect(updated.agonsRun).toBe(0);
+  });
+
+  it("merges a partial agonsRun-only patch into the existing PricingStats without clobbering static fields", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    const setStats = vi.fn();
+    mockUseState.mockReset();
+    mockUseEffect.mockReset();
+    mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ agonsRun: 42 }),
+    });
+
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
+
+    const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
+    effectCallback();
+    await flushMicrotasks(4);
+
+    expect(setStats).toHaveBeenCalledTimes(1);
+    const updater = setStats.mock.calls[0][0] as (prev: PricingStats) => PricingStats;
+    const updated = updater(PRICING_STATS_DEFAULT);
+    expect(updated.minds).toBe(PRICING_STATS_DEFAULT.minds);
+    expect(updated.debatesInLibrary).toBe(PRICING_STATS_DEFAULT.debatesInLibrary);
+    expect(updated.agonsRun).toBe(42);
+  });
+});
