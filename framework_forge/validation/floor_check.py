@@ -31,12 +31,34 @@ class FloorCheckResult:
     def passed(self) -> bool:
         return self.alignment_ratio >= FLOOR_CHECK_MIN_ALIGNMENT
 
+    @property
+    def failure_reasons(self) -> list[str]:
+        """Human-readable reasons for failure, empty when passed.
+
+        Suitable for release-gate reporting and CI output.
+        """
+        if self.passed:
+            return []
+        return [
+            f"Historical alignment below threshold: {self.alignment_ratio:.0%} "
+            f"(required >= {FLOOR_CHECK_MIN_ALIGNMENT:.0%})"
+        ]
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "alignment_ratio": self.alignment_ratio,
             "per_decision_results": self.per_decision_results,
             "passed": self.passed,
+            "failure_reasons": self.failure_reasons,
         }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "FloorCheckResult":
+        """Deserialize from a dict produced by to_dict()."""
+        return cls(
+            alignment_ratio=data["alignment_ratio"],
+            per_decision_results=data["per_decision_results"],
+        )
 
 
 # ---------------------------------------------------------------------------

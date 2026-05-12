@@ -42,6 +42,19 @@ class ScenarioResult:
             "divergent": self.divergent,
         }
 
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "ScenarioResult":
+        """Deserialize from a dict produced by to_dict()."""
+        return cls(
+            scenario=data["scenario"],
+            framework_response=data["framework_response"],
+            baseline_response=data["baseline_response"],
+            divergence_score=data["divergence_score"],
+            specificity_score=data["specificity_score"],
+            traceability_score=data["traceability_score"],
+            divergent=data["divergent"],
+        )
+
 
 @dataclass
 class Tier1Result:
@@ -57,13 +70,37 @@ class Tier1Result:
     def passed(self) -> bool:
         return self.divergent_count >= TIER1_MIN_DIVERGENT_SCENARIOS
 
+    @property
+    def failure_reasons(self) -> list[str]:
+        """Human-readable reasons for failure, empty when passed.
+
+        Suitable for release-gate reporting and CI output.
+        """
+        if self.passed:
+            return []
+        return [
+            f"Insufficient divergent scenarios: {self.divergent_count} of "
+            f"{len(self.scenario_results)} diverged "
+            f"(required >= {TIER1_MIN_DIVERGENT_SCENARIOS})"
+        ]
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "divergent_count": self.divergent_count,
             "total_scenarios": len(self.scenario_results),
             "passed": self.passed,
+            "failure_reasons": self.failure_reasons,
             "scenario_results": [r.to_dict() for r in self.scenario_results],
         }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Tier1Result":
+        """Deserialize from a dict produced by to_dict()."""
+        return cls(
+            scenario_results=[
+                ScenarioResult.from_dict(s) for s in data["scenario_results"]
+            ]
+        )
 
 
 # ---------------------------------------------------------------------------
