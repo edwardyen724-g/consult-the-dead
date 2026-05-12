@@ -20,9 +20,11 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "lcov", "html"],
       include: [
+        "src/app/page.tsx",
         "src/app/sign-up/**/page.tsx",
         "src/app/sign-up/**/utm-stamper.ts",
         "src/lib/mind-content.ts",
+        "src/lib/agon/rateLimit.ts",
         "src/app/pricing/layout.tsx",
         "src/lib/pricing-copy.ts",
         "src/components/upsell-modal.tsx",
@@ -36,6 +38,10 @@ export default defineConfig({
         "src/lib/emails/templates/recap.ts",
         "src/lib/emails/templates/nudge.ts",
         "src/lib/emails/templates/digest.ts",
+        "src/app/sign-up/[[...sign-up]]/SignUpClient.tsx",
+        "src/app/sign-up/[[...sign-up]]/UtmStamper.tsx",
+        "src/lib/use-clerk-utm-stamper.ts",
+        "src/lib/utm.ts",
       ],
       exclude: [
         "src/**/*.d.ts",

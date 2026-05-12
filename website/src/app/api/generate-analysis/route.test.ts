@@ -30,6 +30,7 @@ const mocks = vi.hoisted(() => {
   const currentUserMock = vi.fn();
   const checkRateLimitMock = vi.fn();
   const getClientIpMock = vi.fn();
+  const quotaResetAtMock = vi.fn();
   const loadFrameworkRawMock = vi.fn();
   const bumpCounterMock = vi.fn();
   const bumpMindMock = vi.fn();
@@ -44,6 +45,7 @@ const mocks = vi.hoisted(() => {
     currentUserMock,
     checkRateLimitMock,
     getClientIpMock,
+    quotaResetAtMock,
     loadFrameworkRawMock,
     bumpCounterMock,
     bumpMindMock,
@@ -61,6 +63,7 @@ vi.mock("@clerk/nextjs/server", () => ({
 vi.mock("@/lib/agon/rateLimit", () => ({
   checkRateLimit: mocks.checkRateLimitMock,
   getClientIp: mocks.getClientIpMock,
+  quotaResetAt: mocks.quotaResetAtMock,
 }));
 vi.mock("@/lib/agon/loadFramework", () => ({
   loadFrameworkRaw: mocks.loadFrameworkRawMock,
@@ -116,6 +119,7 @@ beforeEach(() => {
   mocks.currentUserMock.mockResolvedValue({ publicMetadata: {} });
   mocks.checkRateLimitMock.mockResolvedValue({ allowed: true, remaining: 2 });
   mocks.getClientIpMock.mockReturnValue("127.0.0.1");
+  mocks.quotaResetAtMock.mockReturnValue(9999999999);
   mocks.loadFrameworkRawMock.mockReturnValue({
     meta: { person: "Isaac Newton" },
     perceptual_lens: {

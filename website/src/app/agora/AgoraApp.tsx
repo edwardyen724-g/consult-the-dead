@@ -97,6 +97,8 @@ export interface AgonState {
   quotaRemaining: number | undefined;
   researchLoading: boolean;
   researchData: ResearchData | null;
+  /** True when a free user just attempted to seat a mind beyond their cap. */
+  capBannerVisible: boolean;
 }
 
 const INITIAL_STATE: AgonState = {
@@ -116,6 +118,7 @@ const INITIAL_STATE: AgonState = {
   quotaRemaining: undefined,
   researchLoading: false,
   researchData: null,
+  capBannerVisible: false,
 };
 
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
@@ -324,11 +327,19 @@ export function AgoraApp({
     });
   }
 
-  async function startAgon() {
-    if (state.council.length < MIND_MIN || state.council.length > (isPro ? MIND_MAX : 3)) return;
+  // councilSlugs: optional override — when provided the council is applied to
+  // state atomically with the agon-start transition, allowing callers to skip
+  // the council stage without React state timing issues.
+  async function startAgon(councilSlugs?: string[]) {
+    const activeCouncil = councilSlugs ?? state.council;
+    const mindMax = isPro ? MIND_MAX : 3;
+    if (activeCouncil.length < MIND_MIN || activeCouncil.length > mindMax) return;
 
     setState((s) => ({
       ...s,
+      // If a council was supplied externally, seat it now so the agon and
+      // any subsequent stages (consensus, etc.) see the right minds.
+      ...(councilSlugs ? { council: councilSlugs } : {}),
       // Skip the Research stage entirely when the toggle is off — there's
       // nothing to show, and the agon will start streaming as soon as the
       // server emits round_start.
@@ -360,7 +371,7 @@ export function AgoraApp({
         signal: controller.signal,
         body: JSON.stringify({
           topic: state.topic.trim(),
-          mindSlugs: state.council,
+          mindSlugs: activeCouncil,
           rounds: TOTAL_ROUNDS,
           research: state.researchEnabled,
         }),
@@ -390,6 +401,31 @@ export function AgoraApp({
         error: err instanceof Error ? err.message : "Network error",
       }));
     }
+  }
+
+  // Single-click path: compute a suggested council from the topic and start the
+  // agon immediately — skipping the manual council-selection stage entirely.
+  // Free users benefit most here since their 3-mind cap is automatically
+  // respected by suggestCouncil().
+  function beginAndStartAgon() {
+    const trimmed = state.topic.trim();
+    if (trimmed.length < 10) return;
+
+    let suggested: string[];
+    if (initialMinds && initialMinds.length >= MIND_MIN) {
+      suggested = initialMinds.slice(0, isPro ? MIND_MAX : 3);
+    } else if (initialPack) {
+      const pack = getPack(initialPack);
+      const liveSlugs = new Set(minds.map((m) => m.slug));
+      const packMembers = pack ? getActivePackMembers(pack, liveSlugs) : [];
+      suggested = packMembers.length >= MIND_MIN
+        ? packMembers.slice(0, isPro ? MIND_MAX : 3)
+        : suggestCouncil(trimmed, minds);
+    } else {
+      suggested = suggestCouncil(trimmed, minds);
+    }
+
+    startAgon(suggested);
   }
 
   function handleAgonEvent(event: AgonEvent) {
@@ -526,6 +562,7 @@ export function AgoraApp({
                 setState((s) => ({ ...s, researchEnabled: v }))
               }
               onSubmit={beginFromTopic}
+              onQuickStart={beginAndStartAgon}
             />
           )}
 
@@ -546,6 +583,8 @@ export function AgoraApp({
               toggleMind={toggleMind}
               onContinue={startAgon}
               initialOpenPack={initialPack}
+              capBannerVisible={state.capBannerVisible}
+              setCapBannerVisible={(v) => setState((s) => ({ ...s, capBannerVisible: v }))}
             />
           )}
 
@@ -707,6 +746,7 @@ function TopicStage({
   researchEnabled,
   setResearchEnabled,
   onSubmit,
+  onQuickStart,
 }: {
   topic: string;
   setTopic: (t: string) => void;
@@ -715,8 +755,8 @@ function TopicStage({
   researchEnabled: boolean;
   setResearchEnabled: (v: boolean) => void;
   onSubmit: () => void;
+  onQuickStart: () => void;
 }) {
-  const [showKey, setShowKey] = useState(false);
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
 
@@ -867,25 +907,49 @@ function TopicStage({
         </div>
       </label>
 
-      <button
-        onClick={onSubmit}
-        disabled={!valid}
-        className="font-mono"
-        style={{
-          background: valid ? "#2a2018" : "transparent",
-          color: valid ? "#f0ead8" : "var(--fg-dim)",
-          border: valid ? "none" : "1px solid var(--hairline)",
-          borderRadius: 0,
-          fontSize: "12px",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          padding: "16px 36px",
-          cursor: valid ? "pointer" : "not-allowed",
-          transition: "all 200ms ease-out",
-        }}
-      >
-        Begin the Agon →
-      </button>
+      {/* Action buttons — primary: quick-start (skip council); secondary: choose council */}
+      <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+        <button
+          data-testid="quick-start-btn"
+          onClick={onQuickStart}
+          disabled={!valid}
+          className="font-mono"
+          style={{
+            background: valid ? "#2a2018" : "transparent",
+            color: valid ? "#f0ead8" : "var(--fg-dim)",
+            border: valid ? "none" : "1px solid var(--hairline)",
+            borderRadius: 0,
+            fontSize: "12px",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            padding: "16px 36px",
+            cursor: valid ? "pointer" : "not-allowed",
+            transition: "all 200ms ease-out",
+          }}
+        >
+          Start Agon →
+        </button>
+        <button
+          data-testid="choose-council-btn"
+          onClick={onSubmit}
+          disabled={!valid}
+          className="font-mono"
+          style={{
+            background: "transparent",
+            color: valid ? "var(--fg-dim)" : "var(--fg-faint)",
+            border: "1px solid var(--hairline)",
+            borderRadius: 0,
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            padding: "14px 28px",
+            cursor: valid ? "pointer" : "not-allowed",
+            transition: "all 200ms ease-out",
+          }}
+        >
+          Choose council →
+        </button>
+      </div>
 
       {/* Example questions */}
       <div style={{ marginTop: "56px" }}>
@@ -968,58 +1032,54 @@ function TopicStage({
         </div>
       </div>
 
-      {/* API key */}
-      <div style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}>
-        <button
-          onClick={() => setShowKey((v) => !v)}
+      {/* API key — always visible so users with a key don't have to hunt for the toggle */}
+      <div
+        style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}
+        data-testid="api-key-section"
+      >
+        <div
           className="font-mono"
           style={{
-            background: "transparent",
-            border: "none",
-            color: "var(--fg-dim)",
             fontSize: "11px",
             letterSpacing: "0.08em",
-            cursor: "pointer",
             textTransform: "uppercase",
-            padding: 0,
+            color: "var(--fg-dim)",
+            marginBottom: "8px",
           }}
         >
-          {showKey ? "− hide " : "+ "}your own anthropic key {apiKey ? "(saved)" : "(optional)"}
-        </button>
-        {showKey && (
-          <div style={{ marginTop: "12px" }}>
-            <input
-              type="password"
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-              placeholder="sk-ant-..."
-              style={{
-                width: "100%",
-                maxWidth: "480px",
-                background: "transparent",
-                border: "1px solid var(--hairline)",
-                borderRadius: "4px",
-                color: "var(--fg)",
-                fontFamily: "var(--font-mono)",
-                fontSize: "13px",
-                padding: "10px 12px",
-                outline: "none",
-              }}
-            />
-            <div
-              className="font-mono"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.04em",
-                color: "var(--fg-dim)",
-                marginTop: "8px",
-                lineHeight: 1.5,
-              }}
-            >
-              Stored only in your browser. Skips the daily free-tier limit.
-            </div>
-          </div>
-        )}
+          Your Anthropic key{apiKey ? " (saved)" : " — optional, bypasses the 3/day limit"}
+        </div>
+        <input
+          id="agora-api-key"
+          type="password"
+          value={apiKey}
+          onChange={(e) => setApiKey(e.target.value)}
+          placeholder="sk-ant-..."
+          style={{
+            width: "100%",
+            maxWidth: "480px",
+            background: "transparent",
+            border: "1px solid var(--hairline)",
+            borderRadius: "4px",
+            color: "var(--fg)",
+            fontFamily: "var(--font-mono)",
+            fontSize: "13px",
+            padding: "10px 12px",
+            outline: "none",
+          }}
+        />
+        <div
+          className="font-mono"
+          style={{
+            fontSize: "11px",
+            letterSpacing: "0.04em",
+            color: "var(--fg-dim)",
+            marginTop: "8px",
+            lineHeight: 1.5,
+          }}
+        >
+          Stored only in your browser. Skips the daily free-tier limit.
+        </div>
       </div>
     </div>
   );
@@ -1153,6 +1213,8 @@ function CouncilStage({
   toggleMind,
   onContinue,
   initialOpenPack,
+  capBannerVisible,
+  setCapBannerVisible,
 }: {
   topic: string;
   minds: MindOption[];
@@ -1161,6 +1223,8 @@ function CouncilStage({
   toggleMind: (slug: string) => void;
   onContinue: () => void;
   initialOpenPack?: PackId | null;
+  capBannerVisible: boolean;
+  setCapBannerVisible: (v: boolean) => void;
 }) {
   const mindMax = isPro ? MIND_MAX : 3;
   const count = council.length;
@@ -1216,16 +1280,16 @@ function CouncilStage({
     });
   }
 
-  // Show a brief upsell banner when a free user tries to seat a 4th mind.
-  const [showCapBanner, setShowCapBanner] = useState(false);
-
+  // Show a brief upsell banner when a free user tries to seat a mind beyond
+  // their cap. capBannerVisible is lifted into AgonState so tests can seed it
+  // via _testInitialState without needing interaction.
   function handleToggleMind(slug: string) {
     const isSeated = council.includes(slug);
     if (!isSeated && count >= mindMax) {
-      setShowCapBanner(true);
+      setCapBannerVisible(true);
       return;
     }
-    setShowCapBanner(false);
+    setCapBannerVisible(false);
     toggleMind(slug);
   }
 
@@ -1431,7 +1495,7 @@ function CouncilStage({
         })}
       </div>
 
-      {!isPro && showCapBanner && (
+      {!isPro && capBannerVisible && (
         <div
           data-testid="cap-upsell-banner"
           style={{
@@ -1451,7 +1515,7 @@ function CouncilStage({
             className="font-mono"
             style={{ fontSize: "11px", letterSpacing: "0.06em", color: "var(--fg-dim)", lineHeight: 1.55 }}
           >
-            Free plan seats up to 3 minds. Pro unlocks 5 minds, 100 agons/month, and Opus synthesis.
+            Free plan: 3 minds max. Upgrade to Pro for +2 more minds (5 total), 100 agons/month, and Opus synthesis.
           </div>
           <Link
             href="/pricing"
@@ -1470,7 +1534,7 @@ function CouncilStage({
           </Link>
         </div>
       )}
-      {!isPro && !showCapBanner && (
+      {!isPro && !capBannerVisible && (
         <div
           className="font-mono"
           style={{

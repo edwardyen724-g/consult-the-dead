@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Newsreader } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import ErrorBoundary from '@/components/shared/ErrorBoundary';
 import './globals.css';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -32,7 +33,11 @@ export default function RootLayout({
         className="h-screen w-screen overflow-hidden"
         style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', background: '#0a0a0f', color: '#e4e4e7' }}
       >
-        {children}
+        {/* Top-level ErrorBoundary catches any unhandled runtime errors that
+            escape the per-section boundaries wired in page.tsx. */}
+        <ErrorBoundary section="App Shell">
+          {children}
+        </ErrorBoundary>
         <Analytics />
         <div className="noise-overlay" />
       </body>

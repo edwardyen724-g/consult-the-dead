@@ -1,3 +1,48 @@
+# 2026-05-11 rateLimit branch coverage follow-up
+
+## Files Changed
+- `website/src/lib/agon/rateLimit.test.ts`
+- `website/vitest.config.ts`
+
+## What Changed
+- Added Vitest coverage for `quotaResetAt()` with fake timers, covering both the daily reset branch and the pro monthly reset branch.
+- Included `src/lib/agon/rateLimit.ts` in the coverage include list so the file appears in the coverage report and can be referenced in the PR body.
+
+## Verification
+- `cd website && npm run test -- rateLimit.test.ts`
+- `cd website && npm run coverage`
+- `cd website && rm -rf coverage && npm run coverage -- rateLimit.test.ts`
+
+## Results
+- Targeted test file passed: `2 passed`
+- Full `npm run coverage` still fails in this environment because the broader suite cannot resolve runtime packages such as `react`, `next/server`, and `@vercel/postgres`.
+- Targeted coverage report line for `website/src/lib/agon/rateLimit.ts`: `10.07%` statements, `2.7%` branches, `5%` functions, `11.76%` lines
+
+# 2026-05-11 Seeded topics queue prune and Phase 1 readiness
+
+## Files Changed
+- `topics.yaml`
+- `CONTENT_PIPELINE.md`
+- `MARKETING_STRATEGY.md`
+- `scripts/content-pipeline/article-pipeline.test.ts`
+
+## What Changed
+- Pruned two low-signal / overlapping topic records from the active queue:
+  - `should-i-hire-or-outsource`
+  - `what-would-machiavelli-say-about-startup-cap-tables`
+- Updated the queue header comments and the pipeline docs to say the curated queue has been reviewed and is ready for Phase 1 publishing.
+- Updated the marketing strategy note so the topic queue count no longer advertises the pre-prune seed state.
+- Added regression coverage that asserts the pruned slugs are absent from the active topic list.
+
+## Verification
+- `node - <<'NODE' ...` to confirm the pruned slugs were absent from `topics.yaml` and the active topic count still loaded cleanly.
+- `npx -y vitest run scripts/content-pipeline/article-pipeline.test.ts`
+
+## Results
+- Topic count from the active queue: `27`
+- Pruned slugs absent: yes
+- Vitest: `1 passed`, `11 tests passed`
+
 # 2026-05-09 Shared CTA attribution helper for funnel events
 
 ## Files Changed

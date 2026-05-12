@@ -1,0 +1,23 @@
+[
+  {
+    "review_date": "2026-05-11",
+    "reviewer": "feedback-agent",
+    "task_id": "27062c01",
+    "original_candidate": {
+      "title": "Jobs' restraint in not advertising Microsoft's use of Macs for Xbox development",
+      "description": "When told that Microsoft used hundreds of Macs as the development platform for Xbox 360 software, Jobs simply states 'And we never ran an ad on that,' showing his strategic restraint in not exploiting a potential marketing opportunity that could have embarrassed a partner.",
+      "source_text_excerpt": "Steve: And we never ran an ad on that... There were hundreds of them.",
+      "source_title": "allthingsd_d5_gates_jobs_official_transcript",
+      "reasoning_visible": true,
+      "evidence_type": "critical_incident"
+    },
+    "original_incident_id": "incident-005",
+    "rejection_reasons": [
+      "Source evidence is a 10-word aside with no documented decision process — the CDM reconstruction is entirely inferential.",
+      "No visible reasoning: Jobs' actual cognitive process is not captured in the source. All CDM probes (cues_noticed, active_goals, rejected_alternatives) are post-hoc inference.",
+      "Near-duplicate of incident-001 (Gates call): the underlying cognitive pattern (subordinating tactical wins to ecosystem health) is captured more richly there with extensive source support.",
+      "Downstream CDM probe reconstruction would produce low-reliability results because there is no actual decision process to reconstruct."
+    ],
+    "notes": "The partnership-restraint pattern this incident was meant to capture is adequately represented by incident-001 (Bill Gates call) which documents the same underlying cognitive tendency with strong source evidence."
+  }
+]

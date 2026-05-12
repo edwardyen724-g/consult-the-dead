@@ -6,22 +6,24 @@ captured.
 
 ## Pending Promotion
 
+_(none)_
+
+## Promoted
+
 - `2026-05-11` - [Onboarding Friction Fixes](2026-05-11-onboarding-friction-fixes.md) — PR #115
   - Multi-pack accordion: opens every pack with a smart-suggested mind on first render
   - 4th-mind cap upsell: amber inline banner when a free user taps a 4th mind
   - Council helpers extracted to `councilHelpers.ts` with 20 unit tests
-  - Smoke runbook: [`docs/runbooks/agora-first-agon-smoke.md`](../runbooks/agora-first-agon-smoke.md)
-  - Status: shipped 2026-05-11; pending smoke-evidence capture before promotion
-
-## Promoted
+  - Smoke captured 2026-05-12; 71/71 automated tests pass; critical-path checks pass
+  - No regressions detected
 
 - `2026-05-11` - [Framework Detail Preview-Image Rollout](2026-05-11-framework-detail-preview-image.md)
   - Framework detail pages now have OG/Twitter preview images (PR #110, PR #71)
   - Route-scoped `/frameworks/[slug]` OG/Twitter preview-image behavior
   - Smoke captured 2026-05-11; route pipeline confirmed live
   - CHANGELOG coverage recorded 2026-05-11 (PR #136)
-  - Known gaps: Seneca portrait asset (404); framework-page canonical URL drift
-  - Both gaps are follow-up items; preview-image contract is stable
+  - Known gaps: ~~Seneca portrait asset (404)~~ resolved (task 2d2162d0); framework-page canonical URL drift
+  - Remaining gap is a follow-up item; preview-image contract is stable
 
 - `2026-05-11` - [Auth Noindex Metadata](2026-05-11-auth-noindex-metadata.md) — PR #147
   - Sign-in and sign-up routes emit `robots: noindex, nofollow`
