@@ -271,3 +271,172 @@ describe("FrameworkTransparencyPanel", () => {
     expect(html).toContain("Topic must be at least 10 characters");
   });
 });
+
+// ---------------------------------------------------------------------------
+// formatRetryCountdown
+// ---------------------------------------------------------------------------
+
+describe("formatRetryCountdown", () => {
+  it("returns null when resetAt is in the past or equals now", () => {
+    const now = Date.now();
+    expect(formatRetryCountdown(now - 1, now)).toBeNull();
+    expect(formatRetryCountdown(now, now)).toBeNull();
+  });
+
+  it("returns '1 minute' for a remaining window of up to 60 seconds", () => {
+    const now = 1_000_000;
+    expect(formatRetryCountdown(now + 1, now)).toBe("1 minute");
+    expect(formatRetryCountdown(now + 60_000, now)).toBe("1 minute");
+  });
+
+  it("returns minutes for windows between 2 and 59 minutes", () => {
+    const now = 1_000_000;
+    expect(formatRetryCountdown(now + 2 * 60_000, now)).toBe("2 minutes");
+    expect(formatRetryCountdown(now + 59 * 60_000, now)).toBe("59 minutes");
+  });
+
+  it("returns hours for windows of 1–23 hours", () => {
+    const now = 1_000_000;
+    expect(formatRetryCountdown(now + 1 * 3_600_000, now)).toBe("1 hour");
+    expect(formatRetryCountdown(now + 5 * 3_600_000, now)).toBe("5 hours");
+  });
+
+  it("returns days for windows of 24+ hours", () => {
+    const now = 1_000_000;
+    expect(formatRetryCountdown(now + 24 * 3_600_000, now)).toBe("1 day");
+    expect(formatRetryCountdown(now + 3 * 86_400_000, now)).toBe("3 days");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// submitAskThisMindAnalysis — 429 retry hints
+// ---------------------------------------------------------------------------
+
+describe("submitAskThisMindAnalysis — retry hints", () => {
+  it("passes resetAt to onError when the 429 response includes X-RateLimit-Reset", async () => {
+    const resetAtSec = Math.floor(Date.now() / 1000) + 3600;
+    const fetchImpl = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ error: "Rate limit reached", rateLimited: true }), {
+        status: 429,
+        headers: {
+          "content-type": "application/json",
+          "X-RateLimit-Reset": String(resetAtSec),
+        },
+      })
+    );
+    const onError = vi.fn();
+    const onStatusChange = vi.fn();
+
+    await expect(
+      submitAskThisMindAnalysis({
+        frameworkSlug: "isaac-newton",
+        topic: "Should I ship the redesign this week or wait for another review cycle?",
+        fetchImpl: fetchImpl as typeof fetch,
+        onStatusChange,
+        onError,
+      })
+    ).rejects.toThrow("Rate limit reached");
+
+    expect(onStatusChange).toHaveBeenLastCalledWith("error");
+    expect(onError).toHaveBeenCalledWith("Rate limit reached", resetAtSec * 1000);
+  });
+
+  it("passes undefined resetAt to onError when X-RateLimit-Reset header is absent", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ error: "Rate limit reached", rateLimited: true }), {
+        status: 429,
+        headers: { "content-type": "application/json" },
+      })
+    );
+    const onError = vi.fn();
+
+    await expect(
+      submitAskThisMindAnalysis({
+        frameworkSlug: "isaac-newton",
+        topic: "Should I ship the redesign this week or wait for another review cycle?",
+        fetchImpl: fetchImpl as typeof fetch,
+        onError,
+      })
+    ).rejects.toThrow("Rate limit reached");
+
+    expect(onError).toHaveBeenCalledWith("Rate limit reached", undefined);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// FrameworkTransparencyPanel — retry hint display
+// ---------------------------------------------------------------------------
+
+describe("FrameworkTransparencyPanel — retry hints", () => {
+  it("shows a countdown and upgrade link when initialResetAt is set in the future", () => {
+    const resetAt = Date.now() + 42 * 60_000; // 42 minutes from now
+    const html = renderToStaticMarkup(
+      <FrameworkTransparencyPanel
+        frameworkSlug="isaac-newton"
+        frameworkName="Isaac Newton"
+        constructCount={9}
+        incidentCount={21}
+        blindSpotCount={4}
+        validationLine={null}
+        defaultOpen
+        initialStatus="error"
+        initialError="Rate limit reached"
+        initialResetAt={resetAt}
+      />
+    );
+
+    expect(html).toContain('role="alert"');
+    // renderToStaticMarkup HTML-encodes apostrophes as &#x27;
+    expect(html).toContain("reached your free limit.");
+    expect(html).toContain("Come back in");
+    expect(html).toContain("minutes");
+    expect(html).toContain("Upgrade to Pro");
+    expect(html).toContain('href="/pricing"');
+  });
+
+  it("shows 'Upgrade to Pro' link but omits countdown when resetAt is in the past", () => {
+    const resetAt = Date.now() - 1000; // already expired
+    const html = renderToStaticMarkup(
+      <FrameworkTransparencyPanel
+        frameworkSlug="isaac-newton"
+        frameworkName="Isaac Newton"
+        constructCount={9}
+        incidentCount={21}
+        blindSpotCount={4}
+        validationLine={null}
+        defaultOpen
+        initialStatus="error"
+        initialError="Rate limit reached"
+        initialResetAt={resetAt}
+      />
+    );
+
+    expect(html).toContain('role="alert"');
+    // renderToStaticMarkup HTML-encodes apostrophes as &#x27;
+    expect(html).toContain("reached your free limit.");
+    expect(html).not.toContain("Come back in");
+    expect(html).toContain("Upgrade to Pro");
+    expect(html).toContain('href="/pricing"');
+  });
+
+  it("shows the original error message without upgrade link when initialResetAt is absent", () => {
+    const html = renderToStaticMarkup(
+      <FrameworkTransparencyPanel
+        frameworkSlug="isaac-newton"
+        frameworkName="Isaac Newton"
+        constructCount={9}
+        incidentCount={21}
+        blindSpotCount={4}
+        validationLine={null}
+        defaultOpen
+        initialStatus="error"
+        initialError="Topic must be at least 10 characters"
+      />
+    );
+
+    expect(html).toContain('role="alert"');
+    expect(html).toContain("Topic must be at least 10 characters");
+    expect(html).not.toContain("Upgrade to Pro");
+    expect(html).not.toContain('href="/pricing"');
+  });
+});
