@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 import {
   FrameworkTransparencyPanel,
   buildAskThisMindPayload,
+  formatRetryCountdown,
   parseAskThisMindEventStream,
   submitAskThisMindAnalysis,
   validateAskThisMindTopic,
@@ -148,7 +149,7 @@ describe("submitAskThisMindAnalysis", () => {
     ).rejects.toThrow("Unknown framework");
 
     expect(onStatusChange).toHaveBeenLastCalledWith("error");
-    expect(onError).toHaveBeenCalledWith("Unknown framework");
+    expect(onError).toHaveBeenCalledWith("Unknown framework", undefined);
     expect(onAnalysis).not.toHaveBeenCalled();
   });
 
@@ -176,7 +177,7 @@ describe("submitAskThisMindAnalysis", () => {
     ).rejects.toThrow("Rate limit reached");
 
     expect(onStatusChange).toHaveBeenLastCalledWith("error");
-    expect(onError).toHaveBeenCalledWith("Rate limit reached");
+    expect(onError).toHaveBeenCalledWith("Rate limit reached", undefined);
     expect(onAnalysis).not.toHaveBeenCalled();
   });
 
