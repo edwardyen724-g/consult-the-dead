@@ -84,6 +84,20 @@ export interface QuizRouteGroup {
   decisionType: QuizDecisionType;
   label: string;
   description: string;
+  /**
+   * The best-fit pack for this decision type.  When present the quiz page
+   * surfaces a "jump straight to this council" shortcut above the
+   * individual tension choices so users can reach a relevant pre-built
+   * council in a single click instead of two.
+   */
+  featuredPack: {
+    /** Pack id used to build the Agora query string: /agora?pack=<id> */
+    packId: string;
+    /** Display name shown on the featured-council card. */
+    name: string;
+    /** Short pitch line shown below the name. */
+    tagline: string;
+  };
   routes: readonly Omit<QuizDestination, "decisionType" | "href">[];
 }
 
@@ -92,6 +106,11 @@ export const QUIZ_ROUTE_GROUPS = [
     decisionType: "strategy",
     label: "Strategy & Competition",
     description: "Market positioning, timing, competitive moves",
+    featuredPack: {
+      packId: "war-room",
+      name: "War Room",
+      tagline: "Generals, conquerors, and covert operators who think in terrain, timing, and asymmetric advantage.",
+    },
     routes: [
       {
         label: "Attack or defend?",
@@ -117,6 +136,11 @@ export const QUIZ_ROUTE_GROUPS = [
     decisionType: "people",
     label: "People & Power",
     description: "Leadership, negotiation, influence, team dynamics",
+    featuredPack: {
+      packId: "republic",
+      name: "The Republic",
+      tagline: "The architects of states: statesmen, philosophers, and operators who understood that power is always a negotiation.",
+    },
     routes: [
       {
         label: "Getting buy-in from skeptics",
@@ -142,6 +166,11 @@ export const QUIZ_ROUTE_GROUPS = [
     decisionType: "building",
     label: "Building & Creating",
     description: "Product, invention, design, technical decisions",
+    featuredPack: {
+      packId: "inventors-workshop",
+      name: "Inventors' Workshop",
+      tagline: "Makers and tinkerers who turned curiosity into machines and proved a single workshop can move the world.",
+    },
     routes: [
       {
         label: "Stuck between approaches",
@@ -167,6 +196,11 @@ export const QUIZ_ROUTE_GROUPS = [
     decisionType: "money",
     label: "Money & Growth",
     description: "Investment, scaling, pricing, resource allocation",
+    featuredPack: {
+      packId: "moguls",
+      name: "The Moguls",
+      tagline: "Empire builders and compounders who saw how a small advantage, ruthlessly reinvested, becomes a fortune.",
+    },
     routes: [
       {
         label: "Reinvest everything or take profit?",
@@ -192,6 +226,11 @@ export const QUIZ_ROUTE_GROUPS = [
     decisionType: "personal",
     label: "Personal & Values",
     description: "Career, ethics, resilience, identity decisions",
+    featuredPack: {
+      packId: "stoic-council",
+      name: "Stoic Council",
+      tagline: "Emperors and philosophers who taught the West how to carry a hard decision without flinching.",
+    },
     routes: [
       {
         label: "What's actually in my control?",
@@ -235,6 +274,26 @@ export function buildQuizCouncilHref(mindSlugs: readonly string[]): string {
   const safeSlugs = mindSlugs.map((slug) => slug.trim()).filter(Boolean);
   if (safeSlugs.length === 0) return "/agora";
   return `/agora?minds=${safeSlugs.map((slug) => encodeURIComponent(slug)).join(",")}`;
+}
+
+/**
+ * Build the Agora destination for a pre-configured pack.
+ *
+ * Routes the user to the Agora with the full pack pre-loaded, so they
+ * skip manual mind selection and land directly in the best-fit council.
+ */
+export function buildQuizPackHref(packId: string): string {
+  return `/agora?pack=${encodeURIComponent(packId.trim())}`;
+}
+
+/**
+ * Return the featured pack for a given decision type, or null if none is configured.
+ */
+export function getQuizFeaturedPack(
+  decisionType: string | null | undefined,
+): QuizRouteGroup["featuredPack"] | null {
+  const group = getQuizRouteGroup(decisionType);
+  return group?.featuredPack ?? null;
 }
 
 export function getQuizRouteGroup(

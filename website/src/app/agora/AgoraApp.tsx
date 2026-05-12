@@ -97,6 +97,8 @@ export interface AgonState {
   quotaRemaining: number | undefined;
   researchLoading: boolean;
   researchData: ResearchData | null;
+  /** True when a free user just attempted to seat a mind beyond their cap. */
+  capBannerVisible: boolean;
 }
 
 const INITIAL_STATE: AgonState = {
@@ -116,6 +118,7 @@ const INITIAL_STATE: AgonState = {
   quotaRemaining: undefined,
   researchLoading: false,
   researchData: null,
+  capBannerVisible: false,
 };
 
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
@@ -580,6 +583,8 @@ export function AgoraApp({
               toggleMind={toggleMind}
               onContinue={startAgon}
               initialOpenPack={initialPack}
+              capBannerVisible={state.capBannerVisible}
+              setCapBannerVisible={(v) => setState((s) => ({ ...s, capBannerVisible: v }))}
             />
           )}
 
@@ -1208,6 +1213,8 @@ function CouncilStage({
   toggleMind,
   onContinue,
   initialOpenPack,
+  capBannerVisible,
+  setCapBannerVisible,
 }: {
   topic: string;
   minds: MindOption[];
@@ -1216,6 +1223,8 @@ function CouncilStage({
   toggleMind: (slug: string) => void;
   onContinue: () => void;
   initialOpenPack?: PackId | null;
+  capBannerVisible: boolean;
+  setCapBannerVisible: (v: boolean) => void;
 }) {
   const mindMax = isPro ? MIND_MAX : 3;
   const count = council.length;
@@ -1271,16 +1280,16 @@ function CouncilStage({
     });
   }
 
-  // Show a brief upsell banner when a free user tries to seat a 4th mind.
-  const [showCapBanner, setShowCapBanner] = useState(false);
-
+  // Show a brief upsell banner when a free user tries to seat a mind beyond
+  // their cap. capBannerVisible is lifted into AgonState so tests can seed it
+  // via _testInitialState without needing interaction.
   function handleToggleMind(slug: string) {
     const isSeated = council.includes(slug);
     if (!isSeated && count >= mindMax) {
-      setShowCapBanner(true);
+      setCapBannerVisible(true);
       return;
     }
-    setShowCapBanner(false);
+    setCapBannerVisible(false);
     toggleMind(slug);
   }
 
@@ -1486,7 +1495,7 @@ function CouncilStage({
         })}
       </div>
 
-      {!isPro && showCapBanner && (
+      {!isPro && capBannerVisible && (
         <div
           data-testid="cap-upsell-banner"
           style={{
@@ -1506,7 +1515,7 @@ function CouncilStage({
             className="font-mono"
             style={{ fontSize: "11px", letterSpacing: "0.06em", color: "var(--fg-dim)", lineHeight: 1.55 }}
           >
-            Free plan seats up to 3 minds. Pro unlocks 5 minds, 100 agons/month, and Opus synthesis.
+            Free plan: 3 minds max. Upgrade to Pro for +2 more minds (5 total), 100 agons/month, and Opus synthesis.
           </div>
           <Link
             href="/pricing"
@@ -1525,7 +1534,7 @@ function CouncilStage({
           </Link>
         </div>
       )}
-      {!isPro && !showCapBanner && (
+      {!isPro && !capBannerVisible && (
         <div
           className="font-mono"
           style={{
