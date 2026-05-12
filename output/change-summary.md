@@ -1,60 +1,50 @@
-# 2026-05-12 quiz decision-type routing
+## Previous Entries
 
-- Task: Route the quiz into a best-fit pack or featured mind by decision type
-- Updated:
-  - `website/src/app/quiz/QuizFlow.tsx`
-  - `website/src/app/quiz/quiz-routing.test.ts`
-- Change:
-  - added a decision-type recommendation card to the quiz step that now points users to the best-fit pack when one is configured
-  - added a deterministic featured-mind fallback so decision types without a pack can still surface a direct route
-  - kept the existing tension-based council flow intact and added regression coverage for the new pack-routing branch
+## Task
+- Promote guided quiz entry in the global header
+- Reconcile the pricing smoke runbook with the shipped verifier CLI
+- Refresh the release-note index for the latest shipped wave
 
-## Verification
+## Changed Files
+- `website/src/components/Header.tsx`
+- `website/src/components/__tests__/Header.test.tsx`
+- `docs/runbooks/funnel-surface-rollout.md`
+- `docs/runbooks/pricing-copy-smoke-runbook.md`
+- `docs/release-notes/index.md`
 
-- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm coverage -- website/src/app/quiz/quiz-routing.test.ts`
-- Result: passed after creating the generated `coverage/.tmp` directory; 142 test files and 1981 tests passed, with overall coverage above the gate.
-
-# 2026-05-12 homepage hero clarity and first-scroll demo rewrite
-
-- Task: Rewrite the homepage hero copy around decision clarity and the first-scroll demo
-- Updated:
-  - `website/src/app/page.tsx`
-  - `website/src/app/page.test.tsx`
-  - `website/src/app/worked-example.tsx`
-  - `website/src/app/worked-example.test.ts`
-  - `website/src/app/worked-example.regression.test.ts`
-  - `website/src/lib/ctr-experiment.ts`
-- Change:
-  - reframed the homepage hero around clarity-first positioning and added an explicit first-scroll demo anchor so the proof surface is visible immediately
-  - rewrote the hero CTA labels and demo intro copy to match the new clarity message
-  - reworked the streaming demo question, proof points, research lines, advisor rounds, and consensus text so the demo itself reinforces clarity and proof placement instead of the old AI-career-pivot framing
-  - aligned the shared curiosity-gap hero variant with the new homepage language so the default experiment copy stays in sync
-  - updated the homepage and demo regression tests to lock the new copy in place
+## What Changed
+- Promoted the guided quiz CTA to the primary filled button in the shared header, while keeping an explicit Agora fallback button in the right-hand cluster.
+- Updated the header contract tests so they lock the new `/quiz?entry=guided` CTA path and accessibility label instead of the old tracked header URL.
+- Rewrote the funnel rollout runbook to describe the current header hierarchy and verify the direct guided quiz path.
+- Replaced the stale pricing-runbook note with the shipped `npm run verify:pricing-contract` entrypoint and preserved the manual curl checks as a fallback.
+- Added a short release-note index pointer to the latest shipped wave so the promotion queue reads cleanly.
 
 ## Verification
+- `npm run coverage` in `website`
+- `npm run verify:pricing-contract -- --base-url https://www.consultthedead.com`
 
-- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm coverage -- src/app/page.test.tsx src/app/worked-example.test.ts src/app/worked-example.regression.test.ts src/lib/__tests__/ctr-experiment.test.ts`
-- Result: passed, with 142 test files and 1981 tests green; coverage remained above the gate on the focused run.
-- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm lint`
-- Result: passed with existing repository warnings only; no errors in the touched files.
-
-# 2026-05-12 pricing proof copy refresh
-
-- Task: Refresh pricing proof copy to rely on live stats and shipped-product evidence only
-- Updated:
-  - `website/src/lib/pricing-copy.ts`
-  - `website/src/lib/pricing-copy.test.ts`
-- Change:
-  - rewrote the pricing metadata description to frame the page around live stats and shipped-product evidence instead of the old feature-promise phrasing
-  - kept the canonical free-tier and founding-member fragments intact so the existing pricing metadata and share image still derive from one source of truth
-  - added a regression assertion that blocks the old "Pro adds" wording from reappearing
-
-## Verification
-
-- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && ./node_modules/.bin/vitest run src/lib/pricing-copy.test.ts src/app/pricing/layout.test.ts src/app/pricing/opengraph-image.test.tsx`
-- Result: passed, with 3 files and 10 tests green.
+## Results
+- Website coverage passed: `142 test files`, `1986 tests`, `99.58% statements`, `98.48% branches`, `100% functions`, `99.84% lines`.
+- Pricing verifier failed against the live site with 9 drift checks, including missing `/pricing` copy and `/agora` upsell strings that the runbook now points operators toward.
 
 # Change Summary
+
+## Task
+- `bb8e26dd-c311-4c86-b400-4e7c0b1dee62` - Expose the pricing contract verifier as a root npm script
+
+## Changed Files
+- `package.json`
+- `docs/runbooks/pricing-copy-smoke-runbook.md`
+
+## What Changed
+- Added a root-level `verify:pricing-contract` npm script that runs `scripts/pricing-contract-verifier.ts` from the repository root.
+- Updated the pricing smoke runbook to point at the new root script instead of the old future-script placeholder.
+
+## Verification
+- `npm run verify:pricing-contract -- --help`
+
+## Results
+- Root script resolved correctly and printed the verifier usage text from the repo root.
 
 ## Task
 - `4f7a3b27-50a9-4671-a4ea-927193a30280` - Normalize publication-surface rhythm across pricing, account, and library
@@ -94,3 +84,65 @@
 ## Results
 - `src/app/pricing/page.test.tsx` passed: `26 tests passed`
 - Combined pricing suites passed: `49 tests passed`
+
+## Task
+- `588de3c9-7b4c-4688-9ddf-b5b5cc895e9d` - Add regression coverage for homepage hero clarity and first-scroll demo
+
+## Changed Files
+- `website/src/app/page.test.tsx`
+
+## What Changed
+- Added a regression test that locks the decision-clarity hero copy in place by asserting the homepage still renders the `Clarity before commitment`, `Bring the decision into focus.`, and `History has a council.` copy.
+- Added an order assertion that keeps the first-scroll demo section after the clarity copy, so the homepage preserves the intended first-screen sequence.
+
+## Verification
+- `npm run --prefix website coverage -- src/app/page.test.tsx`
+- `npm run --prefix website coverage -- --coverage.include src/app/page.tsx src/app/page.test.tsx`
+
+## Results
+- The repo-wide coverage run passed the tests but failed the global coverage threshold because unrelated website files are below 95%.
+- The narrowed homepage coverage run passed with `100%` statements, `100%` branches, `100%` functions, and `100%` lines.
+
+## Task
+- `40e779ce-e254-45e8-bf5e-b5d57899634b` - Add regression coverage for decisions batch 7 metadata and CTA attribution
+
+## Changed Files
+- None
+
+## What Changed
+- No code changes were kept. The requested batch-7 slugs (`should-i-launch-on-product-hunt`, `should-i-offer-a-free-tier`, `should-i-rebrand`) are not present in the current shared decisions registry yet.
+- The task dependency `8f3c0e9e` explicitly says to wait for the shared decisions surface capsule `31655332` to clear before starting duplicate route work, so the regression patch was reverted.
+
+## Verification
+- `wanman task get 8f3c0e9e`
+- `wanman task get 40e779ce`
+- `git -C /Users/haotingyen/projects/consult-the-dead/.wanman/worktree diff -- website/src/app/decisions/'[slug]'/page.test.tsx`
+
+## Results
+- The dependency check confirmed the task is blocked upstream.
+- The route diff is clean after reverting the speculative edits.
+
+## Task
+- `786004cc-dda5-46e2-ae71-a2ed4ca410a4` - Converge /account with the publication-system rhythm
+
+## Changed Files
+- `website/src/app/account/page.tsx`
+- `website/src/app/account/page.test.tsx`
+- `website/vitest.config.ts`
+- `output/change-summary.md`
+
+## What Changed
+- Tightened `/account` into the shared publication cadence by splitting the subscription surface into a denser two-column plan/CTA panel with a primary upgrade/manage action and a secondary pricing link for free users.
+- Reworked the quota section into a compact status panel with an explicit quota label, current remaining summary, and a tracked progress bar so usage reads like the rest of the publication system.
+- Kept the API key section in place but left it lower in the hierarchy, so subscription and usage controls now carry the page.
+- Added scoped coverage for the new account branches and included `/account` in the Vitest coverage include list so the changed page is measured directly.
+
+## Verification
+- `npm run --prefix website test -- src/app/account/page.test.tsx`
+- `npm run --prefix website coverage -- src/app/account/page.test.tsx`
+- `npm run --prefix website lint -- src/app/account/page.tsx src/app/account/page.test.tsx vitest.config.ts`
+
+## Results
+- The focused account test file passed: `5 tests passed`.
+- The scoped coverage run passed at `100%` statements, `100%` branches, `100%` functions, and `100%` lines for `src/app/account/page.tsx`.
+- The broader repo-wide coverage run still hits a pre-existing unrelated failure in `src/components/__tests__/Header.test.tsx` (`quiz CTA link has a descriptive aria-label`), so I used the scoped coverage run to verify the changed page itself.
