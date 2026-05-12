@@ -69,6 +69,35 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "should I quit my job to be an entrepreneur",
     ],
   },
+  {
+    slug: "should-i-raise-a-seed-round",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Raise a Seed Round?",
+    description:
+      "Raising a seed round is not a milestone in the founding sequence. It is a conditional decision that reshapes control, terrain, and evidence requirements. This page helps you decide whether the capital changes the game — or just the story.",
+    primaryQuery: "Should I raise a seed round?",
+    secondaryQueries: [
+      "seed round vs bootstrap",
+      "when to raise seed funding",
+      "is it too early to raise a seed round",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Outside capital is not validation. It is a relationship that reshapes the next decision. Will this round secure a position that would be harder to reach six months from now, or is it mostly making the narrative sound more serious?",
+    targetKeywords: [
+      "should I raise a seed round",
+      "seed round vs bootstrap",
+      "when to raise seed funding",
+      "is it too early to raise a seed round",
+      "how to know if you are ready to raise",
+      "start your own agon",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

@@ -50,6 +50,7 @@ import {
 import { buildOgImageUrl } from "@/lib/og-image-url";
 import {
   SHARE_CTA_BUTTON_LABEL,
+  SHARE_CTA_SUBLINE,
   SHARE_SOCIAL_PROOF_LINE,
   buildShareCtaHref,
 } from "@/lib/share-cta-link";
@@ -229,6 +230,8 @@ export default async function PublicAgonPage({ params }: PageProps) {
             instances pick up the same media query. */}
         <ShareCtaStyles />
         <Header />
+
+        <ConversionLeadIn ctaHref={ctaHref} />
 
         {/* Above-the-fold conversion CTA. Hidden in print + on
             screens ≤720px (the sticky bar at the bottom carries the
@@ -615,6 +618,110 @@ function Header() {
         Read-only
       </span>
     </div>
+  );
+}
+
+function ConversionLeadIn({ ctaHref }: { ctaHref: string }) {
+  return (
+    <aside
+      data-cta="share-page-funnel-lead-in"
+      data-print="hide"
+      style={{
+        marginBottom: "28px",
+        padding: "22px 24px",
+        background:
+          "linear-gradient(180deg, rgba(42, 32, 24, 0.05), rgba(42, 32, 24, 0.02))",
+        border: "1px solid var(--hairline)",
+        borderLeft: "3px solid var(--amber)",
+      }}
+    >
+      <div
+        className="font-mono uppercase"
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          color: "var(--fg-faint)",
+          marginBottom: "10px",
+        }}
+      >
+        Read-only transcript
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) auto",
+          gap: "18px",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <h2
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(1.3rem, 2.8vw, 1.9rem)",
+              lineHeight: 1.25,
+              margin: 0,
+              color: "var(--fg)",
+            }}
+          >
+            Liked the verdict? Begin your own agon.
+          </h2>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "1rem",
+              lineHeight: 1.6,
+              color: "var(--fg-dim)",
+              margin: "10px 0 0",
+              maxWidth: "68ch",
+            }}
+          >
+            This public transcript is read-only. Start a fresh council with
+            three minds and keep the momentum going in under a minute.
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "8px",
+          }}
+        >
+          <Link
+            href={ctaHref}
+            data-cta="share-page-begin-your-own-agon"
+            className="font-mono"
+            style={{
+              display: "inline-block",
+              background: "#2a2018",
+              color: "#f0ead8",
+              border: "none",
+              borderRadius: 0,
+              fontSize: "12px",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              padding: "14px 28px",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {SHARE_CTA_BUTTON_LABEL}
+          </Link>
+          <span
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.08em",
+              color: "var(--fg-faint)",
+              textTransform: "uppercase",
+            }}
+          >
+            {SHARE_CTA_SUBLINE}
+          </span>
+        </div>
+      </div>
+    </aside>
   );
 }
 

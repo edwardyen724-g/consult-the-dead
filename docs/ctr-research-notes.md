@@ -1,6 +1,6 @@
 # CTR & Engagement Research Brief
 
-**Date:** 2026-05-10
+**Date:** 2026-05-12
 
 This brief turns the engagement notes into a ranked experiment plan for the next homepage and pricing iteration. The key constraint is that the live product already ships:
 
@@ -8,9 +8,12 @@ This brief turns the engagement notes into a ranked experiment plan for the next
 - a streaming demo below the fold
 - a quiz entry path
 - six themed pack cards
+- a public debate archive at `/debates`
+- static debate pages at `/debates/[slug]` that mirror published Agora transcripts and link back to `/agora`
 - a simple Free vs Pro pricing page
 - **LibraryProofStrip** on `/library` — shows "X minds consulted · Y saved debates" as a compact stat bar (PR #184); the cumulative collection-feedback signal is already live for Pro users
 - **Transcript share helper** (`share-transcript.ts`, PR #180) — formats a pull-quote excerpt with the canonical `/agora/a/[id]` URL into a clipboard-ready share blob (≤280 chars)
+- production email from `notifications@consultthedead.com` for the welcome, subscription confirmation, and recap surfaces
 
 The next batch should sharpen those shipped surfaces instead of starting a redesign.
 
@@ -19,6 +22,8 @@ The next batch should sharpen those shipped surfaces instead of starting a redes
 - Homepage CTA path: `/` → `/agora` or `/quiz`
 - Pack browsing path: `/` and `/frameworks`
 - Pricing path: `/pricing`
+- Public debate path: `/debates` and `/debates/[slug]`
+- Email path: `notifications@consultthedead.com` for the shipped account and recap mail surfaces
 - Demo path: the homepage `StreamingDemo`
 - Free pricing state: 3 agons/day, anonymous, no signup
 - Pro pricing state: $30/month or $300/year, 7-day trial, Opus consensus, persistent library, PDF export, extended research, optional BYO key
@@ -26,16 +31,14 @@ The next batch should sharpen those shipped surfaces instead of starting a redes
 ### Live-Proof Pricing Contract
 
 The `/pricing` page ships a live-proof strip on the conversion surface to establish
-capability credibility before the tier CTA. The contract as of 2026-05-11:
+capability credibility before the tier CTA. The contract as of 2026-05-12:
 
 - **Stats counter row** (`data-testid="pricing-stats"`) — rendered via
-  `formatPricingStats(PRICING_STATS_DEFAULT)` from
-  `website/src/lib/pricing/stats.ts`. Displays three monospaced labels:
-  `"18 minds"`, `"30 debates in the library"`, `"Free to start"`.
-  Source of truth for the numbers: `ALLOWED_SLUGS` length in
-  `website/src/lib/frameworks.ts` (minds count) and `docs/outreach-debates/*.md`
-  count (debates count). Update both `PRICING_STATS_DEFAULT` and the source files
-  when the roster or debate library grows.
+  `formatPricingStats(initialStats)` from `website/src/lib/pricing/stats.ts`.
+  The server wrapper seeds `initialStats` from `getPricingStats()` so the first
+  render reflects live counts when the database and framework registry are
+  reachable, then the client revalidates from `/api/stats` after mount.
+  `PRICING_STATS_DEFAULT` remains the fallback for degraded responses.
 
 - **Social-proof debate scenario strip** (`SOCIAL_PROOF` constant in
   `website/src/app/pricing/page.tsx`) — three anonymised debate topics with council
@@ -43,10 +46,9 @@ capability credibility before the tier CTA. The contract as of 2026-05-11:
   decision and the council are shown. These are static and updated manually when
   better real-use examples are available.
 
-The proof strip is intentionally static for v1 (marketing brief 22ee79de §Part 4
-Variant A). Task `55af6ebe` tracks switching the minds/debatesInLibrary counters to
-live Vercel Analytics event counts when that source is ready; the `formatPricingStats`
-API is designed to accept a live `PricingStats` object without touching the page JSX.
+The proof strip now uses live-seeded counts rather than a frozen baseline for the
+hero counter row. `formatPricingStats` still accepts a plain `PricingStats` object,
+so future analytics sources can swap in without touching the page JSX.
 
 ## Prioritized Experiments
 
@@ -56,7 +58,7 @@ API is designed to accept a live `PricingStats` object without touching the page
 | 2 | Quiz-driven personalization | Homepage + `/quiz` | The quiz route already exists, so we can route users into a relevant pack or featured mind instead of sending everyone to the same generic entry point. | Higher CTR and better first-session relevance | Small to medium |
 | 3 | Move the streaming demo earlier | Homepage | The demo is already shipped; the work is to make it more visually dominant and faster to start so it earns attention before the first scroll. | Better engagement and more time on page | Small |
 | 4 | Pricing-page proof without fake testimonials | `/pricing` | The pricing copy still needs real social proof discipline. Until there are approved customer quotes, the page should rely on shipped-product proof and concrete feature framing. | Higher trust, fewer credibility leaks | Small |
-| 5 | Loss-aversion / quota reminders | `/pricing` and `/agora` | The free cap and Pro trial already exist. A careful reminder system can make the upgrade trigger feel obvious without inventing new pricing complexity. | Better free-to-paid conversion | Medium |
+| 5 | Loss-aversion / quota reminders | `/pricing`, `/debates`, and `/agora` | The free cap and Pro trial already exist, and the public debate archive gives outreach a gift surface that can feed the pricing proof surface before the final `/agora` CTA. A careful reminder system can make the upgrade trigger feel obvious without inventing new pricing complexity. | Better free-to-paid conversion | Medium |
 | 6 | Collection feedback — **implemented (monitoring)** | `/library` | Shipped as `LibraryProofStrip` (PR #184): renders "X minds consulted · Y saved debates" below the `/library` title as a compact monospaced stat bar. The hypothesis that showing cumulative progress increases return visits and shareability is now live; watch library return-visit rate and save-to-share conversion. | Higher return visits and shareability | Shipped |
 
 ## Recommended Next Batch
@@ -82,6 +84,7 @@ Ship these first:
 ## Guardrails
 
 - Do not add fake testimonials to compensate for missing social proof.
+- Do not collapse the public gift surface (`/debates`) into the conversion surface (`/agora`); they serve different parts of the funnel.
 - Do not introduce pack-based pricing before there is evidence that users buy by pack instead of by tier.
 - Do not widen the homepage before the current hero, demo, and quiz path have been tested.
 - Do not re-queue LibraryProofStrip or the transcript share helper as open design gaps — both contracts are shipped (PRs #184 and #180); the remaining open work is the homepage hook and adoption measurement.
