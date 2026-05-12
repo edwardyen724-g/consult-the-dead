@@ -102,16 +102,17 @@ export default function HomePage() {
                 Established for the carrying of decisions
               </p>
 
-              <h1 style={{
-                fontFamily: 'var(--font-serif)',
-                fontWeight: 400,
-                fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
-                lineHeight: 1.08,
-                letterSpacing: '-0.025em',
-                margin: 0,
-              }}>
-                You have a decision.<br />
-                <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>History has a council.</em>
+              <h1
+                data-testid="hero-headline"
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontWeight: 400,
+                  fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.025em',
+                  margin: 0,
+                }}>
+                Make the call. <em style={{ color: 'var(--red)', fontStyle: 'italic' }}>History argues first.</em>
               </h1>
 
               <p style={{
@@ -123,8 +124,44 @@ export default function HomePage() {
                 marginTop: '28px',
                 maxWidth: '50ch',
               }}>
-                Bring the question keeping you up. We seat {totalMinds} minds —                Machiavelli, Sun Tzu, Curie, and more — and let them argue it out on your behalf.
+                Pose the decision keeping you up. {totalMinds} minds —
+                Machiavelli, Sun Tzu, Curie, and more — argue it out across three rounds and hand you a verdict.
               </p>
+
+              {/* Demo preview — visible in first viewport */}
+              <blockquote
+                data-testid="hero-demo-preview"
+                style={{
+                  margin: '32px 0 0',
+                  padding: '20px 24px',
+                  borderLeft: '3px solid var(--amber)',
+                  background: 'var(--surface)',
+                  maxWidth: '52ch',
+                }}
+              >
+                <p style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontStyle: 'italic',
+                  fontSize: '0.9rem',
+                  lineHeight: 1.6,
+                  color: 'var(--fg-dim)',
+                  margin: 0,
+                }}>
+                  &ldquo;Sun Tzu rejects the pivot on grounds of position, not product.
+                  Machiavelli concurs — but warns the timing exposes you to rivals.
+                  Curie dissents: the data window is too narrow to abandon the experiment.&rdquo;
+                </p>
+                <footer style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '9px',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  marginTop: '12px',
+                }}>
+                  Consensus excerpt — &ldquo;Should we pivot the product now?&rdquo;
+                </footer>
+              </blockquote>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
                 <Link

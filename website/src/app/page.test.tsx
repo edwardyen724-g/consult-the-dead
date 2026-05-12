@@ -201,6 +201,49 @@ describe("HomePage — hero CTA UTM contract (rendered HTML)", () => {
   });
 });
 
+describe("HomePage — decision-first hero headline", () => {
+  it("renders an element with data-testid='hero-headline'", () => {
+    const tree = HomePage();
+    const headline = findByTestId(tree, "hero-headline");
+    expect(headline).not.toBeNull();
+  });
+
+  it("hero headline text is ≤10 words", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    // Extract the h1 inner text between the hero-headline tags
+    const match = html.match(/data-testid="hero-headline"[^>]*>([\s\S]*?)<\/h1>/);
+    expect(match).not.toBeNull();
+    const innerText = match![1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const wordCount = innerText.split(" ").filter(Boolean).length;
+    expect(wordCount).toBeLessThanOrEqual(10);
+  });
+});
+
+describe("HomePage — hero demo preview", () => {
+  it("renders an element with data-testid='hero-demo-preview'", () => {
+    const tree = HomePage();
+    const preview = findByTestId(tree, "hero-demo-preview");
+    expect(preview).not.toBeNull();
+  });
+
+  it("hero demo preview appears within the hero section (before streaming-demo-section)", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const previewPos = html.indexOf('data-testid="hero-demo-preview"');
+    const demoSectionPos = html.indexOf('data-testid="streaming-demo-section"');
+    expect(previewPos).toBeGreaterThan(-1);
+    expect(demoSectionPos).toBeGreaterThan(-1);
+    expect(previewPos).toBeLessThan(demoSectionPos);
+  });
+
+  it("hero demo preview appears before the packs-section in rendered HTML", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const previewPos = html.indexOf('data-testid="hero-demo-preview"');
+    const packsPos = html.indexOf('data-testid="packs-section"');
+    expect(previewPos).toBeGreaterThan(-1);
+    expect(previewPos).toBeLessThan(packsPos);
+  });
+});
+
 describe("HomePage — footer CTA element", () => {
   it("renders a footer CTA link with data-testid='footer-cta'", () => {
     const tree = HomePage();
