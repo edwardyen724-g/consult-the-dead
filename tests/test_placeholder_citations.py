@@ -247,3 +247,301 @@ def test_main_text_mode_reports_failures(tmp_path, capsys):
     assert "Missing framework.json manifest for:" in captured.out
     assert str(missing_root.resolve()) in captured.out
     assert "mock_placeholder" in captured.out
+
+
+# ---------------------------------------------------------------------------
+# 1. Deeply nested JSON scanning
+# ---------------------------------------------------------------------------
+
+
+def test_scan_finds_placeholder_at_arbitrary_nesting_depth():
+    """Placeholder buried at obj > obj > list > obj depth should be reported."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    payload = {
+        "level1": {
+            "items": [
+                {"nested": {"field": "clean value"}},
+                {"nested": {"field": "another clean value"}},
+                {"nested": {"field": "mock_placeholder"}},
+            ]
+        }
+    }
+
+    result = validate_framework_payload(payload, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is False
+    assert len(result.violations) == 1
+    assert result.violations[0].json_path == "$.level1.items[2].nested.field"
+    assert result.violations[0].value == "mock_placeholder"
+
+
+def test_scan_skips_non_string_leaf_types():
+    """None, integers, and booleans at any nesting depth should not be reported."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    payload = {
+        "null_field": None,
+        "int_field": 42,
+        "bool_field": True,
+        "nested": {
+            "also_null": None,
+            "also_int": 0,
+            "also_bool": False,
+            "list_of_scalars": [None, 1, False, 3.14],
+        },
+    }
+
+    result = validate_framework_payload(payload, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+def test_scan_placeholder_only_in_deep_key_is_found():
+    """A dict that has a clean top-level but a deep placeholder value is caught."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    payload = {
+        "clean": "value",
+        "section": {
+            "subsection": {
+                "entries": [
+                    {"title": "Real Title", "source": "Real Author"},
+                    {"title": "Placeholder Title", "source": "mock_placeholder"},
+                ]
+            }
+        },
+    }
+
+    result = validate_framework_payload(payload, artifact_path="deep.json", root="root-b")
+
+    assert result.passed is False
+    assert any(
+        v.json_path == "$.section.subsection.entries[1].source" for v in result.violations
+    )
+
+
+# ---------------------------------------------------------------------------
+# 2. Missing-manifest handling edge cases
+# ---------------------------------------------------------------------------
+
+
+def test_missing_manifest_still_scans_json_files(tmp_path):
+    """Root with JSON files but no framework.json: missing_manifests set AND files scanned."""
+    from framework_forge.validation.placeholder_citations import validate_framework_artifact_trees
+
+    root = tmp_path / "framework-no-manifest"
+    root.mkdir()
+    (root / "data.json").write_text(
+        json.dumps({"source": "mock_placeholder"}), encoding="utf-8"
+    )
+    # No framework.json — deliberate omission.
+
+    result = validate_framework_artifact_trees([root])
+
+    assert str(root.resolve()) in result.missing_manifests
+    # Validator continues past missing manifest and scans data.json.
+    assert any("data.json" in f for f in result.scanned_files)
+    assert any(v.artifact_path == "data.json" for v in result.violations)
+    assert result.passed is False
+
+
+def test_missing_manifest_clean_json_files_still_scanned(tmp_path):
+    """Root without framework.json but clean JSON: missing_manifests set, no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_artifact_trees
+
+    root = tmp_path / "framework-no-manifest-clean"
+    root.mkdir()
+    (root / "data.json").write_text(
+        json.dumps({"source": "Walter Isaacson, Steve Jobs"}), encoding="utf-8"
+    )
+
+    result = validate_framework_artifact_trees([root])
+
+    assert str(root.resolve()) in result.missing_manifests
+    assert any("data.json" in f for f in result.scanned_files)
+    assert result.violations == []
+    # Still fails because of missing manifest.
+    assert result.passed is False
+
+
+def test_mixed_roots_some_with_manifest_some_without(tmp_path):
+    """Roots with and without manifests are handled independently in one run."""
+    from framework_forge.validation.placeholder_citations import validate_framework_artifact_trees
+
+    root_with = tmp_path / "has-manifest"
+    root_without = tmp_path / "no-manifest"
+
+    _write_framework(
+        root_with,
+        {
+            "meta": {"primary_sources": ["Walter Isaacson, Steve Jobs"]},
+            "critical_incident_database": [],
+        },
+    )
+
+    root_without.mkdir()
+    (root_without / "extra.json").write_text(
+        json.dumps({"info": "mock_placeholder"}), encoding="utf-8"
+    )
+
+    result = validate_framework_artifact_trees([root_with, root_without])
+
+    assert str(root_without.resolve()) in result.missing_manifests
+    assert str(root_with.resolve()) not in result.missing_manifests
+    assert any(v.root == str(root_without.resolve()) for v in result.violations)
+    assert result.passed is False
+
+
+# ---------------------------------------------------------------------------
+# 3. CLI exit behavior
+# ---------------------------------------------------------------------------
+
+
+def test_main_clean_dir_exits_zero(tmp_path):
+    """main() with a clean framework root returns integer 0."""
+    from framework_forge.validation.placeholder_citations import main
+
+    root = tmp_path / "clean-root"
+    _write_framework(
+        root,
+        {
+            "meta": {"primary_sources": ["Walter Isaacson, Steve Jobs"]},
+            "critical_incident_database": [],
+        },
+    )
+
+    exit_code = main([str(root)])
+
+    assert exit_code == 0
+    assert isinstance(exit_code, int)
+
+
+def test_main_dir_with_placeholder_exits_one(tmp_path):
+    """main() with a placeholder-containing root returns integer 1."""
+    from framework_forge.validation.placeholder_citations import main
+
+    root = tmp_path / "dirty-root"
+    _write_framework(
+        root,
+        {"meta": {"primary_sources": ["mock_placeholder"]}},
+    )
+
+    exit_code = main([str(root)])
+
+    assert exit_code == 1
+    assert isinstance(exit_code, int)
+
+
+def test_main_nonexistent_dir_exits_one(tmp_path):
+    """main() with a non-existent root (missing manifest) returns integer 1."""
+    from framework_forge.validation.placeholder_citations import main
+
+    root = tmp_path / "does-not-exist"
+
+    exit_code = main([str(root)])
+
+    assert exit_code == 1
+    assert isinstance(exit_code, int)
+
+
+def test_main_return_value_is_int_not_system_exit(tmp_path):
+    """main() must return an int, not raise SystemExit."""
+    import sys
+    from framework_forge.validation.placeholder_citations import main
+
+    root = tmp_path / "check-return-type"
+    _write_framework(root, {"clean": "payload"})
+
+    # Should never raise; the __main__ guard wraps it in SystemExit, not main() itself.
+    try:
+        result = main([str(root)])
+    except SystemExit:
+        assert False, "main() raised SystemExit — it should return int instead"
+
+    assert isinstance(result, int)
+
+
+# ---------------------------------------------------------------------------
+# 4. Scan behavior with placeholder in various positions
+# ---------------------------------------------------------------------------
+
+
+def test_scan_placeholder_as_substring_of_longer_string():
+    """Placeholder embedded in a longer string is still caught (substring match)."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    payload = {"description": "see mock_placeholder for details"}
+
+    result = validate_framework_payload(payload, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is False
+    assert len(result.violations) == 1
+    assert result.violations[0].value == "see mock_placeholder for details"
+    assert result.violations[0].json_path == "$.description"
+
+
+def test_scan_empty_dict_produces_no_violations():
+    """An empty dict payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload({}, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+def test_scan_empty_list_produces_no_violations():
+    """An empty list payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload([], artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+# ---------------------------------------------------------------------------
+# 5. validate_framework_payload with non-string top-level types
+# ---------------------------------------------------------------------------
+
+
+def test_validate_framework_payload_with_none():
+    """None payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload(None, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+def test_validate_framework_payload_with_integer():
+    """Integer payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload(42, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+def test_validate_framework_payload_with_empty_list():
+    """Empty list payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload([], artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
+
+
+def test_validate_framework_payload_with_empty_dict():
+    """Empty dict payload should produce no violations."""
+    from framework_forge.validation.placeholder_citations import validate_framework_payload
+
+    result = validate_framework_payload({}, artifact_path="framework.json", root="root-a")
+
+    assert result.passed is True
+    assert result.violations == []
