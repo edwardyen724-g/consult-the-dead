@@ -532,21 +532,47 @@ export function AgoraApp({
 
         {state.error && (
           <div
+            data-testid="agora-error-banner"
             style={{
               marginBottom: "32px",
-              border: "1px solid var(--red)",
+              border: `1px solid ${state.rateLimited ? "var(--amber)" : "var(--red)"}`,
               borderRadius: "4px",
               padding: "12px 16px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
               color: "var(--fg-dim)",
               lineHeight: 1.5,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "12px",
             }}
           >
-            <span style={{ marginRight: "10px", color: "var(--red)" }}>
-              {state.rateLimited ? "RATE LIMIT" : "ERROR"}
-            </span>
-            {state.error}
+            <div>
+              <span style={{ marginRight: "10px", color: state.rateLimited ? "var(--amber)" : "var(--red)" }}>
+                {state.rateLimited ? "RATE LIMIT" : "ERROR"}
+              </span>
+              {state.error}
+            </div>
+            {state.rateLimited && !isPro && (
+              <Link
+                href="/pricing"
+                data-testid="rate-limit-upgrade-link"
+                className="font-mono"
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--amber)",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  flexShrink: 0,
+                }}
+              >
+                Start 7-day Pro trial →
+              </Link>
+            )}
           </div>
         )}
 
