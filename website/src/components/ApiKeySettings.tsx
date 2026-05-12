@@ -16,13 +16,19 @@
  *
  * UX:
  *   - When no key on file → free-text input + Save button.
- *   - When a key is on file → masked placeholder + Replace / Remove buttons.
+ *   - When a key is on file → masked placeholder (last 4 chars) + Replace / Remove buttons.
  *   - Replace switches back to the input form (Save commits, Cancel reverts).
  *   - Inline help line: "Your key, your bill — Anthropic charges you
  *     directly. We never see your conversations." (verbatim from task spec.)
+ *   - Validation: key must start with "sk-ant-"; error shown with aria-describedby.
+ *   - Success toast after save, confirmation prompt before remove.
  */
 
 import { useState } from 'react'
+import { isValidAnthropicKey } from '@/lib/api-key-validation'
+
+// Re-export so callers that import from this component file still work.
+export { isValidAnthropicKey } from '@/lib/api-key-validation'
 
 interface Props {
   /**
@@ -37,7 +43,12 @@ type Status =
   | { kind: 'idle' }
   | { kind: 'saving' }
   | { kind: 'removing' }
+  | { kind: 'success'; message: string }
+  | { kind: 'confirm-remove' }
   | { kind: 'error'; message: string }
+
+const HELP_ID = 'anthropic-api-key-help'
+const ERROR_ID = 'anthropic-api-key-error'
 
 export function ApiKeySettings({ initialMaskedKey }: Props) {
   const [maskedKey, setMaskedKey] = useState<string | null>(initialMaskedKey)
@@ -49,8 +60,11 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
 
   async function handleSave() {
     const trimmed = draft.trim()
-    if (!trimmed.startsWith('sk-ant-')) {
-      setStatus({ kind: 'error', message: 'API key must start with sk-ant-.' })
+    if (!isValidAnthropicKey(trimmed)) {
+      setStatus({
+        kind: 'error',
+        message: 'API key must start with sk-ant- and be at least 20 characters.',
+      })
       return
     }
     setStatus({ kind: 'saving' })
@@ -67,10 +81,13 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
       // Optimistically render a masked display locally so the UI flips
       // immediately. The next /account SSR will reconcile from privateMetadata.
       const last4 = trimmed.slice(-4)
-      setMaskedKey(`sk-ant-***...***${last4}`)
+      setMaskedKey(`sk-ant-...${last4}`)
       setDraft('')
       setEditing(false)
-      setStatus({ kind: 'idle' })
+      setStatus({
+        kind: 'success',
+        message: 'Key saved — your agons will now use your Anthropic account.',
+      })
     } catch (err) {
       setStatus({
         kind: 'error',
@@ -98,6 +115,12 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
       })
     }
   }
+
+  // aria-describedby wires the input to the relevant help/error text for SR users.
+  const inputDescribedBy =
+    status.kind === 'error'
+      ? ERROR_ID
+      : HELP_ID
 
   return (
     <div
@@ -147,6 +170,7 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
 
       <div style={{ padding: '24px' }}>
         <p
+          id={HELP_ID}
           style={{
             fontFamily: 'var(--font-serif)',
             fontSize: '0.95rem',
@@ -183,14 +207,20 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
               spellCheck={false}
               placeholder="sk-ant-…"
               value={draft}
-              onChange={e => setDraft(e.target.value)}
+              onChange={e => {
+                setDraft(e.target.value)
+                // Clear error as user edits so they see live feedback
+                if (status.kind === 'error') setStatus({ kind: 'idle' })
+              }}
               disabled={busy}
+              aria-describedby={inputDescribedBy}
+              aria-invalid={status.kind === 'error'}
               style={{
                 width: '100%',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '13px',
                 padding: '10px 12px',
-                border: '1px solid var(--hairline)',
+                border: `1px solid ${status.kind === 'error' ? 'var(--red, #c44)' : 'var(--hairline)'}`,
                 borderRadius: '4px',
                 background: 'var(--surface)',
                 color: 'var(--fg)',
@@ -246,6 +276,69 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
               )}
             </div>
           </>
+        ) : status.kind === 'confirm-remove' ? (
+          /* Inline confirmation prevents accidental key removal */
+          <div
+            role="alertdialog"
+            aria-labelledby="confirm-remove-label"
+            style={{
+              border: '1px solid var(--hairline)',
+              borderRadius: '4px',
+              padding: '16px',
+              background: 'var(--surface)',
+            }}
+          >
+            <p
+              id="confirm-remove-label"
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '0.95rem',
+                color: 'var(--fg)',
+                margin: '0 0 14px',
+                lineHeight: 1.5,
+              }}
+            >
+              Remove your API key? You&rsquo;ll revert to the monthly limit.
+            </p>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={handleRemove}
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  padding: '10px 20px',
+                  borderRadius: '4px',
+                  background: 'transparent',
+                  color: 'var(--red, #c44)',
+                  border: '1px solid var(--hairline)',
+                  cursor: 'pointer',
+                }}
+              >
+                Yes, remove key
+              </button>
+              <button
+                type="button"
+                onClick={() => setStatus({ kind: 'idle' })}
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  padding: '10px 20px',
+                  borderRadius: '4px',
+                  background: 'transparent',
+                  color: 'var(--fg)',
+                  border: '1px solid var(--hairline)',
+                  cursor: 'pointer',
+                }}
+              >
+                Keep key
+              </button>
+            </div>
+          </div>
         ) : (
           <>
             <div
@@ -289,7 +382,7 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
               </button>
               <button
                 type="button"
-                onClick={handleRemove}
+                onClick={() => setStatus({ kind: 'confirm-remove' })}
                 disabled={busy}
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -313,11 +406,27 @@ export function ApiKeySettings({ initialMaskedKey }: Props) {
 
         {status.kind === 'error' && (
           <p
+            id={ERROR_ID}
             role="alert"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '12px',
               color: 'var(--red, #c44)',
+              marginTop: '12px',
+              marginBottom: 0,
+            }}
+          >
+            {status.message}
+          </p>
+        )}
+
+        {status.kind === 'success' && (
+          <p
+            role="status"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '12px',
+              color: 'var(--green, #5a8)',
               marginTop: '12px',
               marginBottom: 0,
             }}
