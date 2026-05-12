@@ -10,6 +10,9 @@
  *     outreach-email slugs (seed task 69b1c08d) land here so Google
  *     Search Console can submit + crawl them; this is the SEO half
  *     of the founder distribution directive.
+ *   - Per-listicle pages (`LISTICLE_SLUGS`) at changeFrequency=monthly,
+ *     priority=0.6. These are the long-tail SEO landing pages at
+ *     /listicles/[slug] that feed the Agora conversion funnel.
  *
  * The DB fetch is wrapped in a try/catch — a transient Postgres error
  * must NEVER take down /sitemap.xml entirely. Frameworks + insights are
@@ -23,6 +26,7 @@ import type { MetadataRoute } from "next";
 
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { INSIGHT_ENTRIES } from "@/lib/insights";
+import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
 import { MIND_SLUGS } from "@/lib/mind-content";
 
 import { buildSitemapEntries, fetchPublicAgonRows, type PublicAgonRow } from "@/lib/sitemap-data";
@@ -47,6 +51,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  const listiclePages: MetadataRoute.Sitemap = LISTICLE_SLUGS.map((slug) => ({
+    url: listicleCanonicalUrl(slug),
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   return [
     ...buildSitemapEntries({
       siteUrl: SITE_URL,
@@ -56,5 +67,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       now,
     }),
     ...mindPages,
+    ...listiclePages,
   ];
 }
