@@ -29,5 +29,9 @@ class SourceEntry:
 
 
 def triage_sources(entries: list[SourceEntry]) -> list[SourceEntry]:
-    """Sort sources by evidence value (most valuable first)."""
-    return sorted(entries, key=lambda e: e.rank)
+    """Sort sources by evidence value (most valuable first).
+
+    Within the same evidence type, entries are sorted by title so that the
+    output is deterministic regardless of the order the LLM returned them.
+    """
+    return sorted(entries, key=lambda e: (e.rank, e.title))
