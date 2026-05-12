@@ -1,5 +1,6 @@
 # Consult The Dead — content topic queue
-# Hand-curated initial backlog. Trends-API discovery added in Phase 4.
+# Hand-curated initial backlog, reviewed and pruned for Phase 1 publishing.
+# Trends-API discovery added in Phase 4.
 # See CONTENT_PIPELINE.md §6 for article types and §8 for queue rules.
 
 # ─────────────────────────────────────────────────────────────────────
@@ -83,17 +84,6 @@
     - "should I learn AI or specialize"
   recommended_council: [sun-tzu, marie-curie, leonardo-da-vinci]
   hook_angles: [tension, proof]
-  status: queued
-
-- slug: should-i-hire-or-outsource
-  type: decision
-  search_volume_estimate: medium
-  primary_query: "hire vs outsource"
-  secondary_queries:
-    - "when to hire your first employee"
-    - "freelancer vs full time employee"
-  recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
-  hook_angles: [proof, shortcut]
   status: queued
 
 - slug: should-i-take-the-money-or-the-equity
@@ -242,17 +232,6 @@
     - "Leonardo da Vinci perfectionism"
   recommended_council: [leonardo-da-vinci]
   hook_angles: [identity, shortcut]
-  status: queued
-
-- slug: what-would-machiavelli-say-about-startup-cap-tables
-  type: insight
-  search_volume_estimate: medium
-  primary_query: "Machiavelli on power dynamics"
-  secondary_queries:
-    - "cap table power dynamics"
-    - "startup founder leverage"
-  recommended_council: [niccolo-machiavelli]
-  hook_angles: [proof, tension]
   status: queued
 
 - slug: what-would-sun-tzu-say-about-entering-saturated-markets
