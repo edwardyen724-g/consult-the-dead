@@ -66,6 +66,23 @@ class TestTriage:
         ]
         assert triage_sources(entries) == triage_sources(list(reversed(entries)))
 
+    def test_source_entry_rank_falls_back_for_unknown_type(self):
+        """An unrecognised source_type must not raise — it falls to the end of the ranking."""
+        from framework_forge.config import SOURCE_TYPES
+
+        unknown = SourceEntry("Unknown", "http://x.com", "totally_unknown_type", "x", ["layer1"])
+        assert unknown.rank == len(SOURCE_TYPES)
+
+    def test_triage_places_unknown_type_after_all_known_types(self):
+        """An entry with an unknown source_type must sort after all known types."""
+        entries = [
+            SourceEntry("Unknown", "http://x.com", "unknown_type", "x", ["layer1"]),
+            SourceEntry("Known", "http://k.com", "web_summary", "k", ["layer1"]),
+        ]
+        ranked = triage_sources(entries)
+        assert ranked[0].source_type == "web_summary"
+        assert ranked[1].source_type == "unknown_type"
+
 
 class TestCleanHtml:
     def test_strips_tags(self):

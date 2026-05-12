@@ -75,6 +75,10 @@ def materialize_source_texts(bibliography_path: Path, source_text_dir: Path) -> 
         if output_path.exists():
             continue
         if not source.url or source.url.lower() == "offline":
+            warnings.warn(
+                f"Skipping source {source.title!r}: URL is {source.url!r} (offline or missing)",
+                stacklevel=2,
+            )
             continue
         try:
             fetch_source(source.url, output_path)

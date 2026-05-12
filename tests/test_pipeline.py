@@ -317,6 +317,52 @@ def test_materialize_source_texts_requires_fetchable_sources(tmp_path):
         materialize_source_texts(bibliography_path, tmp_path / "steve-jobs" / "sources" / "texts")
 
 
+def test_materialize_source_texts_warns_on_offline_and_empty_urls(tmp_path):
+    """Offline or empty URL sources must emit a warning with a skip reason."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    source_text_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    # Pre-create a text file so the directory check won't raise FileNotFoundError
+    source_text_dir.mkdir(parents=True, exist_ok=True)
+    (source_text_dir / "00-preexisting.txt").write_text("preexisting", encoding="utf-8")
+
+    bibliography_path.write_text(
+        json.dumps(
+            [
+                {
+                    "title": "Offline Book",
+                    "url": "offline",
+                    "source_type": "firsthand_biography",
+                    "description": "A physical book",
+                    "evidence_layers": ["layer2"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+                {
+                    "title": "No URL Source",
+                    "url": "",
+                    "source_type": "private_writing",
+                    "description": "No URL available",
+                    "evidence_layers": ["layer1"],
+                    "fetched": False,
+                    "text_path": None,
+                },
+            ],
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        materialize_source_texts(bibliography_path, source_text_dir)
+
+    assert len(caught) == 2
+    messages = [str(w.message) for w in caught]
+    assert any("Offline Book" in m and "offline" in m for m in messages)
+    assert any("No URL Source" in m for m in messages)
+
+
 def test_run_incident_reconstruction_preserves_order_and_ids(tmp_path, monkeypatch):
     candidates_path = tmp_path / "steve-jobs" / "incidents" / "candidates.json"
     candidates_path.parent.mkdir(parents=True, exist_ok=True)

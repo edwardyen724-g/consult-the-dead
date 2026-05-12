@@ -76,6 +76,42 @@ def test_fetch_sources_command_materialises_texts(tmp_path, monkeypatch):
     assert "1 source text file(s) ready" in result.output
 
 
+def test_fetch_sources_command_prints_warnings_from_materialize(tmp_path, monkeypatch):
+    """fetch-sources must surface any warnings emitted by materialize_source_texts."""
+    import warnings as _warnings
+
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    output_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    fake_txt = output_dir / "01-source.txt"
+
+    def fake_materialize_with_warning(bib_path, text_dir):
+        text_dir.mkdir(parents=True, exist_ok=True)
+        fake_txt.write_text("Source content", encoding="utf-8")
+        _warnings.warn("Skipping source 'Offline Book': URL is 'offline' (offline or missing)")
+        return [fake_txt]
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize_with_warning)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "1 source text file(s) ready" in result.output
+    # The warning must be surfaced to stderr (mixed into result.output by CliRunner)
+    assert "Offline Book" in result.output
+
+
 def test_fetch_sources_command_exits_nonzero_on_no_texts(tmp_path, monkeypatch):
     """fetch-sources must exit with code 1 when no texts can be materialised."""
     bibliography_path = tmp_path / "bibliography.json"
