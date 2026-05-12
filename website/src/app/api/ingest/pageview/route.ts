@@ -1,30 +1,8 @@
 import { NextRequest } from "next/server";
 import { bumpPageview } from "@/lib/agon/metrics";
+import { isAllowedOrigin } from "@/lib/agon/originAllowlist";
 
 export const runtime = "nodejs";
-
-const ALLOWED_ORIGINS = new Set<string>([
-  "https://consultthedead.com",
-  "https://www.consultthedead.com",
-  "https://agora.consultthedead.com",
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "http://localhost:3001",
-]);
-
-function isAllowedOrigin(req: NextRequest): boolean {
-  const origin = req.headers.get("origin");
-  if (!origin) return false;
-  if (ALLOWED_ORIGINS.has(origin)) return true;
-  if (
-    /^https:\/\/website-[a-z0-9-]+-edwardyen724-gs-projects\.vercel\.app$/.test(
-      origin
-    )
-  ) {
-    return true;
-  }
-  return false;
-}
 
 interface PageviewBody {
   path?: string;
