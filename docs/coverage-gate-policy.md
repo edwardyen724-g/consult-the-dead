@@ -78,3 +78,39 @@ PR #80 merged on 2026-05-10 with `company-builder/src/app/api/research/route.ts`
 showing 68.42% branch coverage and 95.8% statement coverage. That is the
 failure mode this policy is meant to prevent: a PR can look acceptable on
 statement coverage while still leaving important branch paths unverified.
+
+## Exception Records
+
+Approved branch-coverage exceptions, ordered by merge date. Each entry is the
+permanent record for the CTO approval granted at merge time.
+
+---
+
+### PR #271 — feat(seo): add 3 SEO listicle insight pages for organic traffic
+
+**Merged:** 2026-05-12  
+**Approved by:** CTO
+
+#### Exception 1
+
+| Field | Value |
+|---|---|
+| File | `website/src/app/insights/[slug]/page.tsx` |
+| Missing branch paths | `accentForSlug("isaac-newton")` fallback; `formatPublishedDate` catch branch |
+| Reason | Pre-existing defensive paths in the shared insight page; the new SEO listicle tests exercise the launched pages directly while the uncovered branches belong to older collision/date fallbacks |
+| Follow-up task | `219eebec-f47b-469b-83d2-60eadb19552c` (PR #303 in progress) |
+| Owner | dev |
+| Target date | 2026-05-19 |
+| Status | **IN PROGRESS** — PR #303 open (`wanman/insights-coverage-gap-219eebec`) |
+
+#### Exception 2
+
+| Field | Value |
+|---|---|
+| File | `website/src/lib/frameworks.ts` |
+| Missing branch paths | `ERA_FALLBACK` lookup; construct-count default fallback; incident fallback in `getFramework()` |
+| Reason | Pre-existing fallback branches in the framework loader; the new SEO listicle tests cover the added Steve Jobs record, but the remaining misses are legacy sparse-data branches |
+| Follow-up task | `c2eb93e7-255e-4a84-b371-1bd74cf4e233` |
+| Owner | dev |
+| Target date | 2026-05-19 |
+| Status | **OPEN** — not yet addressed |
