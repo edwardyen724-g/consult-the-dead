@@ -50,12 +50,13 @@ const EXPANSION_SLUGS = [
 ] as const;
 
 /**
- * After the 2026-05 expansion, the live roster contains exactly 25 minds.
- * The full corpus on disk is 26 — Albert Einstein is shipped as data but
- * his slug is held out of ALLOWED_SLUGS pending Hebrew University legal
- * review (see header comment in frameworks.ts).
+ * After the 2026-05 SEO listicle expansion (task c7400a14), the live roster
+ * contains exactly 26 minds. Albert Einstein is shipped as data but his slug
+ * is held out of ALLOWED_SLUGS pending Hebrew University legal review (see
+ * header comment in frameworks.ts). Steve Jobs was added to enable the
+ * steve-jobs-on-product listicle page.
  */
-const EXPECTED_ROSTER_SIZE = 25;
+const EXPECTED_ROSTER_SIZE = 26;
 
 describe("ALLOWED_SLUGS roster gate", () => {
   it("contains exactly EXPECTED_ROSTER_SIZE minds (Einstein excluded)", () => {

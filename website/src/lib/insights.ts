@@ -305,6 +305,70 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   //   hookQuestion:
   //     "You asked ChatGPT for strategic advice and got the same answer your competitor got. A 2026 HBR study proved this isn't a bug — it's how LLMs work. So what's the alternative?",
   // },
+  // SEO listicle expansion 2026-05 (task c7400a14) — 3 long-tail organic pages
+  {
+    slug: "stoics-on-failure",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title:
+      "What Marcus Aurelius, Seneca, and Epictetus Say About Dealing With Failure",
+    description:
+      "Three Stoic philosophers — an emperor, an advisor, and a freed slave — debate how to handle failure, setbacks, and adversity. Their answers disagree in ways that matter.",
+    targetKeywords: [
+      "stoics on failure",
+      "how stoics deal with failure",
+      "marcus aurelius failure",
+      "seneca adversity",
+      "epictetus setback",
+      "stoic philosophy failure",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "You've just failed publicly. The post-mortem is done. Three Stoics — an emperor, a senator, a slave — each hand you a different prescription. Only one of them is actually useful right now.",
+    publishedAt: "2026-05-11",
+  },
+  {
+    slug: "steve-jobs-on-product",
+    type: "single",
+    frameworkSlug: "steve-jobs",
+    title:
+      "Steve Jobs' Decision Framework: How He Said No to 1,000 Things",
+    description:
+      "Steve Jobs' most counterintuitive insight wasn't about design — it was about elimination. His framework reveals why adding features is almost always the wrong answer.",
+    targetKeywords: [
+      "steve jobs decision framework",
+      "steve jobs product strategy",
+      "how steve jobs made decisions",
+      "steve jobs say no",
+      "product prioritization framework",
+      "simplicity product strategy",
+    ],
+    decisionType: "product",
+    hookQuestion:
+      "You have ten things on your product roadmap. Your team wants to ship eight of them. Steve Jobs would ship one — and he'd be right. The framework behind that choice is not what you think.",
+    publishedAt: "2026-05-11",
+  },
+  {
+    slug: "founders-on-pricing",
+    type: "single",
+    frameworkSlug: "john-d-rockefeller",
+    title:
+      "What History's Greatest Thinkers Say About Pricing Your Product",
+    description:
+      "From Rockefeller's cost-architecture discipline to Carnegie's value-capture logic, history's sharpest strategic minds reveal why most founders price backwards.",
+    targetKeywords: [
+      "pricing strategy advice",
+      "how to price your product",
+      "startup pricing framework",
+      "value based pricing",
+      "rockefeller pricing strategy",
+      "founder pricing mistakes",
+    ],
+    decisionType: "pricing",
+    hookQuestion:
+      "You're staring at your pricing page wondering if you're leaving money on the table — or about to lose every deal. History's most successful builders had a precise answer. It's not what most pricing guides tell you.",
+    publishedAt: "2026-05-11",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
