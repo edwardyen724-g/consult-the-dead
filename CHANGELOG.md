@@ -63,6 +63,9 @@ The project does not currently use semantic releases, so this changelog records 
 - Decisions batch 4 — accelerator, CTO-vs-cofounder, launch-now-or-wait (PR #320): `/decisions/should-i-join-an-accelerator`, `/decisions/should-i-hire-a-cto-or-find-a-technical-cofounder`, and `/decisions/should-i-launch-now-or-wait-for-perfect` published with full route coverage.
 - Sitemap extended for `/decisions` and `/decisions/[slug]` (PR #321): all decisions index and per-decision pages added to `sitemap.xml` with `priority 0.8` and `weekly` changeFrequency.
 - Framework tier validation artifacts for eight newly validated frameworks (PR #322): tier1, tier2, and tier3 validation results added for ada-lovelace, alexander-the-great, catherine-the-great, cleopatra-vii, epictetus, galileo-galilei, harriet-tubman, and john-d-rockefeller.
+- Validation artifact structure tests (PR #325): adds `tests/test_validation_artifacts_structure.py` to verify all published frameworks carry a complete and well-formed tier1/tier2/tier3 validation directory.
+- Decisions batch 5 — build-in-public, charge-from-day-one, split-equity (PR #326): `/decisions/should-i-build-in-public`, `/decisions/should-i-charge-from-day-one`, and `/decisions/should-i-split-equity-50-50-with-my-cofounder` published with full route coverage.
+- 2026-05-12 release note documenting the decisions expansion wave 2 (PR #327): `docs/release-notes/2026-05-12-decisions-expansion-wave2.md` covering all batches 3–5, framework validation pipeline, sitemap SEO, and 19→26 roster expansion.
 
 ### Fixed
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
