@@ -30,7 +30,7 @@ describe("DecisionsPage metadata", () => {
   });
 
   it("has a description that mentions the number of decisions", () => {
-    expect(metadata.description).toContain("24");
+    expect(metadata.description).toContain("25");
   });
 
   it("has a canonical URL pointing to /decisions", () => {
