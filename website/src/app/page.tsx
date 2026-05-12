@@ -30,6 +30,17 @@ const AGON_STEPS = [
 
 export const HOME_QUIZ_ENTRY_HREF = buildQuizEntryHref();
 
+/**
+ * UTM-stamped hero CTA destination.
+ *
+ * Contract: points to /agora with utm_campaign and utm_content only.
+ * No utm_source (homepage is the canonical origin, not a campaign source),
+ * no click IDs (gclid / fbclid) — those must never be forwarded from the
+ * homepage into the Agora URL.
+ */
+export const HOME_HERO_CTA_HREF =
+  "/agora?utm_campaign=homepage_hero&utm_content=ask_your_question";
+
 export default function HomePage() {
   const frameworks = getAllFrameworks();
   const frameworkBySlug = new Map(frameworks.map((f) => [f.slug, f] as const));
@@ -116,18 +127,23 @@ export default function HomePage() {
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap', marginTop: '40px' }}>
-                <Link href="/agora" style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  padding: '14px 28px',
-                  background: 'var(--amber)',
-                  color: 'var(--bg)',
-                  textDecoration: 'none',
-                  borderRadius: '4px',
-                  display: 'inline-block',
-                }}>
+                <Link
+                  href={HOME_HERO_CTA_HREF}
+                  data-testid="hero-cta"
+                  aria-label="Ask your question in the Agora"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '11px',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    padding: '14px 28px',
+                    background: 'var(--amber)',
+                    color: 'var(--bg)',
+                    textDecoration: 'none',
+                    borderRadius: '4px',
+                    display: 'inline-block',
+                  }}
+                >
                   Ask Your Question →
                 </Link>
                 <Link href={HOME_QUIZ_ENTRY_HREF} style={{
@@ -638,17 +654,23 @@ export default function HomePage() {
           }}>
             The council convenes immediately. No signup required. Your first three debates are free.
           </p>
-          <Link href="/agora" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '11px',
-            letterSpacing: '0.14em',            textTransform: 'uppercase',
-            padding: '14px 32px',
-            borderRadius: '4px',
-            background: 'var(--amber)',
-            color: 'var(--bg)',
-            textDecoration: 'none',
-            display: 'inline-block',
-          }}>
+          <Link
+            href={HOME_HERO_CTA_HREF}
+            data-testid="footer-cta"
+            aria-label="Ask your question in the Agora"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '11px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              padding: '14px 32px',
+              borderRadius: '4px',
+              background: 'var(--amber)',
+              color: 'var(--bg)',
+              textDecoration: 'none',
+              display: 'inline-block',
+            }}
+          >
             Ask Your Question →
           </Link>
         </div>
