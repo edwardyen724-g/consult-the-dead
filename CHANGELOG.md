@@ -69,8 +69,14 @@ The project does not currently use semantic releases, so this changelog records 
 - Decisions batch 6 — raise-series-a, sign-term-sheet, go-remote-or-in-person (PR #329): `/decisions/should-i-raise-a-series-a`, `/decisions/should-i-sign-this-term-sheet`, and `/decisions/should-i-go-remote-or-in-person` published with full route coverage.
 - Batch-1 'What Would X Say' articles shipped (PR #364): `what-would-marcus-aurelius-say-about-imposter-syndrome` added to `INSIGHT_ENTRIES` with full SEO metadata, hookQuestion, and structured council debate; two pre-existing entries (`what-would-sun-tzu-say-about-tariffs-and-trade-wars`, `what-would-machiavelli-say-about-firing-someone-you-respect`) enriched with `agonExcerpt` debate content and expanded `targetKeywords`; all 3 slugs marked `status: shipped`.
 - "What Would X Say" articles batch 2 published (PR #372): four new insight pages live under `/insights` — `what-would-newton-say-about-rebuilding-from-first-principles`, `what-would-tesla-say-about-shipping-vs-perfecting`, `what-would-leonardo-say-about-creative-block`, and `what-would-sun-tzu-say-about-entering-saturated-markets`; annotation blueprints added for each entry; all 4 slugs marked `status: shipped` in `topics.yaml`.
+- Two new insight entries: marcus-aurelius imposter-syndrome v2 and first-principles-thinking-honest-version (PR #366): `what-would-marcus-aurelius-say-about-imposter-syndrome` (Marcus Aurelius + Seneca + Epictetus council) and `first-principles-thinking-the-honest-version` (Marie Curie framework) published under `/insights`; `topics.yaml` shipped statuses synced.
+- Loom/demo slot and onboarding copy on pricing page (PR #377): dedicated embed-ready demo/case-study slot added between the trust badge and social-proof strip; Pro CTA subtext updated; phase-0 pricing copy brief updated with slot guidance.
+- Phase 3 reel automation handoff (PR #378): standalone handoff document covering the validated pilot, template rules, handoff criteria, and minimum generator contract; contract verifier script added.
+- Batch-2 'What Would X Say' regression tests (PR #383): 12 regression tests in `wwx-batch2-articles.test.ts` lock the four batch-2 insight entries (Newton, Tesla, Leonardo, Sun Tzu); all 4 batch-2 slugs marked `status: shipped` in `topics.yaml`.
 
 ### Fixed
+- Duplicate imposter-syndrome insight entry removed (PR #369): duplicate version-1 entry (identity/2-excerpt variant) removed from `INSIGHT_ENTRIES` and `INSIGHT_ANNOTATION_BLUEPRINTS`; kept version-2 (self-doubt/3-excerpt variant); restored master build that was broken by a TypeScript duplicate-key error.
+- Lifecycle pricing copy canonicalized (PR #373): welcome, drip, and subscription-confirmation emails now use shared pricing constants and the canonical founding-member summary helper; checkout success banner uses the shared Pro agons-per-month constant.
 - ProofStrip fallback social-proof counters removed (PR #365): `PROOF_STRIP_FALLBACK` constant (500 subscribers, 1000 sessions) deleted from `lib/proof-strip.ts`; `ProofStrip.tsx` now returns `null` when `data` is `undefined` and not loading instead of emitting fabricated numbers; `<ProofStrip>` removed from `Footer.tsx` (no live data access); all affected tests updated to assert null-return behaviour.
 - `should-i-build-in-public` council corrected — Seneca replaces Franklin (PR #330): debate rewritten with Seneca's "narrating vs doing" angle, which adds a distinct Stoic warning about audience-dependency that complements Aurelius's virtue framing and Machiavelli's strategic framing; decisions.ts `recommendedCouncil` updated accordingly.
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
@@ -87,6 +93,16 @@ The project does not currently use semantic releases, so this changelog records 
 - Duplicate quotaResetAt resolved, test assertions aligned, retry hints surfaced (PR #256): fixes the duplicate field bug in quota responses, aligns test assertions, and surfaces retry hint headers.
 - UTM params forwarded from URL to Stripe checkout POST body (PR #276): pricing CTA now carries UTM attribution through into the Stripe checkout session.
 - Pricing proof strip now boots from live stats (task a4301d84): `/pricing` server-seeds the proof row from `getPricingStats()` and refreshes from `/api/stats`, so the counters no longer start from a frozen baseline when live data is available.
+
+### CI
+- Node.js upgraded from 20 to 24 in all CI jobs (PR #363): lint, test, and build workflows updated to `node-version: 24` before the Node.js 20 EOL deadline of June 2, 2026; config-only change.
+- Merge-simulation build job added (PR #371): new `build-merge-simulation` CI job runs the Next.js build against the simulated post-merge file tree on pull-request events, catching TypeScript errors that only surface when PR changes combine with master.
+
+### Docs
+- Takeover PR allocator summary recorded (PR #379): `output/change-summary.md` documents the Framework Forge quickstart alignment and takeover work from the `wanman/takeover-pr-allocator` branch.
+- Email smoke test runbook cleaned (PR #380): removed leftover merge-conflict markers from the email smoke test runbook; canonical Stripe customer deletion flow preserved.
+- Founder-checkpoint runbook VERCEL_PROJECT_ID requirement clarified (PR #381 / #382): explicit note added that `VERCEL_PROJECT_ID` must be present in the live `.env.local`; new troubleshooting row for `missing_credentials`; runbook index description updated to reflect Stripe + Vercel Analytics scope.
+- Monetization Playbook Phase 2/3 language trimmed (PR #384): stale future-plan block replaced with current IN PROGRESS status anchored to live shipped surfaces; Wave 1 cold email marked completed; stale Phase 2 reference removed from open decision #4.
 
 ## 2026-05-11
 
