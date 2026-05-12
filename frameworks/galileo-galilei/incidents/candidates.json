@@ -1,0 +1,186 @@
+[
+  {
+    "title": "Telescope Refinement and Astronomical Redirection",
+    "description": "Rather than commercializing the Dutch telescope design for military use, Galileo invested in improving the optics and redirected the instrument toward astronomical observation, producing discoveries that shook the foundations of Aristotelian cosmology.",
+    "source_text_excerpt": "I endeavored to think out means by which I might arrive at the solution of a problem of great importance. I spared neither labor nor expense, and fortunately succeeded in constructing an instrument so superior that objects seen by means of it appear nearly one thousand times larger and over thirty times closer than when regarded with our natural vision.",
+    "source_title": "Sidereus Nuncius (1610)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Medicean Stars — Strategic Patronage Dedication",
+    "description": "Before publishing the discovery of Jupiter's moons, Galileo named them after the Medici family and dedicated Sidereus Nuncius to Cosimo II, converting a potentially dangerous finding into a political shield and obtaining a court position.",
+    "source_text_excerpt": "I resolved to dedicate these four stars to the Most Serene Grand Duke, having decided to call them the Medicean Stars.",
+    "source_title": "Sidereus Nuncius (1610)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Sunspot Priority Dispute with Scheiner",
+    "description": "Galileo engaged in public correspondence with Jesuit Christoph Scheiner to establish observational priority for sunspot discovery and to demolish Scheiner's planetary interpretation of sunspot motion, creating a lasting enmity with the Jesuit order.",
+    "source_text_excerpt": "That the solar spots are not stars or planets revolving around the sun but that they are contiguous to the sun and carried around with its rotation.",
+    "source_title": "Letters on Sunspots (1613)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Inclined Plane Experiments on Falling Bodies",
+    "description": "Galileo replaced Aristotelian qualitative assertions about heavier bodies falling faster with controlled quantitative experiments using inclined planes, discovering the law of uniformly accelerated motion.",
+    "source_text_excerpt": "A piece of wooden moulding or scantling, about 12 cubits long, half a cubit wide, and three finger-breadths thick, was taken; on its edge was cut a channel a little more than one finger in breadth... we rolled balls, made accurately, of hard, smooth, and very round bronze.",
+    "source_title": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Dialogue's Italian Language and Fictional Form",
+    "description": "Galileo published the Dialogue in Italian rather than Latin and structured it as a conversation between three characters, aiming to reach educated non-specialists and provide legal cover against the 1616 prohibition on defending heliocentrism.",
+    "source_text_excerpt": "There will be three speakers. Salviati will expound the Copernican view... Simplicio will act as interlocutor for the Aristotelian and Ptolemaic position.",
+    "source_title": "Dialogue Concerning the Two Chief World Systems (1632)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Centrifugal Force Mathematical Rebuttal",
+    "description": "Rather than engaging qualitative objections to a rotating Earth, Galileo calculated the actual magnitude of centrifugal force at Earth's surface and showed it was negligible compared to gravity — converting a philosophical debate into an arithmetic problem.",
+    "source_text_excerpt": "Now let us see, in comparison with the force of gravity, how much less powerful is the centrifugal tendency of the whirling of the earth.",
+    "source_title": "Dialogue Concerning the Two Chief World Systems (1632)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Projectile Motion Superposition Principle",
+    "description": "Galileo replaced Aristotelian sequential impetus theory with the principle that horizontal and vertical velocity components act simultaneously and independently, enabling the derivation of the parabolic trajectory law.",
+    "source_text_excerpt": "The motion of a projectile is a compound one of two motions, namely, one uniform and one naturally accelerated.",
+    "source_title": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Papal Friendship Misjudgment",
+    "description": "Galileo sent Urban VIII a dedicated copy of the Dialogue believing their personal friendship would protect him from the Inquisition's response, severely underestimating the conditionality of patronage when institutional authority was at stake.",
+    "source_text_excerpt": "Galileo had underestimated how completely the Pope had separated his personal regard from his institutional authority when the Dialogue became an embarrassment.",
+    "source_title": "The Crime of Galileo by de Santillana (1955)",
+    "reasoning_visible": true,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Inquisition Abjuration as Survivable Institutional Move",
+    "description": "Galileo formally abjured his heliocentric views before the Roman Inquisition, treating the recantation as an institutional performance separate from his intellectual commitments, and subsequently continued scientific work under house arrest.",
+    "source_text_excerpt": "I, Galileo, son of the late Vincenzio Galilei of Florence... abandon the false opinion that the sun is the center of the world and immovable, and that the earth is not the center and moves.",
+    "source_title": "Trial abjuration text, June 22, 1633",
+    "reasoning_visible": true,
+    "evidence_type": "primary_document"
+  },
+  {
+    "title": "Bellarmine Correspondence and Negotiation",
+    "description": "Rather than avoiding the chief Inquisitor, Galileo cultivated correspondence with Cardinal Bellarmine, attempting to persuade him toward an instrumentalist interpretation of heliocentrism and negotiating the terms of any warning.",
+    "source_text_excerpt": "It seemed good to His Eminence to notify Galileo of the aforesaid prohibition and to charge him no longer to hold, teach, or defend in any way whatsoever, verbally or in writing, the said doctrine.",
+    "source_title": "The Crime of Galileo by de Santillana (1955)",
+    "reasoning_visible": true,
+    "evidence_type": "historical_record"
+  },
+  {
+    "title": "The Assayer — Methodological Polemic Over Empirical Accuracy",
+    "description": "Galileo published The Assayer as a polemic against Jesuit Grassi's comet theory, prioritizing the methodological argument about mathematical physics over the empirical accuracy of his own alternative comet theory.",
+    "source_text_excerpt": "Philosophy is written in this grand book, the universe, which stands continually open to our gaze. But the book cannot be understood unless one first learns to comprehend the language and read the letters in which it is composed. It is written in the language of mathematics.",
+    "source_title": "The Assayer (Il Saggiatore, 1623)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Pendulum Isochronism Discovery and Measurement",
+    "description": "Galileo converted an observed regularity in pendulum motion into a precise mathematical law — period proportional to the square root of length — by designing quantitative experiments rather than accepting the qualitative observation.",
+    "source_text_excerpt": "If two persons start to count the vibrations, the one the large vibrations and the other the small, they will discover that after counting tens and even hundreds they do not differ by a single vibration.",
+    "source_title": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Venus Phases as Geocentric Falsification",
+    "description": "Galileo observed the full phase cycle of Venus through the telescope, recognizing that gibbous and full phases were impossible under the strict Ptolemaic geocentric model and constituted logical falsification of that model.",
+    "source_text_excerpt": "The mother of loves [Venus] emulates the shapes of Cynthia [the Moon] [an anagram published to Kepler establishing priority before full publication].",
+    "source_title": "Correspondence with Kepler (1610)",
+    "reasoning_visible": true,
+    "evidence_type": "private_correspondence"
+  },
+  {
+    "title": "Two New Sciences Smuggled to Dutch Publisher Under House Arrest",
+    "description": "While under house arrest and going blind, Galileo completed his most scientifically important work on the physics of motion and arranged for it to be smuggled to Leiden for publication outside Roman jurisdiction.",
+    "source_text_excerpt": "The work which I now publish is the result of a great many years of elaboration... and I think myself to have found things of considerable importance.",
+    "source_title": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Jupiter's Moons as Longitude Clock",
+    "description": "Galileo proposed converting his astronomical discovery of Jupiter's moons into a practical longitude determination method for maritime navigation, seeking to fund ongoing astronomical research through practical application.",
+    "source_text_excerpt": "I will explain my thought on the method for finding longitude... using the revolutions of the Medicean stars in their orbits as a universal time clock.",
+    "source_title": "Galileo's correspondence with the Spanish Crown, 1616–1636",
+    "reasoning_visible": true,
+    "evidence_type": "private_correspondence"
+  },
+  {
+    "title": "Italian-Language Publication Strategy",
+    "description": "Galileo deliberately chose to publish major works in Italian rather than Latin, targeting educated non-specialists in courts and merchant families over the academic establishment, treating popular comprehension as political protection.",
+    "source_text_excerpt": "I wrote in the colloquial tongue because I must have everyone able to read it.",
+    "source_title": "Galileo: A Life by Reston (1994)",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  },
+  {
+    "title": "Milky Way Resolved as Individual Stars",
+    "description": "Galileo observed that the Milky Way resolved into individual stars under telescope magnification, falsifying Aristotle's atmospheric explanation, and included this observation in Sidereus Nuncius alongside the Jupiter moons discovery.",
+    "source_text_excerpt": "The galaxy is, in fact, nothing but a congeries of innumerable stars grouped together in clusters... and what is even more remarkable, the stars which have been called by astronomers 'nebulous' are groups of small stars set thick together.",
+    "source_title": "Sidereus Nuncius (1610)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Crystalline Sphere Ad Hoc Defense Engagement",
+    "description": "Galileo publicly engaged delle Colombe's unfalsifiable crystalline sphere defense of lunar perfection, targeting the methodological illegitimacy of ad hoc defenses rather than the specific empirical claim.",
+    "source_text_excerpt": "If to maintain celestial incorruptibility it is necessary to declare that the Moon's surface is smooth, why should we not maintain the same of Jupiter, Saturn, and the other planets?",
+    "source_title": "Letters on Sunspots (1613)",
+    "reasoning_visible": true,
+    "evidence_type": "own_published_work"
+  },
+  {
+    "title": "Rejection of University Position for Court Position",
+    "description": "After publishing Sidereus Nuncius, Galileo actively sought a Medici court appointment over his existing university professorship, recognizing that a court philosopher had more research freedom and political protection than a salaried academic.",
+    "source_text_excerpt": "The works which I must bring to conclusion are principally two books on the system and constitution of the universe, an immense conception full of philosophy, astronomy, and geometry.",
+    "source_title": "Galileo's letter to the Medici Secretary Vinta, 1610",
+    "reasoning_visible": true,
+    "evidence_type": "private_correspondence"
+  },
+  {
+    "title": "Anonymous Priority Encoding — Anagram to Kepler",
+    "description": "When Galileo made the key observation of Venus's phases, he communicated a timestamped priority claim to Kepler through a Latin anagram before he was ready to publish, establishing documentary precedence without revealing the discovery.",
+    "source_text_excerpt": "The mother of loves emulates the shapes of Cynthia [anagram for: Cynthiae figuras aemulatur mater amorum]",
+    "source_title": "Correspondence with Kepler (1610)",
+    "reasoning_visible": true,
+    "evidence_type": "private_correspondence"
+  },
+  {
+    "title": "Thermoscope Design for Quantitative Temperature Measurement",
+    "description": "Galileo designed one of the earliest thermoscopes — a device to measure temperature changes quantitatively rather than qualitatively — consistent with his general principle of replacing verbal description with measurement.",
+    "source_text_excerpt": "Galileo Galilei... took a glass vessel about the size of a hen's egg, fitted to a tube the width of a straw and about two spans long; he heated the glass in his hands and turned the glass upside down so that the tube dipped in water.",
+    "source_title": "Account by Benedetto Castelli, 1638",
+    "reasoning_visible": false,
+    "evidence_type": "contemporary_account"
+  },
+  {
+    "title": "Refusal to Accept Astronomical Data Without Independent Verification",
+    "description": "When Kepler published observations of moons around Saturn (which were actually Saturn's rings viewed at a low angle), Galileo declined to publish endorsement of the observation without independent confirmation through his own telescope.",
+    "source_text_excerpt": "Galileo observed what he thought might be companions of Saturn but was characteristically unwilling to publish until he had better data — a caution that was not always his mode, suggesting his verification standard was higher for claims he had not himself generated.",
+    "source_title": "Galileo: A Life by Reston (1994)",
+    "reasoning_visible": false,
+    "evidence_type": "scholarly_analysis"
+  },
+  {
+    "title": "Florence Move for Research Freedom Over Padua Safety",
+    "description": "Galileo chose to move from Padua (in the Venetian Republic, which had ecclesiastical independence from Rome) to Florence (under direct Medici influence, and closer to Rome's jurisdiction) for the court position, accepting greater institutional risk in exchange for greater research resources and freedom from teaching.",
+    "source_text_excerpt": "Venice afforded more freedom but less patronage. Florence afforded less freedom but the kind of patronage Galileo needed to pursue the grander research program.",
+    "source_title": "Galileo's Daughter by Dava Sobel (1999)",
+    "reasoning_visible": true,
+    "evidence_type": "firsthand_biography"
+  }
+]
