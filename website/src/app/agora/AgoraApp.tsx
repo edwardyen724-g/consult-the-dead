@@ -1795,7 +1795,8 @@ function ConsensusStage({
   quotaRemaining: number | undefined;
 }) {
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
-  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
+  const [shareState, setShareState] = useState<"idle" | "sharing" | "copied">("idle");
+  const [savedShareId, setSavedShareId] = useState<string | null>(null);
 
   async function handleSave() {
     if (!consensus) return;
@@ -1812,42 +1813,102 @@ function ConsensusStage({
           consensus,
         }),
       });
-      setSaveState(res.ok ? "saved" : "error");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.shareId) setSavedShareId(data.shareId);
+        setSaveState("saved");
+      } else {
+        setSaveState("error");
+      }
     } catch {
       setSaveState("error");
     }
   }
 
-  function handleShare() {
-    if (!consensus) return;
+  function buildTextFallback(): string {
     const names = selectedMinds.map((m) => m.name).join(", ");
-    const text = [
+    return [
       `I asked: "${topic}"`,
       ``,
       `Council: ${names}`,
       ``,
-      `Key action: ${consensus.actionSummary}`,
+      `Key action: ${consensus?.actionSummary ?? ""}`,
       ``,
       `Try it yourself at consultthedead.com`,
     ].join("\n");
+  }
 
-    if (typeof navigator !== "undefined" && navigator.share) {
-      navigator.share({ title: "Consult The Dead — Debate Result", text }).catch(() => {
-        // User cancelled or share failed — fall back to clipboard
-        copyToClipboard(text);
-      });
+  async function handleShare() {
+    if (!consensus) return;
+    setShareState("sharing");
+
+    // Try to get a persistent share URL. If we already saved, reuse it.
+    let shareUrl: string | null = null;
+    if (savedShareId) {
+      shareUrl = `${window.location.origin}/agora/a/${savedShareId}`;
     } else {
-      copyToClipboard(text);
+      try {
+        const res = await fetch("/api/library", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            topic,
+            mindSlugs: selectedMinds.map((m) => m.slug),
+            rounds: TOTAL_ROUNDS,
+            turns,
+            consensus,
+          }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.shareId) {
+            setSavedShareId(data.shareId);
+            shareUrl = `${window.location.origin}/agora/a/${data.shareId}`;
+          }
+        }
+      } catch {
+        // fall through to text fallback
+      }
+    }
+
+    const shareTitle = "Consult The Dead — Debate Result";
+    if (shareUrl) {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({ title: shareTitle, url: shareUrl });
+          setShareState("idle");
+          return;
+        } catch {
+          // user cancelled or share failed — fall back to clipboard
+        }
+      }
+      await copyToClipboard(shareUrl);
+    } else {
+      // No persistent URL (e.g. authenticated free user gets 403) — share text
+      const text = buildTextFallback();
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({ title: shareTitle, text });
+          setShareState("idle");
+          return;
+        } catch {
+          // fall through to clipboard
+        }
+      }
+      await copyToClipboard(text);
     }
   }
 
-  function copyToClipboard(text: string) {
+  async function copyToClipboard(content: string) {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setShareState("copied");
-        setTimeout(() => setShareState("idle"), 2000);
-      });
+      try {
+        await navigator.clipboard.writeText(content);
+      } catch {
+        // ignore clipboard errors
+      }
     }
+    setShareState("copied");
+    setTimeout(() => setShareState("idle"), 2000);
   }
 
   const summaries = consensus
@@ -2129,8 +2190,9 @@ function ConsensusStage({
         )}
 
         <button
+          data-testid="share-result-btn"
           onClick={handleShare}
-          disabled={!consensus}
+          disabled={!consensus || shareState === "sharing"}
           className="font-mono"
           style={{
             background: "transparent",
@@ -2141,10 +2203,10 @@ function ConsensusStage({
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             padding: "14px 28px",
-            cursor: consensus ? "pointer" : "not-allowed",
+            cursor: consensus && shareState !== "sharing" ? "pointer" : "not-allowed",
           }}
         >
-          {shareState === "copied" ? "Copied!" : "Share Result"}
+          {shareState === "sharing" ? "Sharing…" : shareState === "copied" ? "Copied link!" : "Share this agon"}
         </button>
 
         <button
