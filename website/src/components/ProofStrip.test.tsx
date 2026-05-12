@@ -8,7 +8,7 @@
  */
 
 import { ProofStrip } from "./ProofStrip";
-import { PROOF_STRIP_FALLBACK, type ProofStripData } from "@/lib/proof-strip";
+import type { ProofStripData } from "@/lib/proof-strip";
 
 // ──────────────────────────────────────────────────────────────────────────
 //  Tiny React element walker utilities (same shape as upsell-modal.test.tsx)
@@ -125,42 +125,45 @@ describe("<ProofStrip/> — loading state", () => {
 });
 
 // ──────────────────────────────────────────────────────────────────────────
-//  Fallback state (no data, no loading)
+//  No data, no loading → returns null (no fabricated fallback)
 // ──────────────────────────────────────────────────────────────────────────
 
-describe("<ProofStrip/> — fallback state (no data prop)", () => {
-  it("renders the live strip container", () => {
+describe("<ProofStrip/> — no data, not loading (returns null)", () => {
+  it("returns null when no data prop is provided and loading is false", () => {
     const tree = renderProofStrip({});
-    expect(findByTestId(tree, "proof-strip")).not.toBeNull();
+    expect(tree).toBeNull();
   });
 
-  it("does NOT render the loading container", () => {
+  it("returns null when no data prop is provided and loading is undefined", () => {
     const tree = renderProofStrip({});
-    expect(findByTestId(tree, "proof-strip-loading")).toBeNull();
+    expect(tree).toBeNull();
   });
 
-  it("renders the fallback subscriber count", () => {
+  it("does NOT render a proof-strip container when no data", () => {
     const tree = renderProofStrip({});
-    const text = treeText(tree);
-    expect(text).toContain(`${PROOF_STRIP_FALLBACK.subscriberCount}+`);
+    expect(findByTestId(tree, "proof-strip")).toBeNull();
   });
 
-  it("renders the fallback agon session count", () => {
+  it("does NOT render any proof-strip-item nodes when no data", () => {
     const tree = renderProofStrip({});
-    const text = treeText(tree);
-    expect(text).toContain(`${PROOF_STRIP_FALLBACK.agoraSessions}+`);
+    expect(findAllByTestId(tree, "proof-strip-item")).toHaveLength(0);
   });
 
-  it("renders the fallback tagline text", () => {
+  it("does NOT emit '500+' (old fallback subscriber count)", () => {
     const tree = renderProofStrip({});
-    const text = treeText(tree);
-    expect(text).toContain(PROOF_STRIP_FALLBACK.tagline!);
+    expect(treeText(tree)).not.toContain("500+");
   });
 
-  it("renders 3 proof-strip-item nodes for the 3 fallback fields", () => {
+  it("does NOT emit '1000+' (old fallback agon session count)", () => {
     const tree = renderProofStrip({});
-    const items = findAllByTestId(tree, "proof-strip-item");
-    expect(items).toHaveLength(3);
+    expect(treeText(tree)).not.toContain("1000+");
+  });
+
+  it("does NOT emit the old fallback tagline text", () => {
+    const tree = renderProofStrip({});
+    expect(treeText(tree)).not.toContain(
+      "Join founders using historical minds to make better decisions",
+    );
   });
 });
 
@@ -198,10 +201,10 @@ describe("<ProofStrip/> — data prop provided", () => {
     expect(text).toContain("Trusted by smart founders");
   });
 
-  it("does NOT render fallback values when live data is provided", () => {
+  it("does NOT render old fallback values when live data is provided", () => {
     const tree = renderProofStrip({ data: liveData });
     const text = treeText(tree);
-    // Fallback has 500+ — live data is 750+, so 500+ must not appear
+    // Old fallback had 500+ — live data is 750+, so 500+ must not appear
     expect(text).not.toContain("500+");
   });
 
@@ -252,8 +255,10 @@ describe("<ProofStrip/> — empty data object", () => {
 // ──────────────────────────────────────────────────────────────────────────
 
 describe("<ProofStrip/> — accessibility", () => {
-  it("separator dots carry aria-hidden='true'", () => {
-    const tree = renderProofStrip({});
+  it("separator dots carry aria-hidden='true' when live data has multiple items", () => {
+    const tree = renderProofStrip({
+      data: { subscriberCount: 100, agoraSessions: 200 },
+    });
     let foundAriaHidden = false;
     walk(tree, (el) => {
       if (el.props && el.props["aria-hidden"] === "true") {

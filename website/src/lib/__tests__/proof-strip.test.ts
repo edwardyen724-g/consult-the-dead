@@ -2,34 +2,15 @@ import { describe, expect, it } from "vitest";
 
 import {
   formatProofStripData,
-  PROOF_STRIP_FALLBACK,
   type ProofStripData,
 } from "../proof-strip";
 
 // ──────────────────────────────────────────────────────────────────────────
-//  PROOF_STRIP_FALLBACK
+//  PROOF_STRIP_FALLBACK removed
 // ──────────────────────────────────────────────────────────────────────────
-
-describe("PROOF_STRIP_FALLBACK", () => {
-  it("has subscriberCount of 500", () => {
-    expect(PROOF_STRIP_FALLBACK.subscriberCount).toBe(500);
-  });
-
-  it("has agoraSessions of 1000", () => {
-    expect(PROOF_STRIP_FALLBACK.agoraSessions).toBe(1000);
-  });
-
-  it("has a non-empty tagline mentioning founders", () => {
-    expect(typeof PROOF_STRIP_FALLBACK.tagline).toBe("string");
-    expect((PROOF_STRIP_FALLBACK.tagline ?? "").length).toBeGreaterThan(0);
-    expect(PROOF_STRIP_FALLBACK.tagline).toMatch(/founders/i);
-  });
-
-  it("produces 3 formatted items when passed through formatProofStripData", () => {
-    const items = formatProofStripData(PROOF_STRIP_FALLBACK);
-    expect(items).toHaveLength(3);
-  });
-});
+// PROOF_STRIP_FALLBACK has been intentionally removed from proof-strip.ts.
+// No test should reference it — any attempt to import it should cause a
+// compile/lint error. The absence of tests here is intentional.
 
 // ──────────────────────────────────────────────────────────────────────────
 //  formatProofStripData — full data
@@ -186,6 +167,12 @@ describe("formatProofStripData — invalid numeric input (silently omitted)", ()
 // ──────────────────────────────────────────────────────────────────────────
 
 describe("formatProofStripData — value shape", () => {
+  const sampleFull: ProofStripData = {
+    subscriberCount: 500,
+    agoraSessions: 1000,
+    tagline: "Join founders using historical minds to make better decisions",
+  };
+
   it("always appends '+' to numeric values", () => {
     const items = formatProofStripData({ subscriberCount: 42, agoraSessions: 99 });
     for (const item of items) {
@@ -196,15 +183,15 @@ describe("formatProofStripData — value shape", () => {
   });
 
   it("returns plain objects with exactly 'label' and 'value' keys", () => {
-    const items = formatProofStripData(PROOF_STRIP_FALLBACK);
+    const items = formatProofStripData(sampleFull);
     for (const item of items) {
       expect(Object.keys(item).sort()).toEqual(["label", "value"]);
     }
   });
 
   it("returns a fresh array on each call", () => {
-    const a = formatProofStripData(PROOF_STRIP_FALLBACK);
-    const b = formatProofStripData(PROOF_STRIP_FALLBACK);
+    const a = formatProofStripData(sampleFull);
+    const b = formatProofStripData(sampleFull);
     expect(a).not.toBe(b);
     expect(a).toEqual(b);
   });
