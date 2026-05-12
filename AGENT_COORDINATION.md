@@ -23,6 +23,7 @@ The Agora website (consultthedead.com / The Agora) is the **live source of truth
 |------|--------|-------------|
 | 2026-05-05 | AGENT_COORDINATION.md created | Dispatch |
 | 2026-05-08 | Added Sentry init + GET /api/health liveness probe (observability) | Dispatch |
+| 2026-05-11 | Shipped `/agora` onboarding friction fixes: multi-pack accordion, 4th-mind cap upsell, and council helpers extraction | Dispatch |
 
 ## Required Environment Variables
 

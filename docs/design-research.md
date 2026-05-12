@@ -56,7 +56,9 @@ The shipped website already uses the Reading Room system across the core surface
 - a framed `/agora` entry layer that introduces the council flow before the live app state begins
 - a public `/agora/a/[id]` share surface that already exists as a shipped product surface
 - a pricing page that already carries a stats bar and a scenario-based social-proof strip
-- reusable funnel helpers for proof-strip, consultation progress, and transcript sharing now exist in the worktree; the remaining work is surface-specific polish and parity, not inventing another helper layer
+- **LibraryProofStrip** (`website/src/components/LibraryProofStrip.tsx`) shipped in PR #184 and is rendered on the `/library` page below the title, showing "X minds consulted · Y saved debates" as a compact monospaced stat bar; callers own the data-loading lifecycle and pass a `LibraryProgressStats` prop
+- **Transcript share helper** (`website/src/lib/share-transcript.ts`) shipped in PR #180; `buildTranscriptShareText` formats a pull-quote excerpt with a canonical `/agora/a/[id]` URL and attribution line into a clipboard-ready share blob, capped at 280 characters to fit share previews
+- the remaining work on this layer is surface-specific polish and parity, not inventing another helper layer
 - `/debates` and `/insights` are already on the publication-system baseline and should not be re-opened as active visual-parity gaps
 
 That means the memo should track the live site, not the original brainstorming mockups. The remaining work is a narrow set of publication-surface refinements, not a fresh visual system.
@@ -82,6 +84,7 @@ That means the memo should track the live site, not the original brainstorming m
 
 5. Publication-system consolidation
    - In flight: `/pricing`, `/account`, `/library`, and `/agora/a/[id]` still need to read like one publication system.
+   - `/library` now carries the shipped `LibraryProofStrip` stat bar (PR #184); the open work is rhythm and density convergence with the other publication-style pages, not adding a proof surface.
    - `/debates` and `/insights` are already shipped on the publication-system baseline, so they stay out of the active gap list.
    - This is consolidation work, not a new visual direction.
    - Do not pull the homepage hero or `/agora` transition work back into this bucket; those lanes are already covered elsewhere.
