@@ -103,6 +103,27 @@ describe("pricing metadata", () => {
   it("returns children unchanged", () => {
     expect(PricingLayout({ children: "Pricing child" })).toBe("Pricing child");
   });
+
+  /**
+   * Re-verification gate (capsule cf543903) — 2026-05-11.
+   * Confirms the OG and Twitter image URLs are absolute HTTPS paths scoped to
+   * the /pricing route. Any rename or protocol change fails this gate.
+   */
+  it("OG and Twitter image URLs are absolute HTTPS paths under /pricing", () => {
+    const ogImages = (metadata.openGraph as { images?: unknown[] })?.images ?? [];
+    const twImages = (metadata.twitter as { images?: unknown[] })?.images ?? [];
+
+    expect(ogImages.length > 0).toBeTruthy();
+    expect(twImages.length > 0).toBeTruthy();
+
+    const ogUrl = String(ogImages[0]);
+    const twUrl = String(twImages[0]);
+
+    expect(ogUrl.startsWith("https://www.consultthedead.com/pricing/")).toBeTruthy();
+    expect(twUrl.startsWith("https://www.consultthedead.com/pricing/")).toBeTruthy();
+    expect(ogUrl.includes("opengraph-image")).toBeTruthy();
+    expect(twUrl.includes("twitter-image")).toBeTruthy();
+  });
 });
 
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
