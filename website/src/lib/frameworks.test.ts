@@ -430,6 +430,143 @@ describe("getValidation", () => {
   });
 });
 
+/**
+ * Targeted branch-coverage tests (task c2eb93e7).
+ *
+ * These tests exercise three branches in getFramework() that the shipped-data
+ * tests cannot easily reach without fixtures:
+ *
+ *   1. ERA_FALLBACK lookup when the slug has no ERA_FALLBACK entry → falls back
+ *      to the `?? ""` sentinel, then era stays "" if meta also has no era.
+ *   2. construct_count default → `meta.construct_count ?? constructs.length`
+ *      when meta omits the field entirely.
+ *   3. Incident fallback when the separate incidents/incidents.json does not
+ *      exist and readJson returns null → incidents stays [].
+ *
+ * Each test uses the fixture infrastructure already established in the
+ * "getFramework fixture-driven branches" suite above.
+ */
+describe("getFramework targeted branch coverage (task c2eb93e7)", () => {
+  let originalCwd: string;
+  let fixtureRoot: string;
+
+  beforeEach(() => {
+    originalCwd = process.cwd();
+    fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "ctd-branch-cov-"));
+    fs.mkdirSync(path.join(fixtureRoot, "data", "frameworks"), {
+      recursive: true,
+    });
+    vi.spyOn(process, "cwd").mockReturnValue(fixtureRoot);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    expect(process.cwd()).toBe(originalCwd);
+  });
+
+  function writeFixture(
+    slug: string,
+    frameworkJson: Record<string, unknown> | null,
+    sideFileIncidents?: unknown,
+  ): FrameworkSlug {
+    const dir = path.join(fixtureRoot, "data", "frameworks", slug);
+    fs.mkdirSync(dir, { recursive: true });
+    if (frameworkJson !== null) {
+      fs.writeFileSync(
+        path.join(dir, "framework.json"),
+        JSON.stringify(frameworkJson),
+        "utf-8",
+      );
+    }
+    if (sideFileIncidents !== undefined) {
+      fs.mkdirSync(path.join(dir, "incidents"), { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, "incidents", "incidents.json"),
+        JSON.stringify(sideFileIncidents),
+        "utf-8",
+      );
+    }
+    return slug as unknown as FrameworkSlug;
+  }
+
+  it("ERA_FALLBACK ?? '' branch: era is empty string when slug is unknown and meta has no era", () => {
+    // "fixture-unknown-era" is not a key in ERA_FALLBACK, so
+    // ERA_FALLBACK["fixture-unknown-era"] evaluates to undefined.
+    // The nullish coalescence ?? "" takes effect, producing era = "".
+    // Since meta also has no born/died/era, the final fw.era is "".
+    const slug = writeFixture("fixture-unknown-era", {
+      meta: { person: "Unknown Era Person", domain: "Test", incident_count: 0 },
+      bipolar_constructs: [
+        {
+          construct: "x",
+          positive_pole: "+",
+          negative_pole: "-",
+          behavioral_implication: "y",
+        },
+      ],
+    });
+    const fw = getFramework(slug);
+    expect(fw).not.toBeNull();
+    if (!fw) return;
+    // ERA_FALLBACK had no entry → era falls through to "" (the ?? "" default).
+    expect(fw.era).toBe("");
+  });
+
+  it("construct_count default branch: uses constructs.length when meta.construct_count is absent", () => {
+    // meta deliberately omits construct_count so the ?? branch
+    // `constructs.length` is taken. The bipolar_constructs array has 2
+    // items, so constructCount should be 2.
+    const slug = writeFixture("fixture-no-count", {
+      meta: { person: "No Count Person", domain: "Test", incident_count: 0 },
+      // no construct_count in meta
+      bipolar_constructs: [
+        {
+          construct: "A",
+          positive_pole: "+",
+          negative_pole: "-",
+          behavioral_implication: "z",
+        },
+        {
+          construct: "B",
+          positive_pole: "+",
+          negative_pole: "-",
+          behavioral_implication: "z",
+        },
+      ],
+    });
+    const fw = getFramework(slug);
+    expect(fw).not.toBeNull();
+    if (!fw) return;
+    // meta.construct_count was absent → fell back to constructs.length (2).
+    expect(fw.meta.construct_count).toBe(2);
+  });
+
+  it("incident fallback path: incidents is [] when neither inline nor side-file exists", () => {
+    // This exercises the else-branch of the incident resolver: the framework
+    // has no critical_incident_database and no incidents/incidents.json
+    // file, so readJson returns null and incidents stays [].
+    const slug = writeFixture("fixture-incident-fallback", {
+      meta: { person: "No Incidents Person", domain: "Test", incident_count: 0 },
+      bipolar_constructs: [
+        {
+          construct: "x",
+          positive_pole: "+",
+          negative_pole: "-",
+          behavioral_implication: "y",
+        },
+      ],
+      // critical_incident_database absent; no side file either
+    });
+    const fw = getFramework(slug);
+    expect(fw).not.toBeNull();
+    if (!fw) return;
+    // readJson on the missing incidents.json returns null → incidents = [].
+    expect(fw.incidents).toEqual([]);
+    expect(fw.meta.incident_count).toBe(0);
+  });
+});
+
 describe("globals.css color-var coverage", () => {
   // Read once — globals.css is small and parsing the whole file per-test
   // keeps the assertion message clear when something is missing.
