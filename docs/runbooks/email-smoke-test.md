@@ -152,6 +152,29 @@ stripe trigger checkout.session.completed \
 Use this to verify the full purchase → webhook → email chain using Stripe's test environment.
 This requires `stripe login` and the Stripe CLI.
 
+Use this when you cannot run the Stripe CLI (e.g., CI machines, staging environments without
+a browser for `stripe login`).
+
+**Step 1 — Create a verified test customer** (skip if you already have one from Option A)
+
+```bash
+# --test keeps the customer in Stripe's test environment; omit for production smoke.
+CUSTOMER=$(stripe customers create \
+  --test \
+  --email "your-verified@email.com" \
+  --metadata "clerk_user_id=user_smoke_curl_001" \
+  --output json)
+
+CUSTOMER_ID=$(echo "$CUSTOMER" | jq -r '.id')
+echo "Test customer: $CUSTOMER_ID"   # e.g. cus_AbcDefGhi123
+```
+
+> The webhook handler calls `stripe.customers.retrieve(customerId)` and reads the
+> `clerk_user_id` metadata field to find the Clerk user. The customer **must** exist
+> in Stripe and **must** carry `clerk_user_id` in its metadata.
+
+**Step 2 — Build and sign the webhook payload**
+
 ```bash
 # 1. Create a test customer
 CUSTOMER=$(stripe customers create \
@@ -208,6 +231,7 @@ STRIPE_WEBHOOK_SECRET="whsec_your_stripe_webhook_secret"
 
 TIMESTAMP=$(date +%s)
 
+# Use CUSTOMER_ID captured in Step 1 above.
 PAYLOAD=$(cat <<ENDJSON
 {
   "id": "evt_smoke_curl_001",
@@ -234,10 +258,13 @@ curl -s -X POST "$WEBHOOK_URL" \
   -d "$PAYLOAD"
 # Expected: {"received":true}
 
+<<<<<<< HEAD
 # Step 3 — Cleanup
 stripe customers delete "$CUSTOMER_ID"
 ```
 
+=======
+>>>>>>> 706cdcf (dev-3: Align Agora monetization roadmap with live pricing copy)
 ---
 
 ## Verifying Success
@@ -271,10 +298,17 @@ stripe customers delete "$CUSTOMER_ID"
 ## Cleanup After Smoke Test
 
 ```bash
+<<<<<<< HEAD
 # Delete the test Stripe customer created during Path 2 testing.
 # Use the $CUSTOMER_ID captured above, or substitute the ID directly.
 stripe customers delete "$CUSTOMER_ID"
 # e.g. stripe customers delete cus_AbcDefGhi123
+=======
+# Delete the test Stripe customer. Use the $CUSTOMER_ID captured in Step 1 of Option B,
+# or substitute the ID directly if you used Option A.
+stripe customers delete --test "$CUSTOMER_ID"
+# e.g. stripe customers delete --test cus_AbcDefGhi123
+>>>>>>> 706cdcf (dev-3: Align Agora monetization roadmap with live pricing copy)
 ```
 
 In Clerk dashboard: delete any test user created during Path 1 testing to avoid polluting user count.
