@@ -192,6 +192,56 @@ describe("AgoraApp — error states", () => {
     // which wraps the label in a span with margin-right:10px
     expect(markup).not.toContain("margin-right:10px");
   });
+
+  it("shows upgrade-to-Pro link in rate-limit banner for free users", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          error: "You've used all 3 free agons for today.",
+          rateLimited: true,
+        }}
+      />,
+    );
+
+    // Upgrade link must be present and point to /pricing
+    expect(markup).toContain("rate-limit-upgrade-link");
+    expect(markup).toContain("/pricing");
+    expect(markup).toContain("7-day Pro trial");
+  });
+
+  it("does not show upgrade link in rate-limit banner for Pro users", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={true}
+        _testInitialState={{
+          error: "You've reached your 100 agon monthly limit.",
+          rateLimited: true,
+        }}
+      />,
+    );
+
+    // Pro users manage via account page — no /pricing link in the rate-limit banner
+    expect(markup).not.toContain("rate-limit-upgrade-link");
+  });
+
+  it("does not show upgrade link in generic (non-rate-limit) error banner", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          error: "Network error — please retry.",
+          rateLimited: false,
+        }}
+      />,
+    );
+
+    // Upgrade link is only shown for rate limit hits, not generic errors
+    expect(markup).not.toContain("rate-limit-upgrade-link");
+  });
 });
 
 /* ── Agon empty state ────────────────────────────────────────────────── */
