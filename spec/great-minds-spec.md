@@ -455,7 +455,13 @@ REQUIRES ANALYTICAL JUDGMENT (human + LLM collaborative process):
 
 ### Usage
 
+> **Deprecated**: The single-file commands below (`python framework_forge.py ...`) are
+> from the original spec and no longer match the live implementation.  The current
+> package CLI is documented in `docs/framework-forge-quickstart.md` — use those
+> commands instead.
+
 ```bash
+# DEPRECATED — single-file examples from the original spec (no longer valid)
 # Phase 1: Source gathering and incident candidate identification (automated)
 python framework_forge.py --person "Steve Jobs" --discover-sources --output frameworks/steve-jobs/
 
@@ -598,7 +604,13 @@ Historical decision replay is a sanity check during extraction, not a validation
 
 ### Usage
 
+> **Deprecated**: The single-file commands below (`python validate_framework.py ...`) are
+> from the original spec and no longer match the live implementation.  Validation is
+> now run via the `framework-forge validate` CLI command — see
+> `docs/framework-forge-quickstart.md` for current usage.
+
 ```bash
+# DEPRECATED — single-file examples from the original spec (no longer valid)
 # Run all three tiers (Tier 3 generates report for human review)
 python validate_framework.py --framework frameworks/steve-jobs/framework.json --mode full
 
