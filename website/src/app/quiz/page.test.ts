@@ -8,6 +8,7 @@ import {
   QUIZ_ROUTE_GROUPS,
   buildQuizCouncilHref,
   buildQuizEntryHref,
+  buildQuizPackHref,
 } from "@/lib/ctr-experiment"
 
 describe("quiz contract", () => {
@@ -44,5 +45,28 @@ describe("quiz contract", () => {
   it("keeps homepage and header quiz entry URLs in sync with the shared helper", () => {
     expect(HOME_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref())
     expect(HEADER_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref("guided"))
+  })
+
+  it("carries featuredPack data through to each page route group", () => {
+    QUIZ_PAGE_ROUTE_GROUPS.forEach((pageGroup, i) => {
+      const sourceGroup = QUIZ_ROUTE_GROUPS[i]
+      expect(pageGroup.featuredPack).toEqual(sourceGroup.featuredPack)
+    })
+  })
+
+  it("builds a correct featuredPackHref for every route group via buildQuizPackHref", () => {
+    QUIZ_PAGE_ROUTE_GROUPS.forEach((pageGroup) => {
+      const expectedHref = buildQuizPackHref(pageGroup.featuredPack.packId)
+      expect(pageGroup.featuredPackHref).toBe(expectedHref)
+      expect(pageGroup.featuredPackHref).toMatch(/^\/agora\?pack=/)
+    })
+  })
+
+  it("every route group has a non-empty featuredPack packId, name, and tagline", () => {
+    QUIZ_PAGE_ROUTE_GROUPS.forEach((group) => {
+      expect(group.featuredPack.packId.trim().length).toBeGreaterThan(0)
+      expect(group.featuredPack.name.trim().length).toBeGreaterThan(0)
+      expect(group.featuredPack.tagline.trim().length).toBeGreaterThan(0)
+    })
   })
 })

@@ -29,6 +29,16 @@ vi.mock("next/link", () => ({
   }) => React.createElement("a", { href, ...rest }, children),
 }));
 
+// Mock the DB client so the async packs page doesn't try to connect to Postgres.
+const getPublicAgonsMock = vi.hoisted(() => vi.fn());
+vi.mock("@/lib/db/client", () => ({
+  db: { getPublicAgons: getPublicAgonsMock },
+}));
+
+beforeEach(() => {
+  getPublicAgonsMock.mockResolvedValue([]);
+});
+
 // ──────────────────────────────────────────────────────────────────────────
 //  Element walker helpers (mirrors ProofStrip.test.tsx)
 // ──────────────────────────────────────────────────────────────────────────
@@ -81,51 +91,43 @@ function findAllByTestId(root: unknown, id: string): ElementLike[] {
 // ──────────────────────────────────────────────────────────────────────────
 
 import PacksPage, { PACKS_QUIZ_CTA_HREF } from "@/app/packs/page";
-import { ProofStrip } from "@/components/ProofStrip";
-
-// Helper: find a React element whose `type` is the given component function.
-function findByComponent(root: unknown, component: unknown): ElementLike | null {
-  let found: ElementLike | null = null;
-  walk(root, (el) => {
-    if (found) return;
-    if (el.type === component) found = el;
-  });
-  return found;
-}
 
 // ──────────────────────────────────────────────────────────────────────────
 //  Tests
 // ──────────────────────────────────────────────────────────────────────────
 
-describe("PacksPage — ProofStrip", () => {
-  it("renders the ProofStrip component in the page tree", () => {
-    const tree = PacksPage();
-    // The page includes <ProofStrip /> as a component element. We check the
-    // element type directly since the element tree walker does not recurse
-    // into non-DOM component subtrees before they are rendered.
-    const strip = findByComponent(tree, ProofStrip);
-    expect(strip).not.toBeNull();
+describe("PacksPage — collection feedback strip", () => {
+  it("renders the collection feedback strip when public agons exist", async () => {
+    getPublicAgonsMock.mockResolvedValue([
+      { share_id: "s1", topic: "T1", mind_slugs: ["sun-tzu"], created_at: "2026-01-01" },
+    ]);
+    const html = renderToStaticMarkup(
+      (await PacksPage()) as React.ReactElement,
+    );
+    expect(html).toContain('data-testid="collection-feedback"');
+    expect(html).toContain("Collection feedback");
   });
 
-  it("renders ProofStrip output (data-testid='proof-strip') in the full HTML", () => {
-    // Use renderToStaticMarkup which actually calls the ProofStrip function,
-    // allowing us to confirm the fallback strip renders in the final HTML.
-    const html = renderToStaticMarkup(PacksPage() as React.ReactElement);
-    expect(html).toContain('data-testid="proof-strip"');
+  it("omits the collection feedback strip when there are no public agons", async () => {
+    getPublicAgonsMock.mockResolvedValue([]);
+    const html = renderToStaticMarkup(
+      (await PacksPage()) as React.ReactElement,
+    );
+    expect(html).not.toContain('data-testid="collection-feedback"');
   });
 });
 
 describe("PacksPage — guided quiz CTA", () => {
-  it("renders at least one quiz CTA link with the correct href", () => {
-    const tree = PacksPage();
+  it("renders at least one quiz CTA link with the correct href", async () => {
+    const tree = await PacksPage();
     // Primary CTA in hero
     const heroCta = findByTestId(tree, "packs-quiz-cta");
     expect(heroCta).not.toBeNull();
     expect(heroCta!.props!.href).toBe(PACKS_QUIZ_CTA_HREF);
   });
 
-  it("renders the bottom quiz CTA link with the same href", () => {
-    const tree = PacksPage();
+  it("renders the bottom quiz CTA link with the same href", async () => {
+    const tree = await PacksPage();
     const bottomCta = findByTestId(tree, "packs-quiz-cta-bottom");
     expect(bottomCta).not.toBeNull();
     expect(bottomCta!.props!.href).toBe(PACKS_QUIZ_CTA_HREF);
@@ -137,27 +139,26 @@ describe("PacksPage — guided quiz CTA", () => {
     );
   });
 
-  it("quiz CTA carries an accessible aria-label", () => {
-    const tree = PacksPage();
+  it("quiz CTA carries an accessible aria-label", async () => {
+    const tree = await PacksPage();
     const heroCta = findByTestId(tree, "packs-quiz-cta");
     expect(heroCta!.props!["aria-label"]).toBeTruthy();
   });
 });
 
 describe("PacksPage — pack cards", () => {
-  it("renders a card for each live pack", () => {
-    const tree = PacksPage();
-    // We can't enumerate dynamic pack IDs easily here, but we know at least
-    // one pack (war-room / stoic-council etc.) must be live.
-    const cards = findAllByTestId(tree, /^pack-card-/.source as unknown as string);
+  it("renders a card for each live pack", async () => {
+    const tree = await PacksPage();
     // Fallback: check via HTML render
     const html = renderToStaticMarkup(tree as React.ReactElement);
     expect(html).toContain("/packs/stoic-council");
     expect(html).toContain("/packs/war-room");
   });
 
-  it("renders pack cards linking to /packs/[id]", () => {
-    const html = renderToStaticMarkup(PacksPage() as React.ReactElement);
+  it("renders pack cards linking to /packs/[id]", async () => {
+    const html = renderToStaticMarkup(
+      (await PacksPage()) as React.ReactElement,
+    );
     // All pack hrefs follow /packs/<id> format
     expect(html).toMatch(/href="\/packs\/[a-z-]+"/);
   });
@@ -171,19 +172,25 @@ describe("PacksPage — metadata export", () => {
 });
 
 describe("PacksPage — full HTML render (smoke)", () => {
-  it("renders without throwing", () => {
-    expect(() => {
-      renderToStaticMarkup(PacksPage() as React.ReactElement);
-    }).not.toThrow();
+  it("renders without throwing", async () => {
+    await expect(
+      PacksPage().then((tree) =>
+        renderToStaticMarkup(tree as React.ReactElement),
+      ),
+    ).resolves.not.toThrow();
   });
 
-  it("includes Take the Guided Quiz text in output", () => {
-    const html = renderToStaticMarkup(PacksPage() as React.ReactElement);
+  it("includes Take the Guided Quiz text in output", async () => {
+    const html = renderToStaticMarkup(
+      (await PacksPage()) as React.ReactElement,
+    );
     expect(html).toContain("Take the Guided Quiz");
   });
 
-  it("contains the quiz href with all three UTM params", () => {
-    const html = renderToStaticMarkup(PacksPage() as React.ReactElement);
+  it("contains the quiz href with all three UTM params", async () => {
+    const html = renderToStaticMarkup(
+      (await PacksPage()) as React.ReactElement,
+    );
     expect(html).toContain("utm_source=packs");
     expect(html).toContain("utm_medium=page_cta");
     expect(html).toContain("utm_campaign=guided_entry");
