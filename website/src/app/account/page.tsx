@@ -12,6 +12,35 @@ import {
 
 export const metadata = { title: 'Account' }
 
+const publicationCtaLinkStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  padding: '12px 24px',
+  borderRadius: '999px',
+  background: 'var(--amber)',
+  color: 'var(--bg)',
+  textDecoration: 'none',
+}
+
+const publicationNoticeStyle = {
+  border: '1px solid var(--hairline)',
+  borderRadius: '8px',
+  padding: '14px 18px',
+  marginBottom: '28px',
+  background: 'var(--amber-wash)',
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  lineHeight: 1.5,
+  color: 'var(--amber)',
+}
+
 export default async function AccountPage({
   searchParams,
 }: {
@@ -54,10 +83,11 @@ export default async function AccountPage({
               style={{
                 display: 'block',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '12px',
-                letterSpacing: '0.08em',
+                fontSize: '10px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
                 color: 'var(--fg-dim)',
-                marginTop: '10px',
+                marginTop: '8px',
               }}
             >
               {email}
@@ -85,16 +115,7 @@ export default async function AccountPage({
     >
       {checkoutSuccess && (
         <div
-          style={{
-            border: '1px solid var(--amber)',
-            borderRadius: '6px',
-            padding: '16px 20px',
-            marginBottom: '28px',
-            background: 'var(--amber-wash)',
-            fontFamily: 'var(--font-serif)',
-            fontSize: '0.95rem',
-            color: 'var(--fg)',
-          }}
+          style={publicationNoticeStyle}
         >
           Welcome to Pro. Your subscription is active.
         </div>
@@ -113,18 +134,7 @@ export default async function AccountPage({
         {isPro ? <ManageSubscriptionButton /> : (
           <Link
             href="/pricing"
-            style={{
-              display: 'inline-block',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              padding: '10px 20px',
-              borderRadius: '4px',
-              background: 'var(--amber)',
-              color: 'var(--bg)',
-              textDecoration: 'none',
-            }}
+            style={publicationCtaLinkStyle}
           >
             Upgrade to Pro
           </Link>
