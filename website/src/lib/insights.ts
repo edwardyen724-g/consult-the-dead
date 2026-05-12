@@ -16,6 +16,8 @@ interface InsightBaseEntry {
   hookQuestion: string;
   publishedAt: string;
   updatedAt?: string;
+  /** Optional synthetic agon transcript excerpt for SEO listicle articles. */
+  agonExcerpt?: Array<{ speaker: string; text: string }>;
 }
 
 export interface SingleInsightEntry extends InsightBaseEntry {
@@ -200,6 +202,150 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
     hookQuestion:
       "You respect the person, but the team is losing confidence. Do you preserve the relationship, or make the hard call before trust erodes further?",
     publishedAt: "2026-05-12",
+  },
+  {
+    slug: "marcus-aurelius-vs-sun-tzu-on-product-decisions",
+    type: "collision",
+    frameworkSlug: "marcus-aurelius",
+    collisionFrameworkSlugs: ["marcus-aurelius", "sun-tzu"],
+    title: "Marcus Aurelius vs. Sun Tzu on Product Decisions",
+    description:
+      "Two masters of strategic discipline with opposite approaches to the same question: when to hold the line and when to shift terrain. One builds from virtue, the other from positioning.",
+    targetKeywords: [
+      "product decision framework",
+      "strategic product thinking",
+      "stoic product management",
+    ],
+    decisionType: "product strategy",
+    hookQuestion:
+      "Your roadmap is at a fork: double down on what is working or shift toward an emerging opportunity. Marcus Aurelius and Sun Tzu have opposite answers — and both are right.",
+    publishedAt: "2026-05-11",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The emperor who would serve products well must first serve the user well. Every feature you ship either builds something worth sustaining or adds weight that will eventually sink the ship. Audit the purpose, not the metrics.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "You are measuring the engagement of a campaign after the battle has already begun. The wise product leader wins before the roadmap meeting — by understanding the terrain of user behavior before a single ticket is written.",
+      },
+    ],
+  },
+  {
+    slug: "seneca-and-epictetus-on-dealing-with-failure",
+    type: "collision",
+    frameworkSlug: "seneca",
+    collisionFrameworkSlugs: ["seneca", "epictetus"],
+    title: "What Seneca and Epictetus Say About Dealing with Failure",
+    description:
+      "Two Stoic philosophers who lived radically different lives have radically different prescriptions for failure. One sees it as Fortune's tax on ambition. The other says you were already broken before it happened.",
+    targetKeywords: [
+      "how to deal with failure",
+      "stoic philosophy failure",
+      "learning from failure framework",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "You shipped something that didn't work. The post-mortem is done. Now what? Seneca and Epictetus agree failure is inevitable — and disagree on everything else.",
+    publishedAt: "2026-05-11",
+    agonExcerpt: [
+      {
+        speaker: "Seneca",
+        text: "Failure is the tax Fortune levies on all who dare to build. The question is not how to avoid the payment — it is whether you spent the proceeds on something worth the cost.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "You were not a slave to the outcome before you shipped it. You became one when you decided your peace of mind depended on whether it succeeded. The lesson is not about the failure — it is about what you were surrendering before you even began.",
+      },
+    ],
+  },
+  {
+    slug: "tesla-and-ada-lovelace-on-the-future-of-computing",
+    type: "collision",
+    frameworkSlug: "nikola-tesla",
+    collisionFrameworkSlugs: ["nikola-tesla", "ada-lovelace"],
+    title: "Tesla vs. Lovelace on the Future of Computing",
+    description:
+      "Two visionaries who imagined technologies decades before they existed are forced to debate the AI question. Their frameworks are not compatible — and that is the point.",
+    targetKeywords: [
+      "AI future debate",
+      "artificial intelligence technology future",
+      "computing visionary debate",
+    ],
+    decisionType: "technology",
+    hookQuestion:
+      "One obsessed with energy transmission, one with universal computation — Tesla and Lovelace both saw the future before it arrived. Their frameworks collide on what AI actually is.",
+    publishedAt: "2026-05-11",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "Every intelligence — artificial or otherwise — requires energy to think. The question your researchers keep avoiding is not whether the model will be intelligent. It is whether the infrastructure can sustain it at the scale you are imagining.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "Tesla is asking the wrong question. The constraint is not energy — it is representation. Can the machine be given a notation for things it has never directly observed? That is the bottleneck. I was writing algorithms for a machine that did not yet exist. The question now is what operations to encode.",
+      },
+    ],
+  },
+  {
+    slug: "stoics-on-failure",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "What Marcus Aurelius, Seneca, and Epictetus Say About Dealing With Failure",
+    description:
+      "Three Stoic philosophers — an emperor, an advisor, and a freed slave — debate how to handle failure, setbacks, and adversity. Their answers disagree in ways that matter.",
+    targetKeywords: [
+      "stoics on failure",
+      "how stoics deal with failure",
+      "marcus aurelius failure",
+      "seneca adversity",
+      "epictetus setback",
+      "stoic philosophy failure",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "You've just failed publicly. Your product launch missed, your bet didn't pay off, or you made the wrong call. Three Stoic philosophers have very different prescriptions for what you should do next.",
+    publishedAt: "2026-05-11",
+  },
+  {
+    slug: "steve-jobs-on-product",
+    type: "single",
+    frameworkSlug: "steve-jobs",
+    title: "Steve Jobs' Decision Framework: How He Said No to 1,000 Things",
+    description:
+      "Steve Jobs' most counterintuitive insight wasn't about design — it was about elimination. His framework for product decisions reveals why saying no is the hardest and most important skill in building.",
+    targetKeywords: [
+      "steve jobs decision framework",
+      "steve jobs product strategy",
+      "steve jobs focus",
+      "steve jobs say no",
+      "apple product philosophy",
+      "product decision framework",
+    ],
+    decisionType: "product",
+    hookQuestion:
+      "You have ten things on your product roadmap, three months of runway, and investors asking for everything at once. Jobs faced this exact trap — and his answer was to delete nine of the ten things.",
+    publishedAt: "2026-05-11",
+  },
+  {
+    slug: "founders-on-pricing",
+    type: "single",
+    frameworkSlug: "john-d-rockefeller",
+    title: "What History's Greatest Thinkers Say About Pricing Your Product",
+    description:
+      "From Rockefeller's cost-architecture discipline to Carnegie's structural-position logic — unconventional wisdom on pricing strategy from minds that shaped industrial history.",
+    targetKeywords: [
+      "pricing strategy advice",
+      "how to price your product",
+      "product pricing framework",
+      "startup pricing strategy",
+      "pricing wisdom",
+      "b2b pricing strategy",
+    ],
+    decisionType: "pricing",
+    hookQuestion:
+      "You're staring at your pricing page wondering whether to charge $29 or $99 a month. Most pricing advice tells you to 'charge what you're worth.' The minds who actually built empires have a different answer.",
+    publishedAt: "2026-05-11",
   },
   // HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
   // Einstein insight article re-enable when albert-einstein is restored to FrameworkSlug.
@@ -398,6 +544,48 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Institutional necessity",
       source: (entry) => entry.description,
       excerpt: "power balance",
+      constructIndex: 1,
+    },
+  ],
+  "stoics-on-failure": [
+    {
+      label: "Moral system under stress",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "failed publicly",
+      constructIndex: 0,
+    },
+    {
+      label: "Self-governance",
+      source: (entry) => entry.description,
+      excerpt: "adversity",
+      constructIndex: 1,
+    },
+  ],
+  "steve-jobs-on-product": [
+    {
+      label: "Paradigm creation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "product roadmap",
+      constructIndex: 0,
+    },
+    {
+      label: "Ecosystem orchestration",
+      source: (entry) => entry.description,
+      excerpt: "elimination",
+      constructIndex: 1,
+    },
+  ],
+  "founders-on-pricing": [
+    {
+      label: "Structural position",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "pricing page",
+      constructIndex: 0,
+    },
+    {
+      label: "Architectural form",
+      source: (entry) => entry.description,
+      excerpt: "cost-architecture",
       constructIndex: 1,
     },
   ],

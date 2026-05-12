@@ -368,6 +368,51 @@ export default async function InsightPage({ params }: PageProps) {
           </>
         )}
 
+        {entry.agonExcerpt && entry.agonExcerpt.length > 0 && (
+          <Section label="From The Agon">
+            <p style={prose}>
+              A sample of how this collision plays out in the Agora — each mind responding to the
+              same question in their own voice.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 20, marginTop: 24 }}>
+              {entry.agonExcerpt.map((turn, i) => (
+                <div
+                  key={i}
+                  style={{
+                    borderLeft: "3px solid var(--amber)",
+                    paddingLeft: 20,
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 10,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "var(--amber)",
+                      marginBottom: 8,
+                    }}
+                  >
+                    {turn.speaker}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-serif)",
+                      fontSize: 17,
+                      lineHeight: 1.65,
+                      color: "var(--fg)",
+                      fontStyle: "italic",
+                      margin: 0,
+                    }}
+                  >
+                    {turn.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
+
         <FooterCta person={person} />
       </article>
     </main>
@@ -497,7 +542,7 @@ function FooterCta({ person }: { person: string }) {
         fight.
       </p>
       <Link
-        href="/#council"
+        href="/agora?utm_source=insight&utm_campaign=seo"
         style={{
           display: "inline-block",
           fontFamily: "var(--font-mono)",
@@ -511,7 +556,7 @@ function FooterCta({ person }: { person: string }) {
           textDecoration: "none",
         }}
       >
-        Submit your decision to the council
+        Start your own agon →
       </Link>
     </div>
   );
