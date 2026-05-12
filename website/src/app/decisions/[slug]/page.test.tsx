@@ -20,6 +20,10 @@ vi.mock("@/lib/frameworks", () => ({
     "niccolo-machiavelli": "var(--color-machiavelli)",
     "marcus-aurelius": "var(--color-aurelius)",
     "sun-tzu": "var(--color-suntzu)",
+    "steve-jobs": "var(--color-jobs)",
+    "benjamin-franklin": "var(--color-franklin)",
+    "julius-caesar": "var(--color-caesar)",
+    "andrew-carnegie": "var(--color-carnegie)",
   },
 }));
 
@@ -88,6 +92,10 @@ beforeEach(() => {
         "marie-curie": "Marie Curie",
         "sun-tzu": "Sun Tzu",
         "marcus-aurelius": "Marcus Aurelius",
+        "steve-jobs": "Steve Jobs",
+        "benjamin-franklin": "Benjamin Franklin",
+        "julius-caesar": "Julius Caesar",
+        "andrew-carnegie": "Andrew Carnegie",
       }[slug] ?? slug,
     ),
   );
@@ -104,6 +112,9 @@ describe("generateStaticParams", () => {
         { slug: "should-i-take-this-job-offer" },
         { slug: "should-i-sell-my-startup" },
         { slug: "should-i-shut-down-my-startup" },
+        { slug: "should-i-launch-on-product-hunt" },
+        { slug: "should-i-offer-a-free-tier" },
+        { slug: "should-i-rebrand" },
       ]),
     );
   });
@@ -133,6 +144,76 @@ describe("generateMetadata", () => {
     expect(meta.title).toBe("Not Found");
     expect((meta.robots as { index?: boolean })?.index).toBe(false);
     expect((meta.robots as { follow?: boolean })?.follow).toBe(false);
+  });
+
+  it("returns correct metadata for should-i-launch-on-product-hunt", async () => {
+    const meta = await generateMetadata({
+      params: Promise.resolve({ slug: "should-i-launch-on-product-hunt" }),
+    });
+
+    expect(meta.title).toBe("Should I Launch on Product Hunt?");
+    expect(meta.description).toContain("Steve Jobs");
+    expect(meta.description).toContain("Benjamin Franklin");
+    expect(meta.description).toContain("Julius Caesar");
+    expect(meta.keywords).toEqual(
+      expect.arrayContaining([
+        "should I launch on Product Hunt",
+        "product hunt launch strategy",
+      ]),
+    );
+    expect((meta.alternates as { canonical?: string })?.canonical).toBe(
+      "https://www.consultthedead.com/decisions/should-i-launch-on-product-hunt",
+    );
+    expect((meta.openGraph as { url?: string })?.url).toBe(
+      "https://www.consultthedead.com/decisions/should-i-launch-on-product-hunt",
+    );
+    expect((meta.openGraph as { title?: string })?.title).toBe("Should I Launch on Product Hunt?");
+  });
+
+  it("returns correct metadata for should-i-offer-a-free-tier", async () => {
+    const meta = await generateMetadata({
+      params: Promise.resolve({ slug: "should-i-offer-a-free-tier" }),
+    });
+
+    expect(meta.title).toBe("Should I Offer a Free Tier?");
+    expect(meta.description).toContain("Steve Jobs");
+    expect(meta.description).toContain("Andrew Carnegie");
+    expect(meta.description).toContain("Marcus Aurelius");
+    expect(meta.keywords).toEqual(
+      expect.arrayContaining([
+        "should I offer a free tier",
+        "freemium vs paid SaaS",
+      ]),
+    );
+    expect((meta.alternates as { canonical?: string })?.canonical).toBe(
+      "https://www.consultthedead.com/decisions/should-i-offer-a-free-tier",
+    );
+    expect((meta.openGraph as { url?: string })?.url).toBe(
+      "https://www.consultthedead.com/decisions/should-i-offer-a-free-tier",
+    );
+  });
+
+  it("returns correct metadata for should-i-rebrand", async () => {
+    const meta = await generateMetadata({
+      params: Promise.resolve({ slug: "should-i-rebrand" }),
+    });
+
+    expect(meta.title).toBe("Should I Rebrand?");
+    expect(meta.description).toContain("Steve Jobs");
+    expect(meta.description).toContain("Marcus Aurelius");
+    expect(meta.description).toContain("Niccolò Machiavelli");
+    expect(meta.keywords).toEqual(
+      expect.arrayContaining([
+        "should I rebrand my startup",
+        "when to rebrand a company",
+      ]),
+    );
+    expect((meta.alternates as { canonical?: string })?.canonical).toBe(
+      "https://www.consultthedead.com/decisions/should-i-rebrand",
+    );
+    expect((meta.openGraph as { url?: string })?.url).toBe(
+      "https://www.consultthedead.com/decisions/should-i-rebrand",
+    );
   });
 });
 
@@ -198,6 +279,90 @@ describe("DecisionPage", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("var(--amber)");
+  });
+
+  it("renders the should-i-launch-on-product-hunt page with correct council and CTA", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-launch-on-product-hunt" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Should I Launch on Product Hunt?");
+    expect(html).toContain("Steve Jobs");
+    expect(html).toContain("Benjamin Franklin");
+    expect(html).toContain("Julius Caesar");
+    expect(html).toContain(
+      'href="/agora?minds=steve-jobs%2Cbenjamin-franklin%2Cjulius-caesar&amp;utm_source=decision&amp;utm_campaign=decision_surface&amp;utm_content=should-i-launch-on-product-hunt"',
+    );
+    expect(html).toContain("Start your own agon in the Agora");
+    expect(html).toContain("Start your own agon");
+  });
+
+  it("renders the should-i-launch-on-product-hunt debate preview", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-launch-on-product-hunt" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("How the council debates this question");
+    expect(html).toContain("This is Round 1 of a 3-round debate. Start your own agon to go deeper.");
+    expect(html).toContain("A launch is not a marketing event");
+  });
+
+  it("renders the should-i-offer-a-free-tier page with correct council and CTA", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-offer-a-free-tier" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Should I Offer a Free Tier?");
+    expect(html).toContain("Steve Jobs");
+    expect(html).toContain("Andrew Carnegie");
+    expect(html).toContain("Marcus Aurelius");
+    expect(html).toContain(
+      'href="/agora?minds=steve-jobs%2Candrew-carnegie%2Cmarcus-aurelius&amp;utm_source=decision&amp;utm_campaign=decision_surface&amp;utm_content=should-i-offer-a-free-tier"',
+    );
+    expect(html).toContain("Start your own agon in the Agora");
+    expect(html).toContain("Start your own agon");
+  });
+
+  it("renders the should-i-offer-a-free-tier debate preview", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-offer-a-free-tier" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("How the council debates this question");
+    expect(html).toContain("This is Round 1 of a 3-round debate. Start your own agon to go deeper.");
+    expect(html).toContain("I did not believe in free");
+  });
+
+  it("renders the should-i-rebrand page with correct council and CTA", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-rebrand" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Should I Rebrand?");
+    expect(html).toContain("Steve Jobs");
+    expect(html).toContain("Marcus Aurelius");
+    expect(html).toContain("Niccolò Machiavelli");
+    expect(html).toContain(
+      'href="/agora?minds=steve-jobs%2Cmarcus-aurelius%2Cniccolo-machiavelli&amp;utm_source=decision&amp;utm_campaign=decision_surface&amp;utm_content=should-i-rebrand"',
+    );
+    expect(html).toContain("Start your own agon in the Agora");
+    expect(html).toContain("Start your own agon");
+  });
+
+  it("renders the should-i-rebrand debate preview", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-rebrand" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("How the council debates this question");
+    expect(html).toContain("This is Round 1 of a 3-round debate. Start your own agon to go deeper.");
+    expect(html).toContain("A brand is not a name and a logo");
   });
 
   it("calls notFound for an unknown slug", async () => {
