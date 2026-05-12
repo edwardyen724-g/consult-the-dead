@@ -1,9 +1,10 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   formatPricingStats,
   PRICING_STATS_DEFAULT,
+  type PricingStats,
 } from '@/lib/pricing/stats'
 import {
   FREE_AGONS_PER_DAY,
@@ -81,7 +82,21 @@ const FAQ: { q: string; a: string }[] = [
 export default function PricingPage() {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual')
   const [loading, setLoading] = useState(false)
+  const [stats, setStats] = useState<PricingStats>(PRICING_STATS_DEFAULT)
   const router = useRouter()
+
+  useEffect(() => {
+    fetch('/api/stats')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { agonsRun?: number } | null) => {
+        if (data && typeof data.agonsRun === 'number') {
+          setStats((prev) => ({ ...prev, agonsRun: data.agonsRun }))
+        }
+      })
+      .catch(() => {
+        /* silently degrade — static fallback is shown until fetch resolves */
+      })
+  }, [])
 
   async function handleProCheckout() {
     setLoading(true)
@@ -164,7 +179,7 @@ export default function PricingPage() {
               color: 'var(--fg-faint)',
             }}
           >
-            {formatPricingStats(PRICING_STATS_DEFAULT).map((label, i, arr) => (
+            {formatPricingStats(stats).map((label, i, arr) => (
               <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: '14px' }}>
                 {label}
                 {i < arr.length - 1 && (
