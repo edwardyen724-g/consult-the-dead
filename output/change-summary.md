@@ -2,7 +2,7 @@
 
 ## Branch
 
-- `wanman/ship-should-i-sell-my-startup-phase1-content-bundle`
+- `wanman/should-i-sell-my-startup-phase1-content-bundle`
 
 ## Changed Files
 
@@ -15,6 +15,7 @@
 
 - Added the full "Should I Sell My Startup?" debate page plus the supporting article, promo pack, and distribution brief.
 - The bundle is content-only; there are no repo test scripts in `package.json`.
+- This branch is a continuation of already-validated content work, moved off `master` so it can be reviewed and merged normally.
 
 ## Verification
 
