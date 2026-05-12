@@ -4,7 +4,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import LibraryPage, {
   ProLibrary,
   UpgradePrompt,
-  GhostLibraryRows,
+  PRO_FEATURES,
+  GHOST_ROWS,
   getConsultedMindSlugs,
   formatMindSlug,
 } from "./page";
@@ -56,119 +57,203 @@ vi.mock("./LibraryClient", () => ({
   ),
 }));
 
+vi.mock("@/components/LibraryProofStrip", () => ({
+  LibraryProofStrip: () => <div data-testid="library-proof-strip" />,
+}));
+
 beforeEach(() => {
   currentUserMock.mockReset();
   getUserAgonsMock.mockReset();
 });
 
 describe("LibraryPage", () => {
-  it("renders the upgrade prompt for free users", async () => {
-    const html = renderToStaticMarkup(UpgradePrompt());
+  describe("UpgradePrompt", () => {
+    it("renders the core upgrade messaging and CTA", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
 
-    expect(html).toContain("Pro feature");
-    expect(html).toContain("Save every debate. Revisit any decision.");
-    expect(html).toContain("Upgrade to Pro →");
-    expect(html).toContain('href="/pricing?utm_campaign=library_gate"');
-  });
-
-  it("renders ghost library rows for free users", () => {
-    const html = renderToStaticMarkup(GhostLibraryRows());
-
-    expect(html).toContain('data-testid="ghost-library-rows"');
-    const ghostRowMatches = [...html.matchAll(/data-testid="ghost-row"/g)];
-    expect(ghostRowMatches.length).toBe(3);
-  });
-
-  it("ghost rows have blur and low opacity styling", () => {
-    const html = renderToStaticMarkup(GhostLibraryRows());
-
-    expect(html).toContain("filter:blur(2px)");
-    expect(html).toContain("opacity:0.3");
-  });
-
-  it("upgrade prompt includes all four Pro feature bullets", () => {
-    const html = renderToStaticMarkup(UpgradePrompt());
-
-    expect(html).toContain('data-testid="pro-feature-list"');
-    expect(html).toContain("Unlimited saved debates");
-    expect(html).toContain("Access to all 25+ minds");
-    expect(html).toContain("Opus-powered synthesis");
-    expect(html).toContain("100 agons/month");
-    const itemMatches = [...html.matchAll(/data-testid="pro-feature-item"/g)];
-    expect(itemMatches.length).toBe(4);
-  });
-
-  it("Pro CTA links to /pricing with utm_campaign=library_gate", () => {
-    const html = renderToStaticMarkup(UpgradePrompt());
-
-    expect(html).toContain('href="/pricing?utm_campaign=library_gate"');
-  });
-
-  it("upgrade prompt renders ghost rows below the interstitial card", () => {
-    const html = renderToStaticMarkup(UpgradePrompt());
-
-    expect(html).toContain('data-testid="ghost-library-rows"');
-    // Ghost rows appear after the interstitial card in DOM order
-    const cardIdx = html.indexOf("Pro feature");
-    const ghostIdx = html.indexOf('data-testid="ghost-library-rows"');
-    expect(ghostIdx).toBeGreaterThan(cardIdx);
-  });
-
-  it("renders the pro library shell and loads saved agons", async () => {
-    currentUserMock.mockResolvedValue({
-      id: "user-1",
-      publicMetadata: { subscription_tier: "pro" },
+      expect(html).toContain("Pro feature");
+      expect(html).toContain("Save every debate. Revisit any decision.");
+      expect(html).toContain("Upgrade to Pro →");
+      expect(html).toContain('href="/pricing"');
     });
-    getUserAgonsMock.mockResolvedValue([{ id: "agon-1" }]);
 
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(getUserAgonsMock).toHaveBeenCalledWith("user-1");
-    expect(html).toContain("1 agons");
-    expect(html).toContain('href="/agora"');
+    it("renders the pricing anchor copy", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      expect(html).toContain("$30/mo");
+      expect(html).toContain("$300/yr");
+      expect(html).toContain("7-day trial");
+    });
+
+    it("renders the feature list with all PRO_FEATURES", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+
+      for (const { label, detail } of PRO_FEATURES) {
+        expect(html).toContain(label);
+        expect(html).toContain(detail);
+      }
+    });
+
+    it("renders a checkmark for each feature", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      const checkCount = (html.match(/✓/g) ?? []).length;
+      expect(checkCount).toBe(PRO_FEATURES.length);
+    });
+
+    it("renders the ghost preview section with label", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      expect(html).toContain("Sample library");
+    });
+
+    it("renders all GHOST_ROWS topics", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      for (const { topic, minds, date } of GHOST_ROWS) {
+        expect(html).toContain(topic);
+        expect(html).toContain(minds);
+        expect(html).toContain(date);
+      }
+    });
+
+    it("renders the expected test IDs", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      expect(html).toContain('data-testid="upgrade-prompt"');
+      expect(html).toContain('data-testid="upgrade-feature-list"');
+      expect(html).toContain('data-testid="library-ghost-preview"');
+    });
+
+    it("renders the correct number of ghost-row elements", () => {
+      const html = renderToStaticMarkup(UpgradePrompt());
+      const rowCount = (html.match(/data-testid="ghost-row"/g) ?? []).length;
+      expect(rowCount).toBe(GHOST_ROWS.length);
+    });
   });
 
-  it("redirects unauthenticated users", async () => {
-    currentUserMock.mockResolvedValue(null);
+  describe("ProLibrary", () => {
+    it("renders the pro library shell and loads saved agons", async () => {
+      getUserAgonsMock.mockResolvedValue([makeAgon({ id: "agon-1" })]);
 
-    await expect(LibraryPage()).rejects.toThrow("REDIRECT:/sign-in");
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(getUserAgonsMock).toHaveBeenCalledWith("user-1");
+      expect(html).toContain("Saved debates");
+      expect(html).toContain("1 saved debate");
+      expect(html).toContain("1 consulted mind");
+    });
+
+    it("shows a running-low nudge when saved agons reach the threshold", async () => {
+      const agons = Array.from({ length: 92 }, (_, i) => makeAgon({ id: String(i + 1) }));
+      getUserAgonsMock.mockResolvedValue(agons);
+
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).toContain("Running low");
+      expect(html).toContain("8 consultations left this month");
+      expect(html).toContain("92/100");
+    });
+
+    it("shows a cap-reached nudge when the monthly limit is hit", async () => {
+      const agons = Array.from({ length: 100 }, (_, i) => makeAgon({ id: String(i + 1) }));
+      getUserAgonsMock.mockResolvedValue(agons);
+
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).toContain("Monthly limit reached");
+      expect(html).toContain("100-agon monthly limit");
+    });
+
+    it("suppresses the upsell nudge for users well below the threshold", async () => {
+      const agons = Array.from({ length: 5 }, (_, i) => makeAgon({ id: String(i + 1) }));
+      getUserAgonsMock.mockResolvedValue(agons);
+
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).not.toContain("Running low");
+      expect(html).not.toContain("Monthly limit reached");
+    });
+
+    it("renders a DB error inline without crashing", async () => {
+      getUserAgonsMock.mockRejectedValue(new Error("connection refused"));
+
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).toContain("DB ERROR");
+      expect(html).toContain("connection refused");
+    });
+
+    it("shows consulted minds strip when agons have mind_slugs", async () => {
+      const agons = [
+        makeAgon({ id: "1" }),
+        { ...makeAgon({ id: "2" }), mind_slugs: ["marcus-aurelius"] },
+      ];
+      getUserAgonsMock.mockResolvedValue(agons);
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).toContain('data-testid="consulted-minds-strip"');
+      expect(html).toContain("sun-tzu");
+      expect(html).toContain("marcus-aurelius");
+      expect(html).toContain("2 distinct minds consulted");
+    });
+
+    it("hides consulted minds strip when library is empty", async () => {
+      getUserAgonsMock.mockResolvedValue([]);
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).not.toContain('data-testid="consulted-minds-strip"');
+    });
+
+    it("shows '1 distinct mind consulted' for a single-mind library", async () => {
+      getUserAgonsMock.mockResolvedValue([makeAgon({ id: "1" })]);
+      const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+      expect(html).toContain("1 distinct mind consulted");
+    });
+
+    it("renders the shell footer CTAs on the page surface", async () => {
+      currentUserMock.mockResolvedValue({
+        id: "user-1",
+        publicMetadata: { subscription_tier: "pro" },
+      });
+      getUserAgonsMock.mockResolvedValue([makeAgon({ id: "agon-1" })]);
+
+      const html = renderToStaticMarkup(await LibraryPage());
+      expect(html).toContain('href="/account"');
+      expect(html).toContain('href="/agora"');
+    });
   });
 
-  it("shows a running-low nudge when saved agons reach the threshold", async () => {
-    const agons = Array.from({ length: 92 }, (_, i) => makeAgon({ id: String(i + 1) }));
-    getUserAgonsMock.mockResolvedValue(agons);
+  describe("LibraryPage routing", () => {
+    it("redirects unauthenticated users", async () => {
+      currentUserMock.mockResolvedValue(null);
 
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).toContain("Running low");
-    expect(html).toContain("8 consultations left this month");
-    expect(html).toContain("92/100");
+      await expect(LibraryPage()).rejects.toThrow("REDIRECT:/sign-in");
+    });
+  });
+});
+
+describe("PRO_FEATURES static data", () => {
+  it("exports a non-empty array", () => {
+    expect(PRO_FEATURES.length).toBeGreaterThan(0);
   });
 
-  it("shows a cap-reached nudge when the monthly limit is hit", async () => {
-    const agons = Array.from({ length: 100 }, (_, i) => makeAgon({ id: String(i + 1) }));
-    getUserAgonsMock.mockResolvedValue(agons);
+  it("every entry has a label and detail string", () => {
+    for (const { label, detail } of PRO_FEATURES) {
+      expect(typeof label).toBe("string");
+      expect(label.length).toBeGreaterThan(0);
+      expect(typeof detail).toBe("string");
+      expect(detail.length).toBeGreaterThan(0);
+    }
+  });
+});
 
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).toContain("Monthly limit reached");
-    expect(html).toContain("100-agon monthly limit");
+describe("GHOST_ROWS static data", () => {
+  it("exports a non-empty array", () => {
+    expect(GHOST_ROWS.length).toBeGreaterThan(0);
   });
 
-  it("suppresses the upsell nudge for users well below the threshold", async () => {
-    const agons = Array.from({ length: 5 }, (_, i) => makeAgon({ id: String(i + 1) }));
-    getUserAgonsMock.mockResolvedValue(agons);
-
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).not.toContain("Running low");
-    expect(html).not.toContain("Monthly limit reached");
+  it("every entry has topic, minds, and date strings", () => {
+    for (const { topic, minds, date } of GHOST_ROWS) {
+      expect(typeof topic).toBe("string");
+      expect(topic.length).toBeGreaterThan(0);
+      expect(typeof minds).toBe("string");
+      expect(minds.length).toBeGreaterThan(0);
+      expect(typeof date).toBe("string");
+      expect(date.length).toBeGreaterThan(0);
+    }
   });
+});
 
-  it("renders a DB error inline without crashing", async () => {
-    getUserAgonsMock.mockRejectedValue(new Error("connection refused"));
-
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).toContain("DB ERROR");
-    expect(html).toContain("connection refused");
-  });
-
+describe("helpers", () => {
   it("getConsultedMindSlugs deduplicates and sorts mind slugs across agons", () => {
     const agons = [
       { mind_slugs: ["sun-tzu", "cicero"] },
@@ -186,30 +271,5 @@ describe("LibraryPage", () => {
     expect(formatMindSlug("sun-tzu")).toBe("Sun Tzu");
     expect(formatMindSlug("niccolo-machiavelli")).toBe("Niccolo Machiavelli");
     expect(formatMindSlug("marie-curie")).toBe("Marie Curie");
-  });
-
-  it("shows consulted minds strip when agons have mind_slugs", async () => {
-    const agons = [
-      makeAgon({ id: "1" }),
-      { ...makeAgon({ id: "2" }), mind_slugs: ["marcus-aurelius"] },
-    ];
-    getUserAgonsMock.mockResolvedValue(agons);
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).toContain('data-testid="consulted-minds-strip"');
-    expect(html).toContain("sun-tzu");
-    expect(html).toContain("marcus-aurelius");
-    expect(html).toContain("2 distinct minds consulted");
-  });
-
-  it("hides consulted minds strip when library is empty", async () => {
-    getUserAgonsMock.mockResolvedValue([]);
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).not.toContain('data-testid="consulted-minds-strip"');
-  });
-
-  it("shows '1 distinct mind consulted' for a single-mind library", async () => {
-    getUserAgonsMock.mockResolvedValue([makeAgon({ id: "1" })]);
-    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
-    expect(html).toContain("1 distinct mind consulted");
   });
 });

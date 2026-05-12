@@ -1,11 +1,16 @@
+import Link from "next/link";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import Link from "next/link";
 import { db, type AgonRecord } from "@/lib/db/client";
 import {
+  formatLibraryProgressStats,
   getLibraryProgressStats,
   getLibraryUpsellNudge,
 } from "@/lib/library-stats";
+import {
+  PublicationSection,
+  PublicationShell,
+} from "./publication-surface";
 import { LibraryClient } from "./LibraryClient";
 import { LibraryProofStrip } from "@/components/LibraryProofStrip";
 
@@ -107,56 +112,56 @@ export default async function LibraryPage() {
   const userId = user.id;
   const isPro = user.publicMetadata?.subscription_tier === "pro";
 
+  return await LibraryPublicationSurface({ isPro, userId });
+}
+
+async function LibraryPublicationSurface({
+  isPro,
+  userId,
+}: {
+  isPro: boolean;
+  userId: string;
+}) {
   return (
-    <main
-      style={{
-        background: "var(--bg)",
-        color: "var(--fg)",
-        minHeight: "calc(100vh - 80px)",
-      }}
+    <PublicationShell
+      eyebrow="Library"
+      title="Library"
+      lead={
+        isPro
+          ? "Your saved debates live here in the same publication rhythm as the account and pricing surfaces."
+          : "Upgrade to save debates, search the archive, and keep a permanent record of the decisions you already paid to reach."
+      }
+      stats={
+        isPro
+          ? [
+              { label: "Archive", value: "Persistent and searchable" },
+              { label: "Access", value: "Pro library unlocked" },
+              { label: "Next step", value: "Return to the Agora" },
+            ]
+          : [
+              { label: "Archive", value: "Upgrade to save debates" },
+              { label: "Access", value: "Free users do not persist" },
+              { label: "Next step", value: "Upgrade or keep debating" },
+            ]
+      }
+      footerLinks={
+        isPro
+          ? [
+              { href: "/agora", label: "Enter The Agora" },
+              { href: "/account", label: "Manage Account" },
+            ]
+          : [
+              { href: "/agora", label: "Enter The Agora" },
+              { href: "/pricing", label: "View Pricing" },
+            ]
+      }
     >
-      <div
-        style={{
-          maxWidth: "860px",
-          margin: "0 auto",
-          padding: "48px 16px 96px",
-          boxSizing: "border-box",
-          width: "100%",
-        }}
-      >
-        <p
-          className="font-mono"
-          style={{
-            fontSize: "10px",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "var(--fg-dim)",
-            margin: "0 0 12px",
-          }}
-        >
-          Consult The Dead
-        </p>
-
-        <h1
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 400,
-            fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)",
-            letterSpacing: "-0.01em",
-            lineHeight: 1.2,
-            margin: "0 0 32px",
-          }}
-        >
-          Library
-        </h1>
-
-        {!isPro ? (
-          <UpgradePrompt />
-        ) : (
-          <ProLibrary userId={userId!} />
-        )}
-      </div>
-    </main>
+      {!isPro ? (
+        <UpgradePrompt />
+      ) : (
+        await ProLibrary({ userId })
+      )}
+    </PublicationShell>
   );
 }
 
@@ -404,113 +409,100 @@ export async function ProLibrary({ userId }: { userId: string }) {
   }
 
   const stats = getLibraryProgressStats(agons);
+  const progressLabels = formatLibraryProgressStats(stats);
   const upsellNudge = getLibraryUpsellNudge(stats.savedDebates);
   const consultedSlugs = getConsultedMindSlugs(agons);
 
   return (
     <>
-      {/* Live proof strip — below title, above the consultation list */}
-      <div
-        style={{
-          marginBottom: "28px",
-          paddingBottom: "18px",
-          borderBottom: "1px solid var(--hairline)",
-        }}
+      <PublicationSection
+        eyebrow="Archive status"
+        title="Saved debates"
+        body={`You have ${stats.savedDebates} saved debate${stats.savedDebates === 1 ? "" : "s"} and ${stats.consultedMinds} consulted mind${stats.consultedMinds === 1 ? "" : "s"} in the archive.`}
       >
-        <LibraryProofStrip stats={stats} />
-      </div>
-
-      <ConsultedMindsStrip slugs={consultedSlugs} />
-
-      {upsellNudge && (
+        {/* Live proof strip — below title, above the consultation list */}
         <div
           style={{
-            border: `1px solid ${upsellNudge.kind === "cap-reached" ? "var(--amber)" : "var(--hairline)"}`,
-            borderRadius: "6px",
-            padding: "16px 20px",
             marginBottom: "28px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
+            paddingBottom: "18px",
+            borderBottom: "1px solid var(--hairline)",
           }}
         >
-          <p
-            className="font-mono"
-            style={{
-              fontSize: "9px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--amber)",
-              margin: 0,
-            }}
-          >
-            {upsellNudge.kind === "cap-reached" ? "Monthly limit reached" : "Running low"}
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "15px",
-              lineHeight: 1.6,
-              color: "var(--fg-dim)",
-              margin: 0,
-            }}
-          >
-            {upsellNudge.message}
-          </p>
+          <LibraryProofStrip stats={stats} />
         </div>
+
+        <ConsultedMindsStrip slugs={consultedSlugs} />
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(168px, 1fr))",
+            gap: "12px",
+          }}
+        >
+          {progressLabels.map((label) => (
+            <p
+              key={label}
+              className="font-mono"
+              style={{
+                margin: 0,
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--fg-dim)",
+                lineHeight: 1.6,
+              }}
+            >
+              {label}
+            </p>
+          ))}
+        </div>
+      </PublicationSection>
+
+      {upsellNudge && (
+        <PublicationSection
+          eyebrow={upsellNudge.kind === "cap-reached" ? "Monthly limit reached" : "Running low"}
+          title="Keep the archive current"
+          body={upsellNudge.message}
+          accent={upsellNudge.kind === "cap-reached" ? "highlight" : "default"}
+        />
       )}
 
-      <div
-        style={{
-          borderTop: "1px solid var(--hairline)",
-          marginBottom: "0",
-        }}
+      <PublicationSection
+        eyebrow="Saved debates"
+        title="Browse the archive"
+        body="Search, sort, and open saved agons from the same publication system that introduced them."
       >
-        {agons.length > 0 && (
-          <div
-            className="font-mono"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto auto auto",
-              gap: "24px",
-              padding: "10px 0",
-              fontSize: "9px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--fg-dim)",
-              borderBottom: "1px solid var(--hairline)",
-            }}
-          >
-            <span>Topic</span>
-            <span>Date</span>
-            <span />
-            <span>Action</span>
-          </div>
-        )}
-        <LibraryClient agons={agons} />
-      </div>
-
-      <div
-        style={{
-          marginTop: "56px",
-          paddingTop: "24px",
-          borderTop: "1px solid var(--hairline)",
-        }}
-      >
-        <Link
-          href="/agora"
+        <div
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "11px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--fg-dim)",
-            textDecoration: "none",
+            borderTop: "1px solid var(--hairline)",
+            marginBottom: "0",
           }}
         >
-          ← Back to the Agora
-        </Link>
-      </div>
+          {agons.length > 0 && (
+            <div
+              className="font-mono"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr auto auto auto",
+                gap: "24px",
+                padding: "10px 0",
+                fontSize: "9px",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "var(--fg-dim)",
+                borderBottom: "1px solid var(--hairline)",
+              }}
+            >
+              <span>Topic</span>
+              <span>Date</span>
+              <span />
+              <span>Action</span>
+            </div>
+          )}
+          <LibraryClient agons={agons} />
+        </div>
+      </PublicationSection>
     </>
   );
 }
