@@ -202,6 +202,20 @@ export function AgoraApp({
   const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
+  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+
+  // Detect ?checkout=success from Stripe redirect and show welcome banner.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("checkout") === "success") {
+      setCheckoutSuccess(true);
+      // Clean the query string so a page refresh doesn't re-show the banner.
+      const url = new URL(window.location.href);
+      url.searchParams.delete("checkout");
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, []);
 
   // Fetch live usage on mount
   useEffect(() => {
@@ -530,23 +544,93 @@ export function AgoraApp({
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <StageHeader stage={state.stage} />
 
+        {checkoutSuccess && (
+          <div
+            data-testid="checkout-success-banner"
+            style={{
+              marginBottom: "24px",
+              border: "1px solid var(--green, #22c55e)",
+              borderRadius: "4px",
+              padding: "14px 20px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--fg)",
+              lineHeight: 1.5,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "12px",
+              background: "rgba(34, 197, 94, 0.06)",
+            }}
+          >
+            <div>
+              <span style={{ marginRight: "10px", color: "var(--green, #22c55e)", fontWeight: 600 }}>
+                PRO ACTIVE
+              </span>
+              Welcome to Agora Pro — your 7-day trial has started. Run unlimited agons with up to 5 minds.
+            </div>
+            <button
+              onClick={() => setCheckoutSuccess(false)}
+              aria-label="Dismiss"
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "var(--fg-dim)",
+                cursor: "pointer",
+                fontSize: "16px",
+                lineHeight: 1,
+                padding: "0 4px",
+                flexShrink: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+        )}
+
         {state.error && (
           <div
+            data-testid="agora-error-banner"
             style={{
               marginBottom: "32px",
-              border: "1px solid var(--red)",
+              border: `1px solid ${state.rateLimited ? "var(--amber)" : "var(--red)"}`,
               borderRadius: "4px",
               padding: "12px 16px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
               color: "var(--fg-dim)",
               lineHeight: 1.5,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "12px",
             }}
           >
-            <span style={{ marginRight: "10px", color: "var(--red)" }}>
-              {state.rateLimited ? "RATE LIMIT" : "ERROR"}
-            </span>
-            {state.error}
+            <div>
+              <span style={{ marginRight: "10px", color: state.rateLimited ? "var(--amber)" : "var(--red)" }}>
+                {state.rateLimited ? "RATE LIMIT" : "ERROR"}
+              </span>
+              {state.error}
+            </div>
+            {state.rateLimited && !isPro && (
+              <Link
+                href="/pricing"
+                data-testid="rate-limit-upgrade-link"
+                className="font-mono"
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--amber)",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  flexShrink: 0,
+                }}
+              >
+                Start 7-day Pro trial →
+              </Link>
+            )}
           </div>
         )}
 
@@ -1769,7 +1853,8 @@ function ConsensusStage({
   quotaRemaining: number | undefined;
 }) {
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
-  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
+  const [shareState, setShareState] = useState<"idle" | "sharing" | "copied">("idle");
+  const [savedShareId, setSavedShareId] = useState<string | null>(null);
 
   async function handleSave() {
     if (!consensus) return;
@@ -1786,42 +1871,102 @@ function ConsensusStage({
           consensus,
         }),
       });
-      setSaveState(res.ok ? "saved" : "error");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.shareId) setSavedShareId(data.shareId);
+        setSaveState("saved");
+      } else {
+        setSaveState("error");
+      }
     } catch {
       setSaveState("error");
     }
   }
 
-  function handleShare() {
-    if (!consensus) return;
+  function buildTextFallback(): string {
     const names = selectedMinds.map((m) => m.name).join(", ");
-    const text = [
+    return [
       `I asked: "${topic}"`,
       ``,
       `Council: ${names}`,
       ``,
-      `Key action: ${consensus.actionSummary}`,
+      `Key action: ${consensus?.actionSummary ?? ""}`,
       ``,
       `Try it yourself at consultthedead.com`,
     ].join("\n");
+  }
 
-    if (typeof navigator !== "undefined" && navigator.share) {
-      navigator.share({ title: "Consult The Dead — Debate Result", text }).catch(() => {
-        // User cancelled or share failed — fall back to clipboard
-        copyToClipboard(text);
-      });
+  async function handleShare() {
+    if (!consensus) return;
+    setShareState("sharing");
+
+    // Try to get a persistent share URL. If we already saved, reuse it.
+    let shareUrl: string | null = null;
+    if (savedShareId) {
+      shareUrl = `${window.location.origin}/agora/a/${savedShareId}`;
     } else {
-      copyToClipboard(text);
+      try {
+        const res = await fetch("/api/library", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            topic,
+            mindSlugs: selectedMinds.map((m) => m.slug),
+            rounds: TOTAL_ROUNDS,
+            turns,
+            consensus,
+          }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.shareId) {
+            setSavedShareId(data.shareId);
+            shareUrl = `${window.location.origin}/agora/a/${data.shareId}`;
+          }
+        }
+      } catch {
+        // fall through to text fallback
+      }
+    }
+
+    const shareTitle = "Consult The Dead — Debate Result";
+    if (shareUrl) {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({ title: shareTitle, url: shareUrl });
+          setShareState("idle");
+          return;
+        } catch {
+          // user cancelled or share failed — fall back to clipboard
+        }
+      }
+      await copyToClipboard(shareUrl);
+    } else {
+      // No persistent URL (e.g. authenticated free user gets 403) — share text
+      const text = buildTextFallback();
+      if (typeof navigator !== "undefined" && navigator.share) {
+        try {
+          await navigator.share({ title: shareTitle, text });
+          setShareState("idle");
+          return;
+        } catch {
+          // fall through to clipboard
+        }
+      }
+      await copyToClipboard(text);
     }
   }
 
-  function copyToClipboard(text: string) {
+  async function copyToClipboard(content: string) {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        setShareState("copied");
-        setTimeout(() => setShareState("idle"), 2000);
-      });
+      try {
+        await navigator.clipboard.writeText(content);
+      } catch {
+        // ignore clipboard errors
+      }
     }
+    setShareState("copied");
+    setTimeout(() => setShareState("idle"), 2000);
   }
 
   const summaries = consensus
@@ -2103,8 +2248,9 @@ function ConsensusStage({
         )}
 
         <button
+          data-testid="share-result-btn"
           onClick={handleShare}
-          disabled={!consensus}
+          disabled={!consensus || shareState === "sharing"}
           className="font-mono"
           style={{
             background: "transparent",
@@ -2115,10 +2261,10 @@ function ConsensusStage({
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             padding: "14px 28px",
-            cursor: consensus ? "pointer" : "not-allowed",
+            cursor: consensus && shareState !== "sharing" ? "pointer" : "not-allowed",
           }}
         >
-          {shareState === "copied" ? "Copied!" : "Share Result"}
+          {shareState === "sharing" ? "Sharing…" : shareState === "copied" ? "Copied link!" : "Share this agon"}
         </button>
 
         <button
@@ -2146,13 +2292,14 @@ function ConsensusStage({
           style={{
             marginTop: "24px",
             padding: "16px 20px",
-            border: "1px solid var(--hairline)",
+            border: `1px solid ${quotaRemaining === 0 ? "var(--amber)" : "var(--hairline)"}`,
             borderRadius: "4px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "12px",
+            background: quotaRemaining === 0 ? "var(--amber-mist)" : "transparent",
           }}
         >
           <div
@@ -2160,26 +2307,28 @@ function ConsensusStage({
             style={{
               fontSize: "11px",
               letterSpacing: "0.08em",
-              color: quotaRemaining === 0 ? "var(--red)" : "var(--fg-dim)",
+              color: quotaRemaining === 0 ? "var(--fg-dim)" : "var(--fg-dim)",
             }}
           >
             {quotaRemaining === 0
-              ? "You've used all 3 free debates for today"
+              ? "You've used all 3 free debates for today. Come back tomorrow, or:"
               : `${quotaRemaining} free debate${quotaRemaining === 1 ? "" : "s"} remaining today`}
           </div>
           <Link
             href="/pricing"
+            data-testid="quota-upgrade-link"
             className="font-mono"
             style={{
-              fontSize: "10px",
+              fontSize: "11px",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: "var(--amber)",
               textDecoration: "none",
+              fontWeight: quotaRemaining === 0 ? 600 : 400,
             }}
           >
             {quotaRemaining === 0
-              ? "Upgrade for unlimited debates →"
+              ? "Start 7-day free trial →"
               : "Go Pro for unlimited →"}
           </Link>
         </div>

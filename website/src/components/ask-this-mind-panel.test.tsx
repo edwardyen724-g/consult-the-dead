@@ -258,7 +258,7 @@ describe("Ask This Mind — form submission (error paths)", () => {
       })
     ).rejects.toThrow("Unknown framework");
 
-    expect(onError).toHaveBeenCalledWith("Unknown framework");
+    expect(onError).toHaveBeenCalledWith("Unknown framework", undefined);
   });
 
   it("surfaces a plain-text 429 body as the error message", async () => {
@@ -282,7 +282,7 @@ describe("Ask This Mind — form submission (error paths)", () => {
     ).rejects.toThrow("Rate limit reached");
 
     expect(onStatusChange).toHaveBeenLastCalledWith("error");
-    expect(onError).toHaveBeenCalledWith("Rate limit reached");
+    expect(onError).toHaveBeenCalledWith("Rate limit reached", undefined);
   });
 
   it("uses a generic message when the error body is empty JSON with no error key", async () => {

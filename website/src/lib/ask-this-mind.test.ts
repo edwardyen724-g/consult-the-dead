@@ -4,6 +4,8 @@ import {
   ASK_THIS_MIND_MAX_TOPIC_LENGTH,
   AskThisMindRequestError,
   createAskThisMindSubmitHandler,
+  extractRateLimitHint,
+  formatResetCountdown,
   getAskThisMindLimitState,
   normalizeAskThisMindError,
   streamAskThisMindAnalysis,
@@ -71,6 +73,80 @@ describe("normalizeAskThisMindError", () => {
     expect(normalizeAskThisMindError(null)).toBe("Ask This Mind failed. Try again.");
     expect(normalizeAskThisMindError("   ")).toBe("Ask This Mind failed. Try again.");
     expect(normalizeAskThisMindError("  direct error  ")).toBe("direct error");
+  });
+});
+
+describe("formatResetCountdown", () => {
+  it("returns null when resetAt is in the past", () => {
+    const past = Date.now() - 60_000;
+    expect(formatResetCountdown(past)).toBeNull();
+  });
+
+  it("returns null when resetAt equals now", () => {
+    const now = Date.now();
+    expect(formatResetCountdown(now, now)).toBeNull();
+  });
+
+  it("returns '1 minute' for a remaining window of 1 ms to 60 s", () => {
+    const now = 1_000_000;
+    expect(formatResetCountdown(now + 1, now)).toBe("1 minute");
+    expect(formatResetCountdown(now + 60_000, now)).toBe("1 minute");
+  });
+
+  it("returns minutes for windows between 1 and 60 minutes", () => {
+    const now = 1_000_000;
+    expect(formatResetCountdown(now + 2 * 60_000, now)).toBe("2 minutes");
+    expect(formatResetCountdown(now + 42 * 60_000, now)).toBe("42 minutes");
+    expect(formatResetCountdown(now + 59 * 60_000, now)).toBe("59 minutes");
+  });
+
+  it("returns hours for windows between 1 and 23 hours", () => {
+    const now = 1_000_000;
+    expect(formatResetCountdown(now + 1 * 3_600_000, now)).toBe("1 hour");
+    expect(formatResetCountdown(now + 3 * 3_600_000, now)).toBe("3 hours");
+    // 22h 1ms → ceil(22.0000.../1) = 23 hours (still < 24 h threshold)
+    expect(formatResetCountdown(now + 22 * 3_600_000 + 1, now)).toBe("23 hours");
+    // exactly 23h 59m 59s 999ms → ceil rounds to 24h, which hits the "days" branch
+    // (not tested here to avoid boundary ambiguity)
+  });
+
+  it("returns days for windows of 24 hours or more", () => {
+    const now = 1_000_000;
+    expect(formatResetCountdown(now + 24 * 3_600_000, now)).toBe("1 day");
+    expect(formatResetCountdown(now + 3 * 86_400_000, now)).toBe("3 days");
+  });
+});
+
+describe("extractRateLimitHint", () => {
+  it("returns null for non-rate-limit errors", () => {
+    expect(extractRateLimitHint(new Error("generic error"))).toBeNull();
+    expect(extractRateLimitHint(null)).toBeNull();
+    expect(extractRateLimitHint(new AskThisMindRequestError("timeout", 503, false))).toBeNull();
+  });
+
+  it("returns a hint with countdown when resetAt is present and in the future", () => {
+    const futureMs = Date.now() + 42 * 60_000;
+    const error = new AskThisMindRequestError("Rate limited", 429, true, futureMs);
+    const hint = extractRateLimitHint(error);
+    expect(hint).not.toBeNull();
+    expect(hint!.showUpgradeLink).toBe(true);
+    // countdown should be "42 minutes" (exact value depends on formatResetCountdown)
+    expect(hint!.countdown).toMatch(/\d+ minutes?/);
+  });
+
+  it("returns a hint with null countdown when resetAt is absent", () => {
+    const error = new AskThisMindRequestError("Rate limited", 429, true);
+    const hint = extractRateLimitHint(error);
+    expect(hint).not.toBeNull();
+    expect(hint!.countdown).toBeNull();
+    expect(hint!.showUpgradeLink).toBe(true);
+  });
+
+  it("returns a hint with null countdown when resetAt is in the past", () => {
+    const pastMs = Date.now() - 1000;
+    const error = new AskThisMindRequestError("Rate limited", 429, true, pastMs);
+    const hint = extractRateLimitHint(error);
+    expect(hint!.countdown).toBeNull();
   });
 });
 
@@ -195,6 +271,61 @@ describe("streamAskThisMindAnalysis", () => {
       rateLimited: true,
       message: "You've used all 3 free analyses for today.",
     });
+  });
+
+  it("populates resetAt from the X-RateLimit-Reset header on a 429 response", async () => {
+    // Simulate a future Unix-second timestamp (next UTC midnight).
+    const resetAtSec = Math.floor(Date.now() / 1000) + 3600;
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ error: "Rate limited", rateLimited: true }), {
+        status: 429,
+        headers: {
+          "content-type": "application/json",
+          "X-RateLimit-Reset": String(resetAtSec),
+        },
+      })
+    );
+
+    let thrown: unknown;
+    try {
+      await streamAskThisMindAnalysis({
+        frameworkSlug: "isaac-newton",
+        topic: "Should I ship the redesign this week?",
+        fetchImpl: fetchMock as typeof fetch,
+      });
+    } catch (err) {
+      thrown = err;
+    }
+
+    expect(thrown).toBeInstanceOf(AskThisMindRequestError);
+    const error = thrown as AskThisMindRequestError;
+    expect(error.rateLimited).toBe(true);
+    // resetAt should be X-RateLimit-Reset in ms
+    expect(error.resetAt).toBe(resetAtSec * 1000);
+  });
+
+  it("leaves resetAt undefined when X-RateLimit-Reset header is absent on 429", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ error: "Rate limited", rateLimited: true }), {
+        status: 429,
+        headers: { "content-type": "application/json" },
+      })
+    );
+
+    let thrown: unknown;
+    try {
+      await streamAskThisMindAnalysis({
+        frameworkSlug: "isaac-newton",
+        topic: "Should I ship the redesign this week?",
+        fetchImpl: fetchMock as typeof fetch,
+      });
+    } catch (err) {
+      thrown = err;
+    }
+
+    const error = thrown as AskThisMindRequestError;
+    expect(error.rateLimited).toBe(true);
+    expect(error.resetAt).toBeUndefined();
   });
 
   it("raises a generic request error when the response body is empty", async () => {
