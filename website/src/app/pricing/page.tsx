@@ -642,6 +642,20 @@ export default function PricingPage() {
               }}>
                 {proCtaSubtext}
               </p>
+              <p
+                data-testid="pro-cta-trust-badge"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '9px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  textAlign: 'center',
+                  margin: '8px 0 0',
+                }}
+              >
+                Used by indie hackers, founders, and researchers
+              </p>
             </div>
           </div>
         </div>
