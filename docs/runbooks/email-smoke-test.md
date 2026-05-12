@@ -147,30 +147,81 @@ stripe trigger checkout.session.completed \
   --override "checkout_session:subscription=$SUB_ID"
 ```
 
-### Option B: curl with manual Stripe signature
+### Option B: End-to-end checkout with Stripe test card (recommended for receipt email)
+
+Use this to verify the full purchase → webhook → email chain using Stripe's test environment.
+This requires `stripe login` and the Stripe CLI.
 
 ```bash
+# 1. Create a test customer
+CUSTOMER=$(stripe customers create \
+  --email "test@example.com" \
+  --metadata "clerk_user_id=user_smoke_checkout_001" \
+  --output json)
+
+CUSTOMER_ID=$(echo "$CUSTOMER" | jq -r '.id')
+echo "Test customer: $CUSTOMER_ID"   # e.g. cus_AbcDefGhi123
+
+# 2. Start a checkout session via the app's API
+# In Stripe test mode the app must be running locally or against a staging URL.
+# Use test card 4242 4242 4242 4242, any future expiry, any CVC.
+SESSION=$(curl -s -X POST "https://www.consultthedead.com/api/stripe/checkout" \
+  -H "Content-Type: application/json" \
+  -d "{\"priceId\": \"$STRIPE_PRICE_MONTHLY\", \"customerId\": \"$CUSTOMER_ID\"}")
+echo "$SESSION" | jq -r '.url'   # open this URL in a browser
+
+# 3. Complete the checkout in the browser
+# — Card number: 4242 4242 4242 4242
+# — Expiry: any future date (e.g. 12/34)
+# — CVC: any 3 digits (e.g. 123)
+# Stripe fires checkout.session.completed to the registered webhook endpoint.
+
+# 4. Verify the welcome email arrived in the test inbox (test@example.com).
+# Check Resend dashboard → Emails → last 24 h for subject "You're on Pro".
+
+# 5. Cleanup
+stripe customers delete "$CUSTOMER_ID"
+```
+
+> The webhook handler calls `stripe.customers.retrieve(customerId)` and reads the
+> `clerk_user_id` metadata field to find the Clerk user.  The customer **must** carry
+> `clerk_user_id` in its Stripe metadata for the email send to succeed.
+
+### Option C: curl with manual Stripe signature
+
+Use this when you cannot run the Stripe CLI or open a browser (e.g., CI machines,
+headless staging environments).
+
+```bash
+# Step 1 — Create a test customer (skip if reusing one from Option B)
+CUSTOMER=$(stripe customers create \
+  --email "test@example.com" \
+  --metadata "clerk_user_id=user_smoke_curl_001" \
+  --output json)
+
+CUSTOMER_ID=$(echo "$CUSTOMER" | jq -r '.id')
+echo "Test customer: $CUSTOMER_ID"
+
+# Step 2 — Build and sign the webhook payload
 WEBHOOK_URL="https://www.consultthedead.com/api/stripe/webhook"
 STRIPE_WEBHOOK_SECRET="whsec_your_stripe_webhook_secret"
 
 TIMESTAMP=$(date +%s)
 
-# Build a minimal checkout.session.completed payload
-# Replace cus_XXX with a real Stripe customer ID that has a clerk_user_id metadata
-PAYLOAD=$(cat <<'EOF'
+PAYLOAD=$(cat <<ENDJSON
 {
-  "id": "evt_smoke_001",
+  "id": "evt_smoke_curl_001",
   "type": "checkout.session.completed",
   "data": {
     "object": {
-      "id": "cs_smoke_001",
+      "id": "cs_smoke_curl_001",
       "object": "checkout.session",
-      "customer": "cus_REPLACE_WITH_REAL_CUSTOMER_ID",
+      "customer": "${CUSTOMER_ID}",
       "subscription": null
     }
   }
 }
-EOF
+ENDJSON
 )
 
 SIGNED_PAYLOAD="${TIMESTAMP}.${PAYLOAD}"
@@ -182,9 +233,10 @@ curl -s -X POST "$WEBHOOK_URL" \
   -H "stripe-signature: t=${TIMESTAMP},v1=${STRIPE_SIG}" \
   -d "$PAYLOAD"
 # Expected: {"received":true}
-```
 
-> **Important**: The webhook handler calls `stripe.customers.retrieve(customerId)` and `stripe.subscriptions.retrieve(subscriptionId)` against the live Stripe API, so `customer` must be a real customer ID with `clerk_user_id` in its metadata.
+# Step 3 — Cleanup
+stripe customers delete "$CUSTOMER_ID"
+```
 
 ---
 
@@ -219,8 +271,10 @@ curl -s -X POST "$WEBHOOK_URL" \
 ## Cleanup After Smoke Test
 
 ```bash
-# Delete the test Stripe customer created during the Clerk welcome test
-stripe customers delete cus_REPLACE_WITH_TEST_CUSTOMER_ID
+# Delete the test Stripe customer created during Path 2 testing.
+# Use the $CUSTOMER_ID captured above, or substitute the ID directly.
+stripe customers delete "$CUSTOMER_ID"
+# e.g. stripe customers delete cus_AbcDefGhi123
 ```
 
 In Clerk dashboard: delete any test user created during Path 1 testing to avoid polluting user count.

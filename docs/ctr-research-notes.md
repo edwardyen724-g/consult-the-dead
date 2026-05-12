@@ -21,6 +21,31 @@ The next batch should sharpen those shipped surfaces instead of starting a redes
 - Free pricing state: 3 agons/day, anonymous, no signup
 - Pro pricing state: $30/month or $300/year, 7-day trial, Opus consensus, persistent library, PDF export, extended research, optional BYO key
 
+### Live-Proof Pricing Contract
+
+The `/pricing` page ships a live-proof strip on the conversion surface to establish
+capability credibility before the tier CTA. The contract as of 2026-05-11:
+
+- **Stats counter row** (`data-testid="pricing-stats"`) — rendered via
+  `formatPricingStats(PRICING_STATS_DEFAULT)` from
+  `website/src/lib/pricing/stats.ts`. Displays three monospaced labels:
+  `"18 minds"`, `"30 debates in the library"`, `"Free to start"`.
+  Source of truth for the numbers: `ALLOWED_SLUGS` length in
+  `website/src/lib/frameworks.ts` (minds count) and `docs/outreach-debates/*.md`
+  count (debates count). Update both `PRICING_STATS_DEFAULT` and the source files
+  when the roster or debate library grows.
+
+- **Social-proof debate scenario strip** (`SOCIAL_PROOF` constant in
+  `website/src/app/pricing/page.tsx`) — three anonymised debate topics with council
+  composition harvested from `docs/outreach-debates/`. No attribution; only the
+  decision and the council are shown. These are static and updated manually when
+  better real-use examples are available.
+
+The proof strip is intentionally static for v1 (marketing brief 22ee79de §Part 4
+Variant A). Task `55af6ebe` tracks switching the minds/debatesInLibrary counters to
+live Vercel Analytics event counts when that source is ready; the `formatPricingStats`
+API is designed to accept a live `PricingStats` object without touching the page JSX.
+
 ## Prioritized Experiments
 
 | Priority | Experiment | Surface | Why now | Expected lift | Effort |
