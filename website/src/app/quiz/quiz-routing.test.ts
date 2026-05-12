@@ -289,6 +289,19 @@ describe("quiz page and flow", () => {
     expect(textContent(tree)).toContain("What kind of decision are you facing?")
   })
 
+  it("surfaces the best-fit pack route for the selected decision type", () => {
+    const model = buildQuizModel(quizPageFrameworks)
+
+    let tree = renderQuizFlow(model)
+    getButtonByText(tree, "Strategy & Competition").props.onClick()
+    tree = renderQuizFlow(model)
+
+    expect(textContent(tree)).toContain("Best-fit pack")
+    expect(textContent(tree)).toContain("War Room")
+    expect(textContent(tree)).toContain("Generals, conquerors, and covert operators")
+    expect(getLinkByHref(tree, "/agora?pack=war-room").props.href).toBe("/agora?pack=war-room")
+  })
+
   it("covers the quiz flow fallback branches for unknown selections", () => {
     const model = buildQuizModel(quizPageFrameworks)
 
