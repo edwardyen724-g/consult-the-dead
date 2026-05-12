@@ -19,6 +19,8 @@ Two funnel surfaces were added or promoted to convert anonymous visitors into fr
 
 2. **Footer quiz and pricing CTAs** — the shared footer gained a ProofStrip for social proof and two new CTAs: "Take the Guided Quiz →" (routes to `/quiz` with footer UTM params) and "View Pricing" (routes to `/pricing` with footer UTM params). Together they give visitors a second chance to enter the funnel or evaluate Pro on every page that uses the shared footer.
 
+The quiz lane itself is intentionally two-stage: the guided entry opens the decision-type selector, then the second step recommends the best-fit pack when one exists for that decision type or falls back to the featured mind for that lane. The tension choice then opens the chosen `/agora?minds=...` debate.
+
 ---
 
 ## Quiz CTA Header
@@ -127,8 +129,9 @@ Run these steps in order after any deployment that touches Header.tsx, Footer.ts
 ### 6. Quiz landing page integrity
 
 1. Navigate to `https://www.consultthedead.com/quiz?entry=guided`.
-2. Confirm the quiz page renders the guided-entry variant (decision-type selector visible).
-3. Pick any decision type and any route. Confirm the result links to `/agora?minds=...` with the expected slugs pre-filled.
+2. Confirm the quiz page renders the guided-entry variant with the decision-type selector visible.
+3. Pick any decision type and confirm the second step shows a best-fit pack card when that lane has a pack, or a featured mind card when it does not.
+4. Choose any tension and confirm the result links to `/agora?minds=...` with the expected slugs pre-filled.
 
 ---
 

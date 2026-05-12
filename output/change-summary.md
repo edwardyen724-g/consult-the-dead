@@ -1,3 +1,17 @@
+# 2026-05-12 README quiz route inventory update
+
+- Task: Add `/quiz` to the README route table and document the guided entry path
+- Updated:
+  - `README.md`
+- Change:
+  - added `/quiz` to the public route inventory as a live product surface
+  - expanded the product overview to describe the guided quiz path into the council-building flow
+
+## Verification
+
+- `rg -n "/quiz|guided quiz path|guided entry path" /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/README.md`
+- Result: confirmed the README now mentions the guided quiz entry path and lists `/quiz` in the route table.
+
 # 2026-05-12 quiz decision-type routing
 
 - Task: Route the quiz into a best-fit pack or featured mind by decision type
@@ -112,3 +126,19 @@
 - `git diff --check`
 - `rg -n "docs/runbooks/coverage-gate-policy\\.md|docs/branch-coverage-exceptions\\.md" /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/docs /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/output /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/CHANGELOG.md`
 - Result: passed; no whitespace issues, the stale runbook reference is gone, and the registry path resolves in the policy, changelog, and feedback note.
+
+## 2026-05-12 guided quiz entry notes
+
+- Task: Add guided quiz entry notes to website README and rollout runbook
+- Updated:
+  - `website/README.md`
+  - `docs/runbooks/funnel-surface-rollout.md`
+- Change:
+  - documented `/quiz?entry=guided` as the guided entry path in the website app surface list
+  - noted that the quiz lane is two-stage: decision-type selection first, then best-fit pack or featured mind routing before the final Agora handoff
+  - expanded the runbook smoke steps to verify the guided entry selector, the best-fit pack or featured mind recommendation, and the final `/agora?minds=...` handoff
+
+## Verification
+
+- `pnpm --dir website exec vitest run src/app/quiz/page.test.ts`
+- Result: passed (1 file, 5 tests)
