@@ -260,6 +260,103 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "when should I shut down my startup",
       "how to know when to close a startup",
       "shutdown versus pivot startup",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-join-an-accelerator",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Join an Accelerator?",
+    description:
+      "YC, Techstars, and their peers offer capital, network, and credibility — in exchange for equity and three months of your company's direction. This page helps you decide whether the trade is worth it at your current stage.",
+    primaryQuery: "Should I join YC or an accelerator?",
+    secondaryQueries: [
+      "is YC worth it for founders",
+      "accelerator pros and cons startup",
+      "should I apply to Techstars",
+      "YC vs bootstrapping",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "An accelerator trades equity and autonomy for network, capital, and a forcing function. Is the forcing function what you need right now — or is it a distraction from the one thing that actually matters?",
+    targetKeywords: [
+      "should I join an accelerator",
+      "should I apply to YC",
+      "is YC worth it",
+      "accelerator pros and cons",
+      "YC vs bootstrapping",
+      "Techstars worth it",
+      "startup accelerator decision",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-cto-or-find-a-technical-cofounder",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Hire a CTO or Find a Technical Cofounder?",
+    description:
+      "The difference between a CTO and a technical cofounder is not just equity. It is ownership, alignment, trust, and what happens when the company hits a wall. This page helps you decide which relationship your company actually needs.",
+    primaryQuery: "Should I hire a CTO or find a technical cofounder?",
+    secondaryQueries: [
+      "CTO vs technical cofounder",
+      "how to find a technical cofounder",
+      "when to hire a CTO",
+      "non-technical founder needs CTO",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "niccolo-machiavelli",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "A technical cofounder owns the problem with you. A CTO executes your vision. The question is whether you need a partner who will challenge your judgment or a leader who will build what you've decided to build.",
+    targetKeywords: [
+      "should I hire a CTO or find a technical cofounder",
+      "CTO vs technical cofounder",
+      "how to find a technical cofounder",
+      "when to hire a CTO startup",
+      "non-technical founder CTO",
+      "technical cofounder equity",
+      "finding a cofounder",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-launch-now-or-wait-for-perfect",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Launch Now or Wait Until It's Ready?",
+    description:
+      "Launching too early wastes trust. Launching too late wastes time. This page helps you find the moment when the product is good enough to generate real signal — without optimizing for an imaginary user who never existed.",
+    primaryQuery: "Should I launch now or wait until the product is ready?",
+    secondaryQueries: [
+      "when is a startup ready to launch",
+      "launch early vs wait for product to be perfect",
+      "MVP launch timing",
+      "should I ship an MVP",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Every day you wait, you are making a bet that what you will learn from users is worth less than what you will build in isolation. Is that bet right?",
+    targetKeywords: [
+      "should I launch now or wait",
+      "when to launch a startup",
+      "launch early vs wait for perfect",
+      "MVP launch timing",
+      "when is product ready to launch",
+      "should I ship an MVP",
+      "startup launch decision",
+      "start your own agon",
     ],
   },
 ];
