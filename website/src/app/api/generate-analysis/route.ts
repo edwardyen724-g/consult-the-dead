@@ -6,7 +6,7 @@ import { ALLOWED_SLUGS, type FrameworkSlug } from "@/lib/frameworks";
 import { bumpCounter, bumpMind, logTopic } from "@/lib/agon/metrics";
 import { frameworkToSystemPrompt } from "@/lib/agon/frameworkPrompt";
 import { loadFrameworkRaw } from "@/lib/agon/loadFramework";
-import { checkRateLimit, getClientIp } from "@/lib/agon/rateLimit";
+import { checkRateLimit, getClientIp, quotaResetAt } from "@/lib/agon/rateLimit";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -120,7 +120,18 @@ export async function POST(request: NextRequest) {
           ? "You've reached your 100 analysis monthly limit. Manage your subscription from your account page."
           : "You've used all 3 free analyses for today. Add your own Anthropic API key for unlimited use.";
 
-      return jsonError(429, message, { rateLimited: true });
+      const resetAt = quotaResetAt(rateCheck.reason!);
+      const retryAfter = Math.max(0, resetAt - Math.floor(Date.now() / 1000));
+      return NextResponse.json(
+        { error: message, rateLimited: true },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(retryAfter),
+            "X-RateLimit-Reset": String(resetAt),
+          },
+        }
+      );
     }
 
     quotaRemaining = rateCheck.remaining;
