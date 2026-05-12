@@ -1,19 +1,3 @@
-# 2026-05-11 Live-proof pricing contract note
-
-## Files Changed
-- `docs/ctr-research-notes.md`
-
-## What Changed
-- Added a dedicated pricing proof contract to the CTR research brief.
-- Locked the pricing story to shipped-product evidence and approved copy only.
-- Explicitly barred placeholder testimonials, invented customer quotes, and speculative social-proof blocks until real quotes are approved.
-
-## Verification
-- `git diff --check -- docs/ctr-research-notes.md`
-
-## Results
-- Diff check passed.
-
 # 2026-05-09 Shared CTA attribution helper for funnel events
 
 ## Files Changed
