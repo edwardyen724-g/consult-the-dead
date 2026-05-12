@@ -8,9 +8,9 @@
 
 ## Verification
 - `cd website && npm test src/lib/__tests__/pricing-stats-route.test.ts`
-- `cd website && npm test -- --config /tmp/pricing-coverage-config.ts --coverage src/lib/__tests__/pricing-stats-route.test.ts`
+- `cd website && pnpm exec vitest run --coverage --coverage.include=src/lib/pricing/live-stats.ts src/lib/__tests__/pricing-stats-route.test.ts`
 
 ## Results
 - Targeted test file passed: 6 tests
-- Scoped coverage passed for `src/app/api/stats/route.ts` and `src/lib/pricing/live-stats.ts`
+- Scoped coverage passed for `src/lib/pricing/live-stats.ts`
 - Coverage summary: statements 100%, branches 100%, functions 100%, lines 100%
