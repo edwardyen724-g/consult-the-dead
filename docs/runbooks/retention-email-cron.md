@@ -26,6 +26,11 @@ The manifest also records the canonical auth modes:
 - the deployed scheduler may send `x-vercel-cron: 1`
 - `dryRun=1` is the safe local smoke path
 
+The digest smoke path is deterministic by design:
+
+- if the digest route is called with `dryRun=1` before `FEATURED_AGON_*` is configured, it injects placeholder featured metadata and still returns a successful smoke summary
+- if the digest route is called without `dryRun=1` and any `FEATURED_AGON_*` variable is missing, it fails closed with HTTP 500
+
 ## Required Environment
 
 Before enabling production scheduling, verify these values are present in the deployment environment:
@@ -68,6 +73,7 @@ Pass criteria:
 - the manifest JSON includes the four inventory rows above
 - the dry-run calls return 200 without sending Resend traffic
 - the dry-run summaries show the expected `scanned`, `sent`, and `suppressed` keys
+- the digest dry-run remains deterministic even when `FEATURED_AGON_*` is unset, while the production route still returns 500 without those env vars
 
 ## Rollback
 
