@@ -18,6 +18,8 @@ type Status =
   | { kind: "idle" }
   | { kind: "saving" }
   | { kind: "removing" }
+  | { kind: "confirm-remove" }
+  | { kind: "success"; message: string }
   | { kind: "error"; message: string };
 
 type Store = {
@@ -200,7 +202,7 @@ describe("ApiKeySettings", () => {
         body: JSON.stringify({ key: `sk-ant-${"x".repeat(20)}WXYZ` }),
       }),
     );
-    expect(store.maskedKey).toBe("sk-ant-***...***WXYZ");
+    expect(store.maskedKey).toBe("sk-ant-...WXYZ");
     expect(store.editing).toBe(false);
     expect(store.draft).toBe("");
   });
@@ -248,7 +250,12 @@ describe("ApiKeySettings", () => {
     setup(TEST_MASKED_KEY);
     let tree = mount(TEST_MASKED_KEY);
 
-    await getButton(tree, "Remove key").props.onClick();
+    // First click shows the inline confirm-remove dialog
+    getButton(tree, "Remove key").props.onClick();
+    tree = mount(TEST_MASKED_KEY);
+
+    // Confirm the removal — this triggers the actual DELETE request
+    await getButton(tree, "Yes, remove key").props.onClick();
     tree = mount(TEST_MASKED_KEY);
 
     expect(fetchMock).toHaveBeenCalledWith("/api/user/api-key", {
@@ -271,7 +278,12 @@ describe("ApiKeySettings", () => {
     setup(TEST_MASKED_KEY);
     let tree = mount(TEST_MASKED_KEY);
 
-    await getButton(tree, "Remove key").props.onClick();
+    // First click shows the inline confirm-remove dialog
+    getButton(tree, "Remove key").props.onClick();
+    tree = mount(TEST_MASKED_KEY);
+
+    // Confirm the removal — handleRemove fires and encounters the server error
+    await getButton(tree, "Yes, remove key").props.onClick();
     tree = mount(TEST_MASKED_KEY);
 
     expect(textOf(findElement(tree, element => element.props.role === "alert"))).toBe(
