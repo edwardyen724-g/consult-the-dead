@@ -131,7 +131,7 @@ describe("AgoraApp — mobile layout regression", () => {
   it("the API-key section is hidden behind an expandable toggle (mobile-safe pattern)", () => {
     const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
     // The toggle text is always rendered; the key input is conditionally shown
-    expect(markup).toContain("your own anthropic key");
+    expect(markup).toContain("Your Anthropic key");
   });
 });
 
@@ -230,11 +230,11 @@ describe("AgoraApp — inline error UI contract (pre-PR#168 state)", () => {
     expect(markup).not.toContain(">ERROR<");
   });
 
-  it("does not show the 'Begin the Agon' button as disabled-looking with an error present initially", () => {
+  it("does not show the 'Start Agon' button as disabled-looking with an error present initially", () => {
     const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
     // The submit button starts disabled because topic.length < 10 —
     // the cursor:not-allowed is the disabled indicator, not an error state
-    expect(markup).toContain("Begin the Agon");
+    expect(markup).toContain("Start Agon");
   });
 
   it("exports AgoraApp as a named export so error boundaries can wrap it", () => {
@@ -284,7 +284,7 @@ describe("AgoraApp — structural integrity (pre-PR#168 error boundary)", () => 
   it("the BYO API key section is always rendered in the topic stage", () => {
     const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
     // The key toggle must render on first load so users can enter their key
-    expect(markup).toContain("your own anthropic key");
+    expect(markup).toContain("Your Anthropic key");
   });
 
   it("the footer back-link points to / for free users", () => {
