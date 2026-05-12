@@ -26,9 +26,10 @@ export type PricingStats = {
 };
 
 /**
- * Default static stats used by `/pricing` until live counters ship.
- * Source of truth: `website/src/lib/frameworks.ts` ALLOWED_SLUGS length
- * (minds) and `docs/outreach-debates/*.md` count (debatesInLibrary).
+ * Fallback stats used by `/pricing` when live counts are unavailable.
+ * Source of truth for the seeded fallback: `website/src/lib/frameworks.ts`
+ * ALLOWED_SLUGS length (minds) and `docs/outreach-debates/*.md` count
+ * (debatesInLibrary).
  *
  * NOTE: kept hard-coded here rather than computed at build time to avoid
  * pulling the framework registry into the pricing page bundle. Update both

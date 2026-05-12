@@ -55,6 +55,7 @@ The project does not currently use semantic releases, so this changelog records 
 - Share CTA button label aligned with founder directive (PR #250): corrects the share CTA label to match the founder-approved copy.
 - Duplicate quotaResetAt resolved, test assertions aligned, retry hints surfaced (PR #256): fixes the duplicate field bug in quota responses, aligns test assertions, and surfaces retry hint headers.
 - UTM params forwarded from URL to Stripe checkout POST body (PR #276): pricing CTA now carries UTM attribution through into the Stripe checkout session.
+- Pricing proof strip now boots from live stats (task a4301d84): `/pricing` server-seeds the proof row from `getPricingStats()` and refreshes from `/api/stats`, so the counters no longer start from a frozen baseline when live data is available.
 
 ## 2026-05-11
 

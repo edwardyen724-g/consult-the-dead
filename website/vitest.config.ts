@@ -45,6 +45,7 @@ export default defineConfig({
         "src/lib/use-clerk-utm-stamper.ts",
         "src/lib/utm.ts",
         "src/lib/sitemap-data.ts",
+        "src/app/decisions/[slug]/page.tsx",
       ],
       exclude: [
         "src/**/*.d.ts",

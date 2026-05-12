@@ -5,6 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 const mockPush = vi.hoisted(() => vi.fn());
 const mockUseState = vi.hoisted(() => vi.fn());
 const mockUseEffect = vi.hoisted(() => vi.fn());
+const mockGetPricingStats = vi.hoisted(() => vi.fn());
 
 vi.mock("react", async () => {
   const actual = await vi.importActual<typeof import("react")>("react");
@@ -21,6 +22,11 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+vi.mock("@/lib/pricing/live-stats", () => ({
+  getPricingStats: mockGetPricingStats,
+}));
+
+import PricingClient from "./PricingClient";
 import PricingPage from "./page";
 import {
   PRICING_STATS_DEFAULT,
@@ -116,10 +122,10 @@ function deferred<T>() {
   return { promise, resolve };
 }
 
-function renderPricingPage(
+function renderPricingClient(
   billing: "monthly" | "annual" = "annual",
   loading = false,
-  stats: PricingStats = PRICING_STATS_DEFAULT,
+  initialStats: PricingStats = PRICING_STATS_DEFAULT,
 ): RenderResult {
   const setBilling = vi.fn();
   const setLoading = vi.fn();
@@ -129,9 +135,11 @@ function renderPricingPage(
   mockUseEffect.mockReset();
   mockUseState.mockImplementationOnce(() => [billing, setBilling]);
   mockUseState.mockImplementationOnce(() => [loading, setLoading]);
-  mockUseState.mockImplementationOnce(() => [stats, setStats]);
+  mockUseState.mockImplementationOnce(() => [initialStats, setStats]);
 
-  const tree = (PricingPage as unknown as () => unknown)();
+  const tree = (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+    initialStats,
+  });
   return { tree, setBilling, setLoading, setStats };
 }
 
@@ -145,6 +153,7 @@ describe("pricing page", () => {
   beforeEach(() => {
     mockPush.mockReset();
     mockUseEffect.mockReset();
+    mockGetPricingStats.mockReset();
     vi.stubGlobal("fetch", vi.fn());
     vi.stubGlobal("window", {
       location: {
@@ -160,7 +169,7 @@ describe("pricing page", () => {
   });
 
   it("renders the Free, BYO key, and Pro tiers with the stronger Pro CTA", () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain("Free");
@@ -172,11 +181,11 @@ describe("pricing page", () => {
     expect(html).toContain("Start 7-day Pro trial");
     expect(html).toContain("Checkout unlocks Opus, the persistent library, PDF export, and deeper research.");
     expect(html).toContain("You&#x27;ll see a prompt to upgrade to Pro or add your own key.");
-    expect(html).toContain("If you are already sold on the workflow, the Pro checkout is the shortest path to Opus and the persistent library.");
+    expect(html).toContain("Best for people who are already using the product weekly.");
   });
 
   it("renders the trust badge near the Pro CTA", () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain('data-testid="pro-cta-trust-badge"');
@@ -184,7 +193,7 @@ describe("pricing page", () => {
   });
 
   it("renders the pricing stats strip with valid stat values", () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain('data-testid="pricing-stats"');
@@ -194,7 +203,7 @@ describe("pricing page", () => {
   });
 
   it("renders social-proof debate scenario cards below the tier strip", () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain("Should I keep competing on price at $18K MRR");
@@ -206,18 +215,18 @@ describe("pricing page", () => {
   });
 
   it("toggles the billing branch between annual and monthly pricing", () => {
-    const annual = renderPricingPage("annual", false);
+    const annual = renderPricingClient("annual", false);
 
-    expect(textContent(annual.tree)).toContain("$25/mo");
-    expect(textContent(annual.tree)).toContain("billed $300/year");
+    expect(textContent(annual.tree)).toContain("$25 /mo");
+    expect(textContent(annual.tree)).toContain("Billed $300/year.");
 
     const monthlyButton = findButtonByText(annual.tree, "Monthly");
     monthlyButton.props.onClick?.();
     expect(annual.setBilling).toHaveBeenCalledWith("monthly");
 
-    const monthly = renderPricingPage("monthly", false);
+    const monthly = renderPricingClient("monthly", false);
     expect(textContent(monthly.tree)).toContain("$30/mo");
-    expect(textContent(monthly.tree)).toContain("billed monthly");
+    expect(textContent(monthly.tree)).toContain("Billed monthly.");
     expect(textContent(monthly.tree)).not.toContain("billed $300/year");
     expect(textContent(monthly.tree)).not.toContain("−2 mo");
 
@@ -227,7 +236,7 @@ describe("pricing page", () => {
   });
 
   it("renders the loading CTA copy when checkout is pending", () => {
-    const { tree } = renderPricingPage("annual", true);
+    const { tree } = renderPricingClient("annual", true);
 
     expect(textContent(tree)).toContain("Redirecting to checkout…");
     const cta = findButtonByText(tree, "Redirecting to checkout…");
@@ -235,7 +244,7 @@ describe("pricing page", () => {
   });
 
   it("redirects to sign-in when checkout returns 401", async () => {
-    const { tree, setLoading } = renderPricingPage("annual", false);
+    const { tree, setLoading } = renderPricingClient("annual", false);
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     const request = deferred<CheckoutResponse>();
     fetchMock.mockReturnValueOnce(request.promise);
@@ -254,7 +263,7 @@ describe("pricing page", () => {
   });
 
   it("navigates to the checkout URL when the checkout succeeds", async () => {
-    const { tree, setLoading } = renderPricingPage("annual", false);
+    const { tree, setLoading } = renderPricingClient("annual", false);
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     const request = deferred<CheckoutResponse>();
     fetchMock.mockReturnValueOnce(request.promise);
@@ -275,7 +284,7 @@ describe("pricing page", () => {
   });
 
   it("leaves the location alone when checkout returns no URL", async () => {
-    const { tree, setLoading } = renderPricingPage("annual", false);
+    const { tree, setLoading } = renderPricingClient("annual", false);
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     const request = deferred<CheckoutResponse>();
     fetchMock.mockReturnValueOnce(request.promise);
@@ -298,7 +307,7 @@ describe("pricing page", () => {
   // --- social proof stats strip ---
 
   it("renders the static stats row with minds and debates in the library", () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     // data-testid="pricing-stats" wrapper must be present
@@ -314,7 +323,7 @@ describe("pricing page", () => {
       ...PRICING_STATS_DEFAULT,
       agonsRun: 1234,
     };
-    const { tree } = renderPricingPage("annual", false, liveStats);
+    const { tree } = renderPricingClient("annual", false, liveStats);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain("1234 agons run");
@@ -325,7 +334,7 @@ describe("pricing page", () => {
   });
 
   it("omits the agon count label when agonsRun is undefined (static fallback)", () => {
-    const { tree } = renderPricingPage("annual", false, PRICING_STATS_DEFAULT);
+    const { tree } = renderPricingClient("annual", false, PRICING_STATS_DEFAULT);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).not.toContain("agons run");
@@ -336,7 +345,7 @@ describe("pricing page", () => {
       ...PRICING_STATS_DEFAULT,
       agonsRun: 1,
     };
-    const { tree } = renderPricingPage("annual", false, liveStats);
+    const { tree } = renderPricingClient("annual", false, liveStats);
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain("1 agon run");
@@ -344,7 +353,7 @@ describe("pricing page", () => {
   });
 
   it("registers a useEffect to fetch /api/stats on mount", () => {
-    renderPricingPage("annual", false);
+    renderPricingClient("annual", false);
 
     // useEffect should have been called once with a function and empty deps
     expect(mockUseEffect).toHaveBeenCalledTimes(1);
@@ -367,11 +376,18 @@ describe("pricing page", () => {
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ agonsRun: 99 }),
+      json: () =>
+        Promise.resolve({
+          minds: 22,
+          debatesInLibrary: 31,
+          agonsRun: 99,
+        }),
     });
 
     // Capture and run the effect manually
-    (PricingPage as unknown as () => unknown)();
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
     expect(mockUseEffect).toHaveBeenCalledTimes(1);
     const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
     effectCallback();
@@ -383,7 +399,11 @@ describe("pricing page", () => {
     expect(setStats).toHaveBeenCalledTimes(1);
     const updater = setStats.mock.calls[0][0] as (prev: PricingStats) => PricingStats;
     const updated = updater(PRICING_STATS_DEFAULT);
-    expect(updated).toEqual({ ...PRICING_STATS_DEFAULT, agonsRun: 99 });
+    expect(updated).toEqual({
+      minds: 22,
+      debatesInLibrary: 31,
+      agonsRun: 99,
+    });
   });
 
   it("does not update stats when /api/stats returns a non-ok response", async () => {
@@ -397,7 +417,9 @@ describe("pricing page", () => {
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({ ok: false });
 
-    (PricingPage as unknown as () => unknown)();
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
     const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
     effectCallback();
 
@@ -420,7 +442,9 @@ describe("pricing page", () => {
       json: () => Promise.resolve({ agonsRun: "not-a-number" }),
     });
 
-    (PricingPage as unknown as () => unknown)();
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
     const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
     effectCallback();
 
@@ -440,7 +464,9 @@ describe("pricing page", () => {
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockRejectedValueOnce(new Error("network failure"));
 
-    (PricingPage as unknown as () => unknown)();
+    (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
+      initialStats: PRICING_STATS_DEFAULT,
+    });
     const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
 
     // Should not throw
@@ -462,7 +488,7 @@ describe("pricing page", () => {
       },
     });
 
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     const request = deferred<CheckoutResponse>();
     fetchMock.mockReturnValueOnce(request.promise);
@@ -482,7 +508,7 @@ describe("pricing page", () => {
   });
 
   it("omits utm fields from the POST body when no UTM params are present in the URL", async () => {
-    const { tree } = renderPricingPage("annual", false);
+    const { tree } = renderPricingClient("annual", false);
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     const request = deferred<CheckoutResponse>();
     fetchMock.mockReturnValueOnce(request.promise);
@@ -499,5 +525,27 @@ describe("pricing page", () => {
     const body = JSON.parse(fetchInit.body as string) as Record<string, unknown>;
     expect(body.utm_campaign).toBeUndefined();
     expect(body.utm_content).toBeUndefined();
+  });
+
+  it("seeds the client with live stats from the server wrapper", async () => {
+    const liveStats: PricingStats = {
+      minds: 21,
+      debatesInLibrary: 34,
+      agonsRun: 123,
+    };
+    mockGetPricingStats.mockResolvedValueOnce(liveStats);
+
+    const tree = (await PricingPage()) as { props: { initialStats: PricingStats } };
+
+    expect(mockGetPricingStats).toHaveBeenCalledTimes(1);
+    expect(tree.props.initialStats).toEqual(liveStats);
+  });
+
+  it("falls back to the static pricing defaults when live stats are unavailable", async () => {
+    mockGetPricingStats.mockRejectedValueOnce(new Error("stats unavailable"));
+
+    const tree = (await PricingPage()) as { props: { initialStats: PricingStats } };
+
+    expect(tree.props.initialStats).toEqual(PRICING_STATS_DEFAULT);
   });
 });

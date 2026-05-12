@@ -34,6 +34,8 @@ export const ALLOWED_SLUGS = [
   "julius-caesar",
   "napoleon-bonaparte",
   "seneca",
+  // SEO listicle expansion 2026-05 (task c7400a14) — Steve Jobs added for product insight page
+  "steve-jobs",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -67,37 +69,41 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "julius-caesar": "var(--color-caesar)",
   "napoleon-bonaparte": "var(--color-napoleon)",
   "seneca": "var(--color-seneca)",
+  // SEO listicle expansion 2026-05 (task c7400a14)
+  "steve-jobs": "var(--color-jobs)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
 const ERA_FALLBACK: Record<FrameworkSlug, string> = {
-  "isaac-newton": "1643\u20131727",
-  // "albert-einstein": "1879\u20131955", // HIDDEN 2026-04-16
-  "marie-curie": "1867\u20131934",
-  "niccolo-machiavelli": "1469\u20131527",
-  "nikola-tesla": "1856\u20131943",
-  "leonardo-da-vinci": "1452\u20131519",
-  "sun-tzu": "c.\u2009544\u2013496 BC",
-  "marcus-aurelius": "121\u2013180 AD",
-  "benjamin-franklin": "1706\u20131790",
-  "cicero": "106\u201343 BC",
-  "epictetus": "c.\u200950\u2013135 AD",
-  "thomas-edison": "1847\u20131931",
-  "archimedes": "c.\u2009287\u2013212 BC",
-  "john-d-rockefeller": "1839\u20131937",
-  "harriet-tubman": "c.\u20091822\u20131913",
-  "ada-lovelace": "1815\u20131852",
-  "catherine-the-great": "1729\u20131796",
-  "alexander-the-great": "356\u2013323 BC",
-  "cleopatra-vii": "69\u201330 BC",
-  // Roster expansion 2026-05 \u2014 7 new minds
-  "abraham-lincoln": "1809\u20131865",
-  "andrew-carnegie": "1835\u20131919",
-  "florence-nightingale": "1820\u20131910",
-  "frederick-douglass": "1818\u20131895",
-  "julius-caesar": "100\u201344 BC",
-  "napoleon-bonaparte": "1769\u20131821",
-  "seneca": "c.\u20094 BC\u201365 AD",
+  "isaac-newton": "1643–1727",
+  // "albert-einstein": "1879–1955", // HIDDEN 2026-04-16
+  "marie-curie": "1867–1934",
+  "niccolo-machiavelli": "1469–1527",
+  "nikola-tesla": "1856–1943",
+  "leonardo-da-vinci": "1452–1519",
+  "sun-tzu": "c. 544–496 BC",
+  "marcus-aurelius": "121–180 AD",
+  "benjamin-franklin": "1706–1790",
+  "cicero": "106–43 BC",
+  "epictetus": "c. 50–135 AD",
+  "thomas-edison": "1847–1931",
+  "archimedes": "c. 287–212 BC",
+  "john-d-rockefeller": "1839–1937",
+  "harriet-tubman": "c. 1822–1913",
+  "ada-lovelace": "1815–1852",
+  "catherine-the-great": "1729–1796",
+  "alexander-the-great": "356–323 BC",
+  "cleopatra-vii": "69–30 BC",
+  // Roster expansion 2026-05 — 7 new minds
+  "abraham-lincoln": "1809–1865",
+  "andrew-carnegie": "1835–1919",
+  "florence-nightingale": "1820–1910",
+  "frederick-douglass": "1818–1895",
+  "julius-caesar": "100–44 BC",
+  "napoleon-bonaparte": "1769–1821",
+  "seneca": "c. 4 BC–65 AD",
+  // SEO listicle expansion 2026-05 (task c7400a14)
+  "steve-jobs": "1955–2011",
 };
 
 /* ── Display order for the index page ── */
@@ -128,6 +134,7 @@ export const DISPLAY_ORDER: FrameworkSlug[] = [
   "julius-caesar",
   "napoleon-bonaparte",
   "cleopatra-vii",
+  "steve-jobs",
 ];
 
 /* ── Types ── */
@@ -228,7 +235,7 @@ export function getFramework(slug: FrameworkSlug): Framework | null {
   // Compute era string
   let era = ERA_FALLBACK[slug] ?? "";
   if (meta.born && meta.died) {
-    era = `${meta.born}\u2013${meta.died}`;
+    era = `${meta.born}–${meta.died}`;
   } else if (meta.era) {
     era = meta.era;
   }
