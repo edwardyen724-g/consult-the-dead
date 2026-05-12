@@ -452,6 +452,97 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "double down or pivot to AI",
     ],
   },
+  {
+    slug: "should-i-build-in-public",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Build in Public?",
+    description:
+      "Building in public turns your development process into a distribution channel — but it also exposes your strategy and creates accountability you can't easily escape. The question is whether your stage, product, and competitive context make transparency an asset or a liability.",
+    primaryQuery: "Should I build in public?",
+    secondaryQueries: [
+      "build in public strategy startup",
+      "pros and cons building in public",
+      "is building in public worth it",
+      "indie hacker build in public",
+    ],
+    recommendedCouncil: [
+      "marcus-aurelius",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Transparency creates accountability and distribution — but it also exposes your thesis, your failures, and your timing to every competitor watching. Is the audience you're building worth the strategy you're revealing?",
+    targetKeywords: [
+      "should I build in public",
+      "build in public strategy",
+      "is building in public worth it",
+      "indie hacker build in public",
+      "transparency vs stealth startup",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-charge-from-day-one",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Charge for My Product from Day One?",
+    description:
+      "Charging early validates real demand but can slow adoption. Building free first maximizes users but delays real revenue signal. This page helps you decide whether your current stage, product maturity, and market justify charging now.",
+    primaryQuery: "Should I charge for my product from day one?",
+    secondaryQueries: [
+      "when to start charging customers startup",
+      "free vs paid business model",
+      "freemium vs paid early stage",
+      "charge from day one or wait",
+    ],
+    recommendedCouncil: [
+      "marie-curie",
+      "john-d-rockefeller",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Every user who doesn't pay tells you something, but not the same thing as a user who does. Are you optimizing for signal or scale?",
+    targetKeywords: [
+      "should I charge from day one",
+      "when to start charging customers",
+      "freemium vs paid early stage",
+      "free vs paid business model",
+      "pricing strategy early startup",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-split-equity-50-50-with-my-cofounder",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Split Equity 50/50 with My Cofounder?",
+    description:
+      "Equal equity seems fair, but equal splits can create governance deadlocks and obscure real contribution differences. Unequal splits signal hierarchy but can breed resentment. This page helps you decide which structure gives your company the best chance to survive disagreement.",
+    primaryQuery: "Should I split equity 50/50 with my cofounder?",
+    secondaryQueries: [
+      "cofounder equity split",
+      "how to divide equity between cofounders",
+      "equal equity split startup pros cons",
+      "vesting schedule cofounders",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "cicero",
+    ],
+    hookQuestion:
+      "A 50/50 split assumes you and your cofounder are equal in value, commitment, and judgment — now and in three years. Is that assumption correct, or is it the comfortable answer that avoids a hard conversation?",
+    targetKeywords: [
+      "should I split equity 50/50",
+      "cofounder equity split",
+      "how to split equity cofounders",
+      "equal equity split startup",
+      "cofounder equity negotiation",
+      "vesting schedule cofounders",
+      "start your own agon",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
