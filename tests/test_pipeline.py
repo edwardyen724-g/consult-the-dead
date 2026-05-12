@@ -419,6 +419,51 @@ def test_run_framework_validation_writes_validation_artifacts(tmp_path, monkeypa
     assert json.loads(floor_path.read_text(encoding="utf-8"))["alignment_ratio"] == 0.67
 
 
+def test_run_framework_validation_skips_floor_check_without_historical_decisions(
+    tmp_path, monkeypatch
+):
+    framework_path = tmp_path / "steve-jobs" / "framework.json"
+    framework_path.parent.mkdir(parents=True, exist_ok=True)
+    framework_path.write_text(json.dumps({"meta": {"person": "Steve Jobs"}}, indent=2), encoding="utf-8")
+
+    tier1_result = Tier1Result(scenario_results=[])
+    tier2_result = Tier2Result(
+        traceability_ratio=0.81,
+        lens_consistent=True,
+        contradictions=[],
+        per_scenario_details=[],
+    )
+
+    def fake_run_tier1(framework, person, domain, client=None):
+        return tier1_result
+
+    def fake_run_tier2(framework, tier1_scenarios, client=None):
+        return tier2_result
+
+    def fake_prepare_tier3_materials(*, tier1_results, person, output_dir):
+        output_dir.mkdir(parents=True, exist_ok=True)
+        path = output_dir / "review_packet.json"
+        path.write_text(json.dumps({"person": person, "pairs": []}, indent=2), encoding="utf-8")
+        return path
+
+    monkeypatch.setattr("framework_forge.pipeline.run_tier1", fake_run_tier1)
+    monkeypatch.setattr("framework_forge.pipeline.run_tier2", fake_run_tier2)
+    monkeypatch.setattr("framework_forge.pipeline.prepare_tier3_materials", fake_prepare_tier3_materials)
+
+    tier1_path, tier2_path, tier3_path, floor_path = run_framework_validation(
+        "Steve Jobs",
+        "consumer technology",
+        framework_path,
+        tmp_path / "steve-jobs",
+    )
+
+    assert tier1_path.exists()
+    assert tier2_path.exists()
+    assert tier3_path.exists()
+    assert floor_path is None
+    assert not (framework_path.parent / "validation" / "floor-check_results.json").exists()
+
+
 def test_run_pipeline_uses_default_output_dir_and_call_order(tmp_path, monkeypatch):
     import framework_forge.pipeline as pipeline_module
 
@@ -475,6 +520,37 @@ def test_run_pipeline_uses_default_output_dir_and_call_order(tmp_path, monkeypat
         "build",
         "validate",
     ]
+
+
+def test_run_pipeline_surfaces_materialization_errors(tmp_path, monkeypatch):
+    import framework_forge.pipeline as pipeline_module
+
+    monkeypatch.setattr(pipeline_module, "FRAMEWORKS_DIR", tmp_path / "frameworks")
+
+    bibliography_path = tmp_path / "frameworks" / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(
+        json.dumps(
+            [
+                {
+                    "title": "Offline Source",
+                    "url": "offline",
+                    "source_type": "secondary_reporting",
+                    "description": "Offline",
+                    "evidence_layers": ["layer1"],
+                    "fetched": False,
+                    "text_path": None,
+                }
+            ],
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(pipeline_module, "run_source_discovery", lambda person, output_dir: bibliography_path)
+
+    with pytest.raises(FileNotFoundError, match="No source text files found"):
+        run_pipeline("Steve Jobs", "consumer technology")
 
 
 def test_main_parses_args_and_delegates_to_pipeline(tmp_path, monkeypatch, capsys):
