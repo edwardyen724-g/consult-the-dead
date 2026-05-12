@@ -98,6 +98,35 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "start your own agon",
     ],
   },
+  {
+    slug: "should-i-hire-my-first-employee",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Hire My First Employee?",
+    description:
+      "Your first employee shapes your culture more than any later hire. The question is not when you need the help — it's when you're ready to lead, when the work is documented, and when the bottleneck is actually labor, not your own capacity.",
+    primaryQuery: "When to hire my first employee?",
+    secondaryQueries: [
+      "should I hire my first employee",
+      "first hire startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "When you hire your first person, you stop being a solo founder. Are you ready to become a leader?",
+    targetKeywords: [
+      "should I hire my first employee",
+      "first hire startup",
+      "when to hire first employee",
+      "first employee hiring",
+      "startup first hire",
+      "how to hire your first employee",
+      "start your own agon",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
