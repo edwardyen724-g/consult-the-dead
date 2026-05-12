@@ -5,6 +5,7 @@ const {
   currentUserMock,
   checkRateLimitMock,
   getClientIpMock,
+  quotaResetAtMock,
   runAgonMock,
   bumpCounterMock,
   bumpMindMock,
@@ -14,6 +15,7 @@ const {
   currentUserMock: vi.fn(),
   checkRateLimitMock: vi.fn(),
   getClientIpMock: vi.fn(),
+  quotaResetAtMock: vi.fn(),
   runAgonMock: vi.fn(),
   bumpCounterMock: vi.fn(),
   bumpMindMock: vi.fn(),
@@ -28,6 +30,7 @@ vi.mock("@clerk/nextjs/server", () => ({
 vi.mock("@/lib/agon/rateLimit", () => ({
   checkRateLimit: checkRateLimitMock,
   getClientIp: getClientIpMock,
+  quotaResetAt: quotaResetAtMock,
 }));
 
 vi.mock("@/lib/agon/agonEngine", () => ({
@@ -86,6 +89,7 @@ beforeEach(() => {
   currentUserMock.mockReset().mockResolvedValue({ publicMetadata: {} });
   checkRateLimitMock.mockReset();
   getClientIpMock.mockReset().mockReturnValue("127.0.0.1");
+  quotaResetAtMock.mockReset().mockReturnValue(9999999999);
   runAgonMock.mockReset();
   bumpCounterMock.mockReset();
   bumpMindMock.mockReset();

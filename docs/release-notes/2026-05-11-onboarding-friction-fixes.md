@@ -87,6 +87,47 @@ Full runbook: [`docs/runbooks/agora-first-agon-smoke.md`](../runbooks/agora-firs
 
 ---
 
+## Smoke Evidence (2026-05-12)
+
+Automated regression suite run against the `origin/master` build after PR #115 merged.
+
+### Test run
+
+```
+Test Files  4 passed (4)
+      Tests  71 passed (71)
+   Start at  2026-05-12T06:17:35
+
+Files covered:
+  src/app/agora/AgoraApp.test.tsx              — agora integration (accordion, cap upsell, streaming, consensus)
+  src/lib/agon/councilHelpers.test.ts          — getInitialOpenPackIds, suggestCouncil, getActivePacks, edge cases
+  src/components/agora/ShareAgonPanel.test.tsx — share panel (save, copy, error states)
+  src/lib/share-url.test.ts                    — share URL / payload builder contract
+```
+
+All 71 tests pass. No regressions detected.
+
+### Critical-path checks
+
+| Check | Result |
+|-------|--------|
+| Topic input visible on `/agora` load | ✓ confirmed |
+| Council stage accordion renders with at least one pack open | ✓ pack containing pre-seated mind opens automatically |
+| 3 minds selectable; agon submits and streams | ✓ happy path intact |
+| 4th-mind tap triggers amber cap upsell banner immediately | ✓ banner copy and CTA correct |
+| Multi-pack accordion: strategy topic opens War Room pack | ✓ `getInitialOpenPackIds` returns correct pack IDs |
+| Consensus renders all three sections after completion | ✓ Consensus Points, Live Tensions, Recommended Action present |
+
+### Evidence summary
+
+- Automated: 71/71 tests pass; zero failures across 4 test files.
+- Critical-path checks pass per acceptance criteria in `agora-first-agon-smoke.md`.
+- No known regressions from PR #115.
+
+Smoke captured 2026-05-12. Release promoted to **Promoted** state in `docs/release-notes/index.md`.
+
+---
+
 ## Known Edge Cases
 
 | Scenario | Behavior |

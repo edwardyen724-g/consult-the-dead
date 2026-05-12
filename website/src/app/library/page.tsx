@@ -9,6 +9,97 @@ import {
 import { LibraryClient } from "./LibraryClient";
 import { LibraryProofStrip } from "@/components/LibraryProofStrip";
 
+/**
+ * Convert slug to title case — split by `-`, capitalize each word, join with space.
+ * E.g. "sun-tzu" → "Sun Tzu"
+ */
+export function formatMindSlug(slug: string): string {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+/**
+ * Return the sorted unique set of mind slugs across all saved agons.
+ * Sorted for stable rendering order.
+ */
+export function getConsultedMindSlugs(agons: Pick<AgonRecord, "mind_slugs">[]): string[] {
+  const seen = new Set<string>();
+  for (const agon of agons) {
+    for (const slug of agon.mind_slugs ?? []) {
+      seen.add(slug);
+    }
+  }
+  return [...seen].sort();
+}
+
+export function ConsultedMindsStrip({ slugs }: { slugs: string[] }) {
+  if (slugs.length === 0) return null;
+
+  return (
+    <div
+      data-testid="consulted-minds-strip"
+      style={{
+        marginBottom: "28px",
+        paddingBottom: "24px",
+        borderBottom: "1px solid var(--hairline)",
+      }}
+    >
+      <p
+        className="font-mono"
+        style={{
+          fontSize: "9px",
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "var(--fg-dim)",
+          margin: "0 0 12px",
+        }}
+      >
+        Minds in your collection
+      </p>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px",
+          marginBottom: "10px",
+        }}
+      >
+        {slugs.map((slug) => (
+          <div key={slug} data-testid="mind-chip">
+            <img
+              src={`/portraits/${slug}-portrait.png`}
+              alt={formatMindSlug(slug)}
+              title={formatMindSlug(slug)}
+              width={40}
+              height={40}
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                border: "2px solid var(--amber)",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      <p
+        className="font-mono"
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.12em",
+          color: "var(--fg-dim)",
+          margin: 0,
+        }}
+      >
+        {slugs.length} distinct {slugs.length === 1 ? "mind" : "minds"} consulted
+      </p>
+    </div>
+  );
+}
+
 export default async function LibraryPage() {
   const user = await currentUser();
   if (!user) redirect("/sign-in");
@@ -172,6 +263,7 @@ export async function ProLibrary({ userId }: { userId: string }) {
 
   const stats = getLibraryProgressStats(agons);
   const upsellNudge = getLibraryUpsellNudge(stats.savedDebates);
+  const consultedSlugs = getConsultedMindSlugs(agons);
 
   return (
     <>
@@ -185,6 +277,8 @@ export async function ProLibrary({ userId }: { userId: string }) {
       >
         <LibraryProofStrip stats={stats} />
       </div>
+
+      <ConsultedMindsStrip slugs={consultedSlugs} />
 
       {upsellNudge && (
         <div
