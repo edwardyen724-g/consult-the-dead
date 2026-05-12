@@ -22,8 +22,8 @@ If you find yourself typing any of those, this skill applies.
 
 1. **Anchor the reference on the capsule id only.** Write
    `"the remaining errors are owned by capsule:<id>"`. Do NOT name the
-   ownerAgent in prose — capsule ownership can be reassigned and your
-   description will silently rot.
+   ownerAgent in goal text or other prose — capsule ownership can be
+   reassigned and the description will silently rot.
 
 2. **Use `blockedBy` to express ordering.** If your capsule's acceptance
    cannot be fully met until the peer capsule merges, set
@@ -38,9 +38,10 @@ If you find yourself typing any of those, this skill applies.
    are in pricing/page.tsx, owned by capsule:<id>"). Otherwise CTO review will
    reject the PR for not meeting the original acceptance.
 
-4. **Surface the residual on the parent task.** Either set the task's
-   `dependsOn` to include the peer-capsule's task id, or add a note to the
-   task description recording the split. Without this, the task can be marked
+4. **Surface the residual on the parent task.** If acceptance is split across
+   capsules, record it on the parent task too: set the task's `dependsOn` to
+   include the peer-capsule's task id and/or add a note to the task
+   description recording the split. Without this, the task can be marked
    `done` while the parent acceptance is still half-met.
 
 ## Why
