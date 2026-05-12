@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import warnings
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Sequence
@@ -19,6 +20,7 @@ from framework_forge.extraction.lens import derive_lens
 from framework_forge.sources import discover_sources as discover_framework_sources
 from framework_forge.sources import fetch_source
 from framework_forge.sources import triage_sources
+from framework_forge.sources.fetcher import FetchError
 from framework_forge.sources.triage import SourceEntry
 from framework_forge.validation.floor_check import run_floor_check
 from framework_forge.validation.tier1 import run_tier1
@@ -73,8 +75,18 @@ def materialize_source_texts(bibliography_path: Path, source_text_dir: Path) -> 
         if output_path.exists():
             continue
         if not source.url or source.url.lower() == "offline":
+            warnings.warn(
+                f"Skipping source {source.title!r}: URL is {source.url!r} (offline or missing)",
+                stacklevel=2,
+            )
             continue
-        fetch_source(source.url, output_path)
+        try:
+            fetch_source(source.url, output_path)
+        except FetchError as exc:
+            warnings.warn(
+                f"Skipping source {source.title!r}: {exc}",
+                stacklevel=2,
+            )
 
     text_files = sorted(source_text_dir.glob("*.txt"))
     if not text_files:
@@ -103,10 +115,27 @@ class PipelineResult:
     floor_check_results_path: Path | None = None
 
 
-def run_source_discovery(person: str, output_dir: Path) -> Path:
-    """Discover and persist ranked sources for a historical figure."""
-    ranked_sources = triage_sources(discover_framework_sources(person))
+def run_source_discovery(person: str, output_dir: Path, *, force: bool = False) -> Path:
+    """Discover and persist ranked sources for a historical figure.
+
+    If *bibliography.json* already exists in *output_dir* and *force* is ``False``
+    (the default), the existing file is reused so the pipeline can resume without
+    making another LLM call.  Pass ``force=True`` to re-run discovery regardless.
+
+    Args:
+        person: Full name of the historical figure.
+        output_dir: Root directory for this person's pipeline artifacts.
+        force: When ``True``, always re-run source discovery even if a
+            bibliography file already exists.
+
+    Returns:
+        Path to the bibliography JSON file.
+    """
     bibliography_path = output_dir / "sources" / "bibliography.json"
+    if bibliography_path.exists() and not force:
+        return bibliography_path
+
+    ranked_sources = triage_sources(discover_framework_sources(person))
     _write_json(bibliography_path, [source.to_dict() for source in ranked_sources])
     return bibliography_path
 

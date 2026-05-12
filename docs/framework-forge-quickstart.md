@@ -37,31 +37,30 @@ python -m framework_forge.cli <command> ...
 | Command | Purpose | Main Input | Main Output |
 | --- | --- | --- | --- |
 | `discover-sources` | Discover and rank the best source material for a person. | `--person`, optional `--output` | `frameworks/<person>/sources/bibliography.json` |
+| `fetch-sources` | Materialise source texts from a saved bibliography (Stage 1b). | `--bibliography`, `--output-dir` | `<output-dir>/*.txt` |
 | `identify-incidents` | Scan source text files and extract candidate critical incidents. | `--person`, `--source-dir`, optional `--output` | `frameworks/<person>/incidents/candidates.json` |
 | `reconstruct` | Apply CDM probes to each candidate incident. | `--person`, `--incidents-file`, optional `--output` | `frameworks/<person>/incidents/incidents.json` |
 | `build` | Map constructs, derive the lens, generate predictions, and assemble the framework JSON. | `--person`, `--framework-dir`, `--domain` | `frameworks/<person>/constructs.json` and `frameworks/<person>/framework.json` |
-| `validate` | Run Tier 1, Tier 2, Tier 3 prep, or floor-check validation. | `--framework`, `--person`, `--domain`, `--mode` | `frameworks/<person>/validation/tier1_results.json`, `tier2_results.json`, `tier3_materials/review_packet.json` |
-| `chat` | Open an interactive chat session against a framework JSON. | `--framework`, optional `--model` | Interactive session only |
+| `validate` | Run validation at the selected tier (`tier1`, `tier2`, `full`, `floor-check`). | `--framework`, `--person`, `--domain`, `--mode` | `frameworks/<person>/validation/tier1_results.json`, `tier2_results.json`, `tier3_materials/review_packet.json` |
 
 ## Typical Flow
 
 1. Discover sources for a person.
-2. Download or place the source texts under that person’s `sources/texts/` directory.
+2. Fetch and materialise source texts with `fetch-sources` (or place `.txt` files manually under `sources/texts/`).
 3. Identify incidents from the text corpus.
 4. Reconstruct each candidate incident with CDM probes.
 5. Build the framework JSON from the reconstructed incident set.
 6. Validate the framework with the appropriate mode.
-7. Use `chat` to test how the framework behaves in conversation.
 
 Example sequence for Steve Jobs:
 
 ```bash
 framework-forge discover-sources --person "Steve Jobs" --output frameworks/steve-jobs
+framework-forge fetch-sources --bibliography frameworks/steve-jobs/sources/bibliography.json --output-dir frameworks/steve-jobs/sources/texts
 framework-forge identify-incidents --person "Steve Jobs" --source-dir frameworks/steve-jobs/sources/texts --output frameworks/steve-jobs
 framework-forge reconstruct --person "Steve Jobs" --incidents-file frameworks/steve-jobs/incidents/candidates.json --output frameworks/steve-jobs
 framework-forge build --person "Steve Jobs" --framework-dir frameworks/steve-jobs --domain "consumer technology"
 framework-forge validate --framework frameworks/steve-jobs/framework.json --person "Steve Jobs" --domain "consumer technology" --mode full
-framework-forge chat --framework frameworks/steve-jobs/framework.json
 ```
 
 ## Expected Filesystem Layout

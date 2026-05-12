@@ -366,9 +366,9 @@ class TestTier3Prep:
     """Tests for Tier 3 preparation — human review materials."""
 
     def test_prepare_materials_creates_files(self, tmp_framework_dir):
-        """prepare_tier3_materials should create review_packet.json."""
+        """prepare_tier3_materials should create review_packet.json and return Tier3Result."""
         from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
-        from framework_forge.validation.tier3_prep import prepare_tier3_materials
+        from framework_forge.validation.tier3_prep import Tier3Result, prepare_tier3_materials
 
         results = []
         for i in range(5):
@@ -386,16 +386,21 @@ class TestTier3Prep:
 
         tier1 = Tier1Result(scenario_results=results)
 
-        output_path = prepare_tier3_materials(
+        tier3 = prepare_tier3_materials(
             tier1_results=tier1,
             person="Steve Jobs",
             output_dir=tmp_framework_dir / "validation" / "tier3_materials",
         )
 
-        assert output_path.exists()
-        assert output_path.name == "review_packet.json"
+        assert isinstance(tier3, Tier3Result)
+        assert tier3.path.exists()
+        assert tier3.path.name == "review_packet.json"
+        assert tier3.person == "Steve Jobs"
+        assert len(tier3.pairs) == 5
+        assert tier3.passed is True
+        assert tier3.failure_reasons == []
 
-        loaded = json.loads(output_path.read_text(encoding="utf-8"))
+        loaded = json.loads(tier3.path.read_text(encoding="utf-8"))
         assert "person" in loaded
         assert "pairs" in loaded
         assert len(loaded["pairs"]) == 5
@@ -606,6 +611,7 @@ class TestValidationCliSmoke:
         assert "Running Tier 1: Baseline Differentiation..." in result.output
         assert "Running Tier 2: Internal Consistency..." in result.output
         assert "Review packet saved to" in result.output
+
 
         validation_dir = framework_dir / "validation"
         tier1_path = validation_dir / "tier1_results.json"
