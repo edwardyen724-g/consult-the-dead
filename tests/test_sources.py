@@ -48,6 +48,24 @@ class TestTriage:
         assert ranked[1].source_type == "firsthand_biography"
         assert ranked[2].source_type == "web_summary"
 
+    def test_triage_breaks_ties_by_title_for_deterministic_output(self):
+        """Same-rank sources must be ordered by title so output is stable."""
+        entries = [
+            SourceEntry("Zebra Incident", "http://z.com", "critical_incident", "z", ["layer2"]),
+            SourceEntry("Alpha Incident", "http://a.com", "critical_incident", "a", ["layer2"]),
+            SourceEntry("Mango Incident", "http://m.com", "critical_incident", "m", ["layer2"]),
+        ]
+        ranked = triage_sources(entries)
+        assert [e.title for e in ranked] == ["Alpha Incident", "Mango Incident", "Zebra Incident"]
+
+    def test_triage_is_stable_across_reversed_input(self):
+        """triage_sources must return the same order regardless of input order."""
+        entries = [
+            SourceEntry("Beta", "http://b.com", "critical_incident", "b", ["layer2"]),
+            SourceEntry("Alpha", "http://a.com", "critical_incident", "a", ["layer2"]),
+        ]
+        assert triage_sources(entries) == triage_sources(list(reversed(entries)))
+
 
 class TestCleanHtml:
     def test_strips_tags(self):

@@ -44,6 +44,62 @@ def test_discover_sources_command_writes_ranked_bibliography(tmp_path, monkeypat
     assert bibliography == [{"title": "Source A"}]
 
 
+
+def test_fetch_sources_command_materialises_texts(tmp_path, monkeypatch):
+    """fetch-sources must call materialize_source_texts and report file count."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    output_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    fake_txt = output_dir / "01-source.txt"
+
+    def fake_materialize(bib_path, text_dir):
+        text_dir.mkdir(parents=True, exist_ok=True)
+        fake_txt.write_text("Source content", encoding="utf-8")
+        return [fake_txt]
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "1 source text file(s) ready" in result.output
+
+
+def test_fetch_sources_command_exits_nonzero_on_no_texts(tmp_path, monkeypatch):
+    """fetch-sources must exit with code 1 when no texts can be materialised."""
+    bibliography_path = tmp_path / "bibliography.json"
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    def fake_materialize(bib_path, text_dir):
+        raise FileNotFoundError("No source text files found.")
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(tmp_path / "texts"),
+        ],
+    )
+
+    assert result.exit_code != 0
+
+
 def test_identify_incidents_command_writes_candidates(tmp_path, monkeypatch):
     _patch_llm(monkeypatch)
     source_dir = tmp_path / "sources" / "texts"
