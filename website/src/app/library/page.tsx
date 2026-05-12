@@ -160,74 +160,245 @@ export default async function LibraryPage() {
   );
 }
 
+/* ── Static feature list shown in the free-user upgrade interstitial ── */
+export const PRO_FEATURES = [
+  { label: "Persistent library", detail: "every debate saved, searchable forever" },
+  { label: "Opus consensus", detail: "strongest model for the final recommendation" },
+  { label: "5 minds per agon", detail: "free tier stops at 3" },
+  { label: "PDF export + extended research", detail: "full transcript and deep-dive mode" },
+  { label: "48-hour founder support", detail: "direct email to the builder" },
+] as const;
+
+/* ── Two ghost rows that preview what a Pro library looks like ────── */
+export const GHOST_ROWS = [
+  {
+    topic: "Should I expand to a new market?",
+    minds: "Newton · Seneca · Machiavelli",
+    date: "May 10",
+  },
+  {
+    topic: "How do I know when to pivot vs. persist?",
+    minds: "Lincoln · Carnegie · Aurelius",
+    date: "May 8",
+  },
+] as const;
+
 export function UpgradePrompt() {
   return (
     <div
-      className="font-mono"
+      data-testid="upgrade-prompt"
       style={{
-        border: "1px solid var(--hairline)",
-        borderRadius: "8px",
-        padding: "32px 24px",
-        maxWidth: "520px",
+        maxWidth: "620px",
         width: "100%",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
-        gap: "14px",
+        gap: "0",
       }}
     >
-      <p
+      {/* ── Lock card ── */}
+      <div
         style={{
-          fontSize: "9px",
-          letterSpacing: "0.16em",
-          textTransform: "uppercase",
-          color: "var(--amber)",
-          margin: 0,
+          border: "1px solid var(--hairline)",
+          borderRadius: "8px 8px 0 0",
+          padding: "28px 24px 24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "14px",
         }}
       >
-        Pro feature
-      </p>
-      <p
+        <p
+          className="font-mono"
+          style={{
+            fontSize: "9px",
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "var(--amber)",
+            margin: 0,
+          }}
+        >
+          Pro feature
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontWeight: 400,
+            fontSize: "19px",
+            lineHeight: 1.55,
+            color: "var(--fg)",
+            margin: 0,
+          }}
+        >
+          Save every debate. Revisit any decision.
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "14px",
+            lineHeight: 1.65,
+            color: "var(--fg-dim)",
+            fontStyle: "italic",
+            margin: 0,
+          }}
+        >
+          Free debates disappear after the session. Pro saves every agon to a
+          permanent private archive you can search, export, and revisit.
+        </p>
+
+        {/* Feature list */}
+        <ul
+          data-testid="upgrade-feature-list"
+          style={{
+            listStyle: "none",
+            margin: "4px 0 0",
+            padding: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: "7px",
+          }}
+        >
+          {PRO_FEATURES.map(({ label, detail }) => (
+            <li
+              key={label}
+              className="font-mono"
+              style={{
+                fontSize: "11px",
+                color: "var(--fg-dim)",
+                display: "flex",
+                gap: "10px",
+                alignItems: "baseline",
+              }}
+            >
+              <span style={{ color: "var(--amber)", flexShrink: 0 }}>✓</span>
+              <span>
+                <span style={{ color: "var(--fg)" }}>{label}</span>
+                {" — "}
+                {detail}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <div style={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "6px" }}>
+          <Link
+            href="/pricing"
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "12px 28px",
+              background: "var(--amber)",
+              color: "var(--bg)",
+              textDecoration: "none",
+            }}
+          >
+            Upgrade to Pro →
+          </Link>
+          <span
+            className="font-mono"
+            style={{
+              fontSize: "10px",
+              color: "var(--fg-dim)",
+              letterSpacing: "0.06em",
+            }}
+          >
+            $30/mo · $300/yr · 7-day trial
+          </span>
+        </div>
+      </div>
+
+      {/* ── Ghost preview ── */}
+      <div
+        data-testid="library-ghost-preview"
         style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "19px",
-          lineHeight: 1.55,
-          color: "var(--fg)",
-          margin: 0,
+          border: "1px solid var(--hairline)",
+          borderTop: "none",
+          borderRadius: "0 0 8px 8px",
+          overflow: "hidden",
+          position: "relative",
         }}
       >
-        Save every debate. Revisit any decision.
-      </p>
-      <p
-        style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "15px",
-          lineHeight: 1.6,
-          color: "var(--fg-dim)",
-          fontStyle: "italic",
-          margin: 0,
-        }}
-      >
-        Library is a Pro feature. Upgrade to save agons, export reports, and
-        build a personal archive of council decisions.
-      </p>
-      <Link
-        href="/pricing"
-        style={{
-          display: "inline-block",
-          width: "fit-content",
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          padding: "12px 28px",
-          background: "var(--amber)",
-          color: "var(--bg)",
-          textDecoration: "none",
-        }}
-      >
-        Upgrade to Pro →
-      </Link>
+        {/* "Sample library" label */}
+        <div
+          className="font-mono"
+          style={{
+            padding: "8px 16px",
+            borderBottom: "1px solid var(--hairline)",
+            fontSize: "9px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "var(--fg-dim)",
+            background: "color-mix(in srgb, var(--hairline) 30%, transparent)",
+          }}
+        >
+          Sample library
+        </div>
+
+        {/* Column headers */}
+        <div
+          className="font-mono"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr auto auto",
+            gap: "24px",
+            padding: "8px 16px",
+            fontSize: "9px",
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "var(--fg-dim)",
+            borderBottom: "1px solid var(--hairline)",
+            opacity: 0.6,
+          }}
+        >
+          <span>Topic</span>
+          <span>Minds</span>
+          <span>Date</span>
+        </div>
+
+        {/* Ghost rows */}
+        {GHOST_ROWS.map(({ topic, minds, date }) => (
+          <div
+            key={topic}
+            data-testid="ghost-row"
+            className="font-mono"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr auto auto",
+              gap: "24px",
+              padding: "10px 16px",
+              fontSize: "11px",
+              color: "var(--fg-dim)",
+              borderBottom: "1px solid var(--hairline)",
+              opacity: 0.45,
+              userSelect: "none",
+            }}
+          >
+            <span style={{ fontFamily: "var(--font-serif)", fontSize: "13px", color: "var(--fg)" }}>
+              {topic}
+            </span>
+            <span style={{ whiteSpace: "nowrap" }}>{minds}</span>
+            <span>{date}</span>
+          </div>
+        ))}
+
+        {/* Gradient fade overlay signalling "more below" */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "48px",
+            background:
+              "linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 80%, transparent))",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
     </div>
   );
 }
