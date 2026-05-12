@@ -258,13 +258,10 @@ curl -s -X POST "$WEBHOOK_URL" \
   -d "$PAYLOAD"
 # Expected: {"received":true}
 
-<<<<<<< HEAD
 # Step 3 — Cleanup
 stripe customers delete "$CUSTOMER_ID"
 ```
 
-=======
->>>>>>> 706cdcf (dev-3: Align Agora monetization roadmap with live pricing copy)
 ---
 
 ## Verifying Success
@@ -298,17 +295,10 @@ stripe customers delete "$CUSTOMER_ID"
 ## Cleanup After Smoke Test
 
 ```bash
-<<<<<<< HEAD
 # Delete the test Stripe customer created during Path 2 testing.
 # Use the $CUSTOMER_ID captured above, or substitute the ID directly.
 stripe customers delete "$CUSTOMER_ID"
 # e.g. stripe customers delete cus_AbcDefGhi123
-=======
-# Delete the test Stripe customer. Use the $CUSTOMER_ID captured in Step 1 of Option B,
-# or substitute the ID directly if you used Option A.
-stripe customers delete --test "$CUSTOMER_ID"
-# e.g. stripe customers delete --test cus_AbcDefGhi123
->>>>>>> 706cdcf (dev-3: Align Agora monetization roadmap with live pricing copy)
 ```
 
 In Clerk dashboard: delete any test user created during Path 1 testing to avoid polluting user count.
