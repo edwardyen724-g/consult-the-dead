@@ -150,14 +150,15 @@ checkOrdered(
   "synthesis prompt contains all 5 section labels in order: Key Trends → Key Players → Opportunities → Risks → Key Data Points"
 );
 
-// 4. Data-section wire format: the route uses === LABEL === delimiters to
-//    separate data sections in the synthesis prompt.  The specific labels
-//    must be present so the synthesis prompt builder produces predictable
-//    output.
+// 4. Data-section wire format: the route uses buildResearchDataSections() to
+//    produce `=== SectionTitle ===\n${raw}` strings at runtime.  The section
+//    title strings must appear in the source so the synthesis prompt builder
+//    produces predictable output.  We check for the string literals (as they
+//    appear as sectionTitle values) rather than the assembled delimiter form.
 const dataSectionMarkers = [
-  "=== WEB SEARCH RESULTS ===",
-  "=== HACKERNEWS DISCUSSIONS ===",
-  "=== GITHUB REPOSITORIES ===",
+  "Web Search Results",
+  "Hacker News Discussions",
+  "GitHub Repositories",
   "=== NOTE ===",
 ];
 for (const marker of dataSectionMarkers) {
