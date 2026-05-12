@@ -1,7 +1,12 @@
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import LibraryPage, { ProLibrary, UpgradePrompt } from "./page";
+import LibraryPage, {
+  ProLibrary,
+  UpgradePrompt,
+  getConsultedMindSlugs,
+  formatMindSlug,
+} from "./page";
 
 const currentUserMock = vi.hoisted(() => vi.fn());
 const getUserAgonsMock = vi.hoisted(() => vi.fn());
@@ -118,5 +123,49 @@ describe("LibraryPage", () => {
     const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
     expect(html).toContain("DB ERROR");
     expect(html).toContain("connection refused");
+  });
+
+  it("getConsultedMindSlugs deduplicates and sorts mind slugs across agons", () => {
+    const agons = [
+      { mind_slugs: ["sun-tzu", "cicero"] },
+      { mind_slugs: ["sun-tzu", "archimedes"] },
+      { mind_slugs: null },
+    ];
+    expect(getConsultedMindSlugs(agons)).toEqual(["archimedes", "cicero", "sun-tzu"]);
+  });
+
+  it("getConsultedMindSlugs returns empty array for no agons", () => {
+    expect(getConsultedMindSlugs([])).toEqual([]);
+  });
+
+  it("formatMindSlug converts slug to title case", () => {
+    expect(formatMindSlug("sun-tzu")).toBe("Sun Tzu");
+    expect(formatMindSlug("niccolo-machiavelli")).toBe("Niccolo Machiavelli");
+    expect(formatMindSlug("marie-curie")).toBe("Marie Curie");
+  });
+
+  it("shows consulted minds strip when agons have mind_slugs", async () => {
+    const agons = [
+      makeAgon({ id: "1" }),
+      { ...makeAgon({ id: "2" }), mind_slugs: ["marcus-aurelius"] },
+    ];
+    getUserAgonsMock.mockResolvedValue(agons);
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).toContain('data-testid="consulted-minds-strip"');
+    expect(html).toContain("sun-tzu");
+    expect(html).toContain("marcus-aurelius");
+    expect(html).toContain("2 distinct minds consulted");
+  });
+
+  it("hides consulted minds strip when library is empty", async () => {
+    getUserAgonsMock.mockResolvedValue([]);
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).not.toContain('data-testid="consulted-minds-strip"');
+  });
+
+  it("shows '1 distinct mind consulted' for a single-mind library", async () => {
+    getUserAgonsMock.mockResolvedValue([makeAgon({ id: "1" })]);
+    const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
+    expect(html).toContain("1 distinct mind consulted");
   });
 });

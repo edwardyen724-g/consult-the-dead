@@ -3,7 +3,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import type { FrameworkSlug } from "@/lib/frameworks";
 import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { runAgon } from "@/lib/agon/agonEngine";
-import { checkRateLimit, getClientIp } from "@/lib/agon/rateLimit";
+import { checkRateLimit, getClientIp, quotaResetAt } from "@/lib/agon/rateLimit";
 import { bumpCounter, bumpMind, logTopic } from "@/lib/agon/metrics";
 import type { AgonEvent } from "@/lib/agon/types";
 
@@ -117,11 +117,17 @@ export async function POST(request: NextRequest) {
           ? "You've reached your 100 agon monthly limit. Manage your subscription from your account page."
           : "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use.";
 
+      const resetAt = quotaResetAt(result.reason!);
+      const retryAfter = Math.max(0, resetAt - Math.floor(Date.now() / 1000));
       return new Response(
         JSON.stringify({ error: message, rateLimited: true }),
         {
           status: 429,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Retry-After": String(retryAfter),
+            "X-RateLimit-Reset": String(resetAt),
+          },
         }
       );
     }
