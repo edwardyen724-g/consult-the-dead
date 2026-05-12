@@ -66,17 +66,16 @@ Runbook used: [`docs/runbooks/framework-detail-preview-image-smoke.md`](../runbo
 1. ~~**Missing Seneca portrait asset**~~ — **Resolved.** `/portraits/seneca-portrait.png`
    was restored (task 2d2162d0). The Seneca card now renders the portrait-led
    composition correctly.
-2. **Homepage canonical URL on framework detail pages** — the detail-page HTML
-   still emits `https://www.consultthedead.com/` as the canonical URL instead of
-   the route-scoped URL. The social metadata (OG/Twitter) is correctly
-   route-scoped; the canonical drift is a separate SEO-hygiene gap.
+2. ~~**Homepage canonical URL on framework detail pages**~~ — **Resolved (PR #232).**
+   Framework detail page `canonical` and `og:url` are now locked to
+   `buildFrameworkCanonicalUrl`; the homepage URL no longer leaks into the
+   framework `<head>` on SSR.
 
 ## Status
 
 Smoke captured. Route pipeline is live and functional for the shipped roster.
-One known gap remains (framework-page canonical URL) and is tracked as a
-follow-up item — not a rollback trigger for the preview-image contract itself.
-Seneca portrait asset gap resolved (task 2d2162d0).
+All known gaps resolved: Seneca portrait asset gap resolved (task 2d2162d0);
+framework-page canonical URL drift resolved (PR #232).
 
 Promoted to release-state index on 2026-05-11. CHANGELOG entry recorded
 2026-05-11 (PR #136). Shipped via PR #110 and PR #71.

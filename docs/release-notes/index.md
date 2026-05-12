@@ -28,8 +28,7 @@ _(none)_
   - Route-scoped `/frameworks/[slug]` OG/Twitter preview-image behavior
   - Smoke captured 2026-05-11; route pipeline confirmed live
   - CHANGELOG coverage recorded 2026-05-11 (PR #136)
-  - Known gaps: ~~Seneca portrait asset (404)~~ resolved (task 2d2162d0); framework-page canonical URL drift
-  - Remaining gap is a follow-up item; preview-image contract is stable
+  - All gaps resolved: ~~Seneca portrait asset (404)~~ (task 2d2162d0); ~~framework-page canonical URL drift~~ (PR #232)
 
 - `2026-05-11` - [Auth Noindex Metadata](2026-05-11-auth-noindex-metadata.md) — PR #147
   - Sign-in and sign-up routes emit `robots: noindex, nofollow`
