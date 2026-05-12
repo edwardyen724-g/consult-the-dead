@@ -269,16 +269,23 @@ curl -s "${BASE_URL}/agora" | grep -i "100.*month\|5 minds\|Opus\|upgrade"
 
 Any section that returns no output is a failure — cross-reference Section 3 for the specific claim and Section 4 for the likely drift pattern.
 
-### Automated script (not yet implemented)
+### Automated check (shipped)
 
-`scripts/verify-pricing-contract.ts` does not exist yet. This runbook is the manual equivalent. When the script is eventually written, it should:
+`scripts/pricing-contract-verifier.ts` exists and is the preferred verification method. Run it from the repo root:
 
-1. Fetch `/pricing` and `/agora` HTML.
-2. Assert each row in the Section 3 acceptance criteria table.
-3. Exit non-zero on any missing match.
-4. Be runnable as `npx tsx scripts/verify-pricing-contract.ts [--base-url <url>]` with `BASE_URL` defaulting to production.
+```bash
+# Against production (default):
+BASE_URL=https://www.consultthedead.com \
+npx tsx scripts/pricing-contract-verifier.ts
+```
 
-Until the script exists, run Section 2 manually after each relevant deploy.
+The script:
+1. Fetches `/pricing` and `/agora` HTML from `BASE_URL`.
+2. Asserts each row in the Section 3 acceptance criteria table.
+3. Exits non-zero on any missing match, printing the specific failing check.
+4. Imports canonical copy fragments from `website/src/lib/pricing-copy.ts` to verify metadata strings stay in sync with the source of truth.
+
+Run the automated check first after any deploy that touches pricing surfaces. Fall back to the Section 2 manual steps only if the script itself is unavailable (e.g., broken `tsx` environment).
 
 ---
 

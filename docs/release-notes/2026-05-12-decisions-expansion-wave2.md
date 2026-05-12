@@ -2,10 +2,10 @@
 
 ## Summary
 
-Nine new decisions pages shipped across three batches (PRs #313, #320, #326), bringing the live
-decisions library from 9 to 18 pages. Alongside the content expansion: a sitemap update adds
-all decisions pages to SEO indexing, a framework validation pipeline validates 8 new minds, and
-the live roster grew from 19 to 26 frameworks.
+Twelve new decisions pages shipped across four batches (PRs #313, #320, #326, and batch 6 on
+2026-05-12), bringing the live decisions library from 9 to 21 pages. Alongside the content
+expansion: a sitemap update adds all decisions pages to SEO indexing, a framework validation
+pipeline validates 8 new minds, and the live roster grew from 19 to 26 frameworks.
 
 ---
 
@@ -71,16 +71,36 @@ Live roster grew from **19 → 26 frameworks**.
 
 ---
 
-## Impact Stats
+## Impact Stats (batches 1–5)
 
-| Metric | Before wave 2 | After wave 2 |
-|--------|--------------|--------------|
+| Metric | Before wave 2 | After batches 3–5 |
+|--------|--------------|-------------------|
 | Decisions pages live | 9 | **18** |
 | Live framework roster | 19 | **26** |
 | Frameworks validated (pipeline) | 0 | **8** |
 | Decisions pages in sitemap | 0 | **19** (index + 18 slugs) |
 
-### Decisions Library — Full Inventory (18 pages)
+---
+
+## Batch 6 — Shipped (2026-05-12)
+
+Series A and late-stage founder decisions:
+
+| URL | Recommended Council |
+|-----|---------------------|
+| `/decisions/should-i-raise-a-series-a` | Curie, Rockefeller, Machiavelli |
+| `/decisions/should-i-sign-this-term-sheet` | Machiavelli, Cicero, Aurelius |
+| `/decisions/should-i-go-remote-or-in-person` | Aurelius, Franklin, Nightingale |
+
+---
+
+## Impact Stats (updated — batches 1–6)
+
+| Metric | Before batch 6 | After batch 6 |
+|--------|----------------|---------------|
+| Decisions pages live | 18 | **21** |
+
+### Decisions Library — Full Inventory (21 pages)
 
 | Batch | Slugs |
 |-------|-------|
@@ -89,21 +109,10 @@ Live roster grew from **19 → 26 frameworks**.
 | Batch 3 — PR #313 | `should-i-join-an-accelerator`, `should-i-go-direct-to-consumer`, `should-i-relocate-for-growth` |
 | Batch 4 — PR #320 | `should-i-acquire-a-company`, `should-i-accept-this-speaking-engagement`, `should-i-license-my-technology` |
 | Batch 5 — PR #326 | `should-i-build-in-public`, `should-i-charge-from-day-one`, `should-i-split-equity-50-50-with-my-cofounder` |
-
----
-
-## What's Coming Next
-
-**Batch 6** is targeting Series A and late-stage founder decisions:
-
-- `should-i-raise-a-series-a`
-- `should-i-sign-this-term-sheet`
-- `should-i-go-remote-or-in-person`
-
-Council assignments TBD. Goal: ship before end of May 2026.
+| Batch 6 (2026-05-12) | `should-i-raise-a-series-a`, `should-i-sign-this-term-sheet`, `should-i-go-remote-or-in-person` |
 
 ---
 
 ## Status
 
-PRs #313, #320, #321, #322, #326 merged into `master`. Release note filed 2026-05-12.
+PRs #313, #320, #321, #322, #326 merged into `master`. Batch 6 shipped 2026-05-12. Release note filed 2026-05-12. Total shipped decisions: **21**.

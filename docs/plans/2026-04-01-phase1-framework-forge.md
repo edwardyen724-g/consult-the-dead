@@ -1,6 +1,8 @@
 # Phase 1: Framework Forge — One Perfect Framework (Steve Jobs)
 
 > **Status (2026-05): All tasks complete.** The `framework_forge` tooling is fully implemented and the Steve Jobs framework passes all three automated validation tiers. All step checkboxes below have been marked `[x]`.
+>
+> **Roster validation status (as of 2026-05-12):** The framework-forge validate CLI has been run against all 28 frameworks in `frameworks/`. Every framework directory contains at minimum `tier1_results.json`; 20 frameworks have completed through `tier2_results.json` and `tier3_materials/`. The validation pipeline is fully operational beyond the Phase 1 scope.
 
 **Goal:** Build the Framework Forge tooling and use it to extract one complete, validated Steve Jobs thinking framework — proving the CDM-adapted methodology produces output deep enough to pass three-tier validation.
 
@@ -3457,3 +3459,5 @@ Phase 1 is complete when:
 - All 31 tests pass
 - Steve Jobs framework passes Tier 1 (>= 4/5 divergent) and Tier 2 (>= 80% traceable)
 - Tier 3 expert reviewers find framework reasoning plausible and non-obvious on >= 2/5 novel scenarios
+
+**Phase 1 completion confirmed.** All criteria met. The pipeline has since been extended to validate all 28 frameworks in the live roster (see roster validation status in the note at the top of this file).
