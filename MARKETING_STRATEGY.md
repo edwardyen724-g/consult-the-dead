@@ -2,7 +2,7 @@
 
 **Goal:** Build a self-sustaining content engine that compounds over 90 days into 500+ weekly visitors and 50+ weekly agons started.
 **Approach:** Slow-burn, content-led, organic. **Not** a launch-spike strategy.
-**Last updated:** 2026-05-11
+**Last updated:** 2026-05-12
 
 This is the high-level GTM. The day-to-day operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md). Topic backlog in [`topics.yaml`](topics.yaml).
 
@@ -171,19 +171,25 @@ If Day 90 numbers are missed by 3× → the format isn't working; revisit.
 
 ## 8. Phase plan
 
-### Phase 0 — done (April 2026)
+### Phase 0 — done (April–May 2026)
 - Product live (consultthedead.com + agora.consultthedead.com)
 - Real agon engine, structured prompts, persistent rate limit, anonymous metrics
 - Search Console verified, sitemap submitted
 - Biweekly metrics report scheduled
 - This doc + CONTENT_PIPELINE + topics.yaml in place
+- Stripe checkout + `/checkout/success` Pro confirmation page shipped (PR #285)
+- Post-signup drip email sequence (Days 1, 3, 7) shipped via Resend (PR #287)
+- Beehiiv email capture integrated on consensus stage
+- Funnel telemetry (free_signup → agon_started → checkout_initiated → pro_activated) via Vercel Analytics (PR #288)
+- Wave 1 outreach launched: 10 personalized cold emails with prebuilt debate links sent to highest-signal IH founders
+- `/decisions` surface live with first Phase 1 pages (PR #282)
 
-### Phase 1 — content engine groundwork (next 1–2 weeks)
+### Phase 1 — content engine groundwork (in progress)
 - Edward picks voice approach (real voiceover vs ElevenLabs clone)
 - Article generation pipeline built (topic queue → AI draft → PR review → deploy → Search Console submit)
 - First 2-4 articles shipped
 - Edward records 5 manual reels using picked tooling, no automation yet
-- Email capture provider chosen + integrated on consensus stage
+- ~~Email capture provider chosen + integrated on consensus stage~~ — ✓ done: Beehiiv integrated on consensus stage
 
 ### Phase 2 — Instagram launch (weeks 3–4)
 - Faceless brand account created (handle `@consultthedead`; defensive registrations: `@consultthedead_official`, `@theconsultthedead`)
@@ -235,8 +241,8 @@ Google's Helpful Content Update penalizes them. AI agents don't cite them. Every
 These shape what gets built next. See also [CONTENT_PIPELINE.md §10](CONTENT_PIPELINE.md#10-open-decisions).
 
 1. **Voice:** real Edward voiceover OR ElevenLabs clone of Edward's voice?
-2. **Email provider:** ConvertKit / Beehiiv / Resend / build-our-own?
-3. **`/decisions/` slug pattern:** want pre-loaded agons, or just landing pages with "run yours" CTAs?
+2. ~~**Email provider:** ConvertKit / Beehiiv / Resend / build-our-own?~~ → **resolved 2026-05-12:** Beehiiv for capture/newsletter; Resend for transactional drip.
+3. ~~**`/decisions/` slug pattern:** want pre-loaded agons, or just landing pages with "run yours" CTAs?~~ → **resolved 2026-05-12:** `/decisions/[slug]` ships as static long-form decision pages with embedded Agora CTA. First batch live.
 4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
 5. ~~Concierge offer~~ — resolved 2026-04-20: out of scope until Day 90 evaluation.
 
