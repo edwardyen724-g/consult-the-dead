@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0"
+  },
+  "scripts": {
+    "build": "npm run --prefix website build",
+    "lint": "npm run --prefix website lint",
+    "test": "npm run --prefix website test"
   }
 }
