@@ -33,17 +33,19 @@ export async function generateMetadata({
   if (!fw) return { title: "Not Found" };
   const title = `${fw.meta.person} — ${fw.meta.domain} Decision Framework`;
   const description = `How ${fw.meta.person} would approach your decision. Cognitive framework extracted via the Critical Decision Method from ${fw.meta.incident_count} documented historical incidents.`;
-  const canonicalUrl = buildFrameworkCanonicalUrl(slug);
+  const canonicalUrl =
+    buildFrameworkCanonicalUrl(slug) ??
+    `https://www.consultthedead.com/frameworks/${slug}`;
   return {
     title,
     description,
     alternates: {
-      canonical: canonicalUrl ?? `https://www.consultthedead.com/frameworks/${slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: `${fw.meta.person} — ${fw.meta.domain} | Consult The Dead`,
       description,
-      url: `https://www.consultthedead.com/frameworks/${slug}`,
+      url: canonicalUrl,
       images: [`/frameworks/${slug}/opengraph-image`],
     },
     twitter: {

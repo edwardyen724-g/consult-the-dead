@@ -1,0 +1,290 @@
+[
+  {
+    "id": "incident-001",
+    "decision": "Galileo chose to immediately improve the Dutch telescope design and systematically redirect it toward astronomical observation rather than commercial applications.",
+    "context": "In 1609 Galileo learned of a Dutch lens-grinder's optical instrument that could make distant objects appear closer. Rather than pursuing the commercially obvious application — military and maritime use — he dedicated months to grinding better lenses and improving magnification, then pointed the result at the night sky.",
+    "cdm_probes": {
+      "cues_noticed": "The Dutch instrument's magnification was insufficient for fine astronomical discrimination; better lenses could push magnification to 20x or 30x, revealing detail invisible to the naked eye. The sky was an unexplored observational territory where existing doctrine had no instrument-based evidence to defend it.",
+      "active_goals": "To be the first to produce observational data about the heavens at high magnification, establishing both empirical priority and the patronage leverage that discovery would create.",
+      "rejected_alternatives": "Selling the telescope design for naval and military use as other Dutch and English instrument-makers were doing; using the existing design without improvement; treating the instrument as a curiosity rather than an evidence-generation tool.",
+      "situation_framing": "Galileo framed the telescope not as a product but as an observational instrument whose value lay in what it would reveal, not what it could be sold for.",
+      "expected_outcome": "That high-magnification astronomical observation would reveal phenomena contradicting Aristotelian doctrine and that these revelations would be translatable into patronage and academic position."
+    },
+    "counterfactual": "A commercially oriented inventor would have applied for a patent or military contract for the design, as the Dutch merchant who first demonstrated it attempted to do. An academic natural philosopher would have noted the instrument's existence but continued working with naked-eye observation.",
+    "divergence_explanation": "Galileo's instrument-mediated discovery construct meant he immediately saw the telescope as an evidence-generating device rather than a commercial product; his observation-grounded evidence construct meant the anomalies the telescope would reveal were more interesting than any commercial return.",
+    "outcome": "Within months Galileo had discovered the moons of Jupiter, the phases of Venus, and the cratered surface of the Moon — observations that constituted the empirical core of the Copernican challenge to Aristotelian cosmology.",
+    "source": "Sidereus Nuncius (1610)"
+  },
+  {
+    "id": "incident-002",
+    "decision": "Galileo named his newly discovered moons of Jupiter the 'Medicean Stars' and dedicated Sidereus Nuncius to Cosimo II de' Medici before fully publishing his findings.",
+    "context": "Having discovered four moons orbiting Jupiter — the first objects ever shown to orbit a body other than Earth — Galileo faced a choice: publish immediately through academic channels or secure patronage first. He chose to dedicate the discovery to the Medici ruler, naming the moons after the Medici family.",
+    "cdm_probes": {
+      "cues_noticed": "The discovery was politically explosive — orbiting moons meant not everything moved around the Earth, directly contradicting geocentric doctrine. Publishing without protection was dangerous. The Medici needed an astronomical tribute connected to their dynastic narrative.",
+      "active_goals": "To simultaneously establish observational priority for the discovery, secure the political protection of the most powerful Florentine patron, and obtain a court position that would free him from dependence on university teaching.",
+      "rejected_alternatives": "Publishing through normal academic channels without dedication; naming the moons after abstract mythological figures; delaying publication until the findings could be independently verified.",
+      "situation_framing": "Galileo framed the patronage dedication not as flattery but as a strategic shield — the Medicean Stars could not be attacked without implicitly attacking the Medici dynasty that owned them.",
+      "expected_outcome": "That Cosimo II would accept the dedication, provide court appointment, and that the Medici association would create political protection for findings that would otherwise draw ecclesiastical attack."
+    },
+    "counterfactual": "A purely academic scientist would have submitted the observations to scholarly review without political packaging. A purely political operator would have delayed publication until the findings were less controversial.",
+    "divergence_explanation": "Galileo's strategic institutional framing and patronage leverage constructs meant he saw the political packaging as inseparable from the intellectual publication — the two were components of a single move.",
+    "outcome": "Cosimo II appointed Galileo as Chief Mathematician and Philosopher to the Medici, ending his dependence on university salary. The patronage protection held for over two decades before collapsing under inquisitorial pressure.",
+    "source": "Sidereus Nuncius (1610); Galileo's Daughter by Dava Sobel (1999)"
+  },
+  {
+    "id": "incident-003",
+    "decision": "Galileo engaged Christoph Scheiner in public correspondence over sunspots, insisting on his own priority and refusing to accept Scheiner's interpretation that sunspots were small planets orbiting the sun.",
+    "context": "German Jesuit Christoph Scheiner began publishing observations of sunspots in 1611, attributing them to small bodies orbiting the sun to preserve Aristotelian doctrine of a perfect, unchanging solar body. Galileo had been observing sunspots independently and disagreed with both the priority claim and the interpretation.",
+    "cdm_probes": {
+      "cues_noticed": "Scheiner's observational data was essentially correct but his interpretation preserved the wrong doctrine; the motion of sunspots across the solar disk — their foreshortening near the edges — indicated they were surface features of a rotating sphere, not orbiting bodies. This was both an empirical question and a priority dispute.",
+      "active_goals": "To establish his own observational priority for sunspot discovery, demolish Scheiner's planetary interpretation through geometric reasoning, and demonstrate that the sun rotates — contradicting Aristotelian doctrine of an unchanging celestial body.",
+      "rejected_alternatives": "Ignoring Scheiner's claims and publishing his own observations independently; accepting the planetary interpretation to avoid conflict with the Jesuits; quietly ceding priority to avoid a damaging dispute.",
+      "situation_framing": "Galileo framed the sunspot dispute as both a priority contest and a doctrinal test case — the correct interpretation of sunspot motion would demonstrate that Aristotelian cosmology was empirically wrong.",
+      "expected_outcome": "That geometric analysis of sunspot motion would prove surface rotation, that his published priority claim would hold, and that Jesuit acknowledgment of his findings would provide institutional protection."
+    },
+    "counterfactual": "A politically cautious astronomer would have avoided direct confrontation with the Jesuits — politically the most powerful scholarly order in Rome — over a dispute where conceding priority on the discovery while winning on the interpretation would have been the safer path.",
+    "divergence_explanation": "Galileo's observation-grounded evidence construct meant he could not accept a doctrinally convenient interpretation over an empirically correct one; his priority-consciousness meant ceding the discovery was not an available option.",
+    "outcome": "The Letters on Sunspots (1613) established Galileo's interpretation as correct and created an enduring enmity with Scheiner and the Jesuit order that contributed materially to the later inquisition proceedings.",
+    "source": "Letters on Sunspots (1613)"
+  },
+  {
+    "id": "incident-004",
+    "decision": "Galileo chose to experimentally test Aristotle's claim that heavier bodies fall faster than lighter ones, designing the inclined plane experiment to measure acceleration precisely.",
+    "context": "Aristotelian physics held that heavier objects fall faster than lighter ones in proportion to their weight — a claim that had been accepted for nearly two thousand years without systematic experimental test. Galileo, while at the University of Padua, designed experiments using inclined planes to slow the motion of falling bodies enough to measure their acceleration.",
+    "cdm_probes": {
+      "cues_noticed": "The Aristotelian prediction was precise enough to be testable: a ten-pound ball should fall ten times faster than a one-pound ball. This was a falsifiable claim that had never been falsified because no one had designed an experiment to test it directly.",
+      "active_goals": "To replace Aristotelian verbal descriptions of falling motion with a mathematical law derived from direct measurement, establishing that the law of falling bodies was independent of weight.",
+      "rejected_alternatives": "Accepting the Aristotelian doctrine on authority as other natural philosophers did; conducting thought experiments rather than physical ones; testing the claim directly by dropping balls from a height.",
+      "situation_framing": "Galileo framed the experiment not as a test of Aristotle but as an investigation of a mathematical relationship — what is the relationship between distance fallen and time elapsed? The anti-Aristotelian conclusion was a byproduct of the mathematical investigation.",
+      "expected_outcome": "That precise measurement would reveal a mathematical law — distance proportional to time squared — that applied equally to all falling bodies regardless of composition or weight."
+    },
+    "counterfactual": "Aristotelian natural philosophers addressed motion through qualitative reasoning about essences and causes. Designing controlled experiments with quantitative measurement was not within their methodological framework — they would have responded to empirical counterexamples with qualitative reinterpretation.",
+    "divergence_explanation": "Galileo's experimental quantification construct meant he treated the Aristotelian claim as a mathematical hypothesis subject to measurement rather than as a philosophical doctrine subject to argument.",
+    "outcome": "The experiments revealed that all bodies accelerate at the same rate regardless of mass, establishing the law of uniformly accelerated motion that became the foundation of classical mechanics.",
+    "source": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)"
+  },
+  {
+    "id": "incident-005",
+    "decision": "Galileo chose to publish the Dialogue Concerning the Two Chief World Systems in Italian as a dialogue between three characters rather than as a first-person Latin scientific treatise.",
+    "context": "Having accumulated overwhelming observational evidence for the Copernican heliocentric model, Galileo needed to present it in a form that would reach educated readers while providing some protection against the 1616 injunction against teaching or defending heliocentrism.",
+    "cdm_probes": {
+      "cues_noticed": "The 1616 injunction prohibited 'holding or defending' heliocentrism but arguably permitted discussing it as a hypothesis. A dialogue form in which a fictional character defends heliocentrism allowed Galileo to argue for it without formally holding it. Publishing in Italian rather than Latin would reach educated nobles and merchants — a constituency outside the control of the academic and ecclesiastical establishment.",
+      "active_goals": "To make the cumulative case for heliocentrism comprehensible and persuasive to educated non-specialists, to do so in a form that provided legal cover against the 1616 injunction, and to reach an audience that would create popular pressure for acceptance of the Copernican model.",
+      "rejected_alternatives": "Publishing a direct Latin treatise arguing for heliocentrism (prohibited and dangerous); publishing observational data without interpretive argument (safe but toothless); waiting for the political situation to change.",
+      "situation_framing": "Galileo framed the Dialogue as an 'impartial' presentation of both sides — a fiction that everyone including the Pope initially accepted until the implications of Simplicio's humiliation became clear.",
+      "expected_outcome": "That the dialogue form would provide legal protection, that Italian publication would reach popular audiences, and that the cumulative force of the evidence presented through Salviati would be persuasive even to readers who accepted the fictional framing."
+    },
+    "counterfactual": "A cautious academic would have published only observational data without interpretive context. A reckless advocate would have published a direct argument for heliocentrism. Galileo's dialogue form was an attempt to occupy the space between these positions — and ultimately misjudged where that space ended.",
+    "divergence_explanation": "Galileo's strategic institutional framing construct led him to invest enormous creative effort in the rhetorical packaging of his argument; his confidence in the packaging's protective efficacy exceeded its actual protection.",
+    "outcome": "The Dialogue was published in 1632 and immediately recognized as a defense of heliocentrism. Within months Galileo was summoned to Rome, tried by the Inquisition, and condemned to house arrest.",
+    "source": "Dialogue Concerning the Two Chief World Systems (1632); The Crime of Galileo by de Santillana (1955)"
+  },
+  {
+    "id": "incident-006",
+    "decision": "Galileo publicly challenged the argument that objects on a rotating Earth would be flung off by centrifugal force, using mathematical analysis of circular motion to refute it.",
+    "context": "One of the most powerful objections to a rotating Earth was that objects on its surface would be hurled into space by centrifugal force. Galileo converted this qualitative philosophical debate into a quantitative calculation problem.",
+    "cdm_probes": {
+      "cues_noticed": "The centrifugal force argument was based on an incorrect scaling of the effect. A precise mathematical analysis of the geometry of circular motion and its comparison to measured gravitational acceleration would expose the error.",
+      "active_goals": "To neutralize one of the most rhetorically compelling objections to a rotating Earth by replacing qualitative argument with quantitative calculation.",
+      "rejected_alternatives": "Ignoring the objection as physically intuitive but mathematically naive; responding through private correspondence rather than public rebuttal; finding a non-mathematical rebuttal.",
+      "situation_framing": "Galileo framed the centrifugal force objection as a calculation error rather than a philosophical disagreement — the critics had not done the mathematics.",
+      "expected_outcome": "That precise calculation would show the centrifugal effect on Earth's surface to be vastly smaller than gravity, making the objection numerically negligible."
+    },
+    "counterfactual": "Natural philosophers without Galileo's experimental quantification framework would have engaged the centrifugal argument at the qualitative level without calculating the actual magnitudes involved.",
+    "divergence_explanation": "Galileo's experimental quantification construct meant he reflexively reached for calculation when confronted with a physical objection, converting a philosophical debate into an arithmetic problem.",
+    "outcome": "The mathematical analysis effectively neutralized one of the major physical objections to Earth's rotation for readers who could follow the mathematics.",
+    "source": "Dialogue Concerning the Two Chief World Systems (1632)"
+  },
+  {
+    "id": "incident-007",
+    "decision": "Galileo formulated and published the principle that the speed of a projectile's horizontal and vertical components are independent of each other, enabling the parabolic trajectory calculation.",
+    "context": "Aristotelian physics held that a projectile could have only one cause of motion at a time. Galileo's superposition principle — that horizontal and vertical velocities act simultaneously — made the curved paths of projectiles mathematically calculable.",
+    "cdm_probes": {
+      "cues_noticed": "Observation of actual projectile paths showed curved trajectories inconsistent with sequential motions. If horizontal and vertical velocities were truly independent and simultaneous, the trajectory would be a parabola — a mathematical curve whose properties were well understood.",
+      "active_goals": "To replace Aristotelian sequential impetus theory with a superposition principle that would allow the precise mathematical calculation of any projectile's trajectory from its initial conditions.",
+      "rejected_alternatives": "Accepting Aristotelian sequential motion theory; focusing on empirical description of specific trajectories without seeking a general law.",
+      "situation_framing": "Galileo framed projectile motion as a mathematical superposition problem rather than a qualitative process involving transferred impetus.",
+      "expected_outcome": "That the independence principle would yield a general law — the parabolic trajectory — that could be used to calculate range and maximum height for any projectile from its initial conditions."
+    },
+    "counterfactual": "Aristotelian physicists had no mechanism for treating simultaneous causes of different types; their framework could not accommodate the superposition principle.",
+    "divergence_explanation": "Galileo's experimental quantification and observation-grounded evidence constructs meant he trusted the observed curved paths over the Aristotelian theoretical framework, then used the observational data to infer the superposition principle.",
+    "outcome": "The parabolic trajectory law became foundational for ballistics, engineering, and eventually Newtonian mechanics.",
+    "source": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)"
+  },
+  {
+    "id": "incident-008",
+    "decision": "Galileo chose to send Pope Urban VIII a copy of the Dialogue with a dedication, believing his friendship with the Pope would protect him from the Inquisition's response.",
+    "context": "Cardinal Maffeo Barberini, who became Pope Urban VIII in 1623, had been a personal admirer of Galileo. Galileo believed this personal relationship would provide protection when the Dialogue's heliocentric argument became apparent.",
+    "cdm_probes": {
+      "cues_noticed": "Urban VIII had expressed sympathy for Galileo's scientific work. A dedication could be read as seeking his blessing. The Pope's personal interest in being seen as a patron of learning might extend his protection to controversial findings.",
+      "active_goals": "To use the personal relationship with Urban VIII as a shield against inquisitorial proceedings, treating the Pope's known sympathy as a protective asset.",
+      "rejected_alternatives": "Publishing without the dedication; seeking explicit prior approval from the Pope for the content; consulting with the Inquisition about whether the Dialogue violated the 1616 injunction before publication.",
+      "situation_framing": "Galileo framed his relationship with Urban VIII as sufficiently protective to make formal institutional approval unnecessary — a severe misjudgment of the political dynamics.",
+      "expected_outcome": "That Urban VIII's friendship and the dedication would signal endorsement and provide protection from formal proceedings."
+    },
+    "counterfactual": "A more politically sophisticated actor would have recognized that Urban VIII's friendship was conditional on Galileo not embarrassing the papacy — that a Pope cannot protect a condemned heretic without losing authority.",
+    "divergence_explanation": "Galileo's patronage leverage construct led him to overestimate the durability of personal relationships when institutional authority was at stake.",
+    "outcome": "Urban VIII, reportedly furious at the treatment of Simplicio, withdrew his protection and permitted the Inquisition to proceed against Galileo.",
+    "source": "The Crime of Galileo by de Santillana (1955); Galileo's Daughter by Dava Sobel (1999)"
+  },
+  {
+    "id": "incident-009",
+    "decision": "Galileo chose to formally abjure his heliocentric views before the Inquisition rather than defend them and face execution or life imprisonment.",
+    "context": "In 1633, before the Roman Inquisition, Galileo faced a choice between recanting his published defense of heliocentrism or risking torture and death. He was shown the instruments of torture and given the text of an abjuration to sign.",
+    "cdm_probes": {
+      "cues_noticed": "The Inquisition had the physical power to impose any sentence including death. The charges were specifically about violating the 1616 injunction, not about heresy in the doctrinal sense. A formal abjuration would satisfy the institutional demand while leaving the intellectual questions open — the physical observations did not disappear because a signature was placed on paper.",
+      "active_goals": "To survive the inquisition proceedings with the minimum possible concession to institutional authority, preserving both physical liberty and the ability to continue scientific work, even if under house arrest.",
+      "rejected_alternatives": "Defending heliocentrism as a matter of intellectual principle; fleeing Rome to a Protestant country; seeking diplomatic intervention from the Medici (who had already signaled they would not protect him further).",
+      "situation_framing": "Galileo framed the abjuration as a survivable institutional move rather than an intellectual position — one could sign a document and continue to believe and work.",
+      "expected_outcome": "That formal abjuration would satisfy the Inquisition's institutional requirements, result in house arrest rather than imprisonment or execution, and permit continued scientific work in restricted circumstances."
+    },
+    "counterfactual": "Giordano Bruno had refused to recant and was burned at the stake in 1600. Refusing would have meant death with no further scientific contribution.",
+    "divergence_explanation": "Galileo's strategic institutional framing construct meant he treated the abjuration as a political document separate from his intellectual commitments.",
+    "outcome": "Galileo was sentenced to house arrest at Arcetri, where he completed Two New Sciences (1638), his most scientifically significant work, smuggled to the Netherlands for publication.",
+    "source": "The Crime of Galileo by de Santillana (1955)"
+  },
+  {
+    "id": "incident-010",
+    "decision": "Galileo chose to cultivate and maintain a correspondence with Cardinal Bellarmine, the chief Inquisitor, rather than avoiding engagement with the Roman Curia.",
+    "context": "Cardinal Bellarmine was the most theologically authoritative figure in Rome and the person most likely to determine whether Galileo's work would be condemned. Rather than avoiding the Cardinal, Galileo sought his assessment and corresponded with him.",
+    "cdm_probes": {
+      "cues_noticed": "Bellarmine was the decisive institutional actor; his judgment would determine the outcome more than any other single person. Engagement with him, even if it produced a warning, was better than condemnation without engagement.",
+      "active_goals": "To influence Bellarmine's theological reading of heliocentrism — specifically to persuade him that the Copernican model was a mathematical tool that did not require asserting the physical truth of Earth's motion.",
+      "rejected_alternatives": "Avoiding all contact with the Inquisition hierarchy; seeking a lower-level sympathetic cleric as intermediary; publishing without seeking any institutional endorsement.",
+      "situation_framing": "Galileo framed Bellarmine as a potentially persuadable theological authority rather than as a fixed institutional obstacle.",
+      "expected_outcome": "That Bellarmine would accept the instrumentalist reading of heliocentrism and issue a warning rather than a condemnation — which is essentially what happened in 1616."
+    },
+    "counterfactual": "Avoiding the Inquisition hierarchy entirely would have resulted in condemnation without the opportunity to negotiate the terms of any restriction.",
+    "divergence_explanation": "Galileo's patronage leverage and strategic institutional framing constructs meant he consistently sought to manage institutional authorities through personal engagement rather than avoidance.",
+    "outcome": "Bellarmine issued Galileo a private warning in 1616 not to hold or defend the Copernican doctrine — which Galileo subsequently interpreted as more permissive than it was.",
+    "source": "The Crime of Galileo by de Santillana (1955)"
+  },
+  {
+    "id": "incident-011",
+    "decision": "Galileo chose to publish The Assayer as a polemic against Jesuit Grassi's comet theory, prioritizing the methodological argument over the empirical accuracy of his own alternative.",
+    "context": "Grassi had published a treatise arguing comets were real celestial objects beyond the Moon. Galileo's Assayer argued against Grassi's interpretation and proposed (incorrectly) that comets were optical illusions — but used the controversy as a vehicle for articulating the mathematical-empirical method.",
+    "cdm_probes": {
+      "cues_noticed": "Grassi's methodology — treating qualitative observation as sufficient for physical conclusions — was the methodological opponent Galileo wanted to defeat. The comet dispute was the occasion, not the substance.",
+      "active_goals": "To demolish Grassi's methodological approach and use the polemic as a vehicle for articulating the mathematical-empirical method, even if the specific argument about comets was empirically wrong.",
+      "rejected_alternatives": "Accepting Grassi's observational conclusions while objecting to his Tychonic framework; ignoring the polemic entirely; acknowledging that comets were real celestial objects while objecting to the Jesuit's methodology.",
+      "situation_framing": "Galileo framed the comet dispute as a methodological contest rather than an empirical one — the question was not what comets were but what kind of evidence could settle physical questions.",
+      "expected_outcome": "That the methodological argument would be persuasive to educated readers regardless of the specific empirical disagreement about comets."
+    },
+    "counterfactual": "An empirically scrupulous scientist would have conceded the observational evidence for real comets while objecting to Grassi's theoretical conclusions.",
+    "divergence_explanation": "Galileo's willingness to defend an incorrect empirical position for the sake of a methodological argument is anomalous by his own standards — demonstrating that his commitment to observation was partially mediated by his Copernican commitments.",
+    "outcome": "The Assayer contains the famous declaration that the book of nature is written in the language of mathematics. Galileo was wrong about comets.",
+    "source": "The Assayer (Il Saggiatore, 1623)"
+  },
+  {
+    "id": "incident-012",
+    "decision": "Galileo designed and conducted pendulum experiments to measure time intervals precisely, discovering the isochronism of pendulum oscillations.",
+    "context": "Tradition holds that Galileo observed a swinging lamp in the Cathedral of Pisa and noticed that its oscillation period remained constant regardless of the amplitude of the swing. He then designed experiments to test and quantify this observation precisely.",
+    "cdm_probes": {
+      "cues_noticed": "The apparent constancy of oscillation period despite varying amplitude was counterintuitive. If true, it meant period depended only on length, not amplitude — a precise and exploitable mathematical relationship.",
+      "active_goals": "To establish whether pendulum period was truly independent of amplitude, and if so to characterize the mathematical relationship between period and length — enabling precise time measurement.",
+      "rejected_alternatives": "Accepting the common observation that pendulums slow down as general evidence of non-isochronism; treating the phenomenon as too complex to characterize mathematically; leaving the observation as a curiosity.",
+      "situation_framing": "Galileo framed the pendulum as a potential precision time measurement instrument — its value was not philosophical but practical and mathematical.",
+      "expected_outcome": "That controlled experiments would establish a precise mathematical relationship between pendulum length and period, independent of amplitude, usable to design reliable clocks."
+    },
+    "counterfactual": "An observer without Galileo's experimental quantification framework would have noted the pendulum's regular motion as an interesting phenomenon without designing experiments to characterize the mathematical relationship.",
+    "divergence_explanation": "Galileo's experimental quantification construct meant that every observed regularity was a potential mathematical law waiting to be measured and expressed.",
+    "outcome": "Galileo discovered that pendulum period depends on the square root of length — the relationship later used by Huygens to design the first pendulum clock.",
+    "source": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)"
+  },
+  {
+    "id": "incident-013",
+    "decision": "Galileo observed and documented the phases of Venus through his telescope, recognizing that a full set of phases could only be explained if Venus orbited the Sun.",
+    "context": "If Venus orbited the Earth as Ptolemaic astronomy required, it should show only crescent phases. Galileo observed that Venus showed a full set of phases including gibbous — which required that Venus sometimes be on the far side of the Sun from Earth, possible only if Venus orbited the Sun.",
+    "cdm_probes": {
+      "cues_noticed": "The Ptolemaic model made a precise, testable prediction about Venus's visible phases — it could only appear as a crescent. Any observation of gibbous or full phases would falsify the Ptolemaic arrangement definitively.",
+      "active_goals": "To obtain observational evidence that directly falsified the Ptolemaic geocentric model for at least one planet, establishing that the Earth-centered geometry was wrong in a way that could not be reinterpreted.",
+      "rejected_alternatives": "Treating the phase observations as instrument anomalies; seeking an alternative geocentric interpretation; delaying publication until the full phase cycle was documented across multiple Venus synodic periods.",
+      "situation_framing": "Galileo framed Venus phases as a decisive test between geocentric and heliocentric models — not circumstantial evidence but a logical falsification of the Ptolemaic arrangement.",
+      "expected_outcome": "That the complete phase cycle of Venus would constitute definitive proof that Venus orbits the Sun, ruling out the strict Ptolemaic geocentric model."
+    },
+    "counterfactual": "A Ptolemaic astronomer confronted with gibbous Venus phases would have sought a modified geocentric model rather than accepting the heliocentric conclusion directly.",
+    "divergence_explanation": "Galileo's observation-grounded evidence construct meant he treated the phase observations as logically conclusive rather than as evidence requiring reinterpretation within the existing framework.",
+    "outcome": "The phases of Venus, published in 1610 through a letter to Kepler, established that strict Ptolemaic geocentrism was empirically impossible.",
+    "source": "Sidereus Nuncius (1610); correspondence with Kepler"
+  },
+  {
+    "id": "incident-014",
+    "decision": "Under house arrest at Arcetri, Galileo chose to complete and smuggle Two New Sciences to a Dutch publisher rather than abandon the work.",
+    "context": "After his 1633 condemnation, Galileo was under house arrest and going blind. Despite these conditions, he completed his most scientifically important work and arranged for it to be smuggled to Leiden for publication by Elsevier in 1638.",
+    "cdm_probes": {
+      "cues_noticed": "The physics of motion was the scientific program he had been developing for decades; the inquisition's prohibition was on publishing astronomical work in Italy, not on writing. A Dutch publisher outside Roman jurisdiction could publish without consequence.",
+      "active_goals": "To ensure the mathematical physics of motion was published before his death, regardless of the Roman condemnation's jurisdiction over Italian publications.",
+      "rejected_alternatives": "Abandoning the work as a concession to the Inquisition; seeking a formal exception to the prohibition; waiting for political conditions to change.",
+      "situation_framing": "Galileo framed the geographic jurisdiction of the Inquisition as a technical constraint that could be worked around through publication in a Protestant country.",
+      "expected_outcome": "That Dutch publication would reach European scientists without exposing him to further prosecution and that the work would establish the mathematical foundations of physics before his death."
+    },
+    "counterfactual": "A scientist who internalized the Inquisition's authority as extending to his intellectual output (not merely to his physical location) would have abandoned the work.",
+    "divergence_explanation": "Galileo's strategic institutional framing construct meant he parsed the Inquisition's prohibition precisely — its reach extended to Italian publication and public advocacy, not to the ideas themselves.",
+    "outcome": "Two New Sciences was published in Leiden in 1638 and became the foundational text of classical mechanics, influencing Newton's synthesis.",
+    "source": "Discourses and Mathematical Demonstrations Relating to Two New Sciences (1638)"
+  },
+  {
+    "id": "incident-015",
+    "decision": "Galileo proposed the first practical method for determining longitude at sea using the moons of Jupiter as a celestial clock.",
+    "context": "The determination of longitude at sea was the great navigational problem of the 17th century. Galileo proposed that the regular, predictable eclipses of Jupiter's moons could serve as a celestial clock, and that comparing observed eclipse times with a master table would give longitude.",
+    "cdm_probes": {
+      "cues_noticed": "Jupiter's moons had regular, predictable orbital periods that could be calculated years in advance. The time difference between predicted and observed eclipses gave longitude.",
+      "active_goals": "To convert his astronomical discovery into a practical navigational tool of immediate commercial and military value to maritime powers who might fund the necessary observations.",
+      "rejected_alternatives": "Treating the Jovian moons as a purely astronomical discovery without practical application; licensing the method only to Italian maritime interests.",
+      "situation_framing": "Galileo framed the astronomical observation as an engineering resource — the same data that proved Jupiter had moons could serve as a precision clock for navigators.",
+      "expected_outcome": "That a maritime power would fund the creation of precise tables of Jovian satellite eclipses in exchange for the navigational advantage the method would provide."
+    },
+    "counterfactual": "An astronomer interested purely in theoretical understanding would have observed Jupiter's moons as an astronomical phenomenon without considering their practical application to navigation.",
+    "divergence_explanation": "Galileo's patronage leverage construct meant he consistently sought to convert scientific discoveries into practical applications that powerful patrons would fund.",
+    "outcome": "The method was sound in principle but proved impractical at sea from a moving ship; it was successfully applied on land for cartography and was used for over a century to establish longitudes of cities.",
+    "source": "Galileo's correspondence with the Spanish Crown; Galileo: A Life by Reston (1994)"
+  },
+  {
+    "id": "incident-016",
+    "decision": "Galileo chose to write his major scientific works in Italian rather than Latin, deliberately targeting educated non-specialists rather than the academic establishment.",
+    "context": "Latin was the universal language of European scholarship. Writing in Italian would limit immediate scholarly circulation but reach educated Italian merchants, nobles, and courtiers who had no stake in Aristotelian doctrine.",
+    "cdm_probes": {
+      "cues_noticed": "The academic establishment was the primary source of institutional resistance to Copernican ideas. Educated non-specialists in courts and merchant families had no stake in Aristotelian doctrine and would be more receptive to empirical arguments.",
+      "active_goals": "To create a reading public for Copernican ideas outside the academic and ecclesiastical establishment — a constituency whose acceptance would matter independently of what scholars and clerics decided.",
+      "rejected_alternatives": "Publishing exclusively in Latin to reach European scholars directly; publishing bilingual editions to reach both audiences simultaneously.",
+      "situation_framing": "Galileo framed popular comprehension as political protection — if educated Italians understood and accepted Copernican ideas, institutional suppression would face social resistance.",
+      "expected_outcome": "That Italian publication would create a popular constituency for Copernican ideas strong enough to limit the Inquisition's ability to suppress them without visible cultural cost."
+    },
+    "counterfactual": "Publishing in Latin would have reached European scholars immediately but would have left the Italian non-specialist audience — potentially the most important political audience — untouched.",
+    "divergence_explanation": "Galileo's strategic institutional framing construct led him to treat the popular audience as a political resource and Italian publication as a way of building that resource outside institutional control.",
+    "outcome": "The Italian Dialogue reached exactly the educated non-specialist audience Galileo targeted — and also made the Copernican argument comprehensible to the Inquisition itself, which used the Italian text as evidence.",
+    "source": "Dialogue Concerning the Two Chief World Systems (1632)"
+  },
+  {
+    "id": "incident-017",
+    "decision": "Galileo observed that the Milky Way resolved into individual stars under telescope magnification and included this observation in Sidereus Nuncius alongside the moons of Jupiter.",
+    "context": "The naked-eye appearance of the Milky Way had been explained by Aristotle as an atmospheric phenomenon. Telescopic observation showed it was composed of enormous numbers of individual stars too faint to be resolved by the naked eye.",
+    "cdm_probes": {
+      "cues_noticed": "The Milky Way's resolved stellar structure was not what Galileo had primarily been looking for — he was pursuing the moons of Jupiter — but the observation falsified Aristotle's atmospheric explanation directly.",
+      "active_goals": "To include the Milky Way observation alongside the Jupiter moons discovery, establishing that the telescope's revelations extended beyond the solar system to the structure of the galaxy itself.",
+      "rejected_alternatives": "Reserving the Milky Way observation for a separate publication; treating it as a marginal note; omitting it to keep Sidereus Nuncius focused on the Jupiter moons discovery.",
+      "situation_framing": "Galileo framed the Milky Way observation as additional evidence of the telescope's capacity to reveal what doctrine had obscured — another Aristotelian claim falsified by observation.",
+      "expected_outcome": "That including the Milky Way observation would strengthen the overall case that the telescope was revealing a universe fundamentally different from the one Aristotle described."
+    },
+    "counterfactual": "A more focused scientist would have published the Jupiter moons discovery first and followed up with the Milky Way observation separately.",
+    "divergence_explanation": "Galileo's observation-grounded evidence construct meant he treated each falsification of Aristotelian doctrine as independently significant and worth including in the record as it was discovered.",
+    "outcome": "Sidereus Nuncius (1610) contained multiple decisive observations — the Milky Way's stellar composition, the cratered Moon, and Jupiter's moons — making it one of the most scientifically consequential publications of the early modern period.",
+    "source": "Sidereus Nuncius (1610)"
+  },
+  {
+    "id": "incident-018",
+    "decision": "Galileo chose to publicly rebut Lodovico delle Colombe's argument that the Moon's mountains contradicted Aristotelian doctrine, targeting the methodological illegitimacy of ad hoc defenses rather than the specific empirical claim.",
+    "context": "Delle Colombe argued that even if lunar mountains were accurate, the Moon could still be perfectly spherical if its surface valleys were filled with an invisible crystalline substance. Galileo chose to engage this unfalsifiable argument rather than dismiss it.",
+    "cdm_probes": {
+      "cues_noticed": "The crystalline sphere argument was unfalsifiable in the strict sense — any observational counterexample could be handled by positing invisible substance. But it was also self-defeating: the same logic could protect any claim from any evidence.",
+      "active_goals": "To demonstrate that the crystalline sphere defense was ad hoc — invented specifically to save a prior doctrine — and that such ad hoc defenses were methodologically illegitimate.",
+      "rejected_alternatives": "Ignoring the argument as obviously motivated; responding through private correspondence rather than public rebuttal; accepting that some doctrines were unfalsifiable and moving on.",
+      "situation_framing": "Galileo framed the debate as methodological — what counts as a legitimate response to observational evidence? The crystalline sphere argument was not a physical hypothesis but a protective stratagem.",
+      "expected_outcome": "That demonstrating the ad hoc character of the crystalline sphere argument would undermine the methodological credibility of Aristotelian defenders more broadly."
+    },
+    "counterfactual": "A pragmatist would have ignored the crystalline sphere argument as unfalsifiable and focused on accumulating additional positive evidence.",
+    "divergence_explanation": "Galileo's observation-grounded evidence construct and strategic framing constructs both demanded engagement: the methodological question — what counts as legitimate evidence? — was as important to him as any specific empirical dispute.",
+    "outcome": "The exchange became a touchstone for later discussions of ad hoc hypothesis defense and the demarcation of science from pseudoscience.",
+    "source": "Letters on Sunspots (1613); Galileo: A Life by Reston (1994)"
+  }
+]

@@ -37,6 +37,29 @@ class Tier2Result:
             and len(self.contradictions) == 0
         )
 
+    @property
+    def failure_reasons(self) -> list[str]:
+        """Human-readable reasons for failure, empty when passed.
+
+        Suitable for release-gate reporting and CI output.
+        """
+        reasons: list[str] = []
+        if self.traceability_ratio < TIER2_MIN_TRACEABILITY:
+            reasons.append(
+                f"Traceability below threshold: {self.traceability_ratio:.0%} "
+                f"(required >= {TIER2_MIN_TRACEABILITY:.0%})"
+            )
+        if not self.lens_consistent:
+            reasons.append(
+                "Perceptual lens applied inconsistently across scenarios"
+            )
+        if self.contradictions:
+            n = len(self.contradictions)
+            reasons.append(
+                f"{n} contradiction{'s' if n != 1 else ''} found in framework responses"
+            )
+        return reasons
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "traceability_ratio": self.traceability_ratio,
@@ -44,7 +67,18 @@ class Tier2Result:
             "contradictions": self.contradictions,
             "per_scenario_details": self.per_scenario_details,
             "passed": self.passed,
+            "failure_reasons": self.failure_reasons,
         }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Tier2Result":
+        """Deserialize from a dict produced by to_dict()."""
+        return cls(
+            traceability_ratio=data["traceability_ratio"],
+            lens_consistent=data["lens_consistent"],
+            contradictions=data["contradictions"],
+            per_scenario_details=data["per_scenario_details"],
+        )
 
 
 # ---------------------------------------------------------------------------

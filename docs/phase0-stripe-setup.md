@@ -67,11 +67,18 @@ Why:
 3. This gives you a hosted checkout URL you can use immediately for testing
 4. Later, the code integration replaces this with programmatic Checkout Sessions
 
-### Step 6: Tax (optional, recommend deferring)
+### Step 6: Tax — Decision: DEFERRED (2026-04-23)
 
-For now: skip Stripe Tax. At $30/mo with <50 customers, manual tax handling is fine. Enable Stripe Tax (0.5% per transaction) when you cross ~100 customers or start getting customers in tax-complex jurisdictions.
+**Decision:** Do not enable Stripe Tax at launch.
 
-If you want to enable it now: **Settings → Tax → Get started** → follow the wizard.
+**Rationale:** At launch, Consult The Dead has fewer than 50 subscribers and no confirmed customers in VAT/GST-mandatory jurisdictions. Manual tax handling (no collection, no remittance) is legally permissible below economic-nexus thresholds in most US states and below the EU/UK digital-services VAT registration thresholds.
+
+**Revisit triggers — either one flips the decision to ENABLED:**
+
+1. **MRR reaches $2,000** — at this level, nexus risk in high-volume US states (CA, TX, NY) becomes non-trivial, and Stripe Tax's 0.5% fee (~$10/mo at that MRR) is a cost-effective hedge. Check: Stripe Dashboard → Revenue → MRR.
+2. **First confirmed subscriber in EU, UK, Australia, Canada, or Norway** — all five require digital-services tax collection regardless of revenue volume (EU VAT, UK VAT, AU GST, Canadian GST/HST, Norwegian MVA). Check: Stripe Dashboard → Customers → filter by country.
+
+**Action when a trigger fires:** Settings → Tax → Get started → follow the wizard (~5 minutes). No code changes needed; Stripe handles collection and reporting.
 
 ---
 
@@ -102,4 +109,4 @@ Add these to your `.env.local` (never commit to git).
 | Monthly price | $30/month |
 | Annual price | $300/year |
 | Customer Portal | Enabled (self-serve cancel + plan switch) |
-| Tax | Deferred until scale warrants it |
+| Tax | DEFERRED — revisit at $2,000 MRR or first EU/UK/AU/CA/NO subscriber |
