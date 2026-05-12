@@ -479,6 +479,129 @@ describe("AgoraApp — consensus stage", () => {
   });
 });
 
+/* ── Reduced-friction topic stage ───────────────────────────────────── */
+
+describe("AgoraApp — reduced-friction topic stage", () => {
+  it("renders the quick-start 'Start Agon' button and the secondary 'Choose council' button", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    // Both action buttons must be present on the topic stage
+    expect(markup).toContain("Start Agon");
+    expect(markup).toContain("Choose council");
+  });
+
+  it("quick-start button has data-testid=quick-start-btn", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    expect(markup).toContain('data-testid="quick-start-btn"');
+  });
+
+  it("choose-council button has data-testid=choose-council-btn", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    expect(markup).toContain('data-testid="choose-council-btn"');
+  });
+
+  it("both action buttons are disabled when topic is empty", () => {
+    // With no topic the topic input is blank — both buttons render as disabled.
+    const markup = renderToStaticMarkup(
+      <AgoraApp minds={minds} isPro={false} _testInitialState={{ topic: "" }} />,
+    );
+
+    // 'disabled' attribute on a button is rendered as 'disabled=""' in static HTML.
+    // React renders the testid first, then other props including disabled, so we look
+    // in the 200 chars AFTER the testid marker to find the disabled attribute.
+    const quickStartIdx = markup.indexOf('data-testid="quick-start-btn"');
+    const chooseCouncilIdx = markup.indexOf('data-testid="choose-council-btn"');
+    expect(quickStartIdx).toBeGreaterThan(-1);
+    expect(chooseCouncilIdx).toBeGreaterThan(-1);
+
+    const quickStartSnippet = markup.slice(quickStartIdx, quickStartIdx + 200);
+    const chooseCouncilSnippet = markup.slice(chooseCouncilIdx, chooseCouncilIdx + 200);
+    expect(quickStartSnippet).toContain("disabled");
+    expect(chooseCouncilSnippet).toContain("disabled");
+  });
+
+  it("API key input is always visible without any toggle interaction", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={false} />);
+
+    // The key section should contain the id we assigned so tests can target it
+    expect(markup).toContain('id="agora-api-key"');
+    // The placeholder is rendered even when the field is empty
+    expect(markup).toContain("sk-ant-");
+    // The wrapper section must always be present (no conditional render)
+    expect(markup).toContain('data-testid="api-key-section"');
+  });
+
+  it("API key section shows 'optional' hint when no key is saved", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp minds={minds} isPro={false} _testInitialState={{ apiKey: "" }} />,
+    );
+
+    expect(markup).toContain("optional");
+    expect(markup).toContain("bypasses the 3/day limit");
+  });
+
+  it("API key section shows '(saved)' label when a key is pre-loaded", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{ apiKey: "sk-ant-test-key" }}
+      />,
+    );
+
+    expect(markup).toContain("(saved)");
+    // 'optional' label must NOT appear when the key is already present
+    expect(markup).not.toContain("optional");
+  });
+
+  it("agon stage reached via quick-start path shows the correct topic and council", () => {
+    // Simulate the state that beginAndStartAgon() produces: stage=agon with a
+    // pre-seeded council (suggestCouncil defaults for the VC/bootstrap topic).
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "agon",
+          topic,
+          council: ["niccolo-machiavelli", "sun-tzu", "marie-curie"],
+          turns: [],
+        }}
+      />,
+    );
+
+    // Agon stage renders the quoted topic
+    expect(markup).toContain(topic);
+    // And the "Convening" message while waiting for the first turn
+    expect(markup).toContain("Convening the council");
+  });
+
+  it("quick-start respects the 3-mind free cap — agon stage shows no more than 3 minds", () => {
+    // Free users: suggestCouncil is called with slice(0, 3), so at most 3 minds
+    // are seated. Verify that the agon stage doesn't somehow expose extra minds.
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "agon",
+          topic,
+          // Exactly 3 — the maximum for a free user
+          council: ["sun-tzu", "marie-curie", "niccolo-machiavelli"],
+          turns: [],
+        }}
+      />,
+    );
+
+    // The agon stage renders with the topic visible and no error
+    expect(markup).toContain(topic);
+    expect(markup).not.toContain("ERROR");
+    expect(markup).not.toContain("RATE LIMIT");
+  });
+});
+
 /* ── Mobile / responsive layout sentinels ───────────────────────────── */
 
 describe("AgoraApp — mobile layout", () => {
