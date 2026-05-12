@@ -30,6 +30,7 @@ import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
 import { MIND_SLUGS } from "@/lib/mind-content";
 
 import { buildSitemapEntries, fetchPublicAgonRows, type PublicAgonRow } from "@/lib/sitemap-data";
+import { DECISION_ENTRIES } from "../../content/decisions";
 
 const SITE_URL = "https://www.consultthedead.com";
 
@@ -58,6 +59,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const decisionsIndex: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/decisions`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+  ];
+
+  const decisionPages: MetadataRoute.Sitemap = DECISION_ENTRIES.map((entry) => ({
+    url: `${SITE_URL}/decisions/${entry.slug}`,
+    lastModified: new Date(entry.shippedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...buildSitemapEntries({
       siteUrl: SITE_URL,
@@ -68,5 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
     ...mindPages,
     ...listiclePages,
+    ...decisionsIndex,
+    ...decisionPages,
   ];
 }

@@ -43,8 +43,11 @@ vi.mock("@/lib/mind-content", () => ({
 // listicle-content is NOT mocked — we want the real LISTICLE_SLUGS
 // and listicleCanonicalUrl so the test proves the production values.
 
+// decisions is NOT mocked — we want real DECISION_ENTRIES.
+
 import sitemap from "./sitemap";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
+import { DECISION_ENTRIES } from "../../content/decisions";
 
 const SITE_URL = "https://www.consultthedead.com";
 
@@ -107,5 +110,40 @@ describe("sitemap()", () => {
     expect(urls).toContain(`${SITE_URL}/frameworks/isaac-newton`);
     // Mind page from the mocked MIND_SLUGS
     expect(urls).toContain(`${SITE_URL}/minds/isaac-newton`);
+  });
+
+  it("emits the /decisions index page", async () => {
+    const entries = await sitemap();
+    const urls = entries.map((e) => e.url);
+    expect(urls).toContain(`${SITE_URL}/decisions`);
+  });
+
+  it("emits one URL per DECISION_ENTRIES slug", async () => {
+    const entries = await sitemap();
+    const urls = entries.map((e) => e.url);
+
+    for (const entry of DECISION_ENTRIES) {
+      expect(urls).toContain(`${SITE_URL}/decisions/${entry.slug}`);
+    }
+  });
+
+  it("emits exactly DECISION_ENTRIES.length decision slug URLs", async () => {
+    const entries = await sitemap();
+    const decisionSlugUrls = entries.filter(
+      (e) => typeof e.url === "string" && e.url.includes("/decisions/"),
+    );
+    expect(decisionSlugUrls).toHaveLength(DECISION_ENTRIES.length);
+    expect(DECISION_ENTRIES.length).toBeGreaterThanOrEqual(12);
+  });
+
+  it("uses changeFrequency=weekly and priority=0.8 for every decision entry", async () => {
+    const entries = await sitemap();
+    const decisionEntries = entries.filter(
+      (e) => typeof e.url === "string" && e.url.startsWith(`${SITE_URL}/decisions`),
+    );
+    for (const entry of decisionEntries) {
+      expect(entry.changeFrequency).toBe("weekly");
+      expect(entry.priority).toBe(0.8);
+    }
   });
 });
