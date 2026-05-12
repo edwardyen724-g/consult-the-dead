@@ -143,7 +143,7 @@
 
 ## Send Schedule
 
-Today is 2026-05-11. Recommended send window: **Tuesday 2026-05-13**.
+Today is 2026-05-12. Recommended send window: **Tuesday 2026-05-13**.
 
 | Touch | Date | Action |
 |-------|------|--------|
