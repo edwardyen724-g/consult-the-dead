@@ -554,7 +554,7 @@ describe("InsightPage — single-framework insight", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("Run your own decision through Isaac Newton");
-    expect(html).toContain("#council");
+    expect(html).toContain("/agora");
   });
 
   it("renders the breadcrumb with framework person eyebrow", async () => {
@@ -651,9 +651,89 @@ describe("InsightPage — collision insight", () => {
     expect(mocks.notFound).toHaveBeenCalled();
   });
 
+  it("renders accentForSlug with steve-jobs slug type in a collision", async () => {
+    mocks.getInsightEntry.mockReturnValue(makeCollisionEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([
+      makeFramework("steve-jobs", "Steve Jobs"),
+      makeFramework("marcus-aurelius", "Marcus Aurelius"),
+    ]);
+    mocks.notFound.mockReset();
+    mocks.notFound.mockImplementation(() => {
+      throw new Error("NEXT_NOT_FOUND");
+    });
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+    expect(html).toContain("Steve Jobs");
+    expect(html).toContain("Marcus Aurelius");
+  });
+
+  it("falls back to slug and amber accents when collision framework metadata is sparse", async () => {
+    const primaryFw = makeFramework("isaac-newton", "Isaac Newton", {
+      slug: "unknown-framework" as FrameworkSlug,
+      meta: {
+        person: undefined as unknown as string,
+        domain: "Physics",
+        incident_count: 5,
+        construct_count: 3,
+      },
+    });
+    const secondaryFw = makeFramework("marie-curie", "Marie Curie", {
+      meta: {
+        person: undefined as unknown as string,
+        domain: "Chemistry",
+        incident_count: 5,
+        construct_count: 3,
+      },
+    });
+    mocks.getInsightEntry.mockReturnValue(makeCollisionEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([primaryFw, secondaryFw]);
+    mocks.notFound.mockReset();
+    mocks.notFound.mockImplementation(() => {
+      throw new Error("NEXT_NOT_FOUND");
+    });
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("niccolo-machiavelli’s framework");
+    expect(html).toContain("Collision Article");
+  });
+
+  it("renders the agon excerpt section when the collision entry has agonExcerpt", async () => {
+    const primaryFw = makeFramework("marcus-aurelius", "Marcus Aurelius");
+    const secondaryFw = makeFramework("sun-tzu", "Sun Tzu");
+    const entry: CollisionInsightEntry = {
+      ...makeCollisionEntry(),
+      agonExcerpt: [
+        { speaker: "Marcus Aurelius", text: "Audit the purpose, not the metrics." },
+        { speaker: "Sun Tzu", text: "Win before the meeting begins." },
+      ],
+    };
+    mocks.getInsightEntry.mockReturnValue(entry);
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([primaryFw, secondaryFw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("From The Agon");
+    expect(html).toContain("Audit the purpose, not the metrics.");
+    expect(html).toContain("Win before the meeting begins.");
+  });
+
   it("renders accentForSlug with multiple slug types in a collision", async () => {
     // Exercise the accentForSlug switch across different slug values
     const slugsToTest: Array<[FrameworkSlug, FrameworkSlug, string, string]> = [
+      ["isaac-newton", "marie-curie", "Isaac Newton", "Marie Curie"],
       ["nikola-tesla", "leonardo-da-vinci", "Nikola Tesla", "Leonardo da Vinci"],
       ["sun-tzu", "marcus-aurelius", "Sun Tzu", "Marcus Aurelius"],
     ];
@@ -677,5 +757,120 @@ describe("InsightPage — collision insight", () => {
       expect(html).toContain(name1);
       expect(html).toContain(name2);
     }
+  });
+
+  it("falls back to the published-at prefix when date formatting throws", async () => {
+    const fw = makeFramework("isaac-newton", "Isaac Newton");
+    mocks.getInsightEntry.mockReturnValue(makeSingleEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const dateTimeFormatSpy = vi
+      .spyOn(Intl, "DateTimeFormat")
+      .mockImplementation(() => ({ format: () => { throw new Error("format failed"); } }) as Intl.DateTimeFormat);
+
+    try {
+      const element = await InsightPage({
+        params: Promise.resolve({
+          slug: "how-newton-would-approach-your-pivot-decision",
+        }),
+      });
+      const html = renderToStaticMarkup(element);
+
+      expect(html).toContain("2026-04-18");
+    } finally {
+      dateTimeFormatSpy.mockRestore();
+    }
+  });
+});
+
+/* ──────────────────────────────────────────────────────── */
+/* 4. SEO listicle pages (task c7400a14)                     */
+/* ──────────────────────────────────────────────────────── */
+
+describe("InsightPage — stoics-on-failure listicle", () => {
+  it("renders the h1 title and footer CTA for stoics-on-failure", async () => {
+    const fw = makeFramework("marcus-aurelius", "Marcus Aurelius");
+    const entry: SingleInsightEntry = {
+      slug: "stoics-on-failure",
+      type: "single",
+      frameworkSlug: "marcus-aurelius",
+      title: "What Marcus Aurelius, Seneca, and Epictetus Say About Dealing With Failure",
+      description:
+        "Three Stoic philosophers debate how to handle failure, setbacks, and adversity.",
+      targetKeywords: ["stoics on failure"],
+      decisionType: "resilience",
+      hookQuestion: "You've just failed publicly.",
+      publishedAt: "2026-05-11",
+    };
+    mocks.getInsightEntry.mockReturnValue(entry);
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "stoics-on-failure" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("What Marcus Aurelius, Seneca, and Epictetus Say About Dealing With Failure");
+    expect(html).toContain("/agora");
+  });
+});
+
+describe("InsightPage — steve-jobs-on-product listicle", () => {
+  it("renders the h1 title and footer CTA for steve-jobs-on-product", async () => {
+    const fw = makeFramework("steve-jobs", "Steve Jobs");
+    const entry: SingleInsightEntry = {
+      slug: "steve-jobs-on-product",
+      type: "single",
+      frameworkSlug: "steve-jobs",
+      title: "Steve Jobs' Decision Framework: How He Said No to 1,000 Things",
+      description:
+        "Steve Jobs' framework for product decisions reveals why saying no is the hardest skill in building.",
+      targetKeywords: ["steve jobs decision framework"],
+      decisionType: "product",
+      hookQuestion: "You have ten things on your product roadmap.",
+      publishedAt: "2026-05-11",
+    };
+    mocks.getInsightEntry.mockReturnValue(entry);
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "steve-jobs-on-product" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Steve Jobs&#x27; Decision Framework");
+    expect(html).toContain("/agora");
+  });
+});
+
+describe("InsightPage — founders-on-pricing listicle", () => {
+  it("renders the h1 title and footer CTA for founders-on-pricing", async () => {
+    const fw = makeFramework("john-d-rockefeller", "John D. Rockefeller, Sr.");
+    const entry: SingleInsightEntry = {
+      slug: "founders-on-pricing",
+      type: "single",
+      frameworkSlug: "john-d-rockefeller",
+      title: "What History's Greatest Thinkers Say About Pricing Your Product",
+      description:
+        "Unconventional wisdom on pricing strategy from minds that shaped industrial history.",
+      targetKeywords: ["pricing strategy advice"],
+      decisionType: "pricing",
+      hookQuestion: "You're staring at your pricing page.",
+      publishedAt: "2026-05-11",
+    };
+    mocks.getInsightEntry.mockReturnValue(entry);
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "founders-on-pricing" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("What History&#x27;s Greatest Thinkers Say About Pricing Your Product");
+    expect(html).toContain("/agora");
   });
 });

@@ -45,7 +45,10 @@ import {
   generateMetadata,
 } from "./page";
 import { buildShareDescription } from "./lib";
-import { SHARE_CTA_BUTTON_LABEL } from "@/lib/share-cta-link";
+import {
+  SHARE_CTA_BUTTON_LABEL,
+  SHARE_CTA_SUBLINE,
+} from "@/lib/share-cta-link";
 
 describe("Agora public share metadata", () => {
   it("emits canonical social metadata and explicit indexability for a live share", async () => {
@@ -180,6 +183,9 @@ describe("Agora public share page", () => {
     );
 
     expect(html).toContain("The Agora · Public Transcript");
+    expect(html).toContain("Read-only transcript");
+    expect(html).toContain("Liked the verdict? Begin your own agon.");
+    expect(html).toContain("This public transcript is read-only.");
     expect(html).toContain("The Question");
     expect(html).toContain("Council");
     expect(html).toContain("Research Brief");
@@ -192,8 +198,10 @@ describe("Agora public share page", () => {
     expect(html).toContain(
       'href="/agora?utm_source=share&amp;utm_campaign=agon_share&amp;utm_content=share-1"',
     );
+    expect(html).toContain('data-cta="share-page-begin-your-own-agon"');
     // CTA text aligns with the founder directive ("begin your own agon" family)
     expect(html).toContain(SHARE_CTA_BUTTON_LABEL);
+    expect(html).toContain(SHARE_CTA_SUBLINE);
     expect(html).not.toContain("Start a new consultation →");
     expect(html).toContain("Share this agon");
     expect(html).toContain("Consult The Dead — The Agora");
