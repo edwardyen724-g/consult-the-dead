@@ -202,6 +202,20 @@ export function AgoraApp({
   const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
+  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+
+  // Detect ?checkout=success from Stripe redirect and show welcome banner.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("checkout") === "success") {
+      setCheckoutSuccess(true);
+      // Clean the query string so a page refresh doesn't re-show the banner.
+      const url = new URL(window.location.href);
+      url.searchParams.delete("checkout");
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, []);
 
   // Fetch live usage on mount
   useEffect(() => {
@@ -529,6 +543,50 @@ export function AgoraApp({
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <StageHeader stage={state.stage} />
+
+        {checkoutSuccess && (
+          <div
+            data-testid="checkout-success-banner"
+            style={{
+              marginBottom: "24px",
+              border: "1px solid var(--green, #22c55e)",
+              borderRadius: "4px",
+              padding: "14px 20px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--fg)",
+              lineHeight: 1.5,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "12px",
+              background: "rgba(34, 197, 94, 0.06)",
+            }}
+          >
+            <div>
+              <span style={{ marginRight: "10px", color: "var(--green, #22c55e)", fontWeight: 600 }}>
+                PRO ACTIVE
+              </span>
+              Welcome to Agora Pro — your 7-day trial has started. Run unlimited agons with up to 5 minds.
+            </div>
+            <button
+              onClick={() => setCheckoutSuccess(false)}
+              aria-label="Dismiss"
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "var(--fg-dim)",
+                cursor: "pointer",
+                fontSize: "16px",
+                lineHeight: 1,
+                padding: "0 4px",
+                flexShrink: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+        )}
 
         {state.error && (
           <div

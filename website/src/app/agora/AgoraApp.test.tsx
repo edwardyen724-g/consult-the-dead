@@ -242,6 +242,17 @@ describe("AgoraApp — error states", () => {
     // Upgrade link is only shown for rate limit hits, not generic errors
     expect(markup).not.toContain("rate-limit-upgrade-link");
   });
+
+  it("does not render the checkout-success banner on initial SSR render", () => {
+    // The checkout=success banner is triggered by a useEffect reading
+    // window.location.search. useEffect does not run in renderToStaticMarkup,
+    // so the banner must NOT appear in the SSR output — it only appears
+    // client-side after the Stripe redirect.
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={true} />);
+
+    expect(markup).not.toContain('data-testid="checkout-success-banner"');
+    expect(markup).not.toContain("PRO ACTIVE");
+  });
 });
 
 /* ── Agon empty state ────────────────────────────────────────────────── */
