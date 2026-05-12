@@ -67,8 +67,8 @@ after deployments touching the relevant feature areas.
 ## Observability
 
 - [Founder Checkpoint Metrics Pull](founder-checkpoint-metrics-pull.md)
-  - Retrieves live metrics from the database for leadership reporting
-  - Covers subscriber count, debate activity, and engagement metrics
+  - Retrieves live founder metrics from Stripe subscriptions and Vercel Web Analytics
+  - Covers subscriber counts plus acquisition-channel reporting for the founder retro
 
 ## Deployment & Release
 
