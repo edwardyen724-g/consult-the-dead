@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => {
   const trackEvent = vi.fn()
   const clerkClient = vi.fn()
   const updateUserMetadata = vi.fn()
+  const getUser = vi.fn()
   const stripeInstance = {
     webhooks: {
       constructEvent,
@@ -25,6 +26,7 @@ const mocks = vi.hoisted(() => {
     clerkClient,
     constructEvent,
     customerRetrieve,
+    getUser,
     sendSubscriptionConfirmation,
     stripeInstance,
     subscriptionRetrieve,
@@ -69,9 +71,11 @@ describe('POST /api/stripe/webhook', () => {
     process.env.STRIPE_SECRET_KEY = 'sk_test'
     process.env.STRIPE_WEBHOOK_SECRET = 'whsec_test'
 
+    mocks.getUser.mockResolvedValue({ firstName: 'Ada' })
     mocks.clerkClient.mockResolvedValue({
       users: {
         updateUserMetadata: mocks.updateUserMetadata,
+        getUser: mocks.getUser,
       },
     })
     mocks.sendSubscriptionConfirmation.mockResolvedValue(undefined)
@@ -168,7 +172,7 @@ describe('POST /api/stripe/webhook', () => {
     })
     expect(mocks.sendSubscriptionConfirmation).toHaveBeenCalledWith(
       'ada@example.com',
-      '',
+      'Ada',
       'annual',
     )
     expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
@@ -277,7 +281,7 @@ describe('POST /api/stripe/webhook', () => {
     expect(response.status).toBe(200)
     expect(mocks.sendSubscriptionConfirmation).toHaveBeenCalledWith(
       'ada@example.com',
-      '',
+      'Ada',
       'monthly',
     )
     expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
@@ -332,7 +336,7 @@ describe('POST /api/stripe/webhook', () => {
     expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
     expect(mocks.sendSubscriptionConfirmation).toHaveBeenCalledWith(
       'ada@example.com',
-      '',
+      'Ada',
       'annual',
     )
   })
@@ -403,5 +407,71 @@ describe('POST /api/stripe/webhook', () => {
     expect(response.status).toBe(200)
     await expect(response.json()).resolves.toEqual({ received: true })
     expect(mocks.updateUserMetadata).not.toHaveBeenCalled()
+  })
+
+  it('sends personalised welcome email with first name from Clerk', async () => {
+    mocks.getUser.mockResolvedValue({ firstName: 'Grace' })
+    mocks.constructEvent.mockReturnValue({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          customer: 'cus_456',
+          subscription: 'sub_456',
+          metadata: {},
+        },
+      },
+    })
+    mocks.customerRetrieve.mockResolvedValue({
+      deleted: false,
+      metadata: { clerk_user_id: 'user_grace' },
+      email: 'grace@example.com',
+    })
+    mocks.subscriptionRetrieve.mockResolvedValue({
+      items: { data: [{ price: { recurring: { interval: 'month' } } }] },
+    })
+
+    const { POST } = await import('./route')
+    const response = await POST(buildRequest())
+
+    expect(response.status).toBe(200)
+    expect(mocks.getUser).toHaveBeenCalledWith('user_grace')
+    expect(mocks.sendSubscriptionConfirmation).toHaveBeenCalledWith(
+      'grace@example.com',
+      'Grace',
+      'monthly',
+    )
+  })
+
+  it('falls back to anonymous greeting when Clerk getUser fails', async () => {
+    mocks.getUser.mockRejectedValue(new Error('Clerk API down'))
+    mocks.constructEvent.mockReturnValue({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          customer: 'cus_123',
+          subscription: 'sub_123',
+          metadata: {},
+        },
+      },
+    })
+    mocks.customerRetrieve.mockResolvedValue({
+      deleted: false,
+      metadata: { clerk_user_id: 'user_1' },
+      email: 'ada@example.com',
+    })
+    mocks.subscriptionRetrieve.mockResolvedValue({
+      items: { data: [{ price: { recurring: { interval: 'month' } } }] },
+    })
+
+    const { POST } = await import('./route')
+    const response = await POST(buildRequest())
+
+    // Must still return 200 and send email with empty name fallback
+    expect(response.status).toBe(200)
+    expect(mocks.sendSubscriptionConfirmation).toHaveBeenCalledWith(
+      'ada@example.com',
+      '',
+      'monthly',
+    )
   })
 })
