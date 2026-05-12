@@ -13,6 +13,9 @@
  *   - Per-listicle pages (`LISTICLE_SLUGS`) at changeFrequency=monthly,
  *     priority=0.6. These are the long-tail SEO landing pages at
  *     /listicles/[slug] that feed the Agora conversion funnel.
+ *   - Per-decision pages (`DECISION_ENTRIES`) at changeFrequency=weekly,
+ *     priority=0.8. These are high-intent SEO landing pages at
+ *     /decisions/[slug] targeting founder decision queries.
  *
  * The DB fetch is wrapped in a try/catch — a transient Postgres error
  * must NEVER take down /sitemap.xml entirely. Frameworks + insights are
@@ -28,6 +31,8 @@ import { ALLOWED_SLUGS } from "@/lib/frameworks";
 import { INSIGHT_ENTRIES } from "@/lib/insights";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
 import { MIND_SLUGS } from "@/lib/mind-content";
+
+import { DECISION_ENTRIES, getDecisionUrl } from "../../content/decisions";
 
 import { buildSitemapEntries, fetchPublicAgonRows, type PublicAgonRow } from "@/lib/sitemap-data";
 
@@ -58,6 +63,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const decisionPages: MetadataRoute.Sitemap = DECISION_ENTRIES.map((entry) => ({
+    url: getDecisionUrl(entry.slug, SITE_URL),
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...buildSitemapEntries({
       siteUrl: SITE_URL,
@@ -68,5 +80,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
     ...mindPages,
     ...listiclePages,
+    ...decisionPages,
   ];
 }
