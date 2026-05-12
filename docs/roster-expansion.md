@@ -1,6 +1,6 @@
 # Consult The Dead — Roster Expansion Research
 
-Last updated: 2026-04-16
+Last updated: 2026-05-12
 
 This is the canonical reference for which historical figures to add to the roster next and why. Research was conducted using the Critical Decision Method pipeline requirements (`framework_forge/`) as a grounding constraint — each recommendation is filtered against the pipeline's need for 20–30 critical incidents with *visible reasoning*, not just outcomes.
 
@@ -8,41 +8,76 @@ This is the canonical reference for which historical figures to add to the roste
 
 ## Current Roster
 
-**Full extractions:** Einstein (hidden — see legal note below), Newton, da Vinci, Curie, Machiavelli, Tesla, Sun Tzu, Leonardo  
-**Stubs committed:** Ada Lovelace, Alexander the Great, Catherine the Great, Cleopatra VII
+**Live in product (27 figures; Einstein hidden pending legal review):**
+
+| Slug | Status | Used in decision debates |
+|------|--------|--------------------------|
+| isaac-newton | Full extraction | Yes |
+| marie-curie | Full extraction | Yes |
+| niccolo-machiavelli | Full extraction | Yes |
+| nikola-tesla | Full extraction | No |
+| leonardo-da-vinci | Full extraction | No |
+| sun-tzu | Full extraction | Yes |
+| marcus-aurelius | Full extraction | Yes |
+| benjamin-franklin | Full extraction | Yes |
+| cicero | Full extraction | Yes |
+| epictetus | Full extraction | No |
+| thomas-edison | Full extraction | No |
+| archimedes | Full extraction | No |
+| john-d-rockefeller | Full extraction | Yes |
+| harriet-tubman | Full extraction (constructs.json) | No |
+| ada-lovelace | Full extraction (constructs.json) | No |
+| catherine-the-great | Full extraction (constructs.json) | No |
+| alexander-the-great | Full extraction (constructs.json) | No |
+| cleopatra-vii | Full extraction (constructs.json) | No |
+| abraham-lincoln | Full extraction — added May 2026 | No |
+| andrew-carnegie | Full extraction — added May 2026 | Yes |
+| florence-nightingale | Full extraction — added May 2026 | Yes |
+| frederick-douglass | Full extraction — added May 2026 | No |
+| julius-caesar | Full extraction — added May 2026 | No |
+| napoleon-bonaparte | Full extraction — added May 2026 | No |
+| seneca | Full extraction — added May 2026 | Yes |
+| steve-jobs | Full extraction — added May 2026 (SEO listicle) | Yes |
+| albert-einstein | Full extraction — **hidden pending legal review** | No |
+
+"Used in decision debates" = appears in at least one `recommendedCouncil` array in `website/content/decisions.ts` (24 decision pages as of 2026-05-12).
+
+The 7-figure expansion (Abraham Lincoln, Andrew Carnegie, Florence Nightingale, Frederick Douglass, Julius Caesar, Napoleon Bonaparte, Seneca) was shipped in task 8987b12a / capsule ff13fd3d. Steve Jobs was added separately for the product-insight SEO page (task c7400a14).
+
+The original "stubs" (Ada Lovelace, Alexander the Great, Catherine the Great, Cleopatra VII) were promoted to full `constructs.json` extractions before being made live.
 
 ---
 
 ## Part 1: ~20 Candidate Figures
 
-| # | Figure | Death | Decision-Making Signature | Legal Risk |
-|---|--------|-------|--------------------------|------------|
-| 1 | **Marcus Aurelius** | 180 AD | Stoic self-command under imperial pressure; prioritizes virtue over outcome | Safe |
-| 2 | **Seneca** | 65 AD | Reasoning through mortality and constraint; advice-under-threat calibration | Safe |
-| 3 | **Socrates** | 399 BC | Systematic questioning to expose hidden assumptions; accepts fatal consequences for consistency | Safe |
-| 4 | **Julius Caesar** | 44 BC | Speed and audacity as force multipliers; bets on opponent's psychological unreadiness | Safe |
-| 5 | **Benjamin Franklin** | 1790 | Practical experimentation; lists costs/benefits explicitly; negotiates from shared interest | Safe |
-| 6 | **Napoleon Bonaparte** | 1821 | Centralizes intelligence, moves faster than the enemy can think; tolerates massive risk for decisive victory | Safe |
-| 7 | **Abraham Lincoln** | 1865 | Patience under pressure; builds coalitions; holds contradictions without resolving them prematurely | Safe |
-| 8 | **Frederick Douglass** | 1895 | Frames moral questions as strategic ones; uses opponent's own logic against them | Safe |
-| 9 | **Florence Nightingale** | 1910 | Makes the invisible visible through data; changes systems by changing what decision-makers see | Safe |
-| 10 | **Harriet Tubman** | 1913 | Trust in a plan but adapt in the field; zero tolerance for hesitation once committed | Safe |
-| 11 | **Andrew Carnegie** | 1919 | Concentrates resources ruthlessly on a single bet; gives away the surplus as strategic reputation-building | Safe |
-| 12 | **Amelia Earhart** | 1937 | Accepts asymmetric personal risk to prove a principle; visibility as the mission | **Caution** — CMG Worldwide (exclusive licensor) holds an active "AMELIA EARHART" trademark and manages commercial licensing of her name/likeness |
-| 13 | **Galileo Galilei** | 1642 | Separates what's observable from what's doctrine; accepts institutional defeat to preserve the work | Safe |
-| 14 | **Joan of Arc** | 1431 | Acts on conviction with no institutional backing; trial transcripts show extraordinary reasoning under interrogation | Safe |
-| 15 | **Queen Elizabeth I** | 1603 | Manages ambiguity as a weapon; delays commitment until opponent overextends | Safe |
-| 16 | **Genghis Khan** | 1227 | Absorbs enemy talent ruthlessly; logistics over glory | Safe |
-| 17 | **Charles Darwin** | 1882 | Accumulates evidence patiently before committing; anticipates objections before publishing | Safe |
-| 18 | **Winston Churchill** | 1965 | Crisis framing as morale tool; refuses to negotiate from weakness | **Caution/Avoid for now** — Literary Estate administered by Curtis Brown Ltd (permissions@curtisbrown.co.uk) actively enforces commercial use of speeches/writings; UK copyright runs to ~2035. Direct quotation in a commercial product requires licensing. Persona and historical record are freely discussable. |
-| 19 | **Cleopatra** | 30 BC | *(Already a stub)* Strategic alliance-making under existential threat | Safe — but sourcing is thin |
-| 20 | **Confucius** | 479 BC | Deference to role and relationship over personal advantage; builds authority through consistency | Safe |
+| # | Figure | Death | Decision-Making Signature | Legal Risk | Deployment Status |
+|---|--------|-------|--------------------------|------------|-------------------|
+| 1 | **Marcus Aurelius** | 180 AD | Stoic self-command under imperial pressure; prioritizes virtue over outcome | Safe | **Deployed** — live in product, used in decision debates |
+| 2 | **Seneca** | 65 AD | Reasoning through mortality and constraint; advice-under-threat calibration | Safe | **Deployed** — added May 2026, used in decision debates |
+| 3 | **Socrates** | 399 BC | Systematic questioning to expose hidden assumptions; accepts fatal consequences for consistency | Safe | Candidate — not yet extracted |
+| 4 | **Julius Caesar** | 44 BC | Speed and audacity as force multipliers; bets on opponent's psychological unreadiness | Safe | **Deployed** — added May 2026 |
+| 5 | **Benjamin Franklin** | 1790 | Practical experimentation; lists costs/benefits explicitly; negotiates from shared interest | Safe | **Deployed** — live in product, used in decision debates |
+| 6 | **Napoleon Bonaparte** | 1821 | Centralizes intelligence, moves faster than the enemy can think; tolerates massive risk for decisive victory | Safe | **Deployed** — added May 2026 |
+| 7 | **Abraham Lincoln** | 1865 | Patience under pressure; builds coalitions; holds contradictions without resolving them prematurely | Safe | **Deployed** — added May 2026 |
+| 8 | **Frederick Douglass** | 1895 | Frames moral questions as strategic ones; uses opponent's own logic against them | Safe | **Deployed** — added May 2026 |
+| 9 | **Florence Nightingale** | 1910 | Makes the invisible visible through data; changes systems by changing what decision-makers see | Safe | **Deployed** — added May 2026, used in decision debates |
+| 10 | **Harriet Tubman** | 1913 | Trust in a plan but adapt in the field; zero tolerance for hesitation once committed | Safe | **Deployed** — live in product |
+| 11 | **Andrew Carnegie** | 1919 | Concentrates resources ruthlessly on a single bet; gives away the surplus as strategic reputation-building | Safe | **Deployed** — added May 2026, used in decision debates |
+| 12 | **Amelia Earhart** | 1937 | Accepts asymmetric personal risk to prove a principle; visibility as the mission | **Caution** — CMG Worldwide (exclusive licensor) holds an active "AMELIA EARHART" trademark and manages commercial licensing of her name/likeness | On hold — legal check required |
+| 13 | **Galileo Galilei** | 1642 | Separates what's observable from what's doctrine; accepts institutional defeat to preserve the work | Safe | Framework dir exists (`frameworks/galileo-galilei/`) but not in ALLOWED_SLUGS — not yet live |
+| 14 | **Joan of Arc** | 1431 | Acts on conviction with no institutional backing; trial transcripts show extraordinary reasoning under interrogation | Safe | Candidate — not yet extracted |
+| 15 | **Queen Elizabeth I** | 1603 | Manages ambiguity as a weapon; delays commitment until opponent overextends | Safe | Candidate — not yet extracted |
+| 16 | **Genghis Khan** | 1227 | Absorbs enemy talent ruthlessly; logistics over glory | Safe | Candidate — low priority (see Part 4) |
+| 17 | **Charles Darwin** | 1882 | Accumulates evidence patiently before committing; anticipates objections before publishing | Safe | Candidate — not yet extracted |
+| 18 | **Winston Churchill** | 1965 | Crisis framing as morale tool; refuses to negotiate from weakness | **Caution/Avoid for now** — Literary Estate administered by Curtis Brown Ltd (permissions@curtisbrown.co.uk) actively enforces commercial use of speeches/writings; UK copyright runs to ~2035. Direct quotation in a commercial product requires licensing. Persona and historical record are freely discussable. | On hold — legal check required |
+| 19 | **Cleopatra** | 30 BC | *(Already deployed as stub)* Strategic alliance-making under existential threat | Safe — but sourcing is thin | **Deployed** — live in product as `cleopatra-vii` |
+| 20 | **Confucius** | 479 BC | Deference to role and relationship over personal advantage; builds authority through consistency | Safe | Candidate — not yet extracted |
 
 ---
 
 ## Part 2: Ranked Shortlist — Extract in This Order
 
-### #1 — Marcus Aurelius
+### #1 — Marcus Aurelius [DEPLOYED]
 
 **Hook:** The most powerful man in the world spent 20 years writing a private journal about how not to abuse power. He never published it. That energy — Stoicism applied to real stakes — is what millions of people are already searching for via Ryan Holiday, Tim Ferriss, and the broader Stoicism renaissance.
 
@@ -54,7 +89,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #2 — Abraham Lincoln
+### #2 — Abraham Lincoln [DEPLOYED — added May 2026]
 
 **Hook:** The man who held a country together during its worst crisis by making decisions that made everyone angry — and was right. "Think like Lincoln" resonates for anyone navigating a situation where every option has a terrible cost.
 
@@ -66,7 +101,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #3 — Benjamin Franklin
+### #3 — Benjamin Franklin [DEPLOYED]
 
 **Hook:** The original polymath who actually shipped. Invented bifocals, organized the first fire department, negotiated the treaty that won the Revolution, and wrote the self-improvement playbook that still sells. "Think like Franklin" = practical genius.
 
@@ -78,7 +113,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #4 — Seneca
+### #4 — Seneca [DEPLOYED — added May 2026]
 
 **Hook:** The Stoic philosopher who was also a billionaire, Nero's advisor, and eventually ordered to kill himself — and wrote his most lucid work in the days before his death. His decision-making is tested in the ultimate pressure cooker.
 
@@ -90,7 +125,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #5 — Napoleon Bonaparte
+### #5 — Napoleon Bonaparte [DEPLOYED — added May 2026]
 
 **Hook:** The most studied military and organizational decision-maker in history. Every business strategy course references him. "What would Napoleon do?" has been asked by generals, executives, and chess players for 200 years.
 
@@ -102,7 +137,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #6 — Frederick Douglass
+### #6 — Frederick Douglass [DEPLOYED — added May 2026]
 
 **Hook:** Escaped slavery, taught himself to read in secret, became the most powerful orator of the 19th century, and strategically navigated abolitionism, the Civil War, and Reconstruction. He made every major decision with his life on the line.
 
@@ -114,7 +149,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #7 — Florence Nightingale
+### #7 — Florence Nightingale [DEPLOYED — added May 2026]
 
 **Hook:** She didn't just nurse soldiers — she redesigned the entire British military hospital system by showing commanders, in their own language (data), that they were killing more men than the enemy was. She invented the pie chart. "Think like Nightingale" = systems change through evidence.
 
@@ -126,7 +161,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #8 — Harriet Tubman
+### #8 — Harriet Tubman [DEPLOYED]
 
 **Hook:** Nineteen missions into slave territory, zero losses. She operated under conditions where a single mistake was death — and made decisions that consistently beat the odds. "Think like Tubman" = radical risk calibration and operational trust.
 
@@ -138,7 +173,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #9 — Julius Caesar
+### #9 — Julius Caesar [DEPLOYED — added May 2026]
 
 **Hook:** He crossed the Rubicon, wrote his own account of why, and changed the world. His *Gallic Wars* is the rare case of a world-historical figure narrating his own decision-making in real time.
 
@@ -150,7 +185,7 @@ This is the canonical reference for which historical figures to add to the roste
 
 ---
 
-### #10 — Andrew Carnegie
+### #10 — Andrew Carnegie [DEPLOYED — added May 2026]
 
 **Hook:** The son of a handloom weaver who became the richest man in the world, then gave it all away. His decisions about when to bet, when to consolidate, and what money is actually *for* make him a business and philanthropy decision model.
 
@@ -159,6 +194,24 @@ This is the canonical reference for which historical figures to add to the roste
 **Source material:** Good. *The Gospel of Wealth* essay, *Autobiography of Andrew Carnegie* (public domain), Carnegie Corporation archives, Joseph Frazier Wall's 1970 biography is the definitive scholarly source. Business decisions at Carnegie Steel are extensively documented in company records and congressional testimony.
 
 **Watch-outs:** The Homestead Strike (1892) is a serious ethical stain — he crushed a union while preaching worker dignity. Same note as Napoleon: don't sanitize. The strike itself is an excellent critical incident — the gap between his stated values and his actual decision is exactly what the CDM framework should capture.
+
+---
+
+### Additional deployed figures not in original shortlist
+
+The following figures are live in the product but were not part of this candidate research doc. They were added via other work streams:
+
+| Figure | Notes |
+|--------|-------|
+| **Steve Jobs** | Added May 2026 for SEO product-insight pages. Used in decision debates. |
+| **John D. Rockefeller** | Full extraction. Used in decision debates. |
+| **Epictetus** | Full extraction. Not yet used in decision debates. |
+| **Thomas Edison** | Full extraction. Not yet used in decision debates. |
+| **Archimedes** | Full extraction. Not yet used in decision debates. |
+| **Ada Lovelace** | Stub promoted to full extraction. Not yet used in decision debates. |
+| **Alexander the Great** | Stub promoted to full extraction. Not yet used in decision debates. |
+| **Catherine the Great** | Stub promoted to full extraction. Not yet used in decision debates. |
+| **Galileo Galilei** | Framework dir exists but not yet in ALLOWED_SLUGS — not live. |
 
 ---
 
@@ -180,9 +233,9 @@ Einstein's framework has been extracted and is complete, but his entry has been 
 
 Died 1943 (83 years ago). No active estate enforcement in the US. No enforceable right of publicity. Full public domain for writings. The Tesla Motors trademark is irrelevant — it covers electric vehicles, not a historical figure product. No action needed.
 
-### All others (Newton, da Vinci, Curie, Machiavelli, Sun Tzu) — Safe
+### All others — Safe
 
-All died 400+ years ago. Zero IP risk.
+Newton, da Vinci, Curie, Machiavelli, Sun Tzu, Marcus Aurelius, Seneca, Julius Caesar, Benjamin Franklin, Napoleon Bonaparte, Abraham Lincoln, Frederick Douglass, Florence Nightingale, Harriet Tubman, Andrew Carnegie, John D. Rockefeller, Cicero, Epictetus, Thomas Edison, Archimedes, Ada Lovelace, Alexander the Great, Catherine the Great, Cleopatra VII, Galileo Galilei — all died far outside any IP concern window. Zero IP risk for any of these figures.
 
 ---
 
@@ -197,7 +250,7 @@ Based on `framework_forge/` (`framework_forge/config.py`, `framework_forge/cli.p
 - Domain string + full name to run `python -m framework_forge.cli discover_sources`
 
 **This disqualifies or downgrades:**
-- **Cleopatra** (stub): Sourcing is almost entirely hostile secondhand. Hard to hit 20 strong CDM incidents without speculation. Reconsider stub priority.
+- **Cleopatra** (now deployed as `cleopatra-vii`): Sourcing is almost entirely hostile secondhand. Deployed but the framework quality may be lower than others — consider revisiting the extraction for depth before featuring prominently in decision debates.
 - **Genghis Khan**: *Secret History of the Mongols* is filtered through court scribes. Incident richness is lower than it looks.
 - **Joan of Arc**: Trial transcripts are surprisingly rich for CDM (her interrogators were forcing her to explain her reasoning), but needs expert framing. Viable but challenging.
 - **Socrates**: All via Plato — philosophically rich but reasoning is Plato's reconstruction. Works for a "reasoning methodology" frame but is philosophically contested.
@@ -211,4 +264,4 @@ Based on `framework_forge/` (`framework_forge/config.py`, `framework_forge/cli.p
 | Winston Churchill | Literary Estate (Curtis Brown) actively enforces commercial use of his text/speeches through ~2035. Usable as a persona if relying on paraphrase + secondary scholarship — but direct quotation in commercial product requires licensing. Revisit after legal consult. |
 | Amelia Earhart | CMG Worldwide holds exclusive licensing and an active "AMELIA EARHART" trademark (serial 77727311). Treat same as Einstein — brief legal check before use. |
 | Genghis Khan | Source richness for CDM is lower than popular appeal suggests. Extract after higher-priority figures. |
-| Cleopatra (stub) | Almost no primary sources in her own voice; all hostile male secondhand. May need to reframe as "decisions as reconstructed by historians" with appropriate caveats. |
+| Cleopatra (deployed as `cleopatra-vii`) | Now live but sourcing quality concern remains — almost no primary sources in her own voice; all hostile male secondhand. Framework may need a quality audit before featuring her prominently. |
