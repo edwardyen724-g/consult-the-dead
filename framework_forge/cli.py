@@ -6,12 +6,17 @@ from pathlib import Path
 import click
 
 from framework_forge.config import FRAMEWORKS_DIR
+from framework_forge.chat import chat as _chat_cmd
 
 
 @click.group()
 def cli():
     """Framework Forge: Extract thinking frameworks from historical figures."""
     pass
+
+
+# Register the interactive chat subcommand
+cli.add_command(_chat_cmd, name="chat")
 
 
 @cli.command()
