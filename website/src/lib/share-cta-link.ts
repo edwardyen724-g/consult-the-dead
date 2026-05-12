@@ -104,7 +104,7 @@ export function buildShareCtaHref(
  */
 export const SHARE_CTA_HEADLINE = "Begin your own agon" as const;
 export const SHARE_CTA_SUBLINE = "3 free debates today" as const;
-export const SHARE_CTA_BUTTON_LABEL = "Start a free agon →" as const;
+export const SHARE_CTA_BUTTON_LABEL = "Begin your own agon →" as const;
 
 /**
  * Social-proof strip rendered near the topic. The "26 minds" figure
