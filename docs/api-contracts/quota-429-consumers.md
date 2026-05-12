@@ -1,4 +1,4 @@
-# API 429 Consumers — `resetAt` Quota Contract
+# API 429 Consumers — Quota & Retry-After Contract
 
 This document maps every API route that returns HTTP 429 and describes how each route
 participates in the shared quota/rate-limit system.  It is the reference for client
@@ -32,18 +32,15 @@ epoch (seconds, integer) when the quota window for that `reason` resets:
 - `"ip"`, `"user"`, `"global"` → 00:00 UTC the *next* calendar day
 - `"pro"` → 00:00 UTC on the *first day of the next calendar month*
 
-The function is used by the agon and generate-analysis routes to populate the
-`Retry-After` and `X-RateLimit-Reset` headers on 429 responses.
+The `resetAt` value **is surfaced as machine-readable response headers** on every 429
+from these routes:
 
-**Machine-readable headers on 429 responses** (agon and generate-analysis only)
+| Header | Type | Value |
+|--------|------|-------|
+| `Retry-After` | integer (seconds) | Seconds until the quota window resets (`max(0, resetAt − now)`) |
+| `X-RateLimit-Reset` | integer (Unix seconds) | Absolute Unix epoch when the quota window resets |
 
-```
-Retry-After: <seconds>            # integer seconds until quota window resets
-X-RateLimit-Reset: <unix-seconds> # UTC epoch when the window resets
-```
-
-`Retry-After` is `max(0, resetAt - floor(Date.now() / 1000))`.  On 200 (allowed)
-responses the remaining count is conveyed in two other places:
+The remaining count is also conveyed in two other places when the request is *allowed*:
 
 - `X-RateLimit-Remaining: <integer>` response header (generate-analysis route only).
 - `remaining` field inside the `agon_done` / `analysis_done` SSE event.
@@ -82,8 +79,8 @@ response body or headers** — the response body contains only a human-readable 
 
 | Route | Method | Trigger | 429 Body | Headers on 429 | `resetAt` / cadence |
 |-------|--------|---------|----------|----------------|---------------------|
-| `POST /api/agon` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type`, `Retry-After`, `X-RateLimit-Reset` | Daily (UTC midnight) for free; monthly for pro |
-| `POST /api/generate-analysis` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type`, `Retry-After`, `X-RateLimit-Reset` | Daily (UTC midnight) for free; monthly for pro |
+| `POST /api/agon` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json`, `Retry-After: <s>`, `X-RateLimit-Reset: <unix>` | Daily (UTC midnight) for free; monthly (1st UTC) for pro |
+| `POST /api/generate-analysis` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json`, `Retry-After: <s>`, `X-RateLimit-Reset: <unix>` | Daily (UTC midnight) for free; monthly (1st UTC) for pro |
 | `POST /api/contact` | POST | IP or email submission rate exceeded | `{ ok: false, error: "<message>" }` | none beyond default | Rolling 1 h (IP) / rolling 24 h (email) — not in headers |
 
 ---
@@ -110,12 +107,16 @@ Applies only when the server's Anthropic key is used (no client `X-Api-Key` head
 
 ```
 Content-Type: application/json
-Retry-After: <seconds>
-X-RateLimit-Reset: <unix-seconds>
+Retry-After: <seconds-until-reset>
+X-RateLimit-Reset: <unix-epoch-seconds>
 ```
 
-When the request is *allowed*, the remaining count is injected into the `agon_done`
-SSE event as `remaining`.
+`Retry-After` is computed as `max(0, resetAt − floor(Date.now() / 1000))`.
+`X-RateLimit-Reset` is the Unix second returned by `quotaResetAt(reason)` — midnight
+UTC for daily buckets, 00:00 UTC on the 1st of the next month for pro buckets.
+
+When the request is **allowed**, the remaining count is injected into the `agon_done`
+SSE event as `remaining` (no `X-RateLimit-Remaining` header on this route).
 
 ---
 
@@ -137,9 +138,12 @@ Identical quota check (`checkRateLimit`) and bucket structure as `/api/agon`.
 
 ```
 Content-Type: application/json
-Retry-After: <seconds>
-X-RateLimit-Reset: <unix-seconds>
+Retry-After: <seconds-until-reset>
+X-RateLimit-Reset: <unix-epoch-seconds>
 ```
+
+`Retry-After` is `max(0, resetAt − floor(Date.now() / 1000))`.  `X-RateLimit-Reset`
+is the Unix second returned by `quotaResetAt(reason)`.
 
 **`X-RateLimit-Remaining` header** is included on **200** responses only:
 ```
@@ -183,3 +187,38 @@ is conveyed only in the human-readable error string.
 For the agon and generate-analysis routes use the `Retry-After` header value
 (seconds) for precise back-off.  For the contact route, apply a fixed back-off based
 on the cadence table above (no machine-readable reset timestamp is returned).
+
+---
+
+## What `resetAt` is and where it surfaces
+
+### Agon / analysis routes (machine-readable — shipped)
+
+The helper `quotaResetAt(reason)` in `website/src/lib/agon/rateLimit.ts` computes
+the Unix-second epoch of the next quota-window boundary:
+
+- **Daily buckets** (`free` IP, `free` user, `global`): midnight UTC of the next
+  calendar day.
+- **Monthly bucket** (`pro`): 00:00 UTC on the first day of the next calendar month.
+
+On every 429 response from `/api/agon` and `/api/generate-analysis` the value is
+exposed as two standard headers:
+
+```
+Retry-After: <seconds>           # max(0, resetAt − now)  — RFC 7231 compliant
+X-RateLimit-Reset: <unix-epoch>  # absolute epoch, seconds
+```
+
+Clients should prefer `Retry-After` for scheduling a retry and `X-RateLimit-Reset`
+for displaying a countdown to the user.
+
+### Contact route (`resetAt` — internal only)
+
+The field named `resetAt` in the in-process `ThrottleBucket` struct is a
+Unix-**millisecond** epoch used only for internal bucket lifecycle management.  It is
+**not** returned in any response header or body.  If a client needs to know when to
+retry a contact request, it must infer the cadence from the error message or apply a
+fixed back-off:
+
+- Contact IP throttle resets **1 hour** after the first request in the window.
+- Contact email throttle resets **24 hours** after the first request in the window.
