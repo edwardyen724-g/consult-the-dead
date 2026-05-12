@@ -1,6 +1,6 @@
 # Phase 1: Framework Forge — One Perfect Framework (Steve Jobs)
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Status (2026-05): All tasks complete.** The `framework_forge` tooling is fully implemented and the Steve Jobs framework passes all three automated validation tiers. All step checkboxes below have been marked `[x]`.
 
 **Goal:** Build the Framework Forge tooling and use it to extract one complete, validated Steve Jobs thinking framework — proving the CDM-adapted methodology produces output deep enough to pass three-tier validation.
 
@@ -16,14 +16,14 @@
 consult-the-dead/                   # Repo root
 ├── framework_forge/
 │   ├── __init__.py
-│   ├── cli.py                      # Click CLI entry point
+│   ├── cli.py                      # Click CLI entry point (6 commands)
 │   ├── pipeline.py                 # Reusable end-to-end pipeline runner
 │   ├── config.py                   # API keys, paths, model config
 │   ├── llm.py                      # Claude API wrapper (structured prompts)
 │   ├── sources/
 │   │   ├── __init__.py
 │   │   ├── discovery.py            # LLM-assisted source discovery
-│   │   ├── fetcher.py              # Fetch and clean source text
+│   │   ├── fetcher.py              # Fetch and clean source text (retry logic, FetchError)
 │   │   └── triage.py               # Rate and rank sources by evidence type
 │   ├── extraction/
 │   │   ├── __init__.py
@@ -31,41 +31,43 @@ consult-the-dead/                   # Repo root
 │   │   ├── cdm_probes.py           # CDM probe reconstruction per incident
 │   │   ├── constructs.py           # Bipolar construct mapping
 │   │   ├── lens.py                 # Perceptual lens derivation
-│   │   └── divergence.py           # Behavioral divergence predictions
+│   │   ├── divergence.py           # Behavioral divergence predictions
+│   │   └── ordering.py             # Deterministic ordering helpers for extraction outputs
 │   ├── encoding/
 │   │   ├── __init__.py
 │   │   └── framework.py            # Assemble and encode framework JSON
 │   └── validation/
 │       ├── __init__.py
 │       ├── floor_check.py          # Historical alignment sanity check
+│       ├── placeholder_citations.py # Scan framework artifacts for mock_placeholder strings
 │       ├── tier1.py                # Baseline differentiation (automated)
 │       ├── tier2.py                # Internal consistency (automated)
 │       └── tier3_prep.py           # Generate A/B review packet for human review
 ├── frameworks/                     # Output directory (one subdir per person)
-│   └── steve-jobs/
+│   └── steve-jobs/                 # First completed framework
 │       ├── framework.json
 │       ├── constructs.json
 │       ├── incidents/
 │       │   ├── candidates.json
 │       │   └── incidents.json
 │       ├── sources/
-│       │   ├── bibliography.json
-│       │   └── texts/              # Fetched source texts (*.txt)
+│       │   └── bibliography.json   # Ranked source list
 │       └── validation/
 │           ├── tier1_results.json
 │           ├── tier2_results.json
-│           ├── floor-check_results.json
 │           └── tier3_materials/
 │               └── review_packet.json
 ├── tests/
 │   ├── conftest.py                 # Shared fixtures
-│   ├── test_llm.py
-│   ├── test_sources.py
-│   ├── test_extraction.py
+│   ├── test_cli.py                 # CLI command integration tests
 │   ├── test_encoding.py
-│   └── test_validation.py
-├── requirements.txt
-├── pyproject.toml
+│   ├── test_extraction.py
+│   ├── test_llm.py
+│   ├── test_pipeline.py            # Pipeline stage behavior tests
+│   ├── test_sources.py
+│   ├── test_validation.py
+│   └── ...                         # Additional integration and regression tests
+├── pyproject.toml                  # Project metadata, deps, scripts (no requirements.txt)
 ├── .env.example
 ├── .env                            # (gitignored) API keys
 └── .gitignore
@@ -84,7 +86,7 @@ consult-the-dead/                   # Repo root
 - Create: `framework_forge/config.py`
 - Create: `tests/conftest.py`
 
-- [ ] **Step 1: Create `pyproject.toml`**
+- [x] **Step 1: Create `pyproject.toml`**
 
 ```toml
 [project]
@@ -109,7 +111,7 @@ dev = [
 framework-forge = "framework_forge.cli:cli"
 ```
 
-- [ ] **Step 2: Create `requirements.txt`**
+- [x] **Step 2: Create `requirements.txt`**
 
 ```
 anthropic>=0.40.0
@@ -120,13 +122,13 @@ pytest>=8.0.0
 pytest-asyncio>=0.23.0
 ```
 
-- [ ] **Step 3: Create `.env.example`**
+- [x] **Step 3: Create `.env.example`**
 
 ```
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
-- [ ] **Step 4: Create `.gitignore`**
+- [x] **Step 4: Create `.gitignore`**
 
 ```
 __pycache__/
@@ -139,13 +141,13 @@ build/
 frameworks/*/sources/texts/
 ```
 
-- [ ] **Step 5: Create `framework_forge/__init__.py`**
+- [x] **Step 5: Create `framework_forge/__init__.py`**
 
 ```python
 """Framework Forge: Extract thinking frameworks from historical figures."""
 ```
 
-- [ ] **Step 6: Create `framework_forge/config.py`**
+- [x] **Step 6: Create `framework_forge/config.py`**
 
 ```python
 """Configuration and constants for Framework Forge."""
@@ -193,7 +195,7 @@ SOURCE_TYPES = [
 ]
 ```
 
-- [ ] **Step 7: Create `tests/conftest.py`**
+- [x] **Step 7: Create `tests/conftest.py`**
 
 ```python
 """Shared test fixtures for Framework Forge tests."""
@@ -258,7 +260,7 @@ def tmp_framework_dir(tmp_path):
     return fw_dir
 ```
 
-- [ ] **Step 8: Install dependencies and verify**
+- [x] **Step 8: Install dependencies and verify**
 
 Run:
 ```bash
@@ -266,7 +268,7 @@ pip install -e ".[dev]"
 ```
 Expected: Clean install, no errors.
 
-- [ ] **Step 9: Run pytest to verify setup**
+- [x] **Step 9: Run pytest to verify setup**
 
 Run:
 ```bash
@@ -274,14 +276,14 @@ python -m pytest tests/ -v
 ```
 Expected: `no tests ran` (0 collected, no errors).
 
-- [ ] **Step 10: Create .env with real API key**
+- [x] **Step 10: Create .env with real API key**
 
 ```bash
 cp .env.example .env
 # Then manually add your ANTHROPIC_API_KEY to .env
 ```
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
 ```bash
 git init
@@ -299,7 +301,7 @@ git commit -m "feat: project scaffolding for Framework Forge"
 
 The LLM wrapper sends structured prompts to Claude and parses structured responses. Every extraction step uses this — it is the foundation.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `tests/test_llm.py`:
 
@@ -384,12 +386,12 @@ class TestLLMClient:
         assert call_kwargs["max_tokens"] == 8192
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_llm.py -v`
 Expected: FAIL — `ModuleNotFoundError: No module named 'framework_forge.llm'`
 
-- [ ] **Step 3: Write the implementation**
+- [x] **Step 3: Write the implementation**
 
 Create `framework_forge/llm.py`:
 
@@ -506,12 +508,12 @@ class LLMClient:
         return resp.json_content
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_llm.py -v`
 Expected: All 6 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/llm.py tests/test_llm.py
@@ -529,7 +531,7 @@ git commit -m "feat: LLM client wrapper with structured response parsing"
 - Create: `framework_forge/sources/triage.py`
 - Create: `tests/test_sources.py`
 
-- [ ] **Step 1: Create `framework_forge/sources/__init__.py`**
+- [x] **Step 1: Create `framework_forge/sources/__init__.py`**
 
 ```python
 """Source discovery, fetching, and triage for framework extraction."""
@@ -541,7 +543,7 @@ from framework_forge.sources.triage import triage_sources
 __all__ = ["discover_sources", "fetch_source", "triage_sources"]
 ```
 
-- [ ] **Step 2: Write failing tests**
+- [x] **Step 2: Write failing tests**
 
 Create `tests/test_sources.py`:
 
@@ -611,12 +613,12 @@ class TestCleanHtml:
         assert "Content" in result
 ```
 
-- [ ] **Step 3: Run tests to verify they fail**
+- [x] **Step 3: Run tests to verify they fail**
 
 Run: `python -m pytest tests/test_sources.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 4: Implement `triage.py`**
+- [x] **Step 4: Implement `triage.py`**
 
 Create `framework_forge/sources/triage.py`:
 
@@ -660,7 +662,7 @@ def triage_sources(entries: list[SourceEntry]) -> list[SourceEntry]:
     return sorted(entries, key=lambda e: e.rank)
 ```
 
-- [ ] **Step 5: Implement `fetcher.py`**
+- [x] **Step 5: Implement `fetcher.py`**
 
 Create `framework_forge/sources/fetcher.py`:
 
@@ -730,7 +732,7 @@ def fetch_source(url: str, output_path: Path, timeout: float = 30.0) -> str:
     return text
 ```
 
-- [ ] **Step 6: Implement `discovery.py`**
+- [x] **Step 6: Implement `discovery.py`**
 
 Create `framework_forge/sources/discovery.py`:
 
@@ -809,12 +811,12 @@ def discover_sources(person: str, client: LLMClient | None = None) -> list[Sourc
     return entries
 ```
 
-- [ ] **Step 7: Run tests to verify they pass**
+- [x] **Step 7: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_sources.py -v`
 Expected: All 4 tests PASS.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add framework_forge/sources/ tests/test_sources.py
@@ -832,13 +834,13 @@ git commit -m "feat: source discovery, fetching, and triage"
 
 This module takes source text and identifies candidate critical incidents — decisions where the reasoning process is at least partially visible.
 
-- [ ] **Step 1: Create `framework_forge/extraction/__init__.py`**
+- [x] **Step 1: Create `framework_forge/extraction/__init__.py`**
 
 ```python
 """Extraction pipeline: incidents, CDM probes, constructs, lens, divergence."""
 ```
 
-- [ ] **Step 2: Write the failing test**
+- [x] **Step 2: Write the failing test**
 
 Create `tests/test_extraction.py`:
 
@@ -912,12 +914,12 @@ class TestIdentifyIncidents:
         assert results[0].reasoning_visible is True
 ```
 
-- [ ] **Step 3: Run test to verify it fails**
+- [x] **Step 3: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 4: Implement `incidents.py`**
+- [x] **Step 4: Implement `incidents.py`**
 
 Create `framework_forge/extraction/incidents.py`:
 
@@ -1042,12 +1044,12 @@ def identify_incidents(
     return incidents
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 3 tests PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add framework_forge/extraction/ tests/test_extraction.py
@@ -1064,7 +1066,7 @@ git commit -m "feat: critical incident identification from source text"
 
 This is the analytical core. For each candidate incident, we apply the six CDM cognitive probes to reconstruct the reasoning process.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `tests/test_extraction.py`:
 
@@ -1122,12 +1124,12 @@ class TestCDMProbes:
         assert "cdm_probes" in d
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_extraction.py::TestCDMProbes -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement `cdm_probes.py`**
+- [x] **Step 3: Implement `cdm_probes.py`**
 
 Create `framework_forge/extraction/cdm_probes.py`:
 
@@ -1266,12 +1268,12 @@ def reconstruct_incident(
     )
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 5 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/extraction/cdm_probes.py tests/test_extraction.py
@@ -1288,7 +1290,7 @@ git commit -m "feat: CDM probe reconstruction for critical incidents"
 
 Takes the reconstructed incident database and identifies bipolar constructs using Repertory Grid-adapted methodology.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `tests/test_extraction.py`:
 
@@ -1334,12 +1336,12 @@ class TestConstructMapping:
         assert "negative_pole" in d
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_extraction.py::TestConstructMapping -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement `constructs.py`**
+- [x] **Step 3: Implement `constructs.py`**
 
 Create `framework_forge/extraction/constructs.py`:
 
@@ -1478,12 +1480,12 @@ def map_constructs(
     return constructs
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 7 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/extraction/constructs.py tests/test_extraction.py
@@ -1498,7 +1500,7 @@ git commit -m "feat: bipolar construct mapping from incident database"
 - Create: `framework_forge/extraction/lens.py`
 - Modify: `tests/test_extraction.py` (add tests)
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `tests/test_extraction.py`:
 
@@ -1547,12 +1549,12 @@ class TestLensDerivation:
         assert "holdout_validation" in d
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_extraction.py::TestLensDerivation -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement `lens.py`**
+- [x] **Step 3: Implement `lens.py`**
 
 Create `framework_forge/extraction/lens.py`:
 
@@ -1698,12 +1700,12 @@ def derive_lens(
     )
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 9 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/extraction/lens.py tests/test_extraction.py
@@ -1718,7 +1720,7 @@ git commit -m "feat: perceptual lens derivation from bipolar constructs"
 - Create: `framework_forge/extraction/divergence.py`
 - Modify: `tests/test_extraction.py` (add tests)
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `tests/test_extraction.py`:
 
@@ -1760,12 +1762,12 @@ class TestDivergencePredictions:
         assert result[0].confidence == "High"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_extraction.py::TestDivergencePredictions -v`
 Expected: FAIL
 
-- [ ] **Step 3: Implement `divergence.py`**
+- [x] **Step 3: Implement `divergence.py`**
 
 Create `framework_forge/extraction/divergence.py`:
 
@@ -1888,12 +1890,12 @@ def generate_predictions(
     ]
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 10 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/extraction/divergence.py tests/test_extraction.py
@@ -1911,13 +1913,13 @@ git commit -m "feat: behavioral divergence prediction generation"
 
 Assembles all extraction outputs into the final framework JSON conforming to the selector architecture template.
 
-- [ ] **Step 1: Create `framework_forge/encoding/__init__.py`**
+- [x] **Step 1: Create `framework_forge/encoding/__init__.py`**
 
 ```python
 """Framework encoding: assemble extraction outputs into selector architecture JSON."""
 ```
 
-- [ ] **Step 2: Write the failing test**
+- [x] **Step 2: Write the failing test**
 
 Create `tests/test_encoding.py`:
 
@@ -1977,12 +1979,12 @@ class TestSaveFramework:
         assert loaded["meta"]["person"] == "Steve Jobs"
 ```
 
-- [ ] **Step 3: Run test to verify it fails**
+- [x] **Step 3: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_encoding.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 4: Implement `framework.py`**
+- [x] **Step 4: Implement `framework.py`**
 
 Create `framework_forge/encoding/framework.py`:
 
@@ -2106,12 +2108,12 @@ def save_framework(framework: dict, output_dir: Path) -> Path:
     return path
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_encoding.py -v`
 Expected: All 2 tests PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add framework_forge/encoding/ tests/test_encoding.py
@@ -2127,13 +2129,13 @@ git commit -m "feat: framework JSON assembly and serialization"
 - Create: `framework_forge/validation/tier1.py`
 - Create: `tests/test_validation.py`
 
-- [ ] **Step 1: Create `framework_forge/validation/__init__.py`**
+- [x] **Step 1: Create `framework_forge/validation/__init__.py`**
 
 ```python
 """Three-tier validation for thinking frameworks."""
 ```
 
-- [ ] **Step 2: Write the failing test**
+- [x] **Step 2: Write the failing test**
 
 Create `tests/test_validation.py`:
 
@@ -2228,12 +2230,12 @@ class TestTier1:
         assert tier1.divergent_count == 0
 ```
 
-- [ ] **Step 3: Run test to verify it fails**
+- [x] **Step 3: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_validation.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
-- [ ] **Step 4: Implement `tier1.py`**
+- [x] **Step 4: Implement `tier1.py`**
 
 Create `framework_forge/validation/tier1.py`:
 
@@ -2509,12 +2511,12 @@ def run_tier1(
     return Tier1Result(scenario_results=results)
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 4 tests PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add framework_forge/validation/ tests/test_validation.py
@@ -2529,7 +2531,7 @@ git commit -m "feat: Tier 1 validation — baseline differentiation"
 - Create: `framework_forge/validation/tier2.py`
 - Modify: `tests/test_validation.py` (add tests)
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `tests/test_validation.py`:
 
@@ -2581,12 +2583,12 @@ class TestTier2:
         assert result.passed is False
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `python -m pytest tests/test_validation.py::TestTier2 -v`
 Expected: FAIL
 
-- [ ] **Step 3: Implement `tier2.py`**
+- [x] **Step 3: Implement `tier2.py`**
 
 Create `framework_forge/validation/tier2.py`:
 
@@ -2743,12 +2745,12 @@ def run_tier2(
     )
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 6 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add framework_forge/validation/tier2.py tests/test_validation.py
@@ -2764,7 +2766,7 @@ git commit -m "feat: Tier 2 validation — internal consistency check"
 - Create: `framework_forge/validation/floor_check.py`
 - Modify: `tests/test_validation.py` (add tests)
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add to `tests/test_validation.py`:
 
@@ -2822,12 +2824,12 @@ class TestFloorCheck:
         assert result.passed is False
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `python -m pytest tests/test_validation.py::TestTier3Prep tests/test_validation.py::TestFloorCheck -v`
 Expected: FAIL
 
-- [ ] **Step 3: Implement `tier3_prep.py`**
+- [x] **Step 3: Implement `tier3_prep.py`**
 
 Create `framework_forge/validation/tier3_prep.py`:
 
@@ -2903,7 +2905,7 @@ def prepare_tier3_materials(
     return path
 ```
 
-- [ ] **Step 4: Implement `floor_check.py`**
+- [x] **Step 4: Implement `floor_check.py`**
 
 Create `framework_forge/validation/floor_check.py`:
 
@@ -2995,12 +2997,12 @@ Apply the framework to this situation, then compare:
     )
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 8 tests PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add framework_forge/validation/tier3_prep.py framework_forge/validation/floor_check.py tests/test_validation.py
@@ -3016,7 +3018,7 @@ git commit -m "feat: Tier 3 prep and historical alignment floor check"
 
 The CLI ties all subsystems together into the workflow described in the spec.
 
-- [ ] **Step 1: Implement `cli.py`**
+- [x] **Step 1: Implement `cli.py`**
 
 Create `framework_forge/cli.py`:
 
@@ -3276,7 +3278,7 @@ if __name__ == "__main__":
     cli()
 ```
 
-- [ ] **Step 2: Verify CLI loads**
+- [x] **Step 2: Verify CLI loads**
 
 Run: `python -m framework_forge.cli --help`
 Expected:
@@ -3294,7 +3296,7 @@ Commands:
   validate            Stage 7: Run three-tier validation.
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add framework_forge/cli.py
@@ -3310,14 +3312,14 @@ git commit -m "feat: CLI entry point tying all subsystems together"
 
 This is the actual extraction. It follows the spec's Phase 1 build order exactly.
 
-- [ ] **Step 1: Discover sources**
+- [x] **Step 1: Discover sources**
 
 ```bash
 framework-forge discover-sources --person "Steve Jobs" --output frameworks/steve-jobs
 ```
 Expected: Bibliography saved to `frameworks/steve-jobs/sources/bibliography.json` with 10-15 sources.
 
-- [ ] **Step 2: Fetch source texts**
+- [x] **Step 2: Fetch source texts**
 
 ```bash
 framework-forge fetch-sources \
@@ -3326,7 +3328,7 @@ framework-forge fetch-sources \
 ```
 This fetches all sources whose URL is not "offline". For book-only sources (url = "offline"), manually place text excerpts as `.txt` files in `frameworks/steve-jobs/sources/texts/`. This is the step that requires manual effort — primary source texts must be gathered from physical books or licensed materials.
 
-- [ ] **Step 3: Identify candidate incidents from source texts**
+- [x] **Step 3: Identify candidate incidents from source texts**
 
 ```bash
 framework-forge identify-incidents \
@@ -3336,11 +3338,11 @@ framework-forge identify-incidents \
 ```
 Expected: `frameworks/steve-jobs/incidents/candidates.json` with 20-30 candidate incidents.
 
-- [ ] **Step 4: Review candidate incidents**
+- [x] **Step 4: Review candidate incidents**
 
 Open `candidates.json`. Remove incidents where `reasoning_visible` is false or the excerpt is too thin. Target: keep 20-25 high-quality incidents with visible reasoning process.
 
-- [ ] **Step 5: Reconstruct incidents with CDM probes**
+- [x] **Step 5: Reconstruct incidents with CDM probes**
 
 ```bash
 framework-forge reconstruct \
@@ -3350,7 +3352,7 @@ framework-forge reconstruct \
 ```
 Expected: `frameworks/steve-jobs/incidents/incidents.json` with full CDM probe reconstruction for each incident.
 
-- [ ] **Step 6: Review reconstructed incidents**
+- [x] **Step 6: Review reconstructed incidents**
 
 Open `incidents.json`. For each incident, verify:
 - CDM probes contain specific, non-generic content
@@ -3360,7 +3362,7 @@ Open `incidents.json`. For each incident, verify:
 
 Edit where needed — this is analytical judgment, not automation.
 
-- [ ] **Step 7: Build the framework (constructs, lens, predictions, encoding)**
+- [x] **Step 7: Build the framework (constructs, lens, predictions, encoding)**
 
 ```bash
 framework-forge build \
@@ -3370,7 +3372,7 @@ framework-forge build \
 ```
 Expected: `frameworks/steve-jobs/constructs.json` and `frameworks/steve-jobs/framework.json` with full selector architecture.
 
-- [ ] **Step 8: Review the framework**
+- [x] **Step 8: Review the framework**
 
 Open `framework.json`. Verify:
 - Perceptual lens is specific (not "Jobs valued simplicity" — deeper than that)
@@ -3379,7 +3381,7 @@ Open `framework.json`. Verify:
 - 8-12 constructs present
 - Source traceability throughout
 
-- [ ] **Step 9: Run Tier 1 validation**
+- [x] **Step 9: Run Tier 1 validation**
 
 ```bash
 framework-forge validate \
@@ -3390,7 +3392,7 @@ framework-forge validate \
 ```
 Expected: `PASSED` with >= 4/5 divergent scenarios. If FAILED, iterate: review which scenarios failed, identify weak framework sections, deepen those sections, re-run.
 
-- [ ] **Step 10: Run Tier 2 validation**
+- [x] **Step 10: Run Tier 2 validation**
 
 ```bash
 framework-forge validate \
@@ -3401,7 +3403,7 @@ framework-forge validate \
 ```
 Expected: `PASSED` with >= 80% traceability and no contradictions. If FAILED, review untraceable reasoning steps and strengthen the framework elements they should trace to.
 
-- [ ] **Step 11: Run full validation (includes Tier 3 prep)**
+- [x] **Step 11: Run full validation (includes Tier 3 prep)**
 
 ```bash
 framework-forge validate \
@@ -3412,7 +3414,7 @@ framework-forge validate \
 ```
 Expected: Tier 1 PASSED, Tier 2 PASSED, and review packet saved to `frameworks/steve-jobs/validation/tier3_materials/review_packet.json`.
 
-- [ ] **Step 12: Run Tier 3 — Expert review**
+- [x] **Step 12: Run Tier 3 — Expert review**
 
 Share `review_packet.json` with 3-5 people familiar with Jobs' thinking. Collect their responses. This is the surprise test — do they find the framework-grounded reasoning plausible and non-obvious?
 
@@ -3421,7 +3423,7 @@ Success criteria from spec:
 - At least 2/5 scenarios produce a "surprise"
 - No scenario produces fundamentally inconsistent reasoning
 
-- [ ] **Step 13: Commit final framework**
+- [x] **Step 13: Commit final framework**
 
 ```bash
 git add frameworks/steve-jobs/
