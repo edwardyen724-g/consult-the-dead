@@ -166,14 +166,20 @@ Sequential, do not parallelize solo:
 
 **Phase 2 milestone:** Pro tier is genuinely a better product than Free. You'd pay for it yourself.
 
-### Phase 3 — May 19-30 (~10 working days): first sales motion
+### Phase 3 — Outbound motion on live surfaces ✅ IN PROGRESS
 
-- [ ] Free 3-month Pro to 5 hand-picked honest-feedback friends (not strangers)
-- [ ] Watch them use it. Ask what they'd pay if it disappeared.
-- [ ] Iterate on top 3 complaints
-- [ ] Cold email wave 1: **10 of the 30 targets** (personalized debates already generated)
+The product surfaces for the outbound motion are all shipped:
+- Live Agora at `/agora` — full Pro trial flow, 3 free agons then upgrade prompt
+- Pricing page at `/pricing` — Pro $30/mo / $300/yr, scenario cards, live stats row
+- 30 personalized outreach debate pages at `/debates/<slug>` — noindex, ready for cold email links
+- Release notes at `docs/release-notes/index.md` — current shipped state documented
+
+Current state (2026-05-12):
+- [x] Live Agora and pricing page are the product surfaces prospects land on
+- [x] Wave 1 cold email targeting 30 founders queued for execution (2026-05-13)
 - [ ] 15-minute Calendly onboarding call for every reply
 - [ ] Case study + Loom video from first user sessions
+- [ ] Iterate on top 3 complaints after initial wave feedback
 
 **Phase 3 milestone:** first paying customer who isn't a friend. Validation signal, not revenue signal.
 
@@ -298,13 +304,14 @@ Remains as a landing-page CTA. Not integrated into Pro. If it gets taken up with
 1. **Target list (Phase 0 deliverable).** Who are the 30 names? Edward owns.
 2. **Cold email voice.** First-person casual, or more formal pitch? Test variant.
 3. **Reference case study topic.** Which real Edward decision is the hero case? Must be recent, specific, and resolve-able on camera.
-4. **Whether to keep "greatmind is open source" framing in the essay.** Open-source the *methodology* is defensible. Open-source the *product* contradicts charging for it. Essay needs a rewrite in Phase 2.
+4. **Whether to keep "greatmind is open source" framing in the essay.** Open-source the *methodology* is defensible. Open-source the *product* contradicts charging for it. Rewrite this framing when the outreach motion has first replies to learn from.
 5. **Pricing: $30 or $39?** $30 is the mental-model price. $39 is 30% more revenue per user, same perceived value. Test after first 10 customers.
 
 ---
 
 ## 11. Changelog
 
+- **2026-05-12** — Phase 3 outbound motion reframed to current shipped state: Agora (`/agora`), pricing (`/pricing`), and debate pages (`/debates/<slug>`) are the live surfaces. Wave 1 cold email (30 founders) queued for 2026-05-13. Stale "Phase 2" future-language trimmed; open decision #4 essay-rewrite updated to decouple from Phase 2 completion.
 - **2026-04-24** — Phase 2 completed overnight. Outreach debate pages live (30 static pages at /debates/<slug>). Opus synthesis + 5-mind gating for Pro. PDF export Pro-gated. Neon Postgres persistence layer built (pending account activation). Playbook timeline updated — Phase 3 (first sales motion) can start immediately.
 - **2026-04-23** — Phase 0 + Phase 1 completed in 1 day. Stripe account, Clerk auth, Stripe Checkout, pricing page, account page, ToS/Privacy, Resend email, user-scoped rate limits, Clerk production instance, Google OAuth, DNS — all live. Added 30 personalized outreach debates as a new deliverable (option 3 hybrid replacing generic case study).
 - **2026-04-22** — Initial playbook. Strategic shift from audience-first to Retool-pattern. Agora Pro ($30/mo) defined. 6-week build plan. ICP hypothesis. Repo split planned.
