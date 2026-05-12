@@ -95,8 +95,16 @@ beforeEach(() => {
 
 describe("generateStaticParams", () => {
   it("returns one slug per shipped decision entry", () => {
-    expect(generateStaticParams()).toEqual(
-      DECISION_ENTRIES.map((entry) => ({ slug: entry.slug })),
+    const params = generateStaticParams();
+    expect(params).toEqual(DECISION_ENTRIES.map((entry) => ({ slug: entry.slug })));
+    expect(params).toEqual(
+      expect.arrayContaining([
+        { slug: "should-i-fire-my-cofounder" },
+        { slug: "should-i-pivot-or-persist" },
+        { slug: "should-i-take-this-job-offer" },
+        { slug: "should-i-sell-my-startup" },
+        { slug: "should-i-shut-down-my-startup" },
+      ]),
     );
   });
 });
