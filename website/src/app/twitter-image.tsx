@@ -5,11 +5,10 @@
  * byte-for-byte aligned with the canonical homepage share image.
  * Twitter expects a 2:1 ratio (1200x628 or 1200x630) — this matches
  * the OG image size export exactly.
+ *
+ * Note: `runtime` must be declared inline (not re-exported) because
+ * Next.js Turbopack does not support re-exporting route segment config
+ * fields from another module.
  */
-export {
-  default,
-  alt,
-  contentType,
-  runtime,
-  size,
-} from "./opengraph-image";
+export const runtime = "nodejs";
+export { default, alt, contentType, size } from "./opengraph-image";
