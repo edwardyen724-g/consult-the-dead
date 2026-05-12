@@ -287,66 +287,6 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
-  {
-    slug: "stoics-on-failure",
-    type: "single",
-    frameworkSlug: "marcus-aurelius",
-    title: "What Marcus Aurelius, Seneca, and Epictetus Say About Dealing With Failure",
-    description:
-      "Three Stoic philosophers — an emperor, an advisor, and a freed slave — debate how to handle failure, setbacks, and adversity. Their answers disagree in ways that matter.",
-    targetKeywords: [
-      "stoics on failure",
-      "how stoics deal with failure",
-      "marcus aurelius failure",
-      "seneca adversity",
-      "epictetus setback",
-      "stoic philosophy failure",
-    ],
-    decisionType: "resilience",
-    hookQuestion:
-      "You've just failed publicly. Your product launch missed, your bet didn't pay off, or you made the wrong call. Three Stoic philosophers have very different prescriptions for what you should do next.",
-    publishedAt: "2026-05-11",
-  },
-  {
-    slug: "steve-jobs-on-product",
-    type: "single",
-    frameworkSlug: "steve-jobs",
-    title: "Steve Jobs' Decision Framework: How He Said No to 1,000 Things",
-    description:
-      "Steve Jobs' most counterintuitive insight wasn't about design — it was about elimination. His framework for product decisions reveals why saying no is the hardest and most important skill in building.",
-    targetKeywords: [
-      "steve jobs decision framework",
-      "steve jobs product strategy",
-      "steve jobs focus",
-      "steve jobs say no",
-      "apple product philosophy",
-      "product decision framework",
-    ],
-    decisionType: "product",
-    hookQuestion:
-      "You have ten things on your product roadmap, three months of runway, and investors asking for everything at once. Jobs faced this exact trap — and his answer was to delete nine of the ten things.",
-    publishedAt: "2026-05-11",
-  },
-  {
-    slug: "founders-on-pricing",
-    type: "single",
-    frameworkSlug: "john-d-rockefeller",
-    title: "What History's Greatest Thinkers Say About Pricing Your Product",
-    description:
-      "From Rockefeller's cost-architecture discipline to Carnegie's structural-position logic — unconventional wisdom on pricing strategy from minds that shaped industrial history.",
-    targetKeywords: [
-      "pricing strategy advice",
-      "how to price your product",
-      "product pricing framework",
-      "startup pricing strategy",
-      "pricing wisdom",
-      "b2b pricing strategy",
-    ],
-    decisionType: "pricing",
-    hookQuestion:
-      "You're staring at your pricing page wondering whether to charge $29 or $99 a month. Most pricing advice tells you to 'charge what you're worth.' The minds who actually built empires have a different answer.",
-    publishedAt: "2026-05-11",
-  },
   // HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
   // Einstein insight article re-enable when albert-einstein is restored to FrameworkSlug.
   // {
