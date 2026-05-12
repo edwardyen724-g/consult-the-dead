@@ -681,7 +681,7 @@ export default function PricingPage() {
             lineHeight: 1.65,
           }}>
             <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
-            Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. After Q3 2026,
+            Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. Lock in now before prices rise —
             annual plans go to $360. Monthly stays at ${PRO_MONTHLY_PRICE}. If you are
             already sold on the workflow, the Pro checkout is the shortest path to Opus
             and the persistent library.
