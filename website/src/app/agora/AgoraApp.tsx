@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 import { ConsensusGraph, NODE_LABELS, type ConsensusNodeKey } from "@/components/ConsensusGraph";
 import type { AgonEvent, ConsensusResult } from "@/lib/agon/types";
 import {
@@ -99,6 +100,8 @@ export interface AgonState {
   researchData: ResearchData | null;
   /** True when a free user just attempted to seat a mind beyond their cap. */
   capBannerVisible: boolean;
+  /** True when the email capture modal should be shown (free users, consensus stage). */
+  emailCaptureVisible: boolean;
 }
 
 const INITIAL_STATE: AgonState = {
@@ -119,6 +122,7 @@ const INITIAL_STATE: AgonState = {
   researchLoading: false,
   researchData: null,
   capBannerVisible: false,
+  emailCaptureVisible: false,
 };
 
 function suggestCouncil(topic: string, minds: MindOption[]): string[] {
@@ -175,6 +179,18 @@ function toAgoraSessionState(state: AgonState): AgoraSessionState {
 }
 
 const CONSENSUS_NODE_KEYS = new Set<ConsensusNodeKey>(NODE_LABELS);
+
+/** Fire a Vercel analytics event, swallowing any errors so analytics never breaks the UI. */
+function trackAgoraEvent(
+  name: string,
+  properties?: Record<string, string | number | boolean | null | undefined>,
+): void {
+  try {
+    track(name, properties);
+  } catch {
+    // Never surface analytics errors to callers.
+  }
+}
 
 function isConsensusNodeKey(value: string | null): value is ConsensusNodeKey {
   return value !== null && CONSENSUS_NODE_KEYS.has(value as ConsensusNodeKey);
@@ -493,7 +509,13 @@ export function AgoraApp({
           return { ...s, turns, activeMindSlug: null };
         }
         case "consensus_started":
-          return { ...s, consensusLoading: true, stage: "consensus" };
+          trackAgoraEvent("consensus_stage_reached");
+          return {
+            ...s,
+            consensusLoading: true,
+            stage: "consensus",
+            emailCaptureVisible: !s.emailCaptureVisible && !s.apiKey.trim(),
+          };
         case "consensus_done":
           return {
             ...s,
@@ -696,6 +718,13 @@ export function AgoraApp({
               onReset={reset}
               isPro={isPro}
               quotaRemaining={state.quotaRemaining}
+            />
+          )}
+
+          {state.emailCaptureVisible && (
+            <EmailCaptureModal
+              onSubmit={() => setState((s) => ({ ...s, emailCaptureVisible: false }))}
+              onDismiss={() => setState((s) => ({ ...s, emailCaptureVisible: false }))}
             />
           )}
         </div>
@@ -2585,6 +2614,163 @@ function PreviewBanner({ children }: { children: React.ReactNode }) {
     >
       <span style={{ color: "var(--amber)", marginRight: "10px" }}>PREVIEW</span>
       {children}
+    </div>
+  );
+}
+
+/* ────────────── Email Capture Modal ────────────── */
+
+function EmailCaptureModal({
+  onSubmit,
+  onDismiss,
+}: {
+  onSubmit: () => void;
+  onDismiss: () => void;
+}) {
+  useEffect(() => {
+    trackAgoraEvent("email_capture_shown");
+  }, []);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value ?? "";
+    trackAgoraEvent("email_capture_submitted");
+    // Best-effort subscription — fire and forget
+    fetch("/api/newsletter/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    }).catch(() => {});
+    onSubmit();
+  }
+
+  function handleDismiss() {
+    trackAgoraEvent("email_capture_dismissed");
+    onDismiss();
+  }
+
+  return (
+    <div
+      data-testid="email-capture-modal"
+      style={{
+        position: "fixed",
+        bottom: "24px",
+        right: "24px",
+        zIndex: 100,
+        width: "320px",
+        background: "var(--bg)",
+        border: "1px solid var(--hairline)",
+        borderLeft: "3px solid var(--amber)",
+        borderRadius: "4px",
+        padding: "20px 20px 16px",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
+      }}
+    >
+      <button
+        data-testid="email-capture-dismiss"
+        onClick={handleDismiss}
+        aria-label="Dismiss"
+        style={{
+          position: "absolute",
+          top: "8px",
+          right: "10px",
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          fontSize: "16px",
+          color: "var(--fg-dim)",
+          lineHeight: 1,
+        }}
+      >
+        ×
+      </button>
+
+      <p
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "10px",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "var(--amber)",
+          marginBottom: "6px",
+        }}
+      >
+        Save your result
+      </p>
+      <p
+        style={{
+          fontFamily: "var(--font-eb-garamond)",
+          fontSize: "15px",
+          lineHeight: 1.4,
+          marginBottom: "14px",
+          color: "var(--fg)",
+        }}
+      >
+        Get this agon transcript delivered to your inbox — plus a weekly digest of the best
+        historical frameworks for modern decisions.
+      </p>
+
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <input
+          data-testid="email-capture-input"
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "12px",
+            border: "1px solid var(--hairline)",
+            borderRadius: "3px",
+            padding: "8px 10px",
+            background: "var(--bg)",
+            color: "var(--fg)",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        />
+        <button
+          data-testid="email-capture-submit"
+          type="submit"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            background: "var(--fg)",
+            color: "var(--bg)",
+            border: "none",
+            borderRadius: "3px",
+            padding: "9px 14px",
+            cursor: "pointer",
+            width: "100%",
+          }}
+        >
+          Send →
+        </button>
+      </form>
+
+      <button
+        data-testid="email-capture-skip"
+        onClick={handleDismiss}
+        style={{
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          fontFamily: "var(--font-mono)",
+          fontSize: "10px",
+          color: "var(--fg-dim)",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          marginTop: "8px",
+          padding: 0,
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        No thanks
+      </button>
     </div>
   );
 }
