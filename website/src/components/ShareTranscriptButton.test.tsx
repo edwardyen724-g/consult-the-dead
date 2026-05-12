@@ -551,27 +551,27 @@ describe("exported constants", () => {
 // ──────────────────────────────────────────────────────────────────────────
 
 describe("<ShareTranscriptButton/> accessibility", () => {
-  it("has aria-label set to the idle label in initial state", () => {
+  it("has aria-label 'Copy share link to clipboard' in initial state", () => {
     const tree = mount({ shareInput: { shareId: "x" } }, false);
     const btn = findByTestId(tree, "share-transcript-button");
     expect((btn!.props as Record<string, unknown>)["aria-label"]).toBe(
-      LABEL_IDLE,
+      "Copy share link to clipboard",
     );
   });
 
-  it("has aria-label set to copied label when copied=true", () => {
+  it("has aria-label 'Copied!' when copied=true", () => {
     const tree = mount({ shareInput: { shareId: "x" } }, true);
     const btn = findByTestId(tree, "share-transcript-button");
     expect((btn!.props as Record<string, unknown>)["aria-label"]).toBe(
-      LABEL_COPIED,
+      "Copied!",
     );
   });
 
-  it("has aria-label set to idle label when disabled", () => {
+  it("has aria-label 'Copy share link to clipboard' when disabled", () => {
     const tree = mount({ shareInput: { shareId: null } }, false);
     const btn = findByTestId(tree, "share-transcript-button");
     expect((btn!.props as Record<string, unknown>)["aria-label"]).toBe(
-      LABEL_IDLE,
+      "Copy share link to clipboard",
     );
   });
 });
