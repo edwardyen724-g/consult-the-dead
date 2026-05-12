@@ -37,7 +37,7 @@ The bundle:
 | Council size | 2-3 minds | Up to **5 minds** |
 | Model quality | Sonnet throughout | Sonnet debate + **Opus consensus synthesis** |
 | Debate history | localStorage, device-bound | **Persistent synced library**, searchable, taggable |
-| Sharing | Public `/agora/a/{id}` shareable link (✅ shipped) | Public `/agora/a/{id}` shareable link with OG images and share CTA strip |
+| Sharing | Read-only link | Private by default, optional share |
 | PDF export | — | Full debate + consensus, clean format |
 | Research depth | Short Tavily pass | Extended: more sources, longer window |
 | New frameworks | Released publicly | **Early access 2 weeks ahead** |
@@ -66,16 +66,32 @@ The bundle:
 
 ## 3. Gap analysis — current → chargeable
 
-**Current state (as of 2026-05-12 — all Tier 1 + 2 + 3 items shipped):**
-- Clerk auth ✅, Stripe Checkout + Billing Portal ✅, webhook handler ✅
-- User-scoped rate limits ✅ (3/day free, 100/month Pro)
-- Pricing page ✅, ToS + Privacy ✅, Resend transactional email ✅, account page ✅
-- Neon Postgres + persistent debate library ✅, library view ✅
-- PDF export (Pro-gated) ✅, Opus synthesis flag ✅, 5-mind gating ✅, extended research ✅
-- Annual plan ($300/yr) ✅, 7-day trial ✅
-- Shareable agon URLs ✅ (`/agora/a/{id}` with OG images, Twitter card, share CTA strip)
+> **Updated 2026-05-12:** All Tier 1, 2, and 3 gaps below are **shipped**. The gap
+> analysis is preserved here as a historical record of the build path. For current
+> canonical feature status see [docs/pricing.md](docs/pricing.md).
 
-> Gap analysis below is preserved for historical reference; all items shipped as of 2026-05-12.
+**Current state (verified 2026-05-12):**
+- Clerk auth: ✅ shipped — `website/src/` uses Clerk with `publicMetadata.subscription_tier`
+- Stripe Checkout + Customer Portal: ✅ shipped — monthly ($30) + annual ($300/yr) plans live
+- Stripe webhook handler: ✅ shipped — `/api/stripe/webhook` sets Pro tier on checkout
+- User-scoped rate limit: ✅ shipped — `website/src/lib/agon/rateLimit.ts` (3/day free, 100/month Pro)
+- Pricing page: ✅ shipped — `website/src/app/pricing/`
+- ToS + Privacy Policy: ✅ live
+- Transactional email: ✅ shipped — Resend (welcome + subscription confirmation)
+- Account page: ✅ shipped — `/account` with plan, usage, manage subscription
+- Postgres debate persistence: ✅ shipped — Neon Postgres, `/library` at `website/src/app/library/`
+- PDF export: ✅ shipped — gated to Pro
+- Opus synthesis + 5-mind cap: ✅ shipped
+- Annual plan: ✅ shipped — $300/yr (founding member price)
+- Shareable agon URLs: ✅ shipped — `/agora/a/[id]` with OG images and share CTA
+
+**Previous state (2026-04-22, for historical context):**
+- Rate limit was IP-based only (3/day/IP, global 60/day), Redis-backed ✓
+- Contact form → Discord webhook ✓
+- `src/app/agora/AgoraApp.tsx` was 1432 lines, single file, no account concept
+- `.env` required only `ANTHROPIC_API_KEY`
+- **Zero auth, zero Stripe, zero persistence beyond localStorage**
+- AGORA_PLAN.md §11 explicitly listed auth/login/Stripe as v1 non-goals — **this playbook reversed that decision**
 
 ### Tier 1 — blocks first dollar
 

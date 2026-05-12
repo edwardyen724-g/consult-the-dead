@@ -1,0 +1,32 @@
+name: Frameworks Guard
+
+on:
+  pull_request:
+    paths:
+      - 'frameworks/**'
+      - 'website/src/frameworks/**'
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    name: CI / Frameworks Guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check branch is a wanman capsule branch
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          if [[ "$BRANCH" != wanman/* ]]; then
+            echo "ERROR: Changes to frameworks/ are only allowed on wanman/* capsule branches."
+            echo "Branch '$BRANCH' is not a valid capsule branch."
+            echo ""
+            echo "If you need to modify framework files, open a wanman capsule branch"
+            echo "(e.g. wanman/your-feature-name) and make the changes there."
+            exit 1
+          fi
+          echo "Branch '$BRANCH' is a valid wanman capsule branch. OK."
