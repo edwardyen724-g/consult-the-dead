@@ -194,6 +194,7 @@ on the cadence table above (no machine-readable reset timestamp is returned).
 
 ### Agon / analysis routes (machine-readable — shipped)
 
+
 The helper `quotaResetAt(reason)` in `website/src/lib/agon/rateLimit.ts` computes
 the Unix-second epoch of the next quota-window boundary:
 
