@@ -2318,17 +2318,18 @@ function ConsensusStage({
       {/* Quota display + upsell */}
       {consensus && quotaRemaining !== undefined && !isPro && (
         <div
+          data-testid="quota-countdown-nudge"
           style={{
             marginTop: "24px",
             padding: "16px 20px",
-            border: `1px solid ${quotaRemaining === 0 ? "var(--amber)" : "var(--hairline)"}`,
+            border: `1px solid ${quotaRemaining <= 1 ? "var(--amber)" : "var(--hairline)"}`,
             borderRadius: "4px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "12px",
-            background: quotaRemaining === 0 ? "var(--amber-mist)" : "transparent",
+            background: quotaRemaining <= 1 ? "var(--amber-mist)" : "transparent",
           }}
         >
           <div
@@ -2336,12 +2337,14 @@ function ConsensusStage({
             style={{
               fontSize: "11px",
               letterSpacing: "0.08em",
-              color: quotaRemaining === 0 ? "var(--fg-dim)" : "var(--fg-dim)",
+              color: "var(--fg-dim)",
             }}
           >
             {quotaRemaining === 0
               ? "You've used all 3 free debates for today. Come back tomorrow, or:"
-              : `${quotaRemaining} free debate${quotaRemaining === 1 ? "" : "s"} remaining today`}
+              : quotaRemaining === 1
+                ? "Last free agon today — make it count, or go unlimited:"
+                : `${quotaRemaining} free debate${quotaRemaining === 1 ? "" : "s"} remaining today`}
           </div>
           <Link
             href="/pricing"
@@ -2353,10 +2356,10 @@ function ConsensusStage({
               textTransform: "uppercase",
               color: "var(--amber)",
               textDecoration: "none",
-              fontWeight: quotaRemaining === 0 ? 600 : 400,
+              fontWeight: quotaRemaining <= 1 ? 600 : 400,
             }}
           >
-            {quotaRemaining === 0
+            {quotaRemaining <= 1
               ? "Start 7-day free trial →"
               : "Go Pro for unlimited →"}
           </Link>
