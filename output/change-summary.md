@@ -21,3 +21,26 @@
 
 - Manual review of all four content files for internal consistency and expected cross-links.
 - `git diff --check` after staging to confirm there are no whitespace or patch-format issues.
+
+## 2026-05-12 — Public Agora share conversion lead-in
+
+### Branch
+
+- `wanman/public-agora-share-funnel`
+
+### Changed Files
+
+- `website/src/app/agora/a/[id]/page.tsx`
+- `website/src/app/agora/a/[id]/page.test.tsx`
+- `docs/runbooks/public-agora-share-page-smoke.md`
+
+### Notes
+
+- Added a read-only conversion lead-in above the existing public share CTA so `/agora/a/[id]` more clearly invites readers back into `/agora`.
+- Kept the canonical share URL, generated-by footer, and share-page UTM contract unchanged.
+- Updated the public-share smoke runbook so the desktop lead-in banner is documented alongside the existing inline and sticky CTA checks.
+
+### Verification
+
+- `pnpm vitest run src/app/agora/a/\[id\]/page.test.tsx src/app/agora/a/\[id\]/lib.test.ts src/components/__tests__/ShareCtaStrip.test.tsx src/lib/__tests__/share-cta-link.test.ts`
+- `pnpm coverage`
