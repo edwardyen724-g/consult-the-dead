@@ -32,10 +32,10 @@ import { buildTranscriptShareText, type TranscriptShareInput } from '@/lib/share
 export const COPIED_RESET_MS = 2000
 
 /** Label shown in the default idle state. */
-export const LABEL_IDLE = 'Share excerpt'
+export const LABEL_IDLE = 'Copy link'
 
 /** Label shown briefly after a successful clipboard write. */
-export const LABEL_COPIED = 'Copied!'
+export const LABEL_COPIED = 'Copied ✓'
 
 // ──────────────────────────────────────────────────────────────────────────
 //  Props
@@ -151,7 +151,7 @@ export function ShareTranscriptButton({
       onClick={handleClick}
       className={className}
       style={resolvedStyle}
-      aria-label={copied ? LABEL_COPIED : LABEL_IDLE}
+      aria-label={copied ? 'Copied!' : 'Copy share link to clipboard'}
     >
       {copied ? LABEL_COPIED : LABEL_IDLE}
     </button>
