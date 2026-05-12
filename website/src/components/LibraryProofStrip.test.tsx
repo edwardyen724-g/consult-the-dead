@@ -265,3 +265,60 @@ describe("<LibraryProofStrip/> — accessibility", () => {
     expect(dots).toHaveLength(2);
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────────
+//  Live count refresh regression
+// ──────────────────────────────────────────────────────────────────────────
+
+describe("<LibraryProofStrip/> — live count refresh regression", () => {
+  it("zero counts from an empty DB render explicit '0' labels, never undefined or NaN", () => {
+    const tree = renderStrip({ stats: { consultedMinds: 0, savedDebates: 0 } });
+    const text = treeText(tree);
+    expect(text).toContain("0 minds consulted so far");
+    expect(text).toContain("0 saved debates");
+    expect(text).not.toContain("NaN");
+    expect(text).not.toContain("undefined");
+  });
+
+  it("non-zero live stats fully displace any previous zero render (no stale count leaking)", () => {
+    const zeroTree = renderStrip({ stats: { consultedMinds: 0, savedDebates: 0 } });
+    const liveTree = renderStrip({ stats: { consultedMinds: 5, savedDebates: 8 } });
+    expect(treeText(zeroTree)).toContain("0 minds consulted so far");
+    expect(treeText(liveTree)).not.toContain("0 minds");
+    expect(treeText(liveTree)).not.toContain("0 saved debates");
+    expect(treeText(liveTree)).toContain("5 minds consulted so far");
+    expect(treeText(liveTree)).toContain("8 saved debates");
+  });
+
+  it("transitions cleanly from loading to populated without a blank interstitial (loading → live)", () => {
+    const loadingTree = renderStrip({ loading: true });
+    const populatedTree = renderStrip({ stats: { consultedMinds: 3, savedDebates: 6 } });
+    expect(findByTestId(loadingTree, "library-proof-strip-loading")).not.toBeNull();
+    expect(findByTestId(loadingTree, "library-proof-strip")).toBeNull();
+    expect(findByTestId(populatedTree, "library-proof-strip")).not.toBeNull();
+    expect(findByTestId(populatedTree, "library-proof-strip-loading")).toBeNull();
+    expect(treeText(populatedTree)).toContain("3 minds consulted so far");
+    expect(treeText(populatedTree)).toContain("6 saved debates");
+  });
+
+  it("always renders the static tagline for any non-loading state (social-proof copy regression)", () => {
+    const empty = renderStrip({ stats: { consultedMinds: 0, savedDebates: 0 } });
+    const single = renderStrip({ stats: { consultedMinds: 1, savedDebates: 1 } });
+    const large = renderStrip({ stats: { consultedMinds: 42, savedDebates: 99 } });
+    expect(treeText(empty)).toContain("Growing with every return");
+    expect(treeText(single)).toContain("Growing with every return");
+    expect(treeText(large)).toContain("Growing with every return");
+  });
+
+  it("shows exactly 3 items for every non-empty stats combination (item-count regression)", () => {
+    const cases = [
+      { consultedMinds: 0, savedDebates: 0 },
+      { consultedMinds: 1, savedDebates: 1 },
+      { consultedMinds: 100, savedDebates: 200 },
+    ];
+    for (const stats of cases) {
+      const items = findAllByTestId(renderStrip({ stats }), "library-proof-strip-item");
+      expect(items).toHaveLength(3);
+    }
+  });
+});
