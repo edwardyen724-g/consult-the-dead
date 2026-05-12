@@ -38,6 +38,8 @@ export default defineConfig({
         "src/lib/emails/templates/recap.ts",
         "src/lib/emails/templates/nudge.ts",
         "src/lib/emails/templates/digest.ts",
+        "src/lib/emails/templates/drip.ts",
+        "src/app/checkout/success/page.tsx",
         "src/app/sign-up/[[...sign-up]]/SignUpClient.tsx",
         "src/app/sign-up/[[...sign-up]]/UtmStamper.tsx",
         "src/lib/use-clerk-utm-stamper.ts",

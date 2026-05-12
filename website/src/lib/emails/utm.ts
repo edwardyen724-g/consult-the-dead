@@ -5,7 +5,7 @@
  * retention sequence MUST carry:
  *
  *   utm_source=email
- *   utm_campaign=<welcome|recap|nudge|digest>
+ *   utm_campaign=<welcome|recap|nudge|digest|drip>
  *   utm_content=<email_id>   // e.g. welcome_v1
  *
  * `email_id` follows the pattern `<campaign>_v<version>` so Vercel
@@ -16,7 +16,7 @@
  * shifts (e.g. we adopt utm_term someday), it changes here.
  */
 
-export type RetentionCampaign = 'welcome' | 'recap' | 'nudge' | 'digest'
+export type RetentionCampaign = 'welcome' | 'recap' | 'nudge' | 'digest' | 'drip'
 
 export interface BuildUtmUrlInput {
   /** Absolute base URL (e.g. https://www.consultthedead.com/agora). */
