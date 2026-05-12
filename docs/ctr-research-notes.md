@@ -46,6 +46,11 @@ capability credibility before the tier CTA. The contract as of 2026-05-12:
   decision and the council are shown. These are static and updated manually when
   better real-use examples are available.
 
+The pricing proof story is intentionally limited to the live stats row plus these
+approved scenario cards. Until real customer quotes are shipped and approved, do
+not add testimonial placeholders, founder blurbs, or fabricated social-proof
+claims to the pricing surface.
+
 The proof strip now uses live-seeded counts rather than a frozen baseline for the
 hero counter row. `formatPricingStats` still accepts a plain `PricingStats` object,
 so future analytics sources can swap in without touching the page JSX.

@@ -54,12 +54,16 @@ The shipped website already uses the Reading Room system across the core surface
 - editorial section headers and monospaced metadata
 - a Reading Room / Late Study theme toggle in the header
 - a framed `/agora` entry layer that introduces the council flow before the live app state begins
-- a public `/agora/a/[id]` share surface that already exists as a shipped product surface
+- a public `/agora/a/[id]` share surface that already exists as a shipped product surface, including the transcript-link copy button
 - a pricing page that already carries a stats bar and a scenario-based social-proof strip
 - **LibraryProofStrip** (`website/src/components/LibraryProofStrip.tsx`) shipped in PR #184 and is rendered on the `/library` page below the title, showing "X minds consulted · Y saved debates" as a compact monospaced stat bar; callers own the data-loading lifecycle and pass a `LibraryProgressStats` prop
 - **Transcript share helper** (`website/src/lib/share-transcript.ts`) shipped in PR #180; `buildTranscriptShareText` formats a pull-quote excerpt with a canonical `/agora/a/[id]` URL and attribution line into a clipboard-ready share blob, capped at 280 characters to fit share previews
 - the remaining work on this layer is surface-specific polish and parity, not inventing another helper layer
 - `/debates` and `/insights` are already on the publication-system baseline and should not be re-opened as active visual-parity gaps
+
+Pricing social proof stays on a narrow contract: the live stats row plus the
+anonymized scenario cards. Do not reintroduce testimonial-style placeholders or
+invented customer quotes until they are actually approved and shipped.
 
 That means the memo should track the live site, not the original brainstorming mockups. The remaining work is a narrow set of publication-surface refinements, not a fresh visual system.
 
@@ -97,7 +101,7 @@ That means the memo should track the live site, not the original brainstorming m
 2. **Close the Agora mobile-state hardening pass.** `adcba12c` and `0bd70ca0` are the right place to finish the remaining empty/error/mobile polish on the shipped route.
 3. **Unblock the pricing preview metadata gate.** `bb399f47` is the dependency; the release-note and operator-index follow-ups should stay behind it.
 4. **Keep public-share metadata from drifting.** `4f4bf881` and `5de76e09` are the high-value regressions here because they protect the shipped share surface without re-opening the visual system.
-5. **Unify the publication-style pages that are still genuinely open.** `/account`, `/library`, `/pricing`, and `/agora/a/[id]` should read like one publication system rather than adjacent app screens with similar tokens. Note: `/library` already has the LibraryProofStrip retention layer (PR #184) and the upsell nudge (PR #172 pending); `/agora/a/[id]` already has the pull-quote highlight card and transcript-share CTA (PR #173 pending). The open work on these two pages is typographic rhythm, density, and parity — not inventing new retention helpers.
+5. **Unify the publication-style pages that are still genuinely open.** `/account`, `/library`, `/pricing`, and `/agora/a/[id]` should read like one publication system rather than adjacent app screens with similar tokens. Note: `/library` already has the LibraryProofStrip retention layer (PR #184) and the upsell nudge (PR #172 pending); `/agora/a/[id]` already has the pull-quote highlight card, transcript-share CTA, and transcript-link copy button shipped. The open work on these two pages is typographic rhythm, density, and parity — not inventing new retention helpers.
 
 Guardrail: when a refresh mentions pricing preview metadata, public-share release notes, or other release-state launch work, keep that lane out of the active visual-gap list. Those items belong in release-state tracking, not in the design-research backlog.
 
@@ -137,7 +141,7 @@ Auth surfaces such as `/sign-in` and `/sign-up` are Clerk-managed, so they shoul
    The remaining `/agora` work is mobile, empty, and error-state polish. It should feel more editorial and less functional, but the route itself is already shipped.
 
 3. **The publication-system gap is now narrow**
-   The genuinely open publication-surface work is the polish and consistency pass across `/pricing`, `/account`, `/library`, and `/agora/a/[id]`. The page inventory is not missing; the rhythm and density still need convergence. `/library` and `/agora/a/[id]` have their retention helpers shipped (LibraryProofStrip and transcript-share); do not treat those as an open design gap — they are part of the shipped baseline.
+   The genuinely open publication-surface work is the polish and consistency pass across `/pricing`, `/account`, `/library`, and `/agora/a/[id]`. The page inventory is not missing; the rhythm and density still need convergence. `/library` and `/agora/a/[id]` have their retention helpers shipped (LibraryProofStrip, transcript-share, and the copy-link button); do not treat those as an open design gap — they are part of the shipped baseline.
 
 4. **Shared content pages stay out of the active gap list**
    `/debates` and `/insights` already belong to the publication-system baseline, so they should not be re-queued as active redesign work.
