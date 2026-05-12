@@ -48,10 +48,13 @@ import {
   type FrameworkSlug,
 } from "@/lib/frameworks";
 import { buildOgImageUrl } from "@/lib/og-image-url";
-import { SHARE_SOCIAL_PROOF_LINE } from "@/lib/share-cta-link";
+import {
+  SHARE_CTA_BUTTON_LABEL,
+  SHARE_SOCIAL_PROOF_LINE,
+  buildShareCtaHref,
+} from "@/lib/share-cta-link";
 
 import {
-  buildAgoraCtaHref,
   buildShareDescription,
   extractHighlightInsight,
   groupTurnsByRound,
@@ -67,14 +70,10 @@ export const dynamic = "force-dynamic";
 const SITE_ORIGIN = "https://www.consultthedead.com";
 
 type RouteParams = { id: string };
-type RouteSearchParams = {
-  utm_campaign?: string | string[];
-  utm_content?: string | string[];
-};
 
 type PageProps = {
   params: Promise<RouteParams>;
-  searchParams: Promise<RouteSearchParams>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 /* ────────────────────────────────────────────────────────────────
@@ -193,14 +192,18 @@ function truncateForTitle(topic: string, maxLen = 70): string {
    Page
    ──────────────────────────────────────────────────────────────── */
 
-export default async function PublicAgonPage({ params, searchParams }: PageProps) {
+export default async function PublicAgonPage({ params }: PageProps) {
   const { id } = await params;
-  const sp = await searchParams;
 
   const agon = await loadAgon(id);
   if (!agon) notFound();
 
-  const ctaHref = buildAgoraCtaHref(sp?.utm_campaign, sp?.utm_content);
+  // Always tag the CTA with the share-loop attribution so cold visitors
+  // (direct link, no incoming UTMs) land on /agora with full tracking.
+  // Using buildShareCtaHref (not buildAgoraCtaHref which only forwards
+  // incoming UTMs) ensures every click from the share page is attributed
+  // per GOAL_FOUNDER.md "every shared link is an acquisition unit".
+  const ctaHref = buildShareCtaHref(agon.share_id);
 
   const turns = normalizeTurns(agon.turns);
   const grouped = groupTurnsByRound(turns);
@@ -509,9 +512,10 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
         </div>
 
         {/* Next-step CTA block — hidden in print. Two actions:
-            1. Start a new consultation (primary)
-            2. Share this agon (secondary — copies/opens the share URL)
-            Both forward utm attribution. */}
+            1. Begin your own agon (primary) — uses share-loop UTM so
+               every cold visitor is attributed, matching the founder
+               directive (GOAL_FOUNDER.md "begin your own agon").
+            2. Share this agon (secondary — copies/opens the share URL) */}
         <div
           data-print="hide"
           style={{
@@ -524,7 +528,7 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
         >
           <Link
             href={ctaHref}
-            data-cta="start-new-consultation"
+            data-cta="begin-your-own-agon"
             className="font-mono"
             style={{
               display: "inline-block",
@@ -539,7 +543,7 @@ export default async function PublicAgonPage({ params, searchParams }: PageProps
               textDecoration: "none",
             }}
           >
-            Start a new consultation →
+            {SHARE_CTA_BUTTON_LABEL}
           </Link>
           <Link
             href={shareUrl}
