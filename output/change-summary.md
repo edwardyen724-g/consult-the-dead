@@ -1,3 +1,28 @@
+# 2026-05-11 Seeded topics queue prune and Phase 1 readiness
+
+## Files Changed
+- `topics.yaml`
+- `CONTENT_PIPELINE.md`
+- `MARKETING_STRATEGY.md`
+- `scripts/content-pipeline/article-pipeline.test.ts`
+
+## What Changed
+- Pruned two low-signal / overlapping topic records from the active queue:
+  - `should-i-hire-or-outsource`
+  - `what-would-machiavelli-say-about-startup-cap-tables`
+- Updated the queue header comments and the pipeline docs to say the curated queue has been reviewed and is ready for Phase 1 publishing.
+- Updated the marketing strategy note so the topic queue count no longer advertises the pre-prune seed state.
+- Added regression coverage that asserts the pruned slugs are absent from the active topic list.
+
+## Verification
+- `node - <<'NODE' ...` to confirm the pruned slugs were absent from `topics.yaml` and the active topic count still loaded cleanly.
+- `npx -y vitest run scripts/content-pipeline/article-pipeline.test.ts`
+
+## Results
+- Topic count from the active queue: `27`
+- Pruned slugs absent: yes
+- Vitest: `1 passed`, `11 tests passed`
+
 # 2026-05-09 Shared CTA attribution helper for funnel events
 
 ## Files Changed
