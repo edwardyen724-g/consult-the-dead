@@ -21,6 +21,21 @@ export interface RateCheck {
   allowed: boolean;
   remaining: number;
   reason?: RateRejectReason;
+  /** Unix seconds when the quota window resets. Only set when allowed === false. */
+  resetAt?: number;
+}
+
+/** Returns Unix seconds (integer) when the current quota window resets. */
+export function quotaResetAt(reason: RateRejectReason): number {
+  const now = new Date();
+  if (reason === "pro") {
+    // First day of next month at 00:00 UTC
+    const nextMonth = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+    return Math.floor(nextMonth.getTime() / 1000);
+  }
+  // Daily buckets: next midnight UTC
+  const tomorrow = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1));
+  return Math.floor(tomorrow.getTime() / 1000);
 }
 
 export interface RateLimitContext {
