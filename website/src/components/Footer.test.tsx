@@ -5,7 +5,7 @@
  * and walk the returned React element tree, asserting:
  *   1. Exported CTA href constants carry the required UTM params.
  *   2. Both CTA links render with the correct hrefs and data-testids.
- *   3. The ProofStrip element is present with loading={false}.
+ *   3. ProofStrip is NOT rendered in the footer (no live data is available).
  *
  * Mirrors the tree-walking pattern in Header.test.tsx and ProofStrip.test.tsx.
  */
@@ -26,7 +26,7 @@ import {
   Footer,
 } from "./Footer";
 import { buildQuizEntryHref } from "@/lib/ctr-experiment";
-import { ProofStrip } from "./ProofStrip";
+import { ProofStrip } from "./ProofStrip"; // imported to assert it is NOT in the tree
 
 /* ── Tree-walking helpers ────────────────────────────────────── */
 
@@ -198,18 +198,11 @@ describe("Footer component — pricing CTA link", () => {
 describe("Footer component — ProofStrip integration", () => {
   const tree = Footer({});
 
-  it("renders a ProofStrip element in the tree", () => {
-    // JSX compiles <ProofStrip /> to React.createElement(ProofStrip, props),
-    // so the tree contains an element whose `type` is the ProofStrip function.
+  it("does NOT render a ProofStrip element (no live data is available in footer)", () => {
+    // The footer has no access to live subscriber/session data, so ProofStrip
+    // must not appear at all — to avoid emitting fabricated social-proof counters.
     const strips = findAll(tree as ReactNode, (el) => el.type === ProofStrip);
-    expect(strips.length).toBeGreaterThanOrEqual(1);
-  });
-
-  it("renders ProofStrip with loading={false}", () => {
-    const strips = findAll(tree as ReactNode, (el) => el.type === ProofStrip);
-    expect(strips.length).toBeGreaterThanOrEqual(1);
-    const strip = strips[0]!;
-    expect((strip.props as { loading?: boolean }).loading).toBe(false);
+    expect(strips.length).toBe(0);
   });
 });
 

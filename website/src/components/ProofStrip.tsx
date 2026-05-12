@@ -6,21 +6,24 @@
  *
  *   loading=true  → skeleton/placeholder divs (no layout shift)
  *   data prop     → formatted stat badges from formatProofStripData
- *   neither       → falls back to PROOF_STRIP_FALLBACK constants
+ *   neither       → returns null (no fabricated fallback numbers)
  *
  * This is a pure presentational component — no data fetching, no state,
  * no client-side hooks. Callers own the data-loading lifecycle.
  * Uses the codebase's inline-style + CSS-variable convention.
+ *
+ * NOTE: PROOF_STRIP_FALLBACK has been intentionally removed. If no live
+ * data is available and loading is false, the component renders nothing.
+ * Never pass placeholder numbers to this component.
  */
 
 import {
   formatProofStripData,
-  PROOF_STRIP_FALLBACK,
   type ProofStripData,
 } from "@/lib/proof-strip";
 
 export interface ProofStripProps {
-  /** Live data to render. Falls back to PROOF_STRIP_FALLBACK when absent. */
+  /** Live data to render. Returns null when absent and not loading. */
   data?: ProofStripData;
   /** When true, render skeleton placeholders instead of real content. */
   loading?: boolean;
@@ -67,8 +70,12 @@ export function ProofStrip({ data, loading, className }: ProofStripProps) {
     );
   }
 
-  const source = data ?? PROOF_STRIP_FALLBACK;
-  const items = formatProofStripData(source);
+  // No live data and not in a loading state — render nothing.
+  if (data === undefined) {
+    return null;
+  }
+
+  const items = formatProofStripData(data);
 
   if (items.length === 0) {
     return null;

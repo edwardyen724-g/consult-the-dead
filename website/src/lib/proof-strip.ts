@@ -1,9 +1,13 @@
 /**
  * Data helper for the ProofStrip component.
  *
- * Provides the shared interface, fallback constants, and a formatting
- * helper that converts raw counts into display-ready label/value pairs.
+ * Provides the shared interface and a formatting helper that converts raw
+ * counts into display-ready label/value pairs.
  * Consumed by ProofStrip.tsx on any conversion surface (homepage, pricing).
+ *
+ * NOTE: PROOF_STRIP_FALLBACK has been intentionally removed. The component
+ * must never silently emit fabricated social-proof numbers. Callers must
+ * supply real live data, or the component renders nothing.
  */
 
 export interface ProofStripData {
@@ -11,16 +15,6 @@ export interface ProofStripData {
   agoraSessions?: number;
   tagline?: string;
 }
-
-/**
- * Fallback values rendered when no live data is available.
- * Update when the real counters grow meaningfully.
- */
-export const PROOF_STRIP_FALLBACK: ProofStripData = {
-  subscriberCount: 500,
-  agoraSessions: 1000,
-  tagline: "Join founders using historical minds to make better decisions",
-};
 
 /**
  * Format ProofStripData into an ordered array of label/value pairs

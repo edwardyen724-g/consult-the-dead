@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ProofStrip } from "@/components/ProofStrip";
 import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
 export const FOOTER_QUIZ_CTA_HREF = buildQuizEntryHref("footer");
@@ -40,7 +39,6 @@ export function Footer() {
 
         {/* Conversion CTAs */}
         <div className="pb-6">
-          <ProofStrip loading={false} className="mb-5" />
           <div
             data-testid="footer-ctas"
             style={{
