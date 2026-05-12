@@ -101,10 +101,14 @@ export default function PricingPage() {
   async function handleProCheckout() {
     setLoading(true)
     try {
+      const params = new URLSearchParams(window.location.search)
+      const utm_campaign = params.get('utm_campaign') ?? undefined
+      const utm_content = params.get('utm_content') ?? undefined
+
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ billingPeriod: billing }),
+        body: JSON.stringify({ billingPeriod: billing, utm_campaign, utm_content }),
       })
       if (res.status === 401) {
         router.push('/sign-in')

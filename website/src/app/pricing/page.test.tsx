@@ -149,6 +149,7 @@ describe("pricing page", () => {
     vi.stubGlobal("window", {
       location: {
         href: "http://localhost/pricing",
+        search: "",
       },
     });
   });
@@ -421,5 +422,52 @@ describe("pricing page", () => {
     ).resolves.toBeUndefined();
 
     expect(setStats).not.toHaveBeenCalled();
+  });
+
+  it("forwards utm_campaign and utm_content from URL to the checkout POST body", async () => {
+    vi.stubGlobal("window", {
+      location: {
+        href: "http://localhost/pricing?utm_campaign=hn-launch&utm_content=hero-cta",
+        search: "?utm_campaign=hn-launch&utm_content=hero-cta",
+      },
+    });
+
+    const { tree } = renderPricingPage("annual", false);
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    const request = deferred<CheckoutResponse>();
+    fetchMock.mockReturnValueOnce(request.promise);
+
+    const cta = findButtonByText(tree, "Start 7-day Pro trial");
+    const clickResult = cta.props.onClick?.();
+
+    request.resolve(createCheckoutResponse(200, { url: "https://checkout.example/pro" }));
+    await clickResult;
+    await flushMicrotasks();
+
+    expect(fetchMock).toHaveBeenCalledOnce();
+    const [, fetchInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const body = JSON.parse(fetchInit.body as string) as Record<string, unknown>;
+    expect(body.utm_campaign).toBe("hn-launch");
+    expect(body.utm_content).toBe("hero-cta");
+  });
+
+  it("omits utm fields from the POST body when no UTM params are present in the URL", async () => {
+    const { tree } = renderPricingPage("annual", false);
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    const request = deferred<CheckoutResponse>();
+    fetchMock.mockReturnValueOnce(request.promise);
+
+    const cta = findButtonByText(tree, "Start 7-day Pro trial");
+    const clickResult = cta.props.onClick?.();
+
+    request.resolve(createCheckoutResponse(200, { url: "https://checkout.example/pro" }));
+    await clickResult;
+    await flushMicrotasks();
+
+    expect(fetchMock).toHaveBeenCalledOnce();
+    const [, fetchInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const body = JSON.parse(fetchInit.body as string) as Record<string, unknown>;
+    expect(body.utm_campaign).toBeUndefined();
+    expect(body.utm_content).toBeUndefined();
   });
 });
