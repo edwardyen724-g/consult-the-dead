@@ -49,13 +49,36 @@ type AskThisMindEvent =
 export class AskThisMindRequestError extends Error {
   status: number;
   rateLimited: boolean;
+  /**
+   * Unix-ms timestamp when the quota resets.
+   * Derived from the `X-RateLimit-Reset` response header (which is Unix seconds)
+   * converted to milliseconds for consistency with `Date.now()`.
+   */
+  resetAt?: number;
 
-  constructor(message: string, status: number, rateLimited = false) {
+  constructor(message: string, status: number, rateLimited = false, resetAt?: number) {
     super(message);
     this.name = "AskThisMindRequestError";
     this.status = status;
     this.rateLimited = rateLimited;
+    this.resetAt = resetAt;
   }
+}
+
+/**
+ * Converts a `resetAt` Unix-ms timestamp into a human-readable countdown string.
+ * Returns null when the timestamp is absent or already in the past.
+ */
+export function formatResetCountdown(resetAt: number, nowMs = Date.now()): string | null {
+  const diffMs = resetAt - nowMs;
+  if (diffMs <= 0) return null;
+  const minutes = Math.ceil(diffMs / 60_000);
+  if (minutes <= 1) return "1 minute";
+  if (minutes < 60) return `${minutes} minutes`;
+  const hours = Math.ceil(diffMs / 3_600_000);
+  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"}`;
+  const days = Math.ceil(diffMs / 86_400_000);
+  return `${days} day${days === 1 ? "" : "s"}`;
 }
 
 export function getAskThisMindLimitState(submittedTopics: string[]): AskThisMindLimitState {
@@ -82,6 +105,25 @@ export function normalizeAskThisMindError(error: unknown): string {
     return error.trim();
   }
   return "Ask This Mind failed. Try again.";
+}
+
+export interface RateLimitHint {
+  /** Human-readable countdown until quota resets (e.g. "42 minutes"), or null if unknown. */
+  countdown: string | null;
+  /** Whether an upgrade-to-Pro link should be shown. */
+  showUpgradeLink: boolean;
+}
+
+/**
+ * Extracts machine-readable retry guidance from a rate-limit error.
+ * Returns null when the error is not a 429.
+ */
+export function extractRateLimitHint(error: unknown): RateLimitHint | null {
+  if (!(error instanceof AskThisMindRequestError) || !error.rateLimited) {
+    return null;
+  }
+  const countdown = error.resetAt != null ? formatResetCountdown(error.resetAt) : null;
+  return { countdown, showUpgradeLink: true };
 }
 
 function parseEventBlock(block: string): AskThisMindEvent | null {
@@ -155,22 +197,38 @@ async function readAnalysisStream(
   return { analysis, remaining };
 }
 
-async function readErrorMessage(response: Response): Promise<string> {
+/**
+ * Parses the error body and extracts the human-readable message and the
+ * `X-RateLimit-Reset` header value (Unix seconds → ms for `resetAt`).
+ */
+async function readErrorBody(
+  response: Response
+): Promise<{ message: string; resetAt?: number }> {
+  // Parse the X-RateLimit-Reset header (Unix seconds) if present.
+  const resetHeader = response.headers.get("X-RateLimit-Reset");
+  const resetAt =
+    resetHeader && /^\d+$/.test(resetHeader)
+      ? parseInt(resetHeader, 10) * 1000
+      : undefined;
+
   const text = await response.text();
   if (!text) {
-    return `Ask This Mind request failed with status ${response.status}.`;
+    return { message: `Ask This Mind request failed with status ${response.status}.`, resetAt };
   }
 
   try {
     const payload = JSON.parse(text) as { error?: unknown };
     if (typeof payload.error === "string" && payload.error.trim()) {
-      return payload.error.trim();
+      return { message: payload.error.trim(), resetAt };
     }
   } catch {
-    // Fall through to text/status fallback.
+    // Fall through to plain-text fallback.
   }
 
-  return text.trim() || `Ask This Mind request failed with status ${response.status}.`;
+  return {
+    message: text.trim() || `Ask This Mind request failed with status ${response.status}.`,
+    resetAt,
+  };
 }
 
 export async function streamAskThisMindAnalysis({
@@ -192,11 +250,12 @@ export async function streamAskThisMindAnalysis({
   });
 
   if (!response.ok) {
-    const message = await readErrorMessage(response);
+    const { message, resetAt } = await readErrorBody(response);
     throw new AskThisMindRequestError(
       message,
       response.status,
-      response.status === 429
+      response.status === 429,
+      resetAt
     );
   }
 

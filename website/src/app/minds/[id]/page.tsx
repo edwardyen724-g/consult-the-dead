@@ -85,9 +85,13 @@ export async function generateMetadata({
 
   const canonical = mindCanonicalUrl(mind.slug);
   const ogImageUrl = `${canonical}/opengraph-image`;
+  // Extract the person's name from the h1 (pattern: "Name — The Mind That …")
+  // so the root layout's title template produces "Name — Consult The Dead".
+  const nameTitle = mind.h1.split(" — ")[0];
   return {
-    title: mind.h1,
+    title: nameTitle,
     description: mind.metaDescription,
+    robots: { index: true, follow: true },
     openGraph: {
       title: mind.h1,
       description: mind.metaDescription,

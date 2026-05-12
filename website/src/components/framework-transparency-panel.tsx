@@ -10,6 +10,22 @@ const MAX_TOPIC_LENGTH = 2000;
 
 export type AskThisMindStatus = "idle" | "loading" | "success" | "error";
 
+/**
+ * Converts a `resetAt` Unix-ms timestamp into a human-readable countdown string.
+ * Returns null when the timestamp is absent or already in the past.
+ */
+export function formatRetryCountdown(resetAt: number, nowMs = Date.now()): string | null {
+  const diffMs = resetAt - nowMs;
+  if (diffMs <= 0) return null;
+  const minutes = Math.ceil(diffMs / 60_000);
+  if (minutes <= 1) return "1 minute";
+  if (minutes < 60) return `${minutes} minutes`;
+  const hours = Math.ceil(diffMs / 3_600_000);
+  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"}`;
+  const days = Math.ceil(diffMs / 86_400_000);
+  return `${days} day${days === 1 ? "" : "s"}`;
+}
+
 export interface FrameworkTransparencyPanelProps {
   frameworkSlug: FrameworkSlug;
   frameworkName: string;
@@ -22,6 +38,8 @@ export interface FrameworkTransparencyPanelProps {
   initialAnalysis?: string;
   initialStatus?: AskThisMindStatus;
   initialError?: string;
+  /** Unix-ms timestamp when the rate-limit quota resets, if the initial state is a 429 error. */
+  initialResetAt?: number;
 }
 
 export interface AskThisMindSubmissionArgs {
@@ -30,7 +48,7 @@ export interface AskThisMindSubmissionArgs {
   fetchImpl?: typeof fetch;
   onStatusChange?: (status: AskThisMindStatus) => void;
   onAnalysis?: (analysis: string) => void;
-  onError?: (message: string) => void;
+  onError?: (message: string, resetAt?: number) => void;
   onSuccess?: () => void;
 }
 
@@ -112,6 +130,12 @@ export async function submitAskThisMindAnalysis({
 
   if (!response.ok) {
     let message = `Request failed (${response.status})`;
+    // X-RateLimit-Reset is Unix seconds; convert to ms for consistency with Date.now().
+    const resetHeader = response.headers.get("X-RateLimit-Reset");
+    const resetAt =
+      resetHeader && /^\d+$/.test(resetHeader)
+        ? parseInt(resetHeader, 10) * 1000
+        : undefined;
     try {
       const errorResponse = response.clone();
       const data = (await errorResponse.json()) as { error?: unknown };
@@ -123,7 +147,7 @@ export async function submitAskThisMindAnalysis({
       if (fallback.trim()) message = fallback.trim();
     }
     onStatusChange?.("error");
-    onError?.(message);
+    onError?.(message, resetAt);
     throw new Error(message);
   }
 
@@ -147,12 +171,14 @@ export function FrameworkTransparencyPanel({
   initialAnalysis = "",
   initialStatus = "idle",
   initialError = "",
+  initialResetAt,
 }: FrameworkTransparencyPanelProps) {
   const [open, setOpen] = useState(defaultOpen);
   const [topic, setTopic] = useState(initialTopic);
   const [analysis, setAnalysis] = useState(initialAnalysis);
   const [status, setStatus] = useState<AskThisMindStatus>(initialStatus);
   const [error, setError] = useState(initialError);
+  const [resetAt, setResetAt] = useState<number | undefined>(initialResetAt);
 
   const personFirstName = frameworkName.split(" ")[0] || frameworkName;
   const isBusy = status === "loading";
@@ -276,7 +302,23 @@ export function FrameworkTransparencyPanel({
         )}
 
         <form
-          onSubmit={(event) => { event.preventDefault(); void submitAskThisMindAnalysis({ frameworkSlug, topic, onStatusChange: setStatus, onAnalysis: setAnalysis, onError: setError, onSuccess: () => setError("") }).catch(() => {}); }}
+          onSubmit={(event) => {
+            event.preventDefault();
+            void submitAskThisMindAnalysis({
+              frameworkSlug,
+              topic,
+              onStatusChange: setStatus,
+              onAnalysis: setAnalysis,
+              onError: (msg, rt) => {
+                setError(msg);
+                setResetAt(rt);
+              },
+              onSuccess: () => {
+                setError("");
+                setResetAt(undefined);
+              },
+            }).catch(() => {});
+          }}
           style={{ display: "grid", gap: "12px" }}
         >
           <div>
@@ -360,7 +402,7 @@ export function FrameworkTransparencyPanel({
         </form>
 
         {error && (
-          <p
+          <div
             role="alert"
             style={{
               fontFamily: "var(--font-mono)",
@@ -368,10 +410,38 @@ export function FrameworkTransparencyPanel({
               lineHeight: 1.6,
               color: "var(--error, #a83d2b)",
               margin: 0,
+              display: "grid",
+              gap: "6px",
             }}
           >
-            {error}
-          </p>
+            <p style={{ margin: 0 }}>
+              {resetAt != null
+                ? (() => {
+                    const countdown = formatRetryCountdown(resetAt);
+                    return countdown
+                      ? `You've reached your free limit. Come back in ${countdown}, or upgrade to Pro for unlimited access.`
+                      : "You've reached your free limit. Upgrade to Pro for unlimited access.";
+                  })()
+                : error}
+            </p>
+            {resetAt != null && (
+              <p style={{ margin: 0 }}>
+                <a
+                  href="/pricing"
+                  style={{
+                    color: "var(--amber)",
+                    textDecoration: "none",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "11px",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Upgrade to Pro &#x2192;
+                </a>
+              </p>
+            )}
+          </div>
         )}
 
         {hasAnalysis && (

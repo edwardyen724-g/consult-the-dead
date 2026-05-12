@@ -21,6 +21,8 @@ export interface RateCheck {
   allowed: boolean;
   remaining: number;
   reason?: RateRejectReason;
+  /** Unix seconds when the quota window resets. Only set when allowed === false. */
+  resetAt?: number;
 }
 
 export interface RateLimitContext {
@@ -243,4 +245,26 @@ export function getClientIp(request: Request): string {
   const real = request.headers.get("x-real-ip");
   if (real) return real;
   return "127.0.0.1";
+}
+
+/**
+ * Returns the Unix-second timestamp at which the quota identified by
+ * `reason` will reset.
+ *
+ * - Free IP / free user / global buckets reset at the next UTC midnight.
+ * - Pro monthly buckets reset at the first second of the next UTC month.
+ *
+ * The value is suitable for the `X-RateLimit-Reset` and `Retry-After`
+ * response headers (RFC 7231 / RFC 6585).
+ */
+export function quotaResetAt(reason: RateRejectReason): number {
+  const now = new Date();
+  if (reason === "pro") {
+    // First second of next UTC calendar month.
+    const firstOfNext = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+    return Math.floor(firstOfNext.getTime() / 1000);
+  }
+  // ip | user | global — next UTC midnight.
+  const midnight = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1));
+  return Math.floor(midnight.getTime() / 1000);
 }
