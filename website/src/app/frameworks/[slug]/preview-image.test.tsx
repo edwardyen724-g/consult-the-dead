@@ -40,6 +40,14 @@ describe("framework preview image helpers", () => {
     expect(getFrameworkPreviewData("not-a-framework")).toBeNull();
   });
 
+  it("returns preview data for steve-jobs with the jobs accent color", () => {
+    const data = getFrameworkPreviewData("steve-jobs");
+
+    expect(data).not.toBeNull();
+    expect(data?.slug).toBe("steve-jobs");
+    expect(data?.color).toBe("#5a8fb8");
+  });
+
   it("returns null when the framework record cannot be resolved", () => {
     const spy = vi.spyOn(frameworkModule, "getFramework").mockReturnValue(null);
 

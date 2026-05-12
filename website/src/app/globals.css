@@ -60,6 +60,8 @@
   --color-caesar:       #8f3a4a;  /* imperial wine */
   --color-napoleon:     #3a5fa8;  /* French royal blue */
   --color-seneca:       #7d8c5e;  /* stoic sage / olive */
+  /* SEO listicle expansion 2026-05 (task c7400a14) */
+  --color-jobs:         #5a8fb8;  /* product-blue / Apple steel */
 
   /* Pack accent colors — used for pack cards, badges, headers */
   --pack-stoic-council:        #b08050;
@@ -123,6 +125,8 @@ html.light {
   --color-caesar:       #5a1f2c;  /* imperial wine */
   --color-napoleon:     #1f3e7a;  /* French royal blue */
   --color-seneca:       #4a5a36;  /* stoic sage / olive */
+  /* SEO listicle expansion 2026-05 (task c7400a14) */
+  --color-jobs:         #2e5e82;  /* product-blue / Apple steel */
 
   /* Pack accent colors */
   --pack-stoic-council:        #7a5a2a;
@@ -392,6 +396,8 @@ body {
     --color-caesar:       #5a1f2c !important;
     --color-napoleon:     #1f3e7a !important;
     --color-seneca:       #4a5a36 !important;
+    /* SEO listicle expansion 2026-05 (task c7400a14) */
+    --color-jobs:         #2e5e82 !important;
 
     --pack-stoic-council:        #7a5a2a !important;
     --pack-inventors-workshop:   #4a5a8a !important;

@@ -118,7 +118,9 @@ describe("nameToSlug", () => {
   });
 
   it("throws on names not in the roster", () => {
-    expect(() => nameToSlug("Steve Jobs")).toThrow(/Unknown mind name/);
+    // Steve Jobs is now a valid slug (task c7400a14 added him to ALLOWED_SLUGS)
+    expect(nameToSlug("Steve Jobs")).toBe("steve-jobs");
+    expect(() => nameToSlug("Elon Musk")).toThrow(/Unknown mind name/);
     expect(() => nameToSlug("")).toThrow(/Unknown mind name/);
   });
 });
@@ -415,7 +417,7 @@ describe("parseOutreachMd — error cases", () => {
   it("throws on a council member outside ALLOWED_SLUGS", () => {
     const md = FULL_TRANSCRIPT.replace(
       "**Council:** Niccolò Machiavelli, Marie Curie, Sun Tzu",
-      "**Council:** Niccolò Machiavelli, Marie Curie, Steve Jobs",
+      "**Council:** Niccolò Machiavelli, Marie Curie, Elon Musk",
     );
     expect(() => parseOutreachMd(md)).toThrow(/Unknown mind name/);
   });
