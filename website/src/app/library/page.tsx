@@ -465,7 +465,25 @@ export async function ProLibrary({ userId }: { userId: string }) {
           title="Keep the archive current"
           body={upsellNudge.message}
           accent={upsellNudge.kind === "cap-reached" ? "highlight" : "default"}
-        />
+        >
+          <Link
+            href="/pricing"
+            style={{
+              display: "inline-block",
+              width: "fit-content",
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "12px 28px",
+              background: "var(--amber)",
+              color: "var(--bg)",
+              textDecoration: "none",
+            }}
+          >
+            Upgrade to Pro →
+          </Link>
+        </PublicationSection>
       )}
 
       <PublicationSection

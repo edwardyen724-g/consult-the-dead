@@ -146,6 +146,7 @@ describe("LibraryPage", () => {
       expect(html).toContain("Running low");
       expect(html).toContain("8 consultations left this month");
       expect(html).toContain("92/100");
+      expect(html).toContain('href="/pricing"');
     });
 
     it("shows a cap-reached nudge when the monthly limit is hit", async () => {
@@ -155,6 +156,7 @@ describe("LibraryPage", () => {
       const html = renderToStaticMarkup(await ProLibrary({ userId: "user-1" }));
       expect(html).toContain("Monthly limit reached");
       expect(html).toContain("100-agon monthly limit");
+      expect(html).toContain('href="/pricing"');
     });
 
     it("suppresses the upsell nudge for users well below the threshold", async () => {
