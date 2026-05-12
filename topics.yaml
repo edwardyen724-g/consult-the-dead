@@ -18,7 +18,8 @@
     - "is bootstrapping better than VC"
   recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-quit-my-job-to-start-a-company
   type: decision
@@ -29,7 +30,8 @@
     - "should I quit my job to be an entrepreneur"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-fire-my-cofounder
   type: decision
@@ -40,7 +42,8 @@
     - "cofounder conflict resolution"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-we-open-source-our-core-product
   type: decision
@@ -51,7 +54,8 @@
     - "is open source good for startups"
   recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-pivot-or-persist
   type: decision
@@ -62,7 +66,8 @@
     - "startup pivot signs"
   recommended_council: [marie-curie, isaac-newton, marcus-aurelius]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-take-this-job-offer
   type: decision
@@ -73,7 +78,8 @@
     - "should I accept a counter offer"
   recommended_council: [marcus-aurelius, niccolo-machiavelli, marie-curie]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-pivot-to-ai-or-double-down-on-domain
   type: decision
@@ -84,7 +90,8 @@
     - "should I learn AI or specialize"
   recommended_council: [sun-tzu, marie-curie, leonardo-da-vinci]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-take-the-money-or-the-equity
   type: decision
@@ -95,7 +102,8 @@
     - "how to negotiate equity"
   recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-shut-down-my-startup
   type: decision
@@ -106,7 +114,8 @@
     - "signs your startup is failing"
   recommended_council: [marcus-aurelius, marie-curie, sun-tzu]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-raise-a-seed-round
   type: decision
@@ -117,7 +126,8 @@
     - "when to raise seed funding"
   recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-hire-my-first-employee
   type: decision
@@ -128,7 +138,8 @@
     - "first hire startup"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
   hook_angles: [identity, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-sell-my-startup
   type: decision
@@ -139,7 +150,8 @@
     - "sell or keep my company"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-form-an-llc-or-delaware-c-corp
   type: decision
@@ -150,7 +162,8 @@
     - "Delaware C corp vs LLC"
   recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
   hook_angles: [proof, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 # ─────────────────────────────────────────────────────────────────────
 # Type "insight" — "what would X say about Y" pop-philosophy queries.
