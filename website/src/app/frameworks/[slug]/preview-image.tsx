@@ -29,6 +29,8 @@ const ACCENT_COLORS: Record<FrameworkSlug, string> = {
   "julius-caesar": "#8f3a4a",
   "napoleon-bonaparte": "#3a5fa8",
   "seneca": "#7d8c5e",
+  // SEO listicle expansion 2026-05 (task c7400a14)
+  "steve-jobs": "#5a8fb8",
 };
 
 export interface FrameworkPreviewData {
