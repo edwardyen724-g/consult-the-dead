@@ -469,7 +469,7 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     recommendedCouncil: [
       "marcus-aurelius",
       "niccolo-machiavelli",
-      "benjamin-franklin",
+      "seneca",
     ],
     hookQuestion:
       "Transparency creates accountability and distribution — but it also exposes your thesis, your failures, and your timing to every competitor watching. Is the audience you're building worth the strategy you're revealing?",
