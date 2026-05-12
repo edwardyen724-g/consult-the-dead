@@ -34,6 +34,14 @@ export const dynamic = 'force-dynamic'
 
 const SITE_URL = 'https://www.consultthedead.com'
 const DIGEST_CLERK_PAGE_SIZE = 200
+const DETERMINISTIC_DRY_RUN_SHARED = {
+  featuredAgonTopic: '(dry-run placeholder topic)',
+  featuredConsensusExcerpt: '(dry-run placeholder consensus)',
+  featuredAgonShareId: 'dry-run',
+  newMindName: null,
+  newMindTagline: null,
+  newMindHowArguesBlurb: null,
+}
 
 interface ClerkUserRecord {
   id: string
@@ -85,15 +93,8 @@ export async function GET(request: NextRequest) {
     )
   }
 
-  // For dry-run with no env, supply a placeholder.
-  const sharedSafe = shared ?? {
-    featuredAgonTopic: '(dry-run placeholder topic)',
-    featuredConsensusExcerpt: '(dry-run placeholder consensus)',
-    featuredAgonShareId: 'dry-run',
-    newMindName: null,
-    newMindTagline: null,
-    newMindHowArguesBlurb: null,
-  }
+  // Smoke checks need a stable featured block even before the env is wired.
+  const sharedSafe = shared ?? DETERMINISTIC_DRY_RUN_SHARED
 
   const summary: CronSummary = await runDigestCron(candidates, {
     shared: sharedSafe,
