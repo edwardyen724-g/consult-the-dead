@@ -82,6 +82,47 @@ jobs:
       - name: Run build
         run: npm run build
 
+  # Simulates the post-merge state by starting from the PR head commit and
+  # merging the target base branch before building.
+  # Catches TypeScript errors and build failures that only appear after merging
+  # (e.g. duplicate object literal keys from changes in two different PRs).
+  merge-simulation-build:
+    name: CI / Merge-Simulation Build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Simulate merge with base branch
+        run: |
+          git config user.email "ci@consultthedead.com"
+          git config user.name "CI Bot"
+          git fetch origin ${{ github.base_ref }}
+          git merge origin/${{ github.base_ref }} --no-commit --no-ff || {
+            echo "::error::Merge conflict detected with ${{ github.base_ref }} - resolve conflicts before merging."
+            exit 1
+          }
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build (merged state)
+        run: npm run build
+
   framework-placeholder-citations:
     name: CI / Framework Citation Guardrail
     runs-on: ubuntu-latest
