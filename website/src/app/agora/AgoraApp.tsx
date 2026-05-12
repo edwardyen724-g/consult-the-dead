@@ -2292,13 +2292,14 @@ function ConsensusStage({
           style={{
             marginTop: "24px",
             padding: "16px 20px",
-            border: "1px solid var(--hairline)",
+            border: `1px solid ${quotaRemaining === 0 ? "var(--amber)" : "var(--hairline)"}`,
             borderRadius: "4px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "12px",
+            background: quotaRemaining === 0 ? "var(--amber-mist)" : "transparent",
           }}
         >
           <div
@@ -2306,26 +2307,28 @@ function ConsensusStage({
             style={{
               fontSize: "11px",
               letterSpacing: "0.08em",
-              color: quotaRemaining === 0 ? "var(--red)" : "var(--fg-dim)",
+              color: quotaRemaining === 0 ? "var(--fg-dim)" : "var(--fg-dim)",
             }}
           >
             {quotaRemaining === 0
-              ? "You've used all 3 free debates for today"
+              ? "You've used all 3 free debates for today. Come back tomorrow, or:"
               : `${quotaRemaining} free debate${quotaRemaining === 1 ? "" : "s"} remaining today`}
           </div>
           <Link
             href="/pricing"
+            data-testid="quota-upgrade-link"
             className="font-mono"
             style={{
-              fontSize: "10px",
+              fontSize: "11px",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: "var(--amber)",
               textDecoration: "none",
+              fontWeight: quotaRemaining === 0 ? 600 : 400,
             }}
           >
             {quotaRemaining === 0
-              ? "Upgrade for unlimited debates →"
+              ? "Start 7-day free trial →"
               : "Go Pro for unlimited →"}
           </Link>
         </div>
