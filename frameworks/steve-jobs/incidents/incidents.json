@@ -65,22 +65,6 @@
   },
   {
     "id": "incident-005",
-    "decision": "Jobs chose not to create advertising campaigns highlighting Microsoft's extensive use of Mac computers for Xbox 360 development.",
-    "context": "Apple had discovered that Microsoft was using hundreds of Mac computers as the primary development platform for Xbox 360 software, creating a potentially powerful marketing narrative about Mac superiority in creative/development work. This occurred during a period when Apple and Microsoft maintained complex competitive-cooperative relationships across multiple product categories.",
-    "cdm_probes": {
-      "cues_noticed": "Jobs recognized the irony and marketing potential of Microsoft's reliance on Mac hardware for their flagship gaming console development, while also perceiving the broader strategic relationship dynamics between Apple and Microsoft across multiple business domains.",
-      "active_goals": "Preserve long-term strategic partnership value with Microsoft while maintaining Apple's reputation for restraint and class, rather than pursuing short-term tactical marketing advantages that could damage collaborative relationships.",
-      "rejected_alternatives": "Rejected creating advertising campaigns around Microsoft's Mac dependence, rejected public statements or press releases highlighting the irony, and rejected using this information in competitive presentations or developer conferences.",
-      "situation_framing": "Framed this as a strategic partnership management decision rather than a pure marketing opportunity, viewing it through the lens of maintaining productive business relationships over scoring tactical points.",
-      "expected_outcome": "Expected that restraint would preserve Microsoft's willingness to collaborate on important initiatives like Office for Mac, maintain professional relationships for future negotiations, and enhance Apple's reputation for strategic sophistication rather than opportunistic attacks."
-    },
-    "counterfactual": "A typical technology CEO would have immediately leveraged this information in advertising campaigns, keynote presentations, or press statements to demonstrate competitive superiority and highlight the contradiction in Microsoft's public positioning.",
-    "divergence_explanation": "Jobs's decision reflected his sophisticated understanding of ecosystem dynamics and long-term value creation over short-term tactical wins, recognizing that preserving Microsoft as a productive partner was more valuable than embarrassing them publicly.",
-    "outcome": "Apple maintained productive relationships with Microsoft across multiple product lines, preserved collaborative opportunities, and demonstrated strategic restraint that likely contributed to continued partnership in areas like Office for Mac development.",
-    "source": "allthingsd_d5_gates_jobs_official_transcript"
-  },
-  {
-    "id": "incident-006",
     "decision": "Jobs deliberately labeled Apple TV as a 'hobby' in public communications despite Apple's substantial internal investment in the product.",
     "context": "Apple had invested significantly in Apple TV development but the product existed in a market where many companies had attempted and failed to create viable TV/streaming businesses. Jobs was speaking publicly about Apple's product portfolio and needed to position Apple TV within that narrative while managing both investor expectations and competitive positioning.",
     "cdm_probes": {
@@ -96,7 +80,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-007",
+    "id": "incident-006",
     "decision": "Jobs refused to show AT&T the iPhone prototype before signing the carrier partnership deal.",
     "context": "Apple needed a carrier partner for the revolutionary iPhone launch, but the device was still in development and represented Apple's most sensitive trade secrets. Traditional carrier deals involved extensive technical reviews and negotiations over device specifications, with carriers typically dictating many hardware and software requirements.",
     "cdm_probes": {
@@ -112,7 +96,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-008",
+    "id": "incident-007",
     "decision": "Steve Jobs mandated the iPhone would have no physical keyboard, eliminating all internal debate on this fundamental design choice.",
     "context": "In 2007, the smartphone market was dominated by BlackBerry devices with physical keyboards that millions of users were 'addicted to.' The iPhone team was designing a revolutionary touchscreen device, and the keyboard decision would fundamentally shape the entire product architecture and user experience. This was a make-or-break design choice that would determine market acceptance.",
     "cdm_probes": {
@@ -128,7 +112,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-009",
+    "id": "incident-008",
     "decision": "Jobs decided to reposition Apple TV from a complex set-top box replacement to a simple 'DVD player for the internet age.'",
     "context": "Apple had been struggling for years to crack the living room entertainment market with Apple TV, initially approaching it as a sophisticated device meant to replace cable set-top boxes. This complex positioning had failed to gain market traction and was proving too difficult to execute successfully.",
     "cdm_probes": {
@@ -144,7 +128,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-010",
+    "id": "incident-009",
     "decision": "Jobs decided to publicly express his visceral disdain for Windows while simultaneously positioning iTunes as Apple's gift to Windows users, maintaining strategic business engagement despite personal contempt.",
     "context": "This occurred during the 2007 All Things Digital conference when iTunes had become one of the most popular applications on Windows, representing a major revenue stream for Apple. Jobs was being questioned about Apple's relationship with the Windows platform at a time when the iPod's success depended heavily on Windows compatibility.",
     "cdm_probes": {
@@ -160,7 +144,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-011",
+    "id": "incident-010",
     "decision": "Jobs decided to restrict third-party iPhone app development to maintain security and stability rather than opening the platform immediately to developers.",
     "context": "In 2007, the iPhone was launching into a mobile landscape where smartphones regularly crashed and had poor user experiences. Jobs faced pressure from developers wanting SDK access and from industry observers expecting an open platform. The decision came at a critical moment when establishing the iPhone's reliability could determine its market success or failure.",
     "cdm_probes": {
@@ -176,7 +160,7 @@
     "source": "allthingsd_d5_solo_2007"
   },
   {
-    "id": "incident-012",
+    "id": "incident-011",
     "decision": "Jobs decided to publicly defend Apple's Flash rejection through 'Thoughts on Flash' after Adobe criticized Apple in the press.",
     "context": "Apple had made an internal technical decision to exclude Adobe Flash from iOS devices, initially as a quiet strategic choice. When the iPad launched, Adobe began publicly criticizing Apple's decision in press statements, framing it as anti-competitive. Jobs faced escalating public criticism that positioned Apple as the aggressor in what Adobe portrayed as a technology standards war.",
     "cdm_probes": {
@@ -192,7 +176,7 @@
     "source": "allthingsd_d8_liveblog"
   },
   {
-    "id": "incident-013",
+    "id": "incident-012",
     "decision": "Jobs decided to frame Apple's strategic approach around product excellence rather than competitive platform dynamics.",
     "context": "During the PC era, Apple was competing against Microsoft's Windows ecosystem which was gaining dominant market share through platform strategies. Jobs was reflecting on Apple's historical approach and acknowledging they had 'lost' market share, yet defending their product-centric philosophy even in retrospect.",
     "cdm_probes": {
@@ -208,7 +192,7 @@
     "source": "allthingsd_d8_liveblog"
   },
   {
-    "id": "incident-014",
+    "id": "incident-013",
     "decision": "Jobs decided to pivot from tablet development to iPhone development despite having tablet technology ready first.",
     "context": "Apple had successfully developed tablet technology and multi-touch interfaces, representing years of R&D investment toward Jobs's original vision of a tablet computer. However, the mobile phone market was ripe for disruption with existing smartphones being clunky and limited. Jobs faced a strategic sequencing decision about which revolutionary product to launch first.",
     "cdm_probes": {
@@ -224,7 +208,7 @@
     "source": "allthingsd_d8_liveblog"
   },
   {
-    "id": "incident-015",
+    "id": "incident-014",
     "decision": "Jobs defended App Store curation as customer protection while acknowledging rule changes and mistakes as necessary corrections rather than flaws in the system.",
     "context": "Apple was facing criticism for App Store rejections and restrictive policies that appeared arbitrary or censorious. The tech industry was debating whether platform gatekeeping was beneficial curation or harmful control. Jobs needed to address mounting pressure while maintaining Apple's curated ecosystem philosophy.",
     "cdm_probes": {
@@ -240,7 +224,7 @@
     "source": "allthingsd_d8_liveblog"
   },
   {
-    "id": "incident-016",
+    "id": "incident-015",
     "decision": "Jobs decided to publicly position Apple's approach to privacy as fundamentally different from other Silicon Valley companies, framing transparency and user consent rather than data minimization as the core privacy principle.",
     "context": "This occurred during the rise of data-driven business models in Silicon Valley, where companies like Google and Facebook were building empires on user data collection and behavioral advertising. Jobs was speaking at a high-profile tech conference where industry leaders were defending their data practices amid growing privacy concerns.",
     "cdm_probes": {
@@ -256,7 +240,7 @@
     "source": "allthingsd_d8_liveblog"
   },
   {
-    "id": "incident-017",
+    "id": "incident-016",
     "decision": "Jobs decided to naturally take on the commercial/sales role while leaving Wozniak to handle the technical development of Blue Box devices.",
     "context": "Jobs and Wozniak had discovered they could build and sell Blue Box phone phreaking devices for significant profit. They needed to divide labor between technical development and commercialization. This was an illegal enterprise with real risks, but also substantial financial opportunity for two young men with limited resources.",
     "cdm_probes": {
@@ -272,7 +256,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-018",
+    "id": "incident-017",
     "decision": "Jobs decided to approach Paul Terrell at Byte Shop to sell the Apple-1 as a commercial product rather than treating it as a hobbyist demonstration project.",
     "context": "Wozniak had designed the Apple-1 computer primarily to impress fellow members of the Homebrew Computer Club, viewing it as a technical showcase for hobbyist enthusiasts. The prevailing assumption was that personal computers were niche products for electronics enthusiasts who would build and program their own systems. Jobs recognized an opportunity to transform this hobbyist creation into a broader commercial venture.",
     "cdm_probes": {
@@ -288,7 +272,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-019",
+    "id": "incident-018",
     "decision": "Jobs negotiated 30-day credit terms with suppliers to fund Apple-1 component purchases before receiving payment from Byte Shop.",
     "context": "Jobs and Wozniak had secured an order from Byte Shop but lacked capital to purchase the electronic components needed for production. They faced a classic entrepreneurial cash flow gap where payment would come only after delivery, but production required upfront investment in parts.",
     "cdm_probes": {
@@ -304,7 +288,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-020",
+    "id": "incident-019",
     "decision": "Jobs positioned the Apple II as a universal computer for everyone rather than marketing it as a specialized hobbyist machine.",
     "context": "In the late 1970s, personal computers were primarily viewed as kits for electronics enthusiasts and hobbyists. The industry assumption was that the market was limited to technically sophisticated users who enjoyed building and programming machines. Jobs faced the choice of how to position Apple II in this nascent market.",
     "cdm_probes": {
@@ -320,7 +304,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-021",
+    "id": "incident-020",
     "decision": "Jobs decided to risk NeXT's entire future by investing heavily in developing new UNIX workstation technology despite uncertain market demand.",
     "context": "After being ousted from Apple in 1985, Jobs founded NeXT and faced the challenge of establishing credibility in a competitive computer market. The workstation market was dominated by established players like Sun Microsystems, and the demand for high-end UNIX systems was uncertain. Jobs had limited capital and needed to make decisive moves to differentiate NeXT.",
     "cdm_probes": {
@@ -336,7 +320,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-022",
+    "id": "incident-021",
     "decision": "Steve Jobs decided to launch physical Apple Stores organized by user intent rather than product categories, despite the industry's abandonment of branded retail.",
     "context": "In the early 2000s, computer companies had largely exited physical retail, relying instead on big box stores like Best Buy and online sales channels. The conventional wisdom held that branded computer stores were economically unviable and that customers preferred the convenience and price competition of multi-brand retailers.",
     "cdm_probes": {
@@ -352,7 +336,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-023",
+    "id": "incident-022",
     "decision": "Steve Jobs insisted on universal 99-cent flat-rate pricing for all iTunes song downloads rather than accepting the music industry's preferred variable pricing model.",
     "context": "The music industry wanted different prices for different songs based on popularity, artist status, and market demand, similar to traditional retail models. Record labels saw variable pricing as maximizing revenue and maintaining their established value hierarchies. Jobs was launching iTunes and needed industry cooperation while also ensuring user adoption of this new digital music platform.",
     "cdm_probes": {
@@ -368,7 +352,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-024",
+    "id": "incident-023",
     "decision": "Steve Jobs decided to drop 'Computer' from Apple's corporate name, rebranding the company from 'Apple Computer' to 'Apple Inc.'",
     "context": "Apple had successfully launched the iPod and was preparing to enter new consumer electronics markets beyond traditional computing. The company needed to signal a strategic transformation from a computer manufacturer to a broader consumer technology and lifestyle brand. This decision came at a pivotal moment when Apple's revenue streams were diversifying beyond Mac computers.",
     "cdm_probes": {
@@ -384,7 +368,7 @@
     "source": "computer_history_museum"
   },
   {
-    "id": "incident-025",
+    "id": "incident-024",
     "decision": "Jobs decided Apple would sell only fully assembled computers rather than kits that customers would build themselves.",
     "context": "In the mid-1970s, the personal computer market consisted primarily of hobbyists who expected to buy computer kits and assemble them at home. This kit model required less manufacturing infrastructure and was the established norm among competitors like Altair and IMSAI. Jobs faced the choice of following this proven market approach or breaking from it entirely.",
     "cdm_probes": {
@@ -400,7 +384,7 @@
     "source": "future_of_pc_1990"
   },
   {
-    "id": "incident-026",
+    "id": "incident-025",
     "decision": "Jobs decided to start Apple Computer as an independent company after both Atari and HP rejected their early computer prototypes.",
     "context": "Jobs and Wozniak had developed early computer prototypes while employed at Atari and HP respectively. They pitched their innovations to both companies, expecting corporate backing or acquisition. Both companies declined, leaving them with working technology but no institutional pathway to market.",
     "cdm_probes": {
@@ -416,7 +400,7 @@
     "source": "future_of_pc_1990"
   },
   {
-    "id": "incident-027",
+    "id": "incident-026",
     "decision": "Steve Jobs decided to explicitly reject market research as a methodology for developing breakthrough products.",
     "context": "Jobs was operating in the technology industry where market research was the standard approach for product development and investment decisions. He was facing the fundamental challenge of how to create truly revolutionary products that would define new categories rather than simply compete within existing ones.",
     "cdm_probes": {
@@ -432,7 +416,7 @@
     "source": "future_of_pc_1990"
   },
   {
-    "id": "incident-028",
+    "id": "incident-027",
     "decision": "Jobs decided to implement factory automation at NeXT primarily to achieve superior quality and faster time-to-market rather than to reduce manufacturing costs.",
     "context": "NeXT was operating in a highly competitive technology marketplace where product differentiation and speed were critical. Jobs was building a new computer company that needed to establish credibility and compete against established players with superior manufacturing capabilities.",
     "cdm_probes": {
@@ -448,7 +432,7 @@
     "source": "future_of_pc_1990"
   },
   {
-    "id": "incident-029",
+    "id": "incident-028",
     "decision": "Jobs decided to have the Mac development team sign the inside of computer cases to formally recognize them as artists rather than just engineers.",
     "context": "During Mac development, Jobs observed his engineering team's creative passion and craftsmanship extending beyond mere technical execution. The computer industry typically treated hardware development as anonymous engineering work, with no individual recognition or artistic attribution. Jobs faced the choice of following industry norms or establishing a new precedent that honored the creative dimensions of computing work.",
     "cdm_probes": {
@@ -464,7 +448,7 @@
     "source": "future_of_pc_1990"
   },
   {
-    "id": "incident-030",
+    "id": "incident-029",
     "decision": "Jobs decided to pivot Apple's strategy from targeting hardware hobbyists to pursuing the vastly larger market of software hobbyists who wanted to use computers without building them.",
     "context": "In the mid-1970s, the personal computer industry was dominated by kit computers sold to hardware enthusiasts who enjoyed assembling and tinkering with machines. Apple was initially part of this hobbyist market, but Jobs recognized a critical market segmentation opportunity that others were missing.",
     "cdm_probes": {
