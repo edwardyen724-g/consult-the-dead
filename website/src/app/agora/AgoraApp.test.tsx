@@ -527,6 +527,46 @@ describe("AgoraApp — consensus stage", () => {
     expect(markup).not.toContain("free debates remaining");
     expect(markup).not.toContain("You&#x27;ve used all 3");
   });
+
+  it("renders share button with data-testid when consensus is ready", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "consensus",
+          topic,
+          council,
+          consensusLoading: false,
+          consensus: mockConsensus,
+        }}
+      />,
+    );
+
+    expect(markup).toContain('data-testid="share-result-btn"');
+    expect(markup).toContain("Share this agon");
+  });
+
+  it("share button is disabled when consensus is null (agon still running)", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "consensus",
+          topic,
+          council,
+          consensusLoading: false,
+          consensus: null,
+        }}
+      />,
+    );
+
+    // Button is present but disabled
+    expect(markup).toContain('data-testid="share-result-btn"');
+    expect(markup).toContain("disabled");
+    expect(markup).toContain("Share this agon");
+  });
 });
 
 /* ── Reduced-friction topic stage ───────────────────────────────────── */
