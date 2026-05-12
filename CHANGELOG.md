@@ -20,6 +20,7 @@ The project does not currently use semantic releases, so this changelog records 
 - Agora plan and pricing reconciliation (PR #257): aligns the monetization docs with shipped product state.
 - Quota 429 retry headers, legacy forge cleanup, Stripe test flow, and pricing proof contract sync (PR #261): updates the docs and proof artifacts around the shipped contract work.
 - Changelog backfill for the 2026-05-11 wave (PR #262): backfills the prior-day merged PR entries.
+- Changelog backfill for post-May-12 merge wave (PR #286): adds entries for PRs #279 (StreamingDemo above fold), #281 (Phase 1 insight launch trio), #282 (/decisions surface), and #284 (CODEOWNERS + frameworks CI guard).
 - Library upgrade interstitial enrichment (PR #265): adds the feature list and ghost preview rows.
 - Per-mind SEO metadata (PR #267): adds proper title and OG metadata to the per-mind landing pages.
 - Live social proof agon-count stat (PR #268): adds the pricing-hero stat.
