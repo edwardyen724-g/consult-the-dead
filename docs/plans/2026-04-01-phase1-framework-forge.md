@@ -13,17 +13,18 @@
 ## File Structure
 
 ```
-great-minds/
+consult-the-dead/                   # Repo root
 ├── framework_forge/
 │   ├── __init__.py
 │   ├── cli.py                      # Click CLI entry point
+│   ├── pipeline.py                 # Reusable end-to-end pipeline runner
 │   ├── config.py                   # API keys, paths, model config
 │   ├── llm.py                      # Claude API wrapper (structured prompts)
 │   ├── sources/
 │   │   ├── __init__.py
-│   │   ├── discovery.py            # Search for sources about a person
+│   │   ├── discovery.py            # LLM-assisted source discovery
 │   │   ├── fetcher.py              # Fetch and clean source text
-│   │   └── triage.py               # Rate sources by evidence type
+│   │   └── triage.py               # Rate and rank sources by evidence type
 │   ├── extraction/
 │   │   ├── __init__.py
 │   │   ├── incidents.py            # Identify candidate incidents from text
@@ -36,23 +37,26 @@ great-minds/
 │   │   └── framework.py            # Assemble and encode framework JSON
 │   └── validation/
 │       ├── __init__.py
+│       ├── floor_check.py          # Historical alignment sanity check
 │       ├── tier1.py                # Baseline differentiation (automated)
 │       ├── tier2.py                # Internal consistency (automated)
-│       ├── tier3_prep.py           # Generate materials for expert review
-│       └── floor_check.py          # Historical alignment sanity check
+│       └── tier3_prep.py           # Generate A/B review packet for human review
 ├── frameworks/                     # Output directory (one subdir per person)
 │   └── steve-jobs/
 │       ├── framework.json
-│       ├── incidents/
-│       │   └── incidents.json
 │       ├── constructs.json
+│       ├── incidents/
+│       │   ├── candidates.json
+│       │   └── incidents.json
 │       ├── sources/
 │       │   ├── bibliography.json
-│       │   └── texts/              # Fetched source texts
+│       │   └── texts/              # Fetched source texts (*.txt)
 │       └── validation/
 │           ├── tier1_results.json
 │           ├── tier2_results.json
+│           ├── floor-check_results.json
 │           └── tier3_materials/
+│               └── review_packet.json
 ├── tests/
 │   ├── conftest.py                 # Shared fixtures
 │   ├── test_llm.py
@@ -258,7 +262,7 @@ def tmp_framework_dir(tmp_path):
 
 Run:
 ```bash
-cd C:/projects/greatminds && pip install -e ".[dev]"
+pip install -e ".[dev]"
 ```
 Expected: Clean install, no errors.
 
@@ -266,7 +270,7 @@ Expected: Clean install, no errors.
 
 Run:
 ```bash
-cd C:/projects/greatminds && python -m pytest tests/ -v
+python -m pytest tests/ -v
 ```
 Expected: `no tests ran` (0 collected, no errors).
 
@@ -280,7 +284,6 @@ cp .env.example .env
 - [ ] **Step 11: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git init
 git add pyproject.toml requirements.txt .env.example .gitignore framework_forge/__init__.py framework_forge/config.py tests/conftest.py
 git commit -m "feat: project scaffolding for Framework Forge"
@@ -383,7 +386,7 @@ class TestLLMClient:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_llm.py -v`
+Run: `python -m pytest tests/test_llm.py -v`
 Expected: FAIL — `ModuleNotFoundError: No module named 'framework_forge.llm'`
 
 - [ ] **Step 3: Write the implementation**
@@ -505,13 +508,12 @@ class LLMClient:
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_llm.py -v`
+Run: `python -m pytest tests/test_llm.py -v`
 Expected: All 6 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/llm.py tests/test_llm.py
 git commit -m "feat: LLM client wrapper with structured response parsing"
 ```
@@ -611,7 +613,7 @@ class TestCleanHtml:
 
 - [ ] **Step 3: Run tests to verify they fail**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_sources.py -v`
+Run: `python -m pytest tests/test_sources.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 4: Implement `triage.py`**
@@ -809,13 +811,12 @@ def discover_sources(person: str, client: LLMClient | None = None) -> list[Sourc
 
 - [ ] **Step 7: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_sources.py -v`
+Run: `python -m pytest tests/test_sources.py -v`
 Expected: All 4 tests PASS.
 
 - [ ] **Step 8: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/sources/ tests/test_sources.py
 git commit -m "feat: source discovery, fetching, and triage"
 ```
@@ -913,7 +914,7 @@ class TestIdentifyIncidents:
 
 - [ ] **Step 3: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 4: Implement `incidents.py`**
@@ -1043,13 +1044,12 @@ def identify_incidents(
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 3 tests PASS.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/extraction/ tests/test_extraction.py
 git commit -m "feat: critical incident identification from source text"
 ```
@@ -1124,7 +1124,7 @@ class TestCDMProbes:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py::TestCDMProbes -v`
+Run: `python -m pytest tests/test_extraction.py::TestCDMProbes -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 3: Implement `cdm_probes.py`**
@@ -1268,13 +1268,12 @@ def reconstruct_incident(
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 5 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/extraction/cdm_probes.py tests/test_extraction.py
 git commit -m "feat: CDM probe reconstruction for critical incidents"
 ```
@@ -1337,7 +1336,7 @@ class TestConstructMapping:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py::TestConstructMapping -v`
+Run: `python -m pytest tests/test_extraction.py::TestConstructMapping -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 3: Implement `constructs.py`**
@@ -1481,13 +1480,12 @@ def map_constructs(
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 7 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/extraction/constructs.py tests/test_extraction.py
 git commit -m "feat: bipolar construct mapping from incident database"
 ```
@@ -1551,7 +1549,7 @@ class TestLensDerivation:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py::TestLensDerivation -v`
+Run: `python -m pytest tests/test_extraction.py::TestLensDerivation -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 3: Implement `lens.py`**
@@ -1702,13 +1700,12 @@ def derive_lens(
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 9 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/extraction/lens.py tests/test_extraction.py
 git commit -m "feat: perceptual lens derivation from bipolar constructs"
 ```
@@ -1765,7 +1762,7 @@ class TestDivergencePredictions:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py::TestDivergencePredictions -v`
+Run: `python -m pytest tests/test_extraction.py::TestDivergencePredictions -v`
 Expected: FAIL
 
 - [ ] **Step 3: Implement `divergence.py`**
@@ -1893,13 +1890,12 @@ def generate_predictions(
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_extraction.py -v`
+Run: `python -m pytest tests/test_extraction.py -v`
 Expected: All 10 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/extraction/divergence.py tests/test_extraction.py
 git commit -m "feat: behavioral divergence prediction generation"
 ```
@@ -1983,7 +1979,7 @@ class TestSaveFramework:
 
 - [ ] **Step 3: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_encoding.py -v`
+Run: `python -m pytest tests/test_encoding.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 4: Implement `framework.py`**
@@ -2112,13 +2108,12 @@ def save_framework(framework: dict, output_dir: Path) -> Path:
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_encoding.py -v`
+Run: `python -m pytest tests/test_encoding.py -v`
 Expected: All 2 tests PASS.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/encoding/ tests/test_encoding.py
 git commit -m "feat: framework JSON assembly and serialization"
 ```
@@ -2235,7 +2230,7 @@ class TestTier1:
 
 - [ ] **Step 3: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py -v`
+Run: `python -m pytest tests/test_validation.py -v`
 Expected: FAIL — `ModuleNotFoundError`
 
 - [ ] **Step 4: Implement `tier1.py`**
@@ -2516,13 +2511,12 @@ def run_tier1(
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py -v`
+Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 4 tests PASS.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/validation/ tests/test_validation.py
 git commit -m "feat: Tier 1 validation — baseline differentiation"
 ```
@@ -2589,7 +2583,7 @@ class TestTier2:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py::TestTier2 -v`
+Run: `python -m pytest tests/test_validation.py::TestTier2 -v`
 Expected: FAIL
 
 - [ ] **Step 3: Implement `tier2.py`**
@@ -2751,13 +2745,12 @@ def run_tier2(
 
 - [ ] **Step 4: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py -v`
+Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 6 tests PASS.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/validation/tier2.py tests/test_validation.py
 git commit -m "feat: Tier 2 validation — internal consistency check"
 ```
@@ -2831,7 +2824,7 @@ class TestFloorCheck:
 
 - [ ] **Step 2: Run tests to verify they fail**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py::TestTier3Prep tests/test_validation.py::TestFloorCheck -v`
+Run: `python -m pytest tests/test_validation.py::TestTier3Prep tests/test_validation.py::TestFloorCheck -v`
 Expected: FAIL
 
 - [ ] **Step 3: Implement `tier3_prep.py`**
@@ -3004,13 +2997,12 @@ Apply the framework to this situation, then compare:
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `cd C:/projects/greatminds && python -m pytest tests/test_validation.py -v`
+Run: `python -m pytest tests/test_validation.py -v`
 Expected: All 8 tests PASS.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/validation/tier3_prep.py framework_forge/validation/floor_check.py tests/test_validation.py
 git commit -m "feat: Tier 3 prep and historical alignment floor check"
 ```
@@ -3185,10 +3177,10 @@ def build(person: str, framework_dir: str, domain: str):
     framework = assemble_framework(
         person=person,
         domain=domain,
-        incidents=incidents,
-        constructs=constructs,
-        lens=lens,
-        predictions=predictions,
+        incidents=[inc.to_dict() for inc in incidents],
+        constructs=[c.to_dict() for c in constructs],
+        lens=lens.to_dict(),
+        predictions=[p.to_dict() for p in predictions],
     )
     path = save_framework(framework, fw_dir)
     click.echo(f"Framework saved to {path}")
@@ -3229,8 +3221,12 @@ def validate(framework: str, person: str, domain: str, mode: str):
             return
         tier1_data = json.loads(tier1_path.read_text())
         scenarios = [
-            {"scenario": s["scenario"], "framework_response": s["framework_response"]}
-            for s in tier1_data["scenarios"]
+            {
+                "scenario": s["scenario"],
+                "framework_response": s["framework_response"],
+                "baseline_response": s["baseline_response"],
+            }
+            for s in tier1_data["scenario_results"]
         ]
 
         click.echo("Running Tier 2: Internal Consistency...")
@@ -3242,16 +3238,17 @@ def validate(framework: str, person: str, domain: str, mode: str):
 
     if mode == "full":
         click.echo("Preparing Tier 3 materials for expert review...")
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+
         tier1_data = json.loads((fw_dir / "validation" / "tier1_results.json").read_text())
-        scenarios = [
-            {
-                "scenario": s["scenario"],
-                "framework_response": s["framework_response"],
-                "baseline_response": s["baseline_response"],
-            }
-            for s in tier1_data["scenarios"]
-        ]
-        path = prepare_tier3_materials(scenarios, person, fw_dir / "validation" / "tier3_materials")
+        tier1_obj = Tier1Result(
+            scenario_results=[ScenarioResult(**s) for s in tier1_data["scenario_results"]]
+        )
+        path = prepare_tier3_materials(
+            tier1_results=tier1_obj,
+            person=person,
+            output_dir=fw_dir / "validation" / "tier3_materials",
+        )
         click.echo(f"  Review packet saved to {path}")
 
     if mode == "floor-check":
@@ -3281,7 +3278,7 @@ if __name__ == "__main__":
 
 - [ ] **Step 2: Verify CLI loads**
 
-Run: `cd C:/projects/greatminds && python -m framework_forge.cli --help`
+Run: `python -m framework_forge.cli --help`
 Expected:
 ```
 Usage: python -m framework_forge.cli [OPTIONS] COMMAND [ARGS]...
@@ -3290,8 +3287,9 @@ Usage: python -m framework_forge.cli [OPTIONS] COMMAND [ARGS]...
 
 Commands:
   build               Stages 3-6: Map constructs, derive lens, generate...
-  discover-sources    Stage 1: Discover and triage sources.
-  identify-incidents  Stage 2: Identify candidate critical incidents.
+  discover-sources    Stage 1: Discover and triage sources for a historical...
+  fetch-sources       Stage 1b: Materialise source texts from a saved...
+  identify-incidents  Stage 2: Identify candidate critical incidents from...
   reconstruct         Stage 2b: Apply CDM probes to reconstruct each incident.
   validate            Stage 7: Run three-tier validation.
 ```
@@ -3299,7 +3297,6 @@ Commands:
 - [ ] **Step 3: Commit**
 
 ```bash
-cd C:/projects/greatminds
 git add framework_forge/cli.py
 git commit -m "feat: CLI entry point tying all subsystems together"
 ```
@@ -3316,31 +3313,23 @@ This is the actual extraction. It follows the spec's Phase 1 build order exactly
 - [ ] **Step 1: Discover sources**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli discover-sources --person "Steve Jobs" --output frameworks/steve-jobs
+framework-forge discover-sources --person "Steve Jobs" --output frameworks/steve-jobs
 ```
 Expected: Bibliography saved to `frameworks/steve-jobs/sources/bibliography.json` with 10-15 sources.
 
-- [ ] **Step 2: Review bibliography and manually add primary source texts**
-
-Open `frameworks/steve-jobs/sources/bibliography.json` and review. For sources that are books (url = "offline"), you will need to manually prepare text excerpts. Create text files in `frameworks/steve-jobs/sources/texts/`:
+- [ ] **Step 2: Fetch source texts**
 
 ```bash
-mkdir -p frameworks/steve-jobs/sources/texts
-# Add text files manually:
-# - isaacson-biography.txt (key chapters with decision-making content)
-# - all-things-d-interviews.txt (transcripts)
-# - keynote-decisions.txt (documented product decisions)
-# - etc.
+framework-forge fetch-sources \
+  --bibliography frameworks/steve-jobs/sources/bibliography.json \
+  --output-dir frameworks/steve-jobs/sources/texts
 ```
-
-This is the step that requires manual effort — source texts must be gathered from primary materials.
+This fetches all sources whose URL is not "offline". For book-only sources (url = "offline"), manually place text excerpts as `.txt` files in `frameworks/steve-jobs/sources/texts/`. This is the step that requires manual effort — primary source texts must be gathered from physical books or licensed materials.
 
 - [ ] **Step 3: Identify candidate incidents from source texts**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli identify-incidents \
+framework-forge identify-incidents \
   --person "Steve Jobs" \
   --source-dir frameworks/steve-jobs/sources/texts \
   --output frameworks/steve-jobs
@@ -3354,8 +3343,7 @@ Open `candidates.json`. Remove incidents where `reasoning_visible` is false or t
 - [ ] **Step 5: Reconstruct incidents with CDM probes**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli reconstruct \
+framework-forge reconstruct \
   --person "Steve Jobs" \
   --incidents-file frameworks/steve-jobs/incidents/candidates.json \
   --output frameworks/steve-jobs
@@ -3375,13 +3363,12 @@ Edit where needed — this is analytical judgment, not automation.
 - [ ] **Step 7: Build the framework (constructs, lens, predictions, encoding)**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli build \
+framework-forge build \
   --person "Steve Jobs" \
   --framework-dir frameworks/steve-jobs \
   --domain "Technology, Design, Business"
 ```
-Expected: `frameworks/steve-jobs/framework.json` with full selector architecture.
+Expected: `frameworks/steve-jobs/constructs.json` and `frameworks/steve-jobs/framework.json` with full selector architecture.
 
 - [ ] **Step 8: Review the framework**
 
@@ -3395,8 +3382,7 @@ Open `framework.json`. Verify:
 - [ ] **Step 9: Run Tier 1 validation**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli validate \
+framework-forge validate \
   --framework frameworks/steve-jobs/framework.json \
   --person "Steve Jobs" \
   --domain "Technology, Design, Business" \
@@ -3407,8 +3393,7 @@ Expected: `PASSED` with >= 4/5 divergent scenarios. If FAILED, iterate: review w
 - [ ] **Step 10: Run Tier 2 validation**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli validate \
+framework-forge validate \
   --framework frameworks/steve-jobs/framework.json \
   --person "Steve Jobs" \
   --domain "Technology, Design, Business" \
@@ -3419,8 +3404,7 @@ Expected: `PASSED` with >= 80% traceability and no contradictions. If FAILED, re
 - [ ] **Step 11: Run full validation (includes Tier 3 prep)**
 
 ```bash
-cd C:/projects/greatminds
-python -m framework_forge.cli validate \
+framework-forge validate \
   --framework frameworks/steve-jobs/framework.json \
   --person "Steve Jobs" \
   --domain "Technology, Design, Business" \
@@ -3440,7 +3424,6 @@ Success criteria from spec:
 - [ ] **Step 13: Commit final framework**
 
 ```bash
-cd C:/projects/greatminds
 git add frameworks/steve-jobs/
 git commit -m "feat: Steve Jobs framework v1.0 — Phase 1 complete"
 ```
