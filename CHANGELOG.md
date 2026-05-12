@@ -23,6 +23,14 @@ The project does not currently use semantic releases, so this changelog records 
 - Library upgrade interstitial enrichment (PR #265): adds the feature list and ghost preview rows.
 - Per-mind SEO metadata (PR #267): adds proper title and OG metadata to the per-mind landing pages.
 - Live social proof agon-count stat (PR #268): adds the pricing-hero stat.
+- Inline Pro upgrade CTA in rate-limit banner (PR #264): Agora rate-limit error banner now includes a direct Pro upgrade CTA.
+- Share button wired to /api/library (PR #269): Agora share button now persists share URLs via `/api/library` for stable link sharing.
+- Trust badge near Pro CTA (PR #270): pricing page adds a trust badge adjacent to the Pro CTA button, with supporting test coverage.
+- Checkout success redirect and Pro welcome banner (PR #272): successful Stripe checkout now redirects to `/agora` and surfaces a Pro welcome banner.
+- Quota-exhaustion CTA sharpened to 7-day free trial copy (PR #273): Agora quota-exhaustion state now leads with the 7-day free trial messaging.
+- Value proposition header on sign-up page (PR #274): Clerk sign-up form is now preceded by a value proposition header summarising the product.
+- CTR research baseline sync (PR #277): `docs/ctr-research-notes.md` updated to mark LibraryProofStrip and transcript-share as shipped baseline and tighten open gaps.
+- Design research retention helpers shipped baseline (PR #278): `docs/design-research.md` updated to reflect shipped retention helpers and document remaining open gaps.
 
 ### Fixed
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
@@ -34,6 +42,10 @@ The project does not currently use semantic releases, so this changelog records 
 - Placeholder citation validator regression tests (PR #248): covers the edge cases that were missing.
 - Pricing preview metadata gate re-verification (PR #260): confirms there is no drift.
 - Seneca portrait gap note removal (PR #263): removes the resolved gap note from the release docs.
+- Epictetus and Rockefeller bipolar_constructs inlined (PR #245): embeds `bipolar_constructs` data directly in the framework files, removing the external dependency.
+- Share CTA button label aligned with founder directive (PR #250): corrects the share CTA label to match the founder-approved copy.
+- Duplicate quotaResetAt resolved, test assertions aligned, retry hints surfaced (PR #256): fixes the duplicate field bug in quota responses, aligns test assertions, and surfaces retry hint headers.
+- UTM params forwarded from URL to Stripe checkout POST body (PR #276): pricing CTA now carries UTM attribution through into the Stripe checkout session.
 
 ## 2026-05-11
 
