@@ -12,19 +12,100 @@ import {
 
 export const metadata = { title: 'Account' }
 
-const publicationCtaLinkStyle = {
+const publicationPrimaryCtaLinkStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  width: 'fit-content',
   fontFamily: 'var(--font-mono)',
-  fontSize: '10px',
-  letterSpacing: '0.14em',
+  fontSize: '11px',
+  letterSpacing: '0.12em',
   textTransform: 'uppercase',
   padding: '12px 24px',
   borderRadius: '999px',
   background: 'var(--amber)',
   color: 'var(--bg)',
   textDecoration: 'none',
+}
+
+const publicationSecondaryCtaLinkStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 'fit-content',
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  padding: '11px 20px',
+  borderRadius: '999px',
+  border: '1px solid var(--hairline)',
+  color: 'var(--fg)',
+  textDecoration: 'none',
+  background: 'transparent',
+}
+
+const accountPanelStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'minmax(0, 1.5fr) minmax(220px, 0.9fr)',
+  gap: '20px',
+  alignItems: 'start',
+}
+
+const accountCardStyle = {
+  border: '1px solid var(--hairline)',
+  borderRadius: '8px',
+  padding: '18px',
+  background: 'var(--surface)',
+}
+
+const accountMastheadStyle = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '9px',
+  letterSpacing: '0.16em',
+  textTransform: 'uppercase',
+  color: 'var(--fg-dim)',
+  margin: '0 0 10px',
+}
+
+const accountBodyStyle = {
+  fontFamily: 'var(--font-serif)',
+  fontSize: '0.95rem',
+  lineHeight: 1.65,
+  color: 'var(--fg-dim)',
+  margin: 0,
+}
+
+const accountListStyle = {
+  margin: '18px 0 0',
+  padding: 0,
+  listStyle: 'none',
+  display: 'grid',
+  gap: '10px',
+}
+
+const accountListItemStyle = {
+  display: 'flex',
+  alignItems: 'baseline',
+  gap: '10px',
+  paddingTop: '10px',
+  borderTop: '1px solid var(--hairline)',
+}
+
+const accountListLabelStyle = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '9px',
+  letterSpacing: '0.16em',
+  textTransform: 'uppercase',
+  color: 'var(--fg-faint)',
+  flex: '0 0 auto',
+}
+
+const accountListValueStyle = {
+  fontFamily: 'var(--font-serif)',
+  fontSize: '0.95rem',
+  lineHeight: 1.6,
+  color: 'var(--fg)',
 }
 
 const publicationNoticeStyle = {
@@ -70,7 +151,23 @@ export default async function AccountPage({
   const email = user.emailAddresses.find(e => e.id === user.primaryEmailAddressId)?.emailAddress
     ?? user.emailAddresses[0]?.emailAddress
   const displayName = [user.firstName, user.lastName].filter(Boolean).join(' ') || email
-  const usageSummary = `${usage.used} / ${usage.limit} this ${usage.period}`
+  const usageSummary = `${usage.used}/${usage.limit} this ${usage.period}`
+  const remainingSummary = usage.remaining > 0
+    ? `${usage.remaining} debate${usage.remaining === 1 ? '' : 's'} remaining`
+    : isPro
+      ? 'Monthly cap reached'
+      : 'Daily cap reached'
+  const planHighlights = isPro
+    ? [
+        '100 agons per month',
+        'Persistent library access',
+        'Opus synthesis and PDF export',
+      ]
+    : [
+        '3 agons per day',
+        'Anonymous debates with no persistence',
+        'Direct upgrade path when you need more',
+      ]
 
   return (
     <PublicationShell
@@ -98,10 +195,10 @@ export default async function AccountPage({
       lead={
         isPro
           ? 'Manage your subscription, usage, and private key from one publication surface.'
-          : 'Track your free access, daily usage, and API key settings before you upgrade.'
+          : 'Track free access, usage, and your API key before you upgrade.'
       }
       stats={[
-        { label: 'Plan', value: isPro ? 'Pro' : 'Free' },
+        { label: 'Plan', value: isPro ? 'Pro access' : 'Free access' },
         { label: 'Usage', value: usageSummary },
         {
           label: 'Library',
@@ -123,63 +220,140 @@ export default async function AccountPage({
 
       <PublicationSection
         eyebrow="Subscription"
-        title={isPro ? 'Pro access' : 'Free access'}
+        title={isPro ? 'Pro access active' : 'Free access active'}
         body={
           isPro
-            ? 'You have full access to Agora Pro: 100 agons per month, up to 5 minds, Opus synthesis, persistent library access, and PDF export.'
-            : 'You are on the free plan: 3 agons per day, 2–3 minds, anonymous debates, and a direct upgrade path.'
+            ? 'Your billing, plan limits, and account handoff stay in one place.'
+            : 'Your free plan stays visible here, with a direct path to Pro when the daily cap starts getting in the way.'
         }
         accent={isPro ? 'highlight' : 'default'}
       >
-        {isPro ? <ManageSubscriptionButton /> : (
-          <Link
-            href="/pricing"
-            style={publicationCtaLinkStyle}
-          >
-            Upgrade to Pro
-          </Link>
-        )}
+        <div style={accountPanelStyle}>
+          <div>
+            <p style={accountBodyStyle}>
+              {isPro
+                ? 'Pro includes the full publication system: 100 agons per month, up to 5 minds, Opus synthesis, persistent library access, and PDF export.'
+                : 'Free keeps you moving with 3 agons per day, 2–3 minds, anonymous debates, and a clean upgrade path when you want the library to persist.'}
+            </p>
+
+            <ul style={accountListStyle}>
+              {planHighlights.map((item) => (
+                <li key={item} style={accountListItemStyle}>
+                  <span style={accountListLabelStyle}>Included</span>
+                  <span style={accountListValueStyle}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div style={accountCardStyle}>
+            <p style={accountMastheadStyle}>Plan control</p>
+            <p style={{ ...accountBodyStyle, marginBottom: '16px' }}>
+              {isPro
+                ? 'Open Stripe to update payment details or cancel.'
+                : 'Upgrade to unlock the persistent library, stronger synthesis, and higher limits.'}
+            </p>
+            {isPro ? (
+              <ManageSubscriptionButton />
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <Link
+                  href="/pricing"
+                  style={publicationPrimaryCtaLinkStyle}
+                >
+                  Upgrade to Pro
+                </Link>
+                <Link
+                  href="/pricing"
+                  style={publicationSecondaryCtaLinkStyle}
+                >
+                  View pricing
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
       </PublicationSection>
 
       <PublicationSection
         eyebrow="Usage"
-        title="Debate quota"
-        body="Your current quota is tracked here so the free and Pro surfaces present the same decision rhythm."
+        title="Quota window"
+        body="Usage stays visible here so the account page follows the same compact decision rhythm as pricing and library."
       >
         <div
           style={{
-            height: '6px',
+            border: '1px solid var(--hairline)',
+            borderRadius: '8px',
+            padding: '16px',
             background: 'var(--surface)',
-            borderRadius: '3px',
-            overflow: 'hidden',
-            marginBottom: '16px',
           }}
         >
           <div
             style={{
-              height: '100%',
-              width: `${Math.min(100, (usage.used / usage.limit) * 100)}%`,
-              background: usage.remaining <= 0 ? 'var(--red)' : 'var(--amber)',
-              borderRadius: '3px',
-              transition: 'width 0.3s ease',
+              display: 'flex',
+              alignItems: 'baseline',
+              justifyContent: 'space-between',
+              gap: '16px',
+              marginBottom: '12px',
             }}
-          />
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--fg-dim)',
+                margin: 0,
+              }}
+            >
+              Current quota
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '10px',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: usage.remaining <= 0 ? 'var(--red)' : 'var(--amber)',
+                margin: 0,
+              }}
+            >
+              {remainingSummary}
+            </p>
+          </div>
+          <div
+            style={{
+              height: '7px',
+              borderRadius: '999px',
+              overflow: 'hidden',
+              background: 'var(--bg)',
+              border: '1px solid var(--hairline)',
+            }}
+          >
+            <div
+              style={{
+                height: '100%',
+                width: `${Math.min(100, (usage.used / usage.limit) * 100)}%`,
+                background: usage.remaining <= 0 ? 'var(--red)' : 'var(--amber)',
+                borderRadius: '999px',
+                transition: 'width 0.3s ease',
+              }}
+            />
+          </div>
+          <p
+            style={{
+              ...accountBodyStyle,
+              marginTop: '14px',
+            }}
+          >
+            {usage.remaining > 0
+              ? `${usage.remaining} debate${usage.remaining === 1 ? '' : 's'} remaining this ${usage.period}.`
+              : isPro
+                ? 'You have used all 100 debates this month. Your quota resets at the start of next month.'
+                : 'You have used all 3 free debates today. Add your own API key for unlimited use, or check back tomorrow.'}
+          </p>
         </div>
-        <p
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontSize: '0.95rem',
-            color: 'var(--fg-dim)',
-            margin: 0,
-            lineHeight: 1.6,
-          }}
-        >
-          {usage.remaining > 0
-            ? `${usage.remaining} debate${usage.remaining === 1 ? '' : 's'} remaining this ${usage.period}.`
-            : isPro
-              ? 'You have used all 100 debates this month. Your quota resets at the start of next month.'
-              : 'You have used all 3 free debates today. Add your own API key for unlimited use, or check back tomorrow.'}
-        </p>
       </PublicationSection>
 
       <PublicationSection
