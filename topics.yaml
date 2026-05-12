@@ -18,7 +18,8 @@
     - "is bootstrapping better than VC"
   recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-quit-my-job-to-start-a-company
   type: decision
@@ -29,7 +30,8 @@
     - "should I quit my job to be an entrepreneur"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-fire-my-cofounder
   type: decision
@@ -40,7 +42,8 @@
     - "cofounder conflict resolution"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-we-open-source-our-core-product
   type: decision
@@ -51,7 +54,8 @@
     - "is open source good for startups"
   recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-pivot-or-persist
   type: decision
@@ -62,7 +66,8 @@
     - "startup pivot signs"
   recommended_council: [marie-curie, isaac-newton, marcus-aurelius]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-take-this-job-offer
   type: decision
@@ -73,7 +78,8 @@
     - "should I accept a counter offer"
   recommended_council: [marcus-aurelius, niccolo-machiavelli, marie-curie]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-pivot-to-ai-or-double-down-on-domain
   type: decision
@@ -84,7 +90,8 @@
     - "should I learn AI or specialize"
   recommended_council: [sun-tzu, marie-curie, leonardo-da-vinci]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-take-the-money-or-the-equity
   type: decision
@@ -95,7 +102,8 @@
     - "how to negotiate equity"
   recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-shut-down-my-startup
   type: decision
@@ -106,7 +114,8 @@
     - "signs your startup is failing"
   recommended_council: [marcus-aurelius, marie-curie, sun-tzu]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-raise-a-seed-round
   type: decision
@@ -117,7 +126,8 @@
     - "when to raise seed funding"
   recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-hire-my-first-employee
   type: decision
@@ -128,7 +138,8 @@
     - "first hire startup"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
   hook_angles: [identity, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-sell-my-startup
   type: decision
@@ -139,7 +150,8 @@
     - "sell or keep my company"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, sun-tzu]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: should-i-form-an-llc-or-delaware-c-corp
   type: decision
@@ -150,7 +162,119 @@
     - "Delaware C corp vs LLC"
   recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
   hook_angles: [proof, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-join-an-accelerator
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I join an accelerator"
+  secondary_queries:
+    - "is accelerator worth it"
+    - "accelerator vs bootstrap"
+    - "should I apply to YC"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, john-d-rockefeller]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-hire-a-cto-or-find-a-technical-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "CTO vs technical cofounder"
+  secondary_queries:
+    - "should I hire a CTO"
+    - "how to find a technical cofounder"
+    - "CTO vs cofounder choice"
+  recommended_council: [steve-jobs, niccolo-machiavelli, marie-curie]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-launch-now-or-wait-for-perfect
+  type: decision
+  search_volume_estimate: high
+  primary_query: "when to launch a startup"
+  secondary_queries:
+    - "MVP launch timing"
+    - "launch early vs wait for perfect"
+    - "how long before launching a product"
+  recommended_council: [steve-jobs, marcus-aurelius, marie-curie]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-build-in-public
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I build in public"
+  secondary_queries:
+    - "build in public strategy"
+    - "transparency in business"
+  recommended_council: [seneca, marcus-aurelius, marie-curie]
+  hook_angles: [identity, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-charge-from-day-one
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I charge customers from day one"
+  secondary_queries:
+    - "free vs paid product launch"
+    - "when to start charging"
+  recommended_council: [john-d-rockefeller, steve-jobs, marie-curie]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-split-equity-50-50-with-my-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "cofounder equity split"
+  secondary_queries:
+    - "should equity be split 50-50"
+    - "cofounder equity division"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-raise-a-series-a
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a Series A"
+  secondary_queries:
+    - "Series A funding decision"
+    - "when to raise Series A"
+  recommended_council: [marie-curie, john-d-rockefeller, niccolo-machiavelli]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-sign-this-term-sheet
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I sign this term sheet"
+  secondary_queries:
+    - "term sheet evaluation"
+    - "evaluating investor terms"
+  recommended_council: [niccolo-machiavelli, cicero, marcus-aurelius]
+  hook_angles: [proof, identity]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-go-remote-or-in-person
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should company go remote"
+  secondary_queries:
+    - "remote vs in-person work"
+    - "remote first company decision"
+  recommended_council: [marcus-aurelius, benjamin-franklin, florence-nightingale]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: 2026-05-12
 
 # ─────────────────────────────────────────────────────────────────────
 # Type "insight" — "what would X say about Y" pop-philosophy queries.
@@ -166,7 +290,8 @@
     - "Marcus Aurelius founder advice"
   recommended_council: [marcus-aurelius]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-sun-tzu-say-about-tariffs-and-trade-wars
   type: insight
@@ -177,7 +302,8 @@
     - "Sun Tzu economics"
   recommended_council: [sun-tzu]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-machiavelli-say-about-firing-someone-you-respect
   type: insight
@@ -188,7 +314,8 @@
     - "how would Machiavelli handle conflict"
   recommended_council: [niccolo-machiavelli]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-marie-curie-say-about-when-to-trust-the-data
   type: insight
@@ -255,6 +382,88 @@
   recommended_council: [marcus-aurelius]
   hook_angles: [identity, shortcut]
   status: queued
+
+- slug: stoics-on-failure
+  type: insight
+  search_volume_estimate: high
+  primary_query: "what stoics say about failure"
+  secondary_queries:
+    - "stoics on dealing with failure"
+    - "marcus aurelius failure"
+    - "seneca adversity"
+    - "epictetus setback"
+  recommended_council: [marcus-aurelius, seneca, epictetus]
+  hook_angles: [identity, proof]
+  status: shipped
+  shipped_at: 2026-05-11
+
+- slug: marcus-aurelius-vs-sun-tzu-on-product-decisions
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Marcus Aurelius vs Sun Tzu product strategy"
+  secondary_queries:
+    - "stoic product management"
+    - "strategic product thinking"
+    - "hold the line vs shift terrain"
+  recommended_council: [marcus-aurelius, sun-tzu]
+  hook_angles: [identity, proof]
+  status: shipped
+  shipped_at: 2026-05-11
+
+- slug: seneca-and-epictetus-on-dealing-with-failure
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Seneca and Epictetus on failure"
+  secondary_queries:
+    - "stoic philosophy failure"
+    - "seneca on adversity"
+    - "epictetus on control"
+  recommended_council: [seneca, epictetus]
+  hook_angles: [identity, proof]
+  status: shipped
+  shipped_at: 2026-05-11
+
+- slug: tesla-and-ada-lovelace-on-the-future-of-computing
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Tesla and Ada Lovelace on AI and computing"
+  secondary_queries:
+    - "AI future debate"
+    - "artificial intelligence technology future"
+    - "computing visionary debate"
+  recommended_council: [nikola-tesla, ada-lovelace]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-11
+
+- slug: steve-jobs-on-product
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Steve Jobs decision framework"
+  secondary_queries:
+    - "steve jobs product strategy"
+    - "how steve jobs made decisions"
+    - "steve jobs say no"
+    - "product prioritization framework"
+  recommended_council: [steve-jobs]
+  hook_angles: [proof, shortcut]
+  status: shipped
+  shipped_at: 2026-05-11
+
+- slug: founders-on-pricing
+  type: insight
+  search_volume_estimate: high
+  primary_query: "what great thinkers say about pricing"
+  secondary_queries:
+    - "pricing strategy advice"
+    - "how to price your product"
+    - "startup pricing framework"
+    - "value based pricing"
+    - "rockefeller pricing strategy"
+  recommended_council: [john-d-rockefeller]
+  hook_angles: [proof, shortcut]
+  status: shipped
+  shipped_at: 2026-05-11
 
 # ─────────────────────────────────────────────────────────────────────
 # Type "method" — definitive long-form on real frameworks (CDM, Toulmin, OODA, Cynefin).
