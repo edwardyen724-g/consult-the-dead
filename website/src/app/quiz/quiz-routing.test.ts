@@ -224,15 +224,24 @@ describe("buildQuizModel", () => {
 
 describe("quiz page and flow", () => {
   it("passes the live framework catalog into the quiz flow wrapper", () => {
-    const page = QuizPage() as ReactElement<{ quizModel: ReturnType<typeof buildQuizModel> }>
+    const page = QuizPage() as ReactElement<{ children: ReactElement[] }>
 
-    expect(page.type).toBe(QuizFlow)
-    expect(page.props.quizModel.mindsBySlug["sun-tzu"]).toEqual({
+    // QuizPage wraps QuizFlow in a layout div with a hero section above it;
+    // navigate into the children to find the QuizFlow element.
+    const children = Array.isArray(page.props.children)
+      ? page.props.children
+      : [page.props.children]
+    const quizFlowEl = children.find(
+      (child) => isValidElement(child) && child.type === QuizFlow,
+    ) as ReactElement<{ quizModel: ReturnType<typeof buildQuizModel> }> | undefined
+
+    expect(quizFlowEl).toBeDefined()
+    expect(quizFlowEl!.props.quizModel.mindsBySlug["sun-tzu"]).toEqual({
       slug: "sun-tzu",
       name: "Sun Tzu",
       domain: "Military Strategy / Statecraft",
     })
-    expect(page.props.quizModel.decisionTypes).toHaveLength(5)
+    expect(quizFlowEl!.props.quizModel.decisionTypes).toHaveLength(5)
   })
 
   it("walks the quiz through selection, backtracking, and results", () => {
