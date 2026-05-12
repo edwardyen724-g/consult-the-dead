@@ -2,7 +2,8 @@
  * Tests for /sitemap.xml route.
  *
  * Verifies that the sitemap emits one URL per listicle slug at
- * changeFrequency=monthly, priority=0.6, and that existing URL sets
+ * changeFrequency=monthly, priority=0.6, and one URL per decision entry
+ * at changeFrequency=weekly, priority=0.8. Existing URL sets
  * (frameworks, insights, minds, agons) are preserved alongside them.
  *
  * The DB fetch is stubbed out via vi.mock so this test runs without
@@ -43,8 +44,12 @@ vi.mock("@/lib/mind-content", () => ({
 // listicle-content is NOT mocked — we want the real LISTICLE_SLUGS
 // and listicleCanonicalUrl so the test proves the production values.
 
+// content/decisions is NOT mocked — we want the real DECISION_ENTRIES
+// so the test proves the production values.
+
 import sitemap from "./sitemap";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
+import { DECISION_ENTRIES, getDecisionUrl } from "../../content/decisions";
 
 const SITE_URL = "https://www.consultthedead.com";
 
@@ -107,5 +112,53 @@ describe("sitemap()", () => {
     expect(urls).toContain(`${SITE_URL}/frameworks/isaac-newton`);
     // Mind page from the mocked MIND_SLUGS
     expect(urls).toContain(`${SITE_URL}/minds/isaac-newton`);
+  });
+
+  it("emits one URL per decision entry", async () => {
+    const entries = await sitemap();
+    const urls = entries.map((e) => e.url);
+
+    for (const entry of DECISION_ENTRIES) {
+      expect(urls).toContain(getDecisionUrl(entry.slug, SITE_URL));
+    }
+  });
+
+  it("emits exactly one decision URL per DECISION_ENTRIES entry", async () => {
+    const entries = await sitemap();
+    const decisionUrls = entries.filter(
+      (e) => typeof e.url === "string" && e.url.includes("/decisions/"),
+    );
+    expect(decisionUrls).toHaveLength(DECISION_ENTRIES.length);
+    expect(DECISION_ENTRIES.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it("uses changeFrequency=weekly and priority=0.8 for every decision entry", async () => {
+    const entries = await sitemap();
+    const decisionEntries = entries.filter(
+      (e) => typeof e.url === "string" && e.url.includes("/decisions/"),
+    );
+    for (const entry of decisionEntries) {
+      expect(entry.changeFrequency).toBe("weekly");
+      expect(entry.priority).toBe(0.8);
+    }
+  });
+
+  it("preserves first-batch decision slugs in output URLs", async () => {
+    const entries = await sitemap();
+    const urls = entries.map((e) => e.url);
+    const expectedSlugs = [
+      "should-i-raise-vc-or-bootstrap",
+      "should-i-quit-my-job-to-start-a-company",
+      "should-i-raise-a-seed-round",
+      "should-i-hire-my-first-employee",
+      "should-i-fire-my-cofounder",
+      "should-i-pivot-or-persist",
+      "should-i-take-this-job-offer",
+      "should-i-sell-my-startup",
+      "should-i-shut-down-my-startup",
+    ];
+    for (const slug of expectedSlugs) {
+      expect(urls).toContain(`${SITE_URL}/decisions/${slug}`);
+    }
   });
 });
