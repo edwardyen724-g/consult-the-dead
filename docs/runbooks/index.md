@@ -31,10 +31,22 @@ after deployments touching the relevant feature areas.
   - Verifies the `/frameworks/[slug]` OG/Twitter preview-image contract before
     promoting the release-state note
 
+- [Framework Forge Pipeline Smoke](framework-forge-pipeline-smoke.md)
+  - Verifies the live `python -m framework_forge.pipeline` end-to-end flow:
+    source discovery, source-text materialization, reconstruction, validation,
+    and optional floor-check persistence
+
 ## Funnel
 
 - [Funnel Surface Rollout](funnel-surface-rollout.md) — PRs #121, #125
   - Covers the quiz CTA (header) and footer CTA rollout verification
+
+## Pricing
+
+- [Pricing Copy Smoke Runbook](pricing-copy-smoke-runbook.md)
+  - Verifies live pricing page copy matches the finalized pricing contract in `docs/pricing.md`
+  - Covers tier copy (Free/Pro/BYO), OG/Twitter metadata, canonical URL, and upsell surface copy
+  - Run after any deployment touching `website/src/app/pricing/` or upsell components
 
 ## Infrastructure
 
