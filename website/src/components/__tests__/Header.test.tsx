@@ -10,7 +10,7 @@
  * plain function and walk the resulting React element tree.
  */
 import type { ReactNode } from "react";
-import { describe, expect, it, vi, beforeAll } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 /* ── Mock external dependencies before importing Header ───────── */
 
@@ -49,6 +49,7 @@ import {
   HEADER_QUIZ_CTA_HREF,
   Header,
 } from "../Header";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
 /* ── Tree-walking helpers (same pattern as ShareCtaStrip.test.tsx) ── */
 
@@ -93,11 +94,15 @@ function findAll(
 
 describe("Header exported constants", () => {
   it("HEADER_QUIZ_ENTRY_HREF resolves to /quiz?entry=guided (guided mode)", () => {
-    expect(HEADER_QUIZ_ENTRY_HREF).toBe("/quiz?entry=guided");
+    expect(HEADER_QUIZ_ENTRY_HREF).toBe(buildQuizEntryHref("guided"));
+  });
+
+  it("HEADER_QUIZ_CTA_HREF resolves through the shared helper", () => {
+    expect(HEADER_QUIZ_CTA_HREF).toBe(buildQuizEntryHref("header"));
   });
 
   it("HEADER_QUIZ_CTA_HREF includes the required UTM params", () => {
-    const url = new URL(HEADER_QUIZ_CTA_HREF, "https://example.com");
+    const url = new URL(buildQuizEntryHref("header"), "https://example.com");
     expect(url.pathname).toBe("/quiz");
     expect(url.searchParams.get("utm_source")).toBe("header");
     expect(url.searchParams.get("utm_medium")).toBe("nav");
@@ -121,7 +126,7 @@ describe("Header component — quiz CTA link", () => {
   it("quiz CTA link has the correct full href with all UTM params", () => {
     const quizLinks = findAll(tree as ReactNode, (el) => {
       const href = (el.props as { href?: string }).href;
-      return typeof href === "string" && href.includes("utm_campaign=guided_entry");
+      return href === buildQuizEntryHref("header");
     });
     expect(quizLinks.length).toBeGreaterThanOrEqual(1);
     const href = (quizLinks[0]!.props as { href: string }).href;
@@ -136,7 +141,7 @@ describe("Header component — quiz CTA link", () => {
     // at least 2 instances of the CTA link in the full tree.
     const quizLinks = findAll(tree as ReactNode, (el) => {
       const href = (el.props as { href?: string }).href;
-      return href === HEADER_QUIZ_CTA_HREF;
+      return href === buildQuizEntryHref("header");
     });
     expect(quizLinks.length).toBeGreaterThanOrEqual(2);
   });
@@ -144,7 +149,7 @@ describe("Header component — quiz CTA link", () => {
   it("quiz CTA link has a descriptive aria-label", () => {
     const quizLinks = findAll(tree as ReactNode, (el) => {
       const href = (el.props as { href?: string }).href;
-      return href === HEADER_QUIZ_CTA_HREF;
+      return href === buildQuizEntryHref("header");
     });
     const ariaLabel = (quizLinks[0]!.props as { "aria-label"?: string })["aria-label"];
     expect(typeof ariaLabel).toBe("string");

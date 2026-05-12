@@ -1,3 +1,41 @@
+# 2026-05-12 CTR quiz helper contract hardening
+
+- Task: Harden the CTR quiz helper contract
+- Updated:
+  - `website/src/lib/ctr-experiment.ts`
+  - `website/src/components/Header.tsx`
+  - `website/src/components/Footer.tsx`
+  - `website/src/components/__tests__/Header.test.tsx`
+  - `website/src/components/Footer.test.tsx`
+  - `website/src/lib/__tests__/ctr-experiment.test.ts`
+- Change:
+  - extended the shared quiz helper so it now owns the homepage guided entry, the header quiz CTA, the footer quiz CTA, and the existing direct quiz route
+  - rewired the header and footer quiz CTA constants to derive from the shared helper instead of hard-coded URL strings
+  - tightened the helper and component tests so they assert the helper contract for guided, direct, header, and footer surfaces
+  - left the homepage and quiz-page routing behavior intact while keeping the shared helper as the source of truth for the quiz entry URLs
+
+## Verification
+
+- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm coverage -- website/src/lib/__tests__/ctr-experiment.test.ts website/src/components/__tests__/Header.test.tsx website/src/components/Footer.test.tsx`
+- Result: passed; 142 test files and 1983 tests green, with overall coverage at 99.56% statements, 98.29% branches, 100% functions, and 99.84% lines.
+
+# 2026-05-12 Agora share metadata and CTA attribution regression coverage
+
+- Task: Add regression coverage for public Agora share metadata and CTA attribution
+- Updated:
+  - `website/src/app/agora/a/[id]/page.test.tsx`
+- Change:
+  - tightened the public share-page regression test so it now asserts the share-loop UTM destination is shared by the attribution-bearing CTA surfaces
+  - kept the secondary "Share this agon" link pinned to the canonical `/agora/a/<share_id>` transcript URL
+  - preserved the existing metadata contract coverage for the canonical share page and social preview surface
+
+## Verification
+
+- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm test -- --coverage 'src/app/agora/a/[id]/page.test.tsx' 'src/lib/__tests__/share-transcript.test.ts' 'src/lib/__tests__/share-cta-link.test.ts'`
+- Result: the focused run initially failed under the repo-wide coverage gate because partial coverage is intentionally rejected.
+- `cd /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website && pnpm coverage`
+- Result: passed with 142 test files and 1981 tests green; overall coverage was 99.56% statements, 98.29% branches, 100% functions, and 99.84% lines.
+
 # 2026-05-12 README quiz route inventory update
 
 - Task: Add `/quiz` to the README route table and document the guided entry path

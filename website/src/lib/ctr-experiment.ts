@@ -16,12 +16,12 @@ export interface CuriosityGapHeroCopy {
 export const CURIOSITY_GAP_HERO_COPY_VARIANTS = [
   {
     variantId: "decision-first",
-    eyebrow: "A faster way to start a council",
-    headline: "You have a decision. History has a council.",
-    body: "Tell us what kind of problem it is, then let the right minds line up before you ask them.",
-    proofLine: "Curiosity-gap hero for founders, operators, and anyone stuck between two moves.",
-    primaryCtaLabel: "Take the quiz",
-    secondaryCtaLabel: "Ask directly",
+    eyebrow: "Clarity before commitment",
+    headline: "Bring the decision into focus.",
+    body: "Open the first-scroll demo below, then bring the question that still feels foggy.",
+    proofLine: "First-scroll proof for founders, operators, and anyone stuck between two moves.",
+    primaryCtaLabel: "Ask the council",
+    secondaryCtaLabel: "See the demo",
   },
   {
     variantId: "quiz-first",
@@ -260,8 +260,17 @@ export const QUIZ_ROUTE_GROUPS = [
  * The guided entry keeps the current behavior explicit instead of hard-coding
  * the query string in multiple pages.
  */
-export function buildQuizEntryHref(mode: "guided" | "direct" = "guided"): string {
-  return mode === "guided" ? "/quiz?entry=guided" : "/quiz";
+export type QuizEntryHrefSurface = "guided" | "direct" | "header" | "footer";
+
+const QUIZ_ENTRY_HREF_BY_SURFACE: Record<QuizEntryHrefSurface, string> = {
+  guided: "/quiz?entry=guided",
+  direct: "/quiz",
+  header: "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry",
+  footer: "/quiz?utm_source=footer&utm_medium=cta&utm_campaign=guided_entry",
+};
+
+export function buildQuizEntryHref(mode: QuizEntryHrefSurface = "guided"): string {
+  return QUIZ_ENTRY_HREF_BY_SURFACE[mode];
 }
 
 /**

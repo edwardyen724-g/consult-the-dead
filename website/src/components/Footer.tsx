@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ProofStrip } from "@/components/ProofStrip";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
-export const FOOTER_QUIZ_CTA_HREF =
-  "/quiz?utm_source=footer&utm_medium=cta&utm_campaign=guided_entry";
+export const FOOTER_QUIZ_CTA_HREF = buildQuizEntryHref("footer");
 
 export const FOOTER_PRICING_CTA_HREF =
   "/pricing?utm_source=footer&utm_medium=cta&utm_campaign=upgrade";

@@ -28,9 +28,16 @@ describe("getCuriosityGapHeroCopy", () => {
 });
 
 describe("quiz routing helpers", () => {
-  it("buildQuizEntryHref exposes both guided and direct entry routes", () => {
+  it("buildQuizEntryHref exposes guided, direct, header, and footer entry routes", () => {
     expect(buildQuizEntryHref()).toBe("/quiz?entry=guided");
+    expect(buildQuizEntryHref("guided")).toBe("/quiz?entry=guided");
     expect(buildQuizEntryHref("direct")).toBe("/quiz");
+    expect(buildQuizEntryHref("header")).toBe(
+      "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry",
+    );
+    expect(buildQuizEntryHref("footer")).toBe(
+      "/quiz?utm_source=footer&utm_medium=cta&utm_campaign=guided_entry",
+    );
   });
 
   it("buildQuizCouncilHref preserves order, trims blanks, and falls back when empty", () => {
