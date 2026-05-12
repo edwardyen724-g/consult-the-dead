@@ -5,6 +5,7 @@ import { useState } from "react"
 import {
   QUIZ_ROUTE_GROUPS,
   buildQuizCouncilHref,
+  buildQuizPackHref,
   type QuizDecisionType,
   type QuizRouteGroup,
 } from "@/lib/ctr-experiment"
@@ -60,12 +61,15 @@ type QuizPageRoute = QuizRoute & {
 
 type QuizPageRouteGroup = Omit<QuizRouteGroup, "routes"> & {
   routes: readonly QuizPageRoute[]
+  featuredPackHref: string
 }
 
 const buildQuizPageRouteGroup = (group: QuizRouteGroup): QuizPageRouteGroup => ({
   decisionType: group.decisionType,
   label: group.label,
   description: group.description,
+  featuredPack: group.featuredPack,
+  featuredPackHref: buildQuizPackHref(group.featuredPack.packId),
   routes: group.routes.map((route) => ({
     label: route.label,
     description: route.description,
@@ -258,6 +262,72 @@ export default function QuizPage() {
             >
               Where you feel the most pull between two directions &mdash; that&rsquo;s where the right minds will disagree most usefully.
             </p>
+
+            {/* Featured pack shortcut */}
+            {activeGroup && (
+              <div style={{ marginBottom: "28px" }}>
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "9px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "var(--fg-faint)",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Best-fit council
+                </p>
+                <Link
+                  href={activeGroup.featuredPackHref}
+                  style={{
+                    display: "block",
+                    border: "1px solid var(--amber)",
+                    padding: "20px 24px",
+                    textDecoration: "none",
+                    transition: "background 0.2s",
+                  }}
+                  data-testid="featured-pack-link"
+                >
+                  <span
+                    style={{
+                      display: "block",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "12px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--amber)",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    {activeGroup.featuredPack.name} &rarr;
+                  </span>
+                  <span
+                    style={{
+                      display: "block",
+                      fontFamily: "var(--font-serif)",
+                      fontSize: "0.9rem",
+                      color: "var(--fg-dim)",
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    {activeGroup.featuredPack.tagline}
+                  </span>
+                </Link>
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "9px",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "var(--fg-faint)",
+                    margin: "18px 0 10px",
+                  }}
+                >
+                  Or choose your specific tension
+                </p>
+              </div>
+            )}
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {activeGroup?.routes.map((route, i) => (

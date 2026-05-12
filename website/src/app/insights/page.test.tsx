@@ -23,6 +23,8 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock("@/lib/frameworks", () => ({
   getAllFrameworks: mocks.getAllFrameworks,
+  // SLUG_COLOR_VAR is consumed by the new denser card layout
+  SLUG_COLOR_VAR: {} as Record<string, string>,
 }));
 
 vi.mock("@/lib/insights", () => ({
@@ -118,7 +120,7 @@ describe("InsightsPage — render", () => {
     const element = InsightsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("DECISION INSIGHTS");
+    expect(html).toContain("Decision Insights");
   });
 
   it("renders an entry card for each insight that has a matching framework", () => {
@@ -225,7 +227,7 @@ describe("InsightsPage — render", () => {
     const html = renderToStaticMarkup(element);
 
     // Page heading still present, but no entry cards
-    expect(html).toContain("DECISION INSIGHTS");
+    expect(html).toContain("Decision Insights");
     expect(html).not.toContain("/insights/");
   });
 

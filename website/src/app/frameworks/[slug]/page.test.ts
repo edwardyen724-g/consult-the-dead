@@ -147,6 +147,53 @@ describe("framework detail metadata", () => {
     spy.mockRestore();
   });
 
+  it("emits the slug-scoped canonical URL, not the homepage URL", async () => {
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ slug: "isaac-newton" }),
+    });
+
+    const canonical = metadata.alternates?.canonical as string;
+    expect(canonical).toBe(
+      "https://www.consultthedead.com/frameworks/isaac-newton",
+    );
+    expect(canonical).not.toBe("https://www.consultthedead.com");
+    expect(canonical).not.toBe("https://www.consultthedead.com/");
+  });
+
+  it("og:url and canonical both resolve through buildFrameworkCanonicalUrl", async () => {
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ slug: "isaac-newton" }),
+    });
+
+    const canonical = metadata.alternates?.canonical as string;
+    const ogUrl = metadata.openGraph?.url as string;
+
+    // Both must be the same slug-scoped URL — drift is a regression.
+    expect(ogUrl).toBe(canonical);
+    expect(ogUrl).toBe(
+      "https://www.consultthedead.com/frameworks/isaac-newton",
+    );
+  });
+
+  it("og:url falls back to the slug-scoped URL (not homepage) when buildFrameworkCanonicalUrl returns null", async () => {
+    const spy = vi
+      .spyOn(canonicalUrlModule, "buildFrameworkCanonicalUrl")
+      .mockReturnValue(null);
+
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ slug: "isaac-newton" }),
+    });
+
+    const ogUrl = metadata.openGraph?.url as string;
+    expect(ogUrl).toBe(
+      "https://www.consultthedead.com/frameworks/isaac-newton",
+    );
+    expect(ogUrl).not.toBe("https://www.consultthedead.com");
+    expect(ogUrl).not.toBe("https://www.consultthedead.com/");
+
+    spy.mockRestore();
+  });
+
   it("includes the FrameworkTransparencyPanel in the rendered page", async () => {
     const element = await FrameworkDetailPage({
       params: Promise.resolve({ slug: "isaac-newton" }),
