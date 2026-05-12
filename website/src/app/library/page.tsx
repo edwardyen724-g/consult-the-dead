@@ -165,23 +165,25 @@ async function LibraryPublicationSurface({
   );
 }
 
-const PRO_FEATURES = [
-  "Unlimited saved debates",
-  "Access to all 25+ minds",
-  "Opus-powered synthesis",
-  "100 agons/month",
+export const PRO_FEATURES = [
+  { label: "Unlimited saved debates", detail: "No cap on your personal archive" },
+  { label: "Access to all 25+ minds", detail: "Every historical figure in the council" },
+  { label: "Opus-powered synthesis", detail: "Deepest reasoning, sharpest consensus" },
+  { label: "100 agons/month", detail: "Enough for the decisions that matter" },
+] as const;
+
+export const GHOST_ROWS = [
+  { topic: "Should we enter the European market now?", minds: "Sun Tzu · Machiavelli", date: "May 8, 2026" },
+  { topic: "How to structure our Series A fundraise", minds: "Benjamin Franklin · Warren Buffett", date: "May 5, 2026" },
+  { topic: "Build vs. buy: our data infrastructure", minds: "Leonardo da Vinci · Nikola Tesla", date: "Apr 29, 2026" },
 ] as const;
 
 export function GhostLibraryRows() {
-  const rows = [
-    { topic: "Should we enter the European market now?", minds: "Sun Tzu · Machiavelli", date: "May 8, 2026" },
-    { topic: "How to structure our Series A fundraise", minds: "Benjamin Franklin · Warren Buffett", date: "May 5, 2026" },
-    { topic: "Build vs. buy: our data infrastructure", minds: "Leonardo da Vinci · Nikola Tesla", date: "Apr 29, 2026" },
-  ];
+  const rows = GHOST_ROWS;
 
   return (
     <div
-      data-testid="ghost-library-rows"
+      data-testid="library-ghost-preview"
       style={{
         position: "relative",
         marginTop: "32px",
@@ -190,6 +192,18 @@ export function GhostLibraryRows() {
         userSelect: "none",
       }}
     >
+      <p
+        className="font-mono"
+        style={{
+          fontSize: "9px",
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "var(--fg-dim)",
+          margin: "16px 0 12px",
+        }}
+      >
+        Sample library
+      </p>
       {/* Lock overlay */}
       <div
         style={{
@@ -272,7 +286,7 @@ export function GhostLibraryRows() {
 
 export function UpgradePrompt() {
   return (
-    <div>
+    <div data-testid="upgrade-prompt">
       <div
         className="font-mono"
         style={{
@@ -325,7 +339,7 @@ export function UpgradePrompt() {
 
         {/* Feature preview list */}
         <ul
-          data-testid="pro-feature-list"
+          data-testid="upgrade-feature-list"
           style={{
             listStyle: "none",
             padding: 0,
@@ -337,7 +351,7 @@ export function UpgradePrompt() {
         >
           {PRO_FEATURES.map((feature) => (
             <li
-              key={feature}
+              key={feature.label}
               data-testid="pro-feature-item"
               className="font-mono"
               style={{
@@ -350,13 +364,27 @@ export function UpgradePrompt() {
               }}
             >
               <span style={{ color: "var(--amber)" }}>✓</span>
-              {feature}
+              <span>{feature.label}</span>
+              <span style={{ opacity: 0.6 }}>{feature.detail}</span>
             </li>
           ))}
         </ul>
 
+        {/* Pricing copy */}
+        <p
+          className="font-mono"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.08em",
+            color: "var(--fg-dim)",
+            margin: 0,
+          }}
+        >
+          $30/mo · $300/yr · 7-day trial
+        </p>
+
         <Link
-          href="/pricing?utm_campaign=library_gate"
+          href="/pricing"
           style={{
             display: "inline-block",
             width: "fit-content",
