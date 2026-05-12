@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Defer the mount flip until after commit so the setState happens in a callback
@@ -19,7 +19,8 @@ export function ThemeToggle() {
     return <div className="w-[140px] h-9" />;
   }
 
-  const isDark = theme === "dark";
+  const effectiveTheme = resolvedTheme ?? theme;
+  const isDark = effectiveTheme === "dark";
 
   return (
     <button
