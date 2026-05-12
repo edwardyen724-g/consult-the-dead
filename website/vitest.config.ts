@@ -20,6 +20,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "lcov", "html"],
       include: [
+        "src/app/page.tsx",
         "src/app/sign-up/**/page.tsx",
         "src/app/sign-up/**/utm-stamper.ts",
         "src/lib/mind-content.ts",

@@ -10,11 +10,73 @@ from __future__ import annotations
 
 import json
 import random
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from framework_forge.validation.tier1 import Tier1Result
+
+
+# ---------------------------------------------------------------------------
+# Dataclasses
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class Tier3Result:
+    """Result of Tier 3 material preparation.
+
+    Wraps the written review packet so callers have a stable result object
+    with pass/fail semantics and failure reasons — consistent with Tier1Result,
+    Tier2Result, and FloorCheckResult for release-gate reporting.
+    """
+
+    path: Path
+    person: str
+    pairs: list[dict]
+
+    @property
+    def passed(self) -> bool:
+        """True when at least one scenario pair was written to disk."""
+        return len(self.pairs) > 0
+
+    @property
+    def failure_reasons(self) -> list[str]:
+        """Human-readable reasons for failure, empty when passed.
+
+        Suitable for release-gate reporting and CI output.
+        """
+        if self.passed:
+            return []
+        return ["No scenario pairs were generated for human review"]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "path": str(self.path),
+            "person": self.person,
+            "pair_count": len(self.pairs),
+            "passed": self.passed,
+            "failure_reasons": self.failure_reasons,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Tier3Result":
+        """Reconstruct a Tier3Result from a to_dict() snapshot.
+
+        Note: ``pairs`` are not stored in to_dict() to keep the summary compact.
+        Load the full packet from ``path`` if you need the pair data.
+        """
+        return cls(
+            path=Path(data["path"]),
+            person=data["person"],
+            pairs=[],
+        )
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
 
 
 def _resolve_random_source(
@@ -34,14 +96,19 @@ def _resolve_random_source(
     return random.Random()
 
 
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
+
+
 def prepare_tier3_materials(
-    tier1_results: Tier1Result,
+    tier1_results: "Tier1Result",
     person: str,
     output_dir: Path,
     *,
     random_source: Any | None = None,
     seed: int | None = None,
-) -> Path:
+) -> Tier3Result:
     """Generate review_packet.json with randomized A/B paired responses.
 
     For each scenario, randomly assigns the framework and baseline responses
@@ -52,12 +119,14 @@ def prepare_tier3_materials(
         tier1_results: Completed Tier 1 results with scenario comparisons.
         person: Name of the historical figure.
         output_dir: Directory to write the review packet to.
+        random_source: Optional RNG with a ``random()`` method (for testing).
+        seed: Optional integer seed for reproducibility.
 
     Returns:
-        Path to the written review_packet.json.
+        Tier3Result containing the output path, person, and generated pairs.
     """
     rng = _resolve_random_source(random_source=random_source, seed=seed)
-    pairs = []
+    pairs: list[dict] = []
 
     for sr in tier1_results.scenario_results:
         # Randomize which response is A and which is B
@@ -92,4 +161,5 @@ def prepare_tier3_materials(
     output_dir.mkdir(parents=True, exist_ok=True)
     path = output_dir / "review_packet.json"
     path.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
-    return path
+
+    return Tier3Result(path=path, person=person, pairs=pairs)
