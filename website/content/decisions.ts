@@ -543,6 +543,87 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "start your own agon",
     ],
   },
+  {
+    slug: "should-i-raise-a-series-a",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I raise a Series A?",
+    description:
+      "Curie, Rockefeller, and Machiavelli debate whether your startup is actually ready for institutional capital — and whether the trade-off is worth it.",
+    primaryQuery: "should I raise Series A",
+    secondaryQueries: [
+      "series a funding readiness",
+      "when to raise venture capital",
+      "startup growth stage funding",
+    ],
+    recommendedCouncil: [
+      "marie-curie",
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is your traction real enough to survive the Series A due diligence?",
+    targetKeywords: [
+      "should I raise Series A",
+      "series a readiness",
+      "venture capital decision",
+      "startup funding stages",
+    ],
+  },
+  {
+    slug: "should-i-sign-this-term-sheet",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I sign this term sheet?",
+    description:
+      "Machiavelli, Cicero, and Marcus Aurelius dissect the power dynamics and obligations hidden in venture term sheets.",
+    primaryQuery: "should I sign this term sheet",
+    secondaryQueries: [
+      "term sheet negotiation",
+      "vc term sheet red flags",
+      "founder equity protection",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "cicero",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Do you understand every clause, or are you signing under pressure?",
+    targetKeywords: [
+      "should I sign term sheet",
+      "vc term sheet negotiation",
+      "startup fundraising terms",
+      "founder equity dilution",
+    ],
+  },
+  {
+    slug: "should-i-go-remote-or-in-person",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I go remote or in-person?",
+    description:
+      "Marcus Aurelius, Benjamin Franklin, and Florence Nightingale debate what the research and history actually say about where teams do their best work.",
+    primaryQuery: "should I go remote or in-person",
+    secondaryQueries: [
+      "remote vs in-person work",
+      "startup office culture",
+      "distributed team productivity",
+    ],
+    recommendedCouncil: [
+      "marcus-aurelius",
+      "benjamin-franklin",
+      "florence-nightingale",
+    ],
+    hookQuestion:
+      "Is your remote policy built on evidence or on what worked for someone else's culture?",
+    targetKeywords: [
+      "remote vs in-person work",
+      "startup team structure",
+      "distributed team performance",
+      "office vs remote productivity",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
