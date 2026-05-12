@@ -436,7 +436,7 @@ describe("AgoraApp — consensus stage", () => {
     expect(markup).not.toContain("Synthesizing the consensus");
   });
 
-  it("shows quota-exhausted message (red) when quotaRemaining is 0", () => {
+  it("shows quota-exhausted message with amber border and trial CTA when quotaRemaining is 0", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -453,9 +453,12 @@ describe("AgoraApp — consensus stage", () => {
     );
 
     expect(markup).toContain("You&#x27;ve used all 3 free debates for today");
-    expect(markup).toContain("Upgrade for unlimited debates");
-    // Exhausted state uses var(--red) for the count label
-    expect(markup).toContain("var(--red)");
+    // Exhausted state upgrades CTA to trial messaging
+    expect(markup).toContain("Start 7-day free trial");
+    // Exhausted state uses amber border (not red) to create urgency without alarm
+    expect(markup).toContain("var(--amber)");
+    // Exhausted state shows the upgrade link with testid for E2E targeting
+    expect(markup).toContain('data-testid="quota-upgrade-link"');
   });
 
   it("shows plural remaining-debates message when quotaRemaining > 1", () => {
