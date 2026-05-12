@@ -268,12 +268,12 @@ def validate(framework: str, person: str, domain: str, mode: str):
                 for s in tier1_data["scenario_results"]
             ]
         )
-        path = prepare_tier3_materials(
+        tier3 = prepare_tier3_materials(
             tier1_results=tier1_obj,
             person=person,
             output_dir=fw_dir / "validation" / "tier3_materials",
         )
-        click.echo(f"  Review packet saved to {path}")
+        click.echo(f"  Review packet saved to {tier3.path}")
 
     if mode == "floor-check":
         click.echo("Running floor check: historical alignment...")
