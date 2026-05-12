@@ -15,12 +15,6 @@
 import type { ReactElement, ReactNode } from "react";
 import { describe, expect, it } from "vitest";
 
-import {
-  SHARE_CTA_BUTTON_LABEL,
-  SHARE_CTA_HEADLINE,
-  SHARE_CTA_SUBLINE,
-} from "@/lib/share-cta-link";
-
 import { ShareCtaStrip, ShareCtaStyles } from "../ShareCtaStrip";
 
 /* ── React-tree walking helpers ───────────────────────────────── */
@@ -104,6 +98,13 @@ function getString(node: ReactNode): string {
 
 /* ── Inline variant ───────────────────────────────────────────── */
 
+const SHARE_CTA_EYEBROW = "Public share";
+const SHARE_CTA_HEADLINE = "Start your own agon";
+const SHARE_CTA_SUBLINE = "3 free debates today";
+const SHARE_CTA_BODY =
+  "No signup. Copy the link or try the same question yourself.";
+const SHARE_CTA_BUTTON_LABEL = "Open the Agora →";
+
 describe("ShareCtaStrip — inline variant", () => {
   const tree = expand(
     ShareCtaStrip({ shareId: "ali-rohde-pivot", variant: "inline" }),
@@ -117,6 +118,15 @@ describe("ShareCtaStrip — inline variant", () => {
   it("carries data-print=\"hide\" on the root", () => {
     const root = tree as unknown as ElementLike;
     expect(root.props["data-print"]).toBe("hide");
+  });
+
+  it("uses publication-style spacing and shadow on the root", () => {
+    const root = tree as unknown as ElementLike;
+    const style = root.props.style as Record<string, unknown> | undefined;
+    expect(style?.margin).toBe("0 0 28px");
+    expect(style?.padding).toBe("24px 28px");
+    expect(style?.alignItems).toBe("flex-start");
+    expect(style?.boxShadow).toContain("rgba(42, 32, 24, 0.06)");
   });
 
   it("renders a Link/<a> whose href is the share-CTA URL", () => {
@@ -134,8 +144,10 @@ describe("ShareCtaStrip — inline variant", () => {
 
   it("includes both the headline and the subline copy", () => {
     const text = getString(tree);
+    expect(text).toContain(SHARE_CTA_EYEBROW);
     expect(text).toContain(SHARE_CTA_HEADLINE);
     expect(text).toContain(SHARE_CTA_SUBLINE);
+    expect(text).toContain(SHARE_CTA_BODY);
     expect(text).toContain(SHARE_CTA_BUTTON_LABEL);
   });
 });
@@ -157,6 +169,8 @@ describe("ShareCtaStrip — sticky variant", () => {
     const style = root.props.style as Record<string, unknown> | undefined;
     expect(style?.position).toBe("fixed");
     expect(style?.bottom).toBe(0);
+    expect(style?.display).toBe("grid");
+    expect(style?.gridTemplateColumns).toBe("minmax(0, 1fr) auto");
   });
 
   it("carries data-print=\"hide\" on the root", () => {
@@ -180,6 +194,7 @@ describe("ShareCtaStrip — sticky variant", () => {
   it("includes the headline and button label in the rendered text", () => {
     const text = getString(tree);
     expect(text).toContain(SHARE_CTA_HEADLINE);
+    expect(text).toContain(SHARE_CTA_SUBLINE);
     expect(text).toContain(SHARE_CTA_BUTTON_LABEL);
   });
 });
@@ -197,6 +212,7 @@ describe("ShareCtaStyles", () => {
     expect(html).toContain(".sct-inline");
     expect(html).toContain(".sct-sticky");
     expect(html).toContain("@media (max-width: 720px)");
+    expect(html).toContain("padding-bottom: 128px");
     expect(html).toContain("@media print");
   });
 });
