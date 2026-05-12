@@ -17,6 +17,8 @@ The landing page lives in [`/website`](./website). The framework-extraction pipe
 | `/packs` | Public | Themed pack catalog — browse curated mind packs by domain with guided-quiz CTA |
 | `/explore` | Public | Agon gallery — crawlable grid of public debate records |
 | `/debates` | Public, static-generated | Sample debate index — browse pre-built debate records by topic; each links to a detail page at `/debates/[slug]` |
+| `/decisions` | Public, static-generated, SEO | Decision catalog — high-intent "should I…" pages covering founder and career decisions; each includes a multi-round debate and a "start your own agon" CTA |
+| `/decisions/[slug]` | Public, static-generated, SEO | Individual decision debate page — Article JSON-LD, indexed metadata, full debate transcript, and UTM-linked `/agora` CTA |
 | `/feed.xml` | Public | RSS feed for public debates and insights |
 | `/pricing` | Public | Plan comparison and upgrade flow |
 | `/library` | Pro, authenticated | Saved agon library |
