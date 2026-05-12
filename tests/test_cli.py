@@ -44,6 +44,98 @@ def test_discover_sources_command_writes_ranked_bibliography(tmp_path, monkeypat
     assert bibliography == [{"title": "Source A"}]
 
 
+
+def test_fetch_sources_command_materialises_texts(tmp_path, monkeypatch):
+    """fetch-sources must call materialize_source_texts and report file count."""
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    output_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    fake_txt = output_dir / "01-source.txt"
+
+    def fake_materialize(bib_path, text_dir):
+        text_dir.mkdir(parents=True, exist_ok=True)
+        fake_txt.write_text("Source content", encoding="utf-8")
+        return [fake_txt]
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "1 source text file(s) ready" in result.output
+
+
+def test_fetch_sources_command_prints_warnings_from_materialize(tmp_path, monkeypatch):
+    """fetch-sources must surface any warnings emitted by materialize_source_texts."""
+    import warnings as _warnings
+
+    bibliography_path = tmp_path / "steve-jobs" / "sources" / "bibliography.json"
+    bibliography_path.parent.mkdir(parents=True, exist_ok=True)
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    output_dir = tmp_path / "steve-jobs" / "sources" / "texts"
+    fake_txt = output_dir / "01-source.txt"
+
+    def fake_materialize_with_warning(bib_path, text_dir):
+        text_dir.mkdir(parents=True, exist_ok=True)
+        fake_txt.write_text("Source content", encoding="utf-8")
+        _warnings.warn("Skipping source 'Offline Book': URL is 'offline' (offline or missing)")
+        return [fake_txt]
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize_with_warning)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "1 source text file(s) ready" in result.output
+    # The warning must be surfaced to stderr (mixed into result.output by CliRunner)
+    assert "Offline Book" in result.output
+
+
+def test_fetch_sources_command_exits_nonzero_on_no_texts(tmp_path, monkeypatch):
+    """fetch-sources must exit with code 1 when no texts can be materialised."""
+    bibliography_path = tmp_path / "bibliography.json"
+    bibliography_path.write_text(json.dumps([]), encoding="utf-8")
+
+    def fake_materialize(bib_path, text_dir):
+        raise FileNotFoundError("No source text files found.")
+
+    monkeypatch.setattr("framework_forge.pipeline.materialize_source_texts", fake_materialize)
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "fetch-sources",
+            "--bibliography",
+            str(bibliography_path),
+            "--output-dir",
+            str(tmp_path / "texts"),
+        ],
+    )
+
+    assert result.exit_code != 0
+
+
 def test_identify_incidents_command_writes_candidates(tmp_path, monkeypatch):
     _patch_llm(monkeypatch)
     source_dir = tmp_path / "sources" / "texts"
@@ -263,7 +355,9 @@ def test_validate_command_preserves_baseline_response_and_keyword_calls(tmp_path
         output_dir.mkdir(parents=True, exist_ok=True)
         path = output_dir / "review_packet.json"
         path.write_text(json.dumps({"person": kwargs["person"]}, indent=2), encoding="utf-8")
-        return path
+        # Return an object with a .path attribute (matching Tier3Result interface)
+        result_obj = type("FakeTier3Result", (), {"path": path})()
+        return result_obj
 
     monkeypatch.setattr("framework_forge.validation.tier2.run_tier2", fake_run_tier2)
     monkeypatch.setattr("framework_forge.validation.tier3_prep.prepare_tier3_materials", fake_prepare_tier3_materials)
@@ -421,3 +515,116 @@ def test_cli_module_main_invokes_entrypoint(monkeypatch):
             sys.modules["framework_forge.cli"] = module
 
     assert excinfo.value.code == 0
+
+
+# ---------------------------------------------------------------------------
+# Chat subcommand — registration and reachability tests
+# ---------------------------------------------------------------------------
+
+
+def test_chat_command_is_registered_in_cli_group():
+    """The 'chat' subcommand must appear in the framework-forge CLI group."""
+    result = CliRunner().invoke(cli, ["--help"])
+    assert result.exit_code == 0, result.output
+    assert "chat" in result.output, (
+        "'chat' must appear in the top-level help listing; "
+        "check that cli.add_command(_chat_cmd) is present in cli.py"
+    )
+
+
+def test_chat_command_help_is_reachable():
+    """framework-forge chat --help must exit 0 and describe the command."""
+    result = CliRunner().invoke(cli, ["chat", "--help"])
+    assert result.exit_code == 0, result.output
+    assert "--framework" in result.output
+    assert "framework.json" in result.output.lower()
+
+
+def test_chat_command_missing_framework_option_exits_nonzero():
+    """framework-forge chat without --framework must exit with a usage error."""
+    result = CliRunner().invoke(cli, ["chat"])
+    assert result.exit_code != 0
+    assert "framework" in result.output.lower()
+
+
+def test_chat_command_invokes_chat_with_framework(tmp_path, monkeypatch):
+    """framework-forge chat --framework <path> must call chat_with_framework once."""
+    import json as _json
+
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(
+        _json.dumps(
+            {
+                "meta": {
+                    "person": "Steve Jobs",
+                    "construct_count": 0,
+                    "incident_count": 0,
+                    "prediction_count": 0,
+                },
+                "perceptual_lens": {
+                    "statement": "See products through users' eyes.",
+                    "what_they_notice_first": "simplicity",
+                    "what_they_ignore": "complexity",
+                },
+                "bipolar_constructs": [],
+                "behavioral_divergence_predictions": [],
+                "critical_incident_database": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    captured: dict = {}
+
+    def fake_chat_with_framework(path, client=None, model=None):
+        captured["path"] = path
+        captured["model"] = model
+
+    monkeypatch.setattr("framework_forge.chat.chat_with_framework", fake_chat_with_framework)
+
+    result = CliRunner().invoke(cli, ["chat", "--framework", str(framework_path)])
+    assert result.exit_code == 0, result.output
+    assert captured.get("path") == framework_path
+    assert captured.get("model") is None
+
+
+def test_chat_command_passes_model_override_to_chat_with_framework(tmp_path, monkeypatch):
+    """--model flag must be forwarded to chat_with_framework."""
+    import json as _json
+
+    framework_path = tmp_path / "framework.json"
+    framework_path.write_text(
+        _json.dumps(
+            {
+                "meta": {
+                    "person": "Marie Curie",
+                    "construct_count": 0,
+                    "incident_count": 0,
+                    "prediction_count": 0,
+                },
+                "perceptual_lens": {
+                    "statement": "See phenomena as measurement problems.",
+                    "what_they_notice_first": "data",
+                    "what_they_ignore": "convention",
+                },
+                "bipolar_constructs": [],
+                "behavioral_divergence_predictions": [],
+                "critical_incident_database": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    captured: dict = {}
+
+    def fake_chat_with_framework(path, client=None, model=None):
+        captured["model"] = model
+
+    monkeypatch.setattr("framework_forge.chat.chat_with_framework", fake_chat_with_framework)
+
+    result = CliRunner().invoke(
+        cli,
+        ["chat", "--framework", str(framework_path), "--model", "claude-opus-4-20250514"],
+    )
+    assert result.exit_code == 0, result.output
+    assert captured.get("model") == "claude-opus-4-20250514"

@@ -78,6 +78,14 @@ describe("topic parsing and selection", () => {
     expect(() => selectTopicRecord([], {} as never)).toThrow("No queued topic records available");
   });
 
+  it("keeps the pruned low-signal topics out of the active queue", async () => {
+    const topics = await loadTopicsFromFile(TOPICS_PATH);
+    const slugs = topics.map((topic) => topic.slug);
+
+    expect(slugs).not.toContain("should-i-hire-or-outsource");
+    expect(slugs).not.toContain("what-would-machiavelli-say-about-startup-cap-tables");
+  });
+
   it("derives stable titles and route paths", () => {
     expect(slugToTitle("should-i-raise-vc-or-bootstrap")).toBe("Should I Raise VC or Bootstrap");
     expect(slugToTitle("critical-decision-method-explained")).toBe("Critical Decision Method Explained");

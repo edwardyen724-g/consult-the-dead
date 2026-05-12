@@ -12,10 +12,11 @@
       "Fronto-Marcus Aurelius Correspondence (synthesized context, based on Haines Loeb 1919)"
     ],
     "secondary_sources": [
-      "Cassius Dio account of the Avidius Cassius revolt and barbarian diplomacy",
-      "Historia Augusta accounts of military financing (sale of imperial furnishings)",
-      "Cassius Dio on the Rain Miracle and the Thundering Legion",
-      "Historia Augusta on the Marcomannic War and plague response"
+      "Cassius Dio, Roman History Book 71-72 — detailed account of the Avidius Cassius revolt and Marcus's response to the barbarian diplomacy offer",
+      "Historia Augusta: Life of Marcus Antoninus — accounts of the military financing crisis (sale of imperial furnishings) and the Marcomannic War plague response",
+      "Cassius Dio on the Rain Miracle (Book 71, §8-10) — the Thundering Legion incident and Marcus's religious policy under military pressure",
+      "Pierre Hadot, The Inner Citadel: The Meditations of Marcus Aurelius (1998, trans. Chase) — systematic philosophical analysis of the Meditations' structure and Stoic practice",
+      "Anthony Birley, Marcus Aurelius: A Biography (1987) — comprehensive historical biography drawing on inscriptions, coins, and ancient sources"
     ],
     "incident_count": 59,
     "construct_count": 20,
@@ -1406,10 +1407,37 @@
       "confidence": 0.72
     }
   ],
-  "core_problem": {},
-  "stated_principles": [],
-  "value_hierarchy": [],
-  "blind_spots": [],
-  "constraint_response": {},
-  "contextual_adaptation": {}
+  "core_problem": {
+    "statement": "The fundamental problem of governance is not how to achieve optimal outcomes but how to act as an authentic custodian of a moral-rational system under conditions of perpetual stress — maintaining structural integrity while accepting that the outcomes of such custodianship are beyond one's control."
+  },
+  "stated_principles": [
+    "Act with courage and for the common good; that alone is sufficient",
+    "You have power over your mind, not outside events — realize this, and you will find strength",
+    "The impediment to action advances action; what stands in the way becomes the way",
+    "Confine yourself to the present; the future is not yours to possess",
+    "Treat every person as if they are doing the best they can given their understanding",
+    "Never esteem anything as of advantage to you that will make you break your word or lose your self-respect"
+  ],
+  "value_hierarchy": [
+    "Moral-rational system integrity over outcome optimization",
+    "Genuine virtue over reputation for virtue",
+    "Institutional pre-commitments over situational flexibility",
+    "Internal judgment over external validation",
+    "Present duty over legacy or posterity",
+    "Universal rational community over parochial Roman interest"
+  ],
+  "blind_spots": [
+    "Treats institutional form as load-bearing even when the institution has ceased to serve its original purpose",
+    "Underweights near-term human suffering caused by strict adherence to principle — the dynastic cost of elevating Commodus, the human cost of refusing barbarian auxiliary help",
+    "The categorical frame (Roman civic order) can override the moral-rational frame in ways inconsistent with the perceptual lens — Christian persecution is the documented case",
+    "Pre-commitment to non-execution creates exploitable predictability for adversaries who calculate they can defy him without fatal consequence",
+    "Epistemic self-scrutiny can become paralysis — the explicit concern about motivated cognition can defer decisions that require action under uncertainty"
+  ],
+  "constraint_response": {
+    "pattern": "When faced with constraints, Marcus identifies the load-bearing moral-institutional structure the constraint protects, accepts the constraint as a pre-commitment, and looks for ways to serve the underlying purpose of the constraint rather than circumventing it. He treats the obstacle as material for the exercise of virtue rather than as an impediment to be removed."
+  },
+  "contextual_adaptation": {
+    "pattern": "Marcus applies the same perceptual lens — what does the moral-rational system require of the custodian here? — across every domain (military, juridical, personal, philosophical), but the specific content of 'what the system requires' varies by domain. He does not adapt his fundamental methodology; he applies it with domain-specific knowledge of which structures are load-bearing in each context."
+  },
+  "era": "121–180 AD"
 }

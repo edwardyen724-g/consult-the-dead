@@ -124,14 +124,31 @@ jobs:
             exit 0
           fi
 
+          # Normalize each changed JSON to its framework root (frameworks/<slug>)
+          # so nested artifacts (e.g. .../incidents/incidents.json) still resolve
+          # to the directory that owns framework.json, and unrelated dirty
+          # subtrees inherited from a stale base_sha do not get scanned as
+          # standalone roots.
           declare -A target_dirs=()
           targets=()
           for file in "${changed_jsons[@]}"; do
-            dir="$(dirname "$file")"
-            if [ -z "${target_dirs[$dir]:-}" ]; then
-              target_dirs["$dir"]=1
-              targets+=("$dir")
+            root="$(echo "$file" | awk -F/ '{ if (NF >= 2) print $1"/"$2 }')"
+            if [ -z "$root" ]; then
+              continue
+            fi
+            if [ ! -f "$root/framework.json" ]; then
+              echo "Skipping $root: no framework.json manifest at framework root."
+              continue
+            fi
+            if [ -z "${target_dirs[$root]:-}" ]; then
+              target_dirs["$root"]=1
+              targets+=("$root")
             fi
           done
+
+          if [ "${#targets[@]}" -eq 0 ]; then
+            echo "No framework roots with framework.json among changed files; skipping placeholder validation."
+            exit 0
+          fi
 
           python -m framework_forge.validation.placeholder_citations "${targets[@]}"

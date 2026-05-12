@@ -19,8 +19,8 @@ Before approving a PR, verify:
 1. The touched files are covered by an appropriate test path.
 2. Branch coverage is at or above the accepted threshold for the relevant
    helper/module.
-3. Any uncovered branch is explained in the PR body and tracked with a follow-up
-   task.
+3. Any uncovered branch is explained in the PR body, named explicitly, and
+   tracked with a follow-up task.
 4. The test plan distinguishes between unit coverage and integration-only
    coverage so reviewers do not confuse the two.
 
@@ -32,9 +32,23 @@ review starts.
 - The template must call out that branch coverage, not statement coverage, is
   the approval gate.
 - The template must require any exception to name the missing branch path,
-  follow-up task ID, and target date.
-- The template should make it obvious when a PR is relying on statement
-  coverage while leaving a branch path untested.
+  follow-up task ID and link, owner, and target date.
+- The template must make it obvious when a PR is relying on statement coverage
+  while leaving a branch path untested.
+
+## Template Fields
+
+The PR template should include these explicit prompts so authors can fill in the
+gate evidence without guessing the required shape:
+
+- a checkbox confirming branch coverage is the approval gate
+- a checkbox confirming the touched files meet the branch threshold
+- a checkbox confirming any exception is documented with the exact uncovered
+  branch path and linked follow-up task
+- fields for the missing branch path, reason, follow-up task ID and link,
+  owner, and target date
+- a test-plan section that separates unit coverage from integration-only
+  coverage
 
 ## Route Handler Rule
 
