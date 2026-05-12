@@ -126,10 +126,9 @@ npx vitest run page.canonical
 
 ## Known Gaps (at time of release)
 
-- **Seneca portrait asset** — `/portraits/seneca-portrait.png` returns 404 in
-  production. The route pipeline is live and functional; the portrait frame in
-  the Seneca card is blank. Tracked as a follow-up asset task; not a rollback
-  trigger.
+- ~~**Seneca portrait asset**~~ — **Resolved.** `/portraits/seneca-portrait.png`
+  was restored (task 2d2162d0). The Seneca card now renders the portrait-led
+  composition correctly. No remaining rollback triggers for this release.
 
 ---
 
