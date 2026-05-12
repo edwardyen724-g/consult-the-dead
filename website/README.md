@@ -14,6 +14,8 @@ The site exposes the public home page, council and debate browsers, pricing and 
 - `/frameworks/[slug]` - individual framework detail pages
 - `/debates` - sample Agon debates curated from the library
 - `/debates/[slug]` - individual sample debate pages
+- `/decisions` - index of all 24 published decision pages (batch 7 shipped: product-hunt, free-tier, rebrand); each card links to its decision detail page
+- `/decisions/[slug]` - individual decision page with a pre-seeded debate, council recommendation, and Agora CTA
 - `/library` - signed-in Pro library for saved agons
 - `/pricing` - plan comparison and upgrade flow
 - `/account` - subscription status, usage, and BYO key settings
