@@ -225,7 +225,8 @@
     - "how to think from first principles"
   recommended_council: [isaac-newton]
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-tesla-say-about-shipping-vs-perfecting
   type: insight
@@ -236,7 +237,8 @@
     - "when to ship vs when to wait"
   recommended_council: [nikola-tesla]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-leonardo-say-about-creative-block
   type: insight
@@ -247,7 +249,8 @@
     - "Leonardo da Vinci perfectionism"
   recommended_council: [leonardo-da-vinci]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-sun-tzu-say-about-entering-saturated-markets
   type: insight
@@ -258,7 +261,8 @@
     - "Art of War startup competition"
   recommended_council: [sun-tzu]
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-marcus-aurelius-say-about-imposter-syndrome
   type: insight
