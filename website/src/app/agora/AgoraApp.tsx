@@ -30,7 +30,7 @@ export interface MindOption {
   packIds: PackId[];
 }
 
-type Stage = "topic" | "research" | "council" | "agon" | "consensus";
+export type Stage = "topic" | "research" | "council" | "agon" | "consensus";
 
 const STAGE_ORDER: Stage[] = ["topic", "research", "council", "agon", "consensus"];
 const STAGE_LABELS: Record<Stage, string> = {
@@ -67,7 +67,7 @@ const EXAMPLE_TOPICS = [
   "My industry is being automated — pivot into AI, or double down on domain depth?",
 ];
 
-interface RoundTurn {
+export interface RoundTurn {
   mindSlug: string;
   mindName: string;
   round: number;
@@ -75,12 +75,12 @@ interface RoundTurn {
   done: boolean;
 }
 
-interface ResearchData {
+export interface ResearchData {
   summary: string;
   sources: { title: string; url: string }[];
 }
 
-interface AgonState {
+export interface AgonState {
   stage: Stage;
   topic: string;
   apiKey: string;
@@ -182,13 +182,20 @@ export function AgoraApp({
   isPro,
   initialPack = null,
   initialMinds = null,
+  // For unit-testing only — seed specific state branches without browser
+  // interaction. Never pass this prop in production code.
+  _testInitialState = undefined,
 }: {
   minds: MindOption[];
   isPro: boolean;
   initialPack?: PackId | null;
   initialMinds?: string[] | null;
+  _testInitialState?: Partial<AgonState>;
 }) {
-  const [state, setState] = useState<AgonState>(INITIAL_STATE);
+  const [state, setState] = useState<AgonState>({
+    ...INITIAL_STATE,
+    ...(_testInitialState ?? {}),
+  });
   const [sessionHydrated, setSessionHydrated] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const [usageInfo, setUsageInfo] = useState<{ used: number; limit: number; remaining: number; period: string } | null>(null);
