@@ -9,7 +9,7 @@ The site exposes the public home page, council and debate browsers, pricing and 
 - `/` - home page, featured minds, and entry points into the product
 - `/agora` - live debate surface where a user poses a decision and seats 2-5 minds
 - `/agora/a/[id]` - public share pages for saved agons, including generated social images
-- `/quiz` - decision-finder that recommends a council based on the type of problem
+- `/quiz` - decision-finder that recommends a council based on the type of problem; `/quiz?entry=guided` is the guided entry path used by the header/footer CTAs, and the flow then promotes the best-fit pack or featured mind for the selected decision type before handing off to Agora
 - `/frameworks` - index of all live frameworks
 - `/frameworks/[slug]` - individual framework detail pages
 - `/debates` - sample Agon debates curated from the library

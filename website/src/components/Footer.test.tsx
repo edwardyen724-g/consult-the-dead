@@ -25,6 +25,7 @@ import {
   FOOTER_PRICING_CTA_HREF,
   Footer,
 } from "./Footer";
+import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 import { ProofStrip } from "./ProofStrip";
 
 /* ── Tree-walking helpers ────────────────────────────────────── */
@@ -80,6 +81,10 @@ describe("Footer exported constants", () => {
   it("FOOTER_QUIZ_CTA_HREF resolves to /quiz", () => {
     const url = new URL(FOOTER_QUIZ_CTA_HREF, "https://example.com");
     expect(url.pathname).toBe("/quiz");
+  });
+
+  it("FOOTER_QUIZ_CTA_HREF resolves through the shared helper", () => {
+    expect(FOOTER_QUIZ_CTA_HREF).toBe(buildQuizEntryHref("footer"));
   });
 
   it("FOOTER_QUIZ_CTA_HREF has utm_source=footer", () => {
@@ -280,7 +285,7 @@ describe("Footer regression — exact href values (PR#125)", () => {
   });
 
   it("quiz CTA href has all three required UTM params", () => {
-    const url = new URL(FOOTER_QUIZ_CTA_HREF, "https://example.com");
+    const url = new URL(buildQuizEntryHref("footer"), "https://example.com");
     expect(url.searchParams.get("utm_source")).toBe("footer");
     expect(url.searchParams.get("utm_medium")).toBe("cta");
     expect(url.searchParams.get("utm_campaign")).toBe("guided_entry");

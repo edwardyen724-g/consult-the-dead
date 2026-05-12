@@ -22,7 +22,7 @@ export const PRICING_CANONICAL_COPY = {
 } as const;
 
 export function getPricingMetadataDescription(): string {
-  return `${PRICING_CANONICAL_COPY.freeLimit} and ${PRICING_CANONICAL_COPY.byoKey}. Pro adds PDF export, extended research, 48-hour founder support, and ${PRICING_CANONICAL_COPY.foundingMember}.`;
+  return `Live stats back the pricing page. Shipped-product evidence: ${PRICING_CANONICAL_COPY.byoKey}, PDF export, extended research, 48-hour founder support, and ${PRICING_CANONICAL_COPY.foundingMember}.`;
 }
 
 export function getPricingMetadataTitle(): string {

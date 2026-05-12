@@ -188,6 +188,109 @@ All infrastructure, messaging, and tracking systems are in place:
 
 **Send Instructions for Edward (Tuesday 2026-05-13, 8-11am ET):**
 
+1. Open `output/WAVE1_SEND_EXECUTION_STEPS.md` (quick reference)
+2. Verify 3 debate pages live in browser:
+   - https://www.consultthedead.com/debates/abhishek-chakravarty
+   - https://www.consultthedead.com/debates/jonathan-chan
+   - https://www.consultthedead.com/debates/alex-van-le
+3. Copy each personalized email from `docs/outreach-debates/WAVE1_SEND_BRIEF.md` (§Per-Recipient Personalization Notes 1-10)
+4. Paste into email, send to verified recipient address
+5. **Log each send immediately below in the Execution Log**
+6. Complete all 10 by 11:00am ET
+
+---
+
+## 2026-05-13 (Wave 1 Execution Log) — LIVE TRACKING
+
+**Start time:** [Edward: fill in your start time]  
+**Status:** [In Progress | Complete]
+
+### Send Log (Fill in as you send each email)
+
+| # | Name | Email/Contact | Send Time (ET) | Status | Notes |
+|---|------|---|:---:|---|---|
+| 1 | Abhishek Chakravarty | [form/social] | [e.g., 8:12am] | sent | |
+| 2 | Dmytro Krasun | [form/social] | [time] | sent | |
+| 3 | Jonathan Chan | jonathan@... | [time] | sent | |
+| 4 | Phuc Le | [form/social] | [time] | sent | |
+| 5 | Arsen Ibragimov | [form/social] | [time] | sent | |
+| 6 | Alex Van Le | [form/social] | [time] | sent | |
+| 7 | Louis Pereira | [form/social] | [time] | sent | |
+| 8 | Piotr Kulpinski | piotr@... | [time] | sent | |
+| 9 | Rob Hallam | [contact form] | [time] | sent | |
+| 10 | Andris Reinman | andris@... | [time] | sent | |
+
+**Completion time:** [Edward: fill in when you finish]  
+**Total sends:** 10/10  
+**Bounces/Issues:** [Note any bounces, form errors, or issues here]
+
+---
+
+### Post-Send Notes (Fill in after sends complete)
+
+**Immediate bounces or auto-replies received:**
+- [None, or list details]
+
+**Contact method issues (if any):**
+- [e.g., "Rob's contact form failed on attempt 1, retry via..." or "None"]
+
+**General notes:**
+- [Any observations about send process, timing, or recipient responses]
+
+---
+
+## 2026-05-14 onwards (Wave 1 Monitoring)
+
+### Reply Tracking (Fill in as replies arrive through 2026-05-22)
+
+| # | Name | Date Replied | Subject | Reply Type | Notes |
+|---|------|------|---------|:---:|---|
+| 1 | Abhishek Chakravarty | — | — | — | — |
+| 2 | Dmytro Krasun | — | — | — | — |
+| 3 | Jonathan Chan | — | — | — | — |
+| 4 | Phuc Le | — | — | — | — |
+| 5 | Arsen Ibragimov | — | — | — | — |
+| 6 | Alex Van Le | — | — | — | — |
+| 7 | Louis Pereira | — | — | — | — |
+| 8 | Piotr Kulpinski | — | — | — | — |
+| 9 | Rob Hallam | — | — | — | — |
+| 10 | Andris Reinman | — | — | — | — |
+
+**Reply Type options:** `positive` (interested, wants to chat) | `neutral` (ack, thanks) | `bounce` (undeliverable) | `no-reply` (silent through 5/22)
+
+### Monitoring Dates & Actions
+
+- **2026-05-14 (Day 1):** Check for hard bounces and auto-replies only
+- **2026-05-15–16 (Days 2–3):** Continue monitoring, log any incoming replies
+- **2026-05-17 (Day 4):** 
+  - Morning: Count replies received so far — update summary below
+  - Afternoon: Send Follow-up 1 ("did the council's take land?")
+- **2026-05-18–21 (Days 5–8):** Monitor FU1 replies, continue daily logging
+- **2026-05-22 (Day 9):**
+  - Send Follow-up 2 (final touch)
+  - Count total replies (both initial + FU1)
+  - Calculate reply rate: X/10 = Y%
+  - Log decision recommendation (see below)
+
+### Wave 1 Summary (Fill in on 2026-05-22)
+
+```
+Total sends: 10
+Total replies (initial + FU1 + FU2): ___/10 (____%)
+Bounce/opt-out: ___/10
+No response: ___/10
+
+**Wave 2 Trigger Decision (>15% reply rate = 2+ replies):**
+- [ ] YES, proceed to Wave 2 (20 more founders, Variant B)
+- [ ] MAYBE, test Twitter DM channel first before Wave 2 email
+- [ ] NO, revise subject lines and re-test small batch before Wave 2
+
+**Recommended action:**
+[Fill in based on reply rate and quality of responses]
+```
+
+---
+
 1. **Open** → `output/WAVE1_SEND_EXECUTION_STEPS.md` (quick reference)
 2. **Verify** → 3 debate pages live in browser (abhishek-chakravarty, jonathan-chan, alex-van-le)
 3. **Copy → Send** → Each of 10 personalized emails from WAVE1_SEND_BRIEF.md

@@ -30,8 +30,9 @@ describe('pricing-copy', () => {
 
   it('assembles the metadata description from the canonical fragments', () => {
     expect(getPricingMetadataDescription()).toBe(
-      'Always free to start with 3 agons/day and BYO key unlimited mode. Pro adds PDF export, extended research, 48-hour founder support, and founding-member pricing at $300/year.',
+      'Live stats back the pricing page. Shipped-product evidence: BYO key unlimited mode, PDF export, extended research, 48-hour founder support, and founding-member pricing at $300/year.',
     );
+    expect(getPricingMetadataDescription()).not.toContain('Pro adds');
   });
 
   it('keeps the short free-tier and founding-member summaries stable', () => {

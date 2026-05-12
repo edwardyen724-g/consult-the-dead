@@ -44,6 +44,67 @@ type ClickEventLike = {
   stopPropagation: () => void;
 };
 
+const publicationMastheadLabelStyle = {
+  fontFamily: "var(--font-mono)",
+  fontSize: "9px",
+  letterSpacing: "0.16em",
+  textTransform: "uppercase",
+  color: "var(--fg-dim)",
+} as const;
+
+const publicationBodyStyle = {
+  fontFamily: "var(--font-serif)",
+  lineHeight: 1.65,
+  margin: 0,
+} as const;
+
+const publicationPrimaryLinkStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "fit-content",
+  fontFamily: "var(--font-mono)",
+  fontSize: "10px",
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  padding: "12px 24px",
+  borderRadius: "999px",
+  background: "var(--amber)",
+  color: "var(--bg)",
+  textDecoration: "none",
+  border: "1px solid var(--amber)",
+} as const;
+
+const publicationSecondaryButtonStyle = {
+  width: "100%",
+  fontFamily: "var(--font-mono)",
+  fontSize: "10px",
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  padding: "12px 24px",
+  borderRadius: "999px",
+  cursor: "pointer",
+  border: "1px solid var(--hairline)",
+  background: "transparent",
+  color: "var(--fg-dim)",
+} as const;
+
+const publicationFieldLabelStyle = {
+  ...publicationMastheadLabelStyle,
+  display: "block",
+} as const;
+
+const publicationFieldControlStyle = {
+  width: "100%",
+  boxSizing: "border-box",
+  border: "1px solid var(--hairline)",
+  borderRadius: "8px",
+  background: "var(--surface)",
+  color: "var(--fg)",
+  outline: "none",
+  padding: "14px 16px",
+} as const;
+
 export function createQueryChangeHandler(
   setQuery: Dispatch<SetStateAction<string>>,
 ) {
@@ -125,15 +186,13 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
   const emptyState = getLibraryEmptyState(agons.length, filteredAgons.length, query);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
       {emptyState?.kind === "saved-empty" ? (
         <EmptyStateCard>
           <p
             className="font-mono"
             style={{
-              fontSize: "9px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
+              ...publicationMastheadLabelStyle,
               color: "var(--amber)",
               margin: "0 0 8px",
             }}
@@ -142,9 +201,9 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-serif)",
+              ...publicationBodyStyle,
               fontSize: "18px",
-              lineHeight: 1.55,
+              lineHeight: 1.5,
               color: "var(--fg)",
               margin: "0 0 8px",
             }}
@@ -153,28 +212,16 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-serif)",
+              ...publicationBodyStyle,
               fontSize: "15px",
-              lineHeight: 1.65,
               color: "var(--fg-dim)",
-              margin: 0,
             }}
           >
             {emptyState.body}
           </p>
           <Link
             href={emptyState.primaryActionHref}
-            style={{
-              alignSelf: "flex-start",
-              fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              padding: "12px 24px",
-              background: "var(--amber)",
-              color: "var(--bg)",
-              textDecoration: "none",
-            }}
+            style={publicationPrimaryLinkStyle}
           >
             {emptyState.primaryActionLabel}
           </Link>
@@ -184,8 +231,9 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "minmax(0, 1fr)",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
               gap: "14px",
+              alignItems: "end",
             }}
           >
             <label
@@ -193,12 +241,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
             >
               <span
                 className="font-mono"
-                style={{
-                  fontSize: "9px",
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "var(--fg-dim)",
-                }}
+                style={publicationFieldLabelStyle}
               >
                 Search saved agons
               </span>
@@ -209,16 +252,9 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                 placeholder="Topic or mind name"
                 aria-label="Search saved agons by topic or mind"
                 style={{
-                  width: "100%",
-                  boxSizing: "border-box",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: "6px",
-                  background: "transparent",
-                  color: "var(--fg)",
+                  ...publicationFieldControlStyle,
                   fontFamily: "var(--font-serif)",
-                  fontSize: "16px",
-                  padding: "14px 14px",
-                  outline: "none",
+                  fontSize: "15px",
                 }}
               />
             </label>
@@ -228,12 +264,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
             >
               <span
                 className="font-mono"
-                style={{
-                  fontSize: "9px",
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "var(--fg-dim)",
-                }}
+                style={publicationFieldLabelStyle}
               >
                 Sort by recency
               </span>
@@ -242,18 +273,11 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                 onChange={createSortChangeHandler(setSortOrder)}
                 aria-label="Sort saved agons by recency"
                 style={{
-                  width: "100%",
-                  boxSizing: "border-box",
-                  border: "1px solid var(--hairline)",
-                  borderRadius: "6px",
-                  background: "transparent",
-                  color: "var(--fg)",
+                  ...publicationFieldControlStyle,
                   fontFamily: "var(--font-mono)",
-                  fontSize: "11px",
-                  letterSpacing: "0.08em",
+                  fontSize: "10px",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  padding: "14px 14px",
-                  outline: "none",
                 }}
               >
                 <option value="newest">Newest first</option>
@@ -265,18 +289,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
               type="button"
               onClick={createResetFiltersHandler(setQuery, setSortOrder)}
               className="font-mono"
-              style={{
-                border: "1px solid var(--hairline)",
-                borderRadius: "6px",
-                background: "transparent",
-                color: "var(--fg-dim)",
-                fontSize: "10px",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                padding: "12px 16px",
-                cursor: "pointer",
-                width: "100%",
-              }}
+              style={publicationSecondaryButtonStyle}
             >
               Reset filters
             </button>
@@ -288,13 +301,10 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
               display: "flex",
               justifyContent: "space-between",
               gap: "16px",
-              fontSize: "9px",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--fg-dim)",
+              ...publicationMastheadLabelStyle,
               borderTop: "1px solid var(--hairline)",
               borderBottom: "1px solid var(--hairline)",
-              padding: "10px 0",
+              padding: "12px 0",
               flexWrap: "wrap",
             }}
           >
@@ -309,9 +319,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
               <p
                 className="font-mono"
                 style={{
-                  fontSize: "9px",
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
+                  ...publicationMastheadLabelStyle,
                   color: "var(--amber)",
                   margin: "0 0 8px",
                 }}
@@ -320,9 +328,9 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
               </p>
               <p
                 style={{
-                  fontFamily: "var(--font-serif)",
+                  ...publicationBodyStyle,
                   fontSize: "18px",
-                  lineHeight: 1.55,
+                  lineHeight: 1.5,
                   color: "var(--fg)",
                   margin: "0 0 8px",
                 }}
@@ -331,11 +339,9 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
               </p>
               <p
                 style={{
-                  fontFamily: "var(--font-serif)",
+                  ...publicationBodyStyle,
                   fontSize: "15px",
-                  lineHeight: 1.65,
                   color: "var(--fg-dim)",
-                  margin: 0,
                 }}
               >
                 {emptyState.body}
@@ -351,18 +357,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                 <button
                   type="button"
                   onClick={createClearSearchHandler(setQuery)}
-                  style={{
-                    width: "100%",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    padding: "12px 24px",
-                    background: "var(--amber)",
-                    color: "var(--bg)",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
+                  style={publicationPrimaryLinkStyle}
                 >
                   {emptyState.primaryActionLabel}
                 </button>
@@ -372,18 +367,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                     setQuery("");
                     setSortOrder("newest");
                   }}
-                  style={{
-                    width: "100%",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    padding: "12px 24px",
-                    background: "transparent",
-                    color: "var(--fg-dim)",
-                    border: "1px solid var(--hairline)",
-                    cursor: "pointer",
-                  }}
+                  style={publicationSecondaryButtonStyle}
                 >
                   {emptyState.secondaryActionLabel}
                 </button>
@@ -407,7 +391,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                       gridTemplateColumns: "1fr auto auto auto",
                       gap: "24px",
                       alignItems: "center",
-                      padding: "20px 0",
+                      padding: "22px 0",
                       cursor: "pointer",
                     }}
                     onClick={createToggleExpandedHandler(setExpanded, expanded, agon.id)}
@@ -427,8 +411,8 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                       <p
                         className="font-mono"
                         style={{
-                          fontSize: "10px",
-                          letterSpacing: "0.1em",
+                          fontSize: "9px",
+                          letterSpacing: "0.16em",
                           color: "var(--fg-dim)",
                           textTransform: "uppercase",
                           margin: 0,
@@ -441,7 +425,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                     <span
                       className="font-mono"
                       style={{
-                        fontSize: "10px",
+                        fontSize: "9px",
                         letterSpacing: "0.08em",
                         color: "var(--fg-dim)",
                         whiteSpace: "nowrap",
@@ -453,7 +437,7 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                     <span
                       className="font-mono"
                       style={{
-                        fontSize: "10px",
+                        fontSize: "9px",
                         letterSpacing: "0.08em",
                         color: "var(--fg-dim)",
                       }}
@@ -472,14 +456,16 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                       disabled={isDeleting}
                       className="font-mono"
                       style={{
-                        background: "transparent",
-                        border: "none",
-                        fontSize: "10px",
-                        letterSpacing: "0.08em",
+                        ...publicationSecondaryButtonStyle,
+                        width: "auto",
+                        padding: "8px 14px",
+                        fontSize: "9px",
+                        letterSpacing: "0.12em",
                         textTransform: "uppercase",
+                        background: "transparent",
                         color: isDeleting ? "var(--fg-dim)" : "var(--red)",
+                        borderColor: "var(--hairline)",
                         cursor: isDeleting ? "not-allowed" : "pointer",
-                        padding: "4px 0",
                       }}
                     >
                       {isDeleting ? "…" : "Delete"}
@@ -490,11 +476,11 @@ export function LibraryClient({ agons: initial }: { agons: AgonRecord[] }) {
                   {isExpanded && (
                     <div
                       style={{
-                        paddingBottom: "32px",
+                        paddingBottom: "30px",
                         paddingLeft: "0",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "20px",
+                        gap: "18px",
                       }}
                     >
                       {consensus ? (
@@ -574,14 +560,15 @@ function EmptyStateCard({ children }: { children: ReactNode }) {
     <div
       style={{
         border: "1px solid var(--hairline)",
-        borderRadius: "8px",
-        padding: "28px 24px",
+        borderRadius: "10px",
+        padding: "30px 26px",
         display: "flex",
         flexDirection: "column",
-        gap: "16px",
+        gap: "18px",
         maxWidth: "560px",
         width: "100%",
         boxSizing: "border-box",
+        background: "var(--surface)",
       }}
     >
       {children}
@@ -595,8 +582,8 @@ export function ConsensusSection({ title, body }: { title: string; body: string 
       <p
         className="font-mono"
         style={{
-          fontSize: "10px",
-          letterSpacing: "0.12em",
+          fontSize: "9px",
+          letterSpacing: "0.16em",
           textTransform: "uppercase",
           color: "var(--amber)",
           margin: "0 0 8px",
@@ -606,11 +593,9 @@ export function ConsensusSection({ title, body }: { title: string; body: string 
       </p>
       <p
         style={{
-          fontFamily: "var(--font-serif)",
+          ...publicationBodyStyle,
           fontSize: "15px",
-          lineHeight: 1.65,
           color: "var(--fg)",
-          margin: 0,
         }}
       >
         {body}

@@ -155,6 +155,20 @@ describe("DecisionPage", () => {
     expect(html).toContain("Start your own agon");
   });
 
+  it("renders the Round 1 debate preview when a debate file exists", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-raise-a-series-a" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("How the council debates this question");
+    expect(html).toContain("Marie Curie");
+    expect(html).toContain("John D. Rockefeller");
+    expect(html).toContain("Niccolò Machiavelli");
+    expect(html).toContain("This is Round 1 of a 3-round debate. Start your own agon to go deeper.");
+    expect(html).toContain("Every major decision in a research laboratory begins with the same discipline");
+  });
+
   it("uses the shipped date in the rendered metadata row", async () => {
     const element = await DecisionPage({
       params: Promise.resolve({ slug: "should-i-quit-my-job-to-start-a-company" }),

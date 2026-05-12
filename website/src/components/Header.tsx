@@ -26,8 +26,7 @@ const QUIZ_CTA_NAV_STYLE = {
 
 export const HEADER_QUIZ_ENTRY_HREF = buildQuizEntryHref("guided");
 
-export const HEADER_QUIZ_CTA_HREF =
-  "/quiz?utm_source=header&utm_medium=nav&utm_campaign=guided_entry";
+export const HEADER_QUIZ_CTA_HREF = buildQuizEntryHref("header");
 
 const QUIZ_CTA_STYLE = {
   fontFamily: 'var(--font-mono)',

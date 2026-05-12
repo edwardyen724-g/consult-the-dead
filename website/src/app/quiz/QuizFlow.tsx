@@ -2,10 +2,52 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import type { QuizDecisionType, QuizModel, QuizTension } from "./quiz-routing"
+import { buildQuizPackHref, getQuizFeaturedPack } from "@/lib/ctr-experiment"
+import type { QuizDecision, QuizDecisionType, QuizModel, QuizTension } from "./quiz-routing"
 
 interface QuizFlowProps {
   quizModel: QuizModel
+}
+
+interface QuizRecommendation {
+  kind: "pack" | "mind"
+  eyebrow: string
+  title: string
+  description: string
+  href: string
+  ctaLabel: string
+}
+
+function getQuizRecommendation(
+  quizModel: QuizModel,
+  decision: QuizDecision | null,
+): QuizRecommendation | null {
+  if (!decision) return null
+
+  const featuredPack = getQuizFeaturedPack(decision.id)
+  if (featuredPack) {
+    return {
+      kind: "pack",
+      eyebrow: "Best-fit pack",
+      title: featuredPack.name,
+      description: featuredPack.tagline,
+      href: buildQuizPackHref(featuredPack.packId),
+      ctaLabel: `Open ${featuredPack.name} →`,
+    }
+  }
+
+  const featuredMindSlug = decision.tensions[0]?.slugs[0]
+  const featuredMind = featuredMindSlug ? quizModel.mindsBySlug[featuredMindSlug] : null
+  if (!featuredMind) return null
+
+  return {
+    kind: "mind",
+    eyebrow: "Featured mind",
+    title: featuredMind.name,
+    description: featuredMind.domain,
+    href: `/frameworks/${featuredMind.slug}`,
+    ctaLabel: `Open ${featuredMind.name} →`,
+  }
 }
 
 export default function QuizFlow({ quizModel }: QuizFlowProps) {
@@ -16,6 +58,7 @@ export default function QuizFlow({ quizModel }: QuizFlowProps) {
   const activeDecision = decisionType
     ? quizModel.decisionTypes.find((option) => option.id === decisionType) ?? null
     : null
+  const decisionTypeRecommendation = getQuizRecommendation(quizModel, activeDecision)
 
   const handleDecisionType = (dt: QuizDecisionType) => {
     setDecisionType(dt)
@@ -190,6 +233,71 @@ export default function QuizFlow({ quizModel }: QuizFlowProps) {
             >
               Where you feel the most pull between two directions &mdash; that&rsquo;s where the right minds will disagree most usefully.
             </p>
+
+            {decisionTypeRecommendation && (
+              <div
+                style={{
+                  border: "1px solid var(--hairline)",
+                  background: "var(--surface)",
+                  padding: "24px",
+                  marginBottom: "28px",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "var(--amber)",
+                    marginBottom: "10px",
+                  }}
+                >
+                  {decisionTypeRecommendation.eyebrow}
+                </p>
+                <h2
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontWeight: 400,
+                    fontSize: "1.25rem",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.25,
+                    margin: "0 0 8px",
+                  }}
+                >
+                  {decisionTypeRecommendation.title}
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontStyle: "italic",
+                    fontSize: "0.98rem",
+                    color: "var(--fg-dim)",
+                    margin: "0 0 18px",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {decisionTypeRecommendation.description}
+                </p>
+                <Link
+                  href={decisionTypeRecommendation.href}
+                  style={{
+                    display: "inline-block",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "11px",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    padding: "12px 24px",
+                    background: "var(--amber)",
+                    color: "var(--bg)",
+                    textDecoration: "none",
+                    borderRadius: "4px",
+                  }}
+                >
+                  {decisionTypeRecommendation.ctaLabel}
+                </Link>
+              </div>
+            )}
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {activeDecision.tensions.map((selectedTension) => (
