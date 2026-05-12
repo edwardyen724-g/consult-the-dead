@@ -9,6 +9,8 @@ This brief turns the engagement notes into a ranked experiment plan for the next
 - a quiz entry path
 - six themed pack cards
 - a simple Free vs Pro pricing page
+- **LibraryProofStrip** on `/library` — shows "X minds consulted · Y saved debates" as a compact stat bar (PR #184); the cumulative collection-feedback signal is already live for Pro users
+- **Transcript share helper** (`share-transcript.ts`, PR #180) — formats a pull-quote excerpt with the canonical `/agora/a/[id]` URL into a clipboard-ready share blob (≤280 chars)
 
 The next batch should sharpen those shipped surfaces instead of starting a redesign.
 
@@ -74,12 +76,15 @@ Ship these first:
 - Pricing page conversion to checkout
 - Free-to-Pro upgrade rate after cap hit
 - Demo interaction rate
+- Library return-visit rate (Pro users with ≥1 saved debate)
+- Share-blob click rate on the `/agora/a/[id]` share CTA
 
 ## Guardrails
 
 - Do not add fake testimonials to compensate for missing social proof.
 - Do not introduce pack-based pricing before there is evidence that users buy by pack instead of by tier.
 - Do not widen the homepage before the current hero, demo, and quiz path have been tested.
+- Do not re-queue LibraryProofStrip or the transcript share helper as open design gaps — both contracts are shipped (PRs #184 and #180); the remaining open work is the homepage hook and adoption measurement.
 
 ## Shipped Features Not Originally Tracked as Experiments
 
