@@ -1,3 +1,23 @@
+# 2026-05-11 rateLimit branch coverage follow-up
+
+## Files Changed
+- `website/src/lib/agon/rateLimit.test.ts`
+- `website/vitest.config.ts`
+
+## What Changed
+- Added Vitest coverage for `quotaResetAt()` with fake timers, covering both the daily reset branch and the pro monthly reset branch.
+- Included `src/lib/agon/rateLimit.ts` in the coverage include list so the file appears in the coverage report and can be referenced in the PR body.
+
+## Verification
+- `cd website && npm run test -- rateLimit.test.ts`
+- `cd website && npm run coverage`
+- `cd website && rm -rf coverage && npm run coverage -- rateLimit.test.ts`
+
+## Results
+- Targeted test file passed: `2 passed`
+- Full `npm run coverage` still fails in this environment because the broader suite cannot resolve runtime packages such as `react`, `next/server`, and `@vercel/postgres`.
+- Targeted coverage report line for `website/src/lib/agon/rateLimit.ts`: `10.07%` statements, `2.7%` branches, `5%` functions, `11.76%` lines
+
 # 2026-05-11 Seeded topics queue prune and Phase 1 readiness
 
 ## Files Changed
