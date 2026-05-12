@@ -1,4 +1,10 @@
 import { Resend } from 'resend'
+import { getPricingFoundingMemberSummary } from './pricing-copy'
+import {
+  FREE_AGONS_PER_DAY,
+  PRO_AGONS_PER_MONTH,
+  PRO_MONTHLY_PRICE,
+} from './pricing/pricing-constants'
 
 // Lazy-initialised Resend client. Constructing `new Resend(...)` at module
 // top-level forces `next build` page-data collection to fail when this
@@ -63,7 +69,7 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<void> 
     </p>
 
     <p style="font-size:1.05rem;line-height:1.7;margin:0 0 20px;">
-      The free tier gives you <strong style="color:#D4A574;">3 agons per day</strong>.
+      The free tier gives you <strong style="color:#D4A574;">${FREE_AGONS_PER_DAY} agons per day</strong>.
       Each agon runs your decision through 2–5 frameworks — Newton's first-principles decomposition,
       Machiavelli's power analysis, Curie's evidence standards, and more.
       They disagree. That's the point.
@@ -100,8 +106,8 @@ export async function sendSubscriptionConfirmation(
   const isAnnual = plan === 'annual'
   const planLabel = isAnnual ? 'Agora Pro — Annual' : 'Agora Pro — Monthly'
   const planDetail = isAnnual
-    ? '$300/year, locked as founding-member pricing for life'
-    : '$30/month'
+    ? `Early subscribers lock in ${getPricingFoundingMemberSummary()} for life`
+    : `$${PRO_MONTHLY_PRICE}/month`
 
   await getResend().emails.send({
     from: FROM,
@@ -131,7 +137,7 @@ export async function sendSubscriptionConfirmation(
         <strong style="color:#D4A574;">Price</strong> — ${planDetail}
       </li>
       <li style="font-size:1rem;line-height:1.7;padding:8px 0;border-bottom:1px solid #1F1F22;">
-        <strong style="color:#D4A574;">Agons</strong> — 100 per month (up from 3/day)
+        <strong style="color:#D4A574;">Agons</strong> — ${PRO_AGONS_PER_MONTH} per month (up from ${FREE_AGONS_PER_DAY}/day)
       </li>
       <li style="font-size:1rem;line-height:1.7;padding:8px 0;border-bottom:1px solid #1F1F22;">
         <strong style="color:#D4A574;">Council size</strong> — up to 5 minds per agon

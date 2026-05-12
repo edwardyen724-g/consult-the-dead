@@ -190,6 +190,77 @@ describe('GET /api/cron/retention-emails/digest', () => {
     expect(runDigestCronMock).not.toHaveBeenCalled()
   })
 
+  it('uses a deterministic smoke fallback when featured agon env vars are missing in dry-run mode', async () => {
+    vi.stubEnv('NODE_ENV', 'production')
+    vi.stubEnv('CRON_SECRET', 'secret')
+
+    clerkClientMock.mockResolvedValue({
+      users: {
+        getUserList: vi.fn().mockResolvedValue({
+          data: [
+            {
+              id: 'user_1',
+              firstName: 'Ada',
+              emailAddresses: [
+                {
+                  id: 'email_1',
+                  emailAddress: 'ada@example.com',
+                },
+              ],
+              primaryEmailAddressId: 'email_1',
+              publicMetadata: {},
+              privateMetadata: {},
+            },
+          ],
+        }),
+      },
+    } as never)
+
+    runDigestCronMock.mockResolvedValue({
+      scanned: 1,
+      sent: 1,
+      suppressed: {},
+      details: [
+        {
+          clerkUserId: 'user_1',
+          email: 'ada@example.com',
+          action: 'sent',
+        },
+      ],
+    } as never)
+
+    const response = await GET(
+      new Request(
+        'https://consultthedead.com/api/cron/retention-emails/digest?dryRun=1',
+        {
+          headers: { authorization: 'Bearer secret' },
+        },
+      ) as never,
+    )
+
+    expect(response.status).toBe(200)
+    await expect(response.json()).resolves.toMatchObject({
+      ok: true,
+      dryRun: true,
+      scanned: 1,
+      sent: 1,
+      suppressed: {},
+      details: [{ action: 'sent' }],
+    })
+    expect(runDigestCronMock).toHaveBeenCalledTimes(1)
+    expect(runDigestCronMock.mock.calls[0][1]).toMatchObject({
+      dryRun: true,
+      shared: {
+        featuredAgonTopic: '(dry-run placeholder topic)',
+        featuredConsensusExcerpt: '(dry-run placeholder consensus)',
+        featuredAgonShareId: 'dry-run',
+        newMindName: null,
+        newMindTagline: null,
+        newMindHowArguesBlurb: null,
+      },
+    })
+  })
+
   it('returns the dry-run smoke-test fallback when candidate loading fails with a non-Error reason', async () => {
     vi.stubEnv('NODE_ENV', 'production')
     vi.stubEnv('CRON_SECRET', 'secret')

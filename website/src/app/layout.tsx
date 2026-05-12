@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Cormorant_Garamond, EB_Garamond, JetBrains_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd, WebAppJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { PageviewTracker } from "@/components/PageviewTracker";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -122,11 +122,7 @@ export default async function RootLayout({
           <OrganizationJsonLd />
           <WebAppJsonLd />
           <FAQJsonLd />
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem={false}
-          >
+          <ThemeProvider>
             <Header />
             {children}
             <Footer />

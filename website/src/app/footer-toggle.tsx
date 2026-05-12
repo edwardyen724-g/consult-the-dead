@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export function FooterToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Defer the mount flip until after commit so the setState happens in a callback
@@ -18,7 +18,8 @@ export function FooterToggle() {
     return <span style={{ width: 16, height: 16, display: "inline-block" }} />;
   }
 
-  const isDark = resolvedTheme === "dark";
+  const effectiveTheme = resolvedTheme ?? theme;
+  const isDark = effectiveTheme === "dark";
 
   return (
     <button

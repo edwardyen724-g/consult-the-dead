@@ -110,7 +110,7 @@ These variables are used by third-party monitoring services (UptimeRobot, Updown
 - Any HTTP(S) monitor that supports JSON response checks
 
 **What you'll configure in the monitoring service**:
-- **URL**: `https://consultthedead.com/api/health`
+- **URL**: `https://www.consultthedead.com/api/health`
 - **Method**: `GET`
 - **Expected HTTP Code**: `200`
 - **Check Interval**: `5` or `10` minutes
@@ -118,6 +118,17 @@ These variables are used by third-party monitoring services (UptimeRobot, Updown
 - **Retries**: `2`
 
 **See also**: [External Uptime Monitoring Runbook](runbooks/external-uptime-monitoring.md)
+
+### Root Monitoring Snapshot
+
+The repo-root snapshot in [MONITORING.md](../MONITORING.md) is the canonical place to check the current uptime-monitoring state alongside the runbook notes.
+
+- **Provider**: Not yet configured; awaiting monitoring-provider access
+- **Endpoint**: `https://www.consultthedead.com/api/health`
+- **Alert channel**: None yet
+- **Last verified**: `2026-05-12`
+
+Use this snapshot when you need the current monitor target, the configured provider status, or the last live verification date without jumping between docs.
 
 ---
 
@@ -169,6 +180,12 @@ Vercel automatically provides:
 - `VERCEL_ENV` (production, preview, development)
 - And others — see [Vercel System Environment Variables](https://vercel.com/docs/projects/environment-variables/system-environment-variables)
 
+Preview deployments still count against Vercel's free-tier build quota. If a PR preview
+reports `Vercel FAILURE: upgradeToPro=build-rate-limit` or `Resource is limited - try again
+in 24 hours (code: api-deployments-free-per-day)`, treat it as the same verified Vercel quota
+failure described in [`docs/release-notes/2026-05-12-vercel-preview-rate-limit.md`](release-notes/2026-05-12-vercel-preview-rate-limit.md),
+not an application regression.
+
 ---
 
 ## Troubleshooting
@@ -177,6 +194,7 @@ Vercel automatically provides:
 |-------|----------|
 | Build fails with "Cannot find module '@anthropic-ai/sdk'" | `npm install` missing dependencies; check `website/package.json` |
 | Sentry sourcemaps not uploading | Check `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` in Vercel; re-deploy |
+| PR preview shows `build-rate-limit` | Vercel free-tier preview quota is exhausted; wait for the 24-hour reset or upgrade the plan |
 | Health endpoint returns 500 | Check API logs; ensure database/external services are accessible |
 | Monitoring shows all checks failing | Verify endpoint is publicly accessible; check Vercel Function logs |
 
@@ -186,5 +204,5 @@ Vercel automatically provides:
 
 - [Sentry Smoke Test Runbook](runbooks/sentry-smoke-test.md) — Verify error monitoring is working
 - [External Uptime Monitoring Runbook](runbooks/external-uptime-monitoring.md) — Set up and verify uptime checks
-- [Production Release Playbook](runbooks/production-release-playbook.md) — Pre-release checklist
+- [Pre-Deployment Checklist](pre-deployment-checklist.md) — Pre-release gate and deployment readiness checklist
 - [Runbooks Index](runbooks/index.md) — All operational runbooks

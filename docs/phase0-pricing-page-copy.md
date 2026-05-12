@@ -46,6 +46,20 @@ Think through your hardest decisions with historical minds. Unbiased, rigorous, 
 
 Pay yearly and lock in founding-member pricing: **$300/year** — saves you 2 months vs. monthly.
 
+## Demo / Case Study Slot
+
+Reserve a visible slot on the pricing page for a short Loom or the first customer case study. The copy should stay concrete and low-friction:
+
+> A short Loom can live here, or this can become the first customer case study.
+
+Use the space for a 60-90 second walkthrough of one real decision, then swap in a proof block once the first customer story is ready.
+
+If the video is not ready yet, use a small callout that says:
+
+> Embed-ready frame for Loom or customer callout
+
+This keeps the pricing surface conversion-clear without pretending there is more social proof than exists.
+
 ---
 
 ## FAQ
@@ -99,4 +113,5 @@ Good decisions are harder with unlimited options and no outside view. Agora is y
 - **Feature count per tier** — kept to 8 rows max for scannability
 - **Opus vs Sonnet callout** — this is the real quality differentiator; make it visible
 - **"No signup" on free CTA** — removes friction for curiosity-driven visitors
+- **Demo slot** — leave a visible embed-ready block on pricing for a Loom or first customer case study
 - **No testimonial placeholders** — leave social proof blank until a real customer quote lands
