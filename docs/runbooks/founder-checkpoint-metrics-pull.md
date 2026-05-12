@@ -32,7 +32,7 @@ To go live, you only need to fill in the four secrets:
 
 1. Confirm the production Stripe account contains the Pro monthly and annual prices that match `STRIPE_PRICE_MONTHLY` and `STRIPE_PRICE_ANNUAL`.
 2. Confirm the Vercel token has analytics read access for the project in `VERCEL_PROJECT_ID`.
-3. Add the variables above to the live environment and to Vercel production env vars if applicable.
+3. Add the variables above to the live environment and to Vercel production env vars if applicable. Make sure `VERCEL_PROJECT_ID` is present in the runtime `.env.local` or equivalent live config, even if it is prefilled in the repo copy.
 4. Run the pull loading credentials from root `.env.local`:
 
 ```bash
@@ -60,5 +60,5 @@ tsx --env-file .env.local scripts/founder-checkpoint/pull-metrics.ts | jq .
 | `missing_credentials` includes Stripe or Vercel keys | Live env is missing one or more required vars | Add the missing env vars to the live runtime and to Vercel production settings |
 | `stripe: 401` or `stripe: 403` in `errors` | Key lacks subscription-read access or is the wrong account | Replace `STRIPE_SECRET_KEY` with the correct live Stripe key |
 | `vercel: 401` or `vercel: 403` in `errors` | Token lacks analytics access or project id is wrong | Replace `VERCEL_TOKEN` and confirm `VERCEL_PROJECT_ID` |
+| `missing_credentials` includes `VERCEL_PROJECT_ID` | Live config does not include the Vercel project id required by the CLI contract | Add `VERCEL_PROJECT_ID` to the runtime env and to the repo `.env.local` copy if it is missing |
 | `paying_users.total` is `0` unexpectedly | Stripe prices do not match the plan ids or all subscriptions are inactive | Reconcile the price ids and active subscriptions in Stripe |
-
