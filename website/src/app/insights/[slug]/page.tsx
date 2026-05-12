@@ -583,7 +583,7 @@ function accentForSlug(slug: FrameworkSlug): string {
   }
 }
 
-function formatPublishedDate(date: string): string {
+export function formatPublishedDate(date: string): string {
   try {
     return new Intl.DateTimeFormat("en", {
       month: "short",

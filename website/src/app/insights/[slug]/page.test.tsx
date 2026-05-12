@@ -73,6 +73,7 @@ vi.mock("next/link", () => ({
 
 import {
   default as InsightPage,
+  formatPublishedDate,
   generateMetadata,
   generateStaticParams,
 } from "./page";
@@ -782,6 +783,44 @@ describe("InsightPage — collision insight", () => {
       dateTimeFormatSpy.mockRestore();
     }
   });
+
+  it("renders accentForSlug for isaac-newton as the secondary framework", async () => {
+    // Covers the 'isaac-newton' case in accentForSlug (previously uncovered)
+    const primaryFw = makeFramework("niccolo-machiavelli", "Niccolo Machiavelli");
+    const secondaryFw = makeFramework("isaac-newton", "Isaac Newton");
+    mocks.getInsightEntry.mockReturnValue(makeCollisionEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([primaryFw, secondaryFw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Isaac Newton");
+    expect(html).toContain("var(--color-newton)");
+  });
+
+  it("falls back to amber accent for an unrecognised framework slug", async () => {
+    // Covers the default branch in accentForSlug (previously uncovered)
+    const primaryFw = makeFramework("niccolo-machiavelli", "Niccolo Machiavelli");
+    const secondaryFw = makeFramework(
+      // Cast a slug not present in the accentForSlug switch to hit the default
+      "benjamin-franklin" as FrameworkSlug,
+      "Benjamin Franklin",
+    );
+    mocks.getInsightEntry.mockReturnValue(makeCollisionEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(true);
+    mocks.getInsightFrameworks.mockReturnValue([primaryFw, secondaryFw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({ slug: "machiavelli-vs-curie-on-pruning" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("Benjamin Franklin");
+    expect(html).toContain("var(--amber)");
+  });
 });
 
 /* ──────────────────────────────────────────────────────── */
@@ -872,5 +911,25 @@ describe("InsightPage — founders-on-pricing listicle", () => {
 
     expect(html).toContain("What History&#x27;s Greatest Thinkers Say About Pricing Your Product");
     expect(html).toContain("/agora");
+  });
+});
+
+/* ──────────────────────────────────────────────────────── */
+/* 4. formatPublishedDate                                    */
+/* ──────────────────────────────────────────────────────── */
+
+describe("formatPublishedDate", () => {
+  it("formats a valid ISO date string into a human-readable date", () => {
+    const result = formatPublishedDate("2026-04-18T00:00:00.000Z");
+    // The exact format depends on locale, but it should contain "2026"
+    expect(result).toContain("2026");
+    expect(result).not.toBe("2026-04-18T00:00:00.000Z");
+  });
+
+  it("falls back to slicing the raw string when the date is invalid (catch branch)", () => {
+    // Covers the catch branch in formatPublishedDate (previously uncovered)
+    const invalidDate = "not-a-date-at-all";
+    const result = formatPublishedDate(invalidDate);
+    expect(result).toBe("not-a-date"); // date.slice(0, 10)
   });
 });
