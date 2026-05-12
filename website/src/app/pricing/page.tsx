@@ -101,10 +101,14 @@ export default function PricingPage() {
   async function handleProCheckout() {
     setLoading(true)
     try {
+      const params = new URLSearchParams(window.location.search)
+      const utm_campaign = params.get('utm_campaign') ?? undefined
+      const utm_content = params.get('utm_content') ?? undefined
+
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ billingPeriod: billing }),
+        body: JSON.stringify({ billingPeriod: billing, utm_campaign, utm_content }),
       })
       if (res.status === 401) {
         router.push('/sign-in')
@@ -642,6 +646,20 @@ export default function PricingPage() {
               }}>
                 {proCtaSubtext}
               </p>
+              <p
+                data-testid="pro-cta-trust-badge"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '9px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--fg-faint)',
+                  textAlign: 'center',
+                  margin: '8px 0 0',
+                }}
+              >
+                Used by indie hackers, founders, and researchers
+              </p>
             </div>
           </div>
         </div>
@@ -663,7 +681,7 @@ export default function PricingPage() {
             lineHeight: 1.65,
           }}>
             <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
-            Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. After Q3 2026,
+            Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. Lock in now before prices rise —
             annual plans go to $360. Monthly stays at ${PRO_MONTHLY_PRICE}. If you are
             already sold on the workflow, the Pro checkout is the shortest path to Opus
             and the persistent library.

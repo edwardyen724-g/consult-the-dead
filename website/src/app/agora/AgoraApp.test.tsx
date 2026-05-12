@@ -192,6 +192,67 @@ describe("AgoraApp — error states", () => {
     // which wraps the label in a span with margin-right:10px
     expect(markup).not.toContain("margin-right:10px");
   });
+
+  it("shows upgrade-to-Pro link in rate-limit banner for free users", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          error: "You've used all 3 free agons for today.",
+          rateLimited: true,
+        }}
+      />,
+    );
+
+    // Upgrade link must be present and point to /pricing
+    expect(markup).toContain("rate-limit-upgrade-link");
+    expect(markup).toContain("/pricing");
+    expect(markup).toContain("7-day Pro trial");
+  });
+
+  it("does not show upgrade link in rate-limit banner for Pro users", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={true}
+        _testInitialState={{
+          error: "You've reached your 100 agon monthly limit.",
+          rateLimited: true,
+        }}
+      />,
+    );
+
+    // Pro users manage via account page — no /pricing link in the rate-limit banner
+    expect(markup).not.toContain("rate-limit-upgrade-link");
+  });
+
+  it("does not show upgrade link in generic (non-rate-limit) error banner", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          error: "Network error — please retry.",
+          rateLimited: false,
+        }}
+      />,
+    );
+
+    // Upgrade link is only shown for rate limit hits, not generic errors
+    expect(markup).not.toContain("rate-limit-upgrade-link");
+  });
+
+  it("does not render the checkout-success banner on initial SSR render", () => {
+    // The checkout=success banner is triggered by a useEffect reading
+    // window.location.search. useEffect does not run in renderToStaticMarkup,
+    // so the banner must NOT appear in the SSR output — it only appears
+    // client-side after the Stripe redirect.
+    const markup = renderToStaticMarkup(<AgoraApp minds={minds} isPro={true} />);
+
+    expect(markup).not.toContain('data-testid="checkout-success-banner"');
+    expect(markup).not.toContain("PRO ACTIVE");
+  });
 });
 
 /* ── Agon empty state ────────────────────────────────────────────────── */
@@ -375,7 +436,7 @@ describe("AgoraApp — consensus stage", () => {
     expect(markup).not.toContain("Synthesizing the consensus");
   });
 
-  it("shows quota-exhausted message (red) when quotaRemaining is 0", () => {
+  it("shows quota-exhausted message with amber border and trial CTA when quotaRemaining is 0", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -392,9 +453,12 @@ describe("AgoraApp — consensus stage", () => {
     );
 
     expect(markup).toContain("You&#x27;ve used all 3 free debates for today");
-    expect(markup).toContain("Upgrade for unlimited debates");
-    // Exhausted state uses var(--red) for the count label
-    expect(markup).toContain("var(--red)");
+    // Exhausted state upgrades CTA to trial messaging
+    expect(markup).toContain("Start 7-day free trial");
+    // Exhausted state uses amber border (not red) to create urgency without alarm
+    expect(markup).toContain("var(--amber)");
+    // Exhausted state shows the upgrade link with testid for E2E targeting
+    expect(markup).toContain('data-testid="quota-upgrade-link"');
   });
 
   it("shows plural remaining-debates message when quotaRemaining > 1", () => {
@@ -476,6 +540,46 @@ describe("AgoraApp — consensus stage", () => {
 
     expect(markup).not.toContain("free debates remaining");
     expect(markup).not.toContain("You&#x27;ve used all 3");
+  });
+
+  it("renders share button with data-testid when consensus is ready", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "consensus",
+          topic,
+          council,
+          consensusLoading: false,
+          consensus: mockConsensus,
+        }}
+      />,
+    );
+
+    expect(markup).toContain('data-testid="share-result-btn"');
+    expect(markup).toContain("Share this agon");
+  });
+
+  it("share button is disabled when consensus is null (agon still running)", () => {
+    const markup = renderToStaticMarkup(
+      <AgoraApp
+        minds={minds}
+        isPro={false}
+        _testInitialState={{
+          stage: "consensus",
+          topic,
+          council,
+          consensusLoading: false,
+          consensus: null,
+        }}
+      />,
+    );
+
+    // Button is present but disabled
+    expect(markup).toContain('data-testid="share-result-btn"');
+    expect(markup).toContain("disabled");
+    expect(markup).toContain("Share this agon");
   });
 });
 
