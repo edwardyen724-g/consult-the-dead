@@ -149,6 +149,7 @@ describe("pricing page", () => {
     vi.stubGlobal("window", {
       location: {
         href: "http://localhost/pricing",
+        search: "",
       },
     });
   });
@@ -172,6 +173,36 @@ describe("pricing page", () => {
     expect(html).toContain("Checkout unlocks Opus, the persistent library, PDF export, and deeper research.");
     expect(html).toContain("You&#x27;ll see a prompt to upgrade to Pro or add your own key.");
     expect(html).toContain("If you are already sold on the workflow, the Pro checkout is the shortest path to Opus and the persistent library.");
+  });
+
+  it("renders the trust badge near the Pro CTA", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain('data-testid="pro-cta-trust-badge"');
+    expect(html).toContain("Used by indie hackers, founders, and researchers");
+  });
+
+  it("renders the pricing stats strip with valid stat values", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain('data-testid="pricing-stats"');
+    expect(html).toContain("18 minds");
+    expect(html).toContain("30 debates in the library");
+    expect(html).toContain("Free to start");
+  });
+
+  it("renders social-proof debate scenario cards below the tier strip", () => {
+    const { tree } = renderPricingPage("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain("Should I keep competing on price at $18K MRR");
+    expect(html).toContain("I built a product in a half-day hackathon");
+    expect(html).toContain("Open-source project at 13K stars");
+    expect(html).toContain("Machiavelli");
+    expect(html).toContain("Curie");
+    expect(html).toContain("Sun Tzu");
   });
 
   it("toggles the billing branch between annual and monthly pricing", () => {
@@ -421,5 +452,52 @@ describe("pricing page", () => {
     ).resolves.toBeUndefined();
 
     expect(setStats).not.toHaveBeenCalled();
+  });
+
+  it("forwards utm_campaign and utm_content from URL to the checkout POST body", async () => {
+    vi.stubGlobal("window", {
+      location: {
+        href: "http://localhost/pricing?utm_campaign=hn-launch&utm_content=hero-cta",
+        search: "?utm_campaign=hn-launch&utm_content=hero-cta",
+      },
+    });
+
+    const { tree } = renderPricingPage("annual", false);
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    const request = deferred<CheckoutResponse>();
+    fetchMock.mockReturnValueOnce(request.promise);
+
+    const cta = findButtonByText(tree, "Start 7-day Pro trial");
+    const clickResult = cta.props.onClick?.();
+
+    request.resolve(createCheckoutResponse(200, { url: "https://checkout.example/pro" }));
+    await clickResult;
+    await flushMicrotasks();
+
+    expect(fetchMock).toHaveBeenCalledOnce();
+    const [, fetchInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const body = JSON.parse(fetchInit.body as string) as Record<string, unknown>;
+    expect(body.utm_campaign).toBe("hn-launch");
+    expect(body.utm_content).toBe("hero-cta");
+  });
+
+  it("omits utm fields from the POST body when no UTM params are present in the URL", async () => {
+    const { tree } = renderPricingPage("annual", false);
+    const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
+    const request = deferred<CheckoutResponse>();
+    fetchMock.mockReturnValueOnce(request.promise);
+
+    const cta = findButtonByText(tree, "Start 7-day Pro trial");
+    const clickResult = cta.props.onClick?.();
+
+    request.resolve(createCheckoutResponse(200, { url: "https://checkout.example/pro" }));
+    await clickResult;
+    await flushMicrotasks();
+
+    expect(fetchMock).toHaveBeenCalledOnce();
+    const [, fetchInit] = fetchMock.mock.calls[0] as [string, RequestInit];
+    const body = JSON.parse(fetchInit.body as string) as Record<string, unknown>;
+    expect(body.utm_campaign).toBeUndefined();
+    expect(body.utm_content).toBeUndefined();
   });
 });

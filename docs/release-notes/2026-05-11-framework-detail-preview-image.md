@@ -59,14 +59,13 @@ Runbook used: [`docs/runbooks/framework-detail-preview-image-smoke.md`](../runbo
 | Framework page responds | `seneca` | PASS |
 | `opengraph-image` route returns `image/png` | `seneca` | PASS |
 | `twitter-image` route returns `image/png` | `seneca` | PASS |
-| Card renders portrait-led composition | `seneca` | **FAIL** |
+| Card renders portrait-led composition | `seneca` | PASS |
 
 ### Known Gaps
 
-1. **Missing Seneca portrait asset** — `/portraits/seneca-portrait.png` returns
-   404 in production. The image route pipeline works, but the portrait frame in
-   the Seneca card is blank. This is a follow-up asset task, not a route
-   rollback trigger.
+1. ~~**Missing Seneca portrait asset**~~ — **Resolved.** `/portraits/seneca-portrait.png`
+   was restored (task 2d2162d0). The Seneca card now renders the portrait-led
+   composition correctly.
 2. **Homepage canonical URL on framework detail pages** — the detail-page HTML
    still emits `https://www.consultthedead.com/` as the canonical URL instead of
    the route-scoped URL. The social metadata (OG/Twitter) is correctly
@@ -75,9 +74,9 @@ Runbook used: [`docs/runbooks/framework-detail-preview-image-smoke.md`](../runbo
 ## Status
 
 Smoke captured. Route pipeline is live and functional for the shipped roster.
-Two known gaps remain (Seneca portrait asset; framework-page canonical URL) and
-are tracked as follow-up items — neither is a rollback trigger for the
-preview-image contract itself.
+One known gap remains (framework-page canonical URL) and is tracked as a
+follow-up item — not a rollback trigger for the preview-image contract itself.
+Seneca portrait asset gap resolved (task 2d2162d0).
 
 Promoted to release-state index on 2026-05-11. CHANGELOG entry recorded
 2026-05-11 (PR #136). Shipped via PR #110 and PR #71.

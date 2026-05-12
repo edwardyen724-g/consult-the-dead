@@ -49,7 +49,7 @@ export type { OutreachRecipient } from "./outreach-list";
 // -----------------------------------------------------------------------------
 
 export const CAMPAIGN_TAG = "founder-outreach-may26";
-export const FROM_ADDRESS = "Haoting Yen <haoting@consultthedead.com>";
+export const FROM_ADDRESS = "Edward <edward@consultthedead.com>";
 
 /** Pull the first name out of a display name (used in the salutation). */
 export function firstName(displayName: string): string {
@@ -82,15 +82,24 @@ export type BuiltEmail = {
 };
 
 /**
- * Pure email composer. Mirrors the §3 body template:
+ * Pure email composer. Variant A — "The Gift" template:
  *
  *   Hi <First name>,
- *   I built a tool called Consult The Dead — it lets you run debates...
- *   I ran your question through it: <topic_line>.
- *   Three minds argued it for 3 rounds. Here's the debate:
- *   → <agon_url>
- *   If it's useful, you can run your own agon at consultthedead.com/agora
- *   — Haoting
+ *   I read your piece on <source> about <one_sentence_decision_context>.
+ *   I built a tool that runs decisions like that through a structured debate
+ *   between historical reasoning frameworks — and I ran yours through it.
+ *
+ *   Here's where the council landed:
+ *   > <consensus_excerpt>
+ *
+ *   The full 3-round debate is here if you're curious: → <agon_url>
+ *
+ *   If there's a decision on your desk right now, I'll run it for free —
+ *   just reply with what you're thinking about.
+ *
+ *   — Edward
+ *
+ * Falls back to plain template when consensus_excerpt is absent.
  */
 export function buildEmail(recipient: OutreachRecipient): BuiltEmail {
   const subject =
@@ -99,42 +108,78 @@ export function buildEmail(recipient: OutreachRecipient): BuiltEmail {
       : fallbackSubject(recipient.topic_line);
 
   const greeting = `Hi ${firstName(recipient.name)},`;
-  const paragraphs = [
-    "I built a tool called Consult The Dead — it lets you run debates about real decisions using historical thinkers as advisors.",
-    `I ran your question through it: ${recipient.topic_line}.`,
-    "Three minds argued it for 3 rounds. Here's the debate:",
-  ];
-  const linkLine = `→ ${recipient.agon_url}`;
-  const ctaLine =
-    "If it's useful, you can run your own agon at consultthedead.com/agora";
-  const signoff = "— Haoting";
+  const signoff = "— Edward";
 
-  const text = [
-    greeting,
-    "",
-    paragraphs[0],
-    "",
-    paragraphs[1],
-    "",
-    paragraphs[2],
-    linkLine,
-    "",
-    ctaLine,
-    "",
-    signoff,
-  ].join("\n");
+  let text: string;
+  let html: string;
 
-  // Minimal HTML — single font stack, no marketing chrome. The whole
-  // point is to look like a personal note, not a product email.
-  const html = [
-    `<p>${escapeHtml(greeting)}</p>`,
-    `<p>${escapeHtml(paragraphs[0])}</p>`,
-    `<p>${escapeHtml(paragraphs[1])}</p>`,
-    `<p>${escapeHtml(paragraphs[2])}<br>` +
-      `→ <a href="${encodeURI(recipient.agon_url)}">${escapeHtml(recipient.agon_url)}</a></p>`,
-    `<p>${escapeHtml(ctaLine)}</p>`,
-    `<p>${escapeHtml(signoff)}</p>`,
-  ].join("\n");
+  if (recipient.consensus_excerpt && recipient.consensus_excerpt.trim().length > 0) {
+    // Variant A — "The Gift": lead with the inline consensus excerpt
+    const excerpt = recipient.consensus_excerpt.trim();
+    text = [
+      greeting,
+      "",
+      `I read about your decision around ${recipient.topic_line}.`,
+      "",
+      "I built a tool that runs decisions like that through a structured debate between historical reasoning frameworks — Machiavelli on power, Curie on evidence, Sun Tzu on positioning — and I ran yours through it.",
+      "",
+      "Here's where the council landed:",
+      "",
+      `> ${excerpt}`,
+      "",
+      `The full 3-round debate is here if you're curious: ${recipient.agon_url}`,
+      "",
+      "If there's a decision on your desk right now, I'll run it for free — just reply with what you're thinking about.",
+      "",
+      signoff,
+    ].join("\n");
+
+    html = [
+      `<p>${escapeHtml(greeting)}</p>`,
+      `<p>${escapeHtml(`I read about your decision around ${recipient.topic_line}.`)}</p>`,
+      `<p>I built a tool that runs decisions like that through a structured debate between historical reasoning frameworks — Machiavelli on power, Curie on evidence, Sun Tzu on positioning — and I ran yours through it.</p>`,
+      `<p>Here's where the council landed:</p>`,
+      `<blockquote style="border-left:3px solid #999;margin:0 0 1em 0;padding:0 1em;color:#444;">${escapeHtml(excerpt)}</blockquote>`,
+      `<p>The full 3-round debate is here if you're curious: → <a href="${encodeURI(recipient.agon_url)}">${escapeHtml(recipient.agon_url)}</a></p>`,
+      `<p>If there's a decision on your desk right now, I'll run it for free — just reply with what you're thinking about.</p>`,
+      `<p>${escapeHtml(signoff)}</p>`,
+    ].join("\n");
+  } else {
+    // Plain fallback when no excerpt is available
+    const paragraphs = [
+      "I built a tool called Consult The Dead — it lets you run debates about real decisions using historical thinkers as advisors.",
+      `I ran your question through it: ${recipient.topic_line}.`,
+      "Three minds argued it for 3 rounds. Here's the debate:",
+    ];
+    const linkLine = `→ ${recipient.agon_url}`;
+    const ctaLine =
+      "If it's useful, you can run your own agon at consultthedead.com/agora";
+
+    text = [
+      greeting,
+      "",
+      paragraphs[0],
+      "",
+      paragraphs[1],
+      "",
+      paragraphs[2],
+      linkLine,
+      "",
+      ctaLine,
+      "",
+      signoff,
+    ].join("\n");
+
+    html = [
+      `<p>${escapeHtml(greeting)}</p>`,
+      `<p>${escapeHtml(paragraphs[0])}</p>`,
+      `<p>${escapeHtml(paragraphs[1])}</p>`,
+      `<p>${escapeHtml(paragraphs[2])}<br>` +
+        `→ <a href="${encodeURI(recipient.agon_url)}">${escapeHtml(recipient.agon_url)}</a></p>`,
+      `<p>${escapeHtml(ctaLine)}</p>`,
+      `<p>${escapeHtml(signoff)}</p>`,
+    ].join("\n");
+  }
 
   return { subject, html, text };
 }
