@@ -483,7 +483,7 @@ export function AgoraApp({
                   <button
                     type="button"
                     onClick={() => {
-                      void retryAgon();
+                      void startAgon();
                     }}
                     className="font-mono"
                     style={{
