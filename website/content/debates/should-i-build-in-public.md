@@ -1,7 +1,7 @@
 # Agora Debate: Should I Build in Public?
 **For:** Founders (considering transparency vs. stealth)
 **Topic:** Should I build in public?
-**Council:** Marcus Aurelius, Niccolò Machiavelli, Benjamin Franklin
+**Council:** Marcus Aurelius, Niccolò Machiavelli, Seneca
 **Generated:** 2026-05-12
 
 ---
@@ -32,19 +32,17 @@ The question I would ask is not "would transparency demonstrate virtue?" but "wh
 
 Build in public when you occupy a defensible position or operate in an uncontested space. Build with strategic opacity when you are still establishing the position that building in public would help others erode.
 
-### Benjamin Franklin
+### Seneca
 
-My two colleagues have framed this as a philosophical choice and a strategic one, respectively. I will frame it as a practical question about leverage and efficiency, which is where most founders actually live.
+My colleagues have addressed the governance of public building — Aurelius from the standpoint of virtue, Machiavelli from the standpoint of advantage. I want to address a subtler danger that neither has named: the danger of confusing narrating with doing.
 
-I spent my career building public institutions that required public trust — the library, the fire company, the postal service, the university. None of these could be built privately. They required constituencies, and constituencies required knowing what you were doing and why. When I arrived in Paris as the American ambassador, my reputation as the inventor and philosopher preceded me in a way that no private reputation could have. That public identity was not vanity. It was the most efficient form of credibility I had ever discovered.
+I have spent much of my philosophical life warning against the seduction of appearance. There is a particular trap that public building sets for founders who are not careful: the act of sharing progress becomes more rewarding than making progress. The tweet announcing a feature ships dopamine faster than the feature itself. The newsletter update about a hard week is more satisfying to write than resolving the hard week. The audience's response — the likes, the replies, the encouragement — substitutes for the harder signal of whether the thing actually works.
 
-Building in public creates leverage that private building cannot replicate. It creates advocates before you have customers — people who have watched you solve a problem they recognize as real, who will refer you before your product is complete, who will give you the benefit of the doubt when something breaks because they watched you care about getting it right. Early community is a distribution advantage that is extraordinarily expensive to purchase once you reach launch, and it is nearly free to cultivate if you are transparent from the beginning.
+I have seen this corruption operate in Rome. Men who gave great speeches about virtue became, over time, men who were skilled at speeches about virtue and less skilled at its practice. The speech became the thing. What you narrate in public, you begin to optimize for narration. The founder who builds in public must ask: am I building something, or have I begun building the story of building something?
 
-But I am a practical man and I will give you the honest constraint. Building in public works as distribution when your audience and your customer are the same person, or when your customer trusts the audience's endorsement. If you are building B2B software for supply chain managers, sharing your build process on Twitter is free advertising to a crowd that is not buying. The distribution leverage depends entirely on whether the audience you are accumulating converts into the users or the advocates you need.
+The discipline I would require is this: before each public post, ask whether the underlying work is actually complete. Not whether you have something interesting to share — the audience's appetite for content is essentially infinite. Ask whether the substance preceded the narrative, or whether the narrative is becoming the substance. The founder who cannot answer that question honestly has already allowed the audience to colonize the process.
 
-Test the channel before committing to it. Share one piece of process publicly. Measure who engages, whether they represent your target market, and whether the engagement translates to product conversations. If it does, invest further. If it does not, you have learned something valuable at almost no cost — which is exactly the experiment design I would have recommended in any domain.
-
-Build in public when the audience is the market. If not, build efficiently and use your time on channels that convert.
+Build in public only if you can maintain the discipline of doing the work before you narrate it. If the narration is outpacing the work, you have a more serious problem than your distribution strategy.
 
 ## Round 2
 
@@ -56,27 +54,27 @@ In my experience governing a complex empire — where every decision created int
 
 Most founders fail not because a competitor read their blog posts and copied their roadmap. They fail because they did not get the feedback they needed early enough to change direction when changing was still cheap. Building in public is a forcing function for that feedback. The audience will tell you when your reasoning is flawed, when your product addresses a problem no one actually has, when your assumptions about the market do not match what practitioners in the market experience. That signal is more valuable than the protection that opacity provides against the marginal competitive threat.
 
-I do not retreat from the character argument, but I sharpen it here: the discipline of public accountability is valuable precisely because it is uncomfortable. Franklin is right that leverage and distribution follow — but those are secondary benefits. The primary benefit is that you cannot hide behind your own narrative when a thousand people are watching the evidence.
+Seneca raises the more important internal danger: that the discipline of public accountability can be corrupted into the discipline of public performance. I take this seriously. But I would frame the corrective as internal rather than as a reason to avoid transparency. The founder who has strong character — who has cultivated the habit of honest self-examination — will not confuse narration for substance because they have trained themselves to ask the harder question regardless of audience.
 
 ### Niccolò Machiavelli
 
-Aurelius makes a virtue of discomfort and calls it discipline. I have seen too many leaders mistake discomfort for productive feedback. The criticism you receive by building in public is not uniformly useful. It is shaped by the audience that chooses to pay attention, and that audience has its own incentives — some wish to help, some wish to appear clever, some are competitors wearing the costume of community members.
+Aurelius makes a virtue of discomfort and calls it discipline. Seneca identifies a corruption of purpose that I find more practically dangerous than either of our positions has so far accounted for.
 
-Franklin's practical test is well-designed but misses a timing problem. He says: share one piece of process publicly and measure who engages. But the information you share to run this test is already disclosed. The experiment does not have a control group. Once you have announced your roadmap hypothesis or your pricing model or your distribution thesis, you have shared it with everyone who was going to use it against you, regardless of whether the test validated that the audience converts.
+Seneca's warning about narrating versus doing is not merely philosophical — it describes a mechanism that has political force. The founder who becomes expert at building in public will find that the audience begins to shape what they build. Not through direct instruction but through attention: the things the audience rewards with engagement are the things the founder begins to optimize for. If the audience rewards struggle stories, the founder will narrate more struggle. If the audience rewards contrarian takes about the industry, the founder will develop more contrarian takes. This is not conscious corruption — it is the natural human response to positive reinforcement. But it means the public audience is, gradually, redirecting the founder's product decisions.
 
-What I concede to my colleagues is this: in the earliest stages, before the strategic position is clear and before the competitive terrain is contested, building in public is likely net positive. There is no position to reveal because no position has been secured. The audience you build may in fact be the constituency that determines whether the position is ever worth fighting for. At this moment, transparency is low-cost and potentially high-value.
+A prince who listens too carefully to the crowd will please the crowd and lose the campaign. The crowd is not wrong about what it wants — it wants what it wants — but what the crowd wants and what the market will pay for are not always the same thing. Build in public creates an audience whose approval becomes a signal, and that signal is not the same signal as revenue.
 
-My counsel shifts: build in public aggressively before you know what you have, and with increasing strategic selectivity as the position becomes clear and the competition intensifies. The transition point is when you find yourself knowing something about the market that a competitor would pay to know. At that moment, treat your insights like assets rather than content.
+My refined counsel: build in public with extreme selectivity about what the audience's response actually means. Engagement is not validation. The audience that loves your journey may not be the customer who buys your product.
 
-### Benjamin Franklin
+### Seneca
 
-Both of my colleagues are debating the strategic and philosophical dimensions, and they are both partly right. Aurelius is correct that feedback is valuable and that most founders fail from insufficient external correction. Machiavelli is correct that not all public feedback is equally useful and that disclosed information is irretrievable.
+Both of my colleagues have arrived at positions that are strategically sound but miss the deeper question I am raising. Aurelius says the corrective to narrating-over-doing is strong character. Machiavelli says the corrective is strategic selectivity. Both are right as far as they go.
 
-The practical resolution I offer is this: the question is not binary. Building in public is not a single policy applied uniformly to all information about your company. The founders who do it well share their process, their struggles, and their customer insights while being deliberate about what they do not share. They discuss how they found the problem without disclosing the specific technical approach they believe no one has tried. They share user growth numbers without disclosing their acquisition channels. They write about pricing philosophy without revealing the specific experiments that are running.
+But I want to name what is underneath the corruption I described. The audience does not merely shape what you build — it shapes what you want. The founder who has been building in public for six months begins to want the audience's approval. Not as a means to revenue or feedback, but as an end in itself. And wanting the audience's approval is incompatible with the founder's primary obligation, which is to make something real.
 
-This is not hypocrisy. This is the communication discipline I applied throughout my career. In Paris I was transparent about the American cause, about our values, about the importance of French alliance — and I was selectively silent about the specific negotiating positions that would have given the British leverage had they become known. Transparency and strategic selectivity are not opposites. They coexist in every mature communicator.
+I have written extensively about the problem of depending on external validation. The philosopher who needs the crowd's agreement to feel certain of his ideas is not actually certain. The founder who needs the audience's encouragement to feel confident in the product they are building has not yet found the internal source of conviction that hard decisions require. Building in public, if done carelessly, accelerates this dependency. Each positive response teaches the founder's nervous system that sharing earns reward. Each piece of work that goes unshared begins to feel unrewarded. Over time, the founder cannot do the work without the narration — not because they are lazy but because they have trained themselves to need the feedback loop.
 
-The practical framework: share what builds community and returns feedback without giving away what gives you advantage. Most founders can name those things clearly if they ask the question directly. The problem is that most founders who worry about this question are thinking about it at the wrong level of abstraction — they treat it as all-or-nothing when the actual decision is granular.
+My counsel, sharpened: build in public only if you are already sure of what you are building and why. Use transparency as a tool for specific purposes — distribution, feedback on specific questions, accountability to yourself. Do not use it as a source of conviction. Conviction that depends on the audience will fail at the moment you need it most.
 
 ## Round 3
 
@@ -84,25 +82,27 @@ The practical framework: share what builds community and returns feedback withou
 
 I hold firm on the central claim: the character formed by building accountably is more durable than the advantage secured by building privately. Machiavelli's strategic calculation requires a certain kind of competitive intelligence threat that, for most founders in most markets, is smaller than the benefit of rigorous external feedback.
 
-Where I have moved: Franklin's point about granularity is correct and I did not initially account for it with sufficient precision. The discipline of building in public does not require disclosing everything. It requires the habit of external accountability, and that habit can be maintained with thoughtful selectivity about what is shared.
+Where I have moved: Seneca's point about the corruption of wanting is the most important insight in this debate, and I did not account for it with sufficient precision at the outset. The discipline of building in public cannot be sustained by someone who has allowed the audience to become the source of their sense of progress. The internal discipline must precede the external transparency — otherwise the transparency trains a dependence that undermines the judgment it was meant to support.
 
-The single most important thing you must take away: build in public not because it is a growth strategy, but because the discipline of accountability is its own corrective mechanism. Use it to keep your reasoning honest. The distribution and community that follow are valuable — but they are not the primary reason to choose transparency.
+The single most important thing you must take away: build in public not because it is a growth strategy, but because the discipline of external accountability is its own corrective mechanism — but only if you can maintain the internal discipline of doing before narrating. The audience is a check on your reasoning, not a source of your conviction.
 
 ### Niccolò Machiavelli
 
 I hold firm on the strategic core: information is a resource, and disclosed information is a resource you no longer control. The decision to make your process public should be made with the same deliberateness you would bring to any resource allocation.
 
-Where I have moved: Franklin's middle path is operationally correct, and I concede it. The relevant question is not whether to build in public but what category of information to disclose and at what stage. The strategic error is not transparency per se — it is undifferentiated transparency that treats process, insight, positioning, and technical approach as equally shareable.
+Where I have moved: Seneca's warning about audience capture is not merely philosophical but strategic. An audience that begins to shape product decisions is a constituency that has been granted influence it did not earn and is not accountable for. The founder who has optimized for engagement has, without intending to, added a third party to every product decision. That third party cannot be fired, does not understand the business model, and will not share in the consequences of the decisions it influences.
 
-The single most important thing you must take away: before sharing anything, ask whether the information gives a competitor an advantage that exceeds the community benefit it returns to you. If no — share it and invest in the audience. If yes — keep it, and find another way to build the community that does not require handing over the asset you are trying to compound.
+The single most important thing you must take away: before sharing anything, ask whether the information gives a competitor an advantage that exceeds the community benefit it returns to you — and ask whether the audience you are building can be kept in an advisory role rather than allowed to become a directing one. The moment the audience's approval begins to feel necessary, it has crossed from distribution tool to governance problem.
 
-### Benjamin Franklin
+### Seneca
 
-Both colleagues have arrived at the practical position I held from the beginning, which I take as confirmation that the answer was always in the specifics rather than the principle.
+I have argued throughout that the deepest risk in building in public is not strategic exposure but psychological corruption — the gradual replacement of the work's substance with the work's narrative. I will stand on that point.
 
-Building in public is a distribution strategy, a feedback mechanism, and a character test — and all three of those claims are true simultaneously. The mistake is treating it as an identity rather than a tool. The founders who announce they are "building in public" as a permanent posture and then share indiscriminately have made a policy out of what should be a decision. The founders who evaluate each disclosure on its merit — does this build the right community, does this return useful signal, does this give away what I cannot afford to give away — are using the tool correctly.
+But I want to add one practical observation. The founders who build in public successfully — who use it as a genuine distribution mechanism without losing themselves in the audience — share a characteristic that has nothing to do with their strategic sophistication. They are already building something they believe in completely, with or without the audience's attention. The public narration is not the source of their conviction. It is the record of a process that would have happened regardless of whether anyone was watching.
 
-The single most important thing you must take away: decide what you are trying to get from transparency — feedback, distribution, or accountability — and then share the information that achieves that goal without disclosing what a rational competitor would use against you. That is not a philosophy. That is a practice, and it can be started this week.
+This is not a quality you can fake. The audience can sense the difference between a founder who is sharing because the work demands sharing and a founder who is building because the sharing demands something to build. The former creates genuine community. The latter creates an audience that cannot convert, because it was never attracted to the product — it was attracted to the performance.
+
+The single most important thing you must take away: before you build in public, ask honestly whether you would keep building if no one were watching. If the answer is yes without hesitation — share freely, use the audience as a check on your reasoning, and let the community form around the real work. If the answer requires a moment of thought, the audience is already doing something to your conviction that you should understand before you cultivate it further.
 
 ---
 
@@ -110,29 +110,31 @@ The single most important thing you must take away: decide what you are trying t
 
 ### Consensus Points
 
-All three minds converged on the same practical conclusion: building in public is not a binary policy but a series of granular disclosure decisions. The question for each piece of information is whether sharing it returns more value in community, feedback, or accountability than it costs in competitive exposure. Most founders can answer that question clearly for most information once they are asked to think about it at that level of specificity.
+All three minds converged on a critical distinction: building in public is not a policy but a series of deliberate decisions about what to share, when, and for what purpose. The question for each piece of information is whether sharing it returns more value in community, feedback, or accountability than it costs in strategic exposure or psychological dependency. Most founders can answer that question clearly for most information once they are forced to ask it precisely.
 
-All three also agreed that the early stage — before a strategic position has been established, before a competitive advantage has been identified — is the moment when building in public is almost always net positive. There is nothing strategically significant to reveal, and the community that forms around early-stage transparency can become the first constituency that determines whether the position is worth fighting for.
+All three also agreed that the early stage — before a strategic position has been established, before a competitive advantage has been identified — is the moment when building in public is most likely net positive. There is nothing strategically significant to reveal, and the community that forms around early-stage transparency can become the first constituency that determines whether the position is worth fighting for.
 
 ### Key Tensions
 
-The core disagreement is about what the primary risk to most founders actually is. Aurelius argues it is insufficient feedback — the uncorrected error that compounds in private until it is too late to fix cheaply. Machiavelli argues it is strategic disclosure — handing competitors intelligence about the position you are trying to occupy. Franklin treats both risks as real and resolvable through selective rather than binary transparency.
+The deepest tension in this debate is not the one Machiavelli identifies — strategic exposure — but the one Seneca names: the corruption of wanting. Aurelius and Machiavelli debate whether to share information and how to select what to disclose. Seneca raises the prior question: whether the audience has already begun to shape what you want to build before you have asked whether that audience represents the people who will pay for it.
 
-The deeper tension is about whether character or strategy should drive the decision. Aurelius treats the accountability discipline of building in public as intrinsically valuable — the founder who cannot withstand scrutiny should improve their process, not hide it. Machiavelli treats accountability as a cost when it subsidizes competitors and a benefit only when the competitive context makes transparency safe. Neither is wrong in their own domain; they are answering slightly different versions of the question.
+Machiavelli and Seneca converge on a shared warning from different directions. Machiavelli warns that audience engagement is not market signal — the people who love your build-in-public content are not necessarily the people who will buy your product. Seneca warns that audience approval, once sought, becomes necessary — and a founder who needs the audience's approval to feel confident in the work has substituted the wrong signal for the real one.
+
+Aurelius holds that strong internal character is the corrective to both dangers. Seneca responds that the character must be established before the audience is cultivated, because the audience trains the nervous system faster than reflection can correct it.
 
 ### Recommended Action
 
 Before committing to building in public or staying private, answer three questions with honest specificity.
 
-**Who is your audience, and are they your market?** Building in public creates leverage only when the people watching are the people who will use, buy, or refer your product. If your audience and your customer are different populations, transparency generates goodwill in a community that does not convert, and your time is better spent on channels that reach the right people directly.
+**Would you keep building if no one were watching?** This is Seneca's test, and it is the most important one. If the answer is yes without hesitation, you have the internal source of conviction that public transparency requires. If the answer requires thought, understand what role the audience is already playing in your sense of progress before you formalize that relationship.
+
+**Who is your audience, and are they your market?** Building in public creates leverage only when the people watching are the people who will use, buy, or refer your product. If your audience and your customer are different populations, transparency generates goodwill in a community that does not convert. Engagement is not validation. Map the overlap before investing further.
 
 **What information creates competitive advantage if revealed?** Make a concrete list: your specific technical approach, your key acquisition channels, your pricing experiments, your distribution hypotheses. Everything on this list should be kept private or shared only at a level of abstraction that returns community benefit without disclosing the mechanism. Everything off this list can be shared freely.
 
-**What feedback do you need most right now?** The transparency decisions that return the highest value are those that expose your most uncertain assumptions to the people most qualified to stress-test them. If you are uncertain whether the problem is real, share the problem and measure the response. If you are uncertain whether your solution is the right one, share the approach at a level where practitioners can evaluate it. Build public accountability around the assumptions most likely to be wrong.
-
 ### Immediate Next Steps
 
-- **This week** — Write down three things about your current product or strategy that you believe are true but have not been externally validated. Choose the one with the lowest competitive exposure and share it publicly. Measure the quality and volume of feedback.
+- **This week** — Before your next public post, write down the underlying work that the post will describe. If the work is not complete, complete it first. If the narration is easier to produce than the work, you have identified the corruption Seneca describes.
 - **Within two weeks** — Separate your information into two lists: what you can share freely without strategic cost, and what gives a rational competitor advantage if disclosed. The first list is your building-in-public content strategy. The second is what you protect.
 - **Before committing to a regular public build log** — Identify whether the audience you are building or would build has meaningful overlap with your target customer. If yes, invest further. If not, redirect the time to channels with higher conversion.
 
@@ -140,7 +142,9 @@ Before committing to building in public or staying private, answer three questio
 
 The primary risk Machiavelli identifies is real in competitive markets: building in public when you are contesting an established position with well-resourced competitors who have teams monitoring the space is a different calculation than building in public as an indie founder in an underserved niche. Know which situation you are in before treating the strategy as universally safe.
 
-The primary risk Aurelius identifies is also real: founders who use competitive privacy as a rationalization for avoiding external feedback create uncorrected errors that compound. If you are building privately, ensure you have a rigorous alternative feedback mechanism — customer interviews, advisor scrutiny, structured experiments — that provides the correction that public accountability would otherwise supply.
+Seneca's warning is the most important long-term risk: audience dependency is a slow corruption that is easy to miss because each step feels like community-building and growth. The test is not whether you have an audience — it is whether you could stop sharing tomorrow without losing confidence in what you are building. If you could not, the audience has already taken something it should not have.
+
+Aurelius identifies the internal corrective: the discipline of public accountability is valuable only when it is grounded in a private discipline that the audience reinforces rather than replaces. Build that internal discipline first.
 
 ---
 
