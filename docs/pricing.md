@@ -1,6 +1,6 @@
 # Agora Pricing — Canonical Reference
 
-**Last updated:** 2026-05-08
+**Last updated:** 2026-05-12
 **Source of truth for:** marketing copy, README, MARKETING_STRATEGY.md, investor/press inquiries
 **Live pricing page:** [consultthedead.com/pricing](https://consultthedead.com/pricing)
 **Live product:** [consultthedead.com/agora](https://consultthedead.com/agora)
@@ -86,7 +86,7 @@ Key friction points:
 | Extended Tavily research pass | ✅ Shipped |
 | 48h founder email support | ✅ Manual (Edward responds directly) |
 | Up to 5 minds council | ✅ Shipped (gated in `/api/agon`) |
-| Shareable agon URLs | 🟡 Backend shipped, UI in flight |
+| Shareable agon URLs | ✅ Shipped (`/agora/a/[id]` with OG images, Twitter card, share CTA strip) |
 | 100 agons/month limit | ✅ Enforced in rate limiter |
 
 ---
