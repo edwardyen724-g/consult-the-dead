@@ -7,6 +7,22 @@ The project does not currently use semantic releases, so this changelog records 
 ## 2026-05-11
 
 ### Added
+- Library proof strip (PR #184): Pro Library page now shows a live engagement strip — total saved debates and a per-week activity streak — computed from each user's real saved-agon data. `LibraryProofStrip` component (100% test coverage, 22 tests) replaces the earlier inline grid implementation.
+- Homepage OG/Twitter preview images (PR #185): homepage now generates dynamic Open Graph and Twitter/X social preview cards at `opengraph-image.tsx` / `twitter-image.tsx` so share links render rich cards everywhere.
+- Insights hero panel and denser index cards (PR #200): `/insights` now opens with a hero summary panel showing key stats (total insights, recent activity, top mind), and insight index cards are visually denser for quicker scanning.
+- Galileo Galilei framework (PR #203): Galileo's CDM-derived thinking framework is extracted and added to the frameworks library — separating the observable from the doctrinal, accepting institutional defeat to preserve the work.
+- Beehiiv email capture in consensus stage (PR #244): the Agora `ShareAgonPanel` now shows a Beehiiv email capture form at the consensus stage, converting engaged free users into the newsletter list before they leave.
+- Quiz featured-pack shortcut (PR #242): Step 2 of the guided quiz now surfaces a featured-pack shortcut so users can jump straight to a curated council without scrolling the full pack list.
+- Pricing contract verifier script (PR #238): `npm run verify:pricing` exercises the live `/api/stats` and `/pricing` contract; can be run in CI and as a post-deploy gate.
+- Framework chat CLI subcommand (PR #237): `framework-forge chat` exposes interactive framework chat as a packaged CLI subcommand; documented in the quickstart.
+- UTM stamper on /sign-up (PR #194): Clerk signup now stamps UTM parameters into a `free_signup` analytics event server-side so attribution is preserved from ad click through to first agon.
+- Company-builder loading/error polish (PR #198): the company-builder app shell gained a loading skeleton, an error boundary with retry, and focus management so the surface degrades gracefully under slow or failed API responses.
+- BYO API key settings improvements (PR #202): account-page BYO API key card now validates key format on entry, masks stored keys (shows last 4 chars), and surfaces clear error states for invalid or revoked keys.
+- Research-route smoke script (PR #197): `scripts/smoke-research-route.ts` validates the `/api/agon` research phase end-to-end against live infrastructure.
+- Listicle URLs in sitemap (PR #204): the 5 long-tail listicle routes are now emitted in `sitemap.ts` (changefreq=monthly, priority=0.6) so they are crawlable from the XML sitemap.
+- Homepage hero vertical rhythm (PR #208): tighter vertical spacing and reduced dead space in the homepage hero for a crisper above-the-fold layout.
+- Agora mobile layout, empty states, and error boundary (PR #179): regression coverage for Agora responsive layout, zero-agon empty state, and error-boundary recovery paths.
+- Steve Jobs Tier 3 validation packet (PR #181): Framework Forge generates the Tier 3 A/B review packet for the Steve Jobs framework, completing all three automated validation tiers.
 - Quota 429 retry headers: `/api/agon`, `/api/generate-analysis`, and `/api/contact` now expose machine-readable retry guidance for throttled requests via `Retry-After` and `X-RateLimit-Reset`; `/api/generate-analysis` also keeps `X-RateLimit-Remaining` on successful server-key responses so the live behavior matches the quota contract docs.
 - Auth Noindex Metadata (PR #147): `/sign-in` and `/sign-up` now export route metadata that sets `robots: noindex, nofollow`; the sign-up page was split into a server shell plus client widget so the metadata export stays in an RSC.
 - Framework detail OG/Twitter preview images: `/frameworks/[slug]/opengraph-image.tsx` and `/frameworks/[slug]/twitter-image.tsx` now generate dynamic social card images so framework shares render richer previews on Twitter/X, LinkedIn, and iMessage. Contract tests added (PR #120).
@@ -22,6 +38,10 @@ The project does not currently use semantic releases, so this changelog records 
 - Guided quiz entry across packs and footer CTAs: consistent amber-pill CTAs linking to `/quiz` with page-specific UTM parameters.
 
 ### Fixed
+- Agora 4th-mind upsell trigger (PR #241): cap banner now fires from the correct `liftCap` state with sharper copy; regression tests lock the behaviour across free and pro paths.
+- Shared-agon CTA label (PR #243): public shared-agon page CTA button label aligned with founder directive (consistent verb and framing).
+- Stripe welcome email greeting (PR #239): welcome email now personalises the greeting with the user's first name pulled from the Stripe customer object.
+- Framework canonical URL drift (PR #232): framework detail page `canonical` and `og:url` are locked to `buildFrameworkCanonicalUrl` — prevents the homepage URL leaking into framework `<head>` on SSR.
 - Outbound email sender switched from Resend sandbox (`onboarding@resend.dev`) to verified branded domain (`notifications@consultthedead.com`) — emails now deliver to any recipient address in production.
 
 ## 2026-05-10
