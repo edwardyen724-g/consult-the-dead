@@ -66,8 +66,10 @@ The project does not currently use semantic releases, so this changelog records 
 - Validation artifact structure tests (PR #325): adds `tests/test_validation_artifacts_structure.py` to verify all published frameworks carry a complete and well-formed tier1/tier2/tier3 validation directory.
 - Decisions batch 5 — build-in-public, charge-from-day-one, split-equity (PR #326): `/decisions/should-i-build-in-public`, `/decisions/should-i-charge-from-day-one`, and `/decisions/should-i-split-equity-50-50-with-my-cofounder` published with full route coverage.
 - 2026-05-12 release note documenting the decisions expansion wave 2 (PR #327): `docs/release-notes/2026-05-12-decisions-expansion-wave2.md` covering all batches 3–5, framework validation pipeline, sitemap SEO, and 19→26 roster expansion.
+- Decisions batch 6 — raise-series-a, sign-term-sheet, go-remote-or-in-person (PR #329): `/decisions/should-i-raise-a-series-a`, `/decisions/should-i-sign-this-term-sheet`, and `/decisions/should-i-go-remote-or-in-person` published with full route coverage.
 
 ### Fixed
+- `should-i-build-in-public` council corrected — Seneca replaces Franklin (PR #330): debate rewritten with Seneca's "narrating vs doing" angle, which adds a distinct Stoic warning about audience-dependency that complements Aurelius's virtue framing and Machiavelli's strategic framing; decisions.ts `recommendedCouncil` updated accordingly.
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
 - Stripe Tax deferral docs (PR #231): clarifies the deferral in the phase 0 setup guide.
 - Canonical and `og:url` lock (PR #232): prevents framework detail metadata drift.
