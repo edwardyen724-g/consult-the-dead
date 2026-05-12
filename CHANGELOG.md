@@ -60,6 +60,9 @@ The project does not currently use semantic releases, so this changelog records 
 - `/decisions` and `/decisions/[slug]` routes added to route table (PR #310): README route table updated to include the decisions index and per-decision detail routes.
 - Sentry edge config and smoke tests (PR #312): Sentry error monitoring wired into the Next.js app with edge-runtime config; smoke-test script validates capture end-to-end against the live DSN.
 - Decisions batch 3 — LLC/C-corp, money-vs-equity, pivot-to-AI (PR #313): `/decisions/llc-vs-c-corp`, `/decisions/take-money-vs-equity`, and `/decisions/pivot-to-ai` published with full route coverage.
+- Decisions batch 4 — accelerator, CTO-vs-cofounder, launch-now-or-wait (PR #320): `/decisions/should-i-join-an-accelerator`, `/decisions/should-i-hire-a-cto-or-find-a-technical-cofounder`, and `/decisions/should-i-launch-now-or-wait-for-perfect` published with full route coverage.
+- Sitemap extended for `/decisions` and `/decisions/[slug]` (PR #321): all decisions index and per-decision pages added to `sitemap.xml` with `priority 0.8` and `weekly` changeFrequency.
+- Framework tier validation artifacts for eight newly validated frameworks (PR #322): tier1, tier2, and tier3 validation results added for ada-lovelace, alexander-the-great, catherine-the-great, cleopatra-vii, epictetus, galileo-galilei, harriet-tubman, and john-d-rockefeller.
 
 ### Fixed
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
