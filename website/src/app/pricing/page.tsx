@@ -50,7 +50,7 @@ const FEATURES: { label: string; free: string; pro: string }[] = [
 const FAQ: { q: string; a: string }[] = [
   {
     q: 'What happens when I hit the free limit?',
-    a: "You'll see a prompt to upgrade. Nothing gets deleted — your work stays. Upgrade anytime, or come back tomorrow for 3 more.",
+    a: "You'll see a prompt to upgrade to Pro or add your own key. Nothing gets deleted — your work stays. Upgrade anytime, add BYO key for unlimited debates, or come back tomorrow for 3 more.",
   },
   {
     q: 'Can I cancel anytime?',
@@ -103,6 +103,11 @@ export default function PricingPage() {
   }
 
   const monthlyDisplay = billing === 'annual' ? '$25' : `$${PRO_MONTHLY_PRICE}`
+  const proCtaLabel = loading
+    ? 'Redirecting to checkout…'
+    : 'Start 7-day Pro trial'
+  const proCtaSubtext =
+    'Checkout unlocks Opus, the persistent library, PDF export, and deeper research.'
 
   return (
     <main style={{ background: 'var(--bg)', color: 'var(--fg)', minHeight: '100vh' }}>
@@ -167,6 +172,139 @@ export default function PricingPage() {
                 )}
               </span>
             ))}
+          </div>
+        </div>
+
+        {/* Tier strip */}
+        <div
+          aria-label="Pricing tiers overview"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '12px',
+            marginBottom: '40px',
+          }}
+        >
+          <div
+            style={{
+              border: '1px solid var(--hairline)',
+              borderRadius: '8px',
+              padding: '18px 18px 16px',
+              background: 'var(--surface)',
+            }}
+          >
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-faint)',
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              Free
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1rem',
+              color: 'var(--fg)',
+              lineHeight: 1.55,
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              Always free. 3 agons per day, no signup, Sonnet for the full debate.
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+              margin: 0,
+            }}>
+              Best for trying the product
+            </p>
+          </div>
+          <div
+            style={{
+              border: '1px solid var(--hairline)',
+              borderRadius: '8px',
+              padding: '18px 18px 16px',
+              background: 'var(--surface)',
+            }}
+          >
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-faint)',
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              BYO key
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1rem',
+              color: 'var(--fg)',
+              lineHeight: 1.55,
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              Unlimited debates with your own Anthropic key. Still free tier, still no signup.
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+              margin: 0,
+            }}>
+              Best for power users
+            </p>
+          </div>
+          <div
+            style={{
+              border: '1px solid var(--amber)',
+              borderRadius: '8px',
+              padding: '18px 18px 16px',
+              background: 'var(--amber-wash)',
+              boxShadow: '0 0 0 1px color-mix(in srgb, var(--amber) 14%, transparent) inset',
+            }}
+          >
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              Pro
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1rem',
+              color: 'var(--fg)',
+              lineHeight: 1.55,
+              margin: 0,
+              marginBottom: '10px',
+            }}>
+              7-day trial, then $25/mo annual or $30/mo monthly. Opus, persistent library, PDF, and deeper research.
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '9px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--fg-dim)',
+              margin: 0,
+            }}>
+              Best for shipping decisions faster
+            </p>
           </div>
         </div>
 
@@ -476,8 +614,19 @@ export default function PricingPage() {
                   transition: 'opacity 150ms',
                 }}
               >
-                {loading ? 'Redirecting…' : 'Start 7-day Pro trial — Opus + Library'}
+                {proCtaLabel}
               </button>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '9px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--fg-dim)',
+                textAlign: 'center',
+                margin: '10px 0 0',
+              }}>
+                {proCtaSubtext}
+              </p>
             </div>
           </div>
         </div>
@@ -500,7 +649,9 @@ export default function PricingPage() {
           }}>
             <strong style={{ color: 'var(--amber)' }}>Founding-member pricing.</strong>{' '}
             Early subscribers lock in <strong>${PRO_ANNUAL_PRICE}/year for life</strong>. After Q3 2026,
-            annual plans go to $360. Monthly stays at ${PRO_MONTHLY_PRICE}.
+            annual plans go to $360. Monthly stays at ${PRO_MONTHLY_PRICE}. If you are
+            already sold on the workflow, the Pro checkout is the shortest path to Opus
+            and the persistent library.
           </p>
         </div>
 
