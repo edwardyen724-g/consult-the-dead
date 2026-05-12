@@ -1,4 +1,73 @@
 ## Task
+- `b868f468-9656-445c-956e-263d88e9a961` - Align the pricing canonical reference with the live product and proof strip
+
+## Changed Files
+- `docs/ctr-research-notes.md`
+- `docs/design-research.md`
+
+## What Changed
+- Tightened the pricing-proof guardrail in the CTR research notes so the `/pricing` social-proof story is explicitly limited to the live stats row plus the approved anonymized scenario cards.
+- Added the same no-testimonial guardrail to the design research notes so future pricing polish work keeps the proof strip grounded in shipped evidence instead of placeholder quotes.
+
+## Verification
+- `git -C /Users/haotingyen/projects/consult-the-dead/.wanman/worktree diff --check -- docs/ctr-research-notes.md docs/design-research.md`
+
+## Results
+- Diff check passed with no whitespace or patch-format issues.
+- The separate live pricing verifier still reports production-side `/agora` copy drift, but that surface was not modified by this docs-only task.
+
+## Task
+- `7e1f8f1b-7a62-4fc0-931f-5613379f6a4b` - Tighten the guided quiz page copy around decision clarity and council routing
+
+## Changed Files
+- `website/src/app/quiz/page.tsx`
+- `website/src/app/quiz/page.test.ts`
+- `website/src/app/quiz/quiz-routing.test.ts`
+
+## What Changed
+- Added a decision-clarity intro shell above the quiz flow that explains the guided path in plain language and routes users toward the right council shape before they enter the questionnaire.
+- Introduced a compact route-guide panel that surfaces the decision-type clusters and their best-fit council names, so the page now hints at where each guided path leads.
+- Exported the page copy constants and locked them in the page contract test so the decision-first messaging and routing hints stay stable.
+- Updated the quiz page/flow regression test to account for the new intro shell while still asserting that the live framework catalog reaches the `QuizFlow` child component.
+
+## Verification
+- `cd website && ./node_modules/.bin/vitest run src/app/quiz/page.test.ts src/app/quiz/quiz-routing.test.ts`
+- `cd website && ./node_modules/.bin/eslint src/app/quiz/page.tsx src/app/quiz/page.test.ts src/app/quiz/quiz-routing.test.ts`
+- `cd website && npm run coverage -- --coverage.include=src/app/quiz/page.tsx src/app/quiz/page.test.ts src/app/quiz/quiz-routing.test.ts`
+
+## Results
+- Targeted quiz tests passed: `13 tests passed`.
+- ESLint passed on the touched quiz files.
+- Scoped coverage run passed with `100%` statements, `100%` branches, `100%` functions, and `100%` lines for the included quiz page surface.
+
+## Task
+- `29b38765-bf1a-42fa-864b-2fa982019ebd` - Tighten transcript share button affordance on public agon pages
+
+## Changed Files
+- `website/src/app/agora/a/[id]/page.tsx`
+- `website/src/app/agora/a/[id]/page.test.tsx`
+- `website/src/components/agora/PublicTranscriptShareButton.tsx`
+- `website/src/components/agora/PublicTranscriptShareButton.test.tsx`
+- `docs/runbooks/public-agora-share-page-smoke.md`
+
+## What Changed
+- Replaced the public share-page footer link with a client copy button that reads `Copy transcript link`, shows `Copying…` / `Copied ✓`, and includes a short helper line that makes the copy action explicit.
+- Kept the page’s share-loop attribution intact by preserving the public transcript URL and the existing `Begin your own agon` CTA flow.
+- Updated the public share-page regression test to lock the new button copy, helper text, and CTA wrapper attributes.
+- Added a focused component test suite for the new client button, including success, missing-clipboard, missing-navigator, rejection, and in-flight guard branches so the component reaches full scoped coverage.
+- Refreshed the public share-page smoke runbook so the documented affordance matches the shipped UI.
+
+## Verification
+- `cd website && ./node_modules/.bin/vitest run 'src/components/agora/PublicTranscriptShareButton.test.tsx' 'src/app/agora/a/[id]/page.test.tsx'`
+- `cd website && ./node_modules/.bin/eslint src/components/agora/PublicTranscriptShareButton.tsx src/components/agora/PublicTranscriptShareButton.test.tsx 'src/app/agora/a/[id]/page.tsx' 'src/app/agora/a/[id]/page.test.tsx'`
+- `cd website && ./node_modules/.bin/vitest run --coverage --config <temporary scoped config> 'src/components/agora/PublicTranscriptShareButton.test.tsx'`
+
+## Results
+- Targeted regression specs passed: `17 tests passed`.
+- ESLint passed on the touched TSX files.
+- Scoped coverage for `src/components/agora/PublicTranscriptShareButton.tsx` passed at `100%` statements, `100%` branches, `100%` functions, and `100%` lines.
+
+## Task
 - `f314d601-731b-4970-8c38-358fa350dc02` - Refresh phase-1 framework-forge status to match live validation work
 
 ## Changed Files
