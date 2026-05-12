@@ -1,6 +1,6 @@
 # Outreach Debate Launch Checklist
 
-**Last updated:** 2026-05-11  
+**Last updated:** 2026-05-12  
 **Owner:** Edward  
 **Purpose:** Step-by-step execution guide for turning the 30 prebuilt outreach debates into a live cold outreach campaign.  
 **Reference docs:**  

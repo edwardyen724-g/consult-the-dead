@@ -1,9 +1,29 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
+import { getAllDebateSlugs, getDebate } from "@/lib/debates";
+import { INSIGHT_ENTRIES } from "@/lib/insights";
+import {
+  buildFeedMetadata,
+  buildPublicFeedItems,
+  serializeRssFeed,
+} from "@/lib/rss-feed";
 
 import { GET } from "./route";
 
+const FIXED_NOW = new Date("2026-05-12T12:00:00.000Z");
+const SITE_URL = "https://www.consultthedead.com";
+
 describe("GET /feed.xml", () => {
-  it("returns RSS XML with insight links", async () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(FIXED_NOW);
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("returns canonical RSS XML with public debate and insight links", async () => {
     const response = await GET();
 
     expect(response.status).toBe(200);
@@ -15,9 +35,20 @@ describe("GET /feed.xml", () => {
     );
 
     const xml = await response.text();
-    expect(xml).toContain("<rss version=\"2.0\">");
-    expect(xml).toContain("<title>Consult The Dead</title>");
-    expect(xml).toContain("<link>https://www.consultthedead.com</link>");
-    expect(xml).toContain("https://www.consultthedead.com/insights/");
+    const debates = getAllDebateSlugs()
+      .map((slug) => getDebate(slug))
+      .filter((debate): debate is NonNullable<typeof debate> => debate !== null);
+    const expectedXml = serializeRssFeed({
+      metadata: buildFeedMetadata(SITE_URL),
+      items: buildPublicFeedItems({
+        siteUrl: SITE_URL,
+        debates,
+        insightEntries: INSIGHT_ENTRIES,
+        now: FIXED_NOW,
+      }),
+      now: FIXED_NOW,
+    });
+
+    expect(xml).toBe(expectedXml);
   });
 });

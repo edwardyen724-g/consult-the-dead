@@ -148,7 +148,7 @@ Today is 2026-05-12. Recommended send window: **Tuesday 2026-05-13**.
 | Touch | Date | Action |
 |-------|------|--------|
 | Initial send | 2026-05-13 (Tue) | Send all 10 — Variant A |
-| Follow-up 1 | 2026-05-17 (Sat) | Reply thread, subject: `re: your {{decision_keyword}} decision` |
+| Follow-up 1 | 2026-05-19 (Mon) | Reply thread, subject: `re: your {{decision_keyword}} decision` |
 | Follow-up 2 (final) | 2026-05-22 (Thu) | Final touch with Agora free-tier CTA |
 
 Follow-up 1 body:
