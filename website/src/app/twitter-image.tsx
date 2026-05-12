@@ -10,5 +10,5 @@
  * Next.js Turbopack does not support re-exporting route segment config
  * fields from another module.
  */
-export const runtime = "nodejs";
+export const runtime = "edge";
 export { default, alt, contentType, size } from "./opengraph-image";
