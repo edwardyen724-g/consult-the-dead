@@ -61,6 +61,14 @@ Edward
 
 ---
 
+You're receiving this because your recent writing or social presence signals a live strategic decision. If you'd prefer not to receive future messages like this, reply with "unsubscribe" and I'll remove you immediately.
+
+Edward Yen  
+Consult The Dead  
+https://consultthedead.com
+
+---
+
 ## Variant B — "The Question" (lead with curiosity, defer the gift)
 
 **What it tests:** Does a shorter, question-led email with no inline excerpt get more replies by reducing reading commitment?
@@ -98,6 +106,14 @@ I already ran yours: consultthedead.com/debates/jonathan-chan
 Would love to hear if the council got it right.
 
 Edward
+
+---
+
+You're receiving this because your recent writing or social presence signals a live strategic decision. If you'd prefer not to receive future messages like this, reply with "unsubscribe" and I'll remove you immediately.
+
+Edward Yen  
+Consult The Dead  
+https://consultthedead.com
 
 ---
 
@@ -145,6 +161,14 @@ Edward
 
 ---
 
+You're receiving this because your recent writing or social presence signals a live strategic decision. If you'd prefer not to receive future messages like this, reply with "unsubscribe" and I'll remove you immediately.
+
+Edward Yen  
+Consult The Dead  
+https://consultthedead.com
+
+---
+
 ## Which variant to send to whom
 
 **Recommended split for the initial 30:**
@@ -174,9 +198,58 @@ Edward
 
 Subject: re: {{original_subject}}
 
-Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 free sessions, no signup.
+Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 agons/day, no signup.
 
 Edward
+
+---
+
+## CAN-SPAM & Bounce Compliance
+
+### Opt-Out Footer (required by CAN-SPAM — add to ALL variants)
+
+Append the following footer to every email sent:
+
+```
+---
+
+You're receiving this because your recent writing or social presence signals a live strategic decision. 
+If you'd prefer not to receive future messages like this, reply with "unsubscribe" and I'll remove you immediately.
+
+Edward Yen
+Consult The Dead
+https://consultthedead.com
+```
+
+**Why this footer:**
+- CAN-SPAM requires commercial emails to include a clear opt-out mechanism
+- This is B2B founder-to-founder outreach, not marketing spam, but compliance matters
+- The footer tone matches the "founder-to-founder" voice rather than corporate unsubscribe language
+- Any reply to "unsubscribe" should trigger immediate removal from the send list
+
+### Bounce Handling & Suppression
+
+**Immediate actions on any bounce:**
+
+1. **Hard bounces** (550 / 5xx errors — invalid address)
+   - Remove immediately from the send list
+   - Update the Email Verification Log in docs/phase0-target-list.md with status `bounced`
+   - Do NOT retry; address is permanently invalid
+
+2. **Soft bounces** (421 / 4xx errors — temporary delivery issue)
+   - Retry once after 24 hours
+   - If second attempt bounces, treat as hard bounce and suppress
+
+3. **Bounce log & tracking**
+   - Record bounce status in output/marketing-notes.md under "Wave X Tracking"
+   - Use format: `[BOUNCE] {{name}} ({{email}}) — {{bounce_type}} — {{error_code}}`
+   - Update the task status as bounces come in
+
+**Suppression list management:**
+
+- Maintain a running suppression list (hard bounces + unsubscribe requests) in output/suppression_list.txt
+- Before each subsequent wave, cross-check all new recipients against the suppression list
+- Suppress automatically: hard bounces, unsubscribe requests, replies indicating "not interested" or "stop emailing"
 
 ---
 
@@ -188,3 +261,4 @@ Edward
 - **The link:** Goes to consultthedead.com/debates/<slug> — needs to be built as static pages before sending.
 - **Tone:** Founder-to-founder. No "we" or "our team." Just Edward.
 - **Follow-up:** 2 touches max. The sequence respects their inbox. If they don't reply after 3 emails total, they're done.
+- **Compliance:** Every email MUST include the opt-out footer above. Bounce handling guidance is in the "CAN-SPAM & Bounce Compliance" section above.

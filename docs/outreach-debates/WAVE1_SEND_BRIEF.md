@@ -157,7 +157,7 @@ Follow-up 1 body:
 > Edward
 
 Follow-up 2 body:
-> Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 free sessions, no signup.
+> Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 agons/day, no signup.
 >
 > Edward
 

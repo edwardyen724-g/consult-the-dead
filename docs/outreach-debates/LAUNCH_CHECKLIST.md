@@ -95,7 +95,7 @@ Verify the email copy and linked pages match current live pricing before sending
 
 - [ ] Free tier: 3 agons/day, no signup — still accurate
 - [ ] Pro tier: $30/mo or $25/mo annual ($300/yr) — still accurate
-- [ ] The "3 free sessions, no signup" line in Variant C follow-up (Day 9) matches free tier
+- [ ] The "3 agons/day, no signup" line in Variant C follow-up (Day 9) matches free tier
 - [ ] The "I'll run it for free" offer in Variants A and B is intentional (it's a conversion hook, not a product promise — confirm Edward is comfortable running a live debate on reply)
 - [ ] The Agora URL in all email variants is `consultthedead.com/agora` (not `/agon`, not `/debates`)
 
@@ -221,7 +221,7 @@ Body:
 Subject: `re: {{original_subject}}`
 
 Body:
-> Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 free sessions, no signup.
+> Last note — if the timing's off, no worries. The tool is at consultthedead.com/agora if you ever want to run a decision through it yourself. 3 agons/day, no signup.
 > 
 > Edward
 
