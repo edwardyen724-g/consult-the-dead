@@ -55,7 +55,11 @@ The shipped website already uses the Reading Room system across the core surface
 - a Reading Room / Late Study theme toggle in the header
 - a framed `/agora` entry layer that introduces the council flow before the live app state begins
 - a public `/agora/a/[id]` share surface that already exists as a shipped product surface, including the transcript-link copy button
-- a pricing page that already carries a stats bar and a scenario-based social-proof strip
+- a tightened share CTA strip on the Agora result surface (commit `ef96ee1a`, master, 2026-05-12)
+- an email capture modal (`data-testid="email-capture-modal"`) shown to free users at the consensus stage (Beehiiv, shipped PR #244)
+- a quota-countdown nudge (`data-testid="quota-countdown-nudge"`) shown when a free user has exactly 1 agon remaining (PR #302)
+- a pricing page that already carries a live-seeded stats bar (`data-testid="pricing-stats"`, server-seeded from `getPricingStats()` then revalidated via `/api/stats`), a scenario-based social-proof strip (`SOCIAL_PROOF` constant — three anonymized decision topics), and a strong Pro CTA with trust badge (`data-testid="pro-cta-trust-badge"`) and UTM forwarding into the Stripe checkout (all shipped, master, 2026-05-12)
+- a `/quiz` page with locked copy and personalized routing via `buildQuizModel` and `QUIZ_ROUTE_GROUPS` — decision type maps to best-fit council pack (PR #335, master, 2026-05-12)
 - **LibraryProofStrip** (`website/src/components/LibraryProofStrip.tsx`) shipped in PR #184 and is rendered on the `/library` page below the title, showing "X minds consulted · Y saved debates" as a compact monospaced stat bar; callers own the data-loading lifecycle and pass a `LibraryProgressStats` prop
 - **Transcript share helper** (`website/src/lib/share-transcript.ts`) shipped in PR #180; `buildTranscriptShareText` formats a pull-quote excerpt with a canonical `/agora/a/[id]` URL and attribution line into a clipboard-ready share blob, capped at 280 characters to fit share previews
 - the remaining work on this layer is surface-specific polish and parity, not inventing another helper layer
@@ -70,16 +74,17 @@ That means the memo should track the live site, not the original brainstorming m
 ## Current In-Flight Surface Map
 
 1. `/quiz` and the header entry path
-   - In flight: guided-entry polish, helper-contract cleanup, and the main header promo path tracked in the active backlog (`25fe3f4a` "Harden the CTR quiz helper contract", `c7a1a059` "Promote guided quiz entry in the global header").
-   - Keep this scoped to the live decision-entry experience, not a new homepage redesign.
+   - **Shipped (PR #335, master, 2026-05-12):** Quiz routing by decision type is live. `QUIZ_ROUTE_GROUPS` maps decision categories to best-fit packs; `buildQuizModel` drives the `QuizFlow` component. Quiz page copy is locked: eyebrow "Decision clarity first", headline "Name the decision before you pick the council.", routing hint "The guided quiz narrows the room before it opens Agora." Regression tests cover both the copy and routing behaviour (commit `95a7062f`).
+   - Remaining: the `wanman/homepage-hero-decision-first` open PR includes a first-scroll demo preview on the homepage that further integrates with the quiz entry path. Until that merges, the "Not sure who to ask? →" secondary CTA on the homepage links to `/quiz` via `buildQuizEntryHref()`.
+   - Keep scoped to the live decision-entry experience, not a new homepage redesign.
 
 2. `/agora` mobile, empty, and error states
    - In flight: the remaining live-flow hardening work is in `adcba12c` ("Harden Agora mobile, empty, and error states") and the regression follow-up `0bd70ca0`.
    - This is state polish on the shipped debate flow, not a broader redesign of the route.
 
 3. Pricing preview metadata and release-note gating
+   - **Pricing page shipped (master, 2026-05-12):** The Pro CTA (`"Start 7-day Pro trial"`, amber button) is live with a trust badge (`data-testid="pro-cta-trust-badge"`) and UTM forwarding. The social-proof strip (`SOCIAL_PROOF` constant — three anonymized decision topics) and live stats row (`data-testid="pricing-stats"`) are all on master. Pricing proof is cleanly separated from testimonial placeholders per the guardrail.
    - In flight: `bb399f47` ("Re-verify pricing preview metadata before publishing the release note") blocks the release-note follow-ups `b1c60e21`, `b58f3321`, `a15f6e3f`, and `5abe8ca0`.
-   - The page itself is already shipped; the open work is metadata correctness and the operator/docs handoff around that preview-image publish.
    - Guardrail: keep release-state lanes like preview metadata and the linked release-note work in the release-state bucket, not in the active visual-gap narrative.
 
 4. Public-share regression work
@@ -97,7 +102,7 @@ That means the memo should track the live site, not the original brainstorming m
 
 ## Ranked Next-Batch Candidates
 
-1. **Finish the quiz/header lane without turning it back into a hero redesign.** The active backlog already owns the live decision-entry path; keep the work anchored to `25fe3f4a` and `c7a1a059`.
+1. **Merge the homepage hero open PR.** `wanman/homepage-hero-decision-first` ships the deeper decision-first headline ("Make the call. History argues first.") and a first-scroll consensus excerpt blockquote. It builds on the already-merged quiz routing work. Once merged, homepage CTR and bounce rate become the primary leading signals for the decision-first copy hypothesis.
 2. **Close the Agora mobile-state hardening pass.** `adcba12c` and `0bd70ca0` are the right place to finish the remaining empty/error/mobile polish on the shipped route.
 3. **Unblock the pricing preview metadata gate.** `bb399f47` is the dependency; the release-note and operator-index follow-ups should stay behind it.
 4. **Keep public-share metadata from drifting.** `4f4bf881` and `5de76e09` are the high-value regressions here because they protect the shipped share surface without re-opening the visual system.
@@ -134,8 +139,8 @@ Auth surfaces such as `/sign-in` and `/sign-up` are Clerk-managed, so they shoul
 
 ## Remaining Redesign Gaps That Still Matter
 
-1. **Homepage hierarchy is already closed**
-   The hero and first-scroll structure are already in a live pass, so the remaining attention should stay on the quiz/header work rather than starting a new homepage redesign.
+1. **Homepage hero — partially shipped, open PR for deeper variant**
+   The current master ships "You have a decision. / History has a council." (decision-first framing, PR #335 era). A deeper variant with a first-scroll consensus excerpt blockquote is on `wanman/homepage-hero-decision-first`. The remaining attention should be on merging that PR rather than opening a new homepage redesign. Secondary CTA ("Not sure who to ask? →") already routes to the quiz via `buildQuizEntryHref()`. Both hero CTA and footer CTA point to `/agora` with `utm_campaign=homepage_hero&utm_content=ask_your_question`.
 
 2. **Interactive Agora states still need ceremony, not a new route**
    The remaining `/agora` work is mobile, empty, and error-state polish. It should feel more editorial and less functional, but the route itself is already shipped.

@@ -57,32 +57,36 @@ so future analytics sources can swap in without touching the page JSX.
 
 ## Prioritized Experiments
 
-| Priority | Experiment | Surface | Why now | Expected lift | Effort |
+| Priority | Experiment | Surface | Why now | Expected lift | Status |
 |---|---|---|---|---|---|
-| 1 | Curiosity-gap hero rewrite | Homepage hero | This is the highest-exposure surface and already exists; the fastest win is tighter copy, not a new layout. | Lower bounce, higher CTA clickthrough | Small |
-| 2 | Quiz-driven personalization | Homepage + `/quiz` | The quiz route already exists, so we can route users into a relevant pack or featured mind instead of sending everyone to the same generic entry point. | Higher CTR and better first-session relevance | Small to medium |
-| 3 | Move the streaming demo earlier | Homepage | The demo is already shipped; the work is to make it more visually dominant and faster to start so it earns attention before the first scroll. | Better engagement and more time on page | Small |
-| 4 | Pricing-page proof without fake testimonials | `/pricing` | The pricing copy still needs real social proof discipline. Until there are approved customer quotes, the page should rely on shipped-product proof and concrete feature framing. | Higher trust, fewer credibility leaks | Small |
-| 5 | Loss-aversion / quota reminders | `/pricing`, `/debates`, and `/agora` | The free cap and Pro trial already exist, and the public debate archive gives outreach a gift surface that can feed the pricing proof surface before the final `/agora` CTA. A careful reminder system can make the upgrade trigger feel obvious without inventing new pricing complexity. | Better free-to-paid conversion | Medium |
+| 1 | Decision-first hero rewrite | Homepage hero | **Shipped (master, 2026-05-12).** The generic mystical headline was replaced with "You have a decision. / History has a council." — a visceral decision-first headline (≤10 words) framed around the user's decision rather than the product. Primary CTA goes to `/agora` with UTM attribution. A deeper variant ("Make the call. History argues first.") with first-scroll demo consensus preview is on `wanman/homepage-hero-decision-first`, open PR. Monitor: homepage CTA clickthrough rate and bounce rate vs. prior baseline. | Lower bounce, higher CTA clickthrough | Shipped (partial — see notes) |
+| 2 | Quiz-driven personalization | Homepage + `/quiz` | **Shipped (PR #335, master, 2026-05-12).** `buildQuizModel` and `QUIZ_ROUTE_GROUPS` route users to a best-fit council based on decision type. The quiz page copy is locked: "Name the decision before you pick the council." with routing hint "The guided quiz narrows the room before it opens Agora." Monitor: quiz start rate from homepage, quiz completion rate, and first-agon conversion rate by quiz-vs-direct entry. | Higher CTR and better first-session relevance | Shipped |
+| 3 | Move the streaming demo earlier | Homepage | **Shipped (master).** The `StreamingDemo` section is surfaced above the pack cards behind a `data-testid="streaming-demo-section"` marker, so it earns attention before the first scroll. The deeper first-viewport demo preview (consensus excerpt blockquote) is on the `wanman/homepage-hero-decision-first` branch and not yet on master. | Better engagement and more time on page | Shipped (partial — deeper preview in open PR) |
+| 4 | Pricing-page proof without fake testimonials | `/pricing` | **Shipped (master, 2026-05-12).** The `SOCIAL_PROOF` constant holds three anonymized debate topics with council composition. The live stats row (`data-testid="pricing-stats"`) seeds from `getPricingStats()` server-side and revalidates from `/api/stats` on the client. The Pro CTA is a prominent amber button with trust badge (`data-testid="pro-cta-trust-badge"`). UTM params are forwarded from the page URL into the Stripe checkout call. No testimonial placeholders or founder blurbs — proof is limited to the stats row and scenario cards. | Higher trust, fewer credibility leaks | Shipped |
+| 5 | Loss-aversion / quota reminders | `/agora` | **Shipped (PR #302, master).** A quota-countdown nudge (`data-testid="quota-countdown-nudge"`) appears when a free user has exactly 1 agon remaining. An email-capture modal (`data-testid="email-capture-modal"`) is shown to free users at the consensus stage to capture Beehiiv subscribers before the upgrade prompt. Monitor: free-to-Pro upgrade rate at and after quota hit; email capture submit rate vs. skip rate. | Better free-to-paid conversion | Shipped |
 | 6 | Collection feedback — **implemented (monitoring)** | `/library` | Shipped as `LibraryProofStrip` (PR #184): renders "X minds consulted · Y saved debates" below the `/library` title as a compact monospaced stat bar. The hypothesis that showing cumulative progress increases return visits and shareability is now live; watch library return-visit rate and save-to-share conversion. | Higher return visits and shareability | Shipped |
+| 7 | Agora share CTA strip | `/agora` | **Shipped (commit `ef96ee1a`, master, 2026-05-12).** The share CTA strip on the Agora result surface is tightened to component-only scope. `buildTranscriptShareText` formats a pull-quote excerpt with the canonical `/agora/a/[id]` URL. Monitor: share-blob click rate on the `/agora/a/[id]` public share surface. | Higher shareability and viral loop | Shipped |
 
-## Recommended Next Batch
+## Shipped Batch Summary (as of 2026-05-12)
 
-Ship these first:
+These have all landed:
 
-1. Hero copy variants that are more specific about the decision being solved.
-2. Quiz routing that selects a matching pack or featured mind.
-3. Demo prominence and start-time work so it is visible within the first screen.
-4. Pricing page cleanup that removes any placeholder social proof and keeps the proof story tied to live product behavior.
+1. **Homepage hero decision-first copy** — "You have a decision. / History has a council." on master. A deeper variant with first-scroll consensus preview is on an open PR (`wanman/homepage-hero-decision-first`).
+2. **Quiz routing by decision type** — PR #335 merged. `buildQuizModel` and `QUIZ_ROUTE_GROUPS` deliver personalized council recommendations.
+3. **Demo elevated above pack cards** — `StreamingDemo` moved above the fold on master.
+4. **Pricing proof strip** — Live stats row seeded server-side + three anonymized scenario cards + Pro CTA with UTM forwarding. No fake testimonials.
+5. **Quota countdown nudge** — PR #302 merged. Shown when free user has 1 agon left.
+6. **Email capture at consensus stage** — Beehiiv capture modal for free users at synthesis (`data-testid="email-capture-modal"`).
+7. **Agora share CTA strip** — Tightened in commit `ef96ee1a`.
 
 ## Metrics To Watch
 
-- Homepage CTA clickthrough
-- Bounce rate on `/`
-- Quiz start rate and quiz completion rate
-- Pricing page conversion to checkout
-- Free-to-Pro upgrade rate after cap hit
-- Demo interaction rate
+- Homepage CTA clickthrough (hero → `/agora` direct; hero → `/quiz` guided entry)
+- Bounce rate on `/` vs. prior baseline (baseline: pre-2026-05-12 generic headline)
+- Quiz start rate from homepage; quiz completion rate; quiz-vs-direct first-agon conversion delta
+- Pricing page conversion to checkout; UTM attribution completeness (utm_campaign + utm_content forwarded to Stripe)
+- Free-to-Pro upgrade rate at quota hit; email capture submit rate vs. skip rate at consensus stage
+- Demo interaction rate (streaming demo autoplay and user engagement)
 - Library return-visit rate (Pro users with ≥1 saved debate)
 - Share-blob click rate on the `/agora/a/[id]` share CTA
 
