@@ -369,6 +369,58 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "You're staring at your pricing page wondering if you're leaving money on the table — or about to lose every deal. History's most successful builders had a precise answer. It's not what most pricing guides tell you.",
     publishedAt: "2026-05-11",
   },
+  {
+    slug: "what-would-marcus-aurelius-say-about-imposter-syndrome",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "What Marcus Aurelius Would Say About Imposter Syndrome",
+    description:
+      "The most powerful man in the ancient world wrote privately about feeling unworthy of his role. His framework for dealing with imposter syndrome is more demanding — and more useful — than most modern advice.",
+    targetKeywords: [
+      "imposter syndrome advice",
+      "marcus aurelius imposter syndrome",
+      "stoic approach to self-doubt",
+      "dealing with imposter syndrome at work",
+      "what would marcus aurelius say",
+    ],
+    decisionType: "self-doubt",
+    hookQuestion:
+      "You've been promoted, funded, or trusted with something big. Now you're sure everyone is about to realize you don't belong here. The most powerful man in the Roman Empire felt this way too — and left a 20-year record of how he dealt with it.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The question is not whether you deserve your position. The question is whether you are performing your duties with integrity today. Worthiness is not a credential — it is a continuous action.",
+      },
+      {
+        speaker: "Seneca",
+        text: "The dread of being exposed is itself the exposure. Those who act despite their uncertainty are indistinguishable from those who feel none.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "What is not in your control: whether others judge you adequate. What is in your control: the quality of the work you do right now.",
+      },
+    ],
+  },
+  {
+    slug: "first-principles-thinking-the-honest-version",
+    type: "single",
+    frameworkSlug: "marie-curie",
+    title: "First Principles Thinking: The Honest Version",
+    description:
+      "Everyone says 'reason from first principles.' Almost no one explains what a first principle actually is, how to find one, or why the method fails when you apply it to unfamiliar domains. Here is the version they don't teach in startup podcasts.",
+    targetKeywords: [
+      "first principles thinking",
+      "what is first principles thinking",
+      "first principles reasoning",
+      "first principles vs analogy thinking",
+      "how to think from first principles",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "You've been told to 'reason from first principles.' But what is a first principle? How do you know when you've found one? And why does this method work for physics and engineering but fail spectacularly for social, political, and human decisions?",
+    publishedAt: "2026-05-12",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -591,6 +643,34 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "cost-architecture",
       constructIndex: 1,
+    },
+  ],
+  "what-would-marcus-aurelius-say-about-imposter-syndrome": [
+    {
+      label: "Duty over identity",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "everyone is about to realize",
+      constructIndex: 0,
+    },
+    {
+      label: "Pre-commitment vs. real-time judgment",
+      source: (entry) => entry.description,
+      excerpt: "unworthy of his role",
+      constructIndex: 1,
+    },
+  ],
+  "first-principles-thinking-the-honest-version": [
+    {
+      label: "Challenge existing theory",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "first principle",
+      constructIndex: 2,
+    },
+    {
+      label: "Reasoning vs. constraint",
+      source: (entry) => entry.description,
+      excerpt: "unfamiliar domains",
+      constructIndex: 0,
     },
   ],
 };

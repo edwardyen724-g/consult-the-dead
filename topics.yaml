@@ -190,7 +190,8 @@
     - "Sun Tzu economics"
   recommended_council: [sun-tzu]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-machiavelli-say-about-firing-someone-you-respect
   type: insight
@@ -201,7 +202,8 @@
     - "how would Machiavelli handle conflict"
   recommended_council: [niccolo-machiavelli]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-marie-curie-say-about-when-to-trust-the-data
   type: insight
@@ -267,7 +269,8 @@
     - "stoicism for founders"
   recommended_council: [marcus-aurelius]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 # ─────────────────────────────────────────────────────────────────────
 # Type "method" — definitive long-form on real frameworks (CDM, Toulmin, OODA, Cynefin).
@@ -286,7 +289,7 @@
   status: queued
 
 - slug: first-principles-thinking-the-honest-version
-  type: method
+  type: article
   search_volume_estimate: high
   primary_query: "first principles thinking"
   secondary_queries:
@@ -294,7 +297,8 @@
     - "first principles examples"
   recommended_council: []
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: the-ooda-loop-vs-the-cynefin-framework
   type: method
