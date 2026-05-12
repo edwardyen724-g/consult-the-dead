@@ -80,6 +80,38 @@ export function getShareAgonButtonLabel(input: {
 
 type SaveState = "idle" | "saving" | "saved" | "error";
 
+export type EmailCaptureState =
+  | "idle"
+  | "submitting"
+  | "done"
+  | "error"
+  | "dismissed";
+
+export interface EmailCaptureInput {
+  email: string;
+  utmSource?: string;
+}
+
+/** Pure function — testable without React */
+export function buildEmailCaptureRequestBody(input: EmailCaptureInput): {
+  email: string;
+  utmSource: string;
+} {
+  return {
+    email: input.email.trim().toLowerCase(),
+    utmSource: input.utmSource ?? "agora",
+  };
+}
+
+/** Pure function — testable without React */
+export function getEmailCaptureButtonLabel(
+  captureState: EmailCaptureState,
+): string {
+  if (captureState === "submitting") return "Subscribing…";
+  if (captureState === "done") return "Subscribed ✓";
+  return "Subscribe";
+}
+
 export function ShareAgonPanel({
   agon,
   existingShareId = null,
@@ -92,6 +124,8 @@ export function ShareAgonPanel({
   );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [captureState, setCaptureState] = useState<EmailCaptureState>("idle");
+  const [captureEmail, setCaptureEmail] = useState("");
 
   // Derive the share URL + native-share payload from the (possibly null)
   // share id. Memoised so the buttons don't rebuild on every keystroke.
@@ -339,6 +373,137 @@ export function ShareAgonPanel({
           Saves the agon and copies the public link. On mobile, opens the
           system share sheet.
         </p>
+      )}
+
+      {/* Email capture nudge — shown after a successful share */}
+      {saveState === "saved" && (
+        <div data-testid="email-capture">
+          {captureState === "done" ? (
+            <p
+              className="font-mono"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                color: "var(--fg-faint)",
+                margin: 0,
+              }}
+            >
+              You&apos;re on the list.
+            </p>
+          ) : captureState !== "dismissed" ? (
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+            >
+              <label
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontStyle: "italic",
+                  fontSize: "13px",
+                  color: "var(--fg-dim)",
+                }}
+              >
+                Get the weekly council dispatch
+              </label>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!captureEmail.trim()) return;
+                  setCaptureState("submitting");
+                  fetch("/api/emails/subscribe", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(
+                      buildEmailCaptureRequestBody({ email: captureEmail }),
+                    ),
+                  })
+                    .then((res) => {
+                      if (res.ok) {
+                        setCaptureState("done");
+                      } else {
+                        setCaptureState("error");
+                      }
+                    })
+                    .catch(() => {
+                      setCaptureState("error");
+                    });
+                }}
+                style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}
+              >
+                <input
+                  type="email"
+                  data-testid="email-capture-input"
+                  aria-label="Email address"
+                  placeholder="you@example.com"
+                  value={captureEmail}
+                  onChange={(e) => setCaptureEmail(e.currentTarget.value)}
+                  style={{
+                    flex: 1,
+                    minWidth: "160px",
+                    border: "1px solid var(--hairline)",
+                    borderRadius: "4px",
+                    background: "var(--surface)",
+                    color: "var(--fg)",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "12px",
+                    padding: "8px 12px",
+                    outline: "none",
+                  }}
+                />
+                <button
+                  type="submit"
+                  data-testid="email-capture-submit"
+                  disabled={captureState === "submitting"}
+                  className="font-mono"
+                  style={{
+                    background: "var(--amber)",
+                    color: "var(--bg)",
+                    border: "1px solid var(--amber)",
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    padding: "8px 20px",
+                    cursor:
+                      captureState === "submitting" ? "not-allowed" : "pointer",
+                    transition: "all 200ms ease-out",
+                  }}
+                >
+                  {getEmailCaptureButtonLabel(captureState)}
+                </button>
+              </form>
+              <button
+                type="button"
+                onClick={() => setCaptureState("dismissed")}
+                className="font-mono"
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: "var(--fg-faint)",
+                  fontSize: "11px",
+                  letterSpacing: "0.06em",
+                  cursor: "pointer",
+                  padding: "0",
+                  textAlign: "left",
+                }}
+              >
+                No thanks
+              </button>
+              {captureState === "error" && (
+                <p
+                  role="alert"
+                  className="font-mono"
+                  style={{
+                    fontSize: "11px",
+                    color: "var(--red)",
+                    margin: 0,
+                  }}
+                >
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </div>
+          ) : null}
+        </div>
       )}
     </div>
   );
