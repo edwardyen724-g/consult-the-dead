@@ -262,6 +262,99 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "shutdown versus pivot startup",
     ],
   },
+  {
+    slug: "should-i-form-an-llc-or-delaware-c-corp",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Form an LLC or Delaware C-Corp?",
+    description:
+      "Your legal structure is not administrative paperwork — it is a power decision that shapes who can invest, how equity works, and what your exit options look like. LLC and C-Corp are not two versions of the same thing with different names.",
+    primaryQuery: "Should I form an LLC or Delaware C-Corp?",
+    secondaryQueries: [
+      "LLC vs Delaware C-Corp for startups",
+      "when to incorporate as a C-Corp",
+      "LLC vs C-Corp tax differences",
+      "can investors invest in an LLC",
+      "Delaware C-Corp benefits for startups",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Legal structure is not a formality. It is the first decision that determines who can join you, on what terms, and how much of your future you have already given away. Which structure protects your optionality?",
+    targetKeywords: [
+      "should I form an LLC or Delaware C-Corp",
+      "LLC vs C-Corp for startups",
+      "Delaware C-Corp benefits",
+      "when to incorporate as C-Corp",
+      "LLC or C-Corp for funding",
+      "startup legal structure decision",
+    ],
+  },
+  {
+    slug: "should-i-take-the-money-or-the-equity",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Take the Money or the Equity?",
+    description:
+      "When you're offered a choice between cash compensation and ownership stake, you're really being asked how much you believe in the upside and how much risk you can absorb today. The right answer depends on conviction, runway, and what kind of bet you're actually making.",
+    primaryQuery: "Should I take the money or the equity?",
+    secondaryQueries: [
+      "cash vs equity compensation startup",
+      "should I take lower salary for equity",
+      "how to value startup equity offer",
+      "is equity worth more than salary",
+      "salary vs stock options startup job",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Cash is certain; equity is a bet. The question is not which is worth more on paper — it is whether you have the conviction and the runway to make the bet worthwhile.",
+    targetKeywords: [
+      "should I take money or equity",
+      "cash vs equity startup compensation",
+      "how to value equity offer",
+      "salary vs equity tradeoff",
+      "is startup equity worth it",
+      "take lower salary for equity",
+    ],
+  },
+  {
+    slug: "should-i-pivot-to-ai-or-double-down-on-domain",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Pivot to AI or Double Down on My Domain?",
+    description:
+      "When a technology wave arrives, every founder faces pressure to pivot toward it. The question is whether AI is a genuine platform shift that changes what is possible in your domain, or whether chasing the trend means abandoning the competitive advantage you have already built.",
+    primaryQuery: "Should I pivot to AI or double down on my domain?",
+    secondaryQueries: [
+      "should my startup add AI features",
+      "when to pivot to AI",
+      "is AI a distraction for my business",
+      "how to know if AI is relevant to my startup",
+      "pivot to AI vs stay focused",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "marie-curie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Every technology wave creates winners who focused and winners who pivoted. The question is not whether AI is real — it is whether it changes the fundamentals of what makes you competitive, or just the language you use to describe it.",
+    targetKeywords: [
+      "should I pivot to AI",
+      "AI pivot startup decision",
+      "when to add AI to your product",
+      "AI vs domain expertise startup",
+      "technology pivot decision",
+      "double down or pivot to AI",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
