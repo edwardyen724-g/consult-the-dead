@@ -10,6 +10,12 @@ _(none)_
 
 ## Promoted
 
+- `2026-05-12` - [Decisions Five-Page Expansion](2026-05-12-decisions-expansion.md) — PR #292
+  - Five new decisions pages: fire-my-cofounder, pivot-or-persist, take-this-job-offer, sell-my-startup, shut-down-my-startup
+  - Decisions library now 12 pages total (7 pre-existing + 5 new)
+  - Each page targets high-intent founder search queries
+  - Route regression test added; branch coverage ≥98.2%
+
 - `2026-05-11` - [Onboarding Friction Fixes](2026-05-11-onboarding-friction-fixes.md) — PR #115
   - Multi-pack accordion: opens every pack with a smart-suggested mind on first render
   - 4th-mind cap upsell: amber inline banner when a free user taps a 4th mind
