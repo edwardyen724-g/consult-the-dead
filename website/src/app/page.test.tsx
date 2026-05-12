@@ -214,3 +214,79 @@ describe("HomePage — footer CTA element", () => {
     expect(footerCta!.props!.href).toBe(HOME_HERO_CTA_HREF);
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────────
+//  CTR experiment 3 — streaming demo surfaced above packs (task 96b05e8e)
+//
+//  Contract:
+//  - The streaming-demo-section renders on the homepage.
+//  - The streaming-demo-section appears BEFORE the packs-section in the
+//    rendered HTML — i.e. visible on first scroll, not buried below the fold.
+//  - The StreamingDemo is wrapped in a min-height container to prevent CLS
+//    during client hydration (INITIAL_STATE → client update).
+// ──────────────────────────────────────────────────────────────────────────
+
+describe("HomePage — streaming demo section (CTR experiment 3)", () => {
+  it("renders a section with data-testid='streaming-demo-section'", () => {
+    const tree = HomePage();
+    const demoSection = findByTestId(tree, "streaming-demo-section");
+    expect(demoSection).not.toBeNull();
+  });
+
+  it("renders a section with data-testid='packs-section'", () => {
+    const tree = HomePage();
+    const packsSection = findByTestId(tree, "packs-section");
+    expect(packsSection).not.toBeNull();
+  });
+
+  it("streaming-demo-section appears before packs-section in rendered HTML", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const demoPos = html.indexOf('data-testid="streaming-demo-section"');
+    const packsPos = html.indexOf('data-testid="packs-section"');
+    // Both must be present
+    expect(demoPos).toBeGreaterThan(-1);
+    expect(packsPos).toBeGreaterThan(-1);
+    // Demo must appear first
+    expect(demoPos).toBeLessThan(packsPos);
+  });
+
+  it("streaming-demo-section appears immediately after the hero section (no intervening named sections)", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const demoPos = html.indexOf('data-testid="streaming-demo-section"');
+    const packsPos = html.indexOf('data-testid="packs-section"');
+    // Nothing between demo and packs should contain another testid
+    const between = html.slice(demoPos, packsPos);
+    // No other data-testid anchors should appear in between
+    const otherSectionIds = ["hero-cta", "footer-cta"].filter(
+      (id) => !["streaming-demo-section"].includes(id)
+    );
+    // hero-cta is BEFORE the demo section, so it must NOT appear between demo and packs
+    expect(between).not.toContain('data-testid="hero-cta"');
+    expect(between).not.toContain('data-testid="footer-cta"');
+  });
+
+  it("demo section has a min-height wrapper to prevent CLS on hydration", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    // The min-height div wrapping StreamingDemo must be present in the demo section
+    const demoSectionStart = html.indexOf('data-testid="streaming-demo-section"');
+    const packsSectionStart = html.indexOf('data-testid="packs-section"');
+    const demoSectionHtml = html.slice(demoSectionStart, packsSectionStart);
+    expect(demoSectionHtml).toContain("min-height");
+  });
+
+  it("renders the 'See it run' heading inside the demo section", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const demoSectionStart = html.indexOf('data-testid="streaming-demo-section"');
+    const packsSectionStart = html.indexOf('data-testid="packs-section"');
+    const demoSectionHtml = html.slice(demoSectionStart, packsSectionStart);
+    expect(demoSectionHtml).toContain("See it run");
+  });
+
+  it("renders the 'Worked example' label inside the demo section", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    const demoSectionStart = html.indexOf('data-testid="streaming-demo-section"');
+    const packsSectionStart = html.indexOf('data-testid="packs-section"');
+    const demoSectionHtml = html.slice(demoSectionStart, packsSectionStart);
+    expect(demoSectionHtml).toContain("Worked example");
+  });
+});

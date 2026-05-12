@@ -1,3 +1,205 @@
+# Change Summary
+
+Task: `59106ea8-1ff5-4357-84d6-aea9898c4941`
+Branch: `wanman/sync-quiz-routing-matrix`
+Capsule: `94fbed29-74eb-42d9-b3bd-6169208ac25f`
+
+## Files Changed
+
+- `website/src/app/quiz/page.tsx`
+- `website/src/app/quiz/QuizFlow.tsx`
+- `website/src/app/quiz/quiz-routing.ts`
+- `website/src/app/quiz/quiz-routing.test.ts`
+
+## What Changed
+
+- Split the quiz into a server page wrapper plus a client interaction component.
+- Built the quiz model from the live framework catalog passed in from `getAllFrameworks()`.
+- Replaced the hardcoded mind-name/domain maps with catalog-derived data.
+- Added a pure routing helper that scores frameworks from their live catalog metadata instead of hardcoded slugs.
+- Added vitest coverage for:
+  - catalog-derived mind labels/domains
+  - routing decisions based on catalog keywords
+  - never emitting slugs that are absent from the supplied catalog
+
+## Verification
+
+- `pnpm exec vitest run src/app/quiz/quiz-routing.test.ts`
+- `pnpm lint`
+- `pnpm build`
+- `pnpm test`
+
+## Results
+
+- Vitest: passed
+- Lint: passed with pre-existing warnings outside this task
+- Build: passed
+
+# 2026-05-12 Insights Phase 1 launch trio
+
+## Files Changed
+- `website/src/lib/insights.ts`
+- `website/src/app/insights/page.test.tsx`
+
+## What Changed
+- Added the first three Phase 1 insight pages from `topics.yaml` to the public insights index:
+  - `what-would-marcus-aurelius-say-about-burnout`
+  - `what-would-sun-tzu-say-about-tariffs-and-trade-wars`
+  - `what-would-machiavelli-say-about-firing-someone-you-respect`
+- Added matching annotation blueprints so the detail-page annotation layer stays covered for the new published entries.
+- Extended the insights index test suite to render the new launch trio and to exercise the real helper paths for single and collision insight entries.
+
+## Verification
+- `cd website && ./node_modules/.bin/vitest run 'src/app/insights/page.test.tsx' 'src/app/insights/[slug]/page.test.tsx' 'src/app/insights/[slug]/annotation-layer.test.ts'`
+- `cd website && ./node_modules/.bin/vitest run --coverage --coverage.include=src/lib/insights.ts 'src/app/insights/page.test.tsx' 'src/app/insights/[slug]/annotation-layer.test.ts'`
+
+## Results
+- Focused insights suite: `3 passed`, `54 tests passed`
+- Coverage for `website/src/lib/insights.ts`: `100%` lines, `100%` statements, `100%` functions, `95.23%` branches
+
+# 2026-05-12 PR #266 branch refresh for strict protection
+
+## Task
+- Nudge PR #266 after the merge attempt hit stale branch-protection state.
+
+## Result
+- Updated `wanman/outreach-wave1-send-brief` onto the current `master` using `gh pr update-branch`.
+- The refreshed head is `0f9f00979bc9a1792aeb815d3204daf7919a36c0`.
+- Required CI checks are green on the refreshed head:
+  - `CI / Framework Citation Guardrail`
+  - `CI / Lint`
+  - `CI / Test`
+  - `CI / Build`
+- GitHub still reports `mergeStateStatus: UNSTABLE` because the non-required `Vercel` status context is failing with `build-rate-limit`.
+
+## Evidence
+- PR: `https://github.com/edwardyen724-g/consult-the-dead/pull/266`
+- Updated branch run: `https://github.com/edwardyen724-g/consult-the-dead/actions/runs/25721105774`
+
+# 2026-05-12 PR #268 branch-coverage proof collected
+
+## Task
+- `7eac101d-3193-4c6b-aeb7-85e0df7538ea` - Collect branch-coverage proof or formal exception for PR #268
+
+## Result
+- PR #268 already has the required branch-coverage proof attached in review comments.
+- The proof documents the measured include-list update in `website/vitest.config.ts` and records branch coverage for the touched files:
+  - `src/app/pricing/page.tsx`: `42/42` branches, `100%`
+  - `src/lib/pricing/stats.ts`: `22/22` branches, `100%`
+  - Overall `npm run coverage`: `98.46%` branch coverage
+- No formal exception was needed.
+
+## Evidence
+- PR comment: `https://github.com/edwardyen724-g/consult-the-dead/pull/268#issuecomment-4428375527`
+- Related PR body: `https://github.com/edwardyen724-g/consult-the-dead/pull/268`
+
+# 2026-05-12 Rebase PR #227 publication-system convergence
+
+## Files Changed
+- `website/src/app/library/page.tsx`
+- `website/src/app/library/page.test.tsx`
+
+## What Changed
+- Rebased `wanman/publication-system-convergence` onto `origin/master`.
+- Resolved the library page and test conflicts by keeping the publication-system shell changes and preserving the newer library upsell assertions.
+- Kept the resolved coverage anchored to the library surface without expanding scope beyond the rebase.
+
+## Verification
+- `wcx pnpm --dir /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/website coverage -- src/app/library/page.test.tsx`
+
+## Results
+- Targeted library coverage run passed: `134` test files, `1756` tests, `99.42%` statements, `98.16%` branches, `100%` functions, `99.79%` lines overall
+
+# 2026-05-11 Fix library publication-section contract regression
+
+## Files Changed
+- `website/src/app/library/page.tsx`
+- `website/src/app/library/page.test.tsx`
+
+## What Changed
+- Added a real CTA child to the upsell `PublicationSection` on the library page so it satisfies the component contract and no longer renders the section header without children.
+- Kept the CTA aligned with the existing free-user upgrade path by linking to `/pricing`.
+- Extended the library regression coverage so both upsell branches assert the pricing CTA is present.
+
+## Verification
+- `pnpm --dir website coverage -- src/app/library/page.test.tsx`
+- `pnpm --dir website exec eslint src/app/library/page.tsx src/app/library/page.test.tsx`
+- `pnpm --dir website build`
+
+## Results
+- Library coverage slice: `118` test files, `1420` tests, `99.33%` statements, `97.94%` branches, `100%` functions, `100%` lines overall
+- ESLint: passed on the touched library files
+- Website build: failed in the unrelated uncommitted Agora edit at `website/src/app/agora/AgoraApp.tsx:1016` with `Cannot find name 'beginAndStartAgon'`
+
+# 2026-05-11 Converge account and library into one publication system
+
+## Files Changed
+- `website/src/app/account/page.tsx`
+- `website/src/app/account/page.test.tsx`
+- `website/src/app/library/page.tsx`
+- `website/src/app/library/page.test.tsx`
+- `website/src/app/library/publication-surface.tsx`
+
+## What Changed
+- Added a shared publication shell for account and library so both surfaces use the same eyebrow, hero, stat-strip, section-card, and footer-CTA rhythm.
+- Reworked `/account` into the new shell with aligned typography and spacing, a top-level plan/usage/api-key hierarchy, and matching footer CTAs.
+- Reworked `/library` into the same shell with aligned header stats, an upgraded free-user prompt, a consistent saved-debate section stack, and footer CTAs that mirror the account surface.
+- Kept the existing Pro library behavior, upsell nudge logic, and BYO-key/account behavior intact while changing only the presentation layer.
+- Added regression coverage for the new account shell, the library page shell, the Pro archive section, the free upgrade prompt, the redirect path, and the footer CTA placement.
+
+## Verification
+- `pnpm --dir website coverage -- src/app/account/page.test.tsx src/app/library/page.test.tsx`
+- `pnpm --dir website lint -- src/app/account/page.tsx src/app/library/page.tsx src/app/library/publication-surface.tsx src/app/account/page.test.tsx src/app/library/page.test.tsx`
+
+## Results
+- Coverage run: `118` test files, `1420` tests, `99.33%` statements, `97.94%` branches, `100%` functions, `100%` lines overall
+- ESLint: passed on the touched route and test files
+
+# 2026-05-11 Trim Agora onboarding friction
+
+## Files Changed
+- `website/src/app/agora/AgoraApp.tsx`
+- `website/src/app/agora/AgoraApp.test.tsx`
+
+## What Changed
+- Collapsed the sample-question path into a one-click start flow so borrowing a question now launches the agon immediately instead of requiring a second click.
+- Factored council seeding into a pure `resolveSeededCouncil()` helper so the quiz, pack, and fallback branches are reusable and testable.
+- Kept the custom-topic quick-start path intact while allowing topic overrides to flow through the same start function.
+- Updated the Agora landing copy and aria labels to make the reduced-friction path explicit.
+- Added regression coverage for the council resolver branches and the new one-click sample-question affordance.
+
+## Verification
+- `cd website && wcx pnpm test -- src/app/agora/AgoraApp.test.tsx`
+- `cd website && wcx pnpm coverage -- src/app/agora/AgoraApp.test.tsx`
+- `cd website && wcx pnpm exec eslint src/app/agora/AgoraApp.tsx src/app/agora/AgoraApp.test.tsx`
+
+## Results
+- Focused Agora test suite: `36 passed`
+- Coverage run: `117 test files`, `1416 tests`, `99.33%` statements, `97.94%` branches, `100%` functions, `100%` lines overall
+- ESLint: passed with pre-existing warnings in `website/src/app/agora/AgoraApp.tsx`
+
+# 2026-05-12 Insights Phase 1 launch trio
+
+## Files Changed
+- `website/src/lib/insights.ts`
+- `website/src/app/insights/page.test.tsx`
+
+## What Changed
+- Added the first three Phase 1 insight pages from `topics.yaml` to the public insights index:
+  - `what-would-marcus-aurelius-say-about-burnout`
+  - `what-would-sun-tzu-say-about-tariffs-and-trade-wars`
+  - `what-would-machiavelli-say-about-firing-someone-you-respect`
+- Added matching annotation blueprints so the detail-page annotation layer stays covered for the new published entries.
+- Extended the insights index test suite to render the new launch trio and to exercise the real helper paths for single and collision insight entries.
+
+## Verification
+- `cd website && ./node_modules/.bin/vitest run 'src/app/insights/page.test.tsx' 'src/app/insights/[slug]/page.test.tsx' 'src/app/insights/[slug]/annotation-layer.test.ts'`
+- `cd website && ./node_modules/.bin/vitest run --coverage --coverage.include=src/lib/insights.ts 'src/app/insights/page.test.tsx' 'src/app/insights/[slug]/annotation-layer.test.ts'`
+
+## Results
+- Focused insights suite: `3 passed`, `54 tests passed`
+- Coverage for `website/src/lib/insights.ts`: `100%` lines, `100%` statements, `100%` functions, `95.23%` branches
+
 # 2026-05-11 rateLimit branch coverage follow-up
 
 ## Files Changed

@@ -18,11 +18,13 @@ import type { InsightEntry } from "@/lib/insights";
 /* ── hoisted mock handles ── */
 const mocks = vi.hoisted(() => ({
   getAllFrameworks: vi.fn(),
+  getFramework: vi.fn(),
   INSIGHT_ENTRIES: [] as InsightEntry[],
 }));
 
 vi.mock("@/lib/frameworks", () => ({
   getAllFrameworks: mocks.getAllFrameworks,
+  getFramework: mocks.getFramework,
   // SLUG_COLOR_VAR is consumed by the new denser card layout
   SLUG_COLOR_VAR: {} as Record<string, string>,
 }));
@@ -110,6 +112,7 @@ describe("insights index metadata", () => {
 describe("InsightsPage — render", () => {
   beforeEach(() => {
     mocks.getAllFrameworks.mockReset();
+    mocks.getFramework.mockReset();
     mocks.INSIGHT_ENTRIES = [];
   });
 
@@ -197,6 +200,115 @@ describe("InsightsPage — render", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("/insights/curie-data-decision");
+  });
+
+  it("renders the first Phase 1 launch trio", () => {
+    const marcusFw = makeFramework("marcus-aurelius", "Marcus Aurelius");
+    const sunFw = makeFramework("sun-tzu", "Sun Tzu");
+    const machiavelliFw = makeFramework("niccolo-machiavelli", "Niccolo Machiavelli");
+    mocks.getAllFrameworks.mockReturnValue([marcusFw, sunFw, machiavelliFw]);
+    mocks.INSIGHT_ENTRIES = [
+      makeEntry(
+        "what-would-marcus-aurelius-say-about-burnout",
+        "marcus-aurelius",
+        "What Would Marcus Aurelius Say About Burnout?",
+      ),
+      makeEntry(
+        "what-would-sun-tzu-say-about-tariffs-and-trade-wars",
+        "sun-tzu",
+        "What Would Sun Tzu Say About Tariffs and Trade Wars?",
+      ),
+      makeEntry(
+        "what-would-machiavelli-say-about-firing-someone-you-respect",
+        "niccolo-machiavelli",
+        "What Would Machiavelli Say About Firing Someone You Respect?",
+      ),
+    ];
+
+    const element = InsightsPage();
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain("What Would Marcus Aurelius Say About Burnout?");
+    expect(html).toContain("What Would Sun Tzu Say About Tariffs and Trade Wars?");
+    expect(html).toContain(
+      "What Would Machiavelli Say About Firing Someone You Respect?",
+    );
+    expect(html).toContain(
+      "/insights/what-would-marcus-aurelius-say-about-burnout",
+    );
+    expect(html).toContain(
+      "/insights/what-would-sun-tzu-say-about-tariffs-and-trade-wars",
+    );
+    expect(html).toContain(
+      "/insights/what-would-machiavelli-say-about-firing-someone-you-respect",
+    );
+  });
+
+  it("resolves the Phase 1 launch trio through the real insight helpers", async () => {
+    const actualFrameworks = await vi.importActual<typeof import("@/lib/frameworks")>(
+      "@/lib/frameworks",
+    );
+    const insights = await vi.importActual<typeof import("@/lib/insights")>(
+      "@/lib/insights",
+    );
+    mocks.getFramework.mockImplementation(actualFrameworks.getFramework);
+
+    const cases = [
+      {
+        slug: "what-would-marcus-aurelius-say-about-burnout",
+        person: "Marcus Aurelius",
+        publishedAt: "2026-05-12T00:00:00.000Z",
+      },
+      {
+        slug: "what-would-sun-tzu-say-about-tariffs-and-trade-wars",
+        person: "Sun Tzu",
+        publishedAt: "2026-05-12T00:00:00.000Z",
+      },
+      {
+        slug: "what-would-machiavelli-say-about-firing-someone-you-respect",
+        person: "Niccolò Machiavelli",
+        publishedAt: "2026-05-12T00:00:00.000Z",
+      },
+    ] as const;
+
+    for (const { slug, person, publishedAt } of cases) {
+      const entry = insights.getInsightEntry(slug);
+      expect(entry).toBeDefined();
+      if (!entry) throw new Error(`Expected insight entry for ${slug}`);
+
+      expect(insights.isCollisionInsightEntry(entry)).toBe(false);
+      expect(insights.getInsightPublishedAt(entry).toISOString()).toBe(publishedAt);
+      expect(insights.getInsightUrl(slug)).toBe(
+        `https://www.consultthedead.com/insights/${slug}`,
+      );
+
+      const frameworks = insights.getInsightFrameworks(entry);
+      expect(frameworks).toHaveLength(1);
+      expect(frameworks[0]?.meta.person).toBe(person);
+    }
+
+    const collisionEntry = insights.getInsightEntry(
+      "machiavelli-vs-curie-on-pruning-a-portfolio",
+    );
+    expect(collisionEntry).toBeDefined();
+    if (!collisionEntry) {
+      throw new Error("Expected collision insight entry");
+    }
+
+    expect(insights.isCollisionInsightEntry(collisionEntry)).toBe(true);
+    expect(insights.getInsightPublishedAt(collisionEntry).toISOString()).toBe(
+      "2026-05-10T00:00:00.000Z",
+    );
+    expect(insights.getInsightUrl(collisionEntry.slug)).toBe(
+      "https://www.consultthedead.com/insights/machiavelli-vs-curie-on-pruning-a-portfolio",
+    );
+
+    const collisionFrameworks = insights.getInsightFrameworks(collisionEntry);
+    expect(collisionFrameworks).toHaveLength(2);
+    expect(collisionFrameworks.map((framework) => framework.slug)).toEqual([
+      "niccolo-machiavelli",
+      "marie-curie",
+    ]);
   });
 
   it("renders each entry description in the card", () => {
