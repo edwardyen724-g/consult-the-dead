@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import {
   buildShareAgonRequestBody,
+  buildEmailCaptureRequestBody,
+  getEmailCaptureButtonLabel,
   getShareAgonButtonLabel,
   ShareAgonPanel,
   type ShareAgonPanelProps,
@@ -171,6 +173,47 @@ describe("ShareAgonPanel", () => {
     const html = renderPanel({ disabled: true });
     expect(html).toContain("disabled");
     expect(html).toContain("aria-label=\"Share this agon\"");
+  });
+});
+
+describe("buildEmailCaptureRequestBody", () => {
+  it("normalizes email and sets default utmSource", () => {
+    expect(
+      buildEmailCaptureRequestBody({ email: "  Hello@World.COM  " }),
+    ).toEqual({ email: "hello@world.com", utmSource: "agora" });
+  });
+
+  it("respects explicit utmSource override", () => {
+    expect(
+      buildEmailCaptureRequestBody({ email: "a@b.com", utmSource: "sidebar" }),
+    ).toEqual({ email: "a@b.com", utmSource: "sidebar" });
+  });
+});
+
+describe("getEmailCaptureButtonLabel", () => {
+  it("maps captureState to correct label for idle/submitting/done", () => {
+    expect(getEmailCaptureButtonLabel("idle")).toBe("Subscribe");
+    expect(getEmailCaptureButtonLabel("submitting")).toBe("Subscribing…");
+    expect(getEmailCaptureButtonLabel("done")).toBe("Subscribed ✓");
+    expect(getEmailCaptureButtonLabel("error")).toBe("Subscribe");
+    expect(getEmailCaptureButtonLabel("dismissed")).toBe("Subscribe");
+  });
+});
+
+describe("ShareAgonPanel email capture", () => {
+  it("does not render email capture when share is not yet saved (existingShareId absent)", () => {
+    const html = renderPanel();
+    expect(html.includes("data-testid=\"email-capture\"")).toBe(false);
+    expect(html.includes("email-capture-input")).toBe(false);
+  });
+
+  it("renders the email capture form when the agon is already saved via existingShareId", () => {
+    const html = renderPanel({ existingShareId: "k7n3pqx9rt" });
+    expect(html).toContain("data-testid=\"email-capture\"");
+    expect(html).toContain("email-capture-input");
+    expect(html).toContain("email-capture-submit");
+    expect(html).toContain("Get the weekly council dispatch");
+    expect(html).toContain("No thanks");
   });
 });
 

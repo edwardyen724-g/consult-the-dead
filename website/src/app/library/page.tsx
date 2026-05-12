@@ -3,11 +3,11 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { db, type AgonRecord } from "@/lib/db/client";
 import {
-  formatLibraryProgressStats,
   getLibraryProgressStats,
   getLibraryUpsellNudge,
 } from "@/lib/library-stats";
 import { LibraryClient } from "./LibraryClient";
+import { LibraryProofStrip } from "@/components/LibraryProofStrip";
 
 /**
  * Convert slug to title case — split by `-`, capitalize each word, join with space.
@@ -262,39 +262,20 @@ export async function ProLibrary({ userId }: { userId: string }) {
   }
 
   const stats = getLibraryProgressStats(agons);
-  const progressLabels = formatLibraryProgressStats(stats);
   const upsellNudge = getLibraryUpsellNudge(stats.savedDebates);
   const consultedSlugs = getConsultedMindSlugs(agons);
 
   return (
     <>
+      {/* Live proof strip — below title, above the consultation list */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(168px, 1fr))",
-          gap: "12px",
-          padding: "14px 0 18px",
-          borderTop: "1px solid var(--hairline)",
-          borderBottom: "1px solid var(--hairline)",
           marginBottom: "28px",
+          paddingBottom: "18px",
+          borderBottom: "1px solid var(--hairline)",
         }}
       >
-        {progressLabels.map((label) => (
-          <p
-            key={label}
-            className="font-mono"
-            style={{
-              margin: 0,
-              fontSize: "10px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--fg-dim)",
-              lineHeight: 1.6,
-            }}
-          >
-            {label}
-          </p>
-        ))}
+        <LibraryProofStrip stats={stats} />
       </div>
 
       <ConsultedMindsStrip slugs={consultedSlugs} />
