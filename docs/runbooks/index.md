@@ -31,6 +31,11 @@ after deployments touching the relevant feature areas.
   - Verifies the `/frameworks/[slug]` OG/Twitter preview-image contract before
     promoting the release-state note
 
+- [Framework Forge Pipeline Smoke](framework-forge-pipeline-smoke.md)
+  - Verifies the live `python -m framework_forge.pipeline` end-to-end flow:
+    source discovery, source-text materialization, reconstruction, validation,
+    and optional floor-check persistence
+
 ## Funnel
 
 - [Funnel Surface Rollout](funnel-surface-rollout.md) — PRs #121, #125
