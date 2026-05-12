@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm run --prefix website build",
     "lint": "npm run --prefix website lint",
-    "test": "npm run --prefix website test"
+    "test": "npm run --prefix website test",
+    "verify-pricing": "npx tsx scripts/pricing-contract-verifier.ts"
   }
 }
