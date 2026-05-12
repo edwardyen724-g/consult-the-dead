@@ -1,4 +1,4 @@
-# API 429 Consumers — `resetAt` Quota Contract
+# API 429 Consumers — Quota & Retry-After Contract
 
 This document maps every API route that returns HTTP 429 and describes how each route
 participates in the shared quota/rate-limit system.  It is the reference for client
@@ -24,27 +24,30 @@ that supply a client-provided `X-Api-Key` bypass this system entirely.
 | Pro per-user | `agon:rl:pro:<userId>:<YYYY-MM>` | 100 req | Calendar month | 35 days |
 | Global free | `agon:rl:global:<YYYY-MM-DD>` | 60 req | UTC day | 36 h |
 
-**`resetAt` semantics for agon/analysis routes**
+**`resetAt` helper**
 
-The quota windows are keyed on the UTC calendar date (daily) or UTC calendar month
-(monthly).  The window end — i.e., the implicit `resetAt` — is therefore:
+`quotaResetAt(reason: RateRejectReason): number` in `rateLimit.ts` returns the Unix
+epoch (seconds, integer) when the quota window for that `reason` resets:
 
-- **Daily buckets** (free IP, free user, global): midnight UTC of the *next* calendar
-  day.  Redis keys carry a 36-hour TTL as a safety margin beyond midnight.
-- **Monthly bucket** (pro): 00:00 UTC on the first day of the *next* calendar month.
-  Redis keys carry a 35-day TTL.
+- `"ip"`, `"user"`, `"global"` → 00:00 UTC the *next* calendar day
+- `"pro"` → 00:00 UTC on the *first day of the next calendar month*
 
-The `resetAt` value is **not surfaced as a response header** on 429 responses from
-these routes today.  The remaining count is conveyed in two other places when the
-request is *allowed*:
+The `resetAt` value **is surfaced as machine-readable response headers** on every 429
+from these routes:
 
-- `X-RateLimit-Remaining` response header (generate-analysis route only, on 200
-  responses).
+| Header | Type | Value |
+|--------|------|-------|
+| `Retry-After` | integer (seconds) | Seconds until the quota window resets (`max(0, resetAt − now)`) |
+| `X-RateLimit-Reset` | integer (Unix seconds) | Absolute Unix epoch when the quota window resets |
+
+The remaining count is also conveyed in two other places when the request is *allowed*:
+
+- `X-RateLimit-Remaining: <integer>` response header (generate-analysis route only).
 - `remaining` field inside the `agon_done` / `analysis_done` SSE event.
 
-When Redis is unavailable the system falls back to an in-process `Map`; that fallback
-resets on cold start (i.e., the `resetAt` in the fallback path is effectively
-undefined from the client's perspective).
+When Redis is unavailable the system falls back to an in-process `Map`; the
+`quotaResetAt()` calculation is still correct (calendar arithmetic, not Redis state),
+so `Retry-After` and `X-RateLimit-Reset` remain accurate in the fallback path.
 
 ### Contact throttle (dual-layer: DB + in-process)
 
@@ -76,8 +79,8 @@ response body or headers** — the response body contains only a human-readable 
 
 | Route | Method | Trigger | 429 Body | Headers on 429 | `resetAt` / cadence |
 |-------|--------|---------|----------|----------------|---------------------|
-| `POST /api/agon` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json` only | Daily (UTC midnight) for free; monthly for pro — not in headers |
-| `POST /api/generate-analysis` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json` only | Daily (UTC midnight) for free; monthly for pro — not in headers |
+| `POST /api/agon` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json`, `Retry-After: <s>`, `X-RateLimit-Reset: <unix>` | Daily (UTC midnight) for free; monthly (1st UTC) for pro |
+| `POST /api/generate-analysis` | POST | Free-tier (server key) quota exceeded | `{ error: "<message>", rateLimited: true }` | `Content-Type: application/json`, `Retry-After: <s>`, `X-RateLimit-Reset: <unix>` | Daily (UTC midnight) for free; monthly (1st UTC) for pro |
 | `POST /api/contact` | POST | IP or email submission rate exceeded | `{ ok: false, error: "<message>" }` | none beyond default | Rolling 1 h (IP) / rolling 24 h (email) — not in headers |
 
 ---
@@ -100,8 +103,20 @@ Applies only when the server's Anthropic key is used (no client `X-Api-Key` head
 | `user` | `rate_limited_user` | "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use." |
 | `ip` | `rate_limited_ip` | "You've used all 3 free agons for today. Add your own Anthropic API key for unlimited use." |
 
-**No `resetAt` in response.**  When the request is allowed, the remaining count is
-injected into the `agon_done` SSE event as `remaining`.
+**429 response headers**
+
+```
+Content-Type: application/json
+Retry-After: <seconds-until-reset>
+X-RateLimit-Reset: <unix-epoch-seconds>
+```
+
+`Retry-After` is computed as `max(0, resetAt − floor(Date.now() / 1000))`.
+`X-RateLimit-Reset` is the Unix second returned by `quotaResetAt(reason)` — midnight
+UTC for daily buckets, 00:00 UTC on the 1st of the next month for pro buckets.
+
+When the request is **allowed**, the remaining count is injected into the `agon_done`
+SSE event as `remaining` (no `X-RateLimit-Remaining` header on this route).
 
 ---
 
@@ -118,6 +133,17 @@ Identical quota check (`checkRateLimit`) and bucket structure as `/api/agon`.
 | `global` | "The free tier is at capacity for today. Add your own Anthropic API key for unlimited use, or check back tomorrow." |
 | `pro` | "You've reached your 100 analysis monthly limit. Manage your subscription from your account page." |
 | `user` | "You've used all 3 free analyses for today. Add your own Anthropic API key for unlimited use." |
+
+**429 response headers**
+
+```
+Content-Type: application/json
+Retry-After: <seconds-until-reset>
+X-RateLimit-Reset: <unix-epoch-seconds>
+```
+
+`Retry-After` is `max(0, resetAt − floor(Date.now() / 1000))`.  `X-RateLimit-Reset`
+is the Unix second returned by `quotaResetAt(reason)`.
 
 **`X-RateLimit-Remaining` header** is included on **200** responses only:
 ```
@@ -149,21 +175,50 @@ is conveyed only in the human-readable error string.
 
 ---
 
-## What `resetAt` is and is not today
+## Reset cadences for client back-off
 
-The field named `resetAt` currently lives only inside the in-process
-`ThrottleBucket` struct in the contact route.  It is a Unix-millisecond epoch
-marking when the current bucket expires.  It is used for internal bucket management
-(not returned to callers).
+| Route / bucket | Reset cadence |
+|----------------|---------------|
+| `/api/agon` and `/api/generate-analysis` — free daily (IP, user, global) | **00:00 UTC** each day |
+| `/api/agon` and `/api/generate-analysis` — pro monthly | **00:00 UTC on the 1st** of each month |
+| `/api/contact` — IP throttle | **1 hour** after first request in window |
+| `/api/contact` — email throttle | **24 hours** after first request in window |
 
-Neither the agon/analysis routes nor the contact route expose a machine-readable
-reset timestamp to API consumers at this time.  If a client needs to know when to
-retry, it must infer the cadence from the error message or apply a fixed back-off:
+For the agon and generate-analysis routes use the `Retry-After` header value
+(seconds) for precise back-off.  For the contact route, apply a fixed back-off based
+on the cadence table above (no machine-readable reset timestamp is returned).
 
-- Free daily quotas reset at **00:00 UTC** each day.
-- Pro monthly quotas reset at **00:00 UTC on the 1st** of each month.
+---
+
+## What `resetAt` is and where it surfaces
+
+### Agon / analysis routes (machine-readable — shipped)
+
+The helper `quotaResetAt(reason)` in `website/src/lib/agon/rateLimit.ts` computes
+the Unix-second epoch of the next quota-window boundary:
+
+- **Daily buckets** (`free` IP, `free` user, `global`): midnight UTC of the next
+  calendar day.
+- **Monthly bucket** (`pro`): 00:00 UTC on the first day of the next calendar month.
+
+On every 429 response from `/api/agon` and `/api/generate-analysis` the value is
+exposed as two standard headers:
+
+```
+Retry-After: <seconds>           # max(0, resetAt − now)  — RFC 7231 compliant
+X-RateLimit-Reset: <unix-epoch>  # absolute epoch, seconds
+```
+
+Clients should prefer `Retry-After` for scheduling a retry and `X-RateLimit-Reset`
+for displaying a countdown to the user.
+
+### Contact route (`resetAt` — internal only)
+
+The field named `resetAt` in the in-process `ThrottleBucket` struct is a
+Unix-**millisecond** epoch used only for internal bucket lifecycle management.  It is
+**not** returned in any response header or body.  If a client needs to know when to
+retry a contact request, it must infer the cadence from the error message or apply a
+fixed back-off:
+
 - Contact IP throttle resets **1 hour** after the first request in the window.
 - Contact email throttle resets **24 hours** after the first request in the window.
-
-Adding a `Retry-After` or `X-RateLimit-Reset` header to 429 responses is tracked
-separately and would be the natural place to surface the `resetAt` value.

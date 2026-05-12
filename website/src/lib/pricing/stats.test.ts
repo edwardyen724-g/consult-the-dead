@@ -7,7 +7,7 @@ import {
 } from './stats';
 
 describe('formatPricingStats', () => {
-  it('formats the default static stats row', () => {
+  it('formats the default static stats row (no agonsRun)', () => {
     expect(formatPricingStats(PRICING_STATS_DEFAULT)).toEqual([
       '18 minds',
       '30 debates in the library',
@@ -61,6 +61,79 @@ describe('formatPricingStats', () => {
       formatPricingStats({ minds: 26, debatesInLibrary: Number.POSITIVE_INFINITY }),
     ).toThrow(/finite/);
   });
+
+  // agonsRun live-stat label
+  describe('agonsRun', () => {
+    it('inserts the agon count label before "Free to start" when agonsRun is provided', () => {
+      expect(
+        formatPricingStats({ minds: 18, debatesInLibrary: 30, agonsRun: 42 }),
+      ).toEqual([
+        '18 minds',
+        '30 debates in the library',
+        '42 agons run',
+        'Free to start',
+      ]);
+    });
+
+    it('omits the agon label entirely when agonsRun is undefined', () => {
+      const labels = formatPricingStats({ minds: 18, debatesInLibrary: 30 });
+      expect(labels).not.toContain(expect.stringContaining('agon'));
+      expect(labels).toEqual([
+        '18 minds',
+        '30 debates in the library',
+        'Free to start',
+      ]);
+    });
+
+    it('singularizes "agon run" when agonsRun is exactly 1', () => {
+      expect(
+        formatPricingStats({ minds: 2, debatesInLibrary: 5, agonsRun: 1 }),
+      ).toEqual([
+        '2 minds',
+        '5 debates in the library',
+        '1 agon run',
+        'Free to start',
+      ]);
+    });
+
+    it('uses plural "agons run" when agonsRun is 0', () => {
+      expect(
+        formatPricingStats({ minds: 2, debatesInLibrary: 5, agonsRun: 0 }),
+      ).toEqual([
+        '2 minds',
+        '5 debates in the library',
+        '0 agons run',
+        'Free to start',
+      ]);
+    });
+
+    it('uses plural "agons run" for counts > 1', () => {
+      const labels = formatPricingStats({ minds: 18, debatesInLibrary: 30, agonsRun: 1234 });
+      expect(labels[2]).toBe('1234 agons run');
+    });
+
+    it('throws when agonsRun is negative', () => {
+      expect(() =>
+        formatPricingStats({ minds: 18, debatesInLibrary: 30, agonsRun: -1 }),
+      ).toThrow(/non-negative/);
+    });
+
+    it('throws when agonsRun is NaN', () => {
+      expect(() =>
+        formatPricingStats({ minds: 18, debatesInLibrary: 30, agonsRun: Number.NaN }),
+      ).toThrow(/finite/);
+    });
+
+    it('throws when agonsRun is Infinity', () => {
+      expect(() =>
+        formatPricingStats({
+          minds: 18,
+          debatesInLibrary: 30,
+          agonsRun: Number.POSITIVE_INFINITY,
+        }),
+      ).toThrow(/finite/);
+    });
+  });
 });
 
 describe('PRICING_STATS_DEFAULT', () => {
@@ -68,5 +141,9 @@ describe('PRICING_STATS_DEFAULT', () => {
     // If this assertion ever fails, update both PRICING_STATS_DEFAULT and the
     // source noted in its docstring (frameworks ALLOWED_SLUGS / outreach-debates dir).
     expect(PRICING_STATS_DEFAULT).toEqual({ minds: 18, debatesInLibrary: 30 });
+  });
+
+  it('does not include agonsRun so the static fallback never shows a stale zero', () => {
+    expect('agonsRun' in PRICING_STATS_DEFAULT).toBe(false);
   });
 });

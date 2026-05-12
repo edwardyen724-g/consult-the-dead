@@ -7,6 +7,14 @@
  */
 
 export {
+  buildBeehiivSubscribePayload,
+  subscribeToBeehiiv,
+  type BeehiivSubscribeInput,
+  type BeehiivSubscribePayload,
+  type BeehiivSubscribeResult,
+} from './beehiiv'
+
+export {
   buildUtmUrl,
   type RetentionCampaign,
   type BuildUtmUrlInput,
