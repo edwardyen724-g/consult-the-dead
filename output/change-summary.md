@@ -287,3 +287,21 @@ Capsule: `c5c1ee7e-6e78-478b-b7d3-ce1758c2c06a` - `wanman/rss-404-loading-polish
 
 - The repo-wide lint failure is outside this capsule's allowed paths.
 - The website package needed a one-time `pnpm install` so `eslint`/`next` binaries were available for verification.
+
+## 2026-05-11 Framework Forge contract coverage
+
+### Files Changed
+- `tests/test_pipeline.py`
+
+### What Changed
+- Added a validation contract test that exercises the exact threshold boundaries for Tier 1, Tier 2, and floor-check results and asserts the persisted JSON artifacts keep `passed: true` at those thresholds.
+- Added an end-to-end pipeline contract test that stubs each stage, writes the expected artifacts, and verifies `run_pipeline()` returns the full artifact set including the optional floor-check output.
+- Kept the existing error-path coverage intact for missing source text materialization and floor-check omission without historical decisions.
+
+### Verification
+- `pytest tests/test_pipeline.py tests/test_validation.py -q`
+- `coverage run -m pytest tests/test_pipeline.py tests/test_validation.py -q && coverage report -m framework_forge/pipeline.py framework_forge/validation/tier1.py framework_forge/validation/tier2.py framework_forge/validation/tier3_prep.py framework_forge/validation/floor_check.py`
+
+### Results
+- `43 passed`
+- Coverage run completed with `framework_forge/pipeline.py` at `99%` line coverage and `framework_forge/validation/*` at `93-100%` in the targeted report
