@@ -479,9 +479,13 @@ describe("AgoraApp — consensus stage", () => {
 
     expect(markup).toContain("2 free debates remaining today");
     expect(markup).not.toContain("You&#x27;ve used all 3");
+    // Soft styling — no amber border for 2+ remaining
+    expect(markup).not.toContain("Start 7-day free trial");
+    // Nudge container is still present (just styled dimly)
+    expect(markup).toContain('data-testid="quota-countdown-nudge"');
   });
 
-  it("shows singular remaining-debates message when quotaRemaining is 1", () => {
+  it("shows last-agon nudge with amber styling and trial CTA when quotaRemaining is 1", () => {
     const markup = renderToStaticMarkup(
       <AgoraApp
         minds={minds}
@@ -497,9 +501,20 @@ describe("AgoraApp — consensus stage", () => {
       />,
     );
 
-    // singular — no trailing 's'
-    expect(markup).toContain("1 free debate remaining today");
-    expect(markup).not.toContain("1 free debates");
+    // Last-agon nudge uses a distinct, urgent message
+    expect(markup).toContain("Last free agon today");
+    // Same trial CTA as the exhausted (0) case — drives conversion
+    expect(markup).toContain("Start 7-day free trial");
+    // Amber border applied (same urgency level as exhausted state)
+    expect(markup).toContain("var(--amber)");
+    // Upgrade link with testid present
+    expect(markup).toContain('data-testid="quota-upgrade-link"');
+    // Container has testid for E2E targeting
+    expect(markup).toContain('data-testid="quota-countdown-nudge"');
+    // Must NOT show the exhausted / "come back tomorrow" messaging
+    expect(markup).not.toContain("You&#x27;ve used all 3");
+    // Must NOT use the plural remaining-count format
+    expect(markup).not.toContain("1 free debate remaining today");
   });
 
   it("hides the quota box for Pro users even when quotaRemaining is 0", () => {
@@ -733,8 +748,8 @@ describe("AgoraApp — mobile layout", () => {
     );
 
     // The quota div uses flexWrap:"wrap" — check it's present in the HTML
-    // before the remaining-debates text
-    const quotaIdx = markup.indexOf("free debate remaining today");
+    // before the last-agon nudge text
+    const quotaIdx = markup.indexOf("Last free agon today");
     const snippetBefore = markup.slice(Math.max(0, quotaIdx - 500), quotaIdx);
     expect(snippetBefore).toContain("flex-wrap:wrap");
   });
