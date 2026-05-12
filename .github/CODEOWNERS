@@ -1,0 +1,4 @@
+# Framework files require CTO review before merging.
+# Any PR that modifies files under frameworks/ must be approved by @edwardyen724-g.
+/frameworks/ @edwardyen724-g
+/website/src/frameworks/ @edwardyen724-g
