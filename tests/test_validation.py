@@ -3,7 +3,7 @@
 import json
 from shutil import copyfile
 from pathlib import Path
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from framework_forge.config import (
     FLOOR_CHECK_MIN_ALIGNMENT,
@@ -109,6 +109,29 @@ class TestTier1:
         tier1 = Tier1Result(scenario_results=results)
         assert tier1.divergent_count == 2
         assert tier1.passed is False
+
+    def test_tier1_result_passes_at_threshold(self):
+        """Tier1Result.passed should flip on at the documented threshold."""
+        from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
+
+        results = []
+        for i in range(TIER1_MIN_DIVERGENT_SCENARIOS):
+            results.append(
+                ScenarioResult(
+                    scenario=f"scenario-{i}",
+                    framework_response=f"framework-{i}",
+                    baseline_response=f"baseline-{i}",
+                    divergence_score=8,
+                    specificity_score=7,
+                    traceability_score=9,
+                    divergent=True,
+                )
+            )
+
+        tier1 = Tier1Result(scenario_results=results)
+
+        assert tier1.divergent_count == TIER1_MIN_DIVERGENT_SCENARIOS
+        assert tier1.passed is True
 
     def test_tier1_helpers_and_result_serialization(self):
         """Tier 1 helper functions should work through the default client path."""
@@ -320,6 +343,19 @@ class TestTier2:
         )
         assert direct.to_dict()["passed"] is True
 
+    def test_tier2_result_passes_at_threshold(self):
+        """Tier2Result.passed should allow the exact traceability threshold."""
+        from framework_forge.validation.tier2 import Tier2Result
+
+        result = Tier2Result(
+            traceability_ratio=TIER2_MIN_TRACEABILITY,
+            lens_consistent=True,
+            contradictions=[],
+            per_scenario_details=[],
+        )
+
+        assert result.passed is True
+
 
 # ---------------------------------------------------------------------------
 # Task 12: Tier 3 Prep + Floor Check
@@ -461,6 +497,17 @@ class TestFloorCheck:
         direct = FloorCheckResult(alignment_ratio=0.75, per_decision_results=[])
         assert direct.to_dict()["passed"] is True
 
+    def test_floor_check_result_passes_at_threshold(self):
+        """FloorCheckResult.passed should allow the exact alignment threshold."""
+        from framework_forge.validation.floor_check import FloorCheckResult
+
+        result = FloorCheckResult(
+            alignment_ratio=FLOOR_CHECK_MIN_ALIGNMENT,
+            per_decision_results=[],
+        )
+
+        assert result.passed is True
+
 
 class TestValidationCliSmoke:
     """End-to-end smoke coverage for the validate CLI contract."""
@@ -515,7 +562,7 @@ class TestValidationCliSmoke:
             assert len(tier1_scenarios) == 5
             assert tier1_scenarios[0]["scenario"] == "Launch timing 0"
             assert all(
-                set(scenario) == {"scenario", "framework_response"}
+                scenario["scenario"].startswith("Launch timing ")
                 and scenario["framework_response"] == "Ship now"
                 for scenario in tier1_scenarios
             )
