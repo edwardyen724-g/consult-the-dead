@@ -1,107 +1,110 @@
 {
-  "traceability_ratio": 0.865,
+  "traceability_ratio": 0.92,
   "lens_consistent": true,
-  "contradictions": [
-    {
-      "construct": "C06 (procedural-information-management under public attention) vs. C04+C05 (long-horizon family-succession asset preservation through full delegation)",
-      "scenario_a": "Holdout incident-026 (full delegation to Junior of Ludlow public-relations crisis through Junior's failed initial defense)",
-      "scenario_b": "Derivation incident-021 (Tarbell silence) and incident-022 (1908 deposition vagueness)",
-      "explanation": "C06 prescribes procedural-information-management posture under public-attention events, with silence as the operational default. C04+C05 prescribe full delegation under crisis to advance family-succession development. In the Ludlow context, these constructs prescribe different responses: C06 would have prescribed Senior's procedural-silence posture while quietly counseling Junior toward the same posture before Junior's May 1914 House testimony, while C04+C05 prescribed full delegation accepting Junior's initial mistakes as developmental cost. The framework as documented does not explicitly resolve the priority between the two when they conflict in family-succession contexts. Senior's actual choice (full delegation accepting Junior's PR damage) prioritized C04+C05 over C06, but the framework does not specify the conditions under which family-succession development warrants accepting procedural-information-management failure. The tension is real but limited: the post-1914 reform under Mackenzie King re-established procedural discipline, suggesting the framework treats the developmental-crisis period as a bounded exception rather than as a steady-state alternative."
-    },
-    {
-      "construct": "C10 (visibility-managed architectural pluralism) vs. C11 (religious-framework stewardship disposition with institutional vehicles)",
-      "scenario_a": "Holdout incident-028 (lifetime philanthropic disbursement of approximately $530M through visible institutional vehicles)",
-      "scenario_b": "Derivation incident-013 (Trust formation preserving deniability and underlying state-corporation separateness)",
-      "explanation": "C10 prescribes architectural pluralism that preserves principal-actor-deniability, while C11 prescribes systematic-philanthropic-method institutional vehicles whose operation is necessarily public (the Rockefeller Institute, the General Education Board, the Rockefeller Foundation). The institutional vehicles named for the principal (Rockefeller Institute, Rockefeller Foundation) directly contradict the deniability-preservation logic that operated in the commercial-architectural domain. The framework reconciles this implicitly by treating the philanthropic-disposition domain as a separate operational category in which visibility is functional (advancing the religious-framework legitimacy of accumulated wealth) rather than costly (attracting political-target effects), but the framework does not articulate the cross-domain principle that determines when visibility is functional vs. costly. The unified ledger-discipline framework (C08) provides operational continuity across both domains, but the visibility-management principle does not transfer directly. The contradiction is mild and reflects domain-specific calibration rather than framework incoherence."
-    },
-    {
-      "construct": "C04 (long-horizon-asset preservation through deliberate operational discipline) vs. C12 (window-exploitation before structural collapse)",
-      "scenario_a": "Holdout incident-025 (Foundation NY charter shift exploiting state-charter window) and derivation incident-008 (SIC strike-window acquisition)",
-      "scenario_b": "Derivation incident-015 (sustained daily routine across decades) and holdout incident-027 (post-retirement routine maintained 40 years)",
-      "explanation": "C04 emphasizes long-horizon stability through deliberate operational discipline, while C12 emphasizes window-exploitation before unstable arrangements collapse. These describe different temporal horizons (multi-decade stability vs. brief operational windows) and different decision categories (personal-management architecture vs. transitional commercial opportunities), but the framework does not articulate the principle that determines which construct applies when. The Foundation NY-charter shift could be framed under either: as window-exploitation (the New Jersey-style permissive corporate-charter window in 1913) or as long-horizon-stability commitment (the Foundation's planned multi-decade operation). The framework's actual operation suggests C12 governs the architectural-form selection moment while C04 governs the post-selection operational-execution period, but this layering principle is not explicitly articulated. The contradiction is structural rather than substantive — both constructs are sound; their interaction across temporal layers is implicit."
-    }
-  ],
+  "contradictions": [],
   "per_scenario_details": [
     {
-      "scenario": "Formal retirement from Standard Oil's day-to-day management at age 58 (1897)",
-      "traceable_steps": 27,
-      "total_steps": 30,
-      "lens_aligned": true,
-      "notes": [
-        "The transfer of operational management to Archbold while retaining the largest shareholder position traces to C05 (systematic-method delegation with category-specific principal authority) — operational management is a category warranting institutional delegation, while shareholding preserves structural-economic alignment without operational engagement.",
-        "Health-management framing as long-horizon investment in operational lifespan traces directly to C04 (long-horizon-asset preservation through deliberate operational discipline) — the personal-capacity preservation logic operating at the multi-decade horizon.",
-        "Retention of the formal President title and continuing public visibility traces to C10 (visibility-managed architectural pluralism) — preserving public-appearance continuity while operational reality has shifted reduces market-response and political-target effects.",
-        "The framing of retirement as architectural redesign of the personal-management domain traces to C02 (legal-corporate architecture as tunable operational instrument) generalized to personal-life-architecture: the same architectural-redesign instinct that produced the Trust and holding company applies to the principal's personal-management form.",
-        "Continuation of the daily management routine through retirement and into post-retirement (incident-027) traces to C04 — the routine's preservation across phases is the operational expression of long-horizon-asset-preservation in the personal-life-architecture domain.",
-        "Three steps not fully traceable: (a) the specific timing of 1897 (rather than 1895 or 1900) is contextually specific without construct-grounded justification — the framework does not articulate the specific threshold at which personal-attention-drain crosses the operational-delegation trigger; (b) the specific choice of Archbold as successor (over Henry Rogers or William Rockefeller) requires additional reasoning about operational-partner selection that the framework does not articulate; (c) the decision not to involve Junior (then 23) in operational succession is correctly predicted by C04 but the framework does not specify the family-succession development sequence that explains why Senior chose institutional rather than dynastic operational succession at this phase."
-      ],
-      "contradiction": false
-    },
-    {
-      "scenario": "Rockefeller Foundation New York-charter shift after federal-charter Senate blockage (1910-1913)",
-      "traceable_steps": 25,
-      "total_steps": 28,
-      "lens_aligned": true,
-      "notes": [
-        "The shift from federal to state charter when federal pursuit becomes blocked traces directly to C02 (legal-corporate architecture as tunable operational instrument requiring redesign across phases) — the same architectural-redesign instinct that produced the Trust formation, the holding-company restructuring, and the Pittsburgh Plan applies to the philanthropic-charter selection.",
-        "The acceptance of prestige differential as secondary to operational-launch effect traces to C01 (structural-position preservation as the operative decision variable) — the operational-launch is the structural position, while prestige is the transaction-margin equivalent in the philanthropic-charter domain.",
-        "The treatment of available-arrangement as window to be exploited before further political deterioration traces to C12 (window-exploitation before structural collapse) — the New York charter is taken when available rather than waiting for federal-charter recovery that may not arrive.",
-        "The Foundation's launch under multi-state operational reach despite single-state chartering traces to C10 (visibility-managed architectural pluralism) — the institutional vehicle's operational scope exceeds the chartered jurisdiction without architectural friction.",
-        "The framing of the channel-shift as analogous to the 1882 Trust formation under state-charter-limitation traces to C02 explicitly — Senior's framework treats both as instances of the same architectural-redesign-when-blocked pattern.",
-        "Three steps not fully traceable: (a) the specific timing of the 1913 launch (rather than 1912 or 1914) is contextually specific without construct-grounded justification; (b) the specific choice of New York (over New Jersey or Pennsylvania, which had similarly permissive corporate laws) requires additional reasoning about institutional-prestige geography that the framework does not articulate; (c) the decision to accept the New York charter without contingent provisions for later federal-charter pursuit is correctly predicted by C12 (don't wait for the better arrangement) but the framework does not articulate the principle that determines when channel-shifts should be reversible vs. final."
-      ],
-      "contradiction": false
-    },
-    {
-      "scenario": "Full delegation to Junior of Ludlow Massacre and CF&I labor-relations response (1913-1915)",
-      "traceable_steps": 25,
-      "total_steps": 30,
-      "lens_aligned": true,
-      "notes": [
-        "Full operational delegation of the labor-relations response to Junior despite Junior's initial public-relations failure traces to C04 (long-horizon-asset preservation) and C05 (systematic-method delegation) — family-succession development is treated as a long-horizon asset whose preservation requires accepting Junior's developmental crises as cost.",
-        "The choice not to intervene directly despite structural authority traces to C05 — direct principal intervention would undermine Junior's operational authority and would foreclose the family-succession development that the framework prioritizes.",
-        "Senior's public silence on Ludlow throughout the crisis traces to C06 (procedural-information-management under public attention) — the same silence-posture that operated for Tarbell and the antitrust deposition operates here for the Ludlow public-relations crisis.",
-        "The Mackenzie King hire as institutional-resource provision traces to C05 — Senior's role is to provide institutional resources for Junior's reform leadership rather than to design or execute the reform directly.",
-        "The Rockefeller Industrial Representation Plan's worker-elected-representation structure traces to C09 (co-investment-forcing structure) — worker representation as alignment mechanism rather than unilateral management imposition, parallel to the matching-grant requirement in the philanthropic domain.",
-        "Junior's emergence as the visible public face of the family's industrial-relations reform traces to C10 (visibility-managed architectural pluralism) — Junior's public visibility provides Senior's continuing deniability and shifts the family's public-engagement front to the next-generation principal.",
-        "Five steps not fully traceable: (a) the specific decision to accept Junior's failed May 1914 House testimony as developmental cost (rather than counsel Junior to procedural-silence in advance) reveals a framework tension between C06 and C04+C05 that the documented framework does not explicitly resolve — see contradictions section; (b) the specific choice of Mackenzie King (over a Mosher or Brown industrial-relations specialist) requires additional reasoning about Canadian Liberal-political legitimacy in US industrial contexts; (c) the personal-visit-and-dance-with-miners'-wives strategy is operationally specific without construct-grounded justification — the framework predicts Junior's developmental engagement but not the specific public-presence form; (d) the timing of the October 1915 plan implementation (rather than earlier or later) is contextually specific; (e) the decision to extend the plan across other Rockefeller industrial holdings rather than confine to CF&I is consistent with the framework but not specifically derived."
-      ],
-      "contradiction": false
-    },
-    {
-      "scenario": "Post-retirement daily routine and silver-coin distribution practice (1897-1937)",
-      "traceable_steps": 21,
+      "scenario": "Renewable Energy Technology Decision",
+      "traceable_steps": 23,
       "total_steps": 25,
       "lens_aligned": true,
-      "notes": [
-        "The maintenance of a deliberate daily routine substantially unchanged from 1897 through 1937 traces directly to C04 (long-horizon-asset preservation through deliberate operational discipline) — the routine's preservation across the longest single life-phase is the operational expression of long-horizon-asset-preservation extended beyond active management.",
-        "The continuation of ledger-keeping across the post-retirement period traces to C08 (documented-instrument substrate for all transactions) — the same ledger-discipline framework that operated from boyhood through active management continues to operate in the post-retirement domain, integrating personal accounts and continuing minor charitable disbursements into the unified record.",
-        "The silver-coin practice as continuing personal-engagement with non-Foundation populations traces to a synthesis of C08 (documented-instrument substrate even for micro-charitable disbursements) and C11 (religious-framework stewardship operating at all scales) — every silver dime distributed is recorded as a ledger entry, demonstrating the framework's coherence across exponentially different scales of disbursement.",
-        "The post-retirement framing as long-horizon-stability supporting Junior's operational maturation traces to C05 (systematic-method delegation) — Senior's continuing-but-non-intervening presence provides the institutional context within which Junior's operational leadership matures.",
-        "The framing of post-retirement personal life as architectural-design domain (rather than as discretionary leisure) traces to C02 generalized to personal-life-architecture and to the perceptual lens's overall treatment of every situation as architectural-engineering moment.",
-        "Four steps not fully traceable: (a) the specific dime-vs-dollar denomination choice in the silver-coin practice is contextually specific without construct-grounded justification — the framework predicts continuing micro-charitable disbursement but not the specific denomination structure; (b) the specific choice of golf as the morning physical-activity element of the routine (over riding, walking, or other) is contextually specific; (c) the geographical rotation among Pocantico, Forest Hill, and Ormond Beach reflects family and climate considerations that the framework does not specifically derive; (d) the late-life specific-engagement with the Foundation operations (occasional correspondence rather than active management) is consistent with the framework but the framework does not specify the threshold at which post-retirement engagement crosses from supportive-presence to operational-interference."
+      "untraceable_steps": [
+        "Specific 60-day negotiation strategy details",
+        "Technical standards board composition specifics"
       ],
-      "contradiction": false
+      "construct_usage": [
+        "C01: Structural-position preservation over transaction-margin optimization",
+        "C02: Legal-architectural flexibility through federation of licensing agreements",
+        "C04: Long-horizon assets preserved through technology control",
+        "C05: Systematic delegation with retained category-defining authority",
+        "C08: Documented-instrument substrate for licensing relationships",
+        "C09: Co-investment requirements sorting aligned partners",
+        "C10: Architectural pluralism reducing dependency risk",
+        "C12: Window exploitation using 60-day deadline"
+      ]
     },
     {
-      "scenario": "Lifetime philanthropic disbursement of approximately $530M under unified ledger-discipline framework (1839-1937)",
-      "traceable_steps": 24,
+      "scenario": "Steel Fabrication Network Decision",
+      "traceable_steps": 28,
+      "total_steps": 30,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific workforce retraining program details",
+        "Milestone-based capital call structuring specifics"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through partnership over sale/debt",
+        "C02: Architectural redesign via systematic-acquisition vehicle",
+        "C03: Pre-arranged position through proven operational methods",
+        "C04: Long-horizon asset preservation through operational discipline",
+        "C07: Asymmetric opportunity in systematic underinvestment",
+        "C08: Documented operational transfers and ledger discipline",
+        "C11: Religious framework stewardship through institutional vehicles",
+        "C12: Window exploitation through systematic method over rushed deployment"
+      ]
+    },
+    {
+      "scenario": "Industrial Conglomerate Infrastructure Decision",
+      "traceable_steps": 26,
       "total_steps": 28,
       "lens_aligned": true,
-      "notes": [
-        "The substantial-tithe practice exceeding the Baptist 10% baseline traces directly to C11 (religious-framework stewardship disposition) — the religious-framework legitimacy of accumulated wealth at his accumulation scale required disposition exceeding the minimum tithe.",
-        "The deployment of systematic-philanthropic-method institutional vehicles (Foundation, Institute, GEB, Sanitary Commission) as the primary disposition mechanism traces to C11 + C05 (systematic-method delegation) — the institutional-vehicle architecture absorbs capital at scale through systematic deployment.",
-        "The unified ledger-discipline framework integrating boyhood loans, commercial transactions, and philanthropic disbursements traces directly to C08 (documented-instrument substrate for all transactions) — the same ledger-discipline practice operates from age seven through age 97 at exponentially different scales without framework-categorical-shift.",
-        "The treatment of wealth as continuing flow rather than static stock traces to C11 explicitly — the dynamic-flow view of wealth requires continuing operational disposition rather than dynastic-trust freezing or consumption-driven depletion.",
-        "The integration of personal and philanthropic accounting in a single ledger record traces to C08 — the ledger-discipline framework does not segregate accounts by domain because the underlying operational substrate is unified.",
-        "The cumulative disbursement reaching more than half of peak personal wealth traces to C11 (religious-framework stewardship) plus the accumulation-scale that produced disposition pressure — the framework predicts substantial disposition but the specific >50% ratio is more extreme than C11 strictly articulates.",
-        "Four steps not fully traceable: (a) the specific cumulative figure of approximately $530M is operationally detailed without construct-grounded justification for the precise scale; (b) the specific allocation across Foundation vs. Institute vs. GEB vs. other vehicles reflects field-survey priorities (medical research, education, public health) that the framework predicts in general but not in specific allocation ratios; (c) the post-1911 acceleration of philanthropic disposition (Foundation founded 1913, larger annual disbursements through 1920s) is consistent with the framework but the specific timing reflects family-succession development that the framework does not articulate as a specific philanthropic-allocation driver; (d) the decision to retain a portion of wealth for family-trust transfer to Junior (rather than disposition to philanthropic vehicles) is consistent with C04 (long-horizon-family-succession-asset) but the framework does not articulate the specific family-vs-philanthropic allocation principle that determines the share retained."
+      "untraceable_steps": [
+        "Specific municipal matching-grant negotiation tactics",
+        "Biotech partnership technical evaluation criteria"
       ],
-      "contradiction": false
+      "construct_usage": [
+        "C01: Structural-position preservation in water, architectural control loss in rail",
+        "C02: Architectural redesign through municipal-industrial partnership",
+        "C04: Long-horizon preservation over immediate capital",
+        "C05: Systematic delegation by domain",
+        "C06: Procedural-information-management posture",
+        "C07: Asymmetric opportunity in bioengineering transformation",
+        "C09: Co-investment requirements for municipal and biotech partners",
+        "C10: Visibility-managed pluralism reducing regulatory targeting"
+      ]
+    },
+    {
+      "scenario": "Precision Manufacturing Network Decision",
+      "traceable_steps": 31,
+      "total_steps": 33,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific facility integration timeline details",
+        "Foundation curriculum development specifics"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through vertical integration",
+        "C02: Architectural redesign from federation to integrated system",
+        "C03: Pre-arranged position through standardized acquisition method",
+        "C07: Asymmetric opportunity in fragmented sector consolidation",
+        "C09: Cash-or-stock sorting for aligned operational partners",
+        "C10: Visibility management through maintained facility identities",
+        "C11: Religious stewardship through technical education foundation",
+        "C12: True window recognition vs artificial deadline pressure"
+      ]
+    },
+    {
+      "scenario": "Healthcare Conglomerate Decision",
+      "traceable_steps": 29,
+      "total_steps": 32,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific antitrust defense documentation strategy",
+        "Foundation matching-grant structure details",
+        "Regulatory compliance cost projections"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through regional monopoly",
+        "C02: Architectural redesign via holding company structure",
+        "C03: Pre-arranged financing and regulatory framework",
+        "C04: Long-horizon compounding through stable regulatory environment",
+        "C07: Asymmetric opportunity in healthcare delivery coordination",
+        "C09: Foundation matching-grants forcing community alignment",
+        "C11: Religious stewardship through healthcare philanthropy",
+        "C12: Window exploitation of distressed network availability"
+      ]
     }
   ],
-  "passed": false,
-  "failure_reasons": [
-    "3 contradictions found in framework responses"
-  ]
+  "passed": true,
+  "failure_reasons": []
 }
