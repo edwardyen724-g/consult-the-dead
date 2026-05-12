@@ -41,6 +41,13 @@ after deployments touching the relevant feature areas.
 - [Funnel Surface Rollout](funnel-surface-rollout.md) — PRs #121, #125
   - Covers the quiz CTA (header) and footer CTA rollout verification
 
+## Pricing
+
+- [Pricing Copy Smoke Runbook](pricing-copy-smoke-runbook.md)
+  - Verifies live pricing page copy matches the finalized pricing contract in `docs/pricing.md`
+  - Covers tier copy (Free/Pro/BYO), OG/Twitter metadata, canonical URL, and upsell surface copy
+  - Run after any deployment touching `website/src/app/pricing/` or upsell components
+
 ## Infrastructure
 
 - [Sentry Smoke Test](sentry-smoke-test.md)
