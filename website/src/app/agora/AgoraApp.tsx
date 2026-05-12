@@ -2299,7 +2299,7 @@ function ConsensusStage({
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "12px",
-            background: quotaRemaining === 0 ? "rgba(245, 158, 11, 0.05)" : "transparent",
+            background: quotaRemaining === 0 ? "var(--amber-mist)" : "transparent",
           }}
         >
           <div
