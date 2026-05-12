@@ -10,6 +10,12 @@ _(none)_
 
 ## Promoted
 
+- `2026-05-12` - [Decisions Expansion Wave 2](2026-05-12-decisions-expansion-wave2.md)
+  - Batches 3–6: 12 new `should-i-*` decisions pages (PRs #313, #320, #326, and 2026-05-12 batch)
+  - Decisions library now 21 pages total; all slugs confirmed shipped in `website/content/decisions.ts`
+  - Framework validation pipeline ships (PR #322); 8 frameworks validated; live roster 19 → 26
+  - Sitemap updated (PR #321); all 21 decisions pages crawlable
+
 - `2026-05-12` - [Decisions Five-Page Expansion](2026-05-12-decisions-expansion.md) — PR #292
   - Five new decisions pages: fire-my-cofounder, pivot-or-persist, take-this-job-offer, sell-my-startup, shut-down-my-startup
   - Decisions library now 12 pages total (7 pre-existing + 5 new)
@@ -23,12 +29,24 @@ _(none)_
   - Smoke captured 2026-05-12; 71/71 automated tests pass; critical-path checks pass
   - No regressions detected
 
+- `2026-05-11` - [Framework Detail Preview Images](2026-05-11-framework-preview-images.md) — PR #110, #71, #176
+  - Dynamic OG/Twitter preview images for every `/frameworks/[slug]` detail page
+  - PR #176 fixed canonical URL drift (framework-page now emits slug-scoped canonical)
+  - 7 regression tests lock the canonical URL contract
+  - All known gaps resolved: Seneca portrait (task 2d2162d0) and canonical URL (PR #176)
+
 - `2026-05-11` - [Framework Detail Preview-Image Rollout](2026-05-11-framework-detail-preview-image.md)
   - Framework detail pages now have OG/Twitter preview images (PR #110, PR #71)
   - Route-scoped `/frameworks/[slug]` OG/Twitter preview-image behavior
   - Smoke captured 2026-05-11; route pipeline confirmed live
   - CHANGELOG coverage recorded 2026-05-11 (PR #136)
   - All gaps resolved: ~~Seneca portrait asset (404)~~ (task 2d2162d0); ~~framework-page canonical URL drift~~ (PR #232)
+
+- `2026-05-11` - [Agora Mobile Hardening](2026-05-11-agora-mobile-hardening.md) — PR #168, #179
+  - Responsive CSS fixes for `/agora` on mobile viewports (375px+)
+  - `NoticePanel` component for inline error/empty states
+  - Next.js `error.tsx` boundary for the `/agora` route
+  - 28 regression tests added (PR #179); PR #168 pending CTO merge
 
 - `2026-05-11` - [Auth Noindex Metadata](2026-05-11-auth-noindex-metadata.md) — PR #147
   - Sign-in and sign-up routes emit `robots: noindex, nofollow`

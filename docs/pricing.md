@@ -1,6 +1,7 @@
 # Agora Pricing — Canonical Reference
 
 **Last updated:** 2026-05-12
+**Canonical copy module:** `website/src/lib/pricing-copy.ts` (metadata strings, free-tier copy, founding-member copy)
 **Source of truth for:** marketing copy, README, MARKETING_STRATEGY.md, investor/press inquiries
 **Live pricing page:** [consultthedead.com/pricing](https://consultthedead.com/pricing)
 **Live product:** [consultthedead.com/agora](https://consultthedead.com/agora)
@@ -76,7 +77,7 @@ Key friction points:
 
 ---
 
-## Pro Features — Implemented Status (as of 2026-05-08)
+## Pro Features — Implemented Status (as of 2026-05-12)
 
 | Feature | Status |
 |---|---|
@@ -100,6 +101,8 @@ Key friction points:
 | Mind-cap enforcement | `/api/agon/route.ts` — `mindMax = isPro ? 5 : 3` |
 | Rate-limit enforcement | `website/src/lib/agon/rateLimit.ts` — 3 agons/day free, 100/month Pro |
 | Pricing page | `website/src/app/pricing/page.tsx` |
+| Pricing constants | `website/src/lib/pricing/pricing-constants.ts` — single source for all numeric values |
+| Live stats (social proof) | `website/src/lib/pricing/live-stats.ts` — minds count, agons run, and pack count are fetched live from the database and framework registry; never hardcoded on the pricing page |
 
 ---
 
