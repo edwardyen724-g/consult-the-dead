@@ -1,8 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSettingsStore } from '@/store/settingsStore';
+import { useFocusRestore } from '@/components/shared/useFocusRestore';
+
+/** All focusable element selectors — used for focus-trap cycling. */
+const FOCUSABLE_SELECTORS =
+  'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function ApiKeyModal() {
   const show = useSettingsStore((s) => s.showApiKeyModal);
@@ -15,12 +20,69 @@ export default function ApiKeyModal() {
   const [error, setError] = useState('');
   const [showKey, setShowKey] = useState(false);
 
-  // Populate input if key already exists (for editing)
+  // Restore focus to the trigger element when the modal closes.
+  useFocusRestore(show);
+
+  // Ref for the dialog container — used to scope the focus trap.
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Populate input if key already exists (for editing).
   useEffect(() => {
     if (show && existingKey) {
       setInputValue(existingKey);
     }
+    if (!show) {
+      // Reset transient state on close.
+      setError('');
+      setShowKey(false);
+    }
   }, [show, existingKey]);
+
+  // Escape key closes the modal.
+  useEffect(() => {
+    if (!show) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [show, closeModal]);
+
+  /**
+   * Tab / Shift+Tab focus trap — keeps keyboard focus inside the dialog while
+   * it is open.
+   */
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (event.key !== 'Tab') return;
+      const dialog = dialogRef.current;
+      if (!dialog) return;
+
+      const focusable = Array.from(
+        dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTORS),
+      ).filter((el) => !el.closest('[aria-hidden="true"]'));
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey) {
+        // Shift+Tab — wrap from first to last.
+        if (document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else {
+        // Tab — wrap from last to first.
+        if (document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    },
+    [],
+  );
 
   const handleSave = () => {
     const trimmed = inputValue.trim();
@@ -29,7 +91,9 @@ export default function ApiKeyModal() {
       return;
     }
     if (!trimmed.startsWith('sk-ant-')) {
-      setError('That doesn\u2019t look like an Anthropic API key. Keys start with sk-ant-');
+      setError(
+        'That doesn’t look like an Anthropic API key. Keys start with sk-ant-',
+      );
       return;
     }
     setError('');
@@ -38,7 +102,7 @@ export default function ApiKeyModal() {
 
   const maskedKey = (key: string) => {
     if (key.length <= 12) return key;
-    return key.slice(0, 7) + '\u2022'.repeat(20) + key.slice(-4);
+    return key.slice(0, 7) + '•'.repeat(20) + key.slice(-4);
   };
 
   return (
@@ -50,13 +114,23 @@ export default function ApiKeyModal() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}
+          role="presentation"
+          // Clicking the backdrop closes the modal.
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeModal();
+          }}
         >
           <motion.div
+            ref={dialogRef}
             className="w-full max-w-md mx-4 rounded-xl p-6"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Anthropic API key"
+            onKeyDown={handleKeyDown}
             style={{
               background: 'rgba(20, 20, 30, 0.95)',
               border: '1px solid rgba(255,255,255,0.08)',
@@ -67,7 +141,10 @@ export default function ApiKeyModal() {
             <div className="mb-5">
               <h2
                 className="text-lg font-semibold tracking-tight"
-                style={{ color: '#e4e4e7', fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                style={{
+                  color: '#e4e4e7',
+                  fontFamily: 'var(--font-jetbrains-mono), monospace',
+                }}
               >
                 Anthropic API Key
               </h2>
@@ -75,7 +152,9 @@ export default function ApiKeyModal() {
                 className="mt-1 text-[13px] leading-relaxed"
                 style={{ color: 'rgba(255,255,255,0.45)' }}
               >
-                Add your own key for unlimited debates, or close this dialog to use your {freeRemaining} free debate{freeRemaining !== 1 ? 's' : ''} remaining today.
+                Add your own key for unlimited debates, or close this dialog to
+                use your {freeRemaining} free debate
+                {freeRemaining !== 1 ? 's' : ''} remaining today.
               </p>
             </div>
 
@@ -85,10 +164,14 @@ export default function ApiKeyModal() {
                 <input
                   type={showKey ? 'text' : 'password'}
                   value={inputValue}
-                  onChange={(e) => { setInputValue(e.target.value); setError(''); }}
+                  onChange={(e) => {
+                    setInputValue(e.target.value);
+                    setError('');
+                  }}
                   onKeyDown={(e) => e.key === 'Enter' && handleSave()}
                   placeholder="sk-ant-api03-..."
                   autoFocus
+                  aria-label="Anthropic API key input"
                   className="w-full rounded-lg px-3 py-2.5 text-[13px] font-mono outline-none transition-colors"
                   style={{
                     background: 'rgba(255,255,255,0.04)',
@@ -101,6 +184,7 @@ export default function ApiKeyModal() {
                 <button
                   type="button"
                   onClick={() => setShowKey(!showKey)}
+                  aria-label={showKey ? 'Hide API key' : 'Show API key'}
                   className="absolute right-2 top-1/2 -translate-y-1/2 text-[11px] uppercase tracking-wider px-1.5 py-0.5 rounded"
                   style={{ color: 'rgba(255,255,255,0.3)' }}
                 >
@@ -108,7 +192,11 @@ export default function ApiKeyModal() {
                 </button>
               </div>
               {error && (
-                <p className="mt-1.5 text-[12px]" style={{ color: 'rgba(239,68,68,0.8)' }}>
+                <p
+                  className="mt-1.5 text-[12px]"
+                  role="alert"
+                  style={{ color: 'rgba(239,68,68,0.8)' }}
+                >
                   {error}
                 </p>
               )}
@@ -134,7 +222,8 @@ export default function ApiKeyModal() {
                 >
                   console.anthropic.com
                 </a>
-                . You pay Anthropic directly for API usage. This app has no subscription and takes no cut.
+                . You pay Anthropic directly for API usage. This app has no
+                subscription and takes no cut.
               </p>
             </div>
 
@@ -143,7 +232,10 @@ export default function ApiKeyModal() {
               <div>
                 {existingKey && (
                   <button
-                    onClick={() => { setApiKey(null); setInputValue(''); }}
+                    onClick={() => {
+                      setApiKey(null);
+                      setInputValue('');
+                    }}
                     className="text-[11px] uppercase tracking-wider px-2 py-1 rounded transition-colors"
                     style={{ color: 'rgba(239,68,68,0.6)' }}
                   >
@@ -178,7 +270,10 @@ export default function ApiKeyModal() {
 
             {/* Current key indicator */}
             {existingKey && !inputValue && (
-              <div className="mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+              <div
+                className="mt-4 pt-3"
+                style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+              >
                 <p className="text-[11px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
                   Current key: <span className="font-mono">{maskedKey(existingKey)}</span>
                 </p>

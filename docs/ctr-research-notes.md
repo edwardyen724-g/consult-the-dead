@@ -30,7 +30,7 @@ The next batch should sharpen those shipped surfaces instead of starting a redes
 | 3 | Move the streaming demo earlier | Homepage | The demo is already shipped; the work is to make it more visually dominant and faster to start so it earns attention before the first scroll. | Better engagement and more time on page | Small |
 | 4 | Pricing-page proof without fake testimonials | `/pricing` | The pricing copy still needs real social proof discipline. Until there are approved customer quotes, the page should rely on shipped-product proof and concrete feature framing. | Higher trust, fewer credibility leaks | Small |
 | 5 | Loss-aversion / quota reminders | `/pricing` and `/agora` | The free cap and Pro trial already exist. A careful reminder system can make the upgrade trigger feel obvious without inventing new pricing complexity. | Better free-to-paid conversion | Medium |
-| 6 | Collection feedback | Homepage + library | The product already has multiple minds and packs; showing progress or "you have consulted X minds" can make the system feel cumulative instead of one-off. | Higher return visits and shareability | Medium |
+| 6 | Collection feedback — **implemented (monitoring)** | `/library` | Shipped as `LibraryProofStrip` (PR #184): renders "X minds consulted · Y saved debates" below the `/library` title as a compact monospaced stat bar. The hypothesis that showing cumulative progress increases return visits and shareability is now live; watch library return-visit rate and save-to-share conversion. | Higher return visits and shareability | Shipped |
 
 ## Recommended Next Batch
 
@@ -55,3 +55,9 @@ Ship these first:
 - Do not add fake testimonials to compensate for missing social proof.
 - Do not introduce pack-based pricing before there is evidence that users buy by pack instead of by tier.
 - Do not widen the homepage before the current hero, demo, and quiz path have been tested.
+
+## Shipped Features Not Originally Tracked as Experiments
+
+**Transcript share helper (PR #180) — implemented (monitoring)**
+
+`buildTranscriptShareText` in `website/src/lib/share-transcript.ts` formats a pull-quote excerpt from a mind's response into a clipboard-ready share blob: title line, quoted excerpt (capped at 280 chars), canonical `/agora/a/[id]` URL, and attribution line. This directly supports the shareability hypothesis from the Collection feedback research. The implementation is live; watch public agon page traffic from share referrals as the leading indicator.

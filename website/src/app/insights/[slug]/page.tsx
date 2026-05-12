@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import type { Framework, FrameworkSlug } from "@/lib/frameworks";
+import { SLUG_COLOR_VAR } from "@/lib/frameworks";
 import {
   getInsightEntry,
   getInsightFrameworks,
@@ -11,6 +12,13 @@ import {
   INSIGHT_ENTRIES,
   isCollisionInsightEntry,
 } from "@/lib/insights";
+
+/* ── Reading-time estimate ── */
+function readingTime(texts: string[]): string {
+  const words = texts.join(" ").trim().split(/\s+/).length;
+  const mins = Math.max(2, Math.round(words / 200));
+  return `${mins} min read`;
+}
 
 /* ── Static generation ── */
 
@@ -72,6 +80,9 @@ export default async function InsightPage({ params }: PageProps) {
   const person = frameworks[0]?.meta.person ?? entry.frameworkSlug;
   const primary = frameworks[0] as Framework;
   const secondary = frameworks[1] as Framework | undefined;
+  const primaryAccent =
+    SLUG_COLOR_VAR[primary.slug as FrameworkSlug] ?? "var(--amber)";
+  const rt = readingTime([entry.description, entry.hookQuestion]);
   const jsonLd = buildArticleJsonLd(
     entry.title,
     entry.description,
@@ -91,6 +102,7 @@ export default async function InsightPage({ params }: PageProps) {
 
       <article>
         <header style={{ marginBottom: 48 }}>
+          {/* Breadcrumb */}
           <p style={eyebrowStyle}>
             <Link href="/insights" style={{ color: "var(--fg-dim)", textDecoration: "none" }}>
               INSIGHTS
@@ -98,12 +110,133 @@ export default async function InsightPage({ params }: PageProps) {
             {" / "}
             <span style={{ textTransform: "uppercase" }}>{person}</span>
           </p>
-          <div style={metaRowStyle}>
-            <span style={pillStyle}>{entry.decisionType}</span>
-            <time dateTime={publishedAt} style={dateStyle}>
-              {formatPublishedDate(publishedAt)}
-            </time>
+
+          {/* ── Framework-profile hero panel ── */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "auto 1fr",
+              gap: "20px",
+              alignItems: "start",
+              padding: "20px 24px",
+              border: `1px solid ${primaryAccent}`,
+              borderRadius: 10,
+              background: "var(--surface)",
+              marginBottom: 32,
+            }}
+          >
+            {/* Portrait icon */}
+            <img
+              src={`/portraits/${primary.slug}-portrait.png`}
+              alt={primary.meta.person}
+              width={56}
+              height={56}
+              style={{
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: `2px solid ${primaryAccent}`,
+                flexShrink: 0,
+              }}
+            />
+
+            {/* Profile info */}
+            <div>
+              {/* Mind name + domain */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  flexWrap: "wrap",
+                  marginBottom: 6,
+                }}
+              >
+                <Link
+                  href={`/frameworks/${primary.slug}`}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: primaryAccent,
+                    fontWeight: 500,
+                    textDecoration: "none",
+                  }}
+                >
+                  {primary.meta.person}
+                </Link>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 9,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--fg-faint)",
+                    padding: "2px 7px",
+                    border: "1px solid var(--hairline)",
+                    borderRadius: 99,
+                  }}
+                >
+                  {primary.meta.domain}
+                </span>
+                {isCollisionInsightEntry(entry) && secondary && (
+                  <>
+                    <span style={{ color: "var(--fg-faint)", fontSize: 11 }}>vs.</span>
+                    <Link
+                      href={`/frameworks/${secondary.slug}`}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: 11,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: accentForSlug(secondary.slug as FrameworkSlug),
+                        fontWeight: 500,
+                        textDecoration: "none",
+                      }}
+                    >
+                      {secondary.meta.person}
+                    </Link>
+                  </>
+                )}
+              </div>
+
+              {/* 2-sentence excerpt from perceptual lens */}
+              <p
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: 14,
+                  lineHeight: 1.55,
+                  color: "var(--fg-dim)",
+                  margin: "0 0 10px",
+                }}
+              >
+                {/* Show first 2 sentences of the perceptual lens statement */}
+                {primary.perceptual_lens.statement
+                  .split(/(?<=[.!?])\s+/)
+                  .slice(0, 2)
+                  .join(" ")}
+              </p>
+
+              {/* Meta row: decision type + reading time */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  flexWrap: "wrap",
+                }}
+              >
+                <span style={pillStyle}>{entry.decisionType}</span>
+                <time dateTime={publishedAt} style={dateStyle}>
+                  {formatPublishedDate(publishedAt)}
+                </time>
+                <span style={{ ...dateStyle, color: "var(--fg-faint)" }}>·</span>
+                <span style={dateStyle}>{rt}</span>
+              </div>
+            </div>
           </div>
+
+          {/* Title — h1 preserved for SEO */}
           <h1 style={titleStyle}>{entry.title}</h1>
           <p style={hookStyle}>{entry.hookQuestion}</p>
           <p style={introStyle}>{entry.description}</p>

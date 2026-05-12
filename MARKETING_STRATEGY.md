@@ -2,7 +2,7 @@
 
 **Goal:** Build a self-sustaining content engine that compounds over 90 days into 500+ weekly visitors and 50+ weekly agons started.
 **Approach:** Slow-burn, content-led, organic. **Not** a launch-spike strategy.
-**Last updated:** 2026-04-19
+**Last updated:** 2026-05-11
 
 This is the high-level GTM. The day-to-day operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md). Topic backlog in [`topics.yaml`](topics.yaml).
 
@@ -83,7 +83,7 @@ The full operating manual lives in [`CONTENT_PIPELINE.md`](CONTENT_PIPELINE.md).
 - **2-3 articles/week** — mix of evergreen `/insights/` and pain-state `/decisions/` pages, optimized for both Google ranking and AI-agent citation
 - **4-5 Verdict Reels/week + 1 carousel/week** on Instagram, faceless brand account, voiceover + kinetic text + product UI as B-roll
 - **Daily Stories** — low-effort, drives profile visits
-- **Topic queue:** [`topics.yaml`](topics.yaml), 25+ entries seeded
+- **Topic queue:** [`topics.yaml`](topics.yaml), reviewed and pruned for Phase 1 publishing
 - **Format pick (Verdict Reel) is data-backed** — we considered AI avatars and rejected them: Meta is suppressing AI-flagged content, audience reception in 2026 is actively negative
 
 ---
