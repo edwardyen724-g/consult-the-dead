@@ -69,3 +69,20 @@ after deployments touching the relevant feature areas.
 - [Founder Checkpoint Metrics Pull](founder-checkpoint-metrics-pull.md)
   - Retrieves live metrics from the database for leadership reporting
   - Covers subscriber count, debate activity, and engagement metrics
+
+## Deployment & Release
+
+- [Pre-Deployment Checklist](../pre-deployment-checklist.md)
+  - Verification checklist before production release
+  - Covers code quality, framework validation, docs, env vars, smoke tests
+
+- [Release & Rollback Playbook](../release-and-rollback-playbook.md)
+  - CTO guide for production releases and emergency rollback
+  - Vercel one-click rollback and monitoring procedures
+
+## Reference Guides
+
+- [Environment Variables Reference](../environment-variables.md)
+  - Complete list of required and optional environment variables
+  - Setup instructions for local dev and production
+  - Security best practices
