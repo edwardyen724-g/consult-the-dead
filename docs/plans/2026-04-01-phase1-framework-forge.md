@@ -4,6 +4,8 @@
 >
 > **Roster validation status (as of 2026-05-12):** The framework-forge validate CLI has been run against all 28 frameworks in `frameworks/`. Every framework directory contains at minimum `tier1_results.json`; 20 frameworks have completed through `tier2_results.json` and `tier3_materials/`. The validation pipeline is fully operational beyond the Phase 1 scope.
 
+> **Operational handoff:** Use [docs/framework-forge-quickstart.md](../framework-forge-quickstart.md) as the source of truth for current command usage. It documents the package CLI entrypoint (`framework-forge` and `python -m framework_forge.cli`) and the artifact layout that workers should follow.
+
 **Goal:** Build the Framework Forge tooling and use it to extract one complete, validated Steve Jobs thinking framework — proving the CDM-adapted methodology produces output deep enough to pass three-tier validation.
 
 **Architecture:** Python CLI tool (`framework_forge`) with four subsystems: source management, extraction pipeline (CDM-adapted), framework encoding, and three-tier validation. Each subsystem is independently testable. The extraction pipeline is LLM-assisted (Claude API) — the tool orchestrates structured analytical prompts, not fully automated extraction. Framework output is a JSON file conforming to the selector architecture template.

@@ -92,4 +92,4 @@ frameworks/
 
 Phase 1 in `docs/plans/2026-04-01-phase1-framework-forge.md` describes the broader extraction system. This quickstart is the operational version of that plan: it documents the current command surface and artifact layout that workers can use today.
 
-One important drift note: the phase plan still shows older single-file command examples such as `python framework_forge.py ...` and `python validate_framework.py ...`. The live implementation uses the package CLI commands above, so the quickstart should be treated as the source of truth for current usage.
+Treat the package CLI commands above as the current usage contract. Older single-file script examples are obsolete and should not be used for new work.
