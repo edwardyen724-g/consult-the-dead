@@ -150,6 +150,57 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "Your portfolio is profitable, but the weakest products are absorbing attention. Is this a power problem or a measurement problem?",
     publishedAt: "2026-05-10",
   },
+  {
+    slug: "what-would-marcus-aurelius-say-about-burnout",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "What Would Marcus Aurelius Say About Burnout?",
+    description:
+      "Marcus Aurelius treated exhaustion as a cue to inspect duty, not a reason to chase comfort. His Stoic framework shows when burnout is a signal to reset and when it is just a season of strain.",
+    targetKeywords: [
+      "Marcus Aurelius on burnout",
+      "stoic advice for burnout",
+      "burnout recovery for founders",
+    ],
+    decisionType: "identity",
+    hookQuestion:
+      "You feel burned out, but is the fatigue exposing a broken duty cycle or just a temporary season of strain?",
+    publishedAt: "2026-05-12",
+  },
+  {
+    slug: "what-would-sun-tzu-say-about-tariffs-and-trade-wars",
+    type: "single",
+    frameworkSlug: "sun-tzu",
+    title: "What Would Sun Tzu Say About Tariffs and Trade Wars?",
+    description:
+      "Sun Tzu treats tariff shocks as terrain, not theater. His framework clarifies when to reposition supply lines, when to wait, and when to strike through the flank.",
+    targetKeywords: [
+      "Sun Tzu on trade war",
+      "tariff strategy",
+      "startup trade war strategy",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Tariff shocks are hitting your margins and your competitors are panicking. Do you read the market as terrain, or as a price war you have to win head-on?",
+    publishedAt: "2026-05-12",
+  },
+  {
+    slug: "what-would-machiavelli-say-about-firing-someone-you-respect",
+    type: "single",
+    frameworkSlug: "niccolo-machiavelli",
+    title: "What Would Machiavelli Say About Firing Someone You Respect?",
+    description:
+      "Machiavelli separates personal respect from institutional necessity. His framework helps founders act when loyalty is real, but the power balance has already shifted.",
+    targetKeywords: [
+      "Machiavelli on firing employees",
+      "how to fire someone you respect",
+      "founder leadership conflict",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "You respect the person, but the team is losing confidence. Do you preserve the relationship, or make the hard call before trust erodes further?",
+    publishedAt: "2026-05-12",
+  },
   // HIDDEN 2026-04-16 pending legal review — see docs/roster-expansion.md
   // Einstein insight article re-enable when albert-einstein is restored to FrameworkSlug.
   // {
@@ -305,6 +356,48 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Cross-domain pattern",
       source: (entry) => entry.description,
       excerpt: "cross-domain pattern recognition",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-marcus-aurelius-say-about-burnout": [
+    {
+      label: "Duty check",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "burned out",
+      constructIndex: 0,
+    },
+    {
+      label: "Stoic reset",
+      source: (entry) => entry.description,
+      excerpt: "inspect duty",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-sun-tzu-say-about-tariffs-and-trade-wars": [
+    {
+      label: "Tariff shock",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "Tariff shocks",
+      constructIndex: 0,
+    },
+    {
+      label: "Terrain read",
+      source: (entry) => entry.description,
+      excerpt: "terrain",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-machiavelli-say-about-firing-someone-you-respect": [
+    {
+      label: "Relationship pressure",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "respect the person",
+      constructIndex: 0,
+    },
+    {
+      label: "Institutional necessity",
+      source: (entry) => entry.description,
+      excerpt: "power balance",
       constructIndex: 1,
     },
   ],
