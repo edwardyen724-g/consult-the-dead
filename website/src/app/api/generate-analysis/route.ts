@@ -7,6 +7,7 @@ import { bumpCounter, bumpMind, logTopic } from "@/lib/agon/metrics";
 import { frameworkToSystemPrompt } from "@/lib/agon/frameworkPrompt";
 import { loadFrameworkRaw } from "@/lib/agon/loadFramework";
 import { checkRateLimit, getClientIp, quotaResetAt } from "@/lib/agon/rateLimit";
+import { isAllowedOrigin } from "@/lib/agon/originAllowlist";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -16,28 +17,9 @@ const ANALYSIS_MAX_TOKENS = 1200;
 const MIN_TOPIC_LENGTH = 10;
 const MAX_TOPIC_LENGTH = 2000;
 
-const ALLOWED_ORIGINS = new Set<string>([
-  "https://consultthedead.com",
-  "https://www.consultthedead.com",
-  "https://agora.consultthedead.com",
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-  "http://localhost:3001",
-]);
-
 interface GenerateAnalysisRequestBody {
   frameworkSlug?: string;
   topic?: string;
-}
-
-function isAllowedOrigin(req: NextRequest): boolean {
-  const origin = req.headers.get("origin");
-  if (!origin) return false;
-  if (ALLOWED_ORIGINS.has(origin)) return true;
-  if (/^https:\/\/website-[a-z0-9-]+-edwardyen724-gs-projects\.vercel\.app$/.test(origin)) {
-    return true;
-  }
-  return false;
 }
 
 function jsonError(status: number, message: string, extra?: Record<string, unknown>) {
