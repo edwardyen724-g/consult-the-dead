@@ -204,11 +204,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── LIVE DEMO ── */}
+      {/* CTR experiment 3: surfaced above packs so it earns attention before first scroll. */}
+      <section
+        data-testid="streaming-demo-section"
+        style={{
+          padding: '48px 24px 72px',
+          borderTop: '1px solid var(--hairline)',
+        }}
+      >
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'var(--fg-faint)',
+            marginBottom: '16px',
+          }}>
+            Worked example
+          </p>
+          <h2 style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 400,
+            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.1,
+            marginBottom: '48px',
+          }}>
+            See it run
+          </h2>
+          {/*
+            min-height locks in space before hydration so the page doesn't
+            shift when the client component initialises from INITIAL_STATE.
+            Value covers the waiting-state height on common viewports.
+          */}
+          <div style={{ minHeight: '320px' }}>
+            <StreamingDemo />
+          </div>
+        </div>
+      </section>
+
       {/* ── SIX COUNCILS / PACKS ── */}
-      <section style={{
-        padding: '72px 24px',
-        borderTop: '1px solid var(--hairline)',
-      }}>
+      <section
+        data-testid="packs-section"
+        style={{
+          padding: '72px 24px',
+          borderTop: '1px solid var(--hairline)',
+        }}
+      >
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '8px' }}>
             <p style={{
@@ -414,32 +458,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── LIVE DEMO ── */}
-      <section style={{ padding: '0 24px 96px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: 'var(--fg-faint)',
-            marginBottom: '16px',
-          }}>
-            Worked example
-          </p>
-          <h2 style={{
-            fontFamily: 'var(--font-serif)',
-            fontWeight: 400,            fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.1,
-            marginBottom: '48px',
-          }}>
-            See it run
-          </h2>
-          <StreamingDemo />
         </div>
       </section>
 

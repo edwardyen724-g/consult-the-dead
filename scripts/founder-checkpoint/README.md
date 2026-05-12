@@ -17,8 +17,11 @@ time.
 ## Usage
 
 ```bash
-# Live pull (requires the env vars below).
-tsx scripts/founder-checkpoint/pull-metrics.ts > /tmp/metrics.json
+# Live pull — loads credentials from root .env.local.
+# Fill in STRIPE_SECRET_KEY, STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL,
+# and VERCEL_TOKEN in .env.local first (see Environment section below).
+# VERCEL_PROJECT_ID and VERCEL_TEAM_ID are already pre-filled in .env.local.
+tsx --env-file .env.local scripts/founder-checkpoint/pull-metrics.ts | jq .
 
 # Dry-run / smoke (no env vars; emits a stub with missing_credentials).
 env -i PATH="$PATH" tsx scripts/founder-checkpoint/pull-metrics.ts
@@ -136,8 +139,9 @@ The AR agent reads the JSON emitted to stdout. The contract fields it depends on
 ### Running for a retro
 
 ```bash
-# Live run — emits the full JSON to stdout; redirect to file or pipe to jq.
-tsx scripts/founder-checkpoint/pull-metrics.ts | jq .
+# Live run — loads credentials from root .env.local (VERCEL_PROJECT_ID and
+# VERCEL_TEAM_ID are already set; fill in STRIPE_* and VERCEL_TOKEN).
+tsx --env-file .env.local scripts/founder-checkpoint/pull-metrics.ts | jq .
 
 # Compare against the known-good stub shape (catches schema regressions).
 diff <(env -i PATH="$PATH" tsx scripts/founder-checkpoint/pull-metrics.ts \
