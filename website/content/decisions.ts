@@ -127,6 +127,141 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "start your own agon",
     ],
   },
+  {
+    slug: "should-i-fire-my-cofounder",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Fire My Cofounder?",
+    description:
+      "A cofounder conflict is rarely just a personnel problem. It is usually a leverage problem, a trust problem, and a signal that the company's operating model is already breaking.",
+    primaryQuery: "Should I fire my cofounder?",
+    secondaryQueries: [
+      "when should I fire my cofounder",
+      "how to remove a cofounder from a startup",
+      "cofounder conflict what to do",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "If you cannot trust the person you built the company with, are you protecting the business by staying patient, or making the damage harder to reverse?",
+    targetKeywords: [
+      "should I fire my cofounder",
+      "when should I fire my cofounder",
+      "how to remove a cofounder from a startup",
+      "cofounder conflict what to do",
+    ],
+  },
+  {
+    slug: "should-i-pivot-or-persist",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Pivot or Persist?",
+    description:
+      "A pivot is not a surrender and persistence is not virtue by default. The right answer depends on whether you are learning fast enough to justify another round of effort.",
+    primaryQuery: "Should I pivot or persist?",
+    secondaryQueries: [
+      "how to know when to pivot a startup",
+      "when should a founder persist",
+      "pivot vs persist startup",
+    ],
+    recommendedCouncil: [
+      "isaac-newton",
+      "marie-curie",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "If the market keeps refusing the same offer, are you in a temporary valley of bad luck, or already standing in front of a wall that requires a new route?",
+    targetKeywords: [
+      "should I pivot or persist",
+      "how to know when to pivot a startup",
+      "when should a founder persist",
+      "pivot vs persist startup",
+    ],
+  },
+  {
+    slug: "should-i-take-this-job-offer",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Take This Job Offer?",
+    description:
+      "A job offer is more than salary and title. It is a bet on the manager, the mission, the learning curve, and the opportunity cost of saying yes.",
+    primaryQuery: "Should I take this job offer?",
+    secondaryQueries: [
+      "how to evaluate a job offer",
+      "is this job offer worth taking",
+      "should I accept this offer",
+    ],
+    recommendedCouncil: [
+      "marcus-aurelius",
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Does this role actually increase your freedom, leverage, and skill, or is it only a safer version of the path you are already on?",
+    targetKeywords: [
+      "should I take this job offer",
+      "how to evaluate a job offer",
+      "is this job offer worth taking",
+      "should I accept this offer",
+    ],
+  },
+  {
+    slug: "should-i-sell-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Sell My Startup?",
+    description:
+      "Selling a startup can crystallize value, reduce risk, and change your life. It can also hand away upside too early if the business still has room to compound.",
+    primaryQuery: "Should I sell my startup?",
+    secondaryQueries: [
+      "when should I sell my startup",
+      "how to decide whether to sell a startup",
+      "startup acquisition decision",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "If the buyer is offering certainty today, are you selling the right asset at the right time, or just exiting before the real compounding shows up?",
+    targetKeywords: [
+      "should I sell my startup",
+      "when should I sell my startup",
+      "how to decide whether to sell a startup",
+      "startup acquisition decision",
+    ],
+  },
+  {
+    slug: "should-i-shut-down-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Shut Down My Startup?",
+    description:
+      "Shutting down is not failure if the evidence says the company cannot win on a timeline that matters. The hard part is separating grief from the actual data.",
+    primaryQuery: "Should I shut down my startup?",
+    secondaryQueries: [
+      "when should I shut down my startup",
+      "how to know when to close a startup",
+      "shutdown versus pivot startup",
+    ],
+    recommendedCouncil: [
+      "marcus-aurelius",
+      "seneca",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Are you protecting something that still has a real chance to win, or prolonging a company that has already spent its remaining option value?",
+    targetKeywords: [
+      "should I shut down my startup",
+      "when should I shut down my startup",
+      "how to know when to close a startup",
+      "shutdown versus pivot startup",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
