@@ -536,17 +536,30 @@ describe("pricing page", () => {
     mockGetPricingStats.mockResolvedValueOnce(liveStats);
 
     const tree = (await PricingPage()) as { props: { initialStats: PricingStats } };
+    const { tree: clientTree } = renderPricingClient("annual", false, tree.props.initialStats);
+    const html = renderToStaticMarkup(clientTree as ReactElement);
 
     expect(mockGetPricingStats).toHaveBeenCalledTimes(1);
     expect(tree.props.initialStats).toEqual(liveStats);
+    expect(html).toContain("21 minds");
+    expect(html).toContain("34 debates in the library");
+    expect(html).toContain("123 agons run");
+    expect(html).toContain("Free to start");
   });
 
   it("falls back to the static pricing defaults when live stats are unavailable", async () => {
     mockGetPricingStats.mockRejectedValueOnce(new Error("stats unavailable"));
 
     const tree = (await PricingPage()) as { props: { initialStats: PricingStats } };
+    const { tree: clientTree } = renderPricingClient("annual", false, tree.props.initialStats);
+    const html = renderToStaticMarkup(clientTree as ReactElement);
 
     expect(tree.props.initialStats).toEqual(PRICING_STATS_DEFAULT);
+    expect(html).toContain('data-testid="pricing-stats"');
+    expect(html).toContain("18 minds");
+    expect(html).toContain("30 debates in the library");
+    expect(html).not.toContain("agons run");
+    expect(html).toContain("Free to start");
   });
 });
 
