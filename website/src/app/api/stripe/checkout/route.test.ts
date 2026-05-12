@@ -112,7 +112,7 @@ describe('POST /api/stripe/checkout', () => {
         utm_campaign: 'body-campaign',
         utm_content: 'body-content',
       },
-      success_url: 'https://site.test/agora?checkout=success',
+      success_url: 'https://site.test/checkout/success',
       cancel_url: 'https://site.test/pricing',
     }))
     expect(mocks.updateUserMetadata).toHaveBeenCalledWith('user_1', {

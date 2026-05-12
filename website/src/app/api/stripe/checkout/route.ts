@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
     mode: 'subscription',
     line_items: [{ price: priceId, quantity: 1 }],
     subscription_data: { trial_period_days: 7 },
-    success_url: `${SITE_URL}/agora?checkout=success`,
+    success_url: `${SITE_URL}/checkout/success`,
     cancel_url: `${SITE_URL}/pricing`,
     metadata,
   })
