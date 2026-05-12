@@ -179,7 +179,8 @@
     - "Marcus Aurelius founder advice"
   recommended_council: [marcus-aurelius]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-sun-tzu-say-about-tariffs-and-trade-wars
   type: insight
