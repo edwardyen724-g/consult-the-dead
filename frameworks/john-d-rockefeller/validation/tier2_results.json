@@ -1,0 +1,110 @@
+{
+  "traceability_ratio": 0.92,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "Renewable Energy Technology Decision",
+      "traceable_steps": 23,
+      "total_steps": 25,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific 60-day negotiation strategy details",
+        "Technical standards board composition specifics"
+      ],
+      "construct_usage": [
+        "C01: Structural-position preservation over transaction-margin optimization",
+        "C02: Legal-architectural flexibility through federation of licensing agreements",
+        "C04: Long-horizon assets preserved through technology control",
+        "C05: Systematic delegation with retained category-defining authority",
+        "C08: Documented-instrument substrate for licensing relationships",
+        "C09: Co-investment requirements sorting aligned partners",
+        "C10: Architectural pluralism reducing dependency risk",
+        "C12: Window exploitation using 60-day deadline"
+      ]
+    },
+    {
+      "scenario": "Steel Fabrication Network Decision",
+      "traceable_steps": 28,
+      "total_steps": 30,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific workforce retraining program details",
+        "Milestone-based capital call structuring specifics"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through partnership over sale/debt",
+        "C02: Architectural redesign via systematic-acquisition vehicle",
+        "C03: Pre-arranged position through proven operational methods",
+        "C04: Long-horizon asset preservation through operational discipline",
+        "C07: Asymmetric opportunity in systematic underinvestment",
+        "C08: Documented operational transfers and ledger discipline",
+        "C11: Religious framework stewardship through institutional vehicles",
+        "C12: Window exploitation through systematic method over rushed deployment"
+      ]
+    },
+    {
+      "scenario": "Industrial Conglomerate Infrastructure Decision",
+      "traceable_steps": 26,
+      "total_steps": 28,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific municipal matching-grant negotiation tactics",
+        "Biotech partnership technical evaluation criteria"
+      ],
+      "construct_usage": [
+        "C01: Structural-position preservation in water, architectural control loss in rail",
+        "C02: Architectural redesign through municipal-industrial partnership",
+        "C04: Long-horizon preservation over immediate capital",
+        "C05: Systematic delegation by domain",
+        "C06: Procedural-information-management posture",
+        "C07: Asymmetric opportunity in bioengineering transformation",
+        "C09: Co-investment requirements for municipal and biotech partners",
+        "C10: Visibility-managed pluralism reducing regulatory targeting"
+      ]
+    },
+    {
+      "scenario": "Precision Manufacturing Network Decision",
+      "traceable_steps": 31,
+      "total_steps": 33,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific facility integration timeline details",
+        "Foundation curriculum development specifics"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through vertical integration",
+        "C02: Architectural redesign from federation to integrated system",
+        "C03: Pre-arranged position through standardized acquisition method",
+        "C07: Asymmetric opportunity in fragmented sector consolidation",
+        "C09: Cash-or-stock sorting for aligned operational partners",
+        "C10: Visibility management through maintained facility identities",
+        "C11: Religious stewardship through technical education foundation",
+        "C12: True window recognition vs artificial deadline pressure"
+      ]
+    },
+    {
+      "scenario": "Healthcare Conglomerate Decision",
+      "traceable_steps": 29,
+      "total_steps": 32,
+      "lens_aligned": true,
+      "untraceable_steps": [
+        "Specific antitrust defense documentation strategy",
+        "Foundation matching-grant structure details",
+        "Regulatory compliance cost projections"
+      ],
+      "construct_usage": [
+        "C01: Structural position preservation through regional monopoly",
+        "C02: Architectural redesign via holding company structure",
+        "C03: Pre-arranged financing and regulatory framework",
+        "C04: Long-horizon compounding through stable regulatory environment",
+        "C07: Asymmetric opportunity in healthcare delivery coordination",
+        "C09: Foundation matching-grants forcing community alignment",
+        "C11: Religious stewardship through healthcare philanthropy",
+        "C12: Window exploitation of distressed network availability"
+      ]
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}

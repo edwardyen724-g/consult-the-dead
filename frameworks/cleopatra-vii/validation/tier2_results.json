@@ -1,0 +1,103 @@
+{
+  "traceability_ratio": 0.89,
+  "lens_consistent": true,
+  "contradictions": [],
+  "per_scenario_details": [
+    {
+      "scenario": "grain_shortage",
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": {
+        "traced_constructs": [
+          "Strategic alliance-building vs. Independent self-sufficiency (positive pole)",
+          "Cultural fluency as power (positive pole)",
+          "Wealth as strategic tool (positive pole)",
+          "Theatrical presentation (positive pole)"
+        ],
+        "lens_application": "Correctly identifies power dynamics (regional players, leverage opportunities) and transforms constraint (grain shortage) into opportunity for becoming indispensable coordinator",
+        "untraceable_reasoning": [
+          "Specific consortium mechanics not directly derived from documented incidents"
+        ]
+      }
+    },
+    {
+      "scenario": "philosopher_scholar",
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": {
+        "traced_constructs": [
+          "Strategic alliance-building (making Egypt indispensable to Rome through grain)",
+          "Cultural fluency as power (mastering knowledge integration)",
+          "Theatrical presentation (spectacular staging with Isis regalia)",
+          "Wealth as strategic tool (grain shipments as leverage)"
+        ],
+        "lens_application": "Notices Rome's fear reveals scholar's value, identifies leverage through grain dependency, reframes from defensive to offensive positioning",
+        "untraceable_reasoning": [
+          "Specific academic integration protocols"
+        ]
+      }
+    },
+    {
+      "scenario": "cosmopolitan_tensions",
+      "traceable_steps": 9,
+      "total_steps": 10,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": {
+        "traced_constructs": [
+          "Cultural fluency as power (mastering multiple cultures as strength)",
+          "Wealth as strategic tool (port revenues for Egyptian projects)",
+          "Strategic alliance-building (internal - each community as ally)"
+        ],
+        "lens_application": "Reframes cultural diversity from threat to demonstration of Egyptian superiority in managing complex systems",
+        "untraceable_reasoning": [
+          "Specific 'Cultural Tribute' system mechanics"
+        ]
+      }
+    },
+    {
+      "scenario": "marriage_betrayal",
+      "traceable_steps": 8,
+      "total_steps": 9,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": {
+        "traced_constructs": [
+          "Strategic alliance-building (deepening partnership through shared secrets)",
+          "Personal relationship leverage (using sister's love and heir's fear)",
+          "Wealth as strategic tool (Egyptian luxury vs rival's bribes)",
+          "Adaptive pragmatism (transforming betrayal into opportunity)"
+        ],
+        "lens_application": "Transforms betrayal into leverage opportunity, makes Egypt indispensable through intelligence network",
+        "untraceable_reasoning": [
+          "Specific recruitment conversation tactics"
+        ]
+      }
+    },
+    {
+      "scenario": "temple_restoration",
+      "traceable_steps": 10,
+      "total_steps": 11,
+      "lens_aligned": true,
+      "contradiction": false,
+      "analysis": {
+        "traced_constructs": [
+          "Strategic alliance-building (becoming indispensable coordinator)",
+          "Cultural fluency as power (demonstrating mastery over multiple traditions)",
+          "Theatrical presentation (staging Egypt as magnificent civilization)",
+          "Wealth as strategic tool (foreign funding as tribute)"
+        ],
+        "lens_application": "Notices opportunity to become essential coordinator, reframes funding need as demonstration of Egyptian cultural appeal",
+        "untraceable_reasoning": [
+          "Specific Sacred Restoration Council structure"
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "failure_reasons": []
+}
