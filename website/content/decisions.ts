@@ -624,6 +624,93 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "office vs remote productivity",
     ],
   },
+  {
+    slug: "should-i-launch-on-product-hunt",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Launch on Product Hunt?",
+    description:
+      "Steve Jobs, Benjamin Franklin, and Julius Caesar debate whether Product Hunt is the right launch venue for your product — and what separates a launch that creates lasting momentum from one that produces a single good day.",
+    primaryQuery: "should I launch on Product Hunt",
+    secondaryQueries: [
+      "product hunt launch strategy",
+      "how to launch successfully on Product Hunt",
+      "is Product Hunt worth it for startups",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "benjamin-franklin",
+      "julius-caesar",
+    ],
+    hookQuestion:
+      "A Product Hunt launch creates a permanent public record. Are you prepared to win — or just prepared to show up?",
+    targetKeywords: [
+      "should I launch on Product Hunt",
+      "product hunt launch strategy",
+      "how to win on Product Hunt",
+      "is Product Hunt worth it",
+      "product hunt tips for founders",
+      "startup launch channel",
+    ],
+  },
+  {
+    slug: "should-i-offer-a-free-tier",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Offer a Free Tier?",
+    description:
+      "Steve Jobs, Andrew Carnegie, and Marcus Aurelius debate whether a free tier builds the moat you need — or defers the pricing conviction your business requires.",
+    primaryQuery: "should I offer a free tier",
+    secondaryQueries: [
+      "freemium vs paid pricing strategy",
+      "should my startup have a free plan",
+      "free tier pros and cons SaaS",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "andrew-carnegie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "A free tier is either a deliberate customer acquisition engine or a way to avoid asking whether anyone will pay. Which one are you building?",
+    targetKeywords: [
+      "should I offer a free tier",
+      "freemium vs paid SaaS",
+      "free plan pricing strategy",
+      "product led growth free tier",
+      "when to offer free plan startup",
+      "free tier conversion rate",
+    ],
+  },
+  {
+    slug: "should-i-rebrand",
+    status: "shipped",
+    shippedAt: "2026-05-12",
+    title: "Should I Rebrand?",
+    description:
+      "Steve Jobs, Marcus Aurelius, and Niccolò Machiavelli debate when rebranding closes the gap between your product and its perception — and when it is a distraction from the real work.",
+    primaryQuery: "should I rebrand my startup",
+    secondaryQueries: [
+      "when to rebrand a company",
+      "startup rebrand decision",
+      "how to know if you need to rebrand",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "marcus-aurelius",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "A rebrand can clarify an identity that has become obscured — or obscure an identity that was never built. Which situation are you in?",
+    targetKeywords: [
+      "should I rebrand my startup",
+      "when to rebrand a company",
+      "startup rebranding strategy",
+      "how to rebrand a business",
+      "brand identity change decision",
+      "rebranding pros and cons",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
