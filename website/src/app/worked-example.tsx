@@ -132,7 +132,7 @@ interface DemoState {
   ctaVisible: boolean;
 }
 
-const INITIAL_STATE: DemoState = {
+export const INITIAL_STATE: DemoState = {
   stage: "waiting",
   researchLines: [],
   roundLabel: null,
@@ -148,7 +148,7 @@ const INITIAL_STATE: DemoState = {
   ctaVisible: false,
 };
 
-const REDUCED_MOTION_STATE: DemoState = {
+export const REDUCED_MOTION_STATE: DemoState = {
   stage: "done",
   researchLines: RESEARCH_LINES.map((text) => ({ text, active: false })),
   roundLabel: null,
@@ -371,18 +371,26 @@ function ConsensusDoc({
 
 // =================== MAIN COMPONENT ===================
 
+/** Read the current reduced-motion preference without causing a re-render. */
+export function prefersReducedMotion(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
 export function StreamingDemo() {
-  const [state, setState] = useState<DemoState>(INITIAL_STATE);
+  const [state, setState] = useState<DemoState>(() =>
+    prefersReducedMotion() ? REDUCED_MOTION_STATE : INITIAL_STATE
+  );
   const cancelRef = useRef(false);
   const runningRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setState(REDUCED_MOTION_STATE);
+    // If the user's preference is already applied via the lazy initializer,
+    // skip the autoplay setup entirely.
+    if (prefersReducedMotion()) {
       return;
     }
 

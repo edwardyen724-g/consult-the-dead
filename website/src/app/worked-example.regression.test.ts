@@ -14,6 +14,9 @@ import {
   RESEARCH_LINES,
   ADVISORS,
   CONSENSUS_FULL_TEXT,
+  INITIAL_STATE,
+  REDUCED_MOTION_STATE,
+  prefersReducedMotion,
 } from "./worked-example";
 
 // ---------------------------------------------------------------------------
@@ -305,5 +308,133 @@ describe("CONSENSUS_FULL_TEXT — section structure and copy lockdown", () => {
 
     expect(consensusPos).toBeLessThan(recommendedPos);
     expect(recommendedPos).toBeLessThan(nextStepsPos);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Reduced-motion initial state — correctness and structure lockdown
+// ---------------------------------------------------------------------------
+
+describe("INITIAL_STATE — waiting stage for full-motion users", () => {
+  it("starts in the waiting stage", () => {
+    expect(INITIAL_STATE.stage).toBe("waiting");
+  });
+
+  it("has no research lines on load", () => {
+    expect(INITIAL_STATE.researchLines).toHaveLength(0);
+  });
+
+  it("has no round label on load", () => {
+    expect(INITIAL_STATE.roundLabel).toBeNull();
+  });
+
+  it("has the graph not started on load", () => {
+    expect(INITIAL_STATE.graphStarted).toBe(false);
+  });
+
+  it("has empty consensus text on load", () => {
+    expect(INITIAL_STATE.consensusText).toBe("");
+  });
+
+  it("has CTA hidden on load", () => {
+    expect(INITIAL_STATE.ctaVisible).toBe(false);
+  });
+
+  it("has all advisors hidden and empty on load", () => {
+    for (const advisor of INITIAL_STATE.advisors) {
+      expect(advisor.visible).toBe(false);
+      expect(advisor.text).toBe("");
+      expect(advisor.streaming).toBe(false);
+    }
+  });
+
+  it("advisor count matches ADVISORS array", () => {
+    expect(INITIAL_STATE.advisors).toHaveLength(ADVISORS.length);
+  });
+});
+
+describe("REDUCED_MOTION_STATE — fully-resolved state for reduced-motion users", () => {
+  it("is in the done stage", () => {
+    expect(REDUCED_MOTION_STATE.stage).toBe("done");
+  });
+
+  it("has all 5 research lines pre-populated", () => {
+    expect(REDUCED_MOTION_STATE.researchLines).toHaveLength(RESEARCH_LINES.length);
+  });
+
+  it("research lines are inactive (not streaming)", () => {
+    for (const line of REDUCED_MOTION_STATE.researchLines) {
+      expect(line.active).toBe(false);
+    }
+  });
+
+  it("research line text matches RESEARCH_LINES in order", () => {
+    for (let i = 0; i < RESEARCH_LINES.length; i++) {
+      expect(REDUCED_MOTION_STATE.researchLines[i].text).toBe(RESEARCH_LINES[i]);
+    }
+  });
+
+  it("has no round label (all rounds complete)", () => {
+    expect(REDUCED_MOTION_STATE.roundLabel).toBeNull();
+  });
+
+  it("has the consensus graph started", () => {
+    expect(REDUCED_MOTION_STATE.graphStarted).toBe(true);
+  });
+
+  it("has the full consensus text pre-filled", () => {
+    expect(REDUCED_MOTION_STATE.consensusText).toBe(CONSENSUS_FULL_TEXT);
+  });
+
+  it("has CTA visible", () => {
+    expect(REDUCED_MOTION_STATE.ctaVisible).toBe(true);
+  });
+
+  it("all advisors are visible and not streaming", () => {
+    for (const advisor of REDUCED_MOTION_STATE.advisors) {
+      expect(advisor.visible).toBe(true);
+      expect(advisor.streaming).toBe(false);
+    }
+  });
+
+  it("advisors show their round-3 text (final position)", () => {
+    for (let i = 0; i < ADVISORS.length; i++) {
+      expect(REDUCED_MOTION_STATE.advisors[i].text).toBe(ADVISORS[i].rounds[2]);
+    }
+  });
+
+  it("all advisors are at full opacity", () => {
+    for (const advisor of REDUCED_MOTION_STATE.advisors) {
+      expect(advisor.opacity).toBe(1);
+    }
+  });
+
+  it("advisor count matches ADVISORS array", () => {
+    expect(REDUCED_MOTION_STATE.advisors).toHaveLength(ADVISORS.length);
+  });
+});
+
+describe("prefersReducedMotion — SSR/browser safe guard", () => {
+  it("returns false in the test environment (no window.matchMedia)", () => {
+    // In the Node test environment window is undefined, so this must be false.
+    expect(prefersReducedMotion()).toBe(false);
+  });
+
+  it("returns false when matchMedia reports no preference", () => {
+    const original = (globalThis as Record<string, unknown>).window;
+    (globalThis as Record<string, unknown>).window = {
+      matchMedia: () => ({ matches: false }),
+    };
+    expect(prefersReducedMotion()).toBe(false);
+    (globalThis as Record<string, unknown>).window = original;
+  });
+
+  it("returns true when matchMedia reports reduce preference", () => {
+    const original = (globalThis as Record<string, unknown>).window;
+    (globalThis as Record<string, unknown>).window = {
+      matchMedia: () => ({ matches: true }),
+    };
+    expect(prefersReducedMotion()).toBe(true);
+    (globalThis as Record<string, unknown>).window = original;
   });
 });
