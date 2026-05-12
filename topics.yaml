@@ -289,7 +289,7 @@
   status: queued
 
 - slug: first-principles-thinking-the-honest-version
-  type: method
+  type: article
   search_volume_estimate: high
   primary_query: "first principles thinking"
   secondary_queries:
@@ -297,7 +297,8 @@
     - "first principles examples"
   recommended_council: []
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: the-ooda-loop-vs-the-cynefin-framework
   type: method
