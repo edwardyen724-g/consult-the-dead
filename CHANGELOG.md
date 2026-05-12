@@ -40,6 +40,10 @@ The project does not currently use semantic releases, so this changelog records 
 - Pro checkout/success page (PR #285): dedicated `/checkout/success` server page replaces the minimal query-param banner — shows personalized "You're now Pro" confirmation, Pro feature summary (Opus, 100 agons/month, 5-mind council, persistent library, PDF export), 3-step onboarding checklist, and a primary first-agon CTA; Stripe `success_url` updated accordingly.
 - Post-signup drip sequence (PR #287): three Resend emails scheduled via cron — Day 1 council-selection guide (drives free users back to Agora), Day 3 daily-reset reminder with Pro upsell (7-day trial), and Day 7 social-proof email with anonymized Pro library debates and final trial CTA.
 - Agora funnel telemetry (PR #288): four Vercel Analytics events instrument the email-capture funnel — `consensus_stage_reached`, `email_capture_shown`, `email_capture_submitted`, `email_capture_dismissed`; new `EmailCaptureModal` overlay shown once per consensus session for free users submits to `/api/newsletter/subscribe` (best-effort, fire-and-forget).
+- `should-i-hire-my-first-employee` decision page and debate (PR #294): publishes the hire-first-employee decision page under `/decisions/should-i-hire-my-first-employee` with a full three-round Machiavelli / Marcus Aurelius / Marie Curie debate; `DECISION_ENTRIES` extended and `generateStaticParams` covers the new slug automatically.
+- Public Agora share-page conversion lead-in (PR #296): `/agora/a/[id]` now shows a read-only desktop lead-in above the share CTA so visitors are explicitly invited back into `/agora` for their own agon; smoke runbook and page regression tests updated.
+- Root-level npm script proxies (PR #297): adds `build`, `lint`, and `test` at repo root in `package.json`, each delegating to the existing `website` package entrypoints so repo-level CI and release automation can run without `cd website`.
+- Sentry smoke-test runbook expansion (PR #299): runbook gains missing env vars, documents the `/monitoring` tunnel route and its ad-blocker-resilience value, replaces the vague "add a temporary throw" with two concrete client-side verification paths plus an exact server-side `Sentry.captureException` pattern, adds Step 5 per-section capture expectations (Issues, Performance, Session Replay) and Step 6 tunnel probe; troubleshooting table expanded with 4 new rows.
 
 ### Fixed
 - Quota 429 retry headers changelog note (PR #230): records the quota contract headers in the changelog.
@@ -55,7 +59,7 @@ The project does not currently use semantic releases, so this changelog records 
 - Share CTA button label aligned with founder directive (PR #250): corrects the share CTA label to match the founder-approved copy.
 - Duplicate quotaResetAt resolved, test assertions aligned, retry hints surfaced (PR #256): fixes the duplicate field bug in quota responses, aligns test assertions, and surfaces retry hint headers.
 - UTM params forwarded from URL to Stripe checkout POST body (PR #276): pricing CTA now carries UTM attribution through into the Stripe checkout session.
-- Pricing proof strip now boots from live stats (task a4301d84): `/pricing` server-seeds the proof row from `getPricingStats()` and refreshes from `/api/stats`, so the counters no longer start from a frozen baseline when live data is available.
+- Pricing proof strip now boots from live stats (PR #298): `/pricing` server-seeds the proof row from `getPricingStats()` and refreshes from `/api/stats`, so the counters no longer start from a frozen baseline when live data is available; split into a server wrapper and client component to allow first-render seeding without blocking the page shell.
 
 ## 2026-05-11
 
