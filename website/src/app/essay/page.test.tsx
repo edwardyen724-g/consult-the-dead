@@ -11,7 +11,7 @@ vi.mock("fs", () => ({
   readFileSync: readFileSyncMock,
 }));
 
-import EssayPage from "./page";
+import EssayPage, { metadata } from "./page";
 
 type ElementLike = {
   type?: unknown;
@@ -69,6 +69,55 @@ function findByHref(root: unknown, href: string): ElementLike | null {
   });
   return found;
 }
+
+describe("essay page metadata", () => {
+  it("exports the canonical title, description, and OG properties", () => {
+    expect(metadata.title).toBe(
+      "Consulting the Dead, Not Distilling the Living — Consult The Dead",
+    );
+    expect(metadata.description).toBe("The operation we are doing instead.");
+
+    const og = metadata.openGraph as Record<string, unknown>;
+    expect(og.title).toBe("Consulting the Dead, Not Distilling the Living");
+    expect(og.description).toBe("The operation we are doing instead.");
+    expect(og.url).toBe("https://www.consultthedead.com/essay");
+
+    const images = og.images as Array<{
+      url: string;
+      width: number;
+      height: number;
+      alt: string;
+    }>;
+    expect(images).toHaveLength(1);
+    expect(images[0].url).toBe(
+      "https://www.consultthedead.com/essay/opengraph-image",
+    );
+    expect(images[0].width).toBe(1200);
+    expect(images[0].height).toBe(630);
+    expect(images[0].alt).toBe(
+      "Consulting the Dead, Not Distilling the Living — Consult The Dead",
+    );
+  });
+
+  it("exports the canonical Twitter card properties", () => {
+    const tw = metadata.twitter as Record<string, unknown>;
+    expect(tw.card).toBe("summary_large_image");
+    expect(tw.title).toBe("Consulting the Dead, Not Distilling the Living");
+    expect(tw.description).toBe("The operation we are doing instead.");
+    const twImages = tw.images as string[];
+    expect(twImages).toContain(
+      "https://www.consultthedead.com/essay/opengraph-image",
+    );
+  });
+
+  it("keeps the OG and Twitter images pointing at the same URL", () => {
+    const og = metadata.openGraph as {
+      images: Array<{ url: string }>;
+    };
+    const tw = metadata.twitter as { images: string[] };
+    expect(og.images[0].url).toBe(tw.images[0]);
+  });
+});
 
 describe("essay page", () => {
   beforeEach(() => {
