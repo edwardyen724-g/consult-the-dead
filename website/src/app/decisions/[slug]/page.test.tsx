@@ -425,4 +425,18 @@ describe("DecisionPage", () => {
     // The primaryQuery should appear in the FAQPage JSON-LD as the question name.
     expect(html).toContain(entry.primaryQuery);
   });
+
+  it("emits a BreadcrumbList JSON-LD with Home > Decisions > page title", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-raise-vc-or-bootstrap" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('"@type":"ListItem"');
+    expect(html).toContain('"name":"Home"');
+    expect(html).toContain('"name":"Decisions"');
+    // Page title should appear as position 3 item.
+    expect(html).toContain("Should I Raise VC or Bootstrap?");
+  });
 });

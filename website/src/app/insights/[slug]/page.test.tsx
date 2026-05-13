@@ -627,6 +627,27 @@ describe("InsightPage — single-framework insight", () => {
 
     expect(html).not.toContain('"@type":"FAQPage"');
   });
+
+  it("emits a BreadcrumbList JSON-LD with Home > Insights > page title", async () => {
+    const fw = makeFramework();
+    mocks.getInsightEntry.mockReturnValue(makeSingleEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({
+        slug: "how-newton-would-approach-your-pivot-decision",
+      }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('"@type":"ListItem"');
+    expect(html).toContain('"name":"Home"');
+    expect(html).toContain('"name":"Insights"');
+    // Page title should appear as position 3 item.
+    expect(html).toContain("How Newton Would Approach Your Pivot Decision");
+  });
 });
 
 describe("InsightPage — collision insight", () => {

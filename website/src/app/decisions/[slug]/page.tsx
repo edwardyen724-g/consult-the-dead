@@ -71,6 +71,15 @@ export default async function DecisionPage({ params }: PageProps) {
   const ctaHref = buildDecisionAgoraHref(entry);
   const jsonLd = buildArticleJsonLd(entry.title, entry.description, slug, publishedAt, entry.targetKeywords);
   const faqLd = buildFaqJsonLd(entry.title, entry.primaryQuery, entry.description, entry.hookQuestion);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.consultthedead.com" },
+      { "@type": "ListItem", position: 2, name: "Decisions", item: "https://www.consultthedead.com/decisions" },
+      { "@type": "ListItem", position: 3, name: entry.title, item: getDecisionUrl(slug) },
+    ],
+  };
 
   return (
     <main style={{ maxWidth: COL, margin: "0 auto", padding: "72px 24px 96px" }}>
@@ -81,6 +90,10 @@ export default async function DecisionPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <article>
