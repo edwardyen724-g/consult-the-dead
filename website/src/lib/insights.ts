@@ -2217,6 +2217,90 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "You can either win by being the lowest-cost producer at scale (own the production chain), or by controlling the distribution channel that everyone else has to use. Carnegie went vertical. Rockefeller went horizontal. They both won.",
     publishedAt: "2026-05-14",
   },
+  // ── Wave 10 collision articles ─────────────────────────────────────────
+  {
+    slug: "machiavelli-vs-sun-tzu-on-competitive-intelligence",
+    type: "collision",
+    frameworkSlug: "niccolo-machiavelli",
+    collisionFrameworkSlugs: ["niccolo-machiavelli", "sun-tzu"],
+    decisionType: "strategy",
+    title:
+      "Machiavelli vs. Sun Tzu: Should You Know Your Enemy or Be Your Enemy?",
+    description:
+      "A collision on competitive intelligence strategy — Sun Tzu's framework demands total knowledge of the enemy before engaging, while Machiavelli argues that projecting a reputation for decisive strength prevents the engagement from being necessary. Both dominated their domains; they reached opposite conclusions about whether intelligence or intimidation is the ultimate competitive weapon.",
+    targetKeywords: [
+      "competitive intelligence strategy",
+      "know your enemy business",
+      "Machiavelli Sun Tzu strategy",
+      "startup competitive strategy",
+      "how to respond to competition",
+    ],
+    hookQuestion:
+      "You have discovered that a well-funded competitor is entering your market in 90 days. Do you spend resources studying them obsessively to find their weaknesses, or do you spend those resources publicly demonstrating your own strength so they reconsider the move?",
+    publishedAt: "2026-05-21",
+  },
+  {
+    slug: "marcus-aurelius-vs-seneca-on-processing-failure",
+    type: "collision",
+    frameworkSlug: "marcus-aurelius",
+    collisionFrameworkSlugs: ["marcus-aurelius", "seneca"],
+    decisionType: "resilience",
+    title:
+      "Marcus Aurelius vs. Seneca: How Long Should You Sit With Failure Before Moving On?",
+    description:
+      "A collision on the stoic prescription for failure. Marcus Aurelius held that the only failure is the failure to extract meaning — you move immediately, carrying the lesson forward as fuel. Seneca wrote extensively about the value of sitting with difficulty, examining it fully before acting. Both were stoics, both faced real failure. Their prescriptions for how long to dwell before moving differ significantly.",
+    targetKeywords: [
+      "how to process failure",
+      "stoic approach to failure",
+      "Marcus Aurelius failure",
+      "resilience after failure",
+      "how to bounce back from failure",
+    ],
+    hookQuestion:
+      "Your last product launch failed publicly. You have 48 hours before investors ask for a post-mortem. Do you spend the next two days excavating what went wrong in full detail (Seneca), or do you write one clear lesson and redirect your energy immediately (Aurelius)?",
+    publishedAt: "2026-05-21",
+  },
+  {
+    slug: "franklin-vs-carnegie-on-building-your-network",
+    type: "collision",
+    frameworkSlug: "benjamin-franklin",
+    collisionFrameworkSlugs: ["benjamin-franklin", "andrew-carnegie"],
+    decisionType: "hiring",
+    title: "Franklin vs. Carnegie: Should Your Network Be Broad or Deep?",
+    description:
+      "A collision on network strategy. Benjamin Franklin built the broadest network in 18th-century America — the postmaster, the scientist, the diplomat — deliberately cultivating connections across every domain and institution. Carnegie built concentrated, deep relationships with a small circle of operators and trusted his network to perform. Both became the most connected men in their respective societies, but the architecture of their networks was opposite. The question is what kind of problem you are trying to solve.",
+    targetKeywords: [
+      "building your network startup",
+      "broad vs deep network",
+      "how to build a professional network",
+      "networking strategy business",
+      "Benjamin Franklin Carnegie networking",
+    ],
+    hookQuestion:
+      "You have 10 hours per month for networking. Do you use them to make 40 light-touch connections across different industries and cities, or to deepen relationships with 4 people who are directly adjacent to your work?",
+    publishedAt: "2026-05-21",
+  },
+  {
+    slug: "cleopatra-vs-catherine-the-great-on-ruling-through-alliance",
+    type: "collision",
+    frameworkSlug: "cleopatra-vii",
+    collisionFrameworkSlugs: ["cleopatra-vii", "catherine-the-great"],
+    decisionType: "strategy",
+    title:
+      "Cleopatra vs. Catherine the Great: Is Your Strongest Alliance Your Biggest Vulnerability?",
+    description:
+      "A collision on alliance strategy as a survival mechanism. Cleopatra built Rome as her guarantor — Julius Caesar then Mark Antony — and that alliance defined both her power and her downfall. Catherine the Great built internal power through institutional control, kept foreign alliances subordinate to domestic strength, and outlasted every regime that threatened her. Both were women ruling in hostile environments. One bet on external anchors; the other refused to.",
+    targetKeywords: [
+      "strategic alliance risk",
+      "partnership dependency risk",
+      "when to rely on alliance",
+      "Cleopatra Catherine the Great",
+      "startup partnership strategy",
+    ],
+    hookQuestion:
+      "Your startup's survival depends on a partnership with a much larger company that controls your distribution channel. Do you deepen the dependency by expanding the partnership, or do you spend the next year building a path to independence even if it means slower growth?",
+    publishedAt: "2026-05-21",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -3190,6 +3274,63 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Opposite playbooks",
       source: (entry) => entry.description,
       excerpt: "opposite playbooks",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 10 annotation blueprints ──────────────────────────────────────
+  "machiavelli-vs-sun-tzu-on-competitive-intelligence": [
+    {
+      label: "Reputation as deterrence",
+      source: (entry) => entry.description,
+      excerpt: "projecting a reputation for decisive strength",
+      constructIndex: 0,
+    },
+    {
+      label: "Intelligence vs. intimidation",
+      source: (entry) => entry.description,
+      excerpt: "intelligence or intimidation is the ultimate competitive weapon",
+      constructIndex: 1,
+    },
+  ],
+  "marcus-aurelius-vs-seneca-on-processing-failure": [
+    {
+      label: "Extracting meaning immediately",
+      source: (entry) => entry.description,
+      excerpt: "failure is the failure to extract meaning",
+      constructIndex: 0,
+    },
+    {
+      label: "Dwell time before acting",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "excavating what went wrong in full detail",
+      constructIndex: 1,
+    },
+  ],
+  "franklin-vs-carnegie-on-building-your-network": [
+    {
+      label: "Breadth of connection",
+      source: (entry) => entry.description,
+      excerpt: "broadest network in 18th-century America",
+      constructIndex: 0,
+    },
+    {
+      label: "What problem you are solving",
+      source: (entry) => entry.description,
+      excerpt: "what kind of problem you are trying to solve",
+      constructIndex: 1,
+    },
+  ],
+  "cleopatra-vs-catherine-the-great-on-ruling-through-alliance": [
+    {
+      label: "External anchor dependency",
+      source: (entry) => entry.description,
+      excerpt: "alliance defined both her power and her downfall",
+      constructIndex: 0,
+    },
+    {
+      label: "Internal vs. external power base",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "building a path to independence",
       constructIndex: 1,
     },
   ],

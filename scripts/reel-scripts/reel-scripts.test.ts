@@ -1529,6 +1529,88 @@ describe("Wave 9 collision batch", () => {
   });
 });
 
+describe("Wave 10 collision batch", () => {
+  it("generates a reel script for machiavelli-vs-sun-tzu-on-competitive-intelligence", () => {
+    const script = buildVerdictReelScript(
+      "machiavelli-vs-sun-tzu-on-competitive-intelligence",
+    );
+    expect(script.slug).toBe("machiavelli-vs-sun-tzu-on-competitive-intelligence");
+    expect(script.frameworkSlug).toBe("niccolo-machiavelli");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/machiavelli-vs-sun-tzu-on-competitive-intelligence",
+    );
+  });
+
+  it("generates a reel script for marcus-aurelius-vs-seneca-on-processing-failure", () => {
+    const script = buildVerdictReelScript(
+      "marcus-aurelius-vs-seneca-on-processing-failure",
+    );
+    expect(script.slug).toBe("marcus-aurelius-vs-seneca-on-processing-failure");
+    expect(script.frameworkSlug).toBe("marcus-aurelius");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/marcus-aurelius-vs-seneca-on-processing-failure",
+    );
+  });
+
+  it("generates a reel script for franklin-vs-carnegie-on-building-your-network", () => {
+    const script = buildVerdictReelScript(
+      "franklin-vs-carnegie-on-building-your-network",
+    );
+    expect(script.slug).toBe("franklin-vs-carnegie-on-building-your-network");
+    expect(script.frameworkSlug).toBe("benjamin-franklin");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/franklin-vs-carnegie-on-building-your-network",
+    );
+  });
+
+  it("generates a reel script for cleopatra-vs-catherine-the-great-on-ruling-through-alliance", () => {
+    const script = buildVerdictReelScript(
+      "cleopatra-vs-catherine-the-great-on-ruling-through-alliance",
+    );
+    expect(script.slug).toBe("cleopatra-vs-catherine-the-great-on-ruling-through-alliance");
+    expect(script.frameworkSlug).toBe("cleopatra-vii");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/cleopatra-vs-catherine-the-great-on-ruling-through-alliance",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented
