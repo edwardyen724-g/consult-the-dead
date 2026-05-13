@@ -712,6 +712,62 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     ],
   },
   {
+    slug: "should-i-hire-a-vp-of-sales",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I hire a VP of Sales?",
+    description:
+      "Carnegie, Machiavelli, and Marcus Aurelius debate whether hiring a VP of Sales actually solves a sales problem — or whether it is a proxy for a product-market fit problem you are not ready to face.",
+    primaryQuery: "should I hire a VP of Sales",
+    secondaryQueries: [
+      "when to hire VP of sales startup",
+      "VP of sales too early",
+      "sales leadership startup decision",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Are you hiring for a sales problem or a product-market fit problem? The answer changes everything.",
+    targetKeywords: [
+      "should I hire VP of sales",
+      "VP of sales timing startup",
+      "when to hire sales leader",
+      "startup sales hiring decision",
+      "first sales hire startup",
+    ],
+  },
+  {
+    slug: "should-i-go-full-time-on-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I go full-time on my startup?",
+    description:
+      "Steve Jobs, Marcus Aurelius, and Marie Curie debate the signal threshold for going all-in on a startup — what evidence is enough, and when the leap is a rational bet rather than wishful thinking.",
+    primaryQuery: "should I go full-time on my startup",
+    secondaryQueries: [
+      "when to quit job and start company",
+      "full time startup decision",
+      "leaving job for startup risk",
+    ],
+    recommendedCouncil: [
+      "steve-jobs",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Do you have enough evidence to justify the bet, or are you making a leap of faith at the wrong moment?",
+    targetKeywords: [
+      "should I go full-time startup",
+      "when to quit job for startup",
+      "full time vs side project startup",
+      "leaving job to start a company",
+      "startup commitment decision",
+    ],
+  },
+  {
     slug: "should-i-do-a-seed-extension",
     status: "shipped",
     shippedAt: "2026-05-13",

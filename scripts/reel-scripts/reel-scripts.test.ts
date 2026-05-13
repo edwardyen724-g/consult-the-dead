@@ -524,6 +524,173 @@ describe("insight article slug — what-would-napoleon-say-about-scaling-too-fas
   });
 });
 
+// ── Wave 4 insight batch integration tests ───────────────────────────────────
+
+describe("insight article slug — what-would-cicero-say-about-pitching-to-investors", () => {
+  it("generates a valid reel script with the persuasion court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-cicero-say-about-pitching-to-investors",
+    );
+    expect(script.slug).toBe("what-would-cicero-say-about-pitching-to-investors");
+    expect(script.frameworkSlug).toBe("cicero");
+    expect(script.decisionType).toBe("persuasion");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Cicero");
+    expect(script.councilPass[1].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("12 minutes");
+    expect(script.cta).toContain(
+      "/insights/what-would-cicero-say-about-pitching-to-investors",
+    );
+  });
+});
+
+describe("insight article slug — what-would-epictetus-say-about-what-you-can-control", () => {
+  it("generates a valid reel script with the control court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-epictetus-say-about-what-you-can-control",
+    );
+    expect(script.slug).toBe("what-would-epictetus-say-about-what-you-can-control");
+    expect(script.frameworkSlug).toBe("epictetus");
+    expect(script.decisionType).toBe("control");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Epictetus");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Seneca");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("not in your control");
+    expect(script.cta).toContain(
+      "/insights/what-would-epictetus-say-about-what-you-can-control",
+    );
+  });
+});
+
+describe("insight article slug — what-would-ada-lovelace-say-about-building-with-ai", () => {
+  it("generates a valid reel script with the technology court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-ada-lovelace-say-about-building-with-ai",
+    );
+    expect(script.slug).toBe("what-would-ada-lovelace-say-about-building-with-ai");
+    expect(script.frameworkSlug).toBe("ada-lovelace");
+    expect(script.decisionType).toBe("technology");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("wait for something better");
+    expect(script.cta).toContain(
+      "/insights/what-would-ada-lovelace-say-about-building-with-ai",
+    );
+  });
+});
+
+describe("insight article slug — what-would-harriet-tubman-say-about-leading-a-mission", () => {
+  it("generates a valid reel script with the leadership court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-harriet-tubman-say-about-leading-a-mission",
+    );
+    expect(script.slug).toBe(
+      "what-would-harriet-tubman-say-about-leading-a-mission",
+    );
+    expect(script.frameworkSlug).toBe("harriet-tubman");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("never lost a single one");
+    expect(script.cta).toContain(
+      "/insights/what-would-harriet-tubman-say-about-leading-a-mission",
+    );
+  });
+});
+
+describe("insight article slug — what-would-frederick-douglass-say-about-finding-your-voice", () => {
+  it("generates a valid reel script with the persuasion court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-frederick-douglass-say-about-finding-your-voice",
+    );
+    expect(script.slug).toBe(
+      "what-would-frederick-douglass-say-about-finding-your-voice",
+    );
+    expect(script.frameworkSlug).toBe("frederick-douglass");
+    expect(script.decisionType).toBe("persuasion");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Cicero");
+    expect(script.councilPass[1].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("softening the message");
+    expect(script.cta).toContain(
+      "/insights/what-would-frederick-douglass-say-about-finding-your-voice",
+    );
+  });
+});
+
+describe("insight article slug — what-would-archimedes-say-about-leverage", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-archimedes-say-about-leverage",
+    );
+    expect(script.slug).toBe("what-would-archimedes-say-about-leverage");
+    expect(script.frameworkSlug).toBe("archimedes");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("long enough lever");
+    expect(script.cta).toContain(
+      "/insights/what-would-archimedes-say-about-leverage",
+    );
+  });
+});
+
+describe("insight article slug — inversion-thinking-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript(
+      "inversion-thinking-explained",
+    );
+    expect(script.slug).toBe("inversion-thinking-explained");
+    expect(script.frameworkSlug).toBe("niccolo-machiavelli");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("what would guarantee failure");
+    expect(script.cta).toContain(
+      "/insights/inversion-thinking-explained",
+    );
+  });
+});
+
 // ── Wave 3 insight batch integration tests ───────────────────────────────────
 
 describe("insight article slug — what-would-steve-jobs-say-about-product-focus", () => {

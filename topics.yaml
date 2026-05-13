@@ -686,3 +686,120 @@
   hook_angles: [shortcut, proof]
   status: shipped
   shipped_at: "2026-05-13"
+
+- slug: what-would-cicero-say-about-pitching-to-investors
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to pitch investors startup"
+  secondary_queries:
+    - "investor pitch persuasion techniques"
+    - "Cicero rhetoric business"
+    - "persuasion fundraising startup"
+  recommended_council: [cicero]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: what-would-epictetus-say-about-what-you-can-control
+  type: insight
+  search_volume_estimate: high
+  primary_query: "what can you control stoicism"
+  secondary_queries:
+    - "Epictetus dichotomy of control"
+    - "stoic philosophy founder mental health"
+    - "how to focus on what you control"
+  recommended_council: [epictetus]
+  hook_angles: [identity, shortcut]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: what-would-ada-lovelace-say-about-building-with-ai
+  type: insight
+  search_volume_estimate: high
+  primary_query: "building with AI tools startup"
+  secondary_queries:
+    - "when to use AI in your product"
+    - "Ada Lovelace AI history"
+    - "AI product strategy 2026"
+  recommended_council: [ada-lovelace]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: what-would-harriet-tubman-say-about-leading-a-mission
+  type: insight
+  search_volume_estimate: high
+  primary_query: "mission-driven leadership startup"
+  secondary_queries:
+    - "Harriet Tubman leadership lessons"
+    - "how to lead a high-stakes team"
+    - "leading through uncertainty"
+  recommended_council: [harriet-tubman]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: what-would-frederick-douglass-say-about-finding-your-voice
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to find your voice startup"
+  secondary_queries:
+    - "Frederick Douglass communication lessons"
+    - "public speaking confidence founder"
+    - "storytelling persuasion business"
+  recommended_council: [frederick-douglass]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: what-would-archimedes-say-about-leverage
+  type: insight
+  search_volume_estimate: high
+  primary_query: "leverage business strategy"
+  secondary_queries:
+    - "Archimedes lever business lesson"
+    - "how to work smarter startup"
+    - "force multiplier business strategy"
+  recommended_council: [archimedes]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: inversion-thinking-explained
+  type: method
+  search_volume_estimate: high
+  primary_query: "inversion thinking explained"
+  secondary_queries:
+    - "mental model inversion Charlie Munger"
+    - "how to use inversion thinking"
+    - "avoid failure mental model decision making"
+  recommended_council: []
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: should-i-hire-a-vp-of-sales
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a VP of Sales"
+  secondary_queries:
+    - "when to hire VP of sales startup"
+    - "VP of sales too early"
+    - "sales leadership startup decision"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: should-i-go-full-time-on-my-startup
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I go full-time on my startup"
+  secondary_queries:
+    - "when to quit job and start company"
+    - "full time startup decision"
+    - "leaving job for startup risk"
+  recommended_council: [steve-jobs, marcus-aurelius, marie-curie]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-13"
