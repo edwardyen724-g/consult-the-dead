@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-21: **127 topics tracked** — 126 shipped (48 decisions + 68 insights + 9 method articles + 1 other article), 1 killed (`should-we-open-source-our-core-product` — superseded by `should-i-open-source-my-product`), 0 queued. Galileo Galilei added as 27th live figure; 28 collision articles shipped total; Wave 13 batch complete. Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-21: **133 topics tracked** — 132 shipped (51 decisions + 71 insights + 9 method articles + 1 other article), 1 killed (`should-we-open-source-our-core-product` — superseded by `should-i-open-source-my-product`), 0 queued. Galileo Galilei added as 27th live figure; 31 collision articles shipped total; Wave 14 batch complete. Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml

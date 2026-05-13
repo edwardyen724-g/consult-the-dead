@@ -4,6 +4,13 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 14)
+
+### Added
+- Wave 14 collision batch shipped: 3 collision insight articles — `archimedes-vs-newton-on-when-to-trust-your-model` (archimedes + isaac-newton; evidence), `lincoln-vs-carnegie-on-winning-over-critics` (abraham-lincoln + andrew-carnegie; hiring), `rockefeller-vs-franklin-on-systems-vs-relationships` (john-d-rockefeller + benjamin-franklin; scaling); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (91 total passing). Total: 31 collision articles shipped.
+- Wave 14 decision pages: `should-i-go-remote-or-hire-in-person` (49th; Lincoln/Carnegie/Machiavelli), `should-i-focus-on-profitability-or-growth` (50th; Rockefeller/Machiavelli/Sun Tzu), `should-i-rebrand-my-startup` (51st; Machiavelli/Carnegie/Franklin); decisions count updated to 51; 133 topics tracked (132 shipped, 0 queued).
+- **Full SEO structured-data coverage**: WebSite+Organization on homepage, ItemList on /decisions+/insights, Article+FAQPage+BreadcrumbList on all /decisions/[slug]+/insights/[slug]+/listicles/[slug], Person+BreadcrumbList on all /frameworks/[slug], SoftwareApplication on /agora. All 2160 vitest tests passing.
+
 ## 2026-05-21 (Wave 13)
 
 ### Added

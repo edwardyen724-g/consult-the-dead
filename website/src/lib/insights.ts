@@ -2662,6 +2662,165 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 14 collision articles ─────────────────────────────────────────
+  {
+    slug: "archimedes-vs-newton-on-when-to-trust-your-model",
+    type: "collision",
+    frameworkSlug: "archimedes",
+    collisionFrameworkSlugs: ["archimedes", "isaac-newton"],
+    decisionType: "evidence",
+    title:
+      "Archimedes vs. Newton: When Should You Trust Your Model Without Testing It?",
+    description:
+      "Archimedes trusted his geometric models completely and acted before full experimental confirmation — his principle of displacement was deduced from mathematical reasoning and then validated by experience, not the other way around. Newton insisted every theory must be verified against observation: his laws were not published until decades of celestial data confirmed them beyond reasonable doubt. They disagree fundamentally on when a model earns the right to be trusted — and their disagreement is the central tension in every engineering and product decision about when to stop testing and ship.",
+    targetKeywords: [
+      "when to trust your model without testing",
+      "theory vs experiment decision",
+      "when to stop testing and ship",
+      "how much validation before launching",
+      "model confidence threshold startup",
+    ],
+    hookQuestion:
+      "When should you trust your theoretical model vs. run another experiment? Your simulation says the architecture will hold. Three engineers agree the math is sound. But you haven't run it at production scale yet. Archimedes would say: the model is correct — act. Newton would say: the model is a hypothesis until the observation confirms it — test first.",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Archimedes",
+        text: "The model is not a guess — it is a derivation. When I described the principle of displacement, I did not need to weigh every possible object in every possible liquid to confirm it. The logic was complete: a body immersed in fluid displaces its own volume, the weight of displaced fluid equals the buoyant force, and from this the crown's composition could be determined without destroying it. The experiment confirmed what the model had already established. If my logic wins here, the question you must answer is not 'have I tested this at production scale?' but 'is the reasoning complete?' A complete derivation is not a hypothesis. It is a proof. If your three engineers have independently verified the chain of reasoning and found no gap, you are not lacking evidence — you are lacking confidence. Those are different problems.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "I understand the position Archimedes describes, and I reject its application to your situation. My laws of motion were not published in the Principia until I had checked them against the orbital data of every planet whose motion Flamsteed could provide. Not because the mathematics was incomplete — it was complete decades before publication — but because a law of nature is not established by derivation alone. It is established by derivation confirmed against every case the world provides. Archimedes's displacement principle holds in ideal fluids. The real question is whether your production environment is the equivalent of an ideal fluid or whether it introduces variables that your simulation cannot model. If it does — and production environments almost always do — then the model's internal coherence is necessary but not sufficient. My construct is confirmation against independent cases: the model earns trust when it has predicted outcomes that were not used to build it.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "Newton is correct that confirmation against independent cases matters — but he is smuggling in an assumption that I want to surface. He is assuming that the cost of a wrong model discovered at production scale is recoverable. My work was often in service of decisions where recovery was impossible: catapult trajectories, the defense of Syracuse, the stability of mechanical systems. In those domains, 'test at scale and correct if wrong' is not a viable strategy. The ship that sinks because the displacement calculation was wrong does not offer a second launch. I am not arguing against testing in domains where correction is cheap. I am arguing that in domains where the first failure is catastrophic, you must achieve certainty through derivation before you commit to action. The question for your architecture is: if the model is wrong and you discover it at production scale, what is the recovery cost?",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "Archimedes has identified the correct variable — recovery cost — but drawn the wrong conclusion from it. The answer to high recovery cost is not to rely more heavily on derivation. It is to design smaller, more targeted experiments that expose the model's failure modes before you commit to the full-scale implementation. I did not test gravity by dropping objects from every possible height simultaneously. I designed the simplest possible experiment that would falsify the inverse-square law if it were wrong: the moon's orbit. One observation, cleanly designed, that could not be explained any other way. If your production architecture has not been run at scale, the correct response is not to trust the model more — it is to identify the single most likely failure mode and design the minimum experiment that would expose it. The experiment need not be large. It must be targeted.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "Now I can give you the rule that distinguishes my cases from Newton's. When the model is purely mathematical — when the system's behavior is entirely determined by the formal relationships between its components and there are no unknown variables introduced by the real environment — derivation is sufficient. My displacement principle has no hidden variables: the fluid is what it is, the volume is what it is, the buoyancy follows necessarily. But when the system operates in a real environment that introduces variables your model cannot represent — friction, variance in material properties, emergent behaviors at scale — Newton is right that observation is required. The test for your architecture is this: have you modeled every variable that the production environment introduces, or have you assumed that production is equivalent to your simulation? If you have assumed equivalence, you have not yet completed the derivation. You have stopped early.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "We have converged on the decision rule, and I want to state it precisely. Trust the model without further testing when two conditions are simultaneously true: first, the model accounts for every variable that the real environment introduces — Archimedes's completeness condition. Second, the model has produced at least one prediction about a case not used to build it, and that prediction held — my confirmation condition. If both are true, additional testing is not adding confidence; it is consuming time. If either is false, additional testing is not optional; it is the only path to the confidence you need. The practical heuristic: identify the one assumption in your model that you are least certain about, and design the minimum test that would expose it if it is wrong. Run that test. If it holds, trust the model. If it fails, revise the model and run the test again. That is the difference between Archimedes's crown and my moon — not derivation versus observation, but completeness of the derivation before you stake the outcome on it.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Archimedes and Newton converge on a two-condition test for when a model earns the right to be trusted without further testing. Archimedes's condition: the model must account for every variable the real environment introduces — if you have assumed your production environment is equivalent to your simulation without verifying it, the derivation is incomplete. Newton's condition: the model must have produced at least one prediction about a case not used to build it, and that prediction must have held. Both conditions must be true before you stop testing. If either fails, the model is a hypothesis, not a proof.",
+      actionableInsight:
+        "Before you ship on the basis of your model alone, run this two-part test. First, list every assumption your model makes about the production environment — are all of them verified, or have you assumed equivalence? Second, identify the one assumption you are least certain about and design the minimum experiment that would expose it if wrong. Run that experiment only. If it holds, trust the model and ship. If it fails, revise and retest. The goal is not more testing — it is targeted testing of the model's most vulnerable assumption. One well-aimed test is worth ten broad ones.",
+    },
+  },
+  {
+    slug: "lincoln-vs-carnegie-on-winning-over-critics",
+    type: "collision",
+    frameworkSlug: "abraham-lincoln",
+    collisionFrameworkSlugs: ["abraham-lincoln", "andrew-carnegie"],
+    decisionType: "hiring",
+    title: "Lincoln vs. Carnegie: How Do You Win Over Your Harshest Critics?",
+    description:
+      "Lincoln built his cabinet from opponents and converted critics into allies — his 'Team of Rivals' strategy assumed that a critic who understands the stakes can become the most effective champion. Carnegie paid critics to do something useful or simply outgrew them — his strategy assumed that most critic-conversion is a poor investment of attention and that results are the only argument that actually closes the file. They disagree on whether critic-conversion is an investment worth making, and their disagreement maps directly onto the question of how much energy a founder should spend on people who resist the direction.",
+    targetKeywords: [
+      "should I try to win over my critics",
+      "how to neutralize critics at work",
+      "dealing with internal opposition startup",
+      "convert critics into allies",
+      "Lincoln team of rivals strategy",
+    ],
+    hookQuestion:
+      "Should you try to neutralize critics by winning them over, or focus your energy elsewhere? Your VP of Sales has been openly skeptical of the new product direction in every leadership meeting. You can invest the next three months in converting him — or you can build the results that make the skepticism irrelevant. Lincoln would pull him inside the tent. Carnegie would outgrow him.",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "I chose William Seward, Salmon Chase, and Edward Bates for my cabinet precisely because they had opposed me most effectively. Seward called me a 'first-rate second-rate man.' Chase thought himself the better candidate until the convention. I chose them not despite their opposition but because of it — a critic who understands the stakes well enough to oppose you effectively is a critic who can defend the position just as effectively once they are converted. The conversion cost is real, but the converted critic has two assets the loyalist lacks: credibility with the opposition and a personal stake in proving their conversion was not a mistake. My construct is this: the question is not whether to win over the critic, but whether the critic's opposition comes from a genuine disagreement about direction or from a lack of sufficient information and trust. Seward and Chase disagreed about me, not about the union. Once they saw what I was doing, the conversion was not difficult — it was inevitable. If my logic wins, your first move is to understand whether your VP of Sales is resisting the direction or resisting you.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Lincoln's framework is correct in its domain and dangerously wrong in yours. He was assembling a cabinet for a permanent national crisis in which every major political figure needed to be either inside the tent or actively neutralized — the stakes were too high and the field too small to leave enemies at large. Your situation is different. You have a product direction and a VP of Sales who is consuming leadership bandwidth with public skepticism. The question is not whether Lincoln's conversion strategy works — it does, at enormous cost — but whether the return on that cost is positive in your context. Carnegie's approach was never to leave critics at large. It was to give critics a productive outlet — put them to work on the problem they are complaining about — or to build results so undeniable that the skepticism became irrelevant without requiring a single conversion conversation. If my logic wins, you stop trying to change his mind and start building the result that changes the math.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Carnegie is describing a real risk — the conversion that costs more than the converted critic is worth. But he is missing the organizational damage that unconverted critics create that results alone cannot repair. Chase actively worked to undermine me within the cabinet for two years. I kept him because his presence prevented a split in the Republican party that would have cost us the 1864 election. The 'build results and let the skeptic become irrelevant' strategy presupposes that the skeptic's public opposition is not itself a corrosive force on the people around him. A VP of Sales who is openly skeptical in leadership meetings is not merely failing to convert — he is providing social permission for others to be skeptical. The unconverted critic is a multiplier of doubt. The correctly-converted critic is a multiplier of confidence. The question is whether you can afford the multiplication of doubt long enough for the results to arrive.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Lincoln has identified the genuine cost of my approach: the critic who multiplies doubt in others before the results arrive. I accept that cost in my framework and I handle it differently. My practice was not to ignore vocal critics — it was to assign them. When I had a manager who was openly skeptical of a new process, I did not attempt to persuade him through argument. I made him responsible for implementing the process and held him accountable to its results. This accomplishes two things simultaneously: it removes the critic from the audience and places him in the position of advocate, and it ensures that if he is right, you find out before the results arrive at scale. If your VP of Sales believes the product direction is wrong, give him ownership of the sales strategy for that product and a 90-day target. He either converts through success or he provides early evidence that the direction needs adjustment. Lincoln's conversion happens through trust built over time. Mine happens through accountability applied immediately.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Carnegie's accountability assignment is a form of conversion that I recognize — it is how I used Chase on the financial crisis. But the assignment only works if the critic is competent in the domain you are assigning him to. Chase was the most capable financier available to me; putting him in charge of war finance was not a management workaround, it was the correct use of a difficult asset. The question for your VP of Sales is: is his public skepticism evidence of genuine market intelligence that your product team hasn't fully processed, or is it evidence of a fundamental misalignment about company direction? If the former, Carnegie's accountability assignment is the right move — give him ownership and let the market data answer the question. If the latter, no assignment resolves it, because the root of the skepticism is not the product but the direction, and that disagreement will surface again regardless of what you hand him.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "We have arrived at the diagnostic that separates my approach from Lincoln's, and I want to state it as a decision rule. The critic is worth the full Lincoln conversion investment — the time, the trust-building, the direct engagement with their objections — when three conditions hold: the critic has genuine influence over others whose support you need; the critic's opposition is based on incomplete information or insufficient trust rather than fundamental value misalignment; and the cost of the conversion effort is less than the cost of the doubt they are multiplying. When all three conditions hold, Lincoln is correct: pull them inside the tent, give them the full information, and convert them through transparency and respect. When any of the three fails — when the critic lacks real influence, or is fundamentally misaligned, or when the conversion cost exceeds the doubt-multiplication cost — give them accountability instead. If that doesn't work within 90 days, the misalignment is fundamental and Lincoln's approach cannot save it either.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Lincoln and Carnegie converge on a diagnostic before prescribing a strategy. Lincoln's conversion investment is correct when the critic has genuine influence over others, their opposition stems from incomplete information or insufficient trust rather than fundamental misalignment, and the conversion cost is less than the ongoing cost of their public doubt. Carnegie's accountability assignment is correct when the critic has specific domain expertise and their objections might contain valid market intelligence. Both agree that a critic who is fundamentally misaligned in values — not just in tactics — cannot be converted by either approach and must be addressed through structure rather than persuasion.",
+      actionableInsight:
+        "Before investing in critic conversion, run the three-condition test: Does your VP of Sales have genuine influence over others whose support you need? Is his opposition based on incomplete information or real value misalignment? Is the conversion effort cheaper than the doubt he is multiplying? If all three hold, use Lincoln's approach: give him complete information, genuine respect, and a seat at the table. If condition two fails — if the opposition is about values, not information — skip both conversion strategies and use Carnegie's: assign ownership with a 90-day target and explicit success criteria. The accountability assignment either converts him through results or surfaces the misalignment cleanly enough to act on.",
+    },
+  },
+  {
+    slug: "rockefeller-vs-franklin-on-systems-vs-relationships",
+    type: "collision",
+    frameworkSlug: "john-d-rockefeller",
+    collisionFrameworkSlugs: ["john-d-rockefeller", "benjamin-franklin"],
+    decisionType: "scaling",
+    title:
+      "Rockefeller vs. Franklin: Do You Scale Through Systems or Through Relationships?",
+    description:
+      "Rockefeller scaled Standard Oil by designing systems that made individuals interchangeable — any refinery manager could be replaced without disrupting the machine, because the machine's logic was encoded in the process, not in the person. Franklin scaled his influence by making relationships irreplaceable — his network of mutual obligations, favors, and intellectual exchanges created a web that no institution could replicate and no competitor could dismantle. They represent opposite scaling philosophies that produce very different organizations: Rockefeller's is durable without any single person; Franklin's is powerful precisely because it is personal.",
+    targetKeywords: [
+      "should I scale through systems or relationships",
+      "systems vs relationships startup scaling",
+      "how to scale a business",
+      "Rockefeller standard oil scaling strategy",
+      "when to systematize vs personalize",
+    ],
+    hookQuestion:
+      "Should you invest in building systems and processes, or in cultivating key relationships? You are at 30 people and the informal network that got you here is starting to fray. Rockefeller would build the org chart, the SOPs, and the performance metrics that make every role legible and replaceable. Franklin would double down on the relationships — lunch with the five people whose judgment shapes the field, write the newsletter that makes you the connective tissue of the community.",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "John D. Rockefeller",
+        text: "At 30 people, the informal network is not fraying — it is revealing its structural limit. Every organization built on personal relationships has the same ceiling: the attention capacity of the person at the center. When I consolidated the Cleveland refineries in 1872, I was not trying to build a better personal network. I was trying to build a structure that could operate without requiring my personal presence in every decision. The Standard Oil model was explicit about this: every refinery ran on the same cost accounting system, the same purchasing process, the same quality standards. A manager who left took their salary with them, not the knowledge of how the plant operated. If my logic wins here, you spend the next quarter on three things: document every process that currently lives in someone's head, create the metrics that allow you to evaluate performance without knowing the person personally, and build the org structure that makes each role's decision authority legible regardless of who holds it. The informal network was appropriate when you were 10. At 30, it is a liability.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "Rockefeller is describing the correct solution for a different problem. His Standard Oil model works when the competitive advantage is operational efficiency — when the question is who can refine a barrel of oil at the lowest unit cost. In that domain, the system beats the relationship every time because the system scales to any volume and the relationship does not. But your competitive advantage at 30 people is almost certainly not operational efficiency. It is judgment, access, and the ability to move faster than larger competitors because the right people return your calls. The moment you optimize for Rockefeller's organizational legibility, you begin competing on efficiency — and you will lose that competition to whoever has more capital to invest in the same systems. My construct is relational leverage: the question is not how to make your organization run without you, but how to make your organization's access to the right people irreplaceable by any competitor who tries to out-systematize you.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Franklin is identifying a real risk — the premature systematization that kills the culture that made the company worth systematizing. I acknowledge it. But he is understating the cost of the alternative. When I was building Standard Oil, I had competitors who were better connected in the oil regions than I was — they had the relationships with the drillers, the local politicians, the railroad men. They lost anyway, because their relational advantage could not survive the moment when their key contact retired, moved, or changed allegiance. Relationships are not durable at organizational scale. They are durable at the scale of a single person's lifetime and attention. The moment your company's success depends on the lunch calendar of one founder, you have built a business that cannot be sold, cannot be led by anyone else, and cannot survive the departure of the person at the center. Franklin's model works for Franklin. It is not a model. It is a man.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "Rockefeller misreads what I am describing. I did not scale by having more lunches. I scaled by building institutions — the Philadelphia post office, the lending library, the American Philosophical Society — that were explicitly designed to formalize and extend the value of the relationships that created them. Each institution encoded a relational principle into a structure that outlasted me: the post office systemized the information-sharing that my personal correspondence had begun. The library systemized the knowledge-exchange that happened in our club meetings. I am not arguing against systematization. I am arguing for a specific sequence: build the relationships that reveal what is worth systematizing, then systematize the principle, not the relationship. Rockefeller built systems around operational efficiency because that was the value his relationships revealed. What value have your relationships revealed that your systems do not yet capture?",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Franklin's sequencing argument is the most useful thing either of us has said, and I want to apply it directly to your situation. The question is not 'systems or relationships' — it is 'which relationships have revealed a source of value that is currently only accessible through the person who holds the relationship, and how do I systematize access to that value?' At Standard Oil, the value my relationships revealed was preferential railroad shipping rates. My response was to systematize that value through exclusive contracts that transferred the benefit from the relationship to the institution. The relationship became unnecessary once the contract existed. For your company at 30 people, the equivalent question is: what do your five most important relationships give you access to that your competitors cannot access? And can that access be systematized — through a product, a partnership structure, a community — in a way that doesn't require you personally to maintain the relationship?",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "We have arrived at the decision rule, and I will state it as the two questions you must answer before you invest the next quarter's attention. First: identify the two or three relationships that are generating disproportionate value for your company right now — not the relationships you enjoy most, but the ones that are producing outcomes your competitors cannot replicate. Second: for each of those relationships, ask whether the value flows from the relationship itself — from the trust, the history, the specific knowledge of you — or from what the relationship provides access to. If the value flows from the relationship itself, Rockefeller is right: find the way to encode the access into an institutional structure before the relationship's counterparty changes or the relationship deteriorates. If the value flows from what the relationship provides access to, Franklin is right: deepen the relationship, because the access is what you are actually buying, and the relationship is the cheapest way to maintain it. The when-to-systematize rule is simple: systematize when the institution can provide the access more reliably than the relationship. Keep the relationship when the institution cannot.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Rockefeller and Franklin converge on a sequencing answer rather than a binary choice. Franklin's principle: use relationships to discover what is worth systematizing — the value that relationships reveal should drive the design of the systems. Rockefeller's principle: once the value is revealed, systematize the access to it before the relationship deteriorates or the person at its center departs. The decision rule is: systematize when the institution can provide the access more reliably than the relationship; keep investing in the relationship when the institution cannot replicate what the relationship provides.",
+      actionableInsight:
+        "Before you decide whether to build org charts or book lunches, map your three most value-generating relationships and ask two questions about each: First, does the value flow from the relationship itself (trust, history, personal knowledge), or from what the relationship provides access to (information, distribution, credibility)? Second, could an institution — a contract, a community, a product feature — provide that access more reliably than the relationship? If yes to the second question, systematize now: build the structure that captures the value before the relationship changes. If no, invest in the relationship: it is the cheapest and most defensible form of access you have. At 30 people, you likely have two or three relationships worth systematizing and two or three worth deepening. The mistake is applying one strategy to all five.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -3821,6 +3980,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Acceptance before adaptation",
       source: (entry) => entry.description,
       excerpt: "accept what you cannot control",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 14 annotation blueprints ──────────────────────────────────────
+  "archimedes-vs-newton-on-when-to-trust-your-model": [
+    {
+      label: "Completeness of derivation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "trust your theoretical model vs. run another experiment",
+      constructIndex: 0,
+    },
+    {
+      label: "Confirmation against independent cases",
+      source: (entry) => entry.description,
+      excerpt: "when a model earns the right to be trusted",
+      constructIndex: 1,
+    },
+  ],
+  "lincoln-vs-carnegie-on-winning-over-critics": [
+    {
+      label: "Team of rivals conversion",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "Lincoln would pull him inside the tent",
+      constructIndex: 0,
+    },
+    {
+      label: "Accountability assignment",
+      source: (entry) => entry.description,
+      excerpt: "critic-conversion is an investment worth making",
+      constructIndex: 1,
+    },
+  ],
+  "rockefeller-vs-franklin-on-systems-vs-relationships": [
+    {
+      label: "When to systematize",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "informal network that got you here is starting to fray",
+      constructIndex: 0,
+    },
+    {
+      label: "Relational leverage",
+      source: (entry) => entry.description,
+      excerpt: "very different organizations",
       constructIndex: 1,
     },
   ],

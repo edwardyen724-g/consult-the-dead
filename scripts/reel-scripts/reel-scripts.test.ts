@@ -1797,6 +1797,70 @@ describe("Wave 13 collision batch", () => {
   });
 });
 
+describe("Wave 14 collision batch", () => {
+  it("generates a reel script for archimedes-vs-newton-on-when-to-trust-your-model", () => {
+    const script = buildVerdictReelScript(
+      "archimedes-vs-newton-on-when-to-trust-your-model",
+    );
+    expect(script.slug).toBe("archimedes-vs-newton-on-when-to-trust-your-model");
+    expect(script.frameworkSlug).toBe("archimedes");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/archimedes-vs-newton-on-when-to-trust-your-model",
+    );
+  });
+
+  it("generates a reel script for lincoln-vs-carnegie-on-winning-over-critics", () => {
+    const script = buildVerdictReelScript(
+      "lincoln-vs-carnegie-on-winning-over-critics",
+    );
+    expect(script.slug).toBe("lincoln-vs-carnegie-on-winning-over-critics");
+    expect(script.frameworkSlug).toBe("abraham-lincoln");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/lincoln-vs-carnegie-on-winning-over-critics",
+    );
+  });
+
+  it("generates a reel script for rockefeller-vs-franklin-on-systems-vs-relationships", () => {
+    const script = buildVerdictReelScript(
+      "rockefeller-vs-franklin-on-systems-vs-relationships",
+    );
+    expect(script.slug).toBe(
+      "rockefeller-vs-franklin-on-systems-vs-relationships",
+    );
+    expect(script.frameworkSlug).toBe("john-d-rockefeller");
+    expect(script.decisionType).toBe("scaling");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Scaling council: Napoleon (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Napoleon Bonaparte");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/rockefeller-vs-franklin-on-systems-vs-relationships",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

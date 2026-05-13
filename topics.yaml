@@ -1672,3 +1672,83 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 14 additions ──────────────────────────────────────────────────────────
+
+- slug: archimedes-vs-newton-on-when-to-trust-your-model
+  type: collision
+  search_volume_estimate: high
+  primary_query: "when should you trust your model vs test it more"
+  secondary_queries:
+    - "when to stop testing and ship"
+    - "theory vs experiment decision making"
+    - "how much validation is enough"
+  framework_slugs: [archimedes, isaac-newton]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: lincoln-vs-carnegie-on-winning-over-critics
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I try to win over my critics"
+  secondary_queries:
+    - "how to handle critics and skeptics"
+    - "convert critics into allies"
+    - "when to ignore critics vs engage them"
+  framework_slugs: [abraham-lincoln, andrew-carnegie]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: rockefeller-vs-franklin-on-systems-vs-relationships
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I build systems or focus on relationships to scale"
+  secondary_queries:
+    - "systems vs relationships for business growth"
+    - "when to systematize vs personalize"
+    - "scaling through processes or people"
+  framework_slugs: [john-d-rockefeller, benjamin-franklin]
+  decisionType: scaling
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-go-remote-or-hire-in-person
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I go remote or require office"
+  secondary_queries:
+    - "remote first vs in-person startup"
+    - "remote vs office for early stage startup"
+    - "should my startup be remote"
+  recommended_council: [abraham-lincoln, andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-focus-on-profitability-or-growth
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I focus on profitability or growth"
+  secondary_queries:
+    - "profitability vs growth startup"
+    - "optimize for profit or scale"
+    - "when to prioritize profitability startup"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, sun-tzu]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-rebrand-my-startup
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I rebrand my startup"
+  secondary_queries:
+    - "when to rebrand your company"
+    - "startup rebranding worth it"
+    - "how to know if you need a rebrand"
+  recommended_council: [niccolo-machiavelli, andrew-carnegie, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
