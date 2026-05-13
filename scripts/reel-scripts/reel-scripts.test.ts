@@ -258,6 +258,81 @@ describe("CLI behavior", () => {
   });
 });
 
+// ── Batch 3 extended court coverage (task ae4fab8d) ───────────────────────────
+// Each test verifies a slug whose decisionType previously had no DECISION_COURT
+// entry, causing it to fall back to a broken generic council. The council minds
+// must be real names (no raw slug strings) and the duration must be in range.
+
+describe("DECISION_COURT — 12 extended decision types produce real council names", () => {
+  const cases: Array<{ slug: string; expectedMinds: [string, string, string] }> = [
+    {
+      slug: "what-would-marcus-aurelius-say-about-burnout",
+      expectedMinds: ["Marcus Aurelius", "Marie Curie", "Niccolò Machiavelli"],
+    },
+    {
+      slug: "machiavelli-vs-curie-on-pruning-a-portfolio",
+      expectedMinds: ["Niccolò Machiavelli", "Marie Curie", "Marcus Aurelius"],
+    },
+    {
+      slug: "marcus-aurelius-vs-sun-tzu-on-product-decisions",
+      expectedMinds: ["Sun Tzu", "Niccolò Machiavelli", "Marie Curie"],
+    },
+    {
+      slug: "seneca-and-epictetus-on-dealing-with-failure",
+      expectedMinds: ["Marcus Aurelius", "Nikola Tesla", "Marie Curie"],
+    },
+    {
+      slug: "tesla-and-ada-lovelace-on-the-future-of-computing",
+      expectedMinds: ["Nikola Tesla", "Isaac Newton", "Leonardo da Vinci"],
+    },
+    {
+      slug: "steve-jobs-on-product",
+      expectedMinds: ["Leonardo da Vinci", "Marie Curie", "Niccolò Machiavelli"],
+    },
+    {
+      slug: "founders-on-pricing",
+      expectedMinds: ["Niccolò Machiavelli", "Marcus Aurelius", "Marie Curie"],
+    },
+    {
+      slug: "what-would-marcus-aurelius-say-about-imposter-syndrome",
+      expectedMinds: ["Marcus Aurelius", "Marie Curie", "Isaac Newton"],
+    },
+    {
+      slug: "first-principles-thinking-the-honest-version",
+      expectedMinds: ["Isaac Newton", "Marie Curie", "Marcus Aurelius"],
+    },
+    {
+      slug: "what-would-newton-say-about-rebuilding-from-first-principles",
+      expectedMinds: ["Isaac Newton", "Leonardo da Vinci", "Marcus Aurelius"],
+    },
+    {
+      slug: "what-would-tesla-say-about-shipping-vs-perfecting",
+      expectedMinds: ["Nikola Tesla", "Niccolò Machiavelli", "Marie Curie"],
+    },
+    {
+      slug: "what-would-leonardo-say-about-creative-block",
+      expectedMinds: ["Leonardo da Vinci", "Nikola Tesla", "Marcus Aurelius"],
+    },
+  ];
+
+  for (const { slug, expectedMinds } of cases) {
+    it(`${slug}: emits real council names and valid duration`, () => {
+      const script = buildVerdictReelScript(slug);
+      expect(script.slug).toBe(slug);
+      expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+      expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+      expect(script.councilPass[0].mind).toBe(expectedMinds[0]);
+      expect(script.councilPass[1].mind).toBe(expectedMinds[1]);
+      expect(script.councilPass[2].mind).toBe(expectedMinds[2]);
+      // Verify no mind is a raw framework slug (slugs contain hyphens and are lowercase)
+      for (const beat of script.councilPass) {
+        expect(beat.mind).toMatch(/^[A-Z]/);
+      }
+      expect(script.cta).toContain(`/insights/${slug}`);
+    });
+  }
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {

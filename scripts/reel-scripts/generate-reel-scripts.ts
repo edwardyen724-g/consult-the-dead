@@ -73,6 +73,79 @@ const DECISION_COURT: Record<
       "Look at the pattern between domains before you choose the move. The answer is usually in the system that connects the problem, not the problem itself.",
     caption: "Read the pattern between the parts.",
   },
+  // ── Extended court entries — added for full reel coverage (task ae4fab8d) ──
+  burnout: {
+    minds: ["Marcus Aurelius", "Marie Curie", "Niccolò Machiavelli"],
+    consensus:
+      "Before you rest, name whether the duty itself is broken or just the pace. If the duty is sound, the strain is a season. If the duty is wrong, no amount of rest will fix it.",
+    caption: "Duty first. Then rest.",
+  },
+  resilience: {
+    minds: ["Marcus Aurelius", "Nikola Tesla", "Marie Curie"],
+    consensus:
+      "Failure is not the opposite of progress — it is the cost of honest experimentation. The question is not whether you failed but whether you extracted the right lesson before moving on.",
+    caption: "Extract the lesson. Keep moving.",
+  },
+  "self-doubt": {
+    minds: ["Marcus Aurelius", "Marie Curie", "Isaac Newton"],
+    consensus:
+      "Self-doubt is only useful when it points to a real gap. When it points to fear of judgment, it is noise. Separate the two before you let it change your direction.",
+    caption: "Signal or noise? Decide first.",
+  },
+  shipping: {
+    minds: ["Nikola Tesla", "Niccolò Machiavelli", "Marie Curie"],
+    consensus:
+      "Ship when the core function is honest. Do not ship when the gap between the promise and the product will cost you the trust you cannot rebuild in the next version.",
+    caption: "Ship the honest version.",
+  },
+  creativity: {
+    minds: ["Leonardo da Vinci", "Nikola Tesla", "Marcus Aurelius"],
+    consensus:
+      "Creative block is not a shortage of ideas — it is a signal that you have stopped making things with your hands. Return to the smallest version of the work and let momentum rebuild itself.",
+    caption: "Make something small. Then continue.",
+  },
+  rebuild: {
+    minds: ["Isaac Newton", "Leonardo da Vinci", "Marcus Aurelius"],
+    consensus:
+      "Start from the axioms, not the assumptions. Rebuilding from first principles is slower at the start and faster at the end — but only if you are honest about which beliefs actually survive first-principles scrutiny.",
+    caption: "Axioms first. Then build.",
+  },
+  reasoning: {
+    minds: ["Isaac Newton", "Marie Curie", "Marcus Aurelius"],
+    consensus:
+      "The goal of first-principles thinking is not novelty — it is honesty. Strip back to what you can actually prove, then rebuild the argument only as far as the evidence supports.",
+    caption: "Prove it. Then extend it.",
+  },
+  portfolio: {
+    minds: ["Niccolò Machiavelli", "Marie Curie", "Marcus Aurelius"],
+    consensus:
+      "Pruning a portfolio is a resource-allocation problem, not an identity crisis. Cut what is no longer aligned with where the leverage is going, not what you have the most emotional history with.",
+    caption: "Prune toward leverage.",
+  },
+  "product strategy": {
+    minds: ["Sun Tzu", "Niccolò Machiavelli", "Marie Curie"],
+    consensus:
+      "Product strategy is terrain selection before it is feature selection. Pick the ground where the evidence says you can win, then let the product follow the terrain — not the other way around.",
+    caption: "Terrain first. Product second.",
+  },
+  technology: {
+    minds: ["Nikola Tesla", "Isaac Newton", "Leonardo da Vinci"],
+    consensus:
+      "Technology bets are right or wrong based on physics and first principles, not the current hype cycle. Build the version that would still be right in ten years, not the version that fits the current narrative.",
+    caption: "What is still true in ten years?",
+  },
+  product: {
+    minds: ["Leonardo da Vinci", "Marie Curie", "Niccolò Machiavelli"],
+    consensus:
+      "A good product decision requires knowing what the user actually needs, what the data says they do, and what it costs to change. Disagreement among those three is where the real decision lives.",
+    caption: "Need, data, cost. Align all three.",
+  },
+  pricing: {
+    minds: ["Niccolò Machiavelli", "Marcus Aurelius", "Marie Curie"],
+    consensus:
+      "Pricing is a claim about value. Get the claim wrong and you either underprice what you built or overprice what you have not yet earned. Charge what the value actually is, not what feels safe.",
+    caption: "Charge what the value actually is.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -88,6 +161,31 @@ const MAIN_BEATS: Record<string, string> = {
     "Ship the future only when the upside is strategic enough to justify the runway it consumes.",
   systems:
     "Look for the pattern that connects the domains. The real answer usually lives between the parts.",
+  // ── Extended beats (task ae4fab8d) ──
+  burnout:
+    "Inspect the duty before you inspect the energy. Fatigue that follows meaningful work is different from fatigue that follows the wrong work.",
+  resilience:
+    "Do not treat failure as evidence you are wrong. Treat it as data on where the model needs updating.",
+  "self-doubt":
+    "Name whether the doubt is pointing at a real gap or a fear of judgment. Only one of those is worth acting on.",
+  shipping:
+    "Ship when the core function is honest and the gap between the promise and the product will not cost you trust you cannot rebuild.",
+  creativity:
+    "The block is not a shortage of ideas. Return to making something with your hands — momentum follows action, not intention.",
+  rebuild:
+    "Start from what you can actually prove, not from what you have always assumed. First principles is a discipline, not a slogan.",
+  reasoning:
+    "Strip the argument to its axioms. Then rebuild only as far as the evidence can carry the weight.",
+  portfolio:
+    "Prune toward where the leverage is going, not where your emotional history is concentrated.",
+  "product strategy":
+    "Strategy is terrain selection before it is feature selection. Pick the ground where you can win, then let the product follow.",
+  technology:
+    "Technology bets should be justified by physics and first principles, not by the current hype cycle.",
+  product:
+    "A good product decision aligns what the user needs, what the data shows, and what it costs to change. Disagreement between those three is where the real decision lives.",
+  pricing:
+    "Pricing is a claim about value. Charge what the value actually is — not what feels safe, not what the competition charges.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -103,6 +201,31 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Build the version that changes the frame, but only if the evidence says the frame is worth changing.",
   systems:
     "Cross-domain pattern recognition beats narrow expertise when the issue is really structural.",
+  // ── Extended beats (task ae4fab8d) ──
+  burnout:
+    "Extraordinary output requires extraordinary sacrifice — but only when the sacrifice is in service of the right duty. Check the duty first.",
+  resilience:
+    "The experiment only fails completely if you stop before the lesson is extracted.",
+  "self-doubt":
+    "Productive doubt asks 'what do I need to learn?' Corrosive doubt asks 'what will they think?' Know which one is running.",
+  shipping:
+    "The right time to ship is when the core is honest and the gap between promise and product is survivable.",
+  creativity:
+    "Creativity is not inspiration followed by execution. It is execution that generates its own momentum.",
+  rebuild:
+    "Most rebuilds fail not because the new idea was wrong but because the team rebuilt from assumption instead of axiom.",
+  reasoning:
+    "The strength of a conclusion is limited by the honesty of its premises. Make the premises explicit before you argue the conclusion.",
+  portfolio:
+    "The portfolio that looks diversified often is not. Identify the common failure mode before you call it balanced.",
+  "product strategy":
+    "Incumbents protect positions, not possibilities. Move into the terrain they are not defending yet.",
+  technology:
+    "The question is not whether the technology is impressive. The question is whether it changes the frame in a way that matters.",
+  product:
+    "Users tell you what they want, but the data shows you what they do. When those two conflict, trust the data and investigate the gap.",
+  pricing:
+    "Underpricing is not generosity — it is a claim that your work is worth less than it is. That claim compounds over time.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -118,6 +241,31 @@ const CLOSE_BEATS: Record<string, string> = {
     "If the future is worth the delay, commit. If not, ship the pragmatic version and keep learning.",
   systems:
     "Align the move with the system, not the mood of the moment.",
+  // ── Extended beats (task ae4fab8d) ──
+  burnout:
+    "If the duty is real, recover enough to return to it. If it is not, no vacation will make it worth having.",
+  resilience:
+    "Do not just survive the failure. Extract the insight that justifies the cost.",
+  "self-doubt":
+    "Act on the best available evidence of your own ability. Revise only when the data warrants revision — not when the feeling does.",
+  shipping:
+    "Do not wait for perfect. Ship the version that is honest about what it does and what it does not.",
+  creativity:
+    "Start with the smallest thing you can make today. The rest of the work follows from there.",
+  rebuild:
+    "Build from axioms to conclusions, not from conclusions backward. The second way produces confidence without accuracy.",
+  reasoning:
+    "When the argument holds at the axiom level, commit. When it does not, rebuild before you extend.",
+  portfolio:
+    "Cut what is no longer aligned with where the leverage is going. Hold what is irreplaceable. Do not confuse the two.",
+  "product strategy":
+    "Choose the terrain where the incumbent's strength stops mattering. Then build specifically for that terrain.",
+  technology:
+    "The right technology bet changes the frame. The wrong one just adds complexity to an already complicated situation.",
+  product:
+    "When need, data, and cost align, ship. When they do not, the disagreement is the most important signal you have.",
+  pricing:
+    "Set the price that reflects the value you are actually delivering. Then have the integrity to defend it.",
 };
 
 function titleCase(value: string): string {
