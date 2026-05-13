@@ -304,3 +304,50 @@ describe("AgoraApp — structural integrity (pre-PR#168 error boundary)", () => 
     expect(markup).toContain("agora-research-toggle");
   });
 });
+
+/* ──────────────────────────────────────────────────────────────────────── */
+/* SUITE 5: Pro-features strip — contract verifier compliance               */
+/*                                                                          */
+/* The pricing-contract-verifier fetches /agora as an anonymous user and   */
+/* checks for Pro feature copy in the static HTML. These tests lock the     */
+/* four required text patterns so they survive refactors.                   */
+/* (task 666154db / capsule 00db34d3)                                      */
+/* ──────────────────────────────────────────────────────────────────────── */
+
+describe("AgoraApp — pro-features strip (contract verifier compliance)", () => {
+  it("renders the pro-features-strip for free/anonymous users", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    expect(markup).toContain('data-testid="pro-features-strip"');
+  });
+
+  it("does NOT render the pro-features-strip for Pro users", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={true} />);
+    expect(markup).not.toContain('data-testid="pro-features-strip"');
+  });
+
+  it("strip mentions Pro council size (5 minds) — matches /5 minds/i", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    expect(markup).toMatch(/5 minds/i);
+  });
+
+  it("strip mentions Pro synthesis model (Opus) — matches /Opus/i", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    expect(markup).toMatch(/Opus/i);
+  });
+
+  it("strip mentions Pro monthly cap (100 agons/month) — matches /100 agons\\/month|100.*month/i", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    expect(markup).toMatch(/100 agons\/month|100.*month/i);
+  });
+
+  it("strip contains upgrade language — matches /upgrade/i", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    expect(markup).toMatch(/upgrade/i);
+  });
+
+  it("strip upgrade link points to /pricing", () => {
+    const markup = renderToStaticMarkup(<AgoraApp minds={MINDS} isPro={false} />);
+    // Strip links to pricing — verify href appears in the markup
+    expect(markup).toContain('href="/pricing"');
+  });
+});

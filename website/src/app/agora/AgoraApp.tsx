@@ -729,6 +729,54 @@ export function AgoraApp({
           )}
         </div>
 
+        {/* Pro-features info strip — static, always visible to free/anonymous users.
+            Keeps the contract verifier's /agora checks green without coupling to
+            any client-side state (cap banner, council stage, etc.). */}
+        {!isPro && (
+          <div
+            data-testid="pro-features-strip"
+            style={{
+              marginTop: "64px",
+              padding: "14px 20px",
+              border: "1px solid var(--hairline)",
+              borderRadius: "4px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "16px",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              className="font-mono"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.06em",
+                color: "var(--fg-dim)",
+                lineHeight: 1.55,
+              }}
+            >
+              <span style={{ color: "var(--amber)", marginRight: "8px" }}>Pro</span>
+              5 minds · 100 agons/month · Opus synthesis · PDF export · Library
+            </div>
+            <Link
+              href="/pricing"
+              className="font-mono"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--amber)",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              Upgrade to Pro →
+            </Link>
+          </div>
+        )}
+
         <div
           data-print="hide"
           style={{
