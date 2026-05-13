@@ -616,6 +616,39 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
   {
+    slug: "what-would-florence-nightingale-say-about-data-driven-decisions",
+    type: "single",
+    frameworkSlug: "florence-nightingale",
+    title: "What Would Florence Nightingale Say About Data-Driven Decisions?",
+    description:
+      "Nightingale didn't just collect data — she engineered the visualization and delivery channel to match the audience that needed to act on it. Her framework for making data actually drive decisions is more practical than any analytics dashboard.",
+    targetKeywords: [
+      "data driven decision making examples",
+      "how to use data to make better decisions",
+      "analytics decision making",
+      "Florence Nightingale statistics",
+      "why data does not change minds",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "You have charts, dashboards, and three months of metrics. The decision should be obvious. But nobody is moving. Nightingale faced the exact same problem — rooms full of data, institutions that didn't change. Here is what she learned.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Marie Curie",
+        text: "Data does not speak. People interpret data, and interpretation is shaped by what the interpreter believes before they look. The only defense against this is reproducibility: can the interpretation be reached independently by someone who started with different assumptions? If not, you have not yet made a data-driven decision.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "The measure of useful data is not its quantity but its specificity. Vague metrics produce vague decisions. Define precisely what you are measuring, what you are assuming it represents, and what alternative explanation you have ruled out before you treat the number as a verdict.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Act on the data you have, not the data you wish you had. The person who waits for perfect information before deciding is not being rigorous — they are using rigor as cover for indecision. The question is not whether the data is complete. The question is whether it is honest.",
+      },
+    ],
+  },
+  {
     slug: "what-would-julius-caesar-say-about-moving-into-new-markets",
     type: "single",
     frameworkSlug: "julius-caesar",
@@ -1092,6 +1125,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "what-would-florence-nightingale-say-about-data-driven-decisions": [
+    {
+      label: "Engineering reframe",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "nobody is moving",
+      constructIndex: 0,
+    },
+    {
+      label: "Channel-audience fit",
+      source: (entry) => entry.description,
+      excerpt: "delivery channel to match the audience",
+      constructIndex: 2,
+    },
+  ],
   "what-would-julius-caesar-say-about-moving-into-new-markets": [
     {
       label: "Irreversibility as commitment",

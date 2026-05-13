@@ -535,7 +535,8 @@
     - "analytics decision making"
   recommended_council: [florence-nightingale]
   hook_angles: [proof, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: should-i-build-in-public
   type: decision

@@ -356,6 +356,30 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-florence-nightingale-say-about-data-driven-decisions", () => {
+  it("generates a valid reel script with the evidence court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+    expect(script.slug).toBe(
+      "what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+    expect(script.frameworkSlug).toBe("florence-nightingale");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // "Nightingale faced" appears within first 180 chars of hookQuestion
+    expect(script.hook.voiceover).toContain("Nightingale faced");
+    expect(script.cta).toContain(
+      "/insights/what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+  });
+});
+
 describe("insight article slug — what-would-julius-caesar-say-about-moving-into-new-markets", () => {
   it("generates a valid reel script with the strategy court", () => {
     const script = buildVerdictReelScript(
