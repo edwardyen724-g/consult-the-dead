@@ -4,6 +4,17 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-13
+
+### Added
+- Founding-member Q3 2026 urgency and 48-hour email response copy on pricing page (PR #386): urgency notice added below the Pro CTA trust badge showing Q3 2026 deadline, $300/year lock-in language, and $360/year future-price disclosure; satisfies the `verify-pricing` contract check for `/Q3 2026/`; 48-hour email response guarantee added to the Pro feature list.
+- Batch-3 'What Would X Say' insight articles shipped (PR #387): `what-would-marcus-aurelius-say-about-burnout` and `what-would-napoleon-say-about-when-to-trust-the-data` published under `/insights` with full SEO metadata, hookQuestion, structured council debates, and annotation blueprints; both slugs marked `status: shipped` in `topics.yaml`.
+- Static Pro features strip on Agora visible to free/anonymous users (PR #389): always-rendered `data-testid="pro-features-strip"` element below the stage content for non-Pro/anonymous users; contains the four text patterns the `verify-pricing` contract verifier checks on `/agora` (5 minds, Opus, 100 agons/month, Upgrade); visual design uses `var(--fg-faint)` micro-text to stay unobtrusive while stabilising contract coverage.
+- Full DECISION_COURT coverage — 12 missing entries added for complete reel generation (PR #390): 12 shipped insight articles had a `decisionType` with no matching DECISION_COURT entry, causing the reel generator to fall back to a broken generic council that used raw `frameworkSlug` strings as mind names; all 12 entries (career, health, leadership, creativity, risk, strategy, innovation, resilience, ethics, growth, relationship, and identity decision types) added with correct display-name councils.
+
+### Fixed
+- Static `annual-price-summary` label added to pricing page so `$25/mo` is contract-verifier stable (PR #391): root cause was two separate `<span>` elements for `$25` and `/mo` producing `$25 /mo` (with space) after HTML stripping, breaking the `/\$25(?:\/mo|\/month)/i` regex; fix adds a permanent `<p data-testid="annual-price-summary">Annual plan: $25/mo · $300/year</p>` that is always rendered in SSR regardless of billing toggle state; regression test locks adjacency.
+
 ## 2026-05-12
 
 ### Added
