@@ -4,6 +4,13 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 11)
+
+### Added
+- Wave 11 collision batch shipped: 3 collision insight articles — `caesar-vs-alexander-on-how-fast-to-expand` (julius-caesar + alexander-the-great; strategy), `jobs-vs-edison-on-perfectionism-vs-shipping` (steve-jobs + thomas-edison; iteration), `cicero-vs-machiavelli-on-winning-by-argument-or-power` (cicero + niccolo-machiavelli; persuasion); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (82 total passing).
+- Wave 11 decision pages: `should-i-hire-contractors-or-employees` (40th, Carnegie/Machiavelli/Franklin), `should-i-add-a-paid-tier` (41st, Machiavelli/Rockefeller/Curie), `should-i-outsource-development` (42nd, Machiavelli/Archimedes/Carnegie); decisions count updated to 42; 2146 vitest tests passing.
+- Topics backlog updated to 115 total tracked (114 shipped, 0 queued); 18 collision articles shipped total.
+
 ## 2026-05-21 (Wave 10)
 
 ### Added

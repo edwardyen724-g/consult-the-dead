@@ -1137,6 +1137,93 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "consulting to SaaS",
     ],
   },
+  {
+    slug: "should-i-hire-contractors-or-employees",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire Contractors or Full-Time Employees?",
+    description:
+      "The contractor vs. employee decision determines your organizational flexibility, your IP ownership, your management overhead, and your culture-building trajectory. Contractors give you speed and optionality; employees give you depth, loyalty, and institutional knowledge. The right answer depends on whether the work is repeatable and ownable enough to justify the full-time cost structure — and whether you can afford to train someone who will still be there in 18 months.",
+    primaryQuery: "should I hire contractors or full-time employees",
+    secondaryQueries: [
+      "contractors vs employees startup",
+      "when to hire full-time vs contractor",
+      "freelancers vs employees for startups",
+      "should I use contractors for my startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "You need to ship a new feature in 6 weeks. You can hire a contractor for $12K who is available now, or start the process of hiring a full-time engineer at $150K/year who will take 8 weeks to onboard. The contractor has done this work before. The full-time hire will still be with you in two years. What do you do?",
+    targetKeywords: [
+      "should I hire contractors or employees",
+      "contractors vs employees startup",
+      "when to hire full time developer",
+      "freelancer vs employee decision",
+      "startup hiring strategy contractors",
+    ],
+  },
+  {
+    slug: "should-i-add-a-paid-tier",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Add a Paid Tier to My Free Product?",
+    description:
+      "Adding a paid tier to a free product is a monetization architecture decision. It requires deciding what features belong behind the paywall, how to sequence the free-to-paid conversion moment, and whether your free-tier users are a distribution asset or a cost center. Done well, a freemium model creates a self-funding acquisition machine. Done poorly, it splits your product attention between two audiences whose needs diverge and creates a conversion wall that neither converts nor disappears.",
+    primaryQuery: "should I add a paid tier to my free product",
+    secondaryQueries: [
+      "freemium monetization strategy",
+      "how to add paid features",
+      "when to charge for free product",
+      "freemium vs premium startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "You have 2,000 active free users. Monthly retention is 65%. You are considering adding a $15/mo paid tier with 3 premium features your power users have been requesting. Your concern is that adding a paywall will reduce activation for new users and create negative sentiment among existing free users. Do you add the paid tier now?",
+    targetKeywords: [
+      "should I add a paid tier",
+      "freemium model decision",
+      "when to charge for free product",
+      "add monetization to free app",
+      "freemium vs free product",
+    ],
+  },
+  {
+    slug: "should-i-outsource-development",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Outsource My Product Development?",
+    description:
+      "Outsourcing development trades speed and cost for control, quality predictability, and institutional knowledge. For a non-technical founder building a first version, outsourcing can be the fastest path to a working prototype. For a technical product with complex requirements and ongoing iteration needs, it often creates a dependency that is expensive and painful to unwind. The decision turns on how much of the product is genuinely commodity work versus proprietary logic that must live inside the company.",
+    primaryQuery: "should I outsource product development",
+    secondaryQueries: [
+      "outsourcing development vs in-house",
+      "should I hire a dev agency",
+      "offshore development pros cons startup",
+      "outsource vs build in-house",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "archimedes",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "You are a non-technical founder with $80K in pre-seed funding. You need a working MVP in 4 months. You can hire an offshore agency for $40K that has built similar products, or spend $60K recruiting and onboarding a full-time engineer who won't be productive for 6 weeks. The agency will deliver something working. The engineer will still be there in year 2. What do you do?",
+    targetKeywords: [
+      "should I outsource product development",
+      "outsource development startup",
+      "hire dev agency vs in-house",
+      "offshore development startup",
+      "outsource vs hire engineer",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

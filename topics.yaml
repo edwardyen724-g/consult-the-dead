@@ -1423,3 +1423,87 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+- slug: caesar-vs-alexander-on-how-fast-to-expand
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how fast should a startup expand"
+  secondary_queries:
+    - "caesar vs alexander expansion strategy"
+    - "when to expand your business"
+    - "rapid expansion vs controlled growth"
+    - "startup growth speed decision"
+  recommended_council: [sun-tzu, niccolo-machiavelli, leonardo-da-vinci]
+  hook_angles: [tension, specificity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: jobs-vs-edison-on-perfectionism-vs-shipping
+  type: collision
+  search_volume_estimate: high
+  primary_query: "perfectionism vs shipping fast"
+  secondary_queries:
+    - "steve jobs vs thomas edison product philosophy"
+    - "should I ship or perfect my product"
+    - "done is better than perfect startup"
+    - "when to launch imperfect product"
+  recommended_council: [thomas-edison, marie-curie, leonardo-da-vinci]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cicero-vs-machiavelli-on-winning-by-argument-or-power
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "argument vs power to win"
+  secondary_queries:
+    - "cicero vs machiavelli persuasion"
+    - "should I persuade or use leverage"
+    - "rhetoric vs power in negotiations"
+    - "winning through argument or authority"
+  recommended_council: [cicero, benjamin-franklin, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-contractors-or-employees
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire contractors or employees"
+  secondary_queries:
+    - "contractor vs employee startup"
+    - "when to hire full-time vs freelance"
+    - "1099 vs W-2 early stage startup"
+    - "pros cons hiring contractors employees"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-add-a-paid-tier
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I add a paid tier"
+  secondary_queries:
+    - "when to add paid plan startup"
+    - "freemium to paid conversion"
+    - "should I charge for my product"
+    - "adding pricing to free product"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, marie-curie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-outsource-development
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I outsource development"
+  secondary_queries:
+    - "outsource vs in-house engineering"
+    - "hiring offshore developers startup"
+    - "should I outsource my MVP"
+    - "outsourcing software development pros cons"
+  recommended_council: [niccolo-machiavelli, archimedes, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
