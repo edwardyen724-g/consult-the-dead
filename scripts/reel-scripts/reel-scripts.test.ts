@@ -1427,6 +1427,11 @@ describe("Wave 8 insight batch", () => {
   });
 });
 
+// ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
+// Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
+// is un-hidden pending legal review. No reel test yet since the slug is commented
+// out. Restore the test when albert-einstein is restored to ALLOWED_SLUGS.
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
