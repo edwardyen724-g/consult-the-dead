@@ -2,6 +2,7 @@
  * Registry tests for method/framework-explainer articles.
  * Task 7deb5fb2 — cynefin-framework-explained (single type).
  * Task ad9b2580 — the-ooda-loop-vs-the-cynefin-framework (collision type).
+ * Task ea2ab1d9 — critical-decision-method-explained (single type).
  *
  * Method articles differ from "What Would X Say" insight articles:
  *  - No single historical figure as protagonist
@@ -19,7 +20,10 @@ import {
 } from "@/lib/insights";
 import { getFramework } from "@/lib/frameworks";
 
-const SINGLE_METHOD_SLUGS = ["cynefin-framework-explained"] as const;
+const SINGLE_METHOD_SLUGS = [
+  "cynefin-framework-explained",
+  "critical-decision-method-explained",
+] as const;
 
 const COLLISION_METHOD_SLUGS = [
   "the-ooda-loop-vs-the-cynefin-framework",
@@ -30,16 +34,19 @@ const METHOD_SLUGS = [...SINGLE_METHOD_SLUGS, ...COLLISION_METHOD_SLUGS] as cons
 const METHOD_FRAMEWORK_SLUGS: Record<string, string> = {
   "cynefin-framework-explained": "leonardo-da-vinci",
   "the-ooda-loop-vs-the-cynefin-framework": "sun-tzu",
+  "critical-decision-method-explained": "marcus-aurelius",
 };
 
 const METHOD_DECISION_TYPES: Record<string, string> = {
   "cynefin-framework-explained": "systems",
   "the-ooda-loop-vs-the-cynefin-framework": "strategy",
+  "critical-decision-method-explained": "leadership",
 };
 
 const METHOD_PUBLISHED_DATES: Record<string, string> = {
   "cynefin-framework-explained": "2026-05-12",
   "the-ooda-loop-vs-the-cynefin-framework": "2026-05-13",
+  "critical-decision-method-explained": "2026-05-13",
 };
 
 describe("method articles registry", () => {
@@ -169,5 +176,19 @@ describe("method articles registry", () => {
       expect(entry.collisionFrameworkSlugs).toContain("sun-tzu");
       expect(entry.collisionFrameworkSlugs).toContain("leonardo-da-vinci");
     }
+  });
+
+  // ── critical-decision-method-explained specific ────────────────────────
+  it("critical-decision-method-explained has CDM in its title or description", () => {
+    const entry = getInsightEntry("critical-decision-method-explained");
+    const combined = `${entry?.title ?? ""} ${entry?.description ?? ""}`;
+    expect(combined).toMatch(/Critical Decision Method|CDM/);
+  });
+
+  it("critical-decision-method-explained has at least 3 distinct speakers in agonExcerpt", () => {
+    const entry = getInsightEntry("critical-decision-method-explained");
+    expect(entry?.agonExcerpt).toBeDefined();
+    const speakers = new Set(entry!.agonExcerpt!.map((t) => t.speaker));
+    expect(speakers.size).toBeGreaterThanOrEqual(3);
   });
 });

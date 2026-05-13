@@ -356,6 +356,29 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+// ── Method article slug — critical-decision-method-explained (task ea2ab1d9) ─────
+describe("method article slug — critical-decision-method-explained", () => {
+  it("generates a valid reel script with the leadership council", () => {
+    const script = buildVerdictReelScript("critical-decision-method-explained");
+    expect(script.slug).toBe("critical-decision-method-explained");
+    expect(script.frameworkSlug).toBe("marcus-aurelius");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    // Each council mind starts with an uppercase letter (not a raw slug)
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("You have seconds to decide");
+    expect(script.cta).toContain("/insights/critical-decision-method-explained");
+    expect(script.captions[2]).toContain("/insights/critical-decision-method-explained");
+  });
+});
+
 // ── Method article slug — the-ooda-loop-vs-the-cynefin-framework (task ad9b2580) ──
 describe("method article slug — the-ooda-loop-vs-the-cynefin-framework", () => {
   it("generates a valid reel script with the strategy council", () => {

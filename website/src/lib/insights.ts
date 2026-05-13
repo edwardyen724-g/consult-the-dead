@@ -578,7 +578,41 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
-  // ── Method articles — high-SEO framework explainers (task 7deb5fb2 / ad9b2580) ──
+  // ── Method articles — high-SEO framework explainers (task 7deb5fb2 / ad9b2580 / ea2ab1d9) ──
+  {
+    slug: "critical-decision-method-explained",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "The Critical Decision Method Explained",
+    description:
+      "Gary Klein's Critical Decision Method (CDM) reveals how experts actually make decisions: not by generating options and comparing them, but by pattern-matching the situation to experience and mentally simulating the first viable option before committing. Most decision advice teaches the wrong model. CDM is the corrective — built from real research on firefighters, nurses, and military commanders making high-stakes decisions under time pressure.",
+    targetKeywords: [
+      "critical decision method",
+      "CDM cognitive task analysis",
+      "Klein critical decision method",
+      "naturalistic decision making",
+      "recognition-primed decision making",
+      "expert decision making under pressure",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "You have seconds to decide and no time to list your options. Most decision frameworks collapse here — they assume you have time to deliberate. Klein's research on firefighters, nurses, and military commanders found that experts almost never weigh options against each other. They pattern-match the situation to experience, simulate the first viable option in their mind, and commit if it clears the threshold. This is not intuition. It is compressed methodology.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The deliberating mind is the slower mind. When the situation is clear — when you have seen this pattern before and know what the trust placed in you demands — hesitation is not prudence. It is the failure to have done the work in advance that would make the right action obvious. The expert's fast decision is not careless. It is the product of every slow decision they made in training.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "What looks like intuition is compressed methodology. The firefighter who walks into a burning building and immediately knows the ceiling will collapse in four minutes is not guessing. They have seen this ceiling configuration before, processed its signals, and stored the pattern. The Critical Decision Method is simply the discipline of making that stored experience visible and auditable — so you can learn from it and transfer it.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "The expert wins before the decision point. Their pattern recognition is built through retrospection — after every encounter, they examine what they saw, what they inferred, and whether the inference was correct. The general who only learns from the battle he is currently in will always be one cycle behind. The CDM practitioner is two battles ahead.",
+      },
+    ],
+  },
   {
     slug: "the-ooda-loop-vs-the-cynefin-framework",
     type: "collision",
@@ -978,7 +1012,21 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       constructIndex: 10,
     },
   ],
-  // ── Method article annotation blueprints (task 7deb5fb2 / ad9b2580) ─────────────
+  // ── Method article annotation blueprints (task 7deb5fb2 / ad9b2580 / ea2ab1d9) ─────────────
+  "critical-decision-method-explained": [
+    {
+      label: "Pattern-match before deliberation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "pattern-match the situation to experience",
+      constructIndex: 3,
+    },
+    {
+      label: "Adversity as compressed learning",
+      source: (entry) => entry.description,
+      excerpt: "time pressure",
+      constructIndex: 13,
+    },
+  ],
   "the-ooda-loop-vs-the-cynefin-framework": [
     {
       label: "Decision tempo",
