@@ -1866,7 +1866,7 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   {
     slug: "jobs-to-be-done-explained",
-    type: "method",
+    type: "single",
     frameworkSlug: "isaac-newton",
     title: "Jobs-to-Be-Done Explained: The Framework Founders Use to Understand What Customers Actually Want",
     description:
@@ -3744,6 +3744,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Wrong-approach cost",
       source: (entry) => entry.description,
       excerpt: "wrong approach",
+      constructIndex: 3,
+    },
+  ],
+  "jobs-to-be-done-explained": [
+    {
+      label: "Hire-the-job insight",
+      source: (entry) => entry.description,
+      excerpt: "hire them to do a job",
+      constructIndex: 9,
+    },
+    {
+      label: "Real-job discovery",
+      source: (entry) => entry.description,
+      excerpt: "real job your product is hired for",
       constructIndex: 3,
     },
   ],
