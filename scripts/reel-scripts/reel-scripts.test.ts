@@ -871,6 +871,174 @@ describe("insight article slug — second-order-thinking-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-catherine-the-great-say-about-managing-a-scaling-organization", () => {
+  it("generates a valid reel script with the leadership court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-catherine-the-great-say-about-managing-a-scaling-organization",
+    );
+    expect(script.slug).toBe("what-would-catherine-the-great-say-about-managing-a-scaling-organization");
+    expect(script.frameworkSlug).toBe("catherine-the-great");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("governing your company");
+    expect(script.cta).toContain(
+      "/insights/what-would-catherine-the-great-say-about-managing-a-scaling-organization",
+    );
+  });
+});
+
+describe("insight article slug — what-would-alexander-the-great-say-about-entering-new-markets", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-alexander-the-great-say-about-entering-new-markets",
+    );
+    expect(script.slug).toBe("what-would-alexander-the-great-say-about-entering-new-markets");
+    expect(script.frameworkSlug).toBe("alexander-the-great");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("speed of learning and local adaptation");
+    expect(script.cta).toContain(
+      "/insights/what-would-alexander-the-great-say-about-entering-new-markets",
+    );
+  });
+});
+
+describe("insight article slug — what-would-cleopatra-vii-say-about-strategic-alliances", () => {
+  it("generates a valid reel script with the resilience court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-cleopatra-vii-say-about-strategic-alliances",
+    );
+    expect(script.slug).toBe("what-would-cleopatra-vii-say-about-strategic-alliances");
+    expect(script.frameworkSlug).toBe("cleopatra-vii");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("What leverage do you actually hold");
+    expect(script.cta).toContain(
+      "/insights/what-would-cleopatra-vii-say-about-strategic-alliances",
+    );
+  });
+});
+
+describe("insight article slug — what-would-john-d-rockefeller-say-about-building-systems-that-scale", () => {
+  it("generates a valid reel script with the systems court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-john-d-rockefeller-say-about-building-systems-that-scale",
+    );
+    expect(script.slug).toBe("what-would-john-d-rockefeller-say-about-building-systems-that-scale");
+    expect(script.frameworkSlug).toBe("john-d-rockefeller");
+    expect(script.decisionType).toBe("systems");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Systems council: da Vinci (main), Sun Tzu (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Sun Tzu");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("relentless systematization");
+    expect(script.cta).toContain(
+      "/insights/what-would-john-d-rockefeller-say-about-building-systems-that-scale",
+    );
+  });
+});
+
+describe("insight article slug — what-would-julius-caesar-say-about-winning-team-loyalty", () => {
+  it("generates a valid reel script with the hiring court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-julius-caesar-say-about-winning-team-loyalty",
+    );
+    expect(script.slug).toBe("what-would-julius-caesar-say-about-winning-team-loyalty");
+    expect(script.frameworkSlug).toBe("julius-caesar");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("crossed the Rubicon knowing it might cost them everything");
+    expect(script.cta).toContain(
+      "/insights/what-would-julius-caesar-say-about-winning-team-loyalty",
+    );
+  });
+});
+
+describe("insight article slug — what-would-florence-nightingale-say-about-operational-excellence", () => {
+  it("generates a valid reel script with the product court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-florence-nightingale-say-about-operational-excellence",
+    );
+    expect(script.slug).toBe("what-would-florence-nightingale-say-about-operational-excellence");
+    expect(script.frameworkSlug).toBe("florence-nightingale");
+    expect(script.decisionType).toBe("product");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Product council: da Vinci (main), Curie (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("silent killer in its operations right now — you just haven");
+    expect(script.cta).toContain(
+      "/insights/what-would-florence-nightingale-say-about-operational-excellence",
+    );
+  });
+});
+
+describe("insight article slug — first-principles-thinking-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript(
+      "first-principles-thinking-explained",
+    );
+    expect(script.slug).toBe("first-principles-thinking-explained");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("refusing to accept assumptions");
+    expect(script.cta).toContain(
+      "/insights/first-principles-thinking-explained",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
