@@ -871,6 +871,101 @@ describe("insight article slug — second-order-thinking-explained", () => {
   });
 });
 
+describe("collision article — newton-vs-da-vinci-on-build-vs-design-first", () => {
+  it("generates a valid reel script with the product court", () => {
+    const script = buildVerdictReelScript(
+      "newton-vs-da-vinci-on-build-vs-design-first",
+    );
+    expect(script.slug).toBe("newton-vs-da-vinci-on-build-vs-design-first");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("product");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Product council: da Vinci (main), Curie (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.hook.voiceover).toContain("Build first or design first");
+    expect(script.cta).toContain("/insights/newton-vs-da-vinci-on-build-vs-design-first");
+  });
+});
+
+describe("collision article — sun-tzu-vs-napoleon-on-competitive-strategy", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "sun-tzu-vs-napoleon-on-competitive-strategy",
+    );
+    expect(script.slug).toBe("sun-tzu-vs-napoleon-on-competitive-strategy");
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.hook.voiceover).toContain("well-funded competitor entering your market");
+    expect(script.cta).toContain("/insights/sun-tzu-vs-napoleon-on-competitive-strategy");
+  });
+});
+
+describe("collision article — carnegie-vs-machiavelli-on-winning-through-people", () => {
+  it("generates a valid reel script with the hiring court", () => {
+    const script = buildVerdictReelScript(
+      "carnegie-vs-machiavelli-on-winning-through-people",
+    );
+    expect(script.slug).toBe("carnegie-vs-machiavelli-on-winning-through-people");
+    expect(script.frameworkSlug).toBe("andrew-carnegie");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    expect(script.hook.voiceover).toContain("Carnegie built an empire by hiring people smarter");
+    expect(script.cta).toContain("/insights/carnegie-vs-machiavelli-on-winning-through-people");
+  });
+});
+
+describe("collision article — lincoln-vs-marcus-aurelius-on-leading-in-crisis", () => {
+  it("generates a valid reel script with the crisis court", () => {
+    const script = buildVerdictReelScript(
+      "lincoln-vs-marcus-aurelius-on-leading-in-crisis",
+    );
+    expect(script.slug).toBe("lincoln-vs-marcus-aurelius-on-leading-in-crisis");
+    expect(script.frameworkSlug).toBe("abraham-lincoln");
+    expect(script.decisionType).toBe("crisis");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Crisis council: Lincoln (main), Aurelius (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Abraham Lincoln");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.hook.voiceover).toContain("Your startup is in crisis");
+    expect(script.cta).toContain("/insights/lincoln-vs-marcus-aurelius-on-leading-in-crisis");
+  });
+});
+
+describe("collision article — edison-vs-tesla-on-the-right-way-to-innovate", () => {
+  it("generates a valid reel script with the innovation court", () => {
+    const script = buildVerdictReelScript(
+      "edison-vs-tesla-on-the-right-way-to-innovate",
+    );
+    expect(script.slug).toBe("edison-vs-tesla-on-the-right-way-to-innovate");
+    expect(script.frameworkSlug).toBe("thomas-edison");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Innovation council: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.hook.voiceover).toContain("Edison failed 10,000 times");
+    expect(script.cta).toContain("/insights/edison-vs-tesla-on-the-right-way-to-innovate");
+  });
+});
+
 describe("insight article slug — what-would-catherine-the-great-say-about-managing-a-scaling-organization", () => {
   it("generates a valid reel script with the leadership court", () => {
     const script = buildVerdictReelScript(

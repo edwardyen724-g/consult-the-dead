@@ -881,6 +881,127 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 6: collision articles ────────────────────────────────────────
+  {
+    slug: "newton-vs-da-vinci-on-build-vs-design-first",
+    type: "collision",
+    frameworkSlug: "isaac-newton",
+    collisionFrameworkSlugs: ["isaac-newton", "leonardo-da-vinci"],
+    title: "Newton vs. da Vinci on Build vs. Design First",
+    description:
+      "Two of history's greatest minds clash on whether to prototype and build your way to the answer (da Vinci's method) or prove the mathematics before committing any resources (Newton's method). For founders choosing between lean iteration and disciplined validation, this is the fundamental tension.",
+    targetKeywords: [
+      "build vs design first startup",
+      "lean startup vs disciplined validation",
+      "prototype first or plan first",
+      "when to iterate vs validate startup",
+      "startup product development approach",
+    ],
+    decisionType: "product",
+    hookQuestion:
+      "Build first or design first? Newton would demand proof before committing a single resource. Da Vinci would already have three prototypes running. Both produced work that changed the world.",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "sun-tzu-vs-napoleon-on-competitive-strategy",
+    type: "collision",
+    frameworkSlug: "sun-tzu",
+    collisionFrameworkSlugs: ["sun-tzu", "napoleon-bonaparte"],
+    title: "Sun Tzu vs. Napoleon on Competitive Strategy",
+    description:
+      "Sun Tzu's doctrine: win before the battle begins through intelligence, positioning, and patience. Napoleon's doctrine: concentrate superior force, move faster than your opponent can react, and strike decisive blows. Two of history's greatest strategists debate how founders should approach competition.",
+    targetKeywords: [
+      "startup competitive strategy",
+      "how to compete against larger competitors",
+      "startup market positioning strategy",
+      "competitive moat founder strategy",
+      "startup vs incumbents strategy",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Sun Tzu says win before the battle starts. Napoleon says strike faster than your enemy can recover. You have a well-funded competitor entering your market. Which doctrine do you follow?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The supreme art of war is to subdue the enemy without fighting. Your competitor's funding means nothing if you have occupied the position they need and they cannot dislodge you without destroying what makes it valuable.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Strategy without execution is fantasy. The plan is only as good as the speed of its execution — I won battles by being at the decisive point before my enemies realized it was the decisive point. Move faster. Decide faster. Strike before the window closes.",
+      },
+    ],
+  },
+  {
+    slug: "carnegie-vs-machiavelli-on-winning-through-people",
+    type: "collision",
+    frameworkSlug: "andrew-carnegie",
+    collisionFrameworkSlugs: ["andrew-carnegie", "niccolo-machiavelli"],
+    title: "Carnegie vs. Machiavelli on Winning Through People",
+    description:
+      "Carnegie's argument: surround yourself with people smarter than you, give them genuine autonomy, and the organization compounds its intelligence. Machiavelli's counter: loyalty is conditional, people act from interest not virtue, and the founder who doesn't control their organization will eventually be controlled by it.",
+    targetKeywords: [
+      "hiring strategy startup founder",
+      "how to build a team startup",
+      "startup leadership people strategy",
+      "founder team building philosophy",
+      "managing a startup team",
+    ],
+    decisionType: "hiring",
+    hookQuestion:
+      "Carnegie built an empire by hiring people smarter than himself and trusting them completely. Machiavelli would call that naive — loyalty is strategic, not genuine. Which philosophy survives a startup?",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "lincoln-vs-marcus-aurelius-on-leading-in-crisis",
+    type: "collision",
+    frameworkSlug: "abraham-lincoln",
+    collisionFrameworkSlugs: ["abraham-lincoln", "marcus-aurelius"],
+    title: "Lincoln vs. Marcus Aurelius on Leading in Crisis",
+    description:
+      "Marcus Aurelius led through inner discipline — the crisis is controlled first in the mind before it can be controlled in the field. Lincoln led through outward coalition — a leader in crisis must hold together the fractious coalition of people who must do the actual surviving. Both survived crises that would have broken lesser leaders.",
+    targetKeywords: [
+      "startup leadership in crisis",
+      "founder leading through crisis",
+      "how to lead when things go wrong startup",
+      "startup crisis management leadership",
+      "founder resilience crisis leadership",
+    ],
+    decisionType: "crisis",
+    hookQuestion:
+      "Your startup is in crisis. Marcus Aurelius would retreat inward — master your own response first. Lincoln would reach outward — hold the coalition together before you lose anyone. You have days, not weeks. Which move do you make first?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "The crisis does not give you time for philosophy. Your team is watching you — they are deciding right now whether to hold or abandon. You must give them a reason to hold. Show them the path forward, even if the path is not yet clear to you. Leadership in crisis is the willingness to be seen as certain when you are not.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The leader who loses control of their own mind in a crisis loses the only tool that matters. Before you speak, before you act, before you reassure anyone — get still. The crisis will not wait, but the decision you make from panic will last longer than the crisis itself.",
+      },
+    ],
+  },
+  {
+    slug: "edison-vs-tesla-on-the-right-way-to-innovate",
+    type: "collision",
+    frameworkSlug: "thomas-edison",
+    collisionFrameworkSlugs: ["thomas-edison", "nikola-tesla"],
+    title: "Edison vs. Tesla on the Right Way to Innovate",
+    description:
+      "Edison's method: iterate relentlessly through thousands of experiments until you find what works, guided by practical market demand. Tesla's method: solve the problem completely in your mind before touching a physical object. Two of history's most prolific inventors disagreed fundamentally on process — and both produced world-changing results.",
+    targetKeywords: [
+      "startup innovation process",
+      "how to innovate in a startup",
+      "lean vs visionary innovation startup",
+      "experimentation vs planning startup",
+      "startup R&D process",
+    ],
+    decisionType: "innovation",
+    hookQuestion:
+      "Edison failed 10,000 times before finding the right filament. Tesla designed the entire AC motor in his head before building a single prototype. You are stuck on a hard technical problem. Which method do you use?",
+    publishedAt: "2026-05-14",
+  },
   // ── Wave 5: insight + method batch ────────────────────────────────────
   {
     slug: "what-would-catherine-the-great-say-about-managing-a-scaling-organization",

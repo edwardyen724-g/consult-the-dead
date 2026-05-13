@@ -920,3 +920,68 @@
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+- slug: newton-vs-da-vinci-on-build-vs-design-first
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "build vs design first startup"
+  secondary_queries:
+    - "lean startup vs disciplined validation"
+    - "prototype first or plan first"
+    - "when to iterate vs validate startup"
+  recommended_council: [isaac-newton, leonardo-da-vinci]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: sun-tzu-vs-napoleon-on-competitive-strategy
+  type: insight
+  search_volume_estimate: high
+  primary_query: "startup competitive strategy"
+  secondary_queries:
+    - "how to compete against larger competitors"
+    - "startup market positioning strategy"
+    - "competitive moat founder strategy"
+  recommended_council: [sun-tzu, napoleon-bonaparte]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: carnegie-vs-machiavelli-on-winning-through-people
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "hiring strategy startup founder"
+  secondary_queries:
+    - "how to build a team startup"
+    - "startup leadership people strategy"
+    - "managing a startup team"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: lincoln-vs-marcus-aurelius-on-leading-in-crisis
+  type: insight
+  search_volume_estimate: high
+  primary_query: "startup leadership in crisis"
+  secondary_queries:
+    - "founder leading through crisis"
+    - "how to lead when things go wrong startup"
+    - "startup crisis management leadership"
+  recommended_council: [abraham-lincoln, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: edison-vs-tesla-on-the-right-way-to-innovate
+  type: insight
+  search_volume_estimate: high
+  primary_query: "startup innovation process"
+  secondary_queries:
+    - "how to innovate in a startup"
+    - "lean vs visionary innovation startup"
+    - "experimentation vs planning startup"
+  recommended_council: [thomas-edison, nikola-tesla]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
