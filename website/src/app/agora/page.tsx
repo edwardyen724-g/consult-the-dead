@@ -39,5 +39,40 @@ export default async function AgoraPage({
       ? sp.minds.split(",").filter((s): s is string => validSlugs.has(s))
       : null;
 
-  return <AgoraApp minds={minds} isPro={isPro} initialPack={initialPack} initialMinds={initialMinds} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Consult The Dead — Agora",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            url: "https://www.consultthedead.com/agora",
+            description:
+              "Run multi-round debates with historical minds on your real decisions. Pick a council of up to 5 historical figures and pose any decision — they argue across three rounds from their own cognitive frameworks.",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "First 3 debates free, no signup required.",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Consult The Dead",
+              url: "https://www.consultthedead.com",
+            },
+          }),
+        }}
+      />
+      <AgoraApp
+        minds={minds}
+        isPro={isPro}
+        initialPack={initialPack}
+        initialMinds={initialMinds}
+      />
+    </>
+  );
 }

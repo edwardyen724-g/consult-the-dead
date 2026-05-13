@@ -1,0 +1,33 @@
+{
+  "slug": "co-founder-conflict",
+  "h1": "Co-Founder Conflict: Sun Tzu, Lincoln, and Machiavelli on What to Do Next",
+  "metaDescription": "Three minds on power, alliances, and irreconcilable differences. One of the highest-stakes founder decisions examined without platitudes.",
+  "topicForCta": "co-founder conflict resolution",
+  "intro": [
+    "Co-founder conflict is the second most common cause of early startup failure after running out of money — and the two are often connected. The reason most conflict advice fails is that it defaults to communication frameworks designed for situations where both parties are acting in good faith and share the same goal. Co-founder conflicts are usually not that situation.",
+    "The real strategic question is rarely \"how do we communicate better.\" It's \"is this conflict resolvable at all, and what does irreversibility cost me compared to continued dysfunction?\"",
+    "Sun Tzu would start by assessing terrain, not intention. He doesn't care why the conflict started — he cares about the current power distribution and what each party controls. His framework asks: who has leverage, who has the relationships, and what happens to each person in the three most likely resolution scenarios? A founder who answers these questions honestly usually discovers that the \"conflict\" is really a negotiation, and that the negotiation terms are already partially determined by what's been built.",
+    "Lincoln's approach is almost the opposite of Sun Tzu's tactical clarity. He held his cabinet together through the Civil War by keeping the coalition larger than any individual disagreement. His method: identify the shared goal that both parties genuinely care about and can agree exists, and subordinate every tactical dispute to that goal. If no shared goal can be found, Lincoln's framework collapses — and he would tell you directly that this means the coalition cannot survive.",
+    "Machiavelli's prescription is the one most people avoid because it's the clearest. He would say that once a co-founder conflict reaches the point where you are reading articles about how to resolve it, the relevant question is not resolution but exit. His analysis: sustained conflict is a form of shared weakness. Both parties lose negotiating position with investors, employees, and customers with every day the conflict continues. The earlier you resolve it — even at personal cost — the better the terms available to you."
+  ],
+  "minds": [
+    {
+      "slug": "sun-tzu",
+      "name": "Sun Tzu",
+      "rationale": "Assesses co-founder conflict as a terrain problem — who controls what, and what are the resolution scenarios? — before discussing solutions."
+    },
+    {
+      "slug": "abraham-lincoln",
+      "name": "Abraham Lincoln",
+      "rationale": "Built a government from people who disagreed with him by identifying the coalition goals that transcended individual disputes — his framework fails fast when no shared goal exists."
+    },
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "The only one in the room willing to say that sustained conflict is a form of shared weakness, and that early exit almost always produces better terms than prolonged negotiation."
+    }
+  ],
+  "ctaHeadline": "Run this debate on your specific co-founder situation",
+  "ctaButtonLabel": "Debate co-founder conflict in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}

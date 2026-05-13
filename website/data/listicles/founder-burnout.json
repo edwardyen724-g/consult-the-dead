@@ -1,0 +1,33 @@
+{
+  "slug": "founder-burnout",
+  "h1": "Should You Take a Break? Aurelius, Seneca, and Carnegie on Founder Burnout",
+  "metaDescription": "Three historical minds who built empires under pressure disagree on whether rest is strategic or dangerous. Run the debate on your actual situation.",
+  "topicForCta": "founder burnout and when to rest",
+  "intro": [
+    "There is a version of founder burnout advice that says \"take a break, recharge, come back stronger.\" There is another version that says \"the best founders push through and learn to find energy in the work.\" Both are true sometimes. Neither is useful when you're trying to decide what to do next week.",
+    "The more honest question is: what kind of strain are you actually under, and does it require rest or re-framing?",
+    "Marcus Aurelius ran an empire while fighting a 20-year war. He did not rest from the war — he found a way to metabolize it. His prescription isn't \"take a vacation\" — it's \"locate the thought that is generating the suffering and examine whether the thought is accurate.\" Most burnout, for Aurelius, is a cognitive distortion problem disguised as a workload problem. Addressing the symptom (rest) without addressing the cause (the story you're telling yourself about the work) produces a recovered founder who walks back into the same cognitive trap.",
+    "Seneca's position is sharper in a different direction. He spent years in Nero's court doing work he found meaningless, and he writes about this period with unusual directness: time spent on the wrong duty is not recoverable. His prescription is not to rest from the work but to examine whether the work itself deserves the energy. If it does, commit fully. If it doesn't, leave. Partial commitment is the real burnout engine.",
+    "Carnegie's perspective is operational. He built systems so that no single person, including himself, was a bottleneck. His argument: if your burnout is real, the organizational architecture is broken. A founder who is burning out is almost always a founder who hasn't figured out what to delegate and what to own. Rest is not the fix. Redesign is the fix."
+  ],
+  "minds": [
+    {
+      "slug": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "rationale": "Ran an empire in continuous crisis and left detailed records of how to metabolize strain rather than escape it — his framework is diagnostic, not prescriptive."
+    },
+    {
+      "slug": "seneca",
+      "name": "Seneca",
+      "rationale": "Argues that misaligned duty is the actual burnout engine, not workload — he will stop the conversation to ask whether the work is worth the energy at all."
+    },
+    {
+      "slug": "andrew-carnegie",
+      "name": "Andrew Carnegie",
+      "rationale": "Treats burnout as an organizational architecture problem — if you're exhausted, you haven't figured out what to delegate."
+    }
+  ],
+  "ctaHeadline": "Run this debate on your specific situation",
+  "ctaButtonLabel": "Debate founder burnout in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}

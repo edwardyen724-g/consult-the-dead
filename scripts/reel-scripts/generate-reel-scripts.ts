@@ -203,6 +203,26 @@ const DECISION_COURT: Record<
       "Procrastination is rarely about the task. It is about a gap between the task as it is and the task as you have told yourself it should be. Find the real reason the thing is not getting done — not the excuse, but the actual obstacle — and the procrastination usually ends.",
     caption: "Name the real reason. Then start.",
   },
+  // ── Wave 7 court entries ─────────────────────────────────────────────
+  finance: {
+    minds: ["John D. Rockefeller", "Marie Curie", "Sun Tzu"],
+    consensus:
+      "Unit economics are not a finance problem — they are a product problem. The margin structure you build in early stages constrains every strategic option you will have later. Do not optimize for growth before you understand the cost architecture underneath it.",
+    caption: "Know what each unit costs. Build from there.",
+  },
+  relationship: {
+    minds: ["Cleopatra VII", "Niccolò Machiavelli", "Sun Tzu"],
+    consensus:
+      "Managing a powerful stakeholder is not about charm — it is about alignment. Give them a win that costs you little, keep the relationship productive, and never let the appearance of dependence become the reality of it.",
+    caption: "Alignment, not dependence.",
+  },
+  // ── Wave 8 court entries ─────────────────────────────────────────────
+  meta: {
+    minds: ["Marie Curie", "Isaac Newton", "Niccolò Machiavelli"],
+    consensus:
+      "Generic advice is the default output of any system trained on the average of everything. The antidote is not more AI — it is a specific framework extracted from real decisions by real people who operated under real constraints. Specificity beats generality. Every time.",
+    caption: "Specific beats generic. Always.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -264,6 +284,14 @@ const MAIN_BEATS: Record<string, string> = {
     "The hiring decision you regret is always the one where you settled. Hold the bar, design the role for a great person, and wait.",
   procrastination:
     "The thing you are not doing is telling you something. What is the actual obstacle — not the excuse, but the real one? Name it, then address it.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "Name the unit before you optimize anything. Revenue without margin is just a way to burn more money faster.",
+  relationship:
+    "Find the interest behind the position. The investor's stated concern is rarely their real concern. Identify what they actually need from this relationship.",
+  // ── Wave 8 beats ──────────────────────────────────────────────────────
+  meta:
+    "The problem with generic AI advice is structural: it regresses to the mean of everything it has seen. A framework built from one person's actual decisions does not regress — it extrapolates from that specific reasoning pattern.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -325,6 +353,14 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Carnegie's management philosophy: hire people smarter than you, pay them well, give them room, and hold them accountable for outcomes — not process.",
   procrastination:
     "Seneca's insight was not that procrastination is laziness — it is that procrastination is a form of self-deception about what the task actually requires.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "The cost structure you accept early becomes the ceiling on every option you have later. Change it now while you still can.",
+  relationship:
+    "Give the win that costs you least while giving them what they value most. Skilled stakeholder management is information asymmetry in your favor.",
+  // ── Wave 8 beats ──────────────────────────────────────────────────────
+  meta:
+    "Curie did not publish generalities — she published precise experimental results and specific measurements. The value of a historical reasoning framework is identical: it encodes the specific cues, goals, and constraints of real decisions, not the average of all decisions ever made.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -386,6 +422,14 @@ const CLOSE_BEATS: Record<string, string> = {
     "Are you designing roles that great people want to be in? That is the real recruitment strategy.",
   procrastination:
     "What is the smallest step you could take on this right now? Take it. The rest follows.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "Gross margin is not a vanity metric. It is the architecture of survival. Know it down to the variable cost per transaction.",
+  relationship:
+    "Dependence invites control. Maintain enough leverage that the relationship stays mutual. Know what you need from them and what they need from you.",
+  // ── Wave 8 beats ──────────────────────────────────────────────────────
+  meta:
+    "Stop asking for advice. Start specifying the framework and the decision. The output will be different, and it will be better.",
 };
 
 function titleCase(value: string): string {

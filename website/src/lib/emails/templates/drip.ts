@@ -61,7 +61,7 @@ export function renderDripDay1(vars: DripVariables = {}): RenderedEmail {
     'Quick guide:',
     '',
     '  • Strategy / competitive moves → Machiavelli, Sun Tzu, Steve Jobs',
-    '  • Risk and uncertainty → Nassim Taleb, Marie Curie, Marcus Aurelius',
+    '  • Risk and uncertainty → Marie Curie, Marcus Aurelius, Galileo Galilei',
     '  • Innovation or product → Leonardo da Vinci, Nikola Tesla, Steve Jobs',
     '  • People and leadership → Marcus Aurelius, Seneca, Machiavelli',
     '',
@@ -88,7 +88,7 @@ export function renderDripDay1(vars: DripVariables = {}): RenderedEmail {
       <p style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8A88;margin:0 0 14px;">Quick guide</p>
       <p style="font-size:0.95rem;line-height:1.75;margin:0;color:#EDEDEC;">
         <strong style="color:#D4A574;">Strategy / competitive moves</strong> → Machiavelli, Sun Tzu, Steve Jobs<br>
-        <strong style="color:#D4A574;">Risk and uncertainty</strong> → Nassim Taleb, Marie Curie, Marcus Aurelius<br>
+        <strong style="color:#D4A574;">Risk and uncertainty</strong> → Marie Curie, Marcus Aurelius, Galileo Galilei<br>
         <strong style="color:#D4A574;">Innovation or product</strong> → da Vinci, Tesla, Steve Jobs<br>
         <strong style="color:#D4A574;">People and leadership</strong> → Marcus Aurelius, Seneca, Machiavelli
       </p>

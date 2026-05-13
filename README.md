@@ -13,11 +13,14 @@ The landing page lives in [`/website`](./website). The framework-extraction pipe
 | `/agora` | Live product | Debate surface — pose a decision, seat 2–5 minds |
 | `/frameworks/[slug]` | Public, static | Individual framework detail pages |
 | `/listicles/[slug]` | Public, static-generated, SEO | 5 long-tail SEO pages (startup-pivot, career-change, leadership-crisis, investing-risk, product-strategy); each pre-fills the Agora council via UTM CTA |
-| `/minds/[id]` | Public, static-generated, SEO | 25 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA |
+| `/minds/[id]` | Public, static-generated, SEO | 27 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA |
 | `/packs` | Public | Themed pack catalog — browse curated mind packs by domain with guided-quiz CTA |
+| `/quiz` | Public | Guided quiz entry — step-by-step council selection with featured-pack shortcuts; UTM-stamped Agora entry |
 | `/explore` | Public | Agon gallery — crawlable grid of public debate records |
 | `/debates` | Public, static-generated | Sample debate index — browse pre-built debate records by topic; each links to a detail page at `/debates/[slug]` |
-| `/decisions` | Public, static-generated | Index of all 24 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
+| `/insights` | Public, static-generated, SEO | Index of all insight articles (single-figure and head-to-head collision pieces) |
+| `/insights/[slug]` | Public, static-generated, SEO | Individual insight article — "What Would X Say About Y" (single-figure) and "X vs Y on Z" (collision); ships with reel script and framework annotation layer |
+| `/decisions` | Public, static-generated | Index of all 69 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
 | `/decisions/[slug]` | Public, static-generated | Individual decision page with debate, council recommendation, and Agora CTA |
 | `/feed.xml` | Public | RSS feed for public debates and insights |
 | `/pricing` | Public | Plan comparison and upgrade flow |

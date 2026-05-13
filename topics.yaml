@@ -54,8 +54,9 @@
     - "is open source good for startups"
   recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, proof]
-  status: shipped
-  shipped_at: 2026-05-12
+  status: killed
+  killed_reason: "Superseded by should-i-open-source-my-product (Wave 5, shipped 2026-05-14). Slug was renamed for better search intent match."
+  shipped_at: null
 
 - slug: should-i-pivot-or-persist
   type: decision
@@ -985,3 +986,1371 @@
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+# Wave 7 — queued
+
+- slug: what-would-da-vinci-say-about-shipping-imperfect-work
+  type: insight
+  search_volume_estimate: high
+  primary_query: "when to ship imperfect product"
+  secondary_queries:
+    - "ship early vs perfect product startup"
+    - "done is better than perfect founder"
+    - "how to stop overthinking and ship"
+  recommended_council: [leonardo-da-vinci]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-sun-tzu-say-about-pricing-strategy
+  type: insight
+  search_volume_estimate: high
+  primary_query: "pricing strategy startup"
+  secondary_queries:
+    - "how to price your product startup"
+    - "value-based pricing founder"
+    - "competitive pricing strategy small business"
+  recommended_council: [sun-tzu]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-rockefeller-say-about-unit-economics
+  type: insight
+  search_volume_estimate: high
+  primary_query: "unit economics startup"
+  secondary_queries:
+    - "how to improve unit economics"
+    - "LTV CAC ratio founder"
+    - "startup profitability metrics"
+  recommended_council: [john-d-rockefeller]
+  hook_angles: [proof, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-newton-say-about-debugging-complex-systems
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "debugging complex systems startup"
+  secondary_queries:
+    - "how to fix hard engineering problems"
+    - "root cause analysis product issues"
+    - "systematic debugging methodology"
+  recommended_council: [isaac-newton]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-cleopatra-vii-say-about-managing-investors
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to manage investors"
+  secondary_queries:
+    - "founder investor relationship tips"
+    - "managing board of directors startup"
+    - "how to handle difficult investors"
+  recommended_council: [cleopatra-vii]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-use-ai-in-my-business
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I use AI in my business"
+  secondary_queries:
+    - "AI for small business 2026"
+    - "how to adopt AI as a founder"
+    - "AI tools worth it for startups"
+  recommended_council: [thomas-edison, ada-lovelace, isaac-newton]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-raise-pre-seed
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a pre-seed round"
+  secondary_queries:
+    - "pre-seed funding startup"
+    - "when to raise pre-seed vs bootstrap"
+    - "pre-seed round how much to raise"
+  recommended_council: [andrew-carnegie, benjamin-franklin, john-d-rockefeller]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-launch-in-stealth-mode
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch in stealth mode"
+  secondary_queries:
+    - "stealth vs public launch startup"
+    - "stealth startup pros and cons"
+    - "when to go public with startup idea"
+  recommended_council: [niccolo-machiavelli, sun-tzu, benjamin-franklin]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: jobs-to-be-done-explained
+  type: method
+  search_volume_estimate: high
+  primary_query: "jobs to be done framework"
+  secondary_queries:
+    - "Clayton Christensen jobs to be done"
+    - "JTBD product development startup"
+    - "how to use jobs to be done"
+  recommended_council: [marcus-aurelius, leonardo-da-vinci]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-harriet-tubman-say-about-resilience-in-hard-times
+  type: insight
+  search_volume_estimate: high
+  primary_query: "founder resilience hard times"
+  secondary_queries:
+    - "how to stay motivated as a founder"
+    - "startup resilience mental toughness"
+    - "how to keep going when startup is failing"
+  recommended_council: [harriet-tubman]
+  hook_angles: [identity, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+# ── Wave 8 (shipped 2026-05-14) ──
+# Galileo Galilei added to live roster; 8 new articles + 2 decision pages
+
+- slug: what-would-galileo-say-about-challenging-conventional-wisdom
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to challenge conventional wisdom in business"
+  secondary_queries:
+    - "contrarian thinking strategy founders"
+    - "when to trust your data over expert consensus"
+    - "Galileo decision making business"
+  recommended_council: [galileo-galilei, isaac-newton, niccolo-machiavelli]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-archimedes-say-about-technical-leverage
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "technical leverage startups"
+  secondary_queries:
+    - "Archimedes lever principle business"
+    - "high leverage technical decisions startup"
+    - "how to find leverage in engineering"
+  recommended_council: [archimedes, isaac-newton, ada-lovelace]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-epictetus-say-about-managing-uncertainty
+  type: insight
+  search_volume_estimate: high
+  primary_query: "managing uncertainty in business"
+  secondary_queries:
+    - "Epictetus dichotomy of control founders"
+    - "stoic philosophy for founders uncertainty"
+    - "how to deal with startup uncertainty"
+  recommended_council: [epictetus, marcus-aurelius, niccolo-machiavelli]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-frederick-douglass-say-about-building-credibility
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "building credibility as an outsider"
+  secondary_queries:
+    - "how to build authority from zero"
+    - "credibility without credentials founders"
+    - "Frederick Douglass leadership lessons"
+  recommended_council: [frederick-douglass, abraham-lincoln, niccolo-machiavelli]
+  hook_angles: [proof, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-ada-lovelace-say-about-building-for-the-future
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "building products for the future"
+  secondary_queries:
+    - "Ada Lovelace product thinking founders"
+    - "how to think about future technology platforms"
+    - "visionary product development first principles"
+  recommended_council: [ada-lovelace, isaac-newton, nikola-tesla]
+  hook_angles: [curiosity, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-galileo-and-newton-would-say-about-evidence-vs-consensus
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "when to trust evidence over expert consensus"
+  secondary_queries:
+    - "evidence vs consensus decision making"
+    - "anomalous data strategy startup"
+    - "Galileo Newton scientific method business"
+  recommended_council: [galileo-galilei, isaac-newton]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-pivot-my-startup
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I pivot my startup"
+  secondary_queries:
+    - "when to pivot vs persist startup"
+    - "startup pivot decision framework"
+    - "how to know when to pivot a startup"
+  recommended_council: [niccolo-machiavelli, thomas-edison, epictetus]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-take-series-a-investment
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take Series A investment"
+  secondary_queries:
+    - "Series A fundraising decision"
+    - "when to raise Series A round"
+    - "Series A vs bootstrapping"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+# ── Wave 9 batch (2026-05-14) ────────────────────────────────────────────────
+- slug: galileo-vs-newton-on-disrupting-your-own-field
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "self-disruption strategy"
+  secondary_queries:
+    - "should I cannibalize my product"
+    - "disrupting your own field"
+    - "when to pivot your expertise"
+    - "Galileo Newton innovation strategy"
+  recommended_council: [galileo-galilei, isaac-newton]
+  hook_angles: [tension, curiosity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: archimedes-vs-ada-lovelace-on-build-vs-theorize
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "build vs theorize startup"
+  secondary_queries:
+    - "prototyping vs specification first"
+    - "architecture before implementation"
+    - "product development approach"
+    - "Archimedes Ada Lovelace"
+  recommended_council: [archimedes, ada-lovelace]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: douglass-vs-lincoln-on-playing-the-long-game
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "playing the long game strategy"
+  secondary_queries:
+    - "partial wins vs complete change"
+    - "when to compromise strategy"
+    - "when to hold out vs accept deal"
+    - "Frederick Douglass Lincoln strategy"
+  recommended_council: [frederick-douglass, abraham-lincoln]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: epictetus-vs-harriet-tubman-on-risk-under-constraint
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "taking risk under constraint"
+  secondary_queries:
+    - "when to accept vs resist constraints"
+    - "operating under systemic disadvantage"
+    - "Epictetus Tubman stoic philosophy"
+    - "founder risk taking"
+  recommended_council: [epictetus, harriet-tubman]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: carnegie-vs-rockefeller-on-monopoly-strategy
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "market dominance strategy"
+  secondary_queries:
+    - "vertical vs horizontal integration"
+    - "Carnegie vs Rockefeller strategy"
+    - "how to build monopoly power"
+    - "scaling startup strategy"
+  recommended_council: [andrew-carnegie, john-d-rockefeller]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-fire-a-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I fire my cofounder"
+  secondary_queries:
+    - "cofounder conflict startup"
+    - "how to remove a cofounder"
+    - "when to fire a cofounder"
+    - "cofounder breakup advice"
+  recommended_council: [niccolo-machiavelli, abraham-lincoln, sun-tzu]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-charge-more-for-my-product
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I charge more for my product"
+  secondary_queries:
+    - "raise prices startup"
+    - "pricing strategy SaaS"
+    - "when to increase prices"
+    - "value based pricing advice"
+  recommended_council: [niccolo-machiavelli, marie-curie, john-d-rockefeller]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-enter-international-markets
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I enter international markets"
+  secondary_queries:
+    - "international market entry strategy"
+    - "when to expand to new markets startup"
+    - "how to enter new markets"
+    - "global expansion startup timing"
+  recommended_council: [niccolo-machiavelli, alexander-the-great, julius-caesar]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+# ── Wave 10 batch (2026-05-21) ───────────────────────────────────────────────
+- slug: machiavelli-vs-sun-tzu-on-competitive-intelligence
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "competitive intelligence strategy"
+  secondary_queries:
+    - "know your enemy business strategy"
+    - "startup competitive strategy"
+    - "how to respond to competition"
+    - "Machiavelli Sun Tzu strategy"
+  recommended_council: [niccolo-machiavelli, sun-tzu]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: marcus-aurelius-vs-seneca-on-processing-failure
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "stoic approach to failure"
+  secondary_queries:
+    - "how to process failure startup"
+    - "Marcus Aurelius failure"
+    - "resilience after failure advice"
+    - "how to bounce back from failure"
+  recommended_council: [marcus-aurelius, seneca]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: franklin-vs-carnegie-on-building-your-network
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "building your professional network strategy"
+  secondary_queries:
+    - "broad vs deep network"
+    - "networking strategy for founders"
+    - "how to build a professional network"
+    - "Benjamin Franklin Carnegie networking"
+  recommended_council: [benjamin-franklin, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cleopatra-vs-catherine-the-great-on-ruling-through-alliance
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "strategic alliance risk"
+  secondary_queries:
+    - "partnership dependency risk startup"
+    - "when to rely on alliance"
+    - "Cleopatra Catherine the Great strategy"
+    - "startup partnership vs independence"
+  recommended_council: [cleopatra-vii, catherine-the-great]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-take-on-a-co-founder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take on a co-founder"
+  secondary_queries:
+    - "solo founder vs co-founder decision"
+    - "do I need a co-founder startup"
+    - "finding a co-founder"
+    - "benefits of co-founder startup"
+  recommended_council: [abraham-lincoln, andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-productize-my-consulting
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I productize my consulting"
+  secondary_queries:
+    - "productized service vs consulting"
+    - "consulting to product startup"
+    - "how to productize consulting"
+    - "turning consulting into a product"
+  recommended_council: [john-d-rockefeller, archimedes, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: caesar-vs-alexander-on-how-fast-to-expand
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how fast should a startup expand"
+  secondary_queries:
+    - "caesar vs alexander expansion strategy"
+    - "when to expand your business"
+    - "rapid expansion vs controlled growth"
+    - "startup growth speed decision"
+  recommended_council: [sun-tzu, niccolo-machiavelli, leonardo-da-vinci]
+  hook_angles: [tension, specificity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: jobs-vs-edison-on-perfectionism-vs-shipping
+  type: collision
+  search_volume_estimate: high
+  primary_query: "perfectionism vs shipping fast"
+  secondary_queries:
+    - "steve jobs vs thomas edison product philosophy"
+    - "should I ship or perfect my product"
+    - "done is better than perfect startup"
+    - "when to launch imperfect product"
+  recommended_council: [thomas-edison, marie-curie, leonardo-da-vinci]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cicero-vs-machiavelli-on-winning-by-argument-or-power
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "argument vs power to win"
+  secondary_queries:
+    - "cicero vs machiavelli persuasion"
+    - "should I persuade or use leverage"
+    - "rhetoric vs power in negotiations"
+    - "winning through argument or authority"
+  recommended_council: [cicero, benjamin-franklin, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-contractors-or-employees
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire contractors or employees"
+  secondary_queries:
+    - "contractor vs employee startup"
+    - "when to hire full-time vs freelance"
+    - "1099 vs W-2 early stage startup"
+    - "pros cons hiring contractors employees"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-add-a-paid-tier
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I add a paid tier"
+  secondary_queries:
+    - "when to add paid plan startup"
+    - "freemium to paid conversion"
+    - "should I charge for my product"
+    - "adding pricing to free product"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, marie-curie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-outsource-development
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I outsource development"
+  secondary_queries:
+    - "outsource vs in-house engineering"
+    - "hiring offshore developers startup"
+    - "should I outsource my MVP"
+    - "outsourcing software development pros cons"
+  recommended_council: [niccolo-machiavelli, archimedes, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: tubman-vs-douglass-on-direct-action-vs-advocacy
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "direct action vs building consensus"
+  secondary_queries:
+    - "harriet tubman vs frederick douglass leadership style"
+    - "act now vs persuade others first"
+    - "bold action vs coalition building"
+    - "founder disagreement how to resolve"
+  recommended_council: [cicero, benjamin-franklin, marcus-aurelius]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: ada-lovelace-vs-tesla-on-vision-without-resources
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "keep going when out of money startup"
+  secondary_queries:
+    - "should I keep building when investors say no"
+    - "visionary startup no funding"
+    - "pivot vs persist when broke"
+    - "how long to keep building before quitting"
+  recommended_council: [nikola-tesla, leonardo-da-vinci, isaac-newton]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: nightingale-vs-curie-on-data-vs-gut-instinct
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I trust data or gut instinct"
+  secondary_queries:
+    - "data vs intuition decision making"
+    - "when to override A/B test results"
+    - "data-driven vs instinct business"
+    - "gut feel vs analytics startup"
+  recommended_council: [marie-curie, isaac-newton, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-get-a-business-mentor
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I get a business mentor"
+  secondary_queries:
+    - "how to find a startup mentor"
+    - "business mentor worth it"
+    - "should I hire a coach or find a mentor"
+    - "mentorship for founders"
+  recommended_council: [benjamin-franklin, andrew-carnegie, marcus-aurelius]
+  hook_angles: [shortcut, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-invest-in-paid-advertising
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I invest in paid advertising"
+  secondary_queries:
+    - "paid ads vs organic marketing startup"
+    - "when to start running ads startup"
+    - "Google ads vs content marketing"
+    - "paid acquisition vs SEO"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, florence-nightingale]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-an-advisory-board
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build an advisory board"
+  secondary_queries:
+    - "startup advisory board worth it"
+    - "how to build advisory board"
+    - "startup advisors equity"
+    - "should I get startup advisors"
+  recommended_council: [niccolo-machiavelli, benjamin-franklin, julius-caesar]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 13 additions ──────────────────────────────────────────────────────────
+
+- slug: napoleon-vs-caesar-on-knowing-when-to-stop
+  type: collision
+  search_volume_estimate: high
+  primary_query: "when to stop expanding your business"
+  secondary_queries:
+    - "how do you know when to stop pushing"
+    - "overextension business strategy"
+    - "scaling too fast warning signs"
+  framework_slugs: [napoleon-bonaparte, julius-caesar]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: jobs-vs-galileo-on-betting-against-consensus
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I bet against the market consensus"
+  secondary_queries:
+    - "how to know if you have a contrarian insight"
+    - "betting against consensus startup"
+    - "when is a contrarian bet worth it"
+  framework_slugs: [steve-jobs, galileo-galilei]
+  decisionType: innovation
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: epictetus-vs-seneca-on-how-to-handle-adversity
+  type: collision
+  search_volume_estimate: high
+  primary_query: "how to handle adversity and setbacks"
+  secondary_queries:
+    - "stoic advice for hard times"
+    - "dealing with business failure stoicism"
+    - "accept vs adapt adversity"
+  framework_slugs: [epictetus, seneca]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-for-enterprise-or-smb
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build for enterprise or SMB"
+  secondary_queries:
+    - "enterprise vs SMB market startup"
+    - "go upmarket or stay SMB"
+    - "startup enterprise vs small business focus"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, sun-tzu]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-take-on-technical-debt
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take on technical debt"
+  secondary_queries:
+    - "technical debt worth it startup"
+    - "when to accept technical debt"
+    - "move fast and break things technical debt"
+  recommended_council: [archimedes, nikola-tesla, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-accept-this-strategic-partnership
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I accept this strategic partnership"
+  secondary_queries:
+    - "startup partnership worth it"
+    - "how to evaluate strategic partnerships"
+    - "when to say no to a partnership"
+    - "partnership vs independence startup"
+  recommended_council: [niccolo-machiavelli, julius-caesar, cleopatra-vii]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 14 additions ──────────────────────────────────────────────────────────
+
+- slug: archimedes-vs-newton-on-when-to-trust-your-model
+  type: collision
+  search_volume_estimate: high
+  primary_query: "when should you trust your model vs test it more"
+  secondary_queries:
+    - "when to stop testing and ship"
+    - "theory vs experiment decision making"
+    - "how much validation is enough"
+  framework_slugs: [archimedes, isaac-newton]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: lincoln-vs-carnegie-on-winning-over-critics
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I try to win over my critics"
+  secondary_queries:
+    - "how to handle critics and skeptics"
+    - "convert critics into allies"
+    - "when to ignore critics vs engage them"
+  framework_slugs: [abraham-lincoln, andrew-carnegie]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: rockefeller-vs-franklin-on-systems-vs-relationships
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I build systems or focus on relationships to scale"
+  secondary_queries:
+    - "systems vs relationships for business growth"
+    - "when to systematize vs personalize"
+    - "scaling through processes or people"
+  framework_slugs: [john-d-rockefeller, benjamin-franklin]
+  decisionType: scaling
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-focus-on-profitability-or-growth
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I focus on profitability or growth"
+  secondary_queries:
+    - "profitability vs growth startup"
+    - "optimize for profit or scale"
+    - "when to prioritize profitability startup"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, sun-tzu]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-a-mobile-app
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build a mobile app or web app"
+  secondary_queries:
+    - "mobile app vs web app startup"
+    - "when to build a native mobile app"
+    - "web only vs mobile first startup"
+  recommended_council: [nikola-tesla, benjamin-franklin, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-file-a-patent
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I file a patent for my startup"
+  secondary_queries:
+    - "patent vs trade secret startup"
+    - "when to file a patent early stage"
+    - "provisional patent application startup"
+  recommended_council: [nikola-tesla, marie-curie, benjamin-franklin]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 15 ─────────────────────────────────────────────────────────────────
+
+- slug: da-vinci-vs-newton-on-breadth-vs-depth
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I be a generalist or specialist"
+  secondary_queries:
+    - "breadth vs depth career decision"
+    - "generalist vs specialist founder"
+    - "focus on one thing or explore broadly"
+  framework_slugs: [leonardo-da-vinci, isaac-newton]
+  decisionType: product
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cicero-vs-lincoln-on-when-to-speak-vs-stay-silent
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when should I speak publicly vs stay silent"
+  secondary_queries:
+    - "when to speak up vs stay quiet leadership"
+    - "public communication timing strategy"
+    - "silence vs speaking out founder decision"
+  framework_slugs: [cicero, abraham-lincoln]
+  decisionType: persuasion
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: catherine-vs-cleopatra-on-consolidating-power-in-a-new-role
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how to consolidate power in a new leadership role"
+  secondary_queries:
+    - "new role power consolidation strategy"
+    - "how to establish authority as a new leader"
+    - "consolidating influence in a new position"
+  framework_slugs: [catherine-the-great, cleopatra-vii]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-a-community-around-my-product
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build a community around my product"
+  secondary_queries:
+    - "product community as growth strategy"
+    - "should startups invest in community building"
+    - "community led growth vs product led growth"
+  recommended_council: [andrew-carnegie, benjamin-franklin, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-do-content-marketing-or-paid-ads
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I do content marketing or paid ads"
+  secondary_queries:
+    - "content marketing vs paid advertising startup"
+    - "organic growth vs paid growth strategy"
+    - "SEO vs PPC for early stage startup"
+  recommended_council: [benjamin-franklin, niccolo-machiavelli, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-raise-a-series-b
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a Series B"
+  secondary_queries:
+    - "Series B funding decision startup"
+    - "when to raise Series B round"
+    - "scaling after Series A decision"
+  recommended_council: [john-d-rockefeller, napoleon-bonaparte, niccolo-machiavelli]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 16 ─────────────────────────────────────────────────────────────────
+
+- slug: edison-vs-tesla-on-practical-bets-vs-visionary-bets
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I make practical bets or visionary bets"
+  secondary_queries:
+    - "practical vs visionary approach startup"
+    - "incremental innovation vs breakthrough innovation"
+    - "Edison vs Tesla approach to innovation"
+  framework_slugs: [thomas-edison, nikola-tesla]
+  decisionType: innovation
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: alexander-vs-napoleon-on-when-to-overextend
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when does ambition become overextension"
+  secondary_queries:
+    - "when to stop expanding startup"
+    - "overextension risk in business growth"
+    - "how far to push growth before pulling back"
+  framework_slugs: [alexander-the-great, napoleon-bonaparte]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I design the system first or gather data first"
+  secondary_queries:
+    - "systems thinking vs empirical data approach"
+    - "build the framework first or test in the field"
+    - "top-down vs bottom-up analysis decision"
+  framework_slugs: [ada-lovelace, florence-nightingale]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-set-up-a-referral-program
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I set up a referral program"
+  secondary_queries:
+    - "referral program for startups"
+    - "viral growth referral strategy"
+    - "word of mouth vs paid acquisition"
+  recommended_council: [andrew-carnegie, benjamin-franklin, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-change-my-pricing-model
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I change my pricing model"
+  secondary_queries:
+    - "when to change pricing strategy startup"
+    - "pricing model change startup"
+    - "subscription vs one-time pricing decision"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-a-head-of-marketing
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a head of marketing"
+  secondary_queries:
+    - "when to hire a CMO startup"
+    - "first marketing hire startup"
+    - "head of marketing vs growth marketer startup"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 17 ─────────────────────────────────────────────────────────────────
+
+- slug: harriet-tubman-vs-lincoln-on-when-to-act-without-consensus
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when to act without waiting for consensus"
+  secondary_queries:
+    - "direct action vs building consensus leadership"
+    - "when to lead without buy-in"
+    - "acting without approval in leadership"
+  framework_slugs: [harriet-tubman, abraham-lincoln]
+  decisionType: leadership
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: franklin-vs-aurelius-on-building-for-the-long-term
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I build for legacy or focus on today"
+  secondary_queries:
+    - "long term thinking vs present focus strategy"
+    - "building for legacy vs present moment leadership"
+    - "long horizon planning startup"
+  framework_slugs: [benjamin-franklin, marcus-aurelius]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: galileo-vs-archimedes-on-when-to-challenge-consensus
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when is evidence strong enough to challenge consensus"
+  secondary_queries:
+    - "when to challenge the status quo with data"
+    - "how much evidence before publishing contrarian view"
+    - "challenging consensus in your field"
+  framework_slugs: [galileo-galilei, archimedes]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-start-a-newsletter
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I start a newsletter for my business"
+  secondary_queries:
+    - "newsletter as growth strategy startup"
+    - "building an email list vs social media"
+    - "when to start a business newsletter"
+  recommended_council: [benjamin-franklin, andrew-carnegie, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-move-upmarket
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I move upmarket to enterprise"
+  secondary_queries:
+    - "when to move upmarket startup"
+    - "SMB to enterprise transition startup"
+    - "enterprise sales vs SMB growth decision"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-implement-okrs
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I implement OKRs"
+  secondary_queries:
+    - "OKRs for startups pros and cons"
+    - "when to implement OKRs in a startup"
+    - "OKR framework early stage company"
+  recommended_council: [andrew-carnegie, marcus-aurelius, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 18 ─────────────────────────────────────────────────────────────────
+
+- slug: seneca-vs-cicero-on-private-virtue-vs-public-duty
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "private virtue vs public duty leadership"
+  secondary_queries:
+    - "when principles conflict with stakeholder demands"
+    - "inner values vs public obligations founder"
+    - "compromise values for stakeholders startup"
+  framework_slugs: [seneca, cicero]
+  decisionType: leadership
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: douglass-vs-carnegie-on-the-self-made-narrative
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "self-made narrative in leadership and hiring"
+  secondary_queries:
+    - "founder origin story and team culture"
+    - "self-reliance narrative impact on team"
+    - "meritocracy vs systemic obstacles startup"
+  framework_slugs: [frederick-douglass, andrew-carnegie]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cleopatra-vs-caesar-on-power-through-alliance-or-conquest
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "build alliances vs beat competitors directly"
+  secondary_queries:
+    - "strategic alliance vs competitive conquest"
+    - "partner with rivals or compete against them"
+    - "alliance strategy vs direct competition startup"
+  framework_slugs: [cleopatra-vii, julius-caesar]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-go-direct-to-consumer-or-use-resellers
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I sell direct to consumer or use resellers"
+  secondary_queries:
+    - "DTC vs reseller channel strategy"
+    - "direct sales vs distribution partners startup"
+    - "when to use channel partners vs sell direct"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-run-a-beta-program
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I run a beta program before launch"
+  secondary_queries:
+    - "beta program before product launch"
+    - "closed beta vs open launch startup"
+    - "when to run a beta test startup"
+  recommended_council: [marie-curie, nikola-tesla, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-expand-my-product-line
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I expand my product line"
+  secondary_queries:
+    - "when to add a new product startup"
+    - "product line expansion startup decision"
+    - "focus on one product vs multiple products"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 19 ─────────────────────────────────────────────────────────────────
+
+- slug: carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "winning team loyalty vs demanding performance"
+  secondary_queries:
+    - "develop employees vs hold them accountable"
+    - "loyalty through investment vs consequence leadership"
+    - "Carnegie vs Napoleon leadership style"
+  framework_slugs: [andrew-carnegie, napoleon-bonaparte]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: tesla-vs-galileo-on-working-against-the-institution
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how to keep building when the system works against you"
+  secondary_queries:
+    - "working against institutions startup"
+    - "defying industry incumbents vs working around them"
+    - "strategic patience vs direct confrontation"
+  framework_slugs: [nikola-tesla, galileo-galilei]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "competitive advantage through positioning vs capital"
+  secondary_queries:
+    - "positional strategy vs resource accumulation"
+    - "terrain selection vs capital control competitive strategy"
+    - "Sun Tzu vs Rockefeller competitive strategy"
+  framework_slugs: [sun-tzu, john-d-rockefeller]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-give-equity-to-early-employees
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I give equity to early employees"
+  secondary_queries:
+    - "equity for early employees startup"
+    - "when to give employees equity vs salary"
+    - "startup equity compensation early hires"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-a-sales-team-or-stay-founder-led-sales
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a sales team or stay founder-led sales"
+  secondary_queries:
+    - "founder-led sales vs hiring salespeople"
+    - "when to hire first salesperson startup"
+    - "founder selling vs sales team decision"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, john-d-rockefeller]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-or-buy-a-technology
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build or buy a technology"
+  secondary_queries:
+    - "build vs buy technology decision startup"
+    - "make or buy software decision"
+    - "when to build in-house vs buy vendor solution"
+  recommended_council: [nikola-tesla, andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 20 ─────────────────────────────────────────────────────────────────
+- slug: curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Marie Curie Ada Lovelace pioneering hostile field"
+  secondary_queries:
+    - "how to break into a market that excludes you"
+    - "outsider strategy incumbent market"
+    - "proof accumulation vs vision strategy"
+  recommended_council: [marie-curie, ada-lovelace]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: newton-vs-machiavelli-on-systems-vs-power
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Newton Machiavelli systems vs power strategy"
+  secondary_queries:
+    - "building systems vs political management leadership"
+    - "founder board management operational excellence"
+    - "when to build systems vs manage stakeholders"
+  recommended_council: [isaac-newton, niccolo-machiavelli]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: rockefeller-vs-napoleon-on-monopoly-vs-conquest
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Rockefeller Napoleon infrastructure speed competitive advantage"
+  secondary_queries:
+    - "monopoly strategy vs first-mover speed"
+    - "building moat vs moving fast startup"
+    - "capital accumulation vs execution velocity"
+  recommended_council: [john-d-rockefeller, napoleon-bonaparte]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-apply-to-y-combinator
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I apply to Y Combinator"
+  secondary_queries:
+    - "YC vs other accelerators for early stage startup"
+    - "is Y Combinator worth it"
+    - "Y Combinator equity dilution pros cons"
+  recommended_council: [sun-tzu, niccolo-machiavelli, leonardo-da-vinci]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-set-up-a-vesting-schedule
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I set up a vesting schedule"
+  secondary_queries:
+    - "founder vesting schedule startup"
+    - "co-founder equity vesting cliff"
+    - "employee equity vesting startup"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-hire-a-fractional-cto
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a fractional CTO"
+  secondary_queries:
+    - "fractional CTO vs full-time CTO startup"
+    - "non-technical founder technical leadership"
+    - "when to hire fractional CTO"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ─────────────────────────────────────────────────────────────────────
+# Wave 21 queue — seeded 2026-05-13
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: edison-vs-franklin-on-iteration-vs-system-building
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Thomas Edison Benjamin Franklin innovation strategy"
+  secondary_queries:
+    - "rapid iteration vs systematic research"
+    - "trial and error vs structured experiment"
+    - "founder build fast vs build right"
+  recommended_council: [thomas-edison, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: tubman-vs-douglass-on-direct-action-vs-advocacy
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "direct action vs advocacy leadership change"
+  secondary_queries:
+    - "when to act vs when to persuade"
+    - "operational leadership vs political advocacy"
+    - "founder execution vs stakeholder management"
+  recommended_council: [harriet-tubman, frederick-douglass]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: caesar-vs-alexander-on-empire-building-speed
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Julius Caesar Alexander the Great conquest strategy"
+  secondary_queries:
+    - "speed of expansion vs consolidation strategy"
+    - "rapid scaling vs deep integration"
+    - "startup land grab vs defend and grow"
+  recommended_council: [julius-caesar, alexander-the-great]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-sell-my-company
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I sell my company"
+  secondary_queries:
+    - "when to sell a startup"
+    - "M&A vs staying independent"
+    - "should I take an acquisition offer"
+    - "startup exit vs continue building"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, john-d-rockefeller]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: should-i-launch-on-product-hunt
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch on Product Hunt"
+  secondary_queries:
+    - "Product Hunt launch strategy"
+    - "is Product Hunt worth it 2026"
+    - "product hunt launch timing"
+    - "how to get #1 on Product Hunt"
+  recommended_council: [niccolo-machiavelli, benjamin-franklin, marie-curie]
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: should-i-hire-a-contractor-or-full-time
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a contractor or full-time employee"
+  secondary_queries:
+    - "contractor vs employee startup"
+    - "when to hire full time vs freelance"
+    - "startup hiring contractor vs employee pros cons"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: epictetus-vs-seneca-on-accepting-vs-transforming-constraints
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Epictetus Seneca stoic acceptance vs action constraints"
+  secondary_queries:
+    - "accept what you cannot change vs reshape constraints"
+    - "stoic founder mindset adversity"
+    - "when to pivot around obstacles vs push through"
+  recommended_council: [epictetus, seneca]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-build-for-enterprise-or-smb
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build for enterprise or SMB"
+  secondary_queries:
+    - "enterprise vs SMB startup market"
+    - "upmarket vs downmarket startup strategy"
+    - "enterprise sales vs self-serve product"
+    - "SMB product market fit vs enterprise"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-launch-a-paid-beta
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I charge for a beta"
+  secondary_queries:
+    - "paid beta vs free beta"
+    - "charging early users startup"
+    - "when to start charging customers"
+    - "paid waitlist strategy"
+  recommended_council: [marie-curie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, proof]
+  status: queued
+
+- slug: nightingale-vs-curie-on-field-evidence-vs-theoretical-proof
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Florence Nightingale Marie Curie evidence research approach"
+  secondary_queries:
+    - "empirical data vs controlled experiment decision making"
+    - "field observation vs lab proof startup"
+    - "when to trust early data vs wait for rigor"
+  recommended_council: [florence-nightingale, marie-curie]
+  hook_angles: [tension, shortcut]
+  status: queued

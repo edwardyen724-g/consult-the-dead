@@ -70,12 +70,30 @@ export default async function DecisionPage({ params }: PageProps) {
   const publishedAt = getDecisionPublishedAt(entry).toISOString();
   const ctaHref = buildDecisionAgoraHref(entry);
   const jsonLd = buildArticleJsonLd(entry.title, entry.description, slug, publishedAt, entry.targetKeywords);
+  const faqLd = buildFaqJsonLd(entry.title, entry.primaryQuery, entry.description, entry.hookQuestion);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.consultthedead.com" },
+      { "@type": "ListItem", position: 2, name: "Decisions", item: "https://www.consultthedead.com/decisions" },
+      { "@type": "ListItem", position: 3, name: entry.title, item: getDecisionUrl(slug) },
+    ],
+  };
 
   return (
     <main style={{ maxWidth: COL, margin: "0 auto", padding: "72px 24px 96px" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <article>
@@ -180,6 +198,49 @@ function buildArticleJsonLd(
     publisher: { "@type": "Organization", name: "Consult The Dead" },
     url: getDecisionUrl(slug),
     keywords,
+  };
+}
+
+/**
+ * Builds a FAQPage JSON-LD block for Google rich-result eligibility.
+ * Uses the primaryQuery as the canonical question (the high-search-volume
+ * query the page is targeting) and the hookQuestion (scenario framing) as
+ * a second entry so both the generic and specific versions appear in SERP.
+ */
+function buildFaqJsonLd(
+  title: string,
+  primaryQuery: string,
+  description: string,
+  hookQuestion: string,
+) {
+  const mainEntity: Array<{ "@type": string; name: string; acceptedAnswer: { "@type": string; text: string } }> = [
+    {
+      "@type": "Question",
+      name: primaryQuery,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: description,
+      },
+    },
+  ];
+
+  // Include the scenario-framed hookQuestion only if it differs meaningfully
+  // from the primaryQuery (avoids near-duplicate FAQ items).
+  if (hookQuestion && hookQuestion.toLowerCase() !== primaryQuery.toLowerCase()) {
+    mainEntity.push({
+      "@type": "Question",
+      name: hookQuestion,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `${title}: ${description}`,
+      },
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity,
   };
 }
 

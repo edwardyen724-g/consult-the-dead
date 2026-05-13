@@ -590,6 +590,64 @@ describe("InsightPage — single-framework insight", () => {
     expect(html).toContain("application/ld+json");
     expect(html).toContain("Article");
   });
+
+  it("emits a FAQPage JSON-LD block when hookQuestion is present", async () => {
+    const fw = makeFramework();
+    mocks.getInsightEntry.mockReturnValue(makeSingleEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({
+        slug: "how-newton-would-approach-your-pivot-decision",
+      }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('"@type":"Question"');
+    expect(html).toContain('"@type":"Answer"');
+    // The hookQuestion text should appear as the FAQ question name.
+    expect(html).toContain("You&#x27;re three months from running out of runway.");
+  });
+
+  it("omits the FAQPage block when hookQuestion is absent", async () => {
+    const fw = makeFramework();
+    const entryNoHook = { ...makeSingleEntry(), hookQuestion: "" };
+    mocks.getInsightEntry.mockReturnValue(entryNoHook);
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({
+        slug: "how-newton-would-approach-your-pivot-decision",
+      }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).not.toContain('"@type":"FAQPage"');
+  });
+
+  it("emits a BreadcrumbList JSON-LD with Home > Insights > page title", async () => {
+    const fw = makeFramework();
+    mocks.getInsightEntry.mockReturnValue(makeSingleEntry());
+    mocks.isCollisionInsightEntry.mockReturnValue(false);
+    mocks.getInsightFrameworks.mockReturnValue([fw]);
+
+    const element = await InsightPage({
+      params: Promise.resolve({
+        slug: "how-newton-would-approach-your-pivot-decision",
+      }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('"@type":"ListItem"');
+    expect(html).toContain('"name":"Home"');
+    expect(html).toContain('"name":"Insights"');
+    // Page title should appear as position 3 item.
+    expect(html).toContain("How Newton Would Approach Your Pivot Decision");
+  });
 });
 
 describe("InsightPage — collision insight", () => {

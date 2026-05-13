@@ -186,3 +186,37 @@ describe("route contract", () => {
     expect(dynamicParams).toBe(false);
   });
 });
+
+describe("structured data (JSON-LD)", () => {
+  it("emits an Article, FAQPage, and BreadcrumbList script block", async () => {
+    const element = await ListiclePage({
+      params: Promise.resolve({ slug: "startup-pivot" }),
+    });
+    const html = renderToStaticMarkup(element as React.ReactElement);
+    const scriptCount = (html.match(/application\/ld\+json/g) ?? []).length;
+    expect(scriptCount).toBe(3);
+  });
+
+  it("FAQPage question uses the listicle H1", async () => {
+    const content = loadListicleContent("startup-pivot");
+    expect(content).not.toBeNull();
+    const element = await ListiclePage({
+      params: Promise.resolve({ slug: "startup-pivot" }),
+    });
+    const html = renderToStaticMarkup(element as React.ReactElement);
+    expect(html).toContain("FAQPage");
+    expect(html).toContain(escapeHtml(content!.h1));
+  });
+
+  it("BreadcrumbList contains Home, Listicles, and page title positions", async () => {
+    const element = await ListiclePage({
+      params: Promise.resolve({ slug: "career-change" }),
+    });
+    const html = renderToStaticMarkup(element as React.ReactElement);
+    expect(html).toContain("BreadcrumbList");
+    expect(html).toContain("Listicles");
+    expect(html).toContain(
+      "https://www.consultthedead.com/listicles/career-change",
+    );
+  });
+});

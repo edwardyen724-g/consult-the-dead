@@ -5,6 +5,47 @@ import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 import { MindCard } from "@/components/MindCard";
 import { StreamingDemo } from "./worked-example";
 
+const HOME_SITE_URL = "https://www.consultthedead.com";
+const HOME_DESCRIPTION =
+  "Run your decisions through cognitive frameworks extracted from history's greatest minds. Structured disagreement from Newton, Machiavelli, Curie, Sun Tzu, and more — not generic AI advice.";
+
+/**
+ * WebSite JSON-LD — enables Google sitelinks search box eligibility.
+ * The potentialAction points to /agora?topic= which already accepts a
+ * free-text search_term_string and launches a council debate instantly.
+ * Exported for vitest snapshot testing.
+ */
+export const HOME_WEBSITE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Consult The Dead",
+  url: HOME_SITE_URL,
+  description: HOME_DESCRIPTION,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${HOME_SITE_URL}/agora?topic={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+} as const;
+
+/**
+ * Organization JSON-LD — triggers Google Knowledge Panel signals.
+ * logo points to the Next.js OG image route which produces a 1200×630
+ * PNG at build time; it's the closest to a canonical logo we have.
+ * Exported for vitest snapshot testing.
+ */
+export const HOME_ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Consult The Dead",
+  url: HOME_SITE_URL,
+  logo: `${HOME_SITE_URL}/opengraph-image`,
+  description: HOME_DESCRIPTION,
+} as const;
+
 const AGON_STEPS = [
   {
     n: "01",
@@ -730,6 +771,16 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* ── Structured data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_WEBSITE_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_ORGANIZATION_SCHEMA) }}
+      />
 
     </div>
   )

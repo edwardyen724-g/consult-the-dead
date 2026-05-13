@@ -47,16 +47,18 @@ const EXPANSION_SLUGS = [
   "julius-caesar",
   "napoleon-bonaparte",
   "seneca",
+  // Wave 8 roster expansion 2026-05 — Galileo Galilei
+  "galileo-galilei",
 ] as const;
 
 /**
- * After the 2026-05 SEO listicle expansion (task c7400a14), the live roster
- * contains exactly 26 minds. Albert Einstein is shipped as data but his slug
- * is held out of ALLOWED_SLUGS pending Hebrew University legal review (see
- * header comment in frameworks.ts). Steve Jobs was added to enable the
- * steve-jobs-on-product listicle page.
+ * After the Wave 8 roster expansion (2026-05), the live roster contains
+ * exactly 27 minds. Albert Einstein is shipped as data but his slug is held
+ * out of ALLOWED_SLUGS pending Hebrew University legal review (see header
+ * comment in frameworks.ts). Steve Jobs was added for the product listicle
+ * page; Galileo Galilei was added in Wave 8 (framework already extracted).
  */
-const EXPECTED_ROSTER_SIZE = 26;
+const EXPECTED_ROSTER_SIZE = 27;
 
 describe("ALLOWED_SLUGS roster gate", () => {
   it("contains exactly EXPECTED_ROSTER_SIZE minds (Einstein excluded)", () => {

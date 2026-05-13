@@ -1,0 +1,53 @@
+{
+  "traceability_ratio": 0.89,
+  "lens_consistent": true,
+  "contradictions": [
+    {
+      "construct": "Observation-grounded evidence vs. Authority-grounded assertion",
+      "scenario_a": "Comets polemic (Assayer incident-011)",
+      "scenario_b": "Projectile motion scenario",
+      "explanation": "In incident-011, Galileo defended an incorrect empirical position about comets for methodological advantage, prioritizing polemic over observation. But in the projectile scenario, the framework strictly follows observation-grounded evidence. This suggests the construct has an exception for strategic methodological arguments that isn't explicitly documented."
+    }
+  ],
+  "per_scenario_details": [
+    {
+      "scenario": "Projectile motion investigation",
+      "traceable_steps": 11,
+      "total_steps": 12,
+      "lens_aligned": true,
+      "contradiction": false
+    },
+    {
+      "scenario": "Venus phases publication",
+      "traceable_steps": 14,
+      "total_steps": 15,
+      "lens_aligned": true,
+      "contradiction": false
+    },
+    {
+      "scenario": "Bronze cannon metallurgy",
+      "traceable_steps": 13,
+      "total_steps": 15,
+      "lens_aligned": true,
+      "contradiction": false
+    },
+    {
+      "scenario": "Pendulum motion research",
+      "traceable_steps": 16,
+      "total_steps": 18,
+      "lens_aligned": true,
+      "contradiction": false
+    },
+    {
+      "scenario": "Buoyancy principles",
+      "traceable_steps": 12,
+      "total_steps": 13,
+      "lens_aligned": true,
+      "contradiction": false
+    }
+  ],
+  "passed": false,
+  "failure_reasons": [
+    "1 contradiction found in framework responses"
+  ]
+}

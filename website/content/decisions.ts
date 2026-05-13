@@ -845,6 +845,1195 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "startup international market entry",
     ],
   },
+  {
+    slug: "should-i-use-ai-in-my-business",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Use AI in My Business?",
+    description:
+      "The question is not whether to use AI — it is which problems AI solves better than your current approach, and which problems it makes worse. This page cuts through the hype to help you identify the right integration point for your business today.",
+    primaryQuery: "should I use AI in my business",
+    secondaryQueries: [
+      "how to use AI in small business",
+      "AI tools for startups",
+      "is AI worth it for small business",
+      "when to adopt AI tools business",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "marie-curie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "AI can automate the wrong things as efficiently as the right ones. Before you integrate, can you name the specific problem AI solves better than your current approach — and what you will do with the time or cost you save?",
+    targetKeywords: [
+      "should I use AI in my business",
+      "how to use AI in small business",
+      "AI tools for startups",
+      "AI adoption business decision",
+      "when to use AI startup",
+    ],
+  },
+  {
+    slug: "should-i-raise-pre-seed",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Raise Pre-Seed Funding?",
+    description:
+      "Pre-seed capital changes the game — or it changes the clock. This page examines what conditions justify taking on investors before you have product-market fit, and what alternatives you should exhaust first.",
+    primaryQuery: "should I raise pre-seed funding",
+    secondaryQueries: [
+      "pre-seed round startup",
+      "what is pre-seed funding",
+      "should I get pre-seed investment",
+      "pre-seed vs bootstrapping",
+      "how to raise pre-seed",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Pre-seed capital buys you time and signal, but it also locks in expectations before you have real data. Have you exhausted customer-funded options first?",
+    targetKeywords: [
+      "should I raise pre-seed funding",
+      "pre-seed round startup",
+      "pre-seed vs bootstrapping",
+      "pre-seed funding requirements",
+      "raise pre-seed investment",
+    ],
+  },
+  {
+    slug: "should-i-launch-in-stealth-mode",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Launch in Stealth Mode?",
+    description:
+      "Stealth mode protects a fragile idea from premature critique — but it also delays the feedback that would tell you whether the idea is worth protecting. This page examines the real tradeoffs of building in private versus building in public.",
+    primaryQuery: "should I launch in stealth mode",
+    secondaryQueries: [
+      "stealth startup pros cons",
+      "stealth vs public launch startup",
+      "should I keep my startup secret",
+      "build in stealth mode",
+      "stealth mode startup strategy",
+    ],
+    recommendedCouncil: [
+      "sun-tzu",
+      "niccolo-machiavelli",
+      "isaac-newton",
+    ],
+    hookQuestion:
+      "Stealth buys you time to build something you believe in — but it also delays the day you find out if anyone else believes in it. What does the extra time cost you in real feedback?",
+    targetKeywords: [
+      "should I launch in stealth mode",
+      "stealth startup strategy",
+      "stealth vs public launch",
+      "build in stealth startup",
+      "stealth mode advantages startup",
+    ],
+  },
+  {
+    slug: "should-i-pivot-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Pivot My Startup?",
+    description:
+      "Pivoting means abandoning what you know is not working and committing to something you believe might work — before you have evidence it will. Every major startup pivot combines two decisions: recognizing that the current trajectory is structurally broken, and choosing which adjacent opportunity to bet on. History's most decisive figures held both of these decisions to very different standards.",
+    primaryQuery: "should I pivot my startup",
+    secondaryQueries: [
+      "when to pivot vs persist",
+      "startup pivot decision framework",
+      "how to know when to pivot",
+      "startup pivot examples lessons",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "thomas-edison",
+      "epictetus",
+    ],
+    hookQuestion:
+      "Your current product is generating revenue but not growing. The market is real but smaller than you thought. You have 9 months of runway. The question is whether to double down, pivot to an adjacent opportunity, or shut it down.",
+    targetKeywords: [
+      "should I pivot my startup",
+      "when to pivot a startup",
+      "startup pivot decision",
+      "how to pivot a startup",
+      "pivot vs persist startup",
+    ],
+  },
+  {
+    slug: "should-i-take-series-a-investment",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Take Series A Investment?",
+    description:
+      "A Series A round means committing to a venture-scale growth trajectory with institutional oversight, board seats, and performance expectations that cannot be walked back. The decision is not just about whether you can raise the money — it is about whether the venture-scale path is the right path for what you are building, and whether you want to live inside the institutional structure that comes with it.",
+    primaryQuery: "should I take Series A investment",
+    secondaryQueries: [
+      "Series A fundraising decision",
+      "when to raise Series A",
+      "Series A vs bootstrapping",
+      "is Series A right for my startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "You have product-market fit at a small scale, growing 15% month-over-month, $40k MRR. Two top-tier VCs have reached out. Raising $3-5M would let you hire a sales team and a CTO. Not raising means slower growth but you keep control and profitability. The decision is whether to bet on venture-scale or optimize for a smaller, profitable outcome.",
+    targetKeywords: [
+      "should I take Series A investment",
+      "Series A fundraising decision",
+      "when to raise Series A round",
+      "venture capital Series A timing",
+      "should I take VC money Series A",
+    ],
+  },
+  {
+    slug: "should-i-fire-a-cofounder",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Fire My Cofounder?",
+    description:
+      "Firing a cofounder is simultaneously a personal decision, a business decision, and a legal decision. The personal difficulty is that cofounders are often close friends or long-term partners. The business difficulty is that removing a cofounder mid-stage can create instability at the worst possible time. The legal difficulty is that equity, IP assignments, and vesting cliffs are all in play. History's most decisive figures approached this kind of decision with very different weights on each dimension.",
+    primaryQuery: "should I fire my cofounder",
+    secondaryQueries: [
+      "how to remove a cofounder",
+      "cofounder conflict resolution",
+      "when to fire a cofounder",
+      "cofounder breakup startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "abraham-lincoln",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Your cofounder has stopped contributing but still holds 40% of the company. They are not technically a co-founder — they are a liability. Every conversation ends the same way. The investors have noticed. The team has noticed. You have been rationalizing this for six months.",
+    targetKeywords: [
+      "should I fire my cofounder",
+      "how to remove a cofounder",
+      "cofounder firing guide",
+      "when to let go of cofounder",
+      "startup cofounder conflict",
+    ],
+  },
+  {
+    slug: "should-i-charge-more-for-my-product",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Charge More for My Product?",
+    description:
+      "Raising prices is the highest-leverage pricing move a founder can make — and the one most founders are most afraid of. The fear is usually about losing customers. The reality is that underpricing destroys margin, signals low quality, and attracts price-sensitive customers who churn first. History's most successful builders charged what their product was actually worth. The question is not whether to charge more — it is whether you have the nerve to do it.",
+    primaryQuery: "should I charge more for my product",
+    secondaryQueries: [
+      "when to raise prices startup",
+      "SaaS pricing strategy",
+      "how to raise prices without losing customers",
+      "pricing power startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Your NPS is 72. Churn is low. Customers tell you it's essential. You are charging $29/mo and your three largest competitors charge $149-299/mo. Your entire team is paid below market because you 'can't afford it yet.' The question is: why are you still charging $29?",
+    targetKeywords: [
+      "should I raise my prices",
+      "when to charge more for product",
+      "SaaS pricing increase",
+      "how to raise prices without losing customers",
+      "pricing strategy startup",
+    ],
+  },
+  {
+    slug: "should-i-enter-international-markets",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Enter International Markets Now?",
+    description:
+      "International expansion is one of the highest-variance strategic decisions a founder makes. It can 3-5x your addressable market in 12 months or consume two years of engineering and sales attention with minimal return. The decision depends entirely on where your current growth is coming from, whether the new market will respond to your existing product and positioning, and whether your team is operationally capable of managing the added complexity.",
+    primaryQuery: "should I enter international markets",
+    secondaryQueries: [
+      "when to expand to new markets startup",
+      "international market entry strategy",
+      "how to expand to new markets",
+      "global expansion startup timing",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "alexander-the-great",
+      "julius-caesar",
+    ],
+    hookQuestion:
+      "You are growing 8% month-over-month in the US. Three customers from Europe found you organically and converted immediately. An investor is willing to fund a European expansion. The question is whether to go now or wait until you have fully captured the domestic market.",
+    targetKeywords: [
+      "should I enter international markets",
+      "international market entry strategy",
+      "when to expand to new markets startup",
+      "how to enter new markets",
+      "global expansion startup timing",
+    ],
+  },
+  {
+    slug: "should-i-take-on-a-co-founder",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Take on a Co-Founder?",
+    description:
+      "The co-founder decision is one of the highest-variance choices in a startup. A well-matched co-founder doubles execution speed, provides cognitive coverage you lack, and creates emotional resilience in the hard periods. A mismatched one creates equity disputes, alignment failures, and eventual legal complexity at the worst possible time. The historical evidence suggests the decision is less about capability and more about values alignment under conditions of extended adversity.",
+    primaryQuery: "should I take on a co-founder",
+    secondaryQueries: [
+      "do I need a co-founder startup",
+      "solo founder vs co-founder",
+      "should I find a co-founder",
+      "benefits of co-founder startup",
+    ],
+    recommendedCouncil: [
+      "abraham-lincoln",
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "You have been building solo for 8 months and have $3K MRR. A talented person you respect wants to join as a 50/50 co-founder. They bring skills you lack (they are technical; you are sales-focused). You would need to give up half the equity and half the decision-making authority. You have been moving fast solo; adding a partner will require coordination overhead. Do you take them on?",
+    targetKeywords: [
+      "should I take on a co-founder",
+      "solo founder vs co-founder decision",
+      "do I need a co-founder",
+      "finding a co-founder startup",
+      "co-founder equity split decision",
+    ],
+  },
+  {
+    slug: "should-i-productize-my-consulting",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Productize My Consulting?",
+    description:
+      "Productizing a consulting practice means trading the unlimited upside of custom client work for the repeatability of a defined scope and price. The productized service has smaller deal sizes but eliminates proposal cycles, scope creep, and the feast/famine revenue pattern. The transition requires identifying which part of your work is genuinely repeatable — and being honest about whether you are productizing because you want leverage, or because you are avoiding the harder challenge of finding better clients.",
+    primaryQuery: "should I productize my consulting",
+    secondaryQueries: [
+      "consulting to product startup",
+      "productized service vs consulting",
+      "how to productize consulting",
+      "turning consulting into a product",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "archimedes",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "You have been doing custom consulting at $8K per engagement. You have noticed that 70% of every project involves the same 5-step process. You could productize it at $2K with a defined scope and 5-day turnaround, or continue custom work at $8K with 4-week timelines. Productizing would let you run 3-4 per month instead of 1-2. But you would lose the high-complexity work that keeps your skills sharp.",
+    targetKeywords: [
+      "should I productize my consulting",
+      "productized consulting service",
+      "consulting to product transition",
+      "productized service strategy",
+      "consulting to SaaS",
+    ],
+  },
+  {
+    slug: "should-i-hire-contractors-or-employees",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire Contractors or Full-Time Employees?",
+    description:
+      "The contractor vs. employee decision determines your organizational flexibility, your IP ownership, your management overhead, and your culture-building trajectory. Contractors give you speed and optionality; employees give you depth, loyalty, and institutional knowledge. The right answer depends on whether the work is repeatable and ownable enough to justify the full-time cost structure — and whether you can afford to train someone who will still be there in 18 months.",
+    primaryQuery: "should I hire contractors or full-time employees",
+    secondaryQueries: [
+      "contractors vs employees startup",
+      "when to hire full-time vs contractor",
+      "freelancers vs employees for startups",
+      "should I use contractors for my startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "You need to ship a new feature in 6 weeks. You can hire a contractor for $12K who is available now, or start the process of hiring a full-time engineer at $150K/year who will take 8 weeks to onboard. The contractor has done this work before. The full-time hire will still be with you in two years. What do you do?",
+    targetKeywords: [
+      "should I hire contractors or employees",
+      "contractors vs employees startup",
+      "when to hire full time developer",
+      "freelancer vs employee decision",
+      "startup hiring strategy contractors",
+    ],
+  },
+  {
+    slug: "should-i-add-a-paid-tier",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Add a Paid Tier to My Free Product?",
+    description:
+      "Adding a paid tier to a free product is a monetization architecture decision. It requires deciding what features belong behind the paywall, how to sequence the free-to-paid conversion moment, and whether your free-tier users are a distribution asset or a cost center. Done well, a freemium model creates a self-funding acquisition machine. Done poorly, it splits your product attention between two audiences whose needs diverge and creates a conversion wall that neither converts nor disappears.",
+    primaryQuery: "should I add a paid tier to my free product",
+    secondaryQueries: [
+      "freemium monetization strategy",
+      "how to add paid features",
+      "when to charge for free product",
+      "freemium vs premium startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "You have 2,000 active free users. Monthly retention is 65%. You are considering adding a $15/mo paid tier with 3 premium features your power users have been requesting. Your concern is that adding a paywall will reduce activation for new users and create negative sentiment among existing free users. Do you add the paid tier now?",
+    targetKeywords: [
+      "should I add a paid tier",
+      "freemium model decision",
+      "when to charge for free product",
+      "add monetization to free app",
+      "freemium vs free product",
+    ],
+  },
+  {
+    slug: "should-i-outsource-development",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Outsource My Product Development?",
+    description:
+      "Outsourcing development trades speed and cost for control, quality predictability, and institutional knowledge. For a non-technical founder building a first version, outsourcing can be the fastest path to a working prototype. For a technical product with complex requirements and ongoing iteration needs, it often creates a dependency that is expensive and painful to unwind. The decision turns on how much of the product is genuinely commodity work versus proprietary logic that must live inside the company.",
+    primaryQuery: "should I outsource product development",
+    secondaryQueries: [
+      "outsourcing development vs in-house",
+      "should I hire a dev agency",
+      "offshore development pros cons startup",
+      "outsource vs build in-house",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "archimedes",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "You are a non-technical founder with $80K in pre-seed funding. You need a working MVP in 4 months. You can hire an offshore agency for $40K that has built similar products, or spend $60K recruiting and onboarding a full-time engineer who won't be productive for 6 weeks. The agency will deliver something working. The engineer will still be there in year 2. What do you do?",
+    targetKeywords: [
+      "should I outsource product development",
+      "outsource development startup",
+      "hire dev agency vs in-house",
+      "offshore development startup",
+      "outsource vs hire engineer",
+    ],
+  },
+  {
+    slug: "should-i-get-a-business-mentor",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Get a Business Mentor?",
+    description:
+      "A great mentor compresses years of hard-won pattern recognition into hours of conversation — but only if the match is right and both parties are genuinely committed. Mismatched mentorship wastes time, creates false confidence, and can anchor you to frameworks that don't fit your context. The decision turns on whether you have specific enough questions to make a senior person's time useful, and whether you can distinguish advice worth taking from advice given reflexively from someone else's experience.",
+    primaryQuery: "should I get a business mentor",
+    secondaryQueries: [
+      "how to find a startup mentor",
+      "business mentor worth it",
+      "should I hire a coach or find a mentor",
+      "mentorship for founders",
+      "startup mentor vs advisor",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "andrew-carnegie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "A founder you admire has offered to mentor you — monthly 1-on-1s for a year. Their company is 10x larger than yours and in an adjacent space. The meetings cost you 2 hours each (prep + call). You're at a stage where you're mostly figuring things out by doing, not by asking. Do you take the mentorship?",
+    targetKeywords: [
+      "should I get a business mentor",
+      "startup mentor worth it",
+      "how to find a founder mentor",
+      "mentorship for early stage founders",
+      "business mentor vs coach",
+    ],
+  },
+  {
+    slug: "should-i-invest-in-paid-advertising",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Invest in Paid Advertising?",
+    description:
+      "Paid advertising buys velocity — results in weeks rather than months. Organic channels compound over time but require patience and produce returns that are hard to predict and impossible to instantly scale. The real decision is not which channel is better in the abstract, but whether your unit economics can support paid acquisition at your current conversion rates, and whether you have the operational maturity to iterate on ad creative and landing pages fast enough to make paid profitable.",
+    primaryQuery: "should I invest in paid advertising",
+    secondaryQueries: [
+      "paid ads vs organic marketing",
+      "when to start running ads startup",
+      "Google ads vs content marketing",
+      "paid acquisition vs SEO",
+      "should I run Facebook ads startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "florence-nightingale",
+    ],
+    hookQuestion:
+      "You have $20K in marketing budget. Your CAC from SEO and word-of-mouth is $40. You could put $15K into Google and Meta ads and potentially scale 5x — or put $15K into content and community, which takes 6 months to compound. Paid ads would show results in 2 weeks. What do you do?",
+    targetKeywords: [
+      "should I invest in paid advertising",
+      "paid ads vs organic startup",
+      "when to start paid ads",
+      "Google ads for startups",
+      "paid vs organic customer acquisition",
+    ],
+  },
+  {
+    slug: "should-i-build-an-advisory-board",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build an Advisory Board?",
+    description:
+      "An advisory board can open doors, add credibility, and provide pattern recognition you have not yet earned. But advisors cost equity, require time to manage, and rarely deliver proportional value after the first few introductions. The decision hinges on whether you are buying genuine access and insight — or buying the appearance of legitimacy at a price that will compound as the company grows.",
+    primaryQuery: "should I build an advisory board",
+    secondaryQueries: [
+      "startup advisory board worth it",
+      "how to build advisory board",
+      "advisors vs board of directors",
+      "startup advisors equity",
+      "should I get startup advisors",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "julius-caesar",
+    ],
+    hookQuestion:
+      "Three well-connected people have offered to be advisors. One is a former VP at Stripe, one is a well-known founder in your space, one is a serial investor. Each wants 0.25% equity with 2-year vesting. Your company is 14 months old and pre-Series A. Do you build this advisory board?",
+    targetKeywords: [
+      "should I build an advisory board",
+      "startup advisors equity worth it",
+      "advisory board for startups",
+      "startup advisors vs mentors",
+      "how much equity for startup advisor",
+    ],
+  },
+  {
+    slug: "should-i-build-for-enterprise-or-smb",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build for Enterprise or SMB?",
+    description:
+      "Enterprise deals carry higher ACV and lower churn, but they come with longer sales cycles, compliance overhead, and a roadmap held hostage to a handful of large customers. SMB lets you ship fast, validate quickly, and build a broad base — but the ceiling is lower and the churn is higher. The decision turns on whether your current product and team can sustain the operational weight of enterprise, and whether your unit economics actually work at the SMB price point at scale.",
+    primaryQuery: "should I build for enterprise or SMB",
+    secondaryQueries: [
+      "enterprise vs SMB startup",
+      "target market enterprise vs small business",
+      "should I go upmarket",
+      "SMB vs enterprise SaaS",
+      "startup market segmentation",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Your product has 200 SMB customers paying $99/month and 3 enterprise prospects in a 6-month sales cycle for $30K ARR deals. If you fully optimize for enterprise, you'll need a dedicated sales team, longer roadmap cycles, and custom compliance work. If you stay SMB, you can ship faster but your ceiling is lower. Do you go up-market?",
+    targetKeywords: [
+      "should I build for enterprise or SMB",
+      "enterprise vs SMB SaaS decision",
+      "go upmarket startup",
+      "SMB vs enterprise target market",
+      "startup enterprise sales decision",
+    ],
+  },
+  {
+    slug: "should-i-take-on-technical-debt",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Take On Technical Debt?",
+    description:
+      "Strategic debt is a deliberate resource trade — you borrow time now and pay it back later with interest. The problem is that most technical debt is not strategic; it is entropy that compounds invisibly until it breaks the system at the worst possible moment. The decision turns on whether you are making a conscious tradeoff with a clear repayment plan, or rationalizing shortcuts that will eventually force a rewrite at the cost of your roadmap.",
+    primaryQuery: "should I take on technical debt",
+    secondaryQueries: [
+      "when to take technical debt",
+      "technical debt vs moving fast",
+      "refactor vs ship new features",
+      "startup technical debt decision",
+      "build fast vs build right",
+    ],
+    recommendedCouncil: [
+      "archimedes",
+      "nikola-tesla",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Your engineering team wants 6 weeks to refactor the auth system before the next major feature. The CEO wants to ship the next feature in 2 weeks using a quick-and-dirty auth approach. The quick approach works for now but creates 3 months of cleanup later. You have a board meeting in 3 months where growth metrics matter more than code quality. What do you decide?",
+    targetKeywords: [
+      "should I take on technical debt",
+      "technical debt startup decision",
+      "when to ship vs refactor",
+      "build fast vs build right",
+      "startup technical debt worth it",
+    ],
+  },
+  {
+    slug: "should-i-accept-this-strategic-partnership",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Accept This Strategic Partnership?",
+    description:
+      "A large-company partnership can give you distribution you cannot afford to build yourself and a credibility signal that shortens every other sales cycle. But it can also create customer concentration risk that puts your entire ARR at the mercy of one relationship, erode your negotiating power as dependency deepens, and obscure whether you actually have product-market fit or just channel fit. The decision turns on whether you can survive year 2 if the deal disappears, and whether the partnership makes you stronger or just larger.",
+    primaryQuery: "should I accept a strategic partnership",
+    secondaryQueries: [
+      "strategic partnership startup decision",
+      "should I partner with a larger company",
+      "partnership vs staying independent",
+      "co-marketing partnership startup",
+      "strategic alliance decision",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "julius-caesar",
+      "cleopatra-vii",
+    ],
+    hookQuestion:
+      "A company 10x your size wants to resell your product to their 50K customer base. The deal gives you 30% revenue share, but they become your largest customer at 40% of your ARR and have co-branding rights. They'll drive distribution you can't afford, but if they pull the deal in year 2, you're in trouble. Do you take it?",
+    targetKeywords: [
+      "should I accept a strategic partnership",
+      "strategic partnership startup pros cons",
+      "should I partner with a larger company",
+      "customer concentration risk startup",
+      "co-marketing partnership decision",
+    ],
+  },
+  {
+    slug: "should-i-focus-on-profitability-or-growth",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Optimize for Profitability or Growth Right Now?",
+    description:
+      "The profitability-vs-growth tension is really a question about which resource constraint you are betting on: capital availability or market timing. If capital markets are tight and your runway is short, profitability is not a strategic choice — it is a survival requirement. If a competitor is gaining ground in your category and the window to establish market position is closing, burning toward growth may be the only rational bet. The decision turns on your honest read of the competitive landscape, your current burn rate relative to traction, and whether the market will still be there if you arrive profitably but late.",
+    primaryQuery: "should I focus on profitability or growth",
+    secondaryQueries: [
+      "profitability vs growth startup",
+      "should I optimize for profit or scale",
+      "when to focus on profitability startup",
+      "growth at all costs vs sustainable business",
+      "burn rate vs profitability decision",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Am I at a stage where I should prioritize being profitable or prioritize growing fast?",
+    targetKeywords: [
+      "should I focus on profitability or growth",
+      "profitability vs growth startup",
+      "when to prioritize profit over growth",
+      "startup profitability decision",
+      "growth vs sustainability startup",
+    ],
+  },
+  {
+    slug: "should-i-build-a-community-around-my-product",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build a Community Around My Product?",
+    description:
+      "Community is one of the most durable moats in software — but it can also be a massive distraction from building the product itself. The question is whether community is your growth mechanism or your avoidance mechanism.",
+    primaryQuery: "should I build a community around my product",
+    secondaryQueries: [
+      "building a community around your product",
+      "product community as growth strategy",
+      "should startups invest in community building",
+      "community-led growth vs product-led growth",
+      "when to build a user community startup",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "Is community the right growth strategy for my product right now?",
+    targetKeywords: [
+      "should I build a community around my product",
+      "product community growth strategy",
+      "community-led growth startup",
+      "building user community startup",
+      "community moat software product",
+    ],
+  },
+  {
+    slug: "should-i-do-content-marketing-or-paid-ads",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Do Content Marketing or Paid Ads?",
+    description:
+      "Content marketing compounds over time but takes months to pay off. Paid ads give immediate signal but die the moment you stop paying. The choice is really a question about which resource you're more scarce on: time or capital.",
+    primaryQuery: "should I do content marketing or paid ads",
+    secondaryQueries: [
+      "content marketing vs paid advertising startup",
+      "SEO vs paid ads for growth",
+      "should I invest in content or ads",
+      "organic vs paid growth strategy",
+      "content marketing ROI vs paid ads ROI",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "john-d-rockefeller",
+      "florence-nightingale",
+    ],
+    hookQuestion:
+      "Should I invest in content marketing or paid advertising to grow my startup?",
+    targetKeywords: [
+      "should I do content marketing or paid ads",
+      "content marketing vs paid advertising",
+      "organic vs paid growth startup",
+      "SEO vs ads startup decision",
+      "content marketing ROI startup",
+    ],
+  },
+  {
+    slug: "should-i-raise-a-series-b",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Raise a Series B?",
+    description:
+      "Series B is where the narrative shifts from 'proving the model' to 'scaling what works.' The question is whether you actually have something worth scaling at the rate that Series B capital demands.",
+    primaryQuery: "should I raise a Series B",
+    secondaryQueries: [
+      "when to raise Series B funding",
+      "Series B readiness checklist",
+      "should I raise Series B or stay lean",
+      "Series B vs staying bootstrapped after Series A",
+      "how to know if you are ready for Series B",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Am I ready to raise a Series B?",
+    targetKeywords: [
+      "should I raise a Series B",
+      "Series B funding decision",
+      "when to raise Series B",
+      "Series B readiness startup",
+      "scaling after Series A decision",
+    ],
+  },
+  {
+    slug: "should-i-build-a-mobile-app",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build a Mobile App or Stay Web-Only?",
+    description:
+      "The mobile-vs-web decision is almost always a distribution question dressed up as a technology question. Mobile apps unlock push notifications, home screen presence, and app store discovery, but they add a costly development surface (two platforms, app store review cycles, forced upgrades) and increase the barrier to first use. Web-only keeps the surface area small and lets you ship faster, but you lose the retention levers that come with native mobile. The decision turns on where your users spend their time, whether your core use case requires offline access or device hardware, and whether your business model depends on low-friction repeat engagement or one-time conversion.",
+    primaryQuery: "should I build a mobile app or web app",
+    secondaryQueries: [
+      "mobile app vs web app startup",
+      "should I build a native mobile app",
+      "web-only vs mobile first startup",
+      "when to build a mobile app startup",
+      "mobile app vs progressive web app",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Should I invest in a mobile app now, or will a web experience get me further faster?",
+    targetKeywords: [
+      "should I build a mobile app",
+      "mobile app vs web app startup",
+      "native app vs web startup decision",
+      "when to build mobile app startup",
+      "mobile first vs web first startup",
+    ],
+  },
+  {
+    slug: "should-i-file-a-patent",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I File a Patent for My Invention?",
+    description:
+      "Patents are moats for some businesses and distractions for most. In hardware, biotech, and regulated industries, a strong patent portfolio creates durable barriers and signals credibility to investors. In software and fast-moving consumer markets, the pace of iteration often outstrips the 18-month pendency of patent applications, and enforcement requires the kind of legal budget most early-stage companies cannot afford. Filing provisionals can cheaply preserve priority dates while you validate the market. The decision turns on whether your competitive advantage is a specific invention (defensible) or execution and distribution (where patents add little), and whether you are building a business that will eventually be acquired or licensed.",
+    primaryQuery: "should I file a patent for my startup",
+    secondaryQueries: [
+      "patent vs trade secret startup",
+      "should startups apply for patents",
+      "when to file a patent early stage company",
+      "provisional patent application startup",
+      "IP strategy for startups",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "marie-curie",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Is filing a patent worth the time and money at my current stage?",
+    targetKeywords: [
+      "should I file a patent startup",
+      "patent strategy early stage company",
+      "provisional patent startup",
+      "when to patent your invention startup",
+      "startup IP protection strategy",
+    ],
+  },
+  {
+    slug: "should-i-set-up-a-referral-program",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Set Up a Referral Program?",
+    description:
+      "Referral programs are one of the few growth channels that compound: each new user becomes a potential acquisition vector. But a referral program only works if your product already has users who are genuinely enthusiastic, and the incentive structure has to reward behavior you actually want — not just signups that churn. The mechanics matter as much as the concept: one-sided incentives attract opportunists, two-sided incentives build loyalty, and the wrong reward can cheapen the recommendation. The decision turns on whether your existing retention is strong enough to make word-of-mouth credible and whether the unit economics of a referred user justify the referral cost.",
+    primaryQuery: "should I set up a referral program",
+    secondaryQueries: [
+      "how to build a referral program for a startup",
+      "referral program vs paid acquisition",
+      "when to launch a referral program",
+      "referral program incentive structure",
+      "does a referral program increase growth",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is my product ready to grow through referrals, or am I building a program before I've earned the recommendation?",
+    targetKeywords: [
+      "should I set up a referral program",
+      "referral program startup growth",
+      "how to build a referral program",
+      "referral incentive structure startup",
+      "word of mouth growth strategy",
+    ],
+  },
+  {
+    slug: "should-i-change-my-pricing-model",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Change My Pricing Model?",
+    description:
+      "Pricing is not just a revenue lever — it encodes what you believe about who your customer is, what value they receive, and how much of that value you can capture. Changing pricing mid-stream is dangerous because it resets expectations for existing customers and can trigger churn spikes that obscure whether the new model is actually better. The signal that a pricing change is warranted is usually found in conversion data (prospects who want your product but stall on price) or in NRR (customers who grow but whose spend doesn't grow with them). The question is whether you are leaving money on the table with current customers, repelling the right new customers, or both.",
+    primaryQuery: "should I change my pricing model",
+    secondaryQueries: [
+      "when to change your startup pricing",
+      "subscription vs usage-based pricing",
+      "how to reprice a SaaS product",
+      "pricing model change impact on churn",
+      "freemium vs paid tier pricing decision",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is my current pricing model costing me customers, revenue, or both?",
+    targetKeywords: [
+      "should I change my pricing model",
+      "startup pricing model decision",
+      "subscription vs usage-based pricing startup",
+      "when to reprice your product",
+      "SaaS pricing strategy change",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-head-of-marketing",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Head of Marketing?",
+    description:
+      "A head of marketing is not a solution to not having a growth strategy — it is an amplifier of one you already have. Hired too early, they spend their first six months building from scratch without enough product, budget, or customer data to be effective, and they leave before the work compounds. Hired too late, you burn growth capital on paid channels without the brand architecture or content infrastructure to make any of it efficient. The right moment is when you have found at least one repeatable acquisition channel, have enough budget to give a marketing leader real leverage, and need someone who can build a team rather than execute tactics.",
+    primaryQuery: "should I hire a head of marketing",
+    secondaryQueries: [
+      "when to hire a VP of marketing startup",
+      "head of marketing vs growth lead startup",
+      "first marketing hire startup",
+      "CMO vs head of marketing early stage",
+      "when does a startup need a marketing leader",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Am I ready to hire a head of marketing, or am I trying to buy a strategy I haven't built yet?",
+    targetKeywords: [
+      "should I hire a head of marketing",
+      "when to hire VP marketing startup",
+      "first marketing hire startup",
+      "head of marketing startup decision",
+      "marketing leadership early stage company",
+    ],
+  },
+  {
+    slug: "should-i-start-a-newsletter",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Start a Newsletter for My Business?",
+    description:
+      "A newsletter gives you a direct, owned audience that no algorithm can take away — but it also demands consistent content output at the exact moment your product still needs your full attention. The question is whether a newsletter builds distribution leverage or just adds a content obligation that pulls you away from the core product. Most founders who start newsletters too early end up with a list of 200 readers and a product that still doesn't convert. The ones who time it right have something worth writing about and an audience already paying attention.",
+    primaryQuery: "should I start a newsletter for my business",
+    secondaryQueries: [
+      "business newsletter strategy",
+      "newsletter vs social media for founders",
+      "is a newsletter worth it for startups",
+      "email newsletter vs content marketing",
+      "how to build an audience with a newsletter",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "andrew-carnegie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is a newsletter building you an owned audience asset, or is it a distraction from the product that would have made the audience worth having?",
+    targetKeywords: [
+      "should I start a newsletter for my business",
+      "business newsletter strategy startup",
+      "newsletter as distribution channel",
+      "owned audience newsletter vs social media",
+      "email newsletter for founders",
+    ],
+  },
+  {
+    slug: "should-i-move-upmarket",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Move Upmarket to Enterprise Customers?",
+    description:
+      "Enterprise deals bring larger contracts, lower churn, and stronger expansion revenue — but they also bring longer sales cycles, more customization pressure, compliance requirements, and a product roadmap that starts serving a handful of large customers instead of your broader base. Moving upmarket is not just a sales motion change; it restructures your entire company around a different buyer. The decision turns on whether your current SMB or mid-market traction is proof that you can sell, or proof that you have found the right customer.",
+    primaryQuery: "should I move upmarket to enterprise",
+    secondaryQueries: [
+      "when to go upmarket startup",
+      "SMB to enterprise transition SaaS",
+      "enterprise sales cycle startup decision",
+      "upmarket vs staying SMB",
+      "how to sell to enterprise customers",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "Is your SMB traction a sign that you have found the right market, or is it a stepping stone to the enterprise deals that will define the company's ceiling?",
+    targetKeywords: [
+      "should I move upmarket to enterprise",
+      "SMB to enterprise transition startup",
+      "going upmarket SaaS decision",
+      "enterprise sales readiness startup",
+      "upmarket strategy startup",
+    ],
+  },
+  {
+    slug: "should-i-implement-okrs",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Implement OKRs in My Company?",
+    description:
+      "OKRs are an alignment and focus tool — when the company is large enough to have misalignment and small enough that the overhead doesn't dwarf the benefit. Implemented too early, they add bureaucratic weight to a team that should be moving on instinct and iteration. Implemented too late, they arrive after the misalignment has already cost you a quarter or two. The question is not whether OKRs work; they do, for companies in the right conditions. The question is whether your company is in those conditions right now.",
+    primaryQuery: "should I implement OKRs",
+    secondaryQueries: [
+      "OKRs for startups pros cons",
+      "when to implement OKRs in a company",
+      "OKRs vs other goal-setting frameworks",
+      "are OKRs worth it for small teams",
+      "how to introduce OKRs startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "marcus-aurelius",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Are OKRs the alignment tool your company actually needs right now, or are they organizational overhead that will slow a team that is still finding its footing?",
+    targetKeywords: [
+      "should I implement OKRs",
+      "OKRs for startups",
+      "when to use OKRs company",
+      "OKR framework startup decision",
+      "goal setting framework startup",
+    ],
+  },
+  {
+    slug: "should-i-go-direct-to-consumer-or-use-resellers",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Sell Direct-to-Consumer or Through Resellers?",
+    description:
+      "DTC gives you full margin, direct customer relationships, and rich first-party data — but it demands that you build distribution from scratch. Resellers give you immediate reach and market validation, but they eat margin and blur the customer relationship you need to iterate on your product. The decision turns on whether your current bottleneck is manufacturing leverage, distribution access, or customer understanding — and how much of your long-term competitive advantage depends on owning the data from every sale.",
+    primaryQuery: "should I sell direct to consumer or use resellers",
+    secondaryQueries: [
+      "DTC vs reseller channel strategy",
+      "direct to consumer vs wholesale",
+      "when to use resellers vs sell direct",
+      "reseller channel pros cons startup",
+      "DTC distribution strategy founders",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "Are you choosing DTC because it is the right channel for your customer, or because it feels like more control than you have actually earned?",
+    targetKeywords: [
+      "should I sell direct to consumer or use resellers",
+      "DTC vs reseller strategy",
+      "direct to consumer vs wholesale startup",
+      "reseller channel decision",
+      "DTC distribution startup",
+    ],
+  },
+  {
+    slug: "should-i-run-a-beta-program",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Run a Beta Program Before Full Launch?",
+    description:
+      "A beta program can generate genuine feedback, build pre-launch social proof, and create a cohort of invested early users — but it can also create false confidence when beta users are too forgiving, or delay a real launch indefinitely while you optimize for an unrepresentative audience. The question is whether you are validating the core product or just postponing the moment when you have to find out if strangers will pay.",
+    primaryQuery: "should I run a beta program before launch",
+    secondaryQueries: [
+      "beta program vs direct launch",
+      "how to run a startup beta program",
+      "beta testing before launch pros cons",
+      "when to skip a beta and launch directly",
+      "closed beta vs open launch strategy",
+    ],
+    recommendedCouncil: [
+      "marie-curie",
+      "nikola-tesla",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is your beta program generating signal you could not get any other way, or is it a structured delay that protects you from the discomfort of a real launch?",
+    targetKeywords: [
+      "should I run a beta program before launch",
+      "beta program startup strategy",
+      "beta testing vs direct launch",
+      "closed beta launch decision",
+      "beta program pros cons founders",
+    ],
+  },
+  {
+    slug: "should-i-expand-my-product-line",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Expand My Product Line?",
+    description:
+      "New product lines can unlock adjacent revenue streams and reduce single-product concentration risk — but they also fragment team focus, split engineering attention, and add support load before the original product has fully compounded. The decision turns on whether your core product has reached a genuine local maximum in its market, or whether you are pursuing expansion because growth on the existing product has slowed and you haven't diagnosed why.",
+    primaryQuery: "should I expand my product line",
+    secondaryQueries: [
+      "when to add new products to your lineup",
+      "product line expansion startup decision",
+      "focus vs diversification product strategy",
+      "expanding product portfolio pros cons",
+      "should I launch a second product",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is your existing product at a ceiling that only a new product line can break through, or are you expanding because growth has slowed and you haven't fixed the underlying cause?",
+    targetKeywords: [
+      "should I expand my product line",
+      "product line expansion decision",
+      "when to launch a second product",
+      "product portfolio strategy startup",
+      "focus vs diversification product startup",
+    ],
+  },
+  {
+    slug: "should-i-give-equity-to-early-employees",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Give Equity to Early Employees?",
+    description:
+      "Equity aligns incentives and lets you attract talent when cash is limited — but misaligned vesting schedules and over-dilution create serious problems as the company grows. The question is not whether to offer equity at all, but who genuinely deserves ownership versus who simply needs competitive cash compensation. Getting this wrong early locks in a cap table you will be managing for a decade.",
+    primaryQuery: "should I give equity to early employees",
+    secondaryQueries: [
+      "employee equity startup decision",
+      "how much equity to give early employees",
+      "vesting schedule early employees startup",
+      "equity vs salary early stage startup",
+      "employee stock options startup guide",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Are you giving equity because it creates genuine alignment, or because you cannot afford to pay market rates — and do you know the difference?",
+    targetKeywords: [
+      "should I give equity to early employees",
+      "employee equity startup",
+      "how much equity to give employees",
+      "vesting schedule early employees",
+      "startup employee stock options",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-sales-team-or-stay-founder-led-sales",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Sales Team or Stay Founder-Led Sales?",
+    description:
+      "Founder-led sales builds deep customer insight and creates the tight feedback loops that shape the product in the early stages — but it does not scale beyond a certain revenue threshold. Hiring a sales team before you have documented a repeatable process burns cash and produces inconsistent results. The decision turns on whether the sales motion is understood and codified well enough to hand off, and whether the founder's time is now worth more building pipeline or building product.",
+    primaryQuery: "should I hire a sales team or stay founder-led sales",
+    secondaryQueries: [
+      "founder-led sales vs sales team startup",
+      "when to hire first salesperson",
+      "how to know when to stop doing sales yourself",
+      "scaling sales beyond the founder",
+      "when to build a sales team startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "Is your sales process documented and repeatable enough that someone else could run it — or are you still the only one who knows why customers say yes?",
+    targetKeywords: [
+      "should I hire a sales team or stay founder-led sales",
+      "founder-led sales vs hiring sales team",
+      "when to hire first salesperson startup",
+      "scaling sales beyond founder",
+      "repeatable sales process startup",
+    ],
+  },
+  {
+    slug: "should-i-build-or-buy-a-technology",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build or Buy a Technology?",
+    description:
+      "Building gives you control and the potential for competitive differentiation, but it costs time and engineering resources you may not have. Buying gives you speed, but creates vendor dependencies, lock-in risk, and cost structures that can become unmanageable at scale. The decision turns on whether the capability is core to your product and competitive advantage — or peripheral infrastructure that a third-party can reliably provide at a lower total cost than building in-house.",
+    primaryQuery: "should I build or buy a technology",
+    secondaryQueries: [
+      "build vs buy software decision startup",
+      "when to build vs purchase technology",
+      "make vs buy decision framework",
+      "vendor dependency risk startup",
+      "in-house vs third-party technology",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is this capability core to your product's competitive advantage, or is it infrastructure that will only distract your team from the work that actually differentiates you?",
+    targetKeywords: [
+      "should I build or buy a technology",
+      "build vs buy software decision",
+      "make vs buy startup decision",
+      "vendor dependency risk",
+      "build in-house vs third-party technology",
+    ],
+  },
+  {
+    slug: "should-i-apply-to-y-combinator",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Apply to Y Combinator?",
+    description:
+      "Y Combinator offers funding, a powerful alumni network, and a stamp of credibility that opens doors — but it also imposes significant equity dilution, a demo-day-driven timeline, and a San Francisco gravitational pull that may not align with your product's trajectory. The decision is not simply about money: it is about whether the YC network and program structure will accelerate your specific path to product-market fit, or whether the constraints and dilution cost more than the benefits at your current stage.",
+    primaryQuery: "should I apply to Y Combinator",
+    secondaryQueries: [
+      "YC vs other accelerators for early stage startup",
+      "is Y Combinator worth it",
+      "Y Combinator equity dilution pros cons",
+      "when to apply to YC",
+      "startup accelerator decision framework",
+    ],
+    recommendedCouncil: [
+      "sun-tzu",
+      "niccolo-machiavelli",
+      "leonardo-da-vinci",
+    ],
+    hookQuestion:
+      "Will the YC network and program constraints accelerate your specific path to product-market fit — or will the dilution and timeline impose more cost than the credibility provides?",
+    targetKeywords: [
+      "should I apply to Y Combinator",
+      "YC accelerator worth it",
+      "Y Combinator equity dilution decision",
+      "startup accelerator pros cons",
+      "when to apply YC startup",
+    ],
+  },
+  {
+    slug: "should-i-set-up-a-vesting-schedule",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Set Up a Vesting Schedule for Founders and Employees?",
+    description:
+      "A vesting schedule aligns long-term incentives and protects the company if a founder or early employee leaves early — but it also signals distrust in a founding team that may still be in the trust-building phase. The decision is particularly high-stakes for co-founders, where the absence of vesting creates significant risk if the relationship breaks down, and the presence of vesting can itself become a friction point if one co-founder interprets it as a lack of confidence in the partnership.",
+    primaryQuery: "should I set up a vesting schedule",
+    secondaryQueries: [
+      "founder vesting schedule startup",
+      "co-founder equity vesting cliff",
+      "employee equity vesting startup",
+      "when to implement vesting schedule startup",
+      "vesting cliff negotiation co-founder",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Does the long-term alignment benefit of a vesting schedule outweigh the trust signal it sends to a co-founding team that may still be establishing its relationship?",
+    targetKeywords: [
+      "should I set up a vesting schedule",
+      "founder equity vesting cliff",
+      "co-founder vesting startup",
+      "employee equity vesting schedule",
+      "vesting cliff one year startup",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-fractional-cto",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Fractional CTO?",
+    description:
+      "A fractional CTO gives a non-technical founder access to senior technical judgment at a fraction of the cost of a full-time hire — but fractional attention is not the same as full commitment, and the fractional relationship can become a crutch that delays the harder decision of hiring or developing a full-time technical leader. The decision turns on whether your current technical challenges require ongoing strategic ownership or periodic expert review, and whether your stage and funding allow you to attract the full-time technical leader you ultimately need.",
+    primaryQuery: "should I hire a fractional CTO",
+    secondaryQueries: [
+      "fractional CTO vs full-time CTO startup",
+      "non-technical founder technical leadership",
+      "when to hire fractional CTO",
+      "fractional CTO pros cons startup",
+      "technical co-founder alternative",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Does your current technical challenge require ongoing strategic ownership from a committed leader — or periodic expert review that a fractional arrangement can provide without the full-time cost?",
+    targetKeywords: [
+      "should I hire a fractional CTO",
+      "fractional CTO startup decision",
+      "non-technical founder technical leader",
+      "fractional vs full-time CTO",
+      "when to hire fractional technical lead",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

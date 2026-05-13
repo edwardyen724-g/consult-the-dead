@@ -1,0 +1,33 @@
+{
+  "slug": "pricing-decision",
+  "h1": "Should You Raise Your Prices? Machiavelli, Newton, and Rockefeller on Pricing Strategy",
+  "metaDescription": "Three minds on power, evidence, and systems — debating whether your current price is leaving money on the table or one rate card away from churning your best customers.",
+  "topicForCta": "whether to raise prices",
+  "intro": [
+    "Most founders undercharge. This is the most consistent finding across every pricing study done on early-stage SaaS, service, and product companies. The reason isn't that founders don't know their product is valuable — it's that they're making their pricing decision based on fear of rejection rather than a model of what their customers are actually willing to pay.",
+    "The harder truth is that fear of rejection and good pricing discipline can look identical in a spreadsheet. Both produce founders who say \"I need more data before I raise prices.\" Only one of them is actually using the data.",
+    "Machiavelli's lens on pricing is about power and perception. A low price signals one of three things: the product is weak, the founder lacks confidence, or the founder is competing on cost. The first two are reputation problems. The third is a strategy problem. His argument: you cannot recover the trust that cheap pricing costs you with existing customers who already believe you are worth more. The first price increase is always harder than the second.",
+    "Newton approaches pricing the way he approached natural philosophy — with a demand that the model be falsifiable. His question is not \"should we raise prices?\" but \"what evidence would change your mind?\" If you cannot name a specific signal that would tell you the current price is wrong, you don't have a pricing strategy — you have a number you got comfortable with. Newton would make you run the experiment: raise prices for a defined cohort and measure what actually happens to conversion, churn, and revenue. The answer is almost always not what founders predict.",
+    "Rockefeller's perspective is systemic. His Standard Oil pricing decisions weren't about individual willingness to pay — they were about controlling the structure of the market. His question: does your current price support or undermine the business architecture you're trying to build? Underpricing a product that should be a category leader doesn't just leave revenue on the table — it actively prevents you from building the infrastructure that would make you unassailable."
+  ],
+  "minds": [
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "Frames pricing as a power signal — your price is a claim about your product's position, and a low price makes a claim you may not recover from."
+    },
+    {
+      "slug": "isaac-newton",
+      "name": "Isaac Newton",
+      "rationale": "Demands a falsifiable pricing model — he will ask you to name the specific evidence that would prove your current price is wrong before you're allowed to claim certainty."
+    },
+    {
+      "slug": "john-d-rockefeller",
+      "name": "John D. Rockefeller",
+      "rationale": "Evaluates pricing decisions against market architecture — does your price support or undermine the dominant position you're trying to build?"
+    }
+  ],
+  "ctaHeadline": "Run this debate on your actual pricing decision",
+  "ctaButtonLabel": "Debate your pricing strategy in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}

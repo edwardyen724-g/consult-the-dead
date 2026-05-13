@@ -4,6 +4,136 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-13 (docs + queue)
+
+### Changed
+- README route table updated to reflect Wave 20 state: 27 minds (was 25), 69 decision pages (was 24); added `/quiz` and `/insights/[slug]` routes to the table.
+- `topics.yaml` Wave 21 queue seeded: 10 new entries (5 collision pairs + 5 high-intent decision pages) with `status: queued`. Total: 178 entries, 168 shipped, 10 queued.
+
+## [Wave 20] — 2026-05-13
+
+### Added
+- **3 collision insight articles** (Wave 20):
+  - `curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field` — resilience court (Aurelius/Tesla/Curie)
+  - `newton-vs-machiavelli-on-systems-vs-power` — strategy court (Sun Tzu/Machiavelli/da Vinci)
+  - `rockefeller-vs-napoleon-on-monopoly-vs-conquest` — scaling court (Napoleon/Aurelius/Curie)
+- **3 decision pages** (Wave 20, decisions total: 69):
+  - `should-i-apply-to-y-combinator` (strategy court)
+  - `should-i-set-up-a-vesting-schedule` (leadership court)
+  - `should-i-hire-a-fractional-cto` (hiring court)
+- 109 reel-script integration tests passing (3 new for Wave 20 collisions)
+- `topics.yaml`: 169 entries, 168 shipped
+
+## 2026-05-21 (Wave 19)
+
+### Added
+- Wave 19 collision batch shipped: 3 collision insight articles — `carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it` (andrew-carnegie + napoleon-bonaparte; hiring), `tesla-vs-galileo-on-working-against-the-institution` (nikola-tesla + galileo-galilei; resilience), `sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital` (sun-tzu + john-d-rockefeller; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (106 total passing). Total: 47 collision articles shipped.
+- Wave 19 decision pages: `should-i-give-equity-to-early-employees` (Carnegie/Machiavelli/Franklin), `should-i-hire-a-sales-team-or-stay-founder-led-sales` (Carnegie/Machiavelli/Rockefeller), `should-i-build-or-buy-a-technology` (Tesla/Carnegie/Machiavelli); decisions count updated to 66; 163 topics tracked (162 shipped, 0 queued).
+
+## 2026-05-13 (Build fix)
+
+### Fixed
+- `jobs-to-be-done-explained` insight entry had `type: "method"` which is not assignable to `InsightType` (`"single" | "collision"`); changed to `type: "single"` per existing method-article pattern (cf. `cynefin-framework-explained`). Added 2 missing `INSIGHT_ANNOTATION_BLUEPRINTS` entries so the annotation-layer vitest passes. This was blocking the CI/Build job and the Vercel deployment.
+
+## 2026-05-21 (Wave 18)
+
+### Added
+- Wave 18 collision batch shipped: 3 collision insight articles — `seneca-vs-cicero-on-private-virtue-vs-public-duty` (seneca + cicero; leadership), `douglass-vs-carnegie-on-the-self-made-narrative` (frederick-douglass + andrew-carnegie; hiring), `cleopatra-vs-caesar-on-power-through-alliance-or-conquest` (cleopatra-vii + julius-caesar; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (103 total passing). Total: 44 collision articles shipped.
+- Wave 18 decision pages: `should-i-go-direct-to-consumer-or-use-resellers` (Machiavelli/Rockefeller/Carnegie), `should-i-run-a-beta-program` (Curie/Tesla/Machiavelli), `should-i-expand-my-product-line` (Rockefeller/Machiavelli/Aurelius); decisions count updated to 63; 157 topics tracked (156 shipped, 0 queued).
+
+## 2026-05-21 (Wave 17)
+
+### Added
+- Wave 17 collision batch shipped: 3 collision insight articles — `harriet-tubman-vs-lincoln-on-when-to-act-without-consensus` (harriet-tubman + abraham-lincoln; leadership), `franklin-vs-aurelius-on-building-for-the-long-term` (benjamin-franklin + marcus-aurelius; resilience), `galileo-vs-archimedes-on-when-to-challenge-consensus` (galileo-galilei + archimedes; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (100 total passing). Total: 41 collision articles shipped.
+- Wave 17 decision pages: `should-i-start-a-newsletter` (Franklin/Carnegie/Aurelius), `should-i-move-upmarket` (Machiavelli/Rockefeller/Carnegie), `should-i-implement-okrs` (Carnegie/Aurelius/Franklin); decisions count updated to 60; 151 topics tracked (150 shipped, 0 queued).
+
+## 2026-05-21 (Wave 16)
+
+### Added
+- Wave 16 collision batch shipped: 3 collision insight articles — `edison-vs-tesla-on-practical-bets-vs-visionary-bets` (thomas-edison + nikola-tesla; innovation), `alexander-vs-napoleon-on-when-to-overextend` (alexander-the-great + napoleon-bonaparte; strategy), `ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data` (ada-lovelace + florence-nightingale; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (97 total passing). Total: 38 collision articles shipped.
+- Wave 16 decision pages: `should-i-set-up-a-referral-program` (Carnegie/Franklin/Machiavelli), `should-i-change-my-pricing-model` (Rockefeller/Machiavelli/Aurelius), `should-i-hire-a-head-of-marketing` (Carnegie/Machiavelli/Franklin); decisions count updated to 57; 145 topics tracked (144 shipped, 0 queued).
+
+## 2026-05-21 (Wave 15)
+
+### Added
+- Wave 15 collision batch shipped: 3 collision insight articles — `da-vinci-vs-newton-on-breadth-vs-depth` (leonardo-da-vinci + isaac-newton; product), `cicero-vs-lincoln-on-when-to-speak-vs-stay-silent` (cicero + abraham-lincoln; persuasion), `catherine-vs-cleopatra-on-consolidating-power-in-a-new-role` (catherine-the-great + cleopatra-vii; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (94 total passing). Total: 34 collision articles shipped.
+- Wave 15 decision pages: `should-i-build-a-community-around-my-product`, `should-i-do-content-marketing-or-paid-ads`, `should-i-raise-a-series-b`; also `should-i-build-a-mobile-app` (Tesla/Franklin/Machiavelli) and `should-i-file-a-patent` (Tesla/Curie/Franklin) as replacements for Wave 14 near-duplicates; decisions count 54 total; 139 topics tracked (138 shipped, 0 queued).
+
+### Fixed
+- Removed Wave 14 near-duplicate decision slugs `should-i-go-remote-or-hire-in-person` (near-dup of `should-i-go-remote-or-in-person`) and `should-i-rebrand-my-startup` (near-dup of `should-i-rebrand`); replaced with fresh unique decisions `should-i-build-a-mobile-app` and `should-i-file-a-patent`. Entries corrected in `topics.yaml` as well.
+
+## 2026-05-21 (Wave 14)
+
+### Added
+- Wave 14 collision batch shipped: 3 collision insight articles — `archimedes-vs-newton-on-when-to-trust-your-model` (archimedes + isaac-newton; evidence), `lincoln-vs-carnegie-on-winning-over-critics` (abraham-lincoln + andrew-carnegie; hiring), `rockefeller-vs-franklin-on-systems-vs-relationships` (john-d-rockefeller + benjamin-franklin; scaling); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (91 total passing). Total: 31 collision articles shipped.
+- Wave 14 decision pages: `should-i-go-remote-or-hire-in-person` (49th; Lincoln/Carnegie/Machiavelli), `should-i-focus-on-profitability-or-growth` (50th; Rockefeller/Machiavelli/Sun Tzu), `should-i-rebrand-my-startup` (51st; Machiavelli/Carnegie/Franklin); decisions count updated to 51; 133 topics tracked (132 shipped, 0 queued).
+- **Full SEO structured-data coverage**: WebSite+Organization on homepage, ItemList on /decisions+/insights, Article+FAQPage+BreadcrumbList on all /decisions/[slug]+/insights/[slug]+/listicles/[slug], Person+BreadcrumbList on all /frameworks/[slug], SoftwareApplication on /agora. All 2160 vitest tests passing.
+
+## 2026-05-21 (Wave 13)
+
+### Added
+- Wave 13 collision batch shipped: 3 collision insight articles — `napoleon-vs-caesar-on-knowing-when-to-stop` (napoleon-bonaparte + julius-caesar; strategy), `jobs-vs-galileo-on-betting-against-consensus` (steve-jobs + galileo-galilei; innovation), `epictetus-vs-seneca-on-how-to-handle-adversity` (epictetus + seneca; resilience); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (88 total passing). Total: 28 collision articles shipped.
+- Wave 13 decision pages: `should-i-build-for-enterprise-or-smb` (46th; Machiavelli/Rockefeller/Sun Tzu), `should-i-take-on-technical-debt` (47th; Archimedes/Tesla/Machiavelli), `should-i-accept-this-strategic-partnership` (48th; Machiavelli/Caesar/Cleopatra VII); decisions count updated to 48; 127 topics tracked (126 shipped, 0 queued).
+- Wave 13 listicle expansion 8→10: `/listicles/hiring-first-employee` (Machiavelli/Aurelius/Carnegie) and `/listicles/raising-startup-funding` (Machiavelli/Curie/Sun Tzu); sitemap + vitest count assertions updated.
+- **BreadcrumbList JSON-LD** added to all `/decisions/[slug]` and `/insights/[slug]` pages (Home > Decisions/Insights > title); 113+ pages now emit navigation breadcrumbs in SERP.
+- **Homepage WebSite + Organization schema**: planned for next batch (no code changes yet).
+
+## 2026-05-21 (Wave 12)
+
+### Added
+- Wave 12 collision batch shipped: 3 collision insight articles — `tubman-vs-douglass-on-direct-action-vs-advocacy` (harriet-tubman + frederick-douglass; persuasion), `ada-lovelace-vs-tesla-on-vision-without-resources` (ada-lovelace + nikola-tesla; innovation), `nightingale-vs-curie-on-data-vs-gut-instinct` (florence-nightingale + marie-curie; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (85 total passing). Total: 25 collision articles shipped.
+- Wave 12 decision pages: `should-i-get-a-business-mentor` (43rd; Franklin/Carnegie/Aurelius), `should-i-invest-in-paid-advertising` (44th; Machiavelli/Rockefeller/Nightingale), `should-i-build-an-advisory-board` (45th; Machiavelli/Franklin/Caesar); decisions count updated to 45; 121 topics tracked (120 shipped, 0 queued).
+
+### Fixed
+- Checkout success page and drip email template: replaced non-existent `Nassim Taleb` reference with accurate live minds (`Marie Curie, Marcus Aurelius, Galileo Galilei`). Eliminates a promise gap that would cause newly-subscribed Pro users to look for a mind that doesn't exist.
+
+## 2026-05-21 (SEO: FAQPage schema + build fix)
+
+### Added
+- **FAQPage JSON-LD on all 42 decision pages**: every `/decisions/[slug]` page now emits a FAQPage schema alongside the Article schema. `primaryQuery` → `Question.name`, `description` → `Answer.text`; `hookQuestion` added as a second FAQ entry when it differs from primaryQuery. All 42 decision pages eligible for Google rich results (FAQ expandable in SERP).
+- **FAQPage JSON-LD on all 82+ insight pages**: every `/insights/[slug]` page with a `hookQuestion` emits a FAQPage schema. `hookQuestion` → `Question.name`, `description` → `Answer.text`. 2150 vitest passing (+4 new FAQPage assertions).
+
+### Fixed
+- `preview-image.tsx`: added `"galileo-galilei": "#5b9bd5"` to `ACCENT_COLORS` record — Wave 8 added the 27th live mind but missed this `Record<FrameworkSlug, string>` entry, causing `CI / Build` to fail with a TypeScript type error.
+
+## 2026-05-21 (Wave 11)
+
+### Added
+- Wave 11 collision batch shipped: 3 collision insight articles — `caesar-vs-alexander-on-how-fast-to-expand` (julius-caesar + alexander-the-great; strategy), `jobs-vs-edison-on-perfectionism-vs-shipping` (steve-jobs + thomas-edison; iteration), `cicero-vs-machiavelli-on-winning-by-argument-or-power` (cicero + niccolo-machiavelli; persuasion); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (82 total passing).
+- Wave 11 decision pages: `should-i-hire-contractors-or-employees` (40th, Carnegie/Machiavelli/Franklin), `should-i-add-a-paid-tier` (41st, Machiavelli/Rockefeller/Curie), `should-i-outsource-development` (42nd, Machiavelli/Archimedes/Carnegie); decisions count updated to 42; 2146 vitest tests passing.
+- Topics backlog updated to 115 total tracked (114 shipped, 0 queued); 18 collision articles shipped total.
+
+## 2026-05-21 (Wave 10)
+
+### Added
+- Wave 10 collision batch shipped: 4 collision insight articles — `machiavelli-vs-sun-tzu-on-competitive-intelligence` (machiavelli + sun-tzu; strategy), `marcus-aurelius-vs-seneca-on-processing-failure` (aurelius + seneca; resilience), `franklin-vs-carnegie-on-building-your-network` (franklin + carnegie; hiring), `cleopatra-vs-catherine-the-great-on-ruling-through-alliance` (cleopatra + catherine; strategy); 8 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 4 reel integration tests added (79 total passing).
+- Wave 10 decision pages: `should-i-take-on-a-co-founder` (38th, Lincoln/Carnegie/Machiavelli), `should-i-productize-my-consulting` (39th, Rockefeller/Archimedes/Machiavelli); decisions count updated to 39; 2146 vitest tests passing.
+- **Listicle expansion:** 3 new SEO→Agora conversion funnels added — `/listicles/founder-burnout` (Aurelius/Seneca/Carnegie), `/listicles/co-founder-conflict` (Sun Tzu/Lincoln/Machiavelli), `/listicles/pricing-decision` (Machiavelli/Newton/Rockefeller); total listicle pages 5→8. Each page pre-fills Agora with council + topic for zero-friction agon start.
+- **Bug fix:** Deduplicated Wave 8/9 decision slugs (`should-i-raise-a-series-a` → `should-i-take-series-a-investment`; `should-i-expand-internationally` Wave 9 copy → `should-i-enter-international-markets`); added `content-integrity.test.ts` to catch future slug duplicates across both INSIGHT_ENTRIES and DECISION_ENTRIES.
+
+## 2026-05-14 (Wave 9)
+
+### Added
+- Wave 9 collision batch shipped: 5 collision insight articles — `galileo-vs-newton-on-disrupting-your-own-field` (galileo + newton; innovation), `archimedes-vs-ada-lovelace-on-build-vs-theorize` (archimedes + ada-lovelace; product), `douglass-vs-lincoln-on-playing-the-long-game` (douglass + lincoln; strategy), `epictetus-vs-harriet-tubman-on-risk-under-constraint` (epictetus + tubman; control), `carnegie-vs-rockefeller-on-monopoly-strategy` (carnegie + rockefeller; scaling); 10 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 5 reel integration tests added (75 total passing); 2139 vitest tests passing.
+- Wave 9 decision pages: `should-i-fire-a-cofounder` (35th, Machiavelli/Lincoln/Sun Tzu), `should-i-charge-more-for-my-product` (36th, Machiavelli/Curie/Rockefeller), `should-i-expand-internationally` (37th, Napoleon/Sun Tzu/Machiavelli); decisions count updated to 37; 103 topics tracked, 102 shipped.
+
+## 2026-05-14 (Wave 8)
+
+### Added
+- **Galileo Galilei** added as 27th live mind: framework already fully extracted (18 incidents, 5 bipolar constructs, The Observer archetype); wired into ALLOWED_SLUGS, SLUG_COLOR_VAR, ERA_FALLBACK, DISPLAY_ORDER in `frameworks.ts`; `--color-galileo` (#5b9bd5 dark / #1f5c8a light) added to all three palette blocks in `globals.css`; `website/data/frameworks/galileo-galilei/` bundled; EXPECTED_ROSTER_SIZE bumped 26→27 in `frameworks.test.ts`.
+- Wave 8 insight batch shipped: 5 new single articles — `what-would-galileo-say-about-challenging-conventional-wisdom` (galileo-galilei; evidence), `what-would-archimedes-say-about-technical-leverage` (archimedes; systems), `what-would-epictetus-say-about-managing-uncertainty` (epictetus; resilience), `what-would-frederick-douglass-say-about-building-credibility` (frederick-douglass; persuasion), `what-would-ada-lovelace-say-about-building-for-the-future` (ada-lovelace; product); 1 collision — `what-galileo-and-newton-would-say-about-evidence-vs-consensus` (galileo + newton; evidence); 6 reel integration tests added (70 total passing); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 2139 vitest tests passing.
+- Wave 8 decision pages: `should-i-pivot-my-startup` (33rd, Machiavelli/Edison/Epictetus), `should-i-raise-a-series-a` (34th, Machiavelli/Rockefeller/Carnegie); decisions count updated to 34; 95 topics tracked, 94 shipped.
+
+## 2026-05-14 (Wave 7)
+
+### Added
+- Wave 7 insight batch shipped: 6 new "What Would X Say" articles — `what-would-da-vinci-say-about-shipping-imperfect-work` (leonardo-da-vinci; iteration), `what-would-sun-tzu-say-about-pricing-strategy` (sun-tzu; pricing), `what-would-rockefeller-say-about-unit-economics` (john-d-rockefeller; finance — NEW DECISION_COURT entry), `what-would-newton-say-about-debugging-complex-systems` (isaac-newton; product), `what-would-cleopatra-vii-say-about-managing-investors` (cleopatra-vii; relationship — NEW DECISION_COURT entry), `what-would-harriet-tubman-say-about-resilience-in-hard-times` (harriet-tubman; resilience); 1 method article — `jobs-to-be-done-explained` (Clayton Christensen JTBD framework; reasoning council); 2 new DECISION_COURT entries (finance: Rockefeller/Curie/Sun Tzu; relationship: Cleopatra/Machiavelli/Sun Tzu); 7 reel integration tests added (64 total passing); 87 topics tracked, 86 shipped; 2139 vitest tests passing.
+- Wave 7 decision pages shipped: `should-i-use-ai-in-my-business` (30th, Tesla/Curie/Aurelius), `should-i-raise-pre-seed` (31st, Machiavelli/Sun Tzu/Curie), `should-i-launch-in-stealth-mode` (32nd, Sun Tzu/Machiavelli/Newton); decisions page copy updated to 32; full suite 2139 vitest tests passing.
+
+### Fixed
+- Stale `should-we-open-source-our-core-product` entry in topics.yaml marked killed — it was superseded by `should-i-open-source-my-product` (Wave 5); CONTENT_PIPELINE.md counts corrected.
+- 7 failing Python (pytest) tests restored: `test_tier3_prep` updated for new `Tier3Result` return type from `prepare_tier3_materials`; `test_sources` assertion corrected from `httpx.ConnectError` to `FetchError`; `test_steve_jobs_incident_identification` count constant frozen to 29 (matching PR #175 artifact); `test_framework_forge_runbook` pointed at the quickstart doc (canonical CLI reference after phase-1 plan operational handoff). 625 pytest tests passing.
+
 ## 2026-05-14
 
 ### Added

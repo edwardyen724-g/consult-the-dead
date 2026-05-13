@@ -19,6 +19,9 @@ export function getCronSecret() {
 }
 
 export function isAuthorizedCronRequest(request: Request) {
+  // Accept Vercel's native cron header (sent on GET requests from the cron scheduler).
+  if (request.headers.get("x-vercel-cron") === "1") return true;
+
   const secret = getCronSecret();
   if (!secret) return false;
 

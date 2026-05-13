@@ -1,0 +1,33 @@
+{
+  "slug": "raising-startup-funding",
+  "h1": "Should You Raise Startup Funding? Machiavelli, Curie, and Sun Tzu on the Funding Decision",
+  "metaDescription": "Three historical minds who operated under extreme resource constraints disagree on whether outside capital helps or distorts. Run the debate on your situation.",
+  "topicForCta": "whether to raise startup funding",
+  "intro": [
+    "The conventional startup narrative says you raise when you can, deploy capital to grow, and repeat until you are too big to need outside money. The contrarian narrative says outside money changes your incentives, your timelines, and who you are actually working for.",
+    "Both narratives are correct in different circumstances. The question is which applies to your situation right now.",
+    "Machiavelli's frame on funding is political, not financial. Capital is a form of alliance — and alliances always come with obligations that weren't fully legible at signing. His argument is not that you should avoid capital, but that you should be precise about what you are actually trading. Most founders underestimate the extent to which taking VC money is an implicit commitment to a specific kind of outcome (large, fast, exit-oriented) that may or may not match what the business actually wants to become.",
+    "Marie Curie ran some of the most important science of the 20th century on almost no funding for most of her career. Her argument (visible in her letters and lab practices) is that resource constraints force precision. When you have too much money, you fund experiments that you wouldn't run if you had to pay for them yourself. The result is noise, not signal. For Curie, the right amount of capital is the minimum amount required to run the experiment you're confident is worth running.",
+    "Sun Tzu's position is terrain-based. Capital is not inherently good or bad — it is good when it changes your position relative to the competitive landscape, and bad when it creates the illusion of a strong position while weakening the underlying structure. He would ask: does this capital change which terrain you can hold? If the answer is yes and the terrain is worth holding, take it. If the answer is 'it gives us more runway to figure out the terrain,' that is not a capital problem — that is a strategy problem that money will not fix."
+  ],
+  "minds": [
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "Treats capital as a political alliance — precise about the obligations that weren't legible at signing and what you're actually trading away."
+    },
+    {
+      "slug": "marie-curie",
+      "name": "Marie Curie",
+      "rationale": "Ran breakthrough science on minimal resources and argues that constraints force precision — the right amount is the minimum needed to run the experiment you're confident is worth running."
+    },
+    {
+      "slug": "sun-tzu",
+      "name": "Sun Tzu",
+      "rationale": "Evaluates capital by whether it changes the competitive terrain you can hold — money that doesn't change your position is a strategy problem disguised as a funding problem."
+    }
+  ],
+  "ctaHeadline": "Run this debate on your actual funding decision",
+  "ctaButtonLabel": "Debate the funding question in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}
