@@ -499,7 +499,8 @@
     - "Machiavelli on intelligence"
   recommended_council: [niccolo-machiavelli]
   hook_angles: [proof, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: what-would-tesla-say-about-technical-debt
   type: insight

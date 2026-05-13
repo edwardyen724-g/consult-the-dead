@@ -616,6 +616,39 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
   {
+    slug: "what-would-machiavelli-say-about-competitor-espionage",
+    type: "single",
+    frameworkSlug: "niccolo-machiavelli",
+    title: "What Would Machiavelli Say About Researching Competitors?",
+    description:
+      "Machiavelli built his reputation as the first political scientist to describe power as it actually works — not as it should work. His framework for competitive intelligence is brutally practical: study your enemy's patterns of past decisions, not their stated intentions.",
+    targetKeywords: [
+      "how to research competitors",
+      "competitive intelligence startup",
+      "Machiavelli on intelligence",
+      "how to analyze competitors",
+      "competitive strategy framework",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You want to know what your competitors are actually planning. Everyone tells you to look at their job listings, their blog posts, their pricing pages. But Machiavelli spent his career studying how power actually moves — not how rulers said it moved. Here is the version of competitive research that would survive his review.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "Know your enemy and know yourself, and you will win a hundred battles. But to know your enemy you must first stop looking at their public declarations and start reading the terrain they are positioning to control. Job listings reveal the direction. Partnership announcements reveal the alliances. Pricing changes reveal the pressure. Read the structure, not the statement.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Your competitor's stated strategy is the least useful thing to know about them. Study their pattern of past decisions — that is the reliable predictor. A prince who has accommodated once will accommodate again; a prince who has struck decisively once will strike again. Pattern trumps declaration every time.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "To understand a mechanism, you must see it from every angle. Intelligence gathered from a single perspective is not intelligence — it is the projection of your own assumptions onto the unknown. Cross-verify from at least three sources before you treat any competitive claim as fact.",
+      },
+    ],
+  },
+  {
     slug: "what-would-tesla-say-about-technical-debt",
     type: "single",
     frameworkSlug: "nikola-tesla",
@@ -1026,6 +1059,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "what-would-machiavelli-say-about-competitor-espionage": [
+    {
+      label: "Reality vs. declaration",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "how power actually moves",
+      constructIndex: 0,
+    },
+    {
+      label: "Pattern recognition",
+      source: (entry) => entry.description,
+      excerpt: "patterns of past decisions",
+      constructIndex: 4,
+    },
+  ],
   "what-would-tesla-say-about-technical-debt": [
     {
       label: "Perfection vs. viability",

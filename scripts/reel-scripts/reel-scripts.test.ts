@@ -356,6 +356,34 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-machiavelli-say-about-competitor-espionage", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-machiavelli-say-about-competitor-espionage",
+    );
+    expect(script.slug).toBe(
+      "what-would-machiavelli-say-about-competitor-espionage",
+    );
+    expect(script.frameworkSlug).toBe("niccolo-machiavelli");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain(
+      "what your competitors are actually planning",
+    );
+    expect(script.cta).toContain(
+      "/insights/what-would-machiavelli-say-about-competitor-espionage",
+    );
+  });
+});
+
 describe("insight article slug — what-would-tesla-say-about-technical-debt", () => {
   it("generates a valid reel script with the technology court", () => {
     const script = buildVerdictReelScript(
