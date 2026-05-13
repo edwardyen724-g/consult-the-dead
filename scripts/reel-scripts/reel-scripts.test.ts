@@ -1861,6 +1861,72 @@ describe("Wave 14 collision batch", () => {
   });
 });
 
+describe("Wave 15 collision batch", () => {
+  it("generates a reel script for da-vinci-vs-newton-on-breadth-vs-depth", () => {
+    const script = buildVerdictReelScript(
+      "da-vinci-vs-newton-on-breadth-vs-depth",
+    );
+    expect(script.slug).toBe("da-vinci-vs-newton-on-breadth-vs-depth");
+    expect(script.frameworkSlug).toBe("leonardo-da-vinci");
+    expect(script.decisionType).toBe("product");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Product council: da Vinci (main), Curie (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/da-vinci-vs-newton-on-breadth-vs-depth",
+    );
+  });
+
+  it("generates a reel script for cicero-vs-lincoln-on-when-to-speak-vs-stay-silent", () => {
+    const script = buildVerdictReelScript(
+      "cicero-vs-lincoln-on-when-to-speak-vs-stay-silent",
+    );
+    expect(script.slug).toBe(
+      "cicero-vs-lincoln-on-when-to-speak-vs-stay-silent",
+    );
+    expect(script.frameworkSlug).toBe("cicero");
+    expect(script.decisionType).toBe("persuasion");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Persuasion council: Cicero (main), Franklin (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Cicero");
+    expect(script.councilPass[1].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/cicero-vs-lincoln-on-when-to-speak-vs-stay-silent",
+    );
+  });
+
+  it("generates a reel script for catherine-vs-cleopatra-on-consolidating-power-in-a-new-role", () => {
+    const script = buildVerdictReelScript(
+      "catherine-vs-cleopatra-on-consolidating-power-in-a-new-role",
+    );
+    expect(script.slug).toBe(
+      "catherine-vs-cleopatra-on-consolidating-power-in-a-new-role",
+    );
+    expect(script.frameworkSlug).toBe("catherine-the-great");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/catherine-vs-cleopatra-on-consolidating-power-in-a-new-role",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

@@ -1714,19 +1714,6 @@
   status: shipped
   shipped_at: "2026-05-21"
 
-- slug: should-i-go-remote-or-hire-in-person
-  type: decision
-  search_volume_estimate: high
-  primary_query: "should I go remote or require office"
-  secondary_queries:
-    - "remote first vs in-person startup"
-    - "remote vs office for early stage startup"
-    - "should my startup be remote"
-  recommended_council: [abraham-lincoln, andrew-carnegie, niccolo-machiavelli]
-  hook_angles: [shortcut, tension]
-  status: shipped
-  shipped_at: "2026-05-21"
-
 - slug: should-i-focus-on-profitability-or-growth
   type: decision
   search_volume_estimate: high
@@ -1740,15 +1727,108 @@
   status: shipped
   shipped_at: "2026-05-21"
 
-- slug: should-i-rebrand-my-startup
+- slug: should-i-build-a-mobile-app
   type: decision
   search_volume_estimate: high
-  primary_query: "should I rebrand my startup"
+  primary_query: "should I build a mobile app or web app"
   secondary_queries:
-    - "when to rebrand your company"
-    - "startup rebranding worth it"
-    - "how to know if you need a rebrand"
-  recommended_council: [niccolo-machiavelli, andrew-carnegie, benjamin-franklin]
+    - "mobile app vs web app startup"
+    - "when to build a native mobile app"
+    - "web only vs mobile first startup"
+  recommended_council: [nikola-tesla, benjamin-franklin, niccolo-machiavelli]
   hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-file-a-patent
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I file a patent for my startup"
+  secondary_queries:
+    - "patent vs trade secret startup"
+    - "when to file a patent early stage"
+    - "provisional patent application startup"
+  recommended_council: [nikola-tesla, marie-curie, benjamin-franklin]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+# ── Wave 15 ─────────────────────────────────────────────────────────────────
+
+- slug: da-vinci-vs-newton-on-breadth-vs-depth
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I be a generalist or specialist"
+  secondary_queries:
+    - "breadth vs depth career decision"
+    - "generalist vs specialist founder"
+    - "focus on one thing or explore broadly"
+  framework_slugs: [leonardo-da-vinci, isaac-newton]
+  decisionType: product
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cicero-vs-lincoln-on-when-to-speak-vs-stay-silent
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when should I speak publicly vs stay silent"
+  secondary_queries:
+    - "when to speak up vs stay quiet leadership"
+    - "public communication timing strategy"
+    - "silence vs speaking out founder decision"
+  framework_slugs: [cicero, abraham-lincoln]
+  decisionType: persuasion
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: catherine-vs-cleopatra-on-consolidating-power-in-a-new-role
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how to consolidate power in a new leadership role"
+  secondary_queries:
+    - "new role power consolidation strategy"
+    - "how to establish authority as a new leader"
+    - "consolidating influence in a new position"
+  framework_slugs: [catherine-the-great, cleopatra-vii]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-a-community-around-my-product
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build a community around my product"
+  secondary_queries:
+    - "product community as growth strategy"
+    - "should startups invest in community building"
+    - "community led growth vs product led growth"
+  recommended_council: [andrew-carnegie, benjamin-franklin, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-do-content-marketing-or-paid-ads
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I do content marketing or paid ads"
+  secondary_queries:
+    - "content marketing vs paid advertising startup"
+    - "organic growth vs paid growth strategy"
+    - "SEO vs PPC for early stage startup"
+  recommended_council: [benjamin-franklin, niccolo-machiavelli, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-raise-a-series-b
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a Series B"
+  secondary_queries:
+    - "Series B funding decision startup"
+    - "when to raise Series B round"
+    - "scaling after Series A decision"
+  recommended_council: [john-d-rockefeller, napoleon-bonaparte, niccolo-machiavelli]
+  hook_angles: [shortcut, risk]
   status: shipped
   shipped_at: "2026-05-21"

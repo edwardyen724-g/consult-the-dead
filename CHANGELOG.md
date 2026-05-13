@@ -4,6 +4,15 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 15)
+
+### Added
+- Wave 15 collision batch shipped: 3 collision insight articles — `da-vinci-vs-newton-on-breadth-vs-depth` (leonardo-da-vinci + isaac-newton; product), `cicero-vs-lincoln-on-when-to-speak-vs-stay-silent` (cicero + abraham-lincoln; persuasion), `catherine-vs-cleopatra-on-consolidating-power-in-a-new-role` (catherine-the-great + cleopatra-vii; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (94 total passing). Total: 34 collision articles shipped.
+- Wave 15 decision pages: `should-i-build-a-community-around-my-product`, `should-i-do-content-marketing-or-paid-ads`, `should-i-raise-a-series-b`; also `should-i-build-a-mobile-app` (Tesla/Franklin/Machiavelli) and `should-i-file-a-patent` (Tesla/Curie/Franklin) as replacements for Wave 14 near-duplicates; decisions count 54 total; 139 topics tracked (138 shipped, 0 queued).
+
+### Fixed
+- Removed Wave 14 near-duplicate decision slugs `should-i-go-remote-or-hire-in-person` (near-dup of `should-i-go-remote-or-in-person`) and `should-i-rebrand-my-startup` (near-dup of `should-i-rebrand`); replaced with fresh unique decisions `should-i-build-a-mobile-app` and `should-i-file-a-patent`. Entries corrected in `topics.yaml` as well.
+
 ## 2026-05-21 (Wave 14)
 
 ### Added

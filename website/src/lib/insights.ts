@@ -2821,6 +2821,167 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before you decide whether to build org charts or book lunches, map your three most value-generating relationships and ask two questions about each: First, does the value flow from the relationship itself (trust, history, personal knowledge), or from what the relationship provides access to (information, distribution, credibility)? Second, could an institution — a contract, a community, a product feature — provide that access more reliably than the relationship? If yes to the second question, systematize now: build the structure that captures the value before the relationship changes. If no, invest in the relationship: it is the cheapest and most defensible form of access you have. At 30 people, you likely have two or three relationships worth systematizing and two or three worth deepening. The mistake is applying one strategy to all five.",
     },
   },
+  // ── Wave 15 collision articles ─────────────────────────────────────────
+  {
+    slug: "da-vinci-vs-newton-on-breadth-vs-depth",
+    type: "collision",
+    frameworkSlug: "leonardo-da-vinci",
+    collisionFrameworkSlugs: ["leonardo-da-vinci", "isaac-newton"],
+    decisionType: "product",
+    title: "Da Vinci vs. Newton: Should You Explore Broadly or Master Deeply?",
+    description:
+      "Da Vinci pursued breadth relentlessly — art, anatomy, engineering, music — and made his greatest contributions at the intersections. Newton worked on a single unified system of natural philosophy for decades before publishing. They represent opposite philosophies of how intellectual capital compounds.",
+    targetKeywords: [
+      "should I specialize or be a generalist",
+      "breadth vs depth career decision",
+      "generalist vs specialist startup",
+      "da vinci newton intellectual strategy",
+      "how to build expertise breadth or depth",
+    ],
+    hookQuestion:
+      "Should I specialize deeply in one area or keep exploring many?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The boundary between disciplines is where the interesting questions live. I did not study anatomy to become a physician — I studied it because the painter who does not understand the structure beneath the skin will never render the surface correctly. Every field I entered gave me instruments the specialists could not bring to bear. The problem that defeats the expert is often solved by the person who arrives from an adjacent domain with a different set of tools. Breadth is not distraction — it is the accumulation of instruments the deep specialist cannot access.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "I spent twenty years on the Principia before I was willing to publish it. Not because I lacked other interests — I had many — but because I understood that a system of natural philosophy that was not internally coherent was worse than useless. It would mislead rather than illuminate. Breadth produces analogies. Depth produces proofs. The founder who knows a little about many things produces clever observations. The one who knows everything about a bounded problem produces the insight that cannot be argued away.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Newton is describing a bounded problem — celestial mechanics has clean laws because the domain is clean. But most problems founders face are not bounded. They are open-ended: what do customers actually want? How should the organization evolve? What does the market look like in five years? For open-ended problems, the specialist's tools are derived from the past of their domain, and the past of the domain does not contain the answer. The cross-domain thinker can assemble a new set of tools from the periphery of several fields. That is not shallowness — it is exactly the right epistemology for the class of problem you are actually facing.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "Da Vinci describes the failure mode of depth correctly — the specialist who cannot see outside their own assumptions — but does not adequately describe the failure mode of breadth. The person who studies many things without going deep into any of them accumulates the surface vocabulary of each domain without the structural understanding that makes any of them useful. I could have spent my twenties reading across philosophy, theology, law, and medicine. I chose instead to understand motion at the level where a mathematical proof was possible. That choice let me write the Principia. The analogies I might have accumulated from breadth would not have produced it.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Then the question is not breadth versus depth — it is what kind of problem you are solving. Newton and I agree on more than it appears. I went deep into anatomy, into hydraulics, into optics — deep enough to draw conclusions that specialists in each domain had missed. The difference is that I did not go deep into only one. I maintained the cross-domain aperture throughout. For a bounded problem with a known solution space — celestial mechanics, structural engineering, cryptography — Newton's method produces results that breadth cannot. For an open-ended problem with an undefined solution space — which is most of what founders actually face — the cross-domain accumulation is the more powerful instrument.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "I will accept that formulation and make it precise: the choice between breadth and depth is downstream of the choice between two kinds of problem. If the problem is bounded — there is a correct answer, the solution space is known, and the question is whether you can find it — then depth produces the result and breadth produces only noise. If the problem is open-ended — the solution space is undefined, the constraints are unclear, and the question is what to build rather than how to build it — then da Vinci's cross-domain aperture is the correct instrument. Founders who cannot diagnose which kind of problem they are facing will make the wrong choice between the two strategies. That diagnosis is the actual decision.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "leonardo-da-vinci",
+      summary:
+        "Da Vinci and Newton converge on a diagnostic: the answer depends on whether the problem is bounded or open-ended. Bounded problems — those with a known solution space and a correct answer — reward Newton's depth. Open-ended problems — those where the solution space is undefined and the question is what to build — reward da Vinci's breadth and cross-domain accumulation.",
+      actionableInsight:
+        "Before choosing between specialization and exploration, diagnose the problem type. Ask: does this problem have a correct answer that I can derive if I understand the domain deeply enough? If yes, go deep — accumulate the structural understanding that produces proofs, not just analogies. If no — if the question is open-ended and the solution space is undefined — maintain the cross-domain aperture. Study adjacent fields not as a dilettante but as a person building instruments: go deep enough in each to extract the tool, then carry the tool into the problem you are actually trying to solve.",
+    },
+  },
+  {
+    slug: "cicero-vs-lincoln-on-when-to-speak-vs-stay-silent",
+    type: "collision",
+    frameworkSlug: "cicero",
+    collisionFrameworkSlugs: ["cicero", "abraham-lincoln"],
+    decisionType: "persuasion",
+    title: "Cicero vs. Lincoln: When Should You Speak Publicly vs. Stay Silent?",
+    description:
+      "Cicero believed silence was a form of complicity — if you had the argument, you had the obligation to make it. Lincoln chose silence strategically, holding his position until the moment had maximum leverage. They disagree on whether timing or argument quality is the primary variable in persuasion.",
+    targetKeywords: [
+      "when to speak publicly vs stay quiet",
+      "should I make my case now or wait",
+      "public commitment timing strategy",
+      "cicero lincoln persuasion",
+      "when to go public with an opinion",
+    ],
+    hookQuestion:
+      "When is it worth making your case publicly vs. staying quiet and acting?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Cicero",
+        text: "The orator who withholds his argument while injustice proceeds is not exercising wisdom — he is practicing complicity at a safe distance. I argued the Catiline conspiracy before the Senate because silence in the face of an organized threat to the republic was not strategic patience — it was abdication. The argument I had was not a private possession to be deployed at my convenience. It was a public obligation. If you have seen clearly what is wrong and you have the argument that demonstrates it, your silence is not strategic. It is a failure of civic duty dressed as tactical prudence.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "I held my position on slavery for years without making it a public commitment, not because I lacked conviction but because I understood that a position stated before the political architecture could support it would be destroyed rather than advanced. The 1858 debates with Douglas made my argument public — but by that time I had spent a decade building the coalition that could act on it. The argument that is made too early is not just ineffective. It is often permanently disqualifying: the audience that rejects it will not easily receive it a second time. Timing is not a coward's virtue. It is the strategist's discipline.",
+      },
+      {
+        speaker: "Cicero",
+        text: "Lincoln describes the failure mode of premature commitment correctly — and then uses it to argue for a general principle of strategic silence that his own career disproves. He spoke in the debates. He wrote the House Divided speech. He committed publicly before the coalition was fully assembled. The reason those commitments worked is not that the moment was perfect — it is that the argument was compelling enough to build the coalition through the act of making it. An argument that requires perfect conditions before it is made is an argument that is waiting for conditions that never arrive. The moment you have a compelling case, making it publicly is often the fastest path to assembling the coalition, not the slowest.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Cicero is describing a real phenomenon — that public commitment can mobilize a coalition through the act of commitment itself — and conflating it with the general principle that argument quality is the primary variable. But the Catiline orations worked because Cicero had the Senate chamber, the consulship, and the specific moment when the evidence was irrefutable and the audience was assembled. Remove any one of those conditions and the Catiline orations are not remembered as triumph — they are remembered as the speech that gave Catiline time to react. My framework is not silence for its own sake. It is the question of whether the conditions for the argument's reception are present. A perfect argument in the wrong venue, at the wrong moment, with the wrong institutional backing, does not advance the position. It broadcasts its isolation.",
+      },
+      {
+        speaker: "Cicero",
+        text: "Then the practical disagreement is this: Lincoln believes the conditions for reception must be assembled before the argument is made. I believe the argument, correctly made, is often what assembles the conditions. Both are true in different cases. The test is not whether the conditions are perfect — they never are — but whether making the argument publicly will attract more support than it loses. If the people who need to act are waiting for public permission to act, the argument gives them that permission. If the people who need to act are already moving and the public argument would expose them prematurely, silence is the correct strategy. The question is whether your audience is waiting for permission or already in motion.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "I accept that framing and will make it operational. Before you decide whether to speak publicly, answer two questions. First: is your audience's primary constraint the argument itself — do they lack the case, the clarity, the public formulation — or is it the institutional conditions — the votes, the backing, the moment when action is possible without fatal backlash? If the constraint is the argument, Cicero is right: make it, because the making of it is what resolves the constraint. If the constraint is institutional — if the people who agree with you already agree but cannot act until the conditions shift — then public argument before those conditions shift does not accelerate them. It exposes your position before your coalition is robust enough to protect it. The bottleneck diagnosis is the decision.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "cicero",
+      summary:
+        "Cicero and Lincoln converge on a diagnostic: the answer depends on whether the bottleneck is the argument itself or the institutional conditions for acting on it. If your audience lacks the argument — the case, the clarity, the public formulation that gives them permission to act — Cicero is right: speak now, because the public argument is what assembles the coalition. If your audience already has the argument but lacks the institutional conditions — the votes, the backing, the moment when action is possible — Lincoln is right: speaking before those conditions exist exposes your position before your coalition can protect it.",
+      actionableInsight:
+        "Before deciding whether to make your case publicly, run the bottleneck diagnosis: Is the primary obstacle that people don't yet have the argument, or that people who already agree cannot act yet? If the argument is the bottleneck — people are waiting for public clarity before they commit — speak now. The public statement is itself the coalition-building move. If the institutional conditions are the bottleneck — the people who agree cannot act until the conditions shift — hold the position and invest in building the conditions rather than broadcasting the argument into a vacuum. The premature public commitment that fails does not try again easily. Make sure the bottleneck is the argument before you make it public.",
+    },
+  },
+  {
+    slug: "catherine-vs-cleopatra-on-consolidating-power-in-a-new-role",
+    type: "collision",
+    frameworkSlug: "catherine-the-great",
+    collisionFrameworkSlugs: ["catherine-the-great", "cleopatra-vii"],
+    decisionType: "strategy",
+    title:
+      "Catherine vs. Cleopatra: How Do You Consolidate Power When You're New to the Role?",
+    description:
+      "Catherine seized the Russian throne through a coup, then spent years building legitimacy through governance. Cleopatra inherited a position of formal power but used alliance and spectacle to make it real. They represent different theories of what creates durable authority in the first year.",
+    targetKeywords: [
+      "how to establish authority in a new leadership role",
+      "consolidating power new job",
+      "new leader authority building",
+      "how to gain respect as a new leader",
+      "first 90 days leadership strategy",
+    ],
+    hookQuestion:
+      "How should I establish authority when I'm new to a leadership role?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Catherine the Great",
+        text: "I did not inherit the throne — I seized it, and in seizing it I inherited its full set of adversaries. The nobles who backed the coup did so because they expected to govern through me. The military that supported me did so because I promised stability. Every one of those parties needed to see, quickly, that my governance was more valuable to them than any alternative. My method was immediate, visible competence: I reformed the legal code, reorganized the provincial administration, and made myself indispensable to the institutions that had previously operated without me. Performed authority — spectacle, alliance, the display of power — lasts only as long as the performance. Earned authority compounds. In the first year, you cannot afford to lead with spectacle. You must lead with governance.",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "Catherine describes the conditions of a coup — she had to prove she was worth the risk her supporters had taken. My situation was structurally different: I had formal authority but not real authority. Egypt was surrounded by Rome; my own court was fractured; my brothers had already tried to depose me once. In those conditions, governance alone does not build the authority you need, because governance requires that people already believe in your legitimacy enough to follow your directives. I needed Caesar before I could implement policy, because without Caesar the policy directives would not be executed. Alliance and spectacle are not substitutes for governance — they are the preconditions that make governance possible when your formal authority is contested.",
+      },
+      {
+        speaker: "Catherine the Great",
+        text: "Cleopatra is describing a specific kind of constraint — formal authority without real enforcement capacity — and using it to argue for a general principle about the primacy of alliance. But the alliance she formed with Caesar created a dependency that outlasted its usefulness. When Caesar died, she repeated the strategy with Antony. When Antony lost to Octavian, there was no third move available. My governance-first approach created something the alliance approach cannot: an internal power base that did not depend on any single external patron. The question for anyone entering a new leadership role is: are you building authority that can survive the departure of your most powerful supporter?",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "Catherine is correct that my alliances created a dependency — and I would not argue otherwise. But she is measuring my reign by its ending rather than by its duration. I kept Egypt sovereign for twenty years against the most powerful empire in the world. Catherine's governance-first approach works when the primary threat is internal: factions within the court, nobles who backed a coup, military units that need to be integrated. My approach was correct for the primary threat I faced, which was external: Rome. The consolidation strategy must match the threat topology. If the primary threat to your new authority comes from inside the organization — skeptics, legacy power-holders, people who expected to govern through you — Catherine's earned authority model is correct. If the primary threat is external — a dominant competitor, a hostile board, a legacy partner relationship that can make you irrelevant — the alliance-first model that I used is more appropriate.",
+      },
+      {
+        speaker: "Catherine the Great",
+        text: "I accept that the threat topology shapes the correct strategy, and I want to push on one more variable: the time horizon. Cleopatra's approach is faster in the short term — alliance and spectacle establish the appearance of authority quickly, which is valuable when you have immediate threats. My approach is slower in the short term but more durable in the long term. If you have 90 days before someone tries to replace you, the visible alliance is probably the right first move. If you have 18 months before your authority is tested at full scale, the governance approach is more valuable because it builds the internal legitimacy that external alliance cannot create. The founder who joins a new organization as CEO and immediately focuses on external partnerships before understanding the internal dynamics is making Cleopatra's bet in Catherine's environment.",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "We have arrived at the two-phase model that I think we both actually practiced, even if the sequence differs. In the first phase — before you have established enough internal legitimacy to govern effectively — you need the external alliance or the visible win that gives internal stakeholders a reason to follow you. Catherine had the coup itself as the visible win: the fact that it succeeded told every noble that the new power was real. I used Caesar's arrival in Alexandria. The visible external anchor is what makes the internal governance possible. In the second phase — once the initial legitimacy is established — the governance work must begin, because the external anchor will not hold indefinitely and the internal capacity must be built before it is needed. The mistake is staying in phase one too long: using alliance and spectacle to defer the harder work of building genuine internal authority. Catherine is right that governance is what creates durable power. I am right that something must precede the governance — a demonstration visible enough that people believe the governance will stick.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "catherine-the-great",
+      summary:
+        "Catherine and Cleopatra converge on a two-phase consolidation model. Phase one requires a visible anchor — a coup, a powerful alliance, a conspicuous early win — that gives internal stakeholders a reason to follow directives before earned legitimacy exists. Phase two is governance: building the internal competence and systems that make the authority durable and independent of any single external patron. The failure mode of Catherine's approach is skipping phase one and governing without the initial demonstration of real power. The failure mode of Cleopatra's approach is staying in phase one too long and allowing external dependency to substitute for internal legitimacy.",
+      actionableInsight:
+        "In the first 90 days of a new leadership role, run a threat topology analysis: Is the primary resistance internal (legacy power-holders, skeptical reports, people who expected to govern through you) or external (a dominant competitor, a hostile board member, a legacy relationship that can make you irrelevant)? If internal, prioritize Catherine's earned authority model: early visible competence in governance, quick wins on the problems the existing team has been unable to solve, and the systematic building of an internal power base that does not depend on any single patron. If external, prioritize Cleopatra's alliance model: identify the external anchor that legitimizes your internal authority, and use that anchor to create the conditions under which governance is possible. Then, regardless of which phase-one strategy you use, begin phase two — the governance work — before the phase-one anchor deteriorates.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -4023,6 +4184,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Relational leverage",
       source: (entry) => entry.description,
       excerpt: "very different organizations",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 15 annotation blueprints ──────────────────────────────────────
+  "da-vinci-vs-newton-on-breadth-vs-depth": [
+    {
+      label: "Breadth at the intersections",
+      source: (entry) => entry.description,
+      excerpt: "greatest contributions at the intersections",
+      constructIndex: 0,
+    },
+    {
+      label: "Bounded vs. open-ended problems",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "explore broadly or master deeply",
+      constructIndex: 1,
+    },
+  ],
+  "cicero-vs-lincoln-on-when-to-speak-vs-stay-silent": [
+    {
+      label: "Silence as complicity",
+      source: (entry) => entry.description,
+      excerpt: "silence was a form of complicity",
+      constructIndex: 0,
+    },
+    {
+      label: "Timing vs. argument quality",
+      source: (entry) => entry.description,
+      excerpt: "timing or argument quality is the primary variable",
+      constructIndex: 1,
+    },
+  ],
+  "catherine-vs-cleopatra-on-consolidating-power-in-a-new-role": [
+    {
+      label: "Earned vs. performed authority",
+      source: (entry) => entry.description,
+      excerpt: "earned authority vs. performed authority",
+      constructIndex: 0,
+    },
+    {
+      label: "First-year consolidation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "establish authority when you're new",
       constructIndex: 1,
     },
   ],
