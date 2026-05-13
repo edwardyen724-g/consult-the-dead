@@ -24,7 +24,7 @@ export const ONBOARDING_STEPS: {
   {
     label: 'Explore Pro-only frameworks',
     detail:
-      'Steve Jobs, Nassim Taleb, and advanced council configurations are unlocked for your account.',
+      'All 27 historical minds — including Steve Jobs, Galileo Galilei, and Julius Caesar — plus the full 5-mind council configuration.',
     href: '/frameworks',
     cta: 'Browse frameworks →',
   },

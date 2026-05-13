@@ -1224,6 +1224,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "outsource vs hire engineer",
     ],
   },
+  {
+    slug: "should-i-get-a-business-mentor",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Get a Business Mentor?",
+    description:
+      "A great mentor compresses years of hard-won pattern recognition into hours of conversation — but only if the match is right and both parties are genuinely committed. Mismatched mentorship wastes time, creates false confidence, and can anchor you to frameworks that don't fit your context. The decision turns on whether you have specific enough questions to make a senior person's time useful, and whether you can distinguish advice worth taking from advice given reflexively from someone else's experience.",
+    primaryQuery: "should I get a business mentor",
+    secondaryQueries: [
+      "how to find a startup mentor",
+      "business mentor worth it",
+      "should I hire a coach or find a mentor",
+      "mentorship for founders",
+      "startup mentor vs advisor",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "andrew-carnegie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "A founder you admire has offered to mentor you — monthly 1-on-1s for a year. Their company is 10x larger than yours and in an adjacent space. The meetings cost you 2 hours each (prep + call). You're at a stage where you're mostly figuring things out by doing, not by asking. Do you take the mentorship?",
+    targetKeywords: [
+      "should I get a business mentor",
+      "startup mentor worth it",
+      "how to find a founder mentor",
+      "mentorship for early stage founders",
+      "business mentor vs coach",
+    ],
+  },
+  {
+    slug: "should-i-invest-in-paid-advertising",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Invest in Paid Advertising?",
+    description:
+      "Paid advertising buys velocity — results in weeks rather than months. Organic channels compound over time but require patience and produce returns that are hard to predict and impossible to instantly scale. The real decision is not which channel is better in the abstract, but whether your unit economics can support paid acquisition at your current conversion rates, and whether you have the operational maturity to iterate on ad creative and landing pages fast enough to make paid profitable.",
+    primaryQuery: "should I invest in paid advertising",
+    secondaryQueries: [
+      "paid ads vs organic marketing",
+      "when to start running ads startup",
+      "Google ads vs content marketing",
+      "paid acquisition vs SEO",
+      "should I run Facebook ads startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "florence-nightingale",
+    ],
+    hookQuestion:
+      "You have $20K in marketing budget. Your CAC from SEO and word-of-mouth is $40. You could put $15K into Google and Meta ads and potentially scale 5x — or put $15K into content and community, which takes 6 months to compound. Paid ads would show results in 2 weeks. What do you do?",
+    targetKeywords: [
+      "should I invest in paid advertising",
+      "paid ads vs organic startup",
+      "when to start paid ads",
+      "Google ads for startups",
+      "paid vs organic customer acquisition",
+    ],
+  },
+  {
+    slug: "should-i-build-an-advisory-board",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build an Advisory Board?",
+    description:
+      "An advisory board can open doors, add credibility, and provide pattern recognition you have not yet earned. But advisors cost equity, require time to manage, and rarely deliver proportional value after the first few introductions. The decision hinges on whether you are buying genuine access and insight — or buying the appearance of legitimacy at a price that will compound as the company grows.",
+    primaryQuery: "should I build an advisory board",
+    secondaryQueries: [
+      "startup advisory board worth it",
+      "how to build advisory board",
+      "advisors vs board of directors",
+      "startup advisors equity",
+      "should I get startup advisors",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "julius-caesar",
+    ],
+    hookQuestion:
+      "Three well-connected people have offered to be advisors. One is a former VP at Stripe, one is a well-known founder in your space, one is a serial investor. Each wants 0.25% equity with 2-year vesting. Your company is 14 months old and pre-Series A. Do you build this advisory board?",
+    targetKeywords: [
+      "should I build an advisory board",
+      "startup advisors equity worth it",
+      "advisory board for startups",
+      "startup advisors vs mentors",
+      "how much equity for startup advisor",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
