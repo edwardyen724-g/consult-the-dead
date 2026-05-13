@@ -9,6 +9,7 @@ The project does not currently use semantic releases, so this changelog records 
 ### Added
 - Wave 10 collision batch shipped: 4 collision insight articles — `machiavelli-vs-sun-tzu-on-competitive-intelligence` (machiavelli + sun-tzu; strategy), `marcus-aurelius-vs-seneca-on-processing-failure` (aurelius + seneca; resilience), `franklin-vs-carnegie-on-building-your-network` (franklin + carnegie; hiring), `cleopatra-vs-catherine-the-great-on-ruling-through-alliance` (cleopatra + catherine; strategy); 8 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 4 reel integration tests added (79 total passing).
 - Wave 10 decision pages: `should-i-take-on-a-co-founder` (38th, Lincoln/Carnegie/Machiavelli), `should-i-productize-my-consulting` (39th, Rockefeller/Archimedes/Machiavelli); decisions count updated to 39; 2146 vitest tests passing.
+- **Listicle expansion:** 3 new SEO→Agora conversion funnels added — `/listicles/founder-burnout` (Aurelius/Seneca/Carnegie), `/listicles/co-founder-conflict` (Sun Tzu/Lincoln/Machiavelli), `/listicles/pricing-decision` (Machiavelli/Newton/Rockefeller); total listicle pages 5→8. Each page pre-fills Agora with council + topic for zero-friction agon start.
 - **Bug fix:** Deduplicated Wave 8/9 decision slugs (`should-i-raise-a-series-a` → `should-i-take-series-a-investment`; `should-i-expand-internationally` Wave 9 copy → `should-i-enter-international-markets`); added `content-integrity.test.ts` to catch future slug duplicates across both INSIGHT_ENTRIES and DECISION_ENTRIES.
 
 ## 2026-05-14 (Wave 9)
