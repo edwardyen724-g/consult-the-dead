@@ -1314,6 +1314,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "how much equity for startup advisor",
     ],
   },
+  {
+    slug: "should-i-build-for-enterprise-or-smb",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build for Enterprise or SMB?",
+    description:
+      "Enterprise deals carry higher ACV and lower churn, but they come with longer sales cycles, compliance overhead, and a roadmap held hostage to a handful of large customers. SMB lets you ship fast, validate quickly, and build a broad base — but the ceiling is lower and the churn is higher. The decision turns on whether your current product and team can sustain the operational weight of enterprise, and whether your unit economics actually work at the SMB price point at scale.",
+    primaryQuery: "should I build for enterprise or SMB",
+    secondaryQueries: [
+      "enterprise vs SMB startup",
+      "target market enterprise vs small business",
+      "should I go upmarket",
+      "SMB vs enterprise SaaS",
+      "startup market segmentation",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Your product has 200 SMB customers paying $99/month and 3 enterprise prospects in a 6-month sales cycle for $30K ARR deals. If you fully optimize for enterprise, you'll need a dedicated sales team, longer roadmap cycles, and custom compliance work. If you stay SMB, you can ship faster but your ceiling is lower. Do you go up-market?",
+    targetKeywords: [
+      "should I build for enterprise or SMB",
+      "enterprise vs SMB SaaS decision",
+      "go upmarket startup",
+      "SMB vs enterprise target market",
+      "startup enterprise sales decision",
+    ],
+  },
+  {
+    slug: "should-i-take-on-technical-debt",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Take On Technical Debt?",
+    description:
+      "Strategic debt is a deliberate resource trade — you borrow time now and pay it back later with interest. The problem is that most technical debt is not strategic; it is entropy that compounds invisibly until it breaks the system at the worst possible moment. The decision turns on whether you are making a conscious tradeoff with a clear repayment plan, or rationalizing shortcuts that will eventually force a rewrite at the cost of your roadmap.",
+    primaryQuery: "should I take on technical debt",
+    secondaryQueries: [
+      "when to take technical debt",
+      "technical debt vs moving fast",
+      "refactor vs ship new features",
+      "startup technical debt decision",
+      "build fast vs build right",
+    ],
+    recommendedCouncil: [
+      "archimedes",
+      "nikola-tesla",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Your engineering team wants 6 weeks to refactor the auth system before the next major feature. The CEO wants to ship the next feature in 2 weeks using a quick-and-dirty auth approach. The quick approach works for now but creates 3 months of cleanup later. You have a board meeting in 3 months where growth metrics matter more than code quality. What do you decide?",
+    targetKeywords: [
+      "should I take on technical debt",
+      "technical debt startup decision",
+      "when to ship vs refactor",
+      "build fast vs build right",
+      "startup technical debt worth it",
+    ],
+  },
+  {
+    slug: "should-i-accept-this-strategic-partnership",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Accept This Strategic Partnership?",
+    description:
+      "A large-company partnership can give you distribution you cannot afford to build yourself and a credibility signal that shortens every other sales cycle. But it can also create customer concentration risk that puts your entire ARR at the mercy of one relationship, erode your negotiating power as dependency deepens, and obscure whether you actually have product-market fit or just channel fit. The decision turns on whether you can survive year 2 if the deal disappears, and whether the partnership makes you stronger or just larger.",
+    primaryQuery: "should I accept a strategic partnership",
+    secondaryQueries: [
+      "strategic partnership startup decision",
+      "should I partner with a larger company",
+      "partnership vs staying independent",
+      "co-marketing partnership startup",
+      "strategic alliance decision",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "julius-caesar",
+      "cleopatra-vii",
+    ],
+    hookQuestion:
+      "A company 10x your size wants to resell your product to their 50K customer base. The deal gives you 30% revenue share, but they become your largest customer at 40% of your ARR and have co-branding rights. They'll drive distribution you can't afford, but if they pull the deal in year 2, you're in trouble. Do you take it?",
+    targetKeywords: [
+      "should I accept a strategic partnership",
+      "strategic partnership startup pros cons",
+      "should I partner with a larger company",
+      "customer concentration risk startup",
+      "co-marketing partnership decision",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
