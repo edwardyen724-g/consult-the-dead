@@ -986,3 +986,135 @@
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+# Wave 7 — queued
+
+- slug: what-would-da-vinci-say-about-shipping-imperfect-work
+  type: insight
+  search_volume_estimate: high
+  primary_query: "when to ship imperfect product"
+  secondary_queries:
+    - "ship early vs perfect product startup"
+    - "done is better than perfect founder"
+    - "how to stop overthinking and ship"
+  recommended_council: [leonardo-da-vinci]
+  hook_angles: [tension, identity]
+  status: queued
+  shipped_at: null
+
+- slug: what-would-sun-tzu-say-about-pricing-strategy
+  type: insight
+  search_volume_estimate: high
+  primary_query: "pricing strategy startup"
+  secondary_queries:
+    - "how to price your product startup"
+    - "value-based pricing founder"
+    - "competitive pricing strategy small business"
+  recommended_council: [sun-tzu]
+  hook_angles: [shortcut, proof]
+  status: queued
+  shipped_at: null
+
+- slug: what-would-rockefeller-say-about-unit-economics
+  type: insight
+  search_volume_estimate: high
+  primary_query: "unit economics startup"
+  secondary_queries:
+    - "how to improve unit economics"
+    - "LTV CAC ratio founder"
+    - "startup profitability metrics"
+  recommended_council: [john-d-rockefeller]
+  hook_angles: [proof, shortcut]
+  status: queued
+  shipped_at: null
+
+- slug: what-would-newton-say-about-debugging-complex-systems
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "debugging complex systems startup"
+  secondary_queries:
+    - "how to fix hard engineering problems"
+    - "root cause analysis product issues"
+    - "systematic debugging methodology"
+  recommended_council: [isaac-newton]
+  hook_angles: [shortcut, proof]
+  status: queued
+  shipped_at: null
+
+- slug: what-would-cleopatra-vii-say-about-managing-investors
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to manage investors"
+  secondary_queries:
+    - "founder investor relationship tips"
+    - "managing board of directors startup"
+    - "how to handle difficult investors"
+  recommended_council: [cleopatra-vii]
+  hook_angles: [tension, identity]
+  status: queued
+  shipped_at: null
+
+- slug: should-i-use-ai-in-my-business
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I use AI in my business"
+  secondary_queries:
+    - "AI for small business 2026"
+    - "how to adopt AI as a founder"
+    - "AI tools worth it for startups"
+  recommended_council: [thomas-edison, ada-lovelace, isaac-newton]
+  hook_angles: [tension, shortcut]
+  status: queued
+  shipped_at: null
+
+- slug: should-i-raise-pre-seed
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a pre-seed round"
+  secondary_queries:
+    - "pre-seed funding startup"
+    - "when to raise pre-seed vs bootstrap"
+    - "pre-seed round how much to raise"
+  recommended_council: [andrew-carnegie, benjamin-franklin, john-d-rockefeller]
+  hook_angles: [tension, proof]
+  status: queued
+  shipped_at: null
+
+- slug: should-i-launch-in-stealth-mode
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch in stealth mode"
+  secondary_queries:
+    - "stealth vs public launch startup"
+    - "stealth startup pros and cons"
+    - "when to go public with startup idea"
+  recommended_council: [niccolo-machiavelli, sun-tzu, benjamin-franklin]
+  hook_angles: [tension, identity]
+  status: queued
+  shipped_at: null
+
+- slug: jobs-to-be-done-explained
+  type: method
+  search_volume_estimate: high
+  primary_query: "jobs to be done framework"
+  secondary_queries:
+    - "Clayton Christensen jobs to be done"
+    - "JTBD product development startup"
+    - "how to use jobs to be done"
+  recommended_council: [marcus-aurelius, leonardo-da-vinci]
+  hook_angles: [shortcut, proof]
+  status: queued
+  shipped_at: null
+
+- slug: what-would-harriet-tubman-say-about-resilience-in-hard-times
+  type: insight
+  search_volume_estimate: high
+  primary_query: "founder resilience hard times"
+  secondary_queries:
+    - "how to stay motivated as a founder"
+    - "startup resilience mental toughness"
+    - "how to keep going when startup is failing"
+  recommended_council: [harriet-tubman]
+  hook_angles: [identity, proof]
+  status: queued
+  shipped_at: null

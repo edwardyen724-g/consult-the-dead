@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-14: **77 topics tracked** — 76 shipped (29 decisions + 38 insights + 8 method articles + 1 other article), 1 killed (`should-we-open-source-our-core-product` — superseded by `should-i-open-source-my-product`), 0 queued. All ALLOWED_SLUGS figures covered; 5 collision articles shipped. Wave 7 planning in progress. Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-14: **87 topics tracked** — 76 shipped (29 decisions + 38 insights + 8 method articles + 1 other article), 1 killed (`should-we-open-source-our-core-product` — superseded by `should-i-open-source-my-product`), 10 queued (Wave 7). All ALLOWED_SLUGS figures covered; 5 collision articles shipped. Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml
