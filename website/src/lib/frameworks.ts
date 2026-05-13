@@ -36,6 +36,8 @@ export const ALLOWED_SLUGS = [
   "seneca",
   // SEO listicle expansion 2026-05 (task c7400a14) — Steve Jobs added for product insight page
   "steve-jobs",
+  // Wave 8 roster expansion 2026-05 — Galileo Galilei (framework already extracted)
+  "galileo-galilei",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -71,6 +73,8 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "seneca": "var(--color-seneca)",
   // SEO listicle expansion 2026-05 (task c7400a14)
   "steve-jobs": "var(--color-jobs)",
+  // Wave 8 roster expansion 2026-05
+  "galileo-galilei": "var(--color-galileo)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -104,10 +108,13 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "seneca": "c. 4 BC–65 AD",
   // SEO listicle expansion 2026-05 (task c7400a14)
   "steve-jobs": "1955–2011",
+  // Wave 8 roster expansion 2026-05
+  "galileo-galilei": "1564–1642",
 };
 
 /* ── Display order for the index page ── */
 export const DISPLAY_ORDER: FrameworkSlug[] = [
+  "galileo-galilei",
   "isaac-newton",
   // "albert-einstein", // HIDDEN 2026-04-16
   "marie-curie",

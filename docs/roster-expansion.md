@@ -64,7 +64,7 @@ The original "stubs" (Ada Lovelace, Alexander the Great, Catherine the Great, Cl
 | 10 | **Harriet Tubman** | 1913 | Trust in a plan but adapt in the field; zero tolerance for hesitation once committed | Safe | **Deployed** — live in product |
 | 11 | **Andrew Carnegie** | 1919 | Concentrates resources ruthlessly on a single bet; gives away the surplus as strategic reputation-building | Safe | **Deployed** — added May 2026, used in decision debates |
 | 12 | **Amelia Earhart** | 1937 | Accepts asymmetric personal risk to prove a principle; visibility as the mission | **Caution** — CMG Worldwide (exclusive licensor) holds an active "AMELIA EARHART" trademark and manages commercial licensing of her name/likeness | On hold — legal check required |
-| 13 | **Galileo Galilei** | 1642 | Separates what's observable from what's doctrine; accepts institutional defeat to preserve the work | Safe | Framework dir exists (`frameworks/galileo-galilei/`) but not in ALLOWED_SLUGS — not yet live |
+| 13 | **Galileo Galilei** | 1642 | Separates what's observable from what's doctrine; accepts institutional defeat to preserve the work | Safe | **Deployed** — added Wave 8 (2026-05), framework data already extracted |
 | 14 | **Joan of Arc** | 1431 | Acts on conviction with no institutional backing; trial transcripts show extraordinary reasoning under interrogation | Safe | Candidate — not yet extracted |
 | 15 | **Queen Elizabeth I** | 1603 | Manages ambiguity as a weapon; delays commitment until opponent overextends | Safe | Candidate — not yet extracted |
 | 16 | **Genghis Khan** | 1227 | Absorbs enemy talent ruthlessly; logistics over glory | Safe | Candidate — low priority (see Part 4) |
@@ -211,7 +211,7 @@ The following figures are live in the product but were not part of this candidat
 | **Ada Lovelace** | Stub promoted to full extraction. Not yet used in decision debates. |
 | **Alexander the Great** | Stub promoted to full extraction. Not yet used in decision debates. |
 | **Catherine the Great** | Stub promoted to full extraction. Not yet used in decision debates. |
-| **Galileo Galilei** | Framework dir exists but not yet in ALLOWED_SLUGS — not live. |
+| **Galileo Galilei** | **Deployed** — added Wave 8 (2026-05). In ALLOWED_SLUGS, data copied to website/data/frameworks/. |
 
 ---
 
