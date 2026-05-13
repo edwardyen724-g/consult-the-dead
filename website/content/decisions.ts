@@ -964,13 +964,13 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     ],
   },
   {
-    slug: "should-i-raise-a-series-a",
+    slug: "should-i-take-series-a-investment",
     status: "shipped",
     shippedAt: "2026-05-14",
-    title: "Should I Raise a Series A?",
+    title: "Should I Take Series A Investment?",
     description:
       "A Series A round means committing to a venture-scale growth trajectory with institutional oversight, board seats, and performance expectations that cannot be walked back. The decision is not just about whether you can raise the money — it is about whether the venture-scale path is the right path for what you are building, and whether you want to live inside the institutional structure that comes with it.",
-    primaryQuery: "should I raise a Series A",
+    primaryQuery: "should I take Series A investment",
     secondaryQueries: [
       "Series A fundraising decision",
       "when to raise Series A",
@@ -985,7 +985,7 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     hookQuestion:
       "You have product-market fit at a small scale, growing 15% month-over-month, $40k MRR. Two top-tier VCs have reached out. Raising $3-5M would let you hire a sales team and a CTO. Not raising means slower growth but you keep control and profitability. The decision is whether to bet on venture-scale or optimize for a smaller, profitable outcome.",
     targetKeywords: [
-      "should I raise Series A",
+      "should I take Series A investment",
       "Series A fundraising decision",
       "when to raise Series A round",
       "venture capital Series A timing",
@@ -1051,16 +1051,16 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     ],
   },
   {
-    slug: "should-i-expand-internationally",
+    slug: "should-i-enter-international-markets",
     status: "shipped",
     shippedAt: "2026-05-14",
-    title: "Should I Expand My Business Internationally?",
+    title: "Should I Enter International Markets Now?",
     description:
       "International expansion is one of the highest-variance strategic decisions a founder makes. It can 3-5x your addressable market in 12 months or consume two years of engineering and sales attention with minimal return. The decision depends entirely on where your current growth is coming from, whether the new market will respond to your existing product and positioning, and whether your team is operationally capable of managing the added complexity.",
-    primaryQuery: "should I expand my business internationally",
+    primaryQuery: "should I enter international markets",
     secondaryQueries: [
-      "when to go international startup",
-      "international expansion strategy",
+      "when to expand to new markets startup",
+      "international market entry strategy",
       "how to expand to new markets",
       "global expansion startup timing",
     ],
@@ -1072,11 +1072,11 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     hookQuestion:
       "You are growing 8% month-over-month in the US. Three customers from Europe found you organically and converted immediately. An investor is willing to fund a European expansion. The question is whether to go now or wait until you have fully captured the domestic market.",
     targetKeywords: [
-      "should I expand internationally",
-      "international expansion startup",
-      "when to go global startup",
+      "should I enter international markets",
       "international market entry strategy",
-      "should I expand to Europe",
+      "when to expand to new markets startup",
+      "how to enter new markets",
+      "global expansion startup timing",
     ],
   },
 ];

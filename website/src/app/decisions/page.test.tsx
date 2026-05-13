@@ -120,4 +120,10 @@ describe("DecisionsPage rendering", () => {
 
     expect(html).toContain("agon");
   });
+
+  it("has no duplicate slugs across all entries", () => {
+    const slugs = DECISION_ENTRIES.map((e) => e.slug);
+    const uniqueSlugs = new Set(slugs);
+    expect(uniqueSlugs.size).toBe(slugs.length);
+  });
 });

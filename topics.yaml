@@ -1213,10 +1213,10 @@
   status: shipped
   shipped_at: "2026-05-14"
 
-- slug: should-i-raise-a-series-a
+- slug: should-i-take-series-a-investment
   type: decision
   search_volume_estimate: high
-  primary_query: "should I raise a Series A"
+  primary_query: "should I take Series A investment"
   secondary_queries:
     - "Series A fundraising decision"
     - "when to raise Series A round"
@@ -1325,16 +1325,16 @@
   status: shipped
   shipped_at: "2026-05-14"
 
-- slug: should-i-expand-internationally
+- slug: should-i-enter-international-markets
   type: decision
   search_volume_estimate: high
-  primary_query: "should I expand internationally"
+  primary_query: "should I enter international markets"
   secondary_queries:
-    - "international expansion startup"
-    - "when to go global startup"
-    - "international growth strategy"
-    - "expanding to new markets advice"
-  recommended_council: [napoleon-bonaparte, sun-tzu, niccolo-machiavelli]
+    - "international market entry strategy"
+    - "when to expand to new markets startup"
+    - "how to enter new markets"
+    - "global expansion startup timing"
+  recommended_council: [niccolo-machiavelli, alexander-the-great, julius-caesar]
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
