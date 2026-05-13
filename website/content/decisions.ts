@@ -711,6 +711,34 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "rebranding pros and cons",
     ],
   },
+  {
+    slug: "should-i-do-a-seed-extension",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I do a seed extension?",
+    description:
+      "Machiavelli, Marie Curie, and Marcus Aurelius debate the real signal behind the seed extension question — whether it is a bridge to the next milestone or a delay that avoids a harder truth.",
+    primaryQuery: "should I do a seed extension",
+    secondaryQueries: [
+      "seed extension vs Series A",
+      "bridge round decision startup",
+      "when to extend your seed round",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marie-curie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is the runway you are buying worth the dilution and the delay in facing what the data is telling you?",
+    targetKeywords: [
+      "should I do a seed extension",
+      "seed extension round",
+      "bridge round startup decision",
+      "when to extend seed funding",
+      "pre-Series A bridge round",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

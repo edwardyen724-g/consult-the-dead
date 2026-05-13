@@ -30,7 +30,7 @@ describe("DecisionsPage metadata", () => {
   });
 
   it("has a description that mentions the number of decisions", () => {
-    expect(metadata.description).toContain("24");
+    expect(metadata.description).toContain("25");
   });
 
   it("has a canonical URL pointing to /decisions", () => {
@@ -46,11 +46,11 @@ describe("DecisionsPage metadata", () => {
 });
 
 describe("DecisionsPage rendering", () => {
-  it("renders all 24 decision entries", () => {
+  it("renders all 25 decision entries", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(DECISION_ENTRIES).toHaveLength(24);
+    expect(DECISION_ENTRIES).toHaveLength(25);
 
     // Use slug-based links rather than title text since renderToStaticMarkup
     // HTML-encodes apostrophes in titles (e.g. "It's" → "It&#x27;s").
@@ -81,7 +81,7 @@ describe("DecisionsPage rendering", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("24");
+    expect(html).toContain("25");
   });
 
   it("includes a back link to the home page", () => {
@@ -104,7 +104,7 @@ describe("DecisionsPage rendering", () => {
     const html = renderToStaticMarkup(element);
 
     const matches = html.match(/data-testid="decision-item"/g);
-    expect(matches).toHaveLength(24);
+    expect(matches).toHaveLength(25);
   });
 
   it("renders the page heading", () => {
