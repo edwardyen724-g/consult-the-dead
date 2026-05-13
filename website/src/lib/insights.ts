@@ -158,16 +158,32 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
     frameworkSlug: "marcus-aurelius",
     title: "What Would Marcus Aurelius Say About Burnout?",
     description:
-      "Marcus Aurelius treated exhaustion as a cue to inspect duty, not a reason to chase comfort. His Stoic framework shows when burnout is a signal to reset and when it is just a season of strain.",
+      "Marcus Aurelius ran an empire for 19 years during plagues, wars, and near-constant political pressure. He wrote about exhaustion not as weakness but as resistance to duty — and left a precise framework for returning to work without pretending the difficulty isn't real.",
     targetKeywords: [
       "Marcus Aurelius on burnout",
       "stoic advice for burnout",
-      "burnout recovery for founders",
+      "Marcus Aurelius founder advice",
+      "stoic philosophy exhaustion",
+      "how to recover from burnout stoic",
     ],
-    decisionType: "identity",
+    decisionType: "burnout",
     hookQuestion:
-      "You feel burned out, but is the fatigue exposing a broken duty cycle or just a temporary season of strain?",
+      "You're so exhausted you can't tell what the work actually is anymore. Everything feels necessary. Nothing feels meaningful. The most powerful man in the Roman world wrote about this exact state for 20 years — not to complain, but to figure out how to get back to work.",
     publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "Ask yourself: is it the work that is exhausting you, or the distance between the work you are doing and the work that is actually yours to do? Burnout is the body's signal that you have been performing a role you have not fully committed to. The relief is not rest — it is returning to what is genuinely yours.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "You are exhausted by demands that are not in your control. The calendar is not yours. The approvals are not yours. The performance for others is not yours. What remains when you strip those away? That remainder is the work. Begin there, and the exhaustion loses its grip.",
+      },
+      {
+        speaker: "Seneca",
+        text: "The man who rests to escape his work will find the rest is hollow. Rest that is preparation for duty restores; rest that is avoidance corrupts. Distinguish between the two before you decide what kind of break you actually need.",
+      },
+    ],
   },
   {
     slug: "what-would-sun-tzu-say-about-tariffs-and-trade-wars",
@@ -562,6 +578,40 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Batch 3: 'What Would X Say' articles (task 9b797e96) ─────────────
+  {
+    slug: "what-would-marie-curie-say-about-when-to-trust-the-data",
+    type: "single",
+    frameworkSlug: "marie-curie",
+    title: "What Would Marie Curie Say About When to Trust the Data?",
+    description:
+      "Curie spent years collecting measurements before she would claim a discovery. Her framework for deciding when data is trustworthy is not about having more data — it is about having data that is reproducible, independently verified, and honest about what it cannot yet explain.",
+    targetKeywords: [
+      "Marie Curie scientific method",
+      "how to know when you have enough data",
+      "when to stop researching and decide",
+      "when to trust data in business",
+      "data-driven decision making",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "You have charts, surveys, and three months of A/B tests. Everyone is asking you to decide. But do you actually have enough signal — or do you have noise that looks organized? Curie ran experiments for years before she was willing to claim a discovery.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Marie Curie",
+        text: "The question is not whether you have data. The question is whether your data survives an honest attempt to disprove it. I did not claim to have discovered a new element because my measurements were large — I claimed it because every attempt I made to explain the measurements away had failed. That is a different standard.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "A single well-designed experiment is worth more than a thousand observations that confirm what you already believe. The danger is not in having too little data — it is in treating correlation as if it were a derived law. Distinguish what you have measured from what you have proven.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Act on the best available evidence, then be willing to revise. The person who waits for certainty before deciding has confused wisdom with paralysis. The person who acts on enthusiasm before testing has confused confidence with knowledge. The space between them is where honest judgment lives.",
+      },
+    ],
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -699,20 +749,6 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Cross-domain pattern",
       source: (entry) => entry.description,
       excerpt: "cross-domain pattern recognition",
-      constructIndex: 1,
-    },
-  ],
-  "what-would-marcus-aurelius-say-about-burnout": [
-    {
-      label: "Duty check",
-      source: (entry) => entry.hookQuestion,
-      excerpt: "burned out",
-      constructIndex: 0,
-    },
-    {
-      label: "Stoic reset",
-      source: (entry) => entry.description,
-      excerpt: "inspect duty",
       constructIndex: 1,
     },
   ],
@@ -869,6 +905,35 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "terrain features",
       constructIndex: 10,
+    },
+  ],
+  // ── Batch 3 annotation blueprints (task 9b797e96) ─────────────────────
+  "what-would-marcus-aurelius-say-about-burnout": [
+    {
+      label: "Duty vs. performance",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "what the work actually is",
+      constructIndex: 0,
+    },
+    {
+      label: "Resistance vs. alignment",
+      source: (entry) => entry.description,
+      excerpt: "resistance to duty",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-marie-curie-say-about-when-to-trust-the-data": [
+    {
+      label: "Evidence threshold",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "enough signal",
+      constructIndex: 0,
+    },
+    {
+      label: "Rigor vs. urgency",
+      source: (entry) => entry.description,
+      excerpt: "reproducible",
+      constructIndex: 2,
     },
   ],
 };

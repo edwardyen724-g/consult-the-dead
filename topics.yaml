@@ -179,7 +179,8 @@
     - "Marcus Aurelius founder advice"
   recommended_council: [marcus-aurelius]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-sun-tzu-say-about-tariffs-and-trade-wars
   type: insight
@@ -214,7 +215,8 @@
     - "when to stop researching and decide"
   recommended_council: [marie-curie]
   hook_angles: [shortcut, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: what-would-newton-say-about-rebuilding-from-first-principles
   type: insight
