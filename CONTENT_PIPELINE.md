@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. Hand-curated and pruned for Phase 1 publishing (20+ active entries seeded). Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-13: **54 topics tracked** — 46 shipped (24 decisions + 13 insights + 4 method articles + 5 other articles), 8 queued Wave 3 entries. Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml
@@ -250,8 +250,10 @@ If a Reel hits 3× our typical reach AND the topic has search volume:
 3. ~~`/decisions/` slug pattern~~ → **pre-loaded cached agons.** Build-time script generates one real agon per slug, saves to JSON, page renders the actual debate + "run YOUR variation" CTA.
 4. ~~Instagram handle~~ → **@consultthedead** (defensive registrations: `@consultthedead_official`, `@theconsultthedead`). Bio mitigation copy required: "Historical decision frameworks. Not mediumship."
 5. ~~First topic batch~~ → seeded in [topics.yaml](topics.yaml), reviewed, and pruned for Phase 1 publishing.
+6. ~~Wave 1 articles~~ → shipped Phase 1 (13 decisions, 9 insights, 1 article). See CHANGELOG.
+7. ~~Wave 2 articles~~ → shipped 2026-05-12/13 (11 more decisions, 7 insights, 2 method articles). See CHANGELOG.
 
-The first batch has been reviewed and the active queue is ready for Phase 1 article generation.
+**Wave 3 queue (8 entries):** steve-jobs product-focus, lincoln crisis-leadership, franklin time-management, edison failure-iteration, carnegie hiring, seneca procrastination, seed-extension decision, second-order-thinking method. See topics.yaml.
 
 ---
 

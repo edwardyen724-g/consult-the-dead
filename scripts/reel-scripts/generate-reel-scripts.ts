@@ -146,6 +146,13 @@ const DECISION_COURT: Record<
       "Pricing is a claim about value. Get the claim wrong and you either underprice what you built or overprice what you have not yet earned. Charge what the value actually is, not what feels safe.",
     caption: "Charge what the value actually is.",
   },
+  // ── Wave 2 court entries ─────────────────────────────────────────────
+  scaling: {
+    minds: ["Napoleon Bonaparte", "Marcus Aurelius", "Marie Curie"],
+    consensus:
+      "Growth rate is not a strategy. Close the gap between operational tempo and logistical architecture before you add the next division. If you cannot reproduce the mechanism that created last quarter's numbers, you have not found a repeatable process — you have found a coincidence.",
+    caption: "Tempo follows logistics, not the other way around.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -186,6 +193,9 @@ const MAIN_BEATS: Record<string, string> = {
     "A good product decision aligns what the user needs, what the data shows, and what it costs to change. Disagreement between those three is where the real decision lives.",
   pricing:
     "Pricing is a claim about value. Charge what the value actually is — not what feels safe, not what the competition charges.",
+  // ── Wave 2 beats ──────────────────────────────────────────────────────
+  scaling:
+    "Logistical architecture must precede operational tempo. Before you scale to the next level, verify that the supply line can follow.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -226,6 +236,9 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Users tell you what they want, but the data shows you what they do. When those two conflict, trust the data and investigate the gap.",
   pricing:
     "Underpricing is not generosity — it is a claim that your work is worth less than it is. That claim compounds over time.",
+  // ── Wave 2 beats ──────────────────────────────────────────────────────
+  scaling:
+    "Every overextension in history looked like momentum until it didn't. The difference between tempo and recklessness is whether the infrastructure is ready.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -266,6 +279,9 @@ const CLOSE_BEATS: Record<string, string> = {
     "When need, data, and cost align, ship. When they do not, the disagreement is the most important signal you have.",
   pricing:
     "Set the price that reflects the value you are actually delivering. Then have the integrity to defend it.",
+  // ── Wave 2 beats ──────────────────────────────────────────────────────
+  scaling:
+    "Close the gap between your growth rate and your operational capacity before the gap closes you.",
 };
 
 function titleCase(value: string): string {

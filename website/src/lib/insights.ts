@@ -580,6 +580,40 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Method articles — high-SEO framework explainers (task 7deb5fb2) ──
   {
+    slug: "toulmin-argument-model-explained",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "Toulmin Argument Model Explained",
+    description:
+      "The Toulmin model gives you a six-part structure for any argument: claim, grounds, warrant, backing, qualifier, and rebuttal. It was built to fix the exact failure mode that kills most business arguments — confusing assertion with proof.",
+    targetKeywords: [
+      "Toulmin model of argumentation",
+      "Toulmin argument structure",
+      "how to construct an argument",
+      "claim grounds warrant backing",
+      "toulmin method explained",
+      "argument structure framework",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "You've just made your argument. You have data. You have a conclusion. But your audience isn't persuaded. The Toulmin model was built in 1958 to solve exactly this problem: it maps the six structural elements that separate a compelling argument from an assertion that happens to have a chart attached.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Galileo Galilei",
+        text: "The argument that cannot be falsified is not an argument — it is a declaration. I did not claim that the Earth moves by asserting it louder than those who claimed it stood still. I showed them the moons of Jupiter. The grounds of an argument determine whether it can be tested; claims without testable grounds are not science. They are tradition.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "Every conclusion in the Principia rests on a chain from axiom to derived proposition. The warrant — the rule that licenses the step from evidence to conclusion — must be explicit. A claim that hides its warrant is a claim that cannot be examined. Make the warrant visible, and the argument becomes correctable.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I did not simply announce that polonium and radium existed. I provided the grounds: the radioactivity measurements, the isolation procedures, the independently verifiable methodology. The qualifier is also essential — I was not claiming certainty beyond what the data supported. A good argument knows its own boundaries.",
+      },
+    ],
+  },
+  {
     slug: "cynefin-framework-explained",
     type: "single",
     frameworkSlug: "leonardo-da-vinci",
@@ -611,6 +645,205 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       {
         speaker: "Marcus Aurelius",
         text: "Distinguish what is in your control from what is not. In a complex system, the full outcome is not in your control — only your next probe. The Stoic discipline here is to act with full commitment on the probe while holding the outcome with detachment. You are not the cause of the system's response; you are the observer who decides what to do next.",
+      },
+    ],
+  },
+  // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
+  {
+    slug: "first-mover-vs-fast-follower-what-sun-tzu-says",
+    type: "single",
+    frameworkSlug: "sun-tzu",
+    title: "First-Mover vs. Fast-Follower: What Sun Tzu Says",
+    description:
+      "Sun Tzu's framework dissolves the first-mover vs. fast-follower debate into a better question: who controls the terrain? The timing of market entry matters far less than the position you occupy when the market consolidates.",
+    targetKeywords: [
+      "first mover vs fast follower",
+      "first mover advantage myth",
+      "Sun Tzu competition strategy",
+      "is first mover advantage real",
+      "when to enter a market",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Everyone tells you to move fast and establish first-mover advantage. But Google wasn't the first search engine. Facebook wasn't the first social network. Apple wasn't the first MP3 player. Sun Tzu's framework explains why the first-mover advantage is usually a trick question.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The army that arrives first does not win — the army that occupies the right ground wins. First-mover advantage exists only when the first mover chose the terrain wisely. If your competitor moved first into the wrong position, their head start is a gift. Let them exhaust themselves defending ground that does not matter.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The prince who enters a new domain before it is ready will spend all his resources building what should already exist. The fast-follower who waits until the infrastructure exists — the customers who understand the category, the distribution channels that fit it — often begins where the pioneer ends.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Study the shape of the water before you decide where to swim. The question is not when to enter the market. The question is whether you have mapped the terrain well enough to know which position you are actually competing for.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-florence-nightingale-say-about-data-driven-decisions",
+    type: "single",
+    frameworkSlug: "florence-nightingale",
+    title: "What Would Florence Nightingale Say About Data-Driven Decisions?",
+    description:
+      "Nightingale didn't just collect data — she engineered the visualization and delivery channel to match the audience that needed to act on it. Her framework for making data actually drive decisions is more practical than any analytics dashboard.",
+    targetKeywords: [
+      "data driven decision making examples",
+      "how to use data to make better decisions",
+      "analytics decision making",
+      "Florence Nightingale statistics",
+      "why data does not change minds",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "You have charts, dashboards, and three months of metrics. The decision should be obvious. But nobody is moving. Nightingale faced the exact same problem — rooms full of data, institutions that didn't change. Here is what she learned.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Marie Curie",
+        text: "Data does not speak. People interpret data, and interpretation is shaped by what the interpreter believes before they look. The only defense against this is reproducibility: can the interpretation be reached independently by someone who started with different assumptions? If not, you have not yet made a data-driven decision.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "The measure of useful data is not its quantity but its specificity. Vague metrics produce vague decisions. Define precisely what you are measuring, what you are assuming it represents, and what alternative explanation you have ruled out before you treat the number as a verdict.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Act on the data you have, not the data you wish you had. The person who waits for perfect information before deciding is not being rigorous — they are using rigor as cover for indecision. The question is not whether the data is complete. The question is whether it is honest.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-julius-caesar-say-about-moving-into-new-markets",
+    type: "single",
+    frameworkSlug: "julius-caesar",
+    title: "What Would Julius Caesar Say About Moving Into New Markets?",
+    description:
+      "Caesar didn't test new territory — he committed to it. His framework for expansion reveals a counterintuitive principle: irreversibility is a feature, not a risk. Here is what it means for startup market entry.",
+    targetKeywords: [
+      "startup geographic expansion",
+      "when to expand internationally",
+      "market expansion strategy",
+      "how to enter a new market",
+      "Julius Caesar strategy business",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You're considering expanding into a new market. Everyone tells you to run a pilot, test small, keep your options open. But Caesar crossed the Rubicon with no option to retreat — not because he was reckless, but because he understood that irreversibility forces the commitment that half-measures never can. Here is his framework for knowing when to burn the boats.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The general who enters a new territory with one foot still in the old one has already lost both. The market you are entering will test your commitment before it rewards it. If your competitors sense you are willing to retreat, they will make retreat the only option. Enter where you can win — then commit to that terrain completely.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "New markets are principalities. They will resist you. They will conspire against you. The only remedy is to be present — not through representatives, but through structural commitment that makes retreat costlier than advance. A prince who governs his new territory from a distance governs nothing.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Before you cross into unknown territory, map it completely. Not the territory as you wish it to be, but the territory as it is: the existing players, their dependencies, their vulnerabilities, their alliances. The map that saves you is the one you made before the crossing, not the one you tried to make after.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-machiavelli-say-about-competitor-espionage",
+    type: "single",
+    frameworkSlug: "niccolo-machiavelli",
+    title: "What Would Machiavelli Say About Researching Competitors?",
+    description:
+      "Machiavelli built his reputation as the first political scientist to describe power as it actually works — not as it should work. His framework for competitive intelligence is brutally practical: study your enemy's patterns of past decisions, not their stated intentions.",
+    targetKeywords: [
+      "how to research competitors",
+      "competitive intelligence startup",
+      "Machiavelli on intelligence",
+      "how to analyze competitors",
+      "competitive strategy framework",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You want to know what your competitors are actually planning. Everyone tells you to look at their job listings, their blog posts, their pricing pages. But Machiavelli spent his career studying how power actually moves — not how rulers said it moved. Here is the version of competitive research that would survive his review.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "Know your enemy and know yourself, and you will win a hundred battles. But to know your enemy you must first stop looking at their public declarations and start reading the terrain they are positioning to control. Job listings reveal the direction. Partnership announcements reveal the alliances. Pricing changes reveal the pressure. Read the structure, not the statement.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Your competitor's stated strategy is the least useful thing to know about them. Study their pattern of past decisions — that is the reliable predictor. A prince who has accommodated once will accommodate again; a prince who has struck decisively once will strike again. Pattern trumps declaration every time.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "To understand a mechanism, you must see it from every angle. Intelligence gathered from a single perspective is not intelligence — it is the projection of your own assumptions onto the unknown. Cross-verify from at least three sources before you treat any competitive claim as fact.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-tesla-say-about-technical-debt",
+    type: "single",
+    frameworkSlug: "nikola-tesla",
+    title: "What Would Tesla Say About Technical Debt?",
+    description:
+      "Tesla ran every system through exhaustive mental simulation before building. His intolerance for 'good enough' engineering reveals a precise framework for diagnosing technical debt: the difference between debt that defers perfection and debt that corrupts the system model.",
+    targetKeywords: [
+      "how to deal with technical debt",
+      "technical debt startup decision",
+      "when to refactor vs ship",
+      "Tesla engineering perfectionism",
+      "should I pay off technical debt",
+    ],
+    decisionType: "technology",
+    hookQuestion:
+      "Your codebase is held together with duct tape and prayer. The team says 'we'll fix it after launch.' But Tesla refused to build anything unless he had fully simulated it in his mind and found no contradictions. Here is his framework for deciding when technical debt is strategic postponement and when it is structural sabotage.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "Technical debt is not a shortcut — it is a promissory note on the integrity of the system. I never built anything I had not already run to completion in my mind. Your debt is accumulating because you are building without that mental model. The cost is not the time to fix it — it is the confusion that spreads when the model is absent.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "A system that cannot be understood from its foundations cannot be corrected at its edges. When your architecture is opaque even to those who built it, you have not accumulated debt — you have abandoned the premise of engineering. Begin with what can be derived, not what was assumed.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "What appears to be a shortcut often creates the path that must be walked three times. Examine the structure before you decide whether the debt is architectural or merely cosmetic. Architectural debt compounds. Cosmetic debt is repaid in an afternoon.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-napoleon-say-about-scaling-too-fast",
+    type: "single",
+    frameworkSlug: "napoleon-bonaparte",
+    title: "What Would Napoleon Say About Scaling Too Fast?",
+    description:
+      "Napoleon's fatal Russian campaign teaches the lesson that kills fast-growing companies: logistical architecture must precede operational tempo, not follow it. His framework shows exactly when scaling is genius and when it is catastrophe.",
+    targetKeywords: [
+      "scaling too fast startup",
+      "signs you are scaling too fast",
+      "Napoleon strategy business",
+      "startup growth problems",
+      "when to scale a startup",
+    ],
+    decisionType: "scaling",
+    hookQuestion:
+      "Your growth metrics look incredible. Headcount is up, offices are opening, partnerships are closing. Then one Tuesday morning the machine stops working and nobody can say why. Napoleon ran the most disciplined military machine in European history and still made this exact mistake. Here is his framework for knowing when speed becomes the failure mode.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "You are not failing because you moved too fast. You are failing because you moved faster than your supply lines could follow. Every commander who has ever overextended his army knew, in the moment of defeat, that the flaw was not courage — it was the gap between tempo and logistics. Close that gap before you add the next division.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The empire that grows fastest is not the empire that wins. The empire that outlasts the next decade wins. Before you celebrate your growth rate, ask what you are depending on to sustain it — and then ask whether that thing is actually in your control.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "A result that cannot be replicated is not a discovery — it is noise. The same is true of growth. If you cannot reproduce the mechanism that created this quarter's numbers in the next three, you have not found a repeatable process. You have found a coincidence.",
       },
     ],
   },
@@ -944,6 +1177,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Method article annotation blueprints (task 7deb5fb2) ─────────────
+  "toulmin-argument-model-explained": [
+    {
+      label: "Precision over qualitative",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "your audience isn't persuaded",
+      constructIndex: 0,
+    },
+    {
+      label: "Empirical rigor vs. speculation",
+      source: (entry) => entry.description,
+      excerpt: "confusing assertion with proof",
+      constructIndex: 3,
+    },
+  ],
   "cynefin-framework-explained": [
     {
       label: "Domain diagnosis",
@@ -956,6 +1203,91 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "wrong approach",
       constructIndex: 3,
+    },
+  ],
+  // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "first-mover-vs-fast-follower-what-sun-tzu-says": [
+    {
+      label: "Upstream terrain vs. downstream force",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "first-mover advantage is usually a trick question",
+      constructIndex: 2,
+    },
+    {
+      label: "Epistemic contest framing",
+      source: (entry) => entry.description,
+      excerpt: "who controls the terrain",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-florence-nightingale-say-about-data-driven-decisions": [
+    {
+      label: "Engineering reframe",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "nobody is moving",
+      constructIndex: 0,
+    },
+    {
+      label: "Channel-audience fit",
+      source: (entry) => entry.description,
+      excerpt: "delivery channel to match the audience",
+      constructIndex: 2,
+    },
+  ],
+  "what-would-julius-caesar-say-about-moving-into-new-markets": [
+    {
+      label: "Irreversibility as commitment",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "forces the commitment that half-measures never can",
+      constructIndex: 0,
+    },
+    {
+      label: "Structural presence",
+      source: (entry) => entry.description,
+      excerpt: "irreversibility is a feature",
+      constructIndex: 5,
+    },
+  ],
+  "what-would-machiavelli-say-about-competitor-espionage": [
+    {
+      label: "Reality vs. declaration",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "how power actually moves",
+      constructIndex: 0,
+    },
+    {
+      label: "Pattern recognition",
+      source: (entry) => entry.description,
+      excerpt: "patterns of past decisions",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-tesla-say-about-technical-debt": [
+    {
+      label: "Perfection vs. viability",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "structural sabotage",
+      constructIndex: 0,
+    },
+    {
+      label: "Future architecture cost",
+      source: (entry) => entry.description,
+      excerpt: "corrupts the system model",
+      constructIndex: 5,
+    },
+  ],
+  "what-would-napoleon-say-about-scaling-too-fast": [
+    {
+      label: "Logistics-first principle",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "stops working and nobody can say why",
+      constructIndex: 8,
+    },
+    {
+      label: "Tempo vs. infrastructure",
+      source: (entry) => entry.description,
+      excerpt: "logistical architecture must precede operational tempo",
+      constructIndex: 5,
     },
   ],
   // ── Batch 3 annotation blueprints (task 9b797e96) ─────────────────────

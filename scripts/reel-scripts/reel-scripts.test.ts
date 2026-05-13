@@ -356,6 +356,174 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — first-mover-vs-fast-follower-what-sun-tzu-says", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "first-mover-vs-fast-follower-what-sun-tzu-says",
+    );
+    expect(script.slug).toBe("first-mover-vs-fast-follower-what-sun-tzu-says");
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    // "Google wasn't the first search engine" is within first 180 chars
+    expect(script.hook.voiceover).toContain(
+      "Google wasn't the first search engine",
+    );
+    expect(script.cta).toContain(
+      "/insights/first-mover-vs-fast-follower-what-sun-tzu-says",
+    );
+  });
+});
+
+describe("method article slug — toulmin-argument-model-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript("toulmin-argument-model-explained");
+    expect(script.slug).toBe("toulmin-argument-model-explained");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // "Toulmin model was built in 1958" is within first 180 chars of hookQuestion
+    expect(script.hook.voiceover).toContain("Toulmin model was built in 1958");
+    expect(script.cta).toContain("/insights/toulmin-argument-model-explained");
+  });
+});
+
+describe("insight article slug — what-would-florence-nightingale-say-about-data-driven-decisions", () => {
+  it("generates a valid reel script with the evidence court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+    expect(script.slug).toBe(
+      "what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+    expect(script.frameworkSlug).toBe("florence-nightingale");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // "Nightingale faced" appears within first 180 chars of hookQuestion
+    expect(script.hook.voiceover).toContain("Nightingale faced");
+    expect(script.cta).toContain(
+      "/insights/what-would-florence-nightingale-say-about-data-driven-decisions",
+    );
+  });
+});
+
+describe("insight article slug — what-would-julius-caesar-say-about-moving-into-new-markets", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+    expect(script.slug).toBe(
+      "what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+    expect(script.frameworkSlug).toBe("julius-caesar");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    // hookQuestion truncates at 180 chars — assert on text within first 180
+    expect(script.hook.voiceover).toContain("Caesar crossed the Rubicon");
+    expect(script.cta).toContain(
+      "/insights/what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+  });
+});
+
+describe("insight article slug — what-would-machiavelli-say-about-competitor-espionage", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-machiavelli-say-about-competitor-espionage",
+    );
+    expect(script.slug).toBe(
+      "what-would-machiavelli-say-about-competitor-espionage",
+    );
+    expect(script.frameworkSlug).toBe("niccolo-machiavelli");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain(
+      "what your competitors are actually planning",
+    );
+    expect(script.cta).toContain(
+      "/insights/what-would-machiavelli-say-about-competitor-espionage",
+    );
+  });
+});
+
+describe("insight article slug — what-would-tesla-say-about-technical-debt", () => {
+  it("generates a valid reel script with the technology court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-tesla-say-about-technical-debt",
+    );
+    expect(script.slug).toBe("what-would-tesla-say-about-technical-debt");
+    expect(script.frameworkSlug).toBe("nikola-tesla");
+    expect(script.decisionType).toBe("technology");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Technology council: Tesla (main), Newton (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("duct tape and prayer");
+    expect(script.cta).toContain(
+      "/insights/what-would-tesla-say-about-technical-debt",
+    );
+  });
+});
+
+describe("insight article slug — what-would-napoleon-say-about-scaling-too-fast", () => {
+  it("generates a valid reel script with the scaling court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-napoleon-say-about-scaling-too-fast",
+    );
+    expect(script.slug).toBe(
+      "what-would-napoleon-say-about-scaling-too-fast",
+    );
+    expect(script.frameworkSlug).toBe("napoleon-bonaparte");
+    expect(script.decisionType).toBe("scaling");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Scaling council: Napoleon (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Napoleon Bonaparte");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("Your growth metrics look incredible");
+    expect(script.cta).toContain(
+      "/insights/what-would-napoleon-say-about-scaling-too-fast",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
