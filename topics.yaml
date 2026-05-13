@@ -1507,3 +1507,87 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+- slug: tubman-vs-douglass-on-direct-action-vs-advocacy
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "direct action vs building consensus"
+  secondary_queries:
+    - "harriet tubman vs frederick douglass leadership style"
+    - "act now vs persuade others first"
+    - "bold action vs coalition building"
+    - "founder disagreement how to resolve"
+  recommended_council: [cicero, benjamin-franklin, marcus-aurelius]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: ada-lovelace-vs-tesla-on-vision-without-resources
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "keep going when out of money startup"
+  secondary_queries:
+    - "should I keep building when investors say no"
+    - "visionary startup no funding"
+    - "pivot vs persist when broke"
+    - "how long to keep building before quitting"
+  recommended_council: [nikola-tesla, leonardo-da-vinci, isaac-newton]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: nightingale-vs-curie-on-data-vs-gut-instinct
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I trust data or gut instinct"
+  secondary_queries:
+    - "data vs intuition decision making"
+    - "when to override A/B test results"
+    - "data-driven vs instinct business"
+    - "gut feel vs analytics startup"
+  recommended_council: [marie-curie, isaac-newton, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-get-a-business-mentor
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I get a business mentor"
+  secondary_queries:
+    - "how to find a startup mentor"
+    - "business mentor worth it"
+    - "should I hire a coach or find a mentor"
+    - "mentorship for founders"
+  recommended_council: [benjamin-franklin, andrew-carnegie, marcus-aurelius]
+  hook_angles: [shortcut, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-invest-in-paid-advertising
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I invest in paid advertising"
+  secondary_queries:
+    - "paid ads vs organic marketing startup"
+    - "when to start running ads startup"
+    - "Google ads vs content marketing"
+    - "paid acquisition vs SEO"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, florence-nightingale]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-an-advisory-board
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build an advisory board"
+  secondary_queries:
+    - "startup advisory board worth it"
+    - "how to build advisory board"
+    - "startup advisors equity"
+    - "should I get startup advisors"
+  recommended_council: [niccolo-machiavelli, benjamin-franklin, julius-caesar]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"

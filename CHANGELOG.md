@@ -4,6 +4,15 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 12)
+
+### Added
+- Wave 12 collision batch shipped: 3 collision insight articles — `tubman-vs-douglass-on-direct-action-vs-advocacy` (harriet-tubman + frederick-douglass; persuasion), `ada-lovelace-vs-tesla-on-vision-without-resources` (ada-lovelace + nikola-tesla; innovation), `nightingale-vs-curie-on-data-vs-gut-instinct` (florence-nightingale + marie-curie; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (85 total passing). Total: 25 collision articles shipped.
+- Wave 12 decision pages: `should-i-get-a-business-mentor` (43rd; Franklin/Carnegie/Aurelius), `should-i-invest-in-paid-advertising` (44th; Machiavelli/Rockefeller/Nightingale), `should-i-build-an-advisory-board` (45th; Machiavelli/Franklin/Caesar); decisions count updated to 45; 121 topics tracked (120 shipped, 0 queued).
+
+### Fixed
+- Checkout success page and drip email template: replaced non-existent `Nassim Taleb` reference with accurate live minds (`Marie Curie, Marcus Aurelius, Galileo Galilei`). Eliminates a promise gap that would cause newly-subscribed Pro users to look for a mind that doesn't exist.
+
 ## 2026-05-21 (SEO: FAQPage schema + build fix)
 
 ### Added
