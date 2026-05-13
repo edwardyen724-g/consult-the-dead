@@ -805,6 +805,13 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     recommendedCouncil: ["alexander-the-great", "marie-curie", "niccolo-machiavelli"],
     hookQuestion:
       "Are you open-sourcing to build distribution, or because you have no other plan to get users?",
+    primaryQuery: "should I open source my product",
+    secondaryQueries: [
+      "open source vs proprietary startup",
+      "open source business model",
+      "when to open source your startup",
+      "open core business model decision",
+    ],
     targetKeywords: [
       "should I open source my product",
       "open source vs proprietary startup",
@@ -823,6 +830,13 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
     recommendedCouncil: ["cleopatra-vii", "sun-tzu", "isaac-newton"],
     hookQuestion:
       "Is international expansion creating a new front for growth, or is it escaping the hard work of saturating your home market?",
+    primaryQuery: "should I expand internationally startup",
+    secondaryQueries: [
+      "international expansion timing startup",
+      "when to go international startup",
+      "global expansion startup strategy",
+      "startup international market entry",
+    ],
     targetKeywords: [
       "should I expand internationally startup",
       "international expansion timing startup",
