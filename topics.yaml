@@ -339,3 +339,108 @@
   hook_angles: [shortcut, proof]
   status: shipped
   shipped_at: 2026-05-12
+
+# ─────────────────────────────────────────────────────────────────────
+# Wave 2 topic queue — added 2026-05-13, targeting Phase 4 content cadence.
+# Mix of insight "What Would X Say" and decision types based on founder
+# queries not yet covered and follow-on search intent from shipped articles.
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: what-would-napoleon-say-about-scaling-too-fast
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "scaling too fast startup"
+  secondary_queries:
+    - "signs you are scaling too fast"
+    - "startup growth problems"
+  recommended_council: [napoleon-bonaparte]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: what-would-machiavelli-say-about-competitor-espionage
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "how to research competitors"
+  secondary_queries:
+    - "competitive intelligence startup"
+    - "Machiavelli on intelligence"
+  recommended_council: [niccolo-machiavelli]
+  hook_angles: [proof, shortcut]
+  status: queued
+
+- slug: what-would-tesla-say-about-technical-debt
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to deal with technical debt"
+  secondary_queries:
+    - "technical debt startup decision"
+    - "when to refactor vs ship"
+  recommended_council: [nikola-tesla]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: what-would-julius-caesar-say-about-moving-into-new-markets
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "startup geographic expansion"
+  secondary_queries:
+    - "when to expand internationally"
+    - "market expansion strategy"
+  recommended_council: [julius-caesar]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: what-would-florence-nightingale-say-about-data-driven-decisions
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "data driven decision making examples"
+  secondary_queries:
+    - "how to use data to make better decisions"
+    - "analytics decision making"
+  recommended_council: [florence-nightingale]
+  hook_angles: [proof, shortcut]
+  status: queued
+
+- slug: should-i-build-in-public
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build in public"
+  secondary_queries:
+    - "build in public pros and cons"
+    - "is building in public worth it"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: should-i-charge-for-my-product-or-go-freemium
+  type: decision
+  search_volume_estimate: high
+  primary_query: "freemium vs paid startup"
+  secondary_queries:
+    - "should I offer a free tier"
+    - "freemium conversion rate"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: first-mover-vs-fast-follower-what-sun-tzu-says
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "first mover vs fast follower"
+  secondary_queries:
+    - "first mover advantage myth"
+    - "Sun Tzu competition strategy"
+  recommended_council: [sun-tzu]
+  hook_angles: [proof, tension]
+  status: queued
+
+- slug: toulmin-argument-model-explained
+  type: method
+  search_volume_estimate: medium
+  primary_query: "Toulmin model of argumentation"
+  secondary_queries:
+    - "Toulmin argument structure"
+    - "how to construct an argument"
+  recommended_council: []
+  hook_angles: [shortcut, proof]
+  status: queued
