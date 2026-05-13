@@ -1064,8 +1064,8 @@
     - "AI tools worth it for startups"
   recommended_council: [thomas-edison, ada-lovelace, isaac-newton]
   hook_angles: [tension, shortcut]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: should-i-raise-pre-seed
   type: decision
@@ -1077,8 +1077,8 @@
     - "pre-seed round how much to raise"
   recommended_council: [andrew-carnegie, benjamin-franklin, john-d-rockefeller]
   hook_angles: [tension, proof]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: should-i-launch-in-stealth-mode
   type: decision
@@ -1090,8 +1090,8 @@
     - "when to go public with startup idea"
   recommended_council: [niccolo-machiavelli, sun-tzu, benjamin-franklin]
   hook_angles: [tension, identity]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: jobs-to-be-done-explained
   type: method

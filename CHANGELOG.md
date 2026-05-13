@@ -4,6 +4,16 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-14 (Wave 7)
+
+### Added
+- Wave 7 insight batch shipped: 6 new "What Would X Say" articles — `what-would-da-vinci-say-about-shipping-imperfect-work` (leonardo-da-vinci; iteration), `what-would-sun-tzu-say-about-pricing-strategy` (sun-tzu; pricing), `what-would-rockefeller-say-about-unit-economics` (john-d-rockefeller; finance — NEW DECISION_COURT entry), `what-would-newton-say-about-debugging-complex-systems` (isaac-newton; product), `what-would-cleopatra-vii-say-about-managing-investors` (cleopatra-vii; relationship — NEW DECISION_COURT entry), `what-would-harriet-tubman-say-about-resilience-in-hard-times` (harriet-tubman; resilience); 1 method article — `jobs-to-be-done-explained` (Clayton Christensen JTBD framework; reasoning council); 2 new DECISION_COURT entries (finance: Rockefeller/Curie/Sun Tzu; relationship: Cleopatra/Machiavelli/Sun Tzu); 7 reel integration tests added (64 total passing); 87 topics tracked, 86 shipped; 2139 vitest tests passing.
+- Wave 7 decision pages shipped: `should-i-use-ai-in-my-business` (30th, Tesla/Curie/Aurelius), `should-i-raise-pre-seed` (31st, Machiavelli/Sun Tzu/Curie), `should-i-launch-in-stealth-mode` (32nd, Sun Tzu/Machiavelli/Newton); decisions page copy updated to 32; full suite 2139 vitest tests passing.
+
+### Fixed
+- Stale `should-we-open-source-our-core-product` entry in topics.yaml marked killed — it was superseded by `should-i-open-source-my-product` (Wave 5); CONTENT_PIPELINE.md counts corrected.
+- 7 failing Python (pytest) tests restored: `test_tier3_prep` updated for new `Tier3Result` return type from `prepare_tier3_materials`; `test_sources` assertion corrected from `httpx.ConnectError` to `FetchError`; `test_steve_jobs_incident_identification` count constant frozen to 29 (matching PR #175 artifact); `test_framework_forge_runbook` pointed at the quickstart doc (canonical CLI reference after phase-1 plan operational handoff). 625 pytest tests passing.
+
 ## 2026-05-14
 
 ### Added
