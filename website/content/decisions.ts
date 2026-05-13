@@ -2034,6 +2034,97 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "when to hire fractional technical lead",
     ],
   },
+  // ── Wave 21 decision pages ────────────────────────────────────────────
+  {
+    slug: "should-i-sell-my-company",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I Sell My Company?",
+    description:
+      "An acquisition offer forces a founder to evaluate whether the certainty of an exit today is worth more than the compounding upside of continued independence — a calculation that depends on your current leverage, the buyer's strategic motives, and whether the business has reached the inflection point where its most valuable growth still lies ahead. The decision is rarely purely financial: it involves assessing whether you have built the organizational durability to capture that future value, whether the acquirer's resources genuinely accelerate or constrain your vision, and whether your own energy and commitment are sufficient to execute the harder chapters that independence would require.",
+    primaryQuery: "should I sell my company",
+    secondaryQueries: [
+      "when to sell a startup",
+      "M&A vs staying independent founder decision",
+      "should I take an acquisition offer",
+      "startup exit vs continue building",
+      "how to evaluate an acquisition offer",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "Is the buyer offering certainty at the moment your leverage is highest — or are you selling the asset before the compounding that makes it genuinely valuable has had time to run?",
+    targetKeywords: [
+      "should I sell my company",
+      "when to sell a startup",
+      "M&A vs staying independent",
+      "how to evaluate acquisition offer startup",
+      "startup exit timing decision",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-contractor-or-full-time",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I Hire a Contractor or Full-Time Employee?",
+    description:
+      "The contractor vs. full-time decision is a question about whether the work requires ongoing organizational ownership or bounded expert delivery — and the right answer changes significantly based on whether the capability is core to your competitive advantage, whether the work is well-defined enough to be scoped and handed off, and whether your current stage justifies the fixed overhead of a full-time hire. The error is not choosing one model over the other; it is applying the contractor model to work that requires strategic ownership, or the full-time model to work that a well-scoped contractor engagement could deliver faster and cheaper.",
+    primaryQuery: "should I hire a contractor or full-time employee",
+    secondaryQueries: [
+      "contractor vs employee startup hiring decision",
+      "when to hire full-time vs freelance developer",
+      "startup hiring contractor vs employee pros cons",
+      "fractional hire vs full-time employee early stage",
+      "cost of full-time hire vs contractor startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Does this work require someone who will build organizational ownership and compound their knowledge of your business over time — or can it be scoped, handed to an expert, and delivered without that continuity?",
+    targetKeywords: [
+      "should I hire a contractor or full-time employee",
+      "contractor vs full-time startup decision",
+      "when to hire freelancer vs employee",
+      "startup hiring model contractor employee",
+      "contractor vs employee cost comparison startup",
+    ],
+  },
+  {
+    slug: "should-i-launch-a-paid-beta",
+    status: "shipped",
+    shippedAt: "2026-05-13",
+    title: "Should I Launch a Paid Beta?",
+    description:
+      "A paid beta simultaneously tests pricing, demand signal, and product quality under real conditions — but charging too early can suppress the user volume you need to find genuine product-market fit, and it signals a level of readiness that may generate churn and negative word-of-mouth if the product is still genuinely incomplete. The decision turns on whether your primary uncertainty is about willingness to pay (which a paid beta resolves efficiently) or about whether the product works well enough for real users (which requires volume that a free beta provides faster).",
+    primaryQuery: "should I charge for a beta",
+    secondaryQueries: [
+      "paid beta vs free beta startup",
+      "charging early users startup pros cons",
+      "when to start charging customers startup",
+      "paid waitlist vs free waitlist strategy",
+      "should I launch paid beta or free beta",
+    ],
+    recommendedCouncil: [
+      "marie-curie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Is your primary uncertainty about whether users will pay — or about whether the product works well enough to retain the users who try it?",
+    targetKeywords: [
+      "should I launch a paid beta",
+      "paid beta vs free beta startup",
+      "charging for beta startup decision",
+      "when to start charging early users",
+      "paid beta strategy product market fit",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

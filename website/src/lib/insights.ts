@@ -3749,6 +3749,166 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before deciding between an infrastructure-accumulation strategy and a speed-execution strategy, run two tests. First: how stable is the competitive landscape? If the key distribution channels, data assets, or network relationships in your market will be materially the same in three years as they are today, the infrastructure approach is available — but only if you begin accumulation before competitors understand what you are building. Second: how sophisticated are your primary competitors? If they will recognize an infrastructure play and have the resources to build competing infrastructure, Rockefeller's advantage evaporates in the construction phase. In that case, Napoleon's approach is more reliable: execute faster than they can respond, win committed positions — customers, partnerships, data — that are structurally difficult to reverse, and move on before the response organizes. The infrastructure play requires both a stable landscape and a sufficient window of competitive blindness to reach completion.",
     },
   },
+  // ── Wave 21: collision articles ───────────────────────────────────────
+  {
+    slug: "edison-vs-franklin-on-iteration-vs-system-building",
+    type: "collision",
+    frameworkSlug: "thomas-edison",
+    collisionFrameworkSlugs: ["thomas-edison", "benjamin-franklin"],
+    title: "Edison vs. Franklin: Do You Find the Answer Through Rapid Iteration or Systematic First Principles?",
+    description:
+      "Thomas Edison's method was relentless empirical iteration: run thousands of experiments, fail fast, extract the one result that works, and move on. Benjamin Franklin's method was systematic: observe a phenomenon carefully, form a precise hypothesis, design a controlled test, and reason from the result to a general principle. Both produced transformative innovations — but through genuinely incompatible mechanisms. The choice between them determines not just how a founder builds a product, but how they allocate engineering time, structure their experiments, and decide when they have enough information to commit.",
+    targetKeywords: [
+      "rapid iteration vs systematic research founder",
+      "Thomas Edison Benjamin Franklin innovation method",
+      "trial and error vs first principles thinking",
+      "how to validate startup ideas fast vs thorough",
+      "build fast vs build right startup decision",
+    ],
+    decisionType: "iteration",
+    hookQuestion:
+      "When you don't yet know what works, do you run a thousand fast experiments until one succeeds — or slow down, form a precise hypothesis, and reason from first principles before you build anything?",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Thomas Edison",
+        text: "I found ten thousand ways that would not work before I found one that would. That is not a failure rate — it is an information rate. Each failed experiment told me exactly one thing: that path is closed. The next experiment opened a different path. The speed of iteration is the speed of learning. Slow down the experiment rate and you slow down the learning rate. The hypothesis that sounds elegant in advance is just an experiment that has not yet been tested — and untested hypotheses do not ship.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "Edison describes a method that works when the cost of a failed experiment is low and the number of possible solutions is finite. My work on electricity operated under different constraints: a failed hypothesis about the nature of lightning could have ended the inquiry — and the experimenter. The systematic approach is not slower iteration. It is more information per experiment. A carefully framed hypothesis that distinguishes between two competing explanations eliminates entire classes of alternatives in a single test. Ten thousand experiments that vary randomly through the search space will reach the correct answer after the correct answer, while a well-framed series of ten experiments will reach it before.",
+      },
+      {
+        speaker: "Thomas Edison",
+        text: "You are describing an idealized version of hypothesis-driven research that assumes you know enough in advance to frame the right hypothesis. My early work on the incandescent bulb disproved the hypotheses of every physicist who had studied the problem before me. The problem was not that their hypotheses were wrong — it was that the problem space was not yet well-understood enough to frame the right hypotheses. I iterated my way to an understanding of the problem that made better hypotheses possible. The systematic method requires a level of domain knowledge that iteration is often the fastest way to acquire.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "I will grant that point with one qualification: the domain knowledge required to frame a useful hypothesis can itself be acquired through careful observation rather than random experiment. What I observed about Leyden jars and lightning rods was not the result of running thousands of random tests — it was the result of watching natural phenomena carefully, forming precise questions about what I was seeing, and designing tests that distinguished between competing explanations of the same observation. Careful observation is not the same as random iteration. It is iteration with a much higher signal-to-noise ratio.",
+      },
+      {
+        speaker: "Thomas Edison",
+        text: "Then the disagreement narrows to a question of signal-to-noise in the experiment. My method had high noise by design: I was searching a space I did not yet understand, and noise was the only honest representation of my uncertainty. Your method had lower noise because you were working in a domain where careful observation had already narrowed the search space significantly. The method should match the state of domain knowledge. In a genuinely novel domain — where no one has yet mapped the terrain — iteration produces understanding faster than hypothesis. In a domain with established foundations, hypothesis-driven testing is more efficient.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "That is the most precise statement of the trade-off I have heard. I would add one practical constraint: the cost structure of failure matters as much as the state of domain knowledge. My lightning-rod experiments could not be run iteratively — each test involved real lightning and real structures. The consequence of an incorrect hypothesis was not a learning experience; it was a catastrophe. Iteration is the correct method when the cost of failure is low, the search space is genuinely unmapped, and the domain has no established foundations to reason from. Systematic hypothesis-testing is correct when failure is expensive, the domain has at least partial theoretical foundations, and a well-framed question can eliminate entire families of wrong answers in a single experiment.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "thomas-edison",
+      summary:
+        "Edison and Franklin converge on a domain-and-cost diagnostic. Rapid iteration is correct when: the domain is genuinely novel with no established theoretical foundations; the cost of a failed experiment is low; and the search space is large enough that no a priori hypothesis is likely to be well-framed. Systematic hypothesis-driven research is correct when: the domain has established theoretical foundations that constrain the search space; the cost of failure is high enough that each experiment must carry maximum information; and careful prior observation can produce a hypothesis that eliminates entire families of wrong answers in a single test.",
+      actionableInsight:
+        "Before choosing between rapid iteration and systematic hypothesis-testing for your next product or technical decision, run two diagnostic questions. First: how mapped is the domain? If you are building in a space where established frameworks exist — user research methods, pricing theory, distribution channel dynamics — hypothesis-driven testing will reach the correct answer faster than random iteration. If you are in genuinely unmapped territory — a new category, an untested customer segment, a novel technical architecture — iteration is the only honest representation of your uncertainty. Second: what is the cost of a failed experiment? If each test is cheap and reversible — an A/B test, a landing page, a prototype — Edison's method maximizes learning velocity. If each test is expensive or irreversible — a major infrastructure bet, a go-to-market commitment, a key hire — Franklin's method extracts more information per experiment and reduces the total cost of finding the correct answer.",
+    },
+  },
+  {
+    slug: "caesar-vs-alexander-on-empire-building-speed",
+    type: "collision",
+    frameworkSlug: "julius-caesar",
+    collisionFrameworkSlugs: ["julius-caesar", "alexander-the-great"],
+    title: "Caesar vs. Alexander: Do You Win by Rapid Conquest or by Deep Consolidation?",
+    description:
+      "Julius Caesar and Alexander the Great were both extraordinary military and political strategists — but their approaches to expansion were diametrically opposed. Alexander prioritized speed of conquest: move faster than resistance can organize, take territory before its defenders can coordinate, and deal with integration later. Caesar prioritized integration alongside conquest: do not hold a position until you can administer it, build loyalty in the territories you take, and ensure each advance is defensible before committing to the next. Both strategies produced historically dominant empires — and both eventually failed. For founders deciding how fast to expand into new markets, customer segments, or geographies, this collision diagnoses when speed of acquisition creates compounding advantage versus when it creates compounding fragility.",
+    targetKeywords: [
+      "startup expansion speed vs consolidation strategy",
+      "Julius Caesar Alexander the Great empire strategy",
+      "land grab vs deep integration startup growth",
+      "rapid scaling vs sustainable growth startup",
+      "when to expand fast vs when to consolidate",
+    ],
+    decisionType: "scaling",
+    hookQuestion:
+      "When you are winning, do you push faster — acquiring territory before resistance can organize — or do you stop and consolidate what you have until each position is genuinely defensible?",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Julius Caesar",
+        text: "The speed of a campaign is determined by the speed of the supply line. I did not advance faster than I could feed the army and administer the territory behind me. The Gallic campaigns took eight years because each season's advance was only as large as the logistical capacity I had built during the previous winter. Speed without logistics is a raid, not a conquest. You take the territory, but you cannot hold it. The local power you displaced will reorganize the moment your column moves on. The appearance of rapid conquest conceals the slower work of building administrative and supply capacity that actually makes the conquest permanent.",
+      },
+      {
+        speaker: "Alexander the Great",
+        text: "Caesar describes his approach accurately, but misidentifies the constraint. In Gaul, the terrain and the political structure of the tribes allowed for the patient, logistical approach he describes. My campaign against Persia operated under a different constraint: the Persian Empire had more manpower, more wealth, and more logistical depth than Macedonia. A patient campaign would have allowed the Persians to mobilize resources that would have overwhelmed my force within two campaigning seasons. Speed was not a style preference — it was the only asymmetric advantage available to a smaller force attacking a larger one. I had to win before they could concentrate.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "Alexander is describing the correct strategy for defeating a larger force in open battle. He is not describing a strategy for holding what he won. The collapse of his empire within a decade of his death was not a failure of his generalship — it was the predictable consequence of conquest faster than administrative integration. The territories he took did not become Macedonian; they remained Persian, Babylonian, and Egyptian with a Macedonian general in nominal command. When the general died, there was nothing underneath the military occupation to hold the structure together. Permanent acquisition requires that the territory be genuinely integrated — economically, administratively, and culturally — before you move to the next target.",
+      },
+      {
+        speaker: "Alexander the Great",
+        text: "The empire survived for three centuries under the Diadochi — the successor states that divided my conquests. That is not collapse; it is reorganization. The speed of the original conquest created the territory that the successors then administered. Without the speed, there would have been no territory for anyone to consolidate. Caesar's approach produces more durable individual provinces — but only because he never tested whether it could produce an empire at the scale and speed that the strategic situation required. A patient conqueror who loses to a faster opponent before they can consolidate has not demonstrated the superiority of patience. They have demonstrated its cost.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "The Diadochi inherited territories they spent the next three centuries fighting each other to control. The fragmentation was not incidental to the speed of acquisition — it was caused by it. When each province is taken faster than it can be integrated, the only available administrative mechanism is military occupation. Military occupation is not governance; it is temporary suppression. The moment the suppressing force is divided or distracted — as happened at Alexander's death — the suppressed structures reassert themselves. The three centuries of Diadochi conflict represent the administrative deficit that was created by the speed of the original conquest. My Gallic provinces remained Roman provinces for four centuries after my death because the administrative integration was done before the military advance moved on.",
+      },
+      {
+        speaker: "Alexander the Great",
+        text: "Then the honest statement of the trade-off is this: my approach maximizes the territory available for eventual consolidation, at the cost of the quality of initial integration. Caesar's approach maximizes the durability of each piece of territory taken, at the cost of total territory achievable against a well-resourced opponent. The choice between them is determined by the competitive situation. Against an opponent with greater aggregate resources who can outlast a patient campaign — move at Alexander's speed. Against opponents with local strength who can reassert control if not genuinely integrated — move at Caesar's speed. The error is applying Alexander's strategy to a situation that requires Caesar's, or Caesar's to a situation that requires Alexander's.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "julius-caesar",
+      summary:
+        "Caesar and Alexander converge on a competitive-situation diagnostic. Against opponents with greater aggregate resources who can mobilize overwhelming force if given time — Alexander's speed-first approach is correct: move faster than they can concentrate, achieve committed positions before the response organizes, and deal with integration after the strategic window is captured. Against opponents with strong local roots who will reassert control if not genuinely integrated — Caesar's consolidation-first approach is correct: do not advance past the defensible perimeter, build administrative depth in each territory before committing to the next, and accept the slower pace as the cost of durable acquisition.",
+      actionableInsight:
+        "Before deciding your expansion pace, run a competitive-resource diagnostic. If your primary competitors have greater aggregate resources — larger teams, more capital, broader distribution — than you do in each contested market, Alexander's approach applies: capture territory faster than they can concentrate their advantages. The first-mover position in each market segment is more valuable than deep integration of any single one, because the opponent's resource advantage compounds over time if you give them time. If your primary competitors have strong local roots — existing customer relationships, brand recognition, regulatory position — that will reassert themselves once your initial energy dissipates, Caesar's approach applies: do not advance past the line you can genuinely defend. Each position must be integrated before you move to the next, because a customer acquired without genuine lock-in is a customer who will churn the moment the local incumbent offers a competitive alternative. The failure mode of Alexander's approach is fragmentation at the moment of stress. The failure mode of Caesar's approach is being outflanked by a faster competitor who captures the strategic territory while you are consolidating your current position.",
+    },
+  },
+  {
+    slug: "epictetus-vs-seneca-on-accepting-vs-transforming-constraints",
+    type: "collision",
+    frameworkSlug: "epictetus",
+    collisionFrameworkSlugs: ["epictetus", "seneca"],
+    title: "Epictetus vs. Seneca: Do You Accept Constraints as Fixed — or Reshape Them?",
+    description:
+      "Epictetus and Seneca were both Stoic philosophers — but they drew opposite practical conclusions from the same framework. Epictetus, who had been a slave, believed the only rational response to constraints outside your control was radical acceptance: direct all energy toward your own judgments, responses, and character, and release all energy spent resisting what cannot be changed. Seneca, who was a wealthy advisor to emperors, believed that while external circumstances cannot always be controlled, they can often be reshaped through deliberate action, persuasion, and strategic patience. For founders navigating regulatory environments, market conditions, resource constraints, and difficult stakeholders, this collision determines when acceptance is wisdom and when it is resignation dressed as philosophy.",
+    targetKeywords: [
+      "stoic acceptance vs reshaping constraints founder",
+      "Epictetus Seneca practical stoicism adversity",
+      "accept what you cannot change vs create change",
+      "founder mindset constraints obstacles startup",
+      "when to pivot around obstacles vs push through",
+    ],
+    decisionType: "control",
+    hookQuestion:
+      "When you face a constraint that is genuinely limiting your progress, do you redirect your energy toward what you can control — or do you work to reshape the constraint itself?",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Epictetus",
+        text: "The Stoic discipline of desire has a precise scope: it applies to everything outside the boundary of your own will. Your judgment, your response, your character — these are yours. The constraint placed on you by another person, a market condition, or a regulatory structure — these are not yours. The person who exhausts their energy attempting to reshape what is genuinely outside their control has not found a bolder strategy; they have found a more sophisticated form of suffering. The correct response to an external constraint is not to accept defeat — it is to redirect the full force of your agency toward what is actually yours to act on.",
+      },
+      {
+        speaker: "Seneca",
+        text: "Epictetus draws the boundary of control at the self, and I accept that boundary as the starting point. But he treats it as fixed when it is often moveable. During my years as Nero's advisor, I operated within constraints that appeared absolute from the outside — the emperor's moods, the court's politics, the legal structures of the empire. Many of those constraints yielded to sustained, patient, indirect pressure. Not all external circumstances are as fixed as they appear. The Stoic who surrenders to a constraint without first testing whether it is genuinely immovable has not demonstrated wisdom — they have demonstrated insufficient effort.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "Seneca describes a real phenomenon: constraints that appear fixed are sometimes moveable. But he does not describe the cost of discovering that a constraint is actually fixed after you have exhausted yourself attempting to move it. I was a slave. The constraints on my life were not moveable through patience or persuasion. The Stoic discipline I developed was not resignation — it was the recognition that suffering directed at the genuinely unmoveable is not effort; it is waste. The question is not whether some constraints can be moved. It is how to distinguish, before you commit your energy, between the constraints that will yield and the constraints that will not.",
+      },
+      {
+        speaker: "Seneca",
+        text: "That is precisely the diagnostic problem. And I agree it is the central one. My answer is that the cost of testing whether a constraint is moveable is almost always lower than the cost of assuming it is fixed when it is not. A founder who accepts a regulatory constraint as permanent without testing it through lobbying, through a legal challenge, or through a product design that avoids the constraint's scope, has foreclosed options prematurely. The constraint may be genuinely fixed — in which case the Epictetan response is correct and the testing cost is small. Or it may be moveable — in which case the founder who tested it has captured an option that the founder who assumed permanence never had.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "I accept the framing with one addition: the testing of whether a constraint is moveable is itself an action that must be evaluated through the Stoic lens. Test the constraint if testing it is the right use of your agency, given all other claims on your attention. Do not test it if the testing itself would crowd out higher-leverage uses of your will. The discipline of desire does not forbid action on the external world — it insists that such action be chosen deliberately, with clear eyes about what is actually within your power to change, rather than undertaken compulsively because the constraint is uncomfortable.",
+      },
+      {
+        speaker: "Seneca",
+        text: "Then we converge on a practical framework. Begin with Epictetus: identify what is genuinely within your control — your judgment, your response, your effort — and apply your full agency there regardless of the external constraint. Then apply my extension: before treating any specific external constraint as permanent, run the cheapest available test of its moveability. If it moves, act on the opening. If it does not, return to the Epictetan position with the additional confidence that you have tested the boundary honestly rather than assumed it. The failure mode is not accepting constraints — it is accepting constraints without testing whether they are actually as fixed as they appear.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "epictetus",
+      summary:
+        "Epictetus and Seneca converge on a two-stage framework. First, apply the Epictetan discipline: identify what is genuinely within your control — your judgment, response, and effort — and direct your full agency there, regardless of the external constraint. Second, before treating any external constraint as permanent, apply Seneca's extension: run the cheapest available test of its moveability. If it yields to sustained, indirect pressure, act on the opening. If it does not, return to the Epictetan position with honest confirmation that the boundary is real. The failure mode Epictetus guards against is wasted energy on genuinely fixed constraints. The failure mode Seneca guards against is premature acceptance of constraints that are actually moveable.",
+      actionableInsight:
+        "When you encounter a constraint that is blocking your progress — a regulatory requirement, a market condition, a stakeholder resistance, a resource limitation — apply a two-step diagnostic before choosing your response. Step one (Epictetus): separate what is within your control from what is not. Your product decisions, your team's focus, your response to the constraint — these are always yours to act on, constraint or no constraint. Redirect your primary energy here. Do not wait for the constraint to resolve before acting on what you can control. Step two (Seneca): before treating the constraint as permanently fixed, identify the cheapest test of its moveability. Can you redesign the product to avoid the regulatory scope? Can you find a legal precedent that changes the interpretation? Can you demonstrate a data point that shifts the stakeholder's position? Run that test at low cost. If the constraint moves, you have captured an option. If it does not, you have confirmed the boundary honestly, and the Epictetan focus on your controllables is not resignation — it is the correct allocation of limited agency.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -5223,6 +5383,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Infrastructure vs. speed selection",
       source: (entry) => entry.description,
       excerpt: "patient and capital accumulation",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 21 annotation blueprints ────────────────────────────────────
+  "edison-vs-franklin-on-iteration-vs-system-building": [
+    {
+      label: "Domain novelty diagnostic",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "run a thousand fast experiments",
+      constructIndex: 0,
+    },
+    {
+      label: "Failure cost vs. search space",
+      source: (entry) => entry.description,
+      excerpt: "incompatible mechanisms",
+      constructIndex: 1,
+    },
+  ],
+  "caesar-vs-alexander-on-empire-building-speed": [
+    {
+      label: "Competitive resource diagnostic",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "acquiring territory before resistance",
+      constructIndex: 0,
+    },
+    {
+      label: "Speed vs. integration trade-off",
+      source: (entry) => entry.description,
+      excerpt: "speed of acquisition creates compounding advantage",
+      constructIndex: 2,
+    },
+  ],
+  "epictetus-vs-seneca-on-accepting-vs-transforming-constraints": [
+    {
+      label: "Control boundary test",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "what you can control",
+      constructIndex: 0,
+    },
+    {
+      label: "Moveability test before acceptance",
+      source: (entry) => entry.description,
+      excerpt: "acceptance is wisdom and when it is resignation",
       constructIndex: 1,
     },
   ],
