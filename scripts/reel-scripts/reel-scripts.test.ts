@@ -333,6 +333,29 @@ describe("DECISION_COURT — 12 extended decision types produce real council nam
   }
 });
 
+// ── Method article slug — cynefin-framework-explained (task 7deb5fb2) ───────
+describe("method article slug — cynefin-framework-explained", () => {
+  it("generates a valid reel script with the systems council", () => {
+    const script = buildVerdictReelScript("cynefin-framework-explained");
+    expect(script.slug).toBe("cynefin-framework-explained");
+    expect(script.frameworkSlug).toBe("leonardo-da-vinci");
+    expect(script.decisionType).toBe("systems");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Systems council: da Vinci (main), Sun Tzu (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Sun Tzu");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // Each council mind starts with an uppercase letter (not a raw slug)
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("You have a decision in front of you");
+    expect(script.cta).toContain("/insights/cynefin-framework-explained");
+    expect(script.captions[2]).toContain("/insights/cynefin-framework-explained");
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
