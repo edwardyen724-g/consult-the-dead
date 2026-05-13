@@ -4,6 +4,20 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 21] — 2026-05-13
+
+### Added
+- **3 collision insight articles** (Wave 21):
+  - `edison-vs-franklin-on-iteration-vs-system-building` — iteration court (Edison/Curie/da Vinci)
+  - `caesar-vs-alexander-on-empire-building-speed` — scaling court (Napoleon/Aurelius/Curie)
+  - `epictetus-vs-seneca-on-accepting-vs-transforming-constraints` — control court (Epictetus/Aurelius/Seneca)
+- **3 decision pages** (Wave 21, decisions total: 72):
+  - `should-i-sell-my-company` (Machiavelli/Aurelius/Rockefeller; high-volume exit decision)
+  - `should-i-hire-a-contractor-or-full-time` (Carnegie/Machiavelli/Aurelius; high-volume hiring decision)
+  - `should-i-launch-a-paid-beta` (Curie/Machiavelli/Franklin; medium-volume pricing decision)
+- 112 reel-script integration tests passing (3 new for Wave 21 collisions)
+- `topics.yaml`: 6 Wave 21 entries marked shipped; 3 duplicate queued entries marked killed (`tubman-vs-douglass-on-direct-action-vs-advocacy`, `should-i-launch-on-product-hunt`, `should-i-build-for-enterprise-or-smb`)
+
 ## 2026-05-13 (docs + queue)
 
 ### Changed
