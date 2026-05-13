@@ -397,4 +397,32 @@ describe("DecisionPage", () => {
       "utm_content=should-i-raise-vc-or-bootstrap",
     );
   });
+
+  it("emits a FAQPage JSON-LD script alongside the Article schema", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-raise-vc-or-bootstrap" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    // FAQPage schema must be present for Google rich-result eligibility.
+    expect(html).toContain('"@type":"FAQPage"');
+    // The primaryQuery becomes the FAQ question name.
+    expect(html).toContain('"@type":"Question"');
+    expect(html).toContain('"@type":"Answer"');
+    // Article schema must still be present alongside FAQPage.
+    expect(html).toContain('"@type":"Article"');
+  });
+
+  it("uses the primaryQuery as the FAQ question name", async () => {
+    const element = await DecisionPage({
+      params: Promise.resolve({ slug: "should-i-raise-vc-or-bootstrap" }),
+    });
+    const html = renderToStaticMarkup(element);
+
+    const entry = DECISION_ENTRIES.find((e) => e.slug === "should-i-raise-vc-or-bootstrap");
+    if (!entry) throw new Error("expected decision entry");
+
+    // The primaryQuery should appear in the FAQPage JSON-LD as the question name.
+    expect(html).toContain(entry.primaryQuery);
+  });
 });
