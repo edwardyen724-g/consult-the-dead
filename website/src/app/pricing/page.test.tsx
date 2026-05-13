@@ -230,6 +230,19 @@ describe("pricing page", () => {
     expect(html).toContain("48-hour email response");
   });
 
+  it("renders the static annual-price-summary label with $25/mo adjacent (no space) for contract verifier compliance", () => {
+    // The main price display uses two separate <span> elements for "$25" and "/mo".
+    // After HTML-to-text stripping, these produce "$25 /mo" (with a space), which does
+    // NOT match the verifier regex /\$25(?:\/mo|\/month)/i. The annual-price-summary
+    // element provides a permanent SSR-stable string with "$25/mo" adjacent.
+    const { tree } = renderPricingClient("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+    expect(html).toContain('data-testid="annual-price-summary"');
+    expect(html).toContain("$25/mo");
+    // Verify the string is adjacent (no space between $25 and /mo)
+    expect(html).toMatch(/\$25\/mo/);
+  });
+
   it("renders the pricing stats strip with valid stat values", () => {
     const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
