@@ -424,7 +424,8 @@
     - "Klein critical decision method"
   recommended_council: []  # methodology page, no council
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: first-principles-thinking-the-honest-version
   type: article
@@ -447,7 +448,8 @@
     - "when to use OODA"
   recommended_council: []
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: trendslop-why-all-llms-give-the-same-strategic-advice
   type: method
@@ -458,7 +460,8 @@
     - "HBR trendslop study"
   recommended_council: []  # this is the positioning piece
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: cynefin-framework-explained
   type: method
