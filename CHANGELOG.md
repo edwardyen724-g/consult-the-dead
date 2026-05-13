@@ -4,6 +4,14 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 21] — 2026-05-13
+
+### Added
+- **1 collision insight article** (Wave 21):
+  - `nightingale-vs-curie-on-field-evidence-vs-theoretical-proof` — evidence court (Curie/Newton/Aurelius); field evidence vs theoretical proof decision framework for founders acting on incomplete data
+- 1 reel-script integration test added for Wave 21 collision article
+- `topics.yaml`: `nightingale-vs-curie-on-field-evidence-vs-theoretical-proof` marked `status: shipped, shipped_at: 2026-05-13`; 6 new Wave 22+ queue entries seeded
+
 ## 2026-05-13 (docs + queue)
 
 ### Changed

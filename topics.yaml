@@ -2232,7 +2232,7 @@
 # ─────────────────────────────────────────────────────────────────────
 
 - slug: edison-vs-franklin-on-iteration-vs-system-building
-  type: insight
+  type: collision
   search_volume_estimate: medium
   primary_query: "Thomas Edison Benjamin Franklin innovation strategy"
   secondary_queries:
@@ -2241,10 +2241,11 @@
     - "founder build fast vs build right"
   recommended_council: [thomas-edison, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: tubman-vs-douglass-on-direct-action-vs-advocacy
-  type: insight
+  type: collision
   search_volume_estimate: medium
   primary_query: "direct action vs advocacy leadership change"
   secondary_queries:
@@ -2253,10 +2254,10 @@
     - "founder execution vs stakeholder management"
   recommended_council: [harriet-tubman, frederick-douglass]
   hook_angles: [tension, identity]
-  status: queued
+  status: killed
 
 - slug: caesar-vs-alexander-on-empire-building-speed
-  type: insight
+  type: collision
   search_volume_estimate: medium
   primary_query: "Julius Caesar Alexander the Great conquest strategy"
   secondary_queries:
@@ -2265,7 +2266,8 @@
     - "startup land grab vs defend and grow"
   recommended_council: [julius-caesar, alexander-the-great]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: should-i-sell-my-company
   type: decision
@@ -2278,7 +2280,8 @@
     - "startup exit vs continue building"
   recommended_council: [niccolo-machiavelli, marcus-aurelius, john-d-rockefeller]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: should-i-launch-on-product-hunt
   type: decision
@@ -2291,7 +2294,7 @@
     - "how to get #1 on Product Hunt"
   recommended_council: [niccolo-machiavelli, benjamin-franklin, marie-curie]
   hook_angles: [shortcut, proof]
-  status: queued
+  status: killed
 
 - slug: should-i-hire-a-contractor-or-full-time
   type: decision
@@ -2303,10 +2306,11 @@
     - "startup hiring contractor vs employee pros cons"
   recommended_council: [andrew-carnegie, niccolo-machiavelli, marcus-aurelius]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: epictetus-vs-seneca-on-accepting-vs-transforming-constraints
-  type: insight
+  type: collision
   search_volume_estimate: medium
   primary_query: "Epictetus Seneca stoic acceptance vs action constraints"
   secondary_queries:
@@ -2315,7 +2319,8 @@
     - "when to pivot around obstacles vs push through"
   recommended_council: [epictetus, seneca]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: should-i-build-for-enterprise-or-smb
   type: decision
@@ -2328,7 +2333,7 @@
     - "SMB product market fit vs enterprise"
   recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
   hook_angles: [tension, proof]
-  status: queued
+  status: killed
 
 - slug: should-i-launch-a-paid-beta
   type: decision
@@ -2341,16 +2346,141 @@
     - "paid waitlist strategy"
   recommended_council: [marie-curie, niccolo-machiavelli, benjamin-franklin]
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
+
+# ── Wave 22 queue — seeded 2026-05-13 ──────────────────────────────────
+# 3 collision pairs + 3 decisions for Wave 22 batch + 4 future-wave entries
 
 - slug: nightingale-vs-curie-on-field-evidence-vs-theoretical-proof
-  type: insight
+  type: collision
   search_volume_estimate: medium
-  primary_query: "Florence Nightingale Marie Curie evidence research approach"
+  primary_query: "field evidence vs theoretical proof decision making"
   secondary_queries:
     - "empirical data vs controlled experiment decision making"
     - "field observation vs lab proof startup"
     - "when to trust early data vs wait for rigor"
+    - "practical data collection vs scientific rigor business"
   recommended_council: [florence-nightingale, marie-curie]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-13"
+
+- slug: jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should founders be feared or loved by employees"
+  secondary_queries:
+    - "Steve Jobs leadership style inspiration vs fear"
+    - "Machiavelli is it better to be feared or loved leader"
+    - "how to build employee loyalty as a founder"
+    - "founder leadership style inspiration cult personality"
+  recommended_council: [steve-jobs, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: lincoln-vs-napoleon-on-leading-through-crisis
+  type: collision
+  search_volume_estimate: high
+  primary_query: "how to lead a company through crisis"
+  secondary_queries:
+    - "Lincoln Napoleon leadership crisis decision making"
+    - "wartime CEO leadership style startup crisis"
+    - "how to lead team through uncertainty startup"
+    - "crisis leadership founder strategy"
+  recommended_council: [abraham-lincoln, napoleon-bonaparte]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-build-a-saas-or-an-agency
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build a SaaS or an agency"
+  secondary_queries:
+    - "productize consulting vs build SaaS product"
+    - "SaaS vs agency business model decision"
+    - "service business vs software product founder choice"
+    - "agency to SaaS transition when and how"
+    - "should I sell services or build a product"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-launch-with-a-waitlist
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch with a waitlist"
+  secondary_queries:
+    - "waitlist launch strategy pros cons startup"
+    - "pre-launch waitlist vs open beta"
+    - "should I build a waitlist before launching product"
+    - "waitlist hype strategy startup marketing"
+    - "when to use a waitlist for product launch"
+  recommended_council: [niccolo-machiavelli, marie-curie, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-niche-down-or-stay-broad
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I niche down or stay broad"
+  secondary_queries:
+    - "narrow target market vs broad audience startup"
+    - "should I focus on one customer segment"
+    - "niche vs generalist product strategy"
+    - "when to niche down your startup market"
+    - "product market fit niche vs broad"
+  recommended_council: [sun-tzu, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+# ── Future wave entries (Wave 23+) ──────────────────────────────────────
+- slug: tubman-vs-nightingale-on-field-action-vs-institution-building
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "direct action vs institutional change leadership"
+  secondary_queries:
+    - "grassroots action vs building institutions for change"
+    - "founder movement building vs scaling organization"
+    - "when to operate outside the system vs inside"
+  recommended_council: [harriet-tubman, florence-nightingale]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-accept-an-acquisition-offer
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I accept an acquisition offer"
+  secondary_queries:
+    - "when to sell your startup vs continue building"
+    - "acquisition offer startup decision"
+    - "how to evaluate a startup acquisition offer"
+    - "should I sell my startup or keep growing"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "pure research vs applied invention startup"
+  secondary_queries:
+    - "Archimedes da Vinci theory vs practice innovation"
+    - "research-first vs build-first approach"
+    - "when to invest in foundational research vs ship product"
+  recommended_council: [archimedes, leonardo-da-vinci]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-charge-users-or-advertisers
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I charge users or advertisers"
+  secondary_queries:
+    - "subscription model vs advertising revenue startup"
+    - "consumer subscription vs ads business model"
+    - "freemium advertising vs paid subscription decision"
+    - "monetization model choice startup"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, benjamin-franklin]
   hook_angles: [tension, shortcut]
   status: queued

@@ -3749,6 +3749,60 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before deciding between an infrastructure-accumulation strategy and a speed-execution strategy, run two tests. First: how stable is the competitive landscape? If the key distribution channels, data assets, or network relationships in your market will be materially the same in three years as they are today, the infrastructure approach is available — but only if you begin accumulation before competitors understand what you are building. Second: how sophisticated are your primary competitors? If they will recognize an infrastructure play and have the resources to build competing infrastructure, Rockefeller's advantage evaporates in the construction phase. In that case, Napoleon's approach is more reliable: execute faster than they can respond, win committed positions — customers, partnerships, data — that are structurally difficult to reverse, and move on before the response organizes. The infrastructure play requires both a stable landscape and a sufficient window of competitive blindness to reach completion.",
     },
   },
+  // ── Wave 21: collision articles ───────────────────────────────────────
+  {
+    slug: "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    type: "collision",
+    frameworkSlug: "florence-nightingale",
+    collisionFrameworkSlugs: ["florence-nightingale", "marie-curie"],
+    title: "Nightingale vs. Curie: Should You Trust Field Evidence or Wait for Theoretical Proof?",
+    description:
+      "Florence Nightingale and Marie Curie were both rigorous empiricists who transformed their fields — but they operated under radically different evidentiary standards. Nightingale trusted field data: if the pattern in the observations was clear enough to act on, she acted, even without a theoretical explanation for why the pattern existed. Curie trusted theoretical proof: she pursued the underlying mechanism until it was understood, because acting on a pattern you cannot explain produces interventions you cannot replicate or extend. The tension between them is the foundational dilemma for any founder or operator facing a decision with incomplete data — do you move on the evidence you have, or do you wait until you understand why the evidence is what it is?",
+    targetKeywords: [
+      "field evidence vs theoretical proof decision",
+      "Florence Nightingale Marie Curie evidence approach",
+      "when to act on data vs wait for explanation",
+      "empirical observation vs controlled experiment startup",
+      "move fast on incomplete data vs wait for rigor",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your data shows a clear pattern — but you don't yet know why the pattern exists. Do you act on the signal you can see, or do you wait until you understand the mechanism well enough to be confident the intervention will hold?",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Florence Nightingale",
+        text: "I arrived at Scutari with a theory about wounds. The data showed me the problem was the drains. I did not wait for a theoretical explanation of the mechanism by which unsanitary conditions produced disease — germ theory was not yet established. I acted on the pattern in the observations: mortality was highest in the wards with the worst sanitation, and it dropped when sanitation improved. The pattern was the proof. Waiting for a theoretical explanation of why the pattern existed would have cost thousands of lives. In a field context, where the data is messy and the mechanism is unknown, the pattern in the observations is often the most reliable guide to action available.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Nightingale is describing a situation where the intervention was reversible and the sample size was large enough to produce a statistically robust pattern. Her sanitation improvements cost relatively little to implement and could be withdrawn if they proved ineffective. The field evidence was sufficient to justify the intervention precisely because the cost of being wrong was low. My work on radioactivity operated under different constraints: the mechanism I was investigating determined whether an entirely new class of physical phenomena existed, and the interventions implied by acting on the pattern before understanding the mechanism could have misdirected the entire field of physics for a generation. When the intervention is large, irreversible, or foundational, the theoretical proof is not optional — it is the minimum standard of evidence.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "Curie is making the argument for theoretical proof in terms of a domain — fundamental physics — where the standards of evidence are appropriately more rigorous than in operational medicine. But most business decisions are much closer to my sanitation problem than to Curie's radioactivity research. You are not trying to establish a new category of physical phenomena. You are trying to decide whether a pricing change, a product feature, or a distribution channel produces better outcomes for your customers. The cost of acting on a field signal in that context is low enough that waiting for theoretical explanation is not more rigorous — it is slower without being more reliable.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "The distinction I would draw is not between domains — it is between the type of claim the evidence is being used to support. Nightingale's sanitation intervention was a local operational claim: do these specific wards have lower mortality when sanitation improves? A local claim can be supported by local evidence. I was making a structural claim: does radioactivity represent a new class of physical phenomenon distinct from known chemical reactions? A structural claim requires structural evidence — evidence that rules out alternative explanations, not just evidence that is consistent with the hypothesis. Before you act on field data, ask whether you are making a local claim or a structural one. If your data could be equally explained by two or three other mechanisms, you are making a structural claim, and the field evidence is not yet sufficient.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "That is the most useful reframing I have encountered. The local versus structural distinction maps directly onto the decision I face in the field: is this pattern specific to these conditions, or am I claiming it generalizes? When I published my rose diagrams showing the causes of mortality at Scutari, I was making a structural claim — that preventable disease, not battle wounds, was the primary cause of death in military hospitals generally. That claim required more rigorous evidence than a local operational intervention. I compiled data from multiple hospitals across multiple years before I made the structural claim public. The rigor I applied scaled with the scope of the claim, not with the domain.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Then we converge on a diagnostic rather than a disagreement. The question is not whether to trust field evidence or theoretical proof as a matter of principle — it is whether the claim your evidence is being used to support is local or structural. Local claims — specific operational decisions with reversible interventions and limited scope — can be supported by field evidence of the kind Nightingale describes: a clear pattern in the observations, a plausible mechanism even if not yet proven, and a low cost of reversal if the pattern does not hold. Structural claims — generalizations about mechanisms, categories, or policies that will be applied across a wide range of conditions — require theoretical proof that distinguishes between competing explanations of the same observations. The error is not choosing the wrong standard as a matter of preference. It is applying the local-evidence standard to a structural claim, or demanding theoretical proof for a decision that only requires a local operational judgment.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "florence-nightingale",
+      summary:
+        "Nightingale and Curie converge on a claim-scope diagnostic. Field evidence is sufficient when: the claim is local and operational; the intervention is reversible and low-cost; and the pattern in the observations is robust enough that multiple competing mechanisms would all predict the same intervention. Theoretical proof is required when: the claim is structural and generalizable; the intervention is large, irreversible, or foundational; or the pattern in the data could be equally explained by two or more competing mechanisms that predict different interventions.",
+      actionableInsight:
+        "Before deciding whether to act on field evidence or wait for theoretical proof, identify whether you are making a local or structural claim. A local claim — this specific change produces better outcomes in this specific context — can be supported by clear field data and a plausible (if unproven) mechanism. Act on it. A structural claim — this principle generalizes across contexts, customers, or conditions — requires evidence that rules out the most plausible alternative explanations, not just evidence that is consistent with your preferred hypothesis. For structural claims, Curie's standard applies: do not ship the generalization until the mechanism is understood well enough to know which conditions it does and does not apply to. The most common error is treating a local operational success as proof of a structural principle — and then applying the principle in contexts where the conditions that made it work locally are absent.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {

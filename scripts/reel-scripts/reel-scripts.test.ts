@@ -2263,6 +2263,30 @@ describe("Wave 20 — 3 collision articles", () => {
   });
 });
 
+describe("Wave 21 — 1 collision article", () => {
+  it("generates a reel script for nightingale-vs-curie-on-field-evidence-vs-theoretical-proof", () => {
+    const script = buildVerdictReelScript(
+      "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+    expect(script.slug).toBe(
+      "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+    expect(script.frameworkSlug).toBe("florence-nightingale");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented
