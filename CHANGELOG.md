@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 18)
+
+### Added
+- Wave 18 collision batch shipped: 3 collision insight articles — `seneca-vs-cicero-on-private-virtue-vs-public-duty` (seneca + cicero; leadership), `douglass-vs-carnegie-on-the-self-made-narrative` (frederick-douglass + andrew-carnegie; hiring), `cleopatra-vs-caesar-on-power-through-alliance-or-conquest` (cleopatra-vii + julius-caesar; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (103 total passing). Total: 44 collision articles shipped.
+- Wave 18 decision pages: `should-i-go-direct-to-consumer-or-use-resellers` (Machiavelli/Rockefeller/Carnegie), `should-i-run-a-beta-program` (Curie/Tesla/Machiavelli), `should-i-expand-my-product-line` (Rockefeller/Machiavelli/Aurelius); decisions count updated to 63; 157 topics tracked (156 shipped, 0 queued).
+
 ## 2026-05-21 (Wave 17)
 
 ### Added

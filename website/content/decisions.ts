@@ -1764,6 +1764,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "goal setting framework startup",
     ],
   },
+  {
+    slug: "should-i-go-direct-to-consumer-or-use-resellers",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Sell Direct-to-Consumer or Through Resellers?",
+    description:
+      "DTC gives you full margin, direct customer relationships, and rich first-party data — but it demands that you build distribution from scratch. Resellers give you immediate reach and market validation, but they eat margin and blur the customer relationship you need to iterate on your product. The decision turns on whether your current bottleneck is manufacturing leverage, distribution access, or customer understanding — and how much of your long-term competitive advantage depends on owning the data from every sale.",
+    primaryQuery: "should I sell direct to consumer or use resellers",
+    secondaryQueries: [
+      "DTC vs reseller channel strategy",
+      "direct to consumer vs wholesale",
+      "when to use resellers vs sell direct",
+      "reseller channel pros cons startup",
+      "DTC distribution strategy founders",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "Are you choosing DTC because it is the right channel for your customer, or because it feels like more control than you have actually earned?",
+    targetKeywords: [
+      "should I sell direct to consumer or use resellers",
+      "DTC vs reseller strategy",
+      "direct to consumer vs wholesale startup",
+      "reseller channel decision",
+      "DTC distribution startup",
+    ],
+  },
+  {
+    slug: "should-i-run-a-beta-program",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Run a Beta Program Before Full Launch?",
+    description:
+      "A beta program can generate genuine feedback, build pre-launch social proof, and create a cohort of invested early users — but it can also create false confidence when beta users are too forgiving, or delay a real launch indefinitely while you optimize for an unrepresentative audience. The question is whether you are validating the core product or just postponing the moment when you have to find out if strangers will pay.",
+    primaryQuery: "should I run a beta program before launch",
+    secondaryQueries: [
+      "beta program vs direct launch",
+      "how to run a startup beta program",
+      "beta testing before launch pros cons",
+      "when to skip a beta and launch directly",
+      "closed beta vs open launch strategy",
+    ],
+    recommendedCouncil: [
+      "marie-curie",
+      "nikola-tesla",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is your beta program generating signal you could not get any other way, or is it a structured delay that protects you from the discomfort of a real launch?",
+    targetKeywords: [
+      "should I run a beta program before launch",
+      "beta program startup strategy",
+      "beta testing vs direct launch",
+      "closed beta launch decision",
+      "beta program pros cons founders",
+    ],
+  },
+  {
+    slug: "should-i-expand-my-product-line",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Expand My Product Line?",
+    description:
+      "New product lines can unlock adjacent revenue streams and reduce single-product concentration risk — but they also fragment team focus, split engineering attention, and add support load before the original product has fully compounded. The decision turns on whether your core product has reached a genuine local maximum in its market, or whether you are pursuing expansion because growth on the existing product has slowed and you haven't diagnosed why.",
+    primaryQuery: "should I expand my product line",
+    secondaryQueries: [
+      "when to add new products to your lineup",
+      "product line expansion startup decision",
+      "focus vs diversification product strategy",
+      "expanding product portfolio pros cons",
+      "should I launch a second product",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is your existing product at a ceiling that only a new product line can break through, or are you expanding because growth has slowed and you haven't fixed the underlying cause?",
+    targetKeywords: [
+      "should I expand my product line",
+      "product line expansion decision",
+      "when to launch a second product",
+      "product portfolio strategy startup",
+      "focus vs diversification product startup",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

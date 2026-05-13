@@ -1992,3 +1992,83 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 18 ─────────────────────────────────────────────────────────────────
+
+- slug: seneca-vs-cicero-on-private-virtue-vs-public-duty
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "private virtue vs public duty leadership"
+  secondary_queries:
+    - "when principles conflict with stakeholder demands"
+    - "inner values vs public obligations founder"
+    - "compromise values for stakeholders startup"
+  framework_slugs: [seneca, cicero]
+  decisionType: leadership
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: douglass-vs-carnegie-on-the-self-made-narrative
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "self-made narrative in leadership and hiring"
+  secondary_queries:
+    - "founder origin story and team culture"
+    - "self-reliance narrative impact on team"
+    - "meritocracy vs systemic obstacles startup"
+  framework_slugs: [frederick-douglass, andrew-carnegie]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cleopatra-vs-caesar-on-power-through-alliance-or-conquest
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "build alliances vs beat competitors directly"
+  secondary_queries:
+    - "strategic alliance vs competitive conquest"
+    - "partner with rivals or compete against them"
+    - "alliance strategy vs direct competition startup"
+  framework_slugs: [cleopatra-vii, julius-caesar]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-go-direct-to-consumer-or-use-resellers
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I sell direct to consumer or use resellers"
+  secondary_queries:
+    - "DTC vs reseller channel strategy"
+    - "direct sales vs distribution partners startup"
+    - "when to use channel partners vs sell direct"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-run-a-beta-program
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I run a beta program before launch"
+  secondary_queries:
+    - "beta program before product launch"
+    - "closed beta vs open launch startup"
+    - "when to run a beta test startup"
+  recommended_council: [marie-curie, nikola-tesla, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-expand-my-product-line
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I expand my product line"
+  secondary_queries:
+    - "when to add a new product startup"
+    - "product line expansion startup decision"
+    - "focus on one product vs multiple products"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"

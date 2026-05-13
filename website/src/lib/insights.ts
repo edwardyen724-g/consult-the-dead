@@ -3284,6 +3284,145 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before deciding whether your evidence is strong enough to challenge the consensus in your field, run the two-variable test. First, replication burden: can any honest expert with access to the same data or instrument verify your finding independently within a week? If yes, your threshold is lower — publish the sufficient challenge. If no — if verification requires months of specialized work — your threshold is higher and you need a more complete case. Second, cost of delay: is someone else close to the same finding? If yes, the delay cost is real and Galileo's method applies — publish now with the evidence you have, clearly labeled as preliminary. If no — if you have a genuine window — use it to build toward Archimedes's standard. If both are high, do not publish broadly yet: share with two or three credible independent experts, get a verification signal, and then decide whether to go public or build further.",
     },
   },
+  // ── Wave 18: collision articles ───────────────────────────────────────
+  {
+    slug: "seneca-vs-cicero-on-private-virtue-vs-public-duty",
+    type: "collision",
+    frameworkSlug: "seneca",
+    collisionFrameworkSlugs: ["seneca", "cicero"],
+    title: "Seneca vs. Cicero: Should You Prioritize Private Virtue or Public Duty?",
+    description:
+      "Seneca argued that the deepest form of virtue is won in private — through philosophical practice, honest self-examination, and the cultivation of an inner life that external chaos cannot touch. Cicero believed precisely the opposite: that virtue divorced from public engagement is incomplete, even cowardly, and that the philosopher who retreats from the forum has abandoned the highest human calling. For founders navigating the tension between personal integrity and the compromises demanded by investors, partners, and stakeholders, this collision is not historical — it is live.",
+    targetKeywords: [
+      "private virtue vs public duty leadership",
+      "founder values compromise stakeholders",
+      "when to compromise your principles startup",
+      "stoic leadership philosophy business",
+      "integrity vs pragmatism founder",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "When your private principles and your public obligations diverge, which one do you sacrifice?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Seneca",
+        text: "The philosopher who cannot maintain his principles in private has nothing to offer in public. The inner citadel must be built before the storm arrives — not during it. When your investors demand that you compromise what you know is right, the question is not whether to resist. It is whether you have done the work to know what you actually believe.",
+      },
+      {
+        speaker: "Cicero",
+        text: "Seneca counsels retreat. I counsel engagement. Virtue that has never been tested in the forum is not virtue — it is potential that has been carefully protected from any situation that might prove it wrong. The founder who preserves their principles by avoiding every situation that would stress them has not demonstrated integrity. They have demonstrated avoidance.",
+      },
+      {
+        speaker: "Seneca",
+        text: "You misread me. I am not counseling retreat from the world — I am counseling construction of the self before you enter it. The senator who breaks under political pressure did not lose his integrity in the forum. He lost it years before, when he failed to build it. The inner work is the precondition of any reliable public action.",
+      },
+      {
+        speaker: "Cicero",
+        text: "Then we agree more than you admit. But here is where we diverge: you treat the inner life as the endpoint. I treat it as preparation for the only arena that matters — the one where other people's lives are affected by your choices. The founder who has achieved profound private tranquility and built nothing that serves anyone has achieved exactly nothing.",
+      },
+      {
+        speaker: "Seneca",
+        text: "And the founder who has served every stakeholder demand, accommodated every political pressure, and shipped every compromise — what have they built? A company, perhaps. But not a life. At some point the accumulation of public duties leaves no space for the person who was supposed to be doing them. That person is the one who will make the hardest calls well.",
+      },
+      {
+        speaker: "Cicero",
+        text: "The hardest call is not the one you make in private contemplation. It is the one you make when the coalition is fracturing, the board is divided, and you must persuade people who disagree with you using only the force of your argument. That is a skill built in public, through friction, through the experience of being wrong in front of others and recovering. Retreat sharpens nothing.",
+      },
+    ],
+  },
+  {
+    slug: "douglass-vs-carnegie-on-the-self-made-narrative",
+    type: "collision",
+    frameworkSlug: "frederick-douglass",
+    collisionFrameworkSlugs: ["frederick-douglass", "andrew-carnegie"],
+    title: "Douglass vs. Carnegie: Does Your Story of Self-Reliance Help or Hurt the People Around You?",
+    description:
+      "Andrew Carnegie turned his rags-to-riches story into a philosophy: the conditions of his rise proved that individual merit, discipline, and drive were sufficient to overcome any obstacle. Frederick Douglass had an equally remarkable origin story — and drew the opposite conclusion. For Douglass, the obstacles he overcame were not proof that the obstacles were surmountable for everyone; they were proof that the obstacles were real, and that most people faced them without the specific advantages he had. When founders use their origin story to set expectations for their teams, the Douglass-Carnegie collision determines whether that story builds culture or breaks it.",
+    targetKeywords: [
+      "self-made narrative leadership",
+      "founder origin story team culture",
+      "meritocracy vs systemic obstacles hiring",
+      "Andrew Carnegie self-reliance philosophy",
+      "Frederick Douglass systemic inequality leadership",
+    ],
+    decisionType: "hiring",
+    hookQuestion:
+      "When you tell your team 'I built this from nothing,' does that inspire them or just set an impossible standard?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Frederick Douglass",
+        text: "Carnegie's story is not false — it is incomplete. He rose. But he rose from conditions that permitted rising. The man who was denied the ability to read by law, who had his wages seized by another man who owned him, who was beaten for the act of literacy itself — and still escaped — I am not saying this proves the system is fair. I am saying it proves what is possible under unfair conditions. Those are different claims, and confusing them costs the people in your company a great deal.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "I will not apologize for my story or soften it to spare the feelings of those who have not yet replicated it. The man who insists that his failure is the system's fault has handed over the only lever he controls. I came to this country with nothing — no language, no connections, no capital. The story is not that the conditions were fair. The story is that conditions are never the final variable. Will is.",
+      },
+      {
+        speaker: "Frederick Douglass",
+        text: "You conflate the exceptional case with the general law. Yes — will matters. Discipline matters. I would not have survived without both. But when you tell your new hire from a different background that you started from nothing and made it, you are telling them a story in which your advantages are invisible. They hear: 'The only thing standing between you and my results is your effort.' That is not true. And it is not kind.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Then what do you propose? That founders suppress their stories because someone might find them discouraging? The alternative — the story in which structural forces dominate individual agency — is equally dangerous. It teaches people that the variable they can control is not the important one. I would rather err on the side of overestimating human agency than systematically training people to feel powerless.",
+      },
+      {
+        speaker: "Frederick Douglass",
+        text: "I propose precision. Tell your story with the full accounting — including what you had, what you were given, what luck provided, and what you earned. The founder who gives that honest account is not diminished by it. They are more trustworthy because of it. And their team does not spend three years privately believing the standard is impossible while publicly pretending to believe otherwise.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Precision in self-accounting is a virtue. I grant that. But there is a version of that accounting that becomes an excuse architecture, and I have seen it operate in organizations. The founder's job is not to explain why things are hard. It is to create the conditions in which people can overcome hard things. The team that believes it can is more likely to. The story you tell your team about agency is itself an input to the outcome.",
+      },
+    ],
+  },
+  {
+    slug: "cleopatra-vs-caesar-on-power-through-alliance-or-conquest",
+    type: "collision",
+    frameworkSlug: "cleopatra-vii",
+    collisionFrameworkSlugs: ["cleopatra-vii", "julius-caesar"],
+    title: "Cleopatra vs. Caesar: Do You Win Through Alliance or Through Conquest?",
+    description:
+      "Julius Caesar's fundamental strategic instinct was to create irreversible facts faster than his opponents could deliberate — to strike decisively, close off retreats, and force the world to adapt to a situation he had already made real. Cleopatra's instinct was different: accumulate structural entanglements so gradually that no single move triggered organized resistance, and by the time the position was visible it was already too strong to dislodge. For founders deciding whether to form partnerships with powerful competitors or outcompete them directly, these two frameworks produce opposite answers — and the right choice depends on terrain that neither framework alone can read.",
+    targetKeywords: [
+      "alliance vs competition strategy startup",
+      "when to partner vs compete startup",
+      "competitive strategy founder partnerships",
+      "startup market competition strategy",
+      "building strategic alliances vs direct competition",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Should you make allies of powerful rivals, or is it faster and cleaner to simply beat them?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Cleopatra VII",
+        text: "Caesar's method requires an overwhelming advantage at the moment of action. Mine does not. Alliance accumulates slowly, at a cost below the adversary's response threshold, until the position is already structural. When your competitor finally recognizes that you have become indispensable to the five partners they rely on, the battle is over — and you never gave them a clear moment to fight back.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "Cleopatra's method requires patience and ambiguity tolerance that most organizations cannot sustain. The advantage of decisive action is clarity — it converts the uncertainty of gradual positioning into a known outcome before the adversary can fully mobilize. Every week of competitive ambiguity is a week in which your opponent can reorganize. Speed forecloses that option.",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "Speed forecloses your options as much as theirs. The competitor you defeat decisively becomes a martyr, a rallying point, a reason for the rest of the market to organize against you. I kept Egypt sovereign against Rome — not by fighting Rome, but by becoming too structurally entangled with Rome's interests to be safely dislodged. The strongest position is the one that is too expensive for your opponents to attack.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "There is a case for that strategy on a long timeline with stable conditions. But founders rarely have either. The window in which a decisive move produces maximum leverage is often short — the competitor is raising a round, or distracted by their own crisis, or between key hires. The alliance you are patiently accumulating may be obsolete by the time it is complete. Sometimes the correct move is to act before the terrain is fully mapped.",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "And sometimes the decisive actor walks into Alexandria thinking they have conquered a dependent kingdom and discovers they have entered a negotiation. I gave Caesar a reason to make my interests his interests. That is not capitulation — it is the superior form of strategic power. The partner who depends on you cannot destroy you without destroying themselves.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "The dependency you describe is real — and it is also the source of the risk. When Pompey and Crassus each believed the other needed the alliance more than they did, the coalition held. The moment that belief shifted, it collapsed. Mutual dependency is stable only until one party believes they are better off without it. Your structural alliance is only as durable as your partner's calculation of their alternatives. Build the alternative they cannot replicate — and that is a form of conquest.",
+      },
+    ],
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -4616,6 +4755,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.hookQuestion,
       excerpt: "everyone else is wrong",
       constructIndex: 1,
+    },
+  ],
+  // ── Wave 18 annotation blueprints ────────────────────────────────────
+  "seneca-vs-cicero-on-private-virtue-vs-public-duty": [
+    {
+      label: "Inner citadel construction",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "private principles and your public obligations diverge",
+      constructIndex: 1,
+    },
+    {
+      label: "Audience-register splitting",
+      source: (entry) => entry.description,
+      excerpt: "philosophical practice, honest self-examination",
+      constructIndex: 2,
+    },
+  ],
+  "douglass-vs-carnegie-on-the-self-made-narrative": [
+    {
+      label: "Systemic vulnerability disclosure",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "inspire them or just set an impossible standard",
+      constructIndex: 0,
+    },
+    {
+      label: "Trajectory exposure criterion",
+      source: (entry) => entry.description,
+      excerpt: "conditions of his rise proved",
+      constructIndex: 0,
+    },
+  ],
+  "cleopatra-vs-caesar-on-power-through-alliance-or-conquest": [
+    {
+      label: "Channel portfolio vs. decisive strike",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "make allies of powerful rivals",
+      constructIndex: 0,
+    },
+    {
+      label: "Irreversibility as forcing function",
+      source: (entry) => entry.description,
+      excerpt: "irreversible facts faster than his opponents could deliberate",
+      constructIndex: 0,
     },
   ],
 };

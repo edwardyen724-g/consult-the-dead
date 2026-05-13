@@ -2061,6 +2061,74 @@ describe("Wave 17 collision batch", () => {
   });
 });
 
+describe("Wave 18 collision batch", () => {
+  it("generates a reel script for seneca-vs-cicero-on-private-virtue-vs-public-duty", () => {
+    const script = buildVerdictReelScript(
+      "seneca-vs-cicero-on-private-virtue-vs-public-duty",
+    );
+    expect(script.slug).toBe(
+      "seneca-vs-cicero-on-private-virtue-vs-public-duty",
+    );
+    expect(script.frameworkSlug).toBe("seneca");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/seneca-vs-cicero-on-private-virtue-vs-public-duty",
+    );
+  });
+
+  it("generates a reel script for douglass-vs-carnegie-on-the-self-made-narrative", () => {
+    const script = buildVerdictReelScript(
+      "douglass-vs-carnegie-on-the-self-made-narrative",
+    );
+    expect(script.slug).toBe(
+      "douglass-vs-carnegie-on-the-self-made-narrative",
+    );
+    expect(script.frameworkSlug).toBe("frederick-douglass");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/douglass-vs-carnegie-on-the-self-made-narrative",
+    );
+  });
+
+  it("generates a reel script for cleopatra-vs-caesar-on-power-through-alliance-or-conquest", () => {
+    const script = buildVerdictReelScript(
+      "cleopatra-vs-caesar-on-power-through-alliance-or-conquest",
+    );
+    expect(script.slug).toBe(
+      "cleopatra-vs-caesar-on-power-through-alliance-or-conquest",
+    );
+    expect(script.frameworkSlug).toBe("cleopatra-vii");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/cleopatra-vs-caesar-on-power-through-alliance-or-conquest",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

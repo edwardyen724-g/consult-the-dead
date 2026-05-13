@@ -9,11 +9,11 @@ const DECISIONS_OG_IMAGE_URL =
 export const metadata: Metadata = {
   title: "Decisions — Consult The Dead",
   description:
-    "60 high-intent decisions for founders, examined by councils of historical minds. Find the exact question you are facing and start your own agon.",
+    "63 high-intent decisions for founders, examined by councils of historical minds. Find the exact question you are facing and start your own agon.",
   openGraph: {
     title: "Decisions — Consult The Dead",
     description:
-      "60 high-intent decisions for founders, examined by councils of historical minds.",
+      "63 high-intent decisions for founders, examined by councils of historical minds.",
     url: "https://www.consultthedead.com/decisions",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Decisions — Consult The Dead",
     description:
-      "60 high-intent decisions for founders, examined by councils of historical minds.",
+      "63 high-intent decisions for founders, examined by councils of historical minds.",
     images: [DECISIONS_OG_IMAGE_URL],
   },
   alternates: {
