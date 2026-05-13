@@ -992,6 +992,93 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "should I take VC money Series A",
     ],
   },
+  {
+    slug: "should-i-fire-a-cofounder",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Fire My Cofounder?",
+    description:
+      "Firing a cofounder is simultaneously a personal decision, a business decision, and a legal decision. The personal difficulty is that cofounders are often close friends or long-term partners. The business difficulty is that removing a cofounder mid-stage can create instability at the worst possible time. The legal difficulty is that equity, IP assignments, and vesting cliffs are all in play. History's most decisive figures approached this kind of decision with very different weights on each dimension.",
+    primaryQuery: "should I fire my cofounder",
+    secondaryQueries: [
+      "how to remove a cofounder",
+      "cofounder conflict resolution",
+      "when to fire a cofounder",
+      "cofounder breakup startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "abraham-lincoln",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Your cofounder has stopped contributing but still holds 40% of the company. They are not technically a co-founder — they are a liability. Every conversation ends the same way. The investors have noticed. The team has noticed. You have been rationalizing this for six months.",
+    targetKeywords: [
+      "should I fire my cofounder",
+      "how to remove a cofounder",
+      "cofounder firing guide",
+      "when to let go of cofounder",
+      "startup cofounder conflict",
+    ],
+  },
+  {
+    slug: "should-i-charge-more-for-my-product",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Charge More for My Product?",
+    description:
+      "Raising prices is the highest-leverage pricing move a founder can make — and the one most founders are most afraid of. The fear is usually about losing customers. The reality is that underpricing destroys margin, signals low quality, and attracts price-sensitive customers who churn first. History's most successful builders charged what their product was actually worth. The question is not whether to charge more — it is whether you have the nerve to do it.",
+    primaryQuery: "should I charge more for my product",
+    secondaryQueries: [
+      "when to raise prices startup",
+      "SaaS pricing strategy",
+      "how to raise prices without losing customers",
+      "pricing power startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Your NPS is 72. Churn is low. Customers tell you it's essential. You are charging $29/mo and your three largest competitors charge $149-299/mo. Your entire team is paid below market because you 'can't afford it yet.' The question is: why are you still charging $29?",
+    targetKeywords: [
+      "should I raise my prices",
+      "when to charge more for product",
+      "SaaS pricing increase",
+      "how to raise prices without losing customers",
+      "pricing strategy startup",
+    ],
+  },
+  {
+    slug: "should-i-expand-internationally",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Expand My Business Internationally?",
+    description:
+      "International expansion is one of the highest-variance strategic decisions a founder makes. It can 3-5x your addressable market in 12 months or consume two years of engineering and sales attention with minimal return. The decision depends entirely on where your current growth is coming from, whether the new market will respond to your existing product and positioning, and whether your team is operationally capable of managing the added complexity.",
+    primaryQuery: "should I expand my business internationally",
+    secondaryQueries: [
+      "when to go international startup",
+      "international expansion strategy",
+      "how to expand to new markets",
+      "global expansion startup timing",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "alexander-the-great",
+      "julius-caesar",
+    ],
+    hookQuestion:
+      "You are growing 8% month-over-month in the US. Three customers from Europe found you organically and converted immediately. An investor is willing to fund a European expansion. The question is whether to go now or wait until you have fully captured the domestic market.",
+    targetKeywords: [
+      "should I expand internationally",
+      "international expansion startup",
+      "when to go global startup",
+      "international market entry strategy",
+      "should I expand to Europe",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

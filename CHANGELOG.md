@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-14 (Wave 9)
+
+### Added
+- Wave 9 collision batch shipped: 5 collision insight articles — `galileo-vs-newton-on-disrupting-your-own-field` (galileo + newton; innovation), `archimedes-vs-ada-lovelace-on-build-vs-theorize` (archimedes + ada-lovelace; product), `douglass-vs-lincoln-on-playing-the-long-game` (douglass + lincoln; strategy), `epictetus-vs-harriet-tubman-on-risk-under-constraint` (epictetus + tubman; control), `carnegie-vs-rockefeller-on-monopoly-strategy` (carnegie + rockefeller; scaling); 10 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 5 reel integration tests added (75 total passing); 2139 vitest tests passing.
+- Wave 9 decision pages: `should-i-fire-a-cofounder` (35th, Machiavelli/Lincoln/Sun Tzu), `should-i-charge-more-for-my-product` (36th, Machiavelli/Curie/Rockefeller), `should-i-expand-internationally` (37th, Napoleon/Sun Tzu/Machiavelli); decisions count updated to 37; 103 topics tracked, 102 shipped.
+
 ## 2026-05-14 (Wave 8)
 
 ### Added

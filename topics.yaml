@@ -1225,3 +1225,116 @@
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+# ── Wave 9 batch (2026-05-14) ────────────────────────────────────────────────
+- slug: galileo-vs-newton-on-disrupting-your-own-field
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "self-disruption strategy"
+  secondary_queries:
+    - "should I cannibalize my product"
+    - "disrupting your own field"
+    - "when to pivot your expertise"
+    - "Galileo Newton innovation strategy"
+  recommended_council: [galileo-galilei, isaac-newton]
+  hook_angles: [tension, curiosity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: archimedes-vs-ada-lovelace-on-build-vs-theorize
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "build vs theorize startup"
+  secondary_queries:
+    - "prototyping vs specification first"
+    - "architecture before implementation"
+    - "product development approach"
+    - "Archimedes Ada Lovelace"
+  recommended_council: [archimedes, ada-lovelace]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: douglass-vs-lincoln-on-playing-the-long-game
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "playing the long game strategy"
+  secondary_queries:
+    - "partial wins vs complete change"
+    - "when to compromise strategy"
+    - "when to hold out vs accept deal"
+    - "Frederick Douglass Lincoln strategy"
+  recommended_council: [frederick-douglass, abraham-lincoln]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: epictetus-vs-harriet-tubman-on-risk-under-constraint
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "taking risk under constraint"
+  secondary_queries:
+    - "when to accept vs resist constraints"
+    - "operating under systemic disadvantage"
+    - "Epictetus Tubman stoic philosophy"
+    - "founder risk taking"
+  recommended_council: [epictetus, harriet-tubman]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: carnegie-vs-rockefeller-on-monopoly-strategy
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "market dominance strategy"
+  secondary_queries:
+    - "vertical vs horizontal integration"
+    - "Carnegie vs Rockefeller strategy"
+    - "how to build monopoly power"
+    - "scaling startup strategy"
+  recommended_council: [andrew-carnegie, john-d-rockefeller]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-fire-a-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I fire my cofounder"
+  secondary_queries:
+    - "cofounder conflict startup"
+    - "how to remove a cofounder"
+    - "when to fire a cofounder"
+    - "cofounder breakup advice"
+  recommended_council: [niccolo-machiavelli, abraham-lincoln, sun-tzu]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-charge-more-for-my-product
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I charge more for my product"
+  secondary_queries:
+    - "raise prices startup"
+    - "pricing strategy SaaS"
+    - "when to increase prices"
+    - "value based pricing advice"
+  recommended_council: [niccolo-machiavelli, marie-curie, john-d-rockefeller]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-expand-internationally
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I expand internationally"
+  secondary_queries:
+    - "international expansion startup"
+    - "when to go global startup"
+    - "international growth strategy"
+    - "expanding to new markets advice"
+  recommended_council: [napoleon-bonaparte, sun-tzu, niccolo-machiavelli]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
