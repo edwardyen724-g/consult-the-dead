@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { Debate } from "@/lib/debates";
 import type { InsightEntry } from "@/lib/insights";
+import type { DecisionEntry } from "../../content/decisions";
 
 import {
   buildFeedMetadata,
@@ -36,6 +37,20 @@ function makeInsight(
     targetKeywords: [],
     decisionType: "strategy",
     hookQuestion: "Hook question",
+    ...partial,
+  };
+}
+
+function makeDecision(
+  partial: Pick<DecisionEntry, "slug" | "title" | "description" | "shippedAt">,
+): DecisionEntry {
+  return {
+    status: "shipped",
+    recommendedCouncil: ["marcus-aurelius"],
+    hookQuestion: "Hook question",
+    primaryQuery: partial.slug,
+    secondaryQueries: [],
+    targetKeywords: [],
     ...partial,
   };
 }
@@ -195,5 +210,56 @@ describe("rss-feed helpers", () => {
     expect(parseRssDate("definitely-not-a-date", FIXED_NOW).toISOString()).toBe(
       FIXED_NOW.toISOString(),
     );
+  });
+
+  it("includes decision entries in the feed with /decisions/ URLs and shippedAt pubDate", () => {
+    const items = buildPublicFeedItems({
+      siteUrl: "https://www.consultthedead.com",
+      now: FIXED_NOW,
+      debates: [],
+      insightEntries: [],
+      decisionEntries: [
+        makeDecision({
+          slug: "should-i-raise-vc-or-bootstrap",
+          title: "Should I raise VC or bootstrap?",
+          description: "A council examines the choice between VC and bootstrapping.",
+          shippedAt: "2026-05-01",
+        }),
+        makeDecision({
+          slug: "should-i-pivot-or-persist",
+          title: "Should I pivot or persist?",
+          description: "A council debates when to stay the course or change direction.",
+          shippedAt: "2026-05-02",
+        }),
+      ],
+    });
+
+    expect(items).toHaveLength(2);
+    expect(items[0].link).toBe("https://www.consultthedead.com/decisions/should-i-raise-vc-or-bootstrap");
+    expect(items[0].guid).toBe("https://www.consultthedead.com/decisions/should-i-raise-vc-or-bootstrap");
+    expect(items[0].title).toBe("Should I raise VC or bootstrap?");
+    expect(items[0].pubDate.toISOString()).toBe("2026-05-01T00:00:00.000Z");
+    expect(items[1].link).toBe("https://www.consultthedead.com/decisions/should-i-pivot-or-persist");
+    expect(items[1].pubDate.toISOString()).toBe("2026-05-02T00:00:00.000Z");
+  });
+
+  it("omits decision items when decisionEntries is not provided", () => {
+    const items = buildPublicFeedItems({
+      siteUrl: "https://www.consultthedead.com",
+      now: FIXED_NOW,
+      debates: [],
+      insightEntries: [
+        makeInsight({
+          slug: "some-insight",
+          title: "Some insight",
+          description: "Some description",
+          frameworkSlug: "isaac-newton",
+        }),
+      ],
+    });
+
+    const decisionLinks = items.filter((item) => item.link.includes("/decisions/"));
+    expect(decisionLinks).toHaveLength(0);
+    expect(items).toHaveLength(1);
   });
 });
