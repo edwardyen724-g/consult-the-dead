@@ -1,5 +1,6 @@
 import type { Debate } from "@/lib/debates";
 import type { InsightEntry } from "@/lib/insights";
+import type { DecisionEntry } from "../../content/decisions";
 
 export const RSS_FEED_TITLE = "Consult The Dead — Debates and Insights";
 export const RSS_FEED_DESCRIPTION =
@@ -29,6 +30,7 @@ export interface BuildPublicFeedItemsInput {
   siteUrl: string;
   debates: readonly Debate[];
   insightEntries: readonly InsightEntry[];
+  decisionEntries?: readonly DecisionEntry[];
   now: Date;
 }
 
@@ -79,7 +81,15 @@ export function buildPublicFeedItems(
     pubDate: INSIGHT_COLLECTION_DATE,
   }));
 
-  return [...debateItems, ...insightItems];
+  const decisionItems = (input.decisionEntries ?? []).map((entry) => ({
+    title: entry.title,
+    description: entry.description,
+    link: `${origin}/decisions/${entry.slug}`,
+    guid: `${origin}/decisions/${entry.slug}`,
+    pubDate: parseRssDate(`${entry.shippedAt}T00:00:00.000Z`, input.now),
+  }));
+
+  return [...debateItems, ...insightItems, ...decisionItems];
 }
 
 export function serializeRssFeed(input: SerializeRssFeedInput): string {
