@@ -1079,6 +1079,64 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "global expansion startup timing",
     ],
   },
+  {
+    slug: "should-i-take-on-a-co-founder",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Take on a Co-Founder?",
+    description:
+      "The co-founder decision is one of the highest-variance choices in a startup. A well-matched co-founder doubles execution speed, provides cognitive coverage you lack, and creates emotional resilience in the hard periods. A mismatched one creates equity disputes, alignment failures, and eventual legal complexity at the worst possible time. The historical evidence suggests the decision is less about capability and more about values alignment under conditions of extended adversity.",
+    primaryQuery: "should I take on a co-founder",
+    secondaryQueries: [
+      "do I need a co-founder startup",
+      "solo founder vs co-founder",
+      "should I find a co-founder",
+      "benefits of co-founder startup",
+    ],
+    recommendedCouncil: [
+      "abraham-lincoln",
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "You have been building solo for 8 months and have $3K MRR. A talented person you respect wants to join as a 50/50 co-founder. They bring skills you lack (they are technical; you are sales-focused). You would need to give up half the equity and half the decision-making authority. You have been moving fast solo; adding a partner will require coordination overhead. Do you take them on?",
+    targetKeywords: [
+      "should I take on a co-founder",
+      "solo founder vs co-founder decision",
+      "do I need a co-founder",
+      "finding a co-founder startup",
+      "co-founder equity split decision",
+    ],
+  },
+  {
+    slug: "should-i-productize-my-consulting",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Productize My Consulting?",
+    description:
+      "Productizing a consulting practice means trading the unlimited upside of custom client work for the repeatability of a defined scope and price. The productized service has smaller deal sizes but eliminates proposal cycles, scope creep, and the feast/famine revenue pattern. The transition requires identifying which part of your work is genuinely repeatable — and being honest about whether you are productizing because you want leverage, or because you are avoiding the harder challenge of finding better clients.",
+    primaryQuery: "should I productize my consulting",
+    secondaryQueries: [
+      "consulting to product startup",
+      "productized service vs consulting",
+      "how to productize consulting",
+      "turning consulting into a product",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "archimedes",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "You have been doing custom consulting at $8K per engagement. You have noticed that 70% of every project involves the same 5-step process. You could productize it at $2K with a defined scope and 5-day turnaround, or continue custom work at $8K with 4-week timelines. Productizing would let you run 3-4 per month instead of 1-2. But you would lose the high-complexity work that keeps your skills sharp.",
+    targetKeywords: [
+      "should I productize my consulting",
+      "productized consulting service",
+      "consulting to product transition",
+      "productized service strategy",
+      "consulting to SaaS",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

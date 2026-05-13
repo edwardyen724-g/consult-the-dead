@@ -1338,3 +1338,88 @@
   hook_angles: [tension, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+# ── Wave 10 batch (2026-05-21) ───────────────────────────────────────────────
+- slug: machiavelli-vs-sun-tzu-on-competitive-intelligence
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "competitive intelligence strategy"
+  secondary_queries:
+    - "know your enemy business strategy"
+    - "startup competitive strategy"
+    - "how to respond to competition"
+    - "Machiavelli Sun Tzu strategy"
+  recommended_council: [niccolo-machiavelli, sun-tzu]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: marcus-aurelius-vs-seneca-on-processing-failure
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "stoic approach to failure"
+  secondary_queries:
+    - "how to process failure startup"
+    - "Marcus Aurelius failure"
+    - "resilience after failure advice"
+    - "how to bounce back from failure"
+  recommended_council: [marcus-aurelius, seneca]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: franklin-vs-carnegie-on-building-your-network
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "building your professional network strategy"
+  secondary_queries:
+    - "broad vs deep network"
+    - "networking strategy for founders"
+    - "how to build a professional network"
+    - "Benjamin Franklin Carnegie networking"
+  recommended_council: [benjamin-franklin, andrew-carnegie]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: cleopatra-vs-catherine-the-great-on-ruling-through-alliance
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "strategic alliance risk"
+  secondary_queries:
+    - "partnership dependency risk startup"
+    - "when to rely on alliance"
+    - "Cleopatra Catherine the Great strategy"
+    - "startup partnership vs independence"
+  recommended_council: [cleopatra-vii, catherine-the-great]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-take-on-a-co-founder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take on a co-founder"
+  secondary_queries:
+    - "solo founder vs co-founder decision"
+    - "do I need a co-founder startup"
+    - "finding a co-founder"
+    - "benefits of co-founder startup"
+  recommended_council: [abraham-lincoln, andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-productize-my-consulting
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I productize my consulting"
+  secondary_queries:
+    - "productized service vs consulting"
+    - "consulting to product startup"
+    - "how to productize consulting"
+    - "turning consulting into a product"
+  recommended_council: [john-d-rockefeller, archimedes, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
