@@ -83,7 +83,11 @@ function findAllByTestId(root: unknown, testId: string): ElementLike[] {
 //  Imports under test
 // ──────────────────────────────────────────────────────────────────────────
 
-import HomePage, { HOME_HERO_CTA_HREF } from "@/app/page";
+import HomePage, {
+  HOME_HERO_CTA_HREF,
+  HOME_WEBSITE_SCHEMA,
+  HOME_ORGANIZATION_SCHEMA,
+} from "@/app/page";
 
 // ──────────────────────────────────────────────────────────────────────────
 //  Tests
@@ -331,5 +335,46 @@ describe("HomePage — streaming demo section (CTR experiment 3)", () => {
     const packsSectionStart = html.indexOf('data-testid="packs-section"');
     const demoSectionHtml = html.slice(demoSectionStart, packsSectionStart);
     expect(demoSectionHtml).toContain("Worked example");
+  });
+});
+
+describe("Homepage structured data (JSON-LD)", () => {
+  it("HOME_WEBSITE_SCHEMA is @type WebSite with a SearchAction pointing to /agora", () => {
+    expect(HOME_WEBSITE_SCHEMA["@type"]).toBe("WebSite");
+    expect(HOME_WEBSITE_SCHEMA.url).toBe("https://www.consultthedead.com");
+    expect(HOME_WEBSITE_SCHEMA.potentialAction["@type"]).toBe("SearchAction");
+    expect(HOME_WEBSITE_SCHEMA.potentialAction.target.urlTemplate).toContain(
+      "/agora?topic={search_term_string}",
+    );
+    expect(HOME_WEBSITE_SCHEMA.potentialAction["query-input"]).toBe(
+      "required name=search_term_string",
+    );
+  });
+
+  it("HOME_ORGANIZATION_SCHEMA is @type Organization with name and url", () => {
+    expect(HOME_ORGANIZATION_SCHEMA["@type"]).toBe("Organization");
+    expect(HOME_ORGANIZATION_SCHEMA.name).toBe("Consult The Dead");
+    expect(HOME_ORGANIZATION_SCHEMA.url).toBe("https://www.consultthedead.com");
+    expect(HOME_ORGANIZATION_SCHEMA.logo).toContain(
+      "https://www.consultthedead.com",
+    );
+  });
+
+  it("renders two application/ld+json script tags in the homepage HTML", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    // dangerouslySetInnerHTML renders as inline content in the script element
+    const scriptCount = (html.match(/application\/ld\+json/g) ?? []).length;
+    expect(scriptCount).toBeGreaterThanOrEqual(2);
+  });
+
+  it("the rendered WebSite JSON-LD contains the sitelinks search action URL", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    expect(html).toContain("search_term_string");
+    expect(html).toContain("SearchAction");
+  });
+
+  it("the rendered Organization JSON-LD contains the org name", () => {
+    const html = renderToStaticMarkup(HomePage() as React.ReactElement);
+    expect(html).toContain("Consult The Dead");
   });
 });
