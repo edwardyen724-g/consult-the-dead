@@ -401,6 +401,51 @@ export default async function FrameworkDetailPage({ params }: PageProps) {
           </Link>
         </div>
       </div>
+
+      {/* ── Structured data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: fw.meta.person,
+            description: `Cognitive decision framework extracted from ${fw.meta.incident_count} documented historical incidents via the Critical Decision Method. Domain: ${fw.meta.domain}.`,
+            url: buildFrameworkCanonicalUrl(slug) ?? `https://www.consultthedead.com/frameworks/${slug}`,
+            ...(fw.meta.born ? { birthDate: fw.meta.born } : {}),
+            ...(fw.meta.died ? { deathDate: fw.meta.died } : {}),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.consultthedead.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Frameworks",
+                item: "https://www.consultthedead.com/frameworks",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: fw.meta.person,
+                item: buildFrameworkCanonicalUrl(slug) ?? `https://www.consultthedead.com/frameworks/${slug}`,
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }
