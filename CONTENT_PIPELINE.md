@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-14: **72 topics tracked** — 72 shipped (30 decisions + 33 insights + 8 method articles + 1 other article), 0 queued. All ALLOWED_SLUGS figures covered. Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-14: **77 topics tracked** — 77 shipped (30 decisions + 38 insights + 8 method articles + 1 other article), 0 queued. All ALLOWED_SLUGS figures covered; 5 collision articles shipped. Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml
