@@ -112,7 +112,11 @@ export function dripSentMetaKey(day: DripDay): string {
 // Route handlers
 // ---------------------------------------------------------------------------
 
-export async function GET() {
+export async function GET(request?: Request) {
+  // Vercel cron scheduler sends GET with x-vercel-cron: 1 — proxy to POST logic.
+  if (request?.headers.get('x-vercel-cron') === '1') {
+    return POST(request as Request)
+  }
   return NextResponse.json(DRIP_CRON_CONTRACT, {
     headers: { 'Cache-Control': 'no-store' },
   })

@@ -18,7 +18,11 @@ export const DAY2_NUDGE_CRON_CONTRACT = {
   },
 } as const
 
-export async function GET() {
+export async function GET(request?: Request) {
+  // Vercel cron scheduler sends GET with x-vercel-cron: 1 — proxy to POST logic.
+  if (request?.headers.get('x-vercel-cron') === '1') {
+    return POST(request as Request)
+  }
   return NextResponse.json(DAY2_NUDGE_CRON_CONTRACT, {
     headers: {
       'Cache-Control': 'no-store',
