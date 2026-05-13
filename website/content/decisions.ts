@@ -1944,6 +1944,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "build in-house vs third-party technology",
     ],
   },
+  {
+    slug: "should-i-apply-to-y-combinator",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Apply to Y Combinator?",
+    description:
+      "Y Combinator offers funding, a powerful alumni network, and a stamp of credibility that opens doors — but it also imposes significant equity dilution, a demo-day-driven timeline, and a San Francisco gravitational pull that may not align with your product's trajectory. The decision is not simply about money: it is about whether the YC network and program structure will accelerate your specific path to product-market fit, or whether the constraints and dilution cost more than the benefits at your current stage.",
+    primaryQuery: "should I apply to Y Combinator",
+    secondaryQueries: [
+      "YC vs other accelerators for early stage startup",
+      "is Y Combinator worth it",
+      "Y Combinator equity dilution pros cons",
+      "when to apply to YC",
+      "startup accelerator decision framework",
+    ],
+    recommendedCouncil: [
+      "sun-tzu",
+      "niccolo-machiavelli",
+      "leonardo-da-vinci",
+    ],
+    hookQuestion:
+      "Will the YC network and program constraints accelerate your specific path to product-market fit — or will the dilution and timeline impose more cost than the credibility provides?",
+    targetKeywords: [
+      "should I apply to Y Combinator",
+      "YC accelerator worth it",
+      "Y Combinator equity dilution decision",
+      "startup accelerator pros cons",
+      "when to apply YC startup",
+    ],
+  },
+  {
+    slug: "should-i-set-up-a-vesting-schedule",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Set Up a Vesting Schedule for Founders and Employees?",
+    description:
+      "A vesting schedule aligns long-term incentives and protects the company if a founder or early employee leaves early — but it also signals distrust in a founding team that may still be in the trust-building phase. The decision is particularly high-stakes for co-founders, where the absence of vesting creates significant risk if the relationship breaks down, and the presence of vesting can itself become a friction point if one co-founder interprets it as a lack of confidence in the partnership.",
+    primaryQuery: "should I set up a vesting schedule",
+    secondaryQueries: [
+      "founder vesting schedule startup",
+      "co-founder equity vesting cliff",
+      "employee equity vesting startup",
+      "when to implement vesting schedule startup",
+      "vesting cliff negotiation co-founder",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Does the long-term alignment benefit of a vesting schedule outweigh the trust signal it sends to a co-founding team that may still be establishing its relationship?",
+    targetKeywords: [
+      "should I set up a vesting schedule",
+      "founder equity vesting cliff",
+      "co-founder vesting startup",
+      "employee equity vesting schedule",
+      "vesting cliff one year startup",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-fractional-cto",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Fractional CTO?",
+    description:
+      "A fractional CTO gives a non-technical founder access to senior technical judgment at a fraction of the cost of a full-time hire — but fractional attention is not the same as full commitment, and the fractional relationship can become a crutch that delays the harder decision of hiring or developing a full-time technical leader. The decision turns on whether your current technical challenges require ongoing strategic ownership or periodic expert review, and whether your stage and funding allow you to attract the full-time technical leader you ultimately need.",
+    primaryQuery: "should I hire a fractional CTO",
+    secondaryQueries: [
+      "fractional CTO vs full-time CTO startup",
+      "non-technical founder technical leadership",
+      "when to hire fractional CTO",
+      "fractional CTO pros cons startup",
+      "technical co-founder alternative",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Does your current technical challenge require ongoing strategic ownership from a committed leader — or periodic expert review that a fractional arrangement can provide without the full-time cost?",
+    targetKeywords: [
+      "should I hire a fractional CTO",
+      "fractional CTO startup decision",
+      "non-technical founder technical leader",
+      "fractional vs full-time CTO",
+      "when to hire fractional technical lead",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

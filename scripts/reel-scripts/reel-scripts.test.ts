@@ -2197,6 +2197,72 @@ describe("Wave 19 collision batch", () => {
   });
 });
 
+describe("Wave 20 — 3 collision articles", () => {
+  it("generates a reel script for curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field", () => {
+    const script = buildVerdictReelScript(
+      "curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field",
+    );
+    expect(script.slug).toBe(
+      "curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field",
+    );
+    expect(script.frameworkSlug).toBe("marie-curie");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field",
+    );
+  });
+
+  it("generates a reel script for newton-vs-machiavelli-on-systems-vs-power", () => {
+    const script = buildVerdictReelScript(
+      "newton-vs-machiavelli-on-systems-vs-power",
+    );
+    expect(script.slug).toBe("newton-vs-machiavelli-on-systems-vs-power");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/newton-vs-machiavelli-on-systems-vs-power",
+    );
+  });
+
+  it("generates a reel script for rockefeller-vs-napoleon-on-monopoly-vs-conquest", () => {
+    const script = buildVerdictReelScript(
+      "rockefeller-vs-napoleon-on-monopoly-vs-conquest",
+    );
+    expect(script.slug).toBe(
+      "rockefeller-vs-napoleon-on-monopoly-vs-conquest",
+    );
+    expect(script.frameworkSlug).toBe("john-d-rockefeller");
+    expect(script.decisionType).toBe("scaling");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Scaling council: Napoleon (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Napoleon Bonaparte");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/rockefeller-vs-napoleon-on-monopoly-vs-conquest",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

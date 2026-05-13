@@ -2152,3 +2152,77 @@
   hook_angles: [shortcut, risk]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 20 ─────────────────────────────────────────────────────────────────
+- slug: curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Marie Curie Ada Lovelace pioneering hostile field"
+  secondary_queries:
+    - "how to break into a market that excludes you"
+    - "outsider strategy incumbent market"
+    - "proof accumulation vs vision strategy"
+  recommended_council: [marie-curie, ada-lovelace]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: newton-vs-machiavelli-on-systems-vs-power
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Newton Machiavelli systems vs power strategy"
+  secondary_queries:
+    - "building systems vs political management leadership"
+    - "founder board management operational excellence"
+    - "when to build systems vs manage stakeholders"
+  recommended_council: [isaac-newton, niccolo-machiavelli]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: rockefeller-vs-napoleon-on-monopoly-vs-conquest
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Rockefeller Napoleon infrastructure speed competitive advantage"
+  secondary_queries:
+    - "monopoly strategy vs first-mover speed"
+    - "building moat vs moving fast startup"
+    - "capital accumulation vs execution velocity"
+  recommended_council: [john-d-rockefeller, napoleon-bonaparte]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-apply-to-y-combinator
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I apply to Y Combinator"
+  secondary_queries:
+    - "YC vs other accelerators for early stage startup"
+    - "is Y Combinator worth it"
+    - "Y Combinator equity dilution pros cons"
+  recommended_council: [sun-tzu, niccolo-machiavelli, leonardo-da-vinci]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-set-up-a-vesting-schedule
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I set up a vesting schedule"
+  secondary_queries:
+    - "founder vesting schedule startup"
+    - "co-founder equity vesting cliff"
+    - "employee equity vesting startup"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-21"
+- slug: should-i-hire-a-fractional-cto
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a fractional CTO"
+  secondary_queries:
+    - "fractional CTO vs full-time CTO startup"
+    - "non-technical founder technical leadership"
+    - "when to hire fractional CTO"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-21"

@@ -4,6 +4,20 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 20] — 2026-05-13
+
+### Added
+- **3 collision insight articles** (Wave 20):
+  - `curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field` — resilience court (Aurelius/Tesla/Curie)
+  - `newton-vs-machiavelli-on-systems-vs-power` — strategy court (Sun Tzu/Machiavelli/da Vinci)
+  - `rockefeller-vs-napoleon-on-monopoly-vs-conquest` — scaling court (Napoleon/Aurelius/Curie)
+- **3 decision pages** (Wave 20, decisions total: 69):
+  - `should-i-apply-to-y-combinator` (strategy court)
+  - `should-i-set-up-a-vesting-schedule` (leadership court)
+  - `should-i-hire-a-fractional-cto` (hiring court)
+- 109 reel-script integration tests passing (3 new for Wave 20 collisions)
+- `topics.yaml`: 169 entries, 168 shipped
+
 ## 2026-05-21 (Wave 19)
 
 ### Added

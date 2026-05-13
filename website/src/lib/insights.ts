@@ -3589,6 +3589,166 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 20: collision articles ───────────────────────────────────────
+  {
+    slug: "curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field",
+    type: "collision",
+    frameworkSlug: "marie-curie",
+    collisionFrameworkSlugs: ["marie-curie", "ada-lovelace"],
+    title: "Curie vs. Ada Lovelace: Do You Break Through a Hostile Field with Rigor or with Vision?",
+    description:
+      "Marie Curie and Ada Lovelace both pioneered in disciplines that were structurally designed to exclude them — but through opposite mechanisms. Curie accumulated unassailable experimental evidence until the field could no longer rationalize her exclusion. Lovelace built conceptual frameworks so far ahead of the existing infrastructure that the field could not dismiss her contributions even when it tried. For founders entering markets dominated by entrenched incumbents who do not want them there, this collision identifies which mechanism — rigorous proof accumulation or visionary conceptual leaping — is better suited to the specific structure of the resistance they face.",
+    targetKeywords: [
+      "pioneering hostile market as outsider",
+      "Marie Curie Ada Lovelace women in STEM leadership",
+      "how to break into a market that excludes you",
+      "experimental proof vs visionary vision market entry",
+      "outsider strategy dominant incumbent",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "When the field is structurally hostile to your presence, do you accumulate evidence until they cannot exclude you — or do you build a vision so far ahead that exclusion becomes irrelevant?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Marie Curie",
+        text: "The institution cannot dismiss what it cannot refute. My strategy was not to persuade the Academy — it was to produce results of such precision and reproducibility that any refusal to acknowledge them would require the Academy to publicly contradict its own methods. The experimental record is the argument. When the data is clean enough, the prejudice becomes the anomaly, not the scientist.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "Curie describes a strategy that works when the field has agreed-upon standards of evidence. My situation was different: the infrastructure to test my most important claims did not yet exist. I could not accumulate experimental proof for a machine that would not be built for a century. My contribution was conceptual — establishing the logical possibility of what the field had not yet imagined. The hostility of the field is not always a refusal to look at the data. Sometimes it is an inability to look, because the category of the contribution does not yet exist.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "You are describing a real constraint — but also a real risk. The conceptual claim that cannot be experimentally tested is indistinguishable from the conceptual claim that is simply wrong. I protected my work by making it falsifiable. Every claim I made could in principle be refuted by a better experiment. That meant every claim that survived the scrutiny was stronger than the scrutiny that challenged it. The visionary who operates outside the domain of experimental test has no such protection.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "The protection comes from the internal consistency of the logical structure. I was not making claims that could not be evaluated — I was making claims that could only be evaluated by someone willing to think rigorously about a system that did not yet physically exist. The hostile field's failure to evaluate my work was not a failure of my argument. It was a failure of their imagination. The risk Curie describes is real when the conceptual framework is loose. When the framework is rigorous, the protection is the same as hers: the internal logic either holds or it does not.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Then the variable that determines which approach is correct is whether the field has agreed-upon evaluation standards that a sufficiently excellent outsider can satisfy. If yes — use the experimental approach. Accumulate evidence that is undeniable within the field's own framework. The cost is higher: you must produce more, faster, with fewer resources, to overcome the same prejudice that a member of the field would not face. But the outcome is durable: the record cannot be revised by the next generation of hostile gatekeepers.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "And if the field does not yet have evaluation standards that cover the category of your contribution — if you are proposing something genuinely outside the current framework of assessment — then the experimental approach is not available to you. The conceptual approach is the only one. You build the internal logic as carefully as Curie built her experimental record. You make the framework rigorous enough that the next generation, which will have the tools to test it, will not be able to dismiss it. You are writing for a court that does not yet exist. That is not a weakness — it is the only strategy when the current court is constitutionally incapable of hearing your case.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "marie-curie",
+      summary:
+        "Curie and Lovelace converge on a field-structure diagnostic. When the field has established evaluation standards that a sufficiently excellent outsider can satisfy — agreed-upon metrics, experimental methods, credentialing pathways — the Curie approach is correct: accumulate undeniable evidence within the field's own framework until the refusal to recognize it becomes the anomaly. When the field does not yet have evaluation standards that cover the category of your contribution — when you are proposing something genuinely outside the current assessment framework — the Lovelace approach is correct: build internal logical rigor so tight that the next generation, with better tools, will not be able to dismiss it.",
+      actionableInsight:
+        "Before choosing between the proof-accumulation strategy and the vision-ahead strategy, map the evaluation infrastructure of the field you are entering. Does it have agreed-upon metrics for what you are building — customer acquisition costs, retention curves, margin profiles — that a sufficiently excellent outsider can satisfy? If yes, Curie's approach applies: produce results at a level of quality that makes exclusion publicly irrational for the incumbent. Out-execute them on their own metrics. If the field does not yet have agreed-upon metrics for your category — if you are building something genuinely new that existing evaluation frameworks cannot assess — then Lovelace's approach applies: build the internal logic of your product's value proposition so rigorously that when the market catches up to the category, your framework is already there. Write the specs for the court that will eventually convene.",
+    },
+  },
+  {
+    slug: "newton-vs-machiavelli-on-systems-vs-power",
+    type: "collision",
+    frameworkSlug: "isaac-newton",
+    collisionFrameworkSlugs: ["isaac-newton", "niccolo-machiavelli"],
+    title: "Newton vs. Machiavelli: Do You Build Durable Systems or Master the Exercise of Power?",
+    description:
+      "Isaac Newton's theory of how the world works is fundamentally systemic: identify the underlying laws, build models that predict outcomes with precision, and the system itself does the work of compounding over time. Niccolò Machiavelli's theory is fundamentally political: power is fluid, alliances shift, and the actor who understands how to accumulate and exercise influence in real time will outperform the actor who relies on systems that operate on slower timescales. For founders deciding how to allocate their scarce attention between building organizational and technical systems versus managing the political dynamics of investors, boards, and competitors, this collision determines when each approach is the higher-leverage investment.",
+    targetKeywords: [
+      "building systems vs political power leadership",
+      "founder board management vs operational excellence",
+      "Newton Machiavelli organizational strategy",
+      "when to build systems vs manage stakeholders",
+      "organizational architecture vs political capital",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Should you spend your energy building systems that compound automatically — or mastering the political dynamics that determine whether your systems are ever allowed to run?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "The system that correctly models the underlying mechanism will produce accurate predictions regardless of who is operating it. The political skill of the operator is irrelevant if the system is right. I spent my attention on identifying the laws — the mathematical relationships between mass, force, and motion — because I understood that a correct model operates identically for a politically skilled physicist and a politically naive one. Build the system correctly. The predictions will follow.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Newton describes a universe where the laws are stable and the actors who operate within them are interchangeable. Human organizations are the opposite. The laws of political dynamics are not stable — they shift with every change in personnel, resource availability, and external threat. The founder who builds a perfect operational system and ignores the political dynamics of their board will find their system dismantled by the board before it can demonstrate its predictions. The system is only allowed to run if the political environment permits it. That permission requires active management.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "You are identifying a real constraint, but mislocating the solution. The political environment is itself a system — one with underlying laws that govern how alliances form, how loyalty is earned, and how power shifts. The correct response is not to manage the surface dynamics moment to moment. It is to understand the laws that govern the political system and build an organizational structure that exploits those laws consistently. A founder who correctly models the political system will not need to manage it constantly. The system will manage itself.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The political system cannot be modeled with the precision of celestial mechanics, because it is composed of actors who modify their behavior in response to the model. When you publish the law of gravity, the planets do not change their orbits to confound the prediction. When you develop a theory of political dynamics and act on it publicly, the actors you are theorizing about observe your theory and adjust. The political system is reflexive in a way that physical systems are not. That is why it requires ongoing active management rather than a one-time investment in a correct model.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "Then we have identified the domain where each approach applies. In domains where the underlying mechanism is stable — technical architecture, operational process, financial modeling — the systemic approach is correct. Build the model, encode it in the system, and let the system compound. In domains where the underlying mechanism is reflexive — where the actors change their behavior in response to observation — the systemic approach degrades, and Machiavelli's ongoing management approach becomes necessary.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "That is a more precise statement than I expected from a physicist. I will add one practical constraint: the reflexive domain is also the domain where the most urgent decisions live. Technical architecture decisions can be made on the timescale of a quarter. Political decisions — board dynamics, investor relations, key-hire negotiations — operate on timescales where delay is itself a choice with consequences. The founder who defers political management because they prefer systemic thinking will find that the political environment has made choices in their absence. Attend to the reflexive domain in real time. Build your systems on a slower clock.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "isaac-newton",
+      summary:
+        "Newton and Machiavelli converge on a domain-structure diagnostic. In domains where the underlying mechanism is stable and actors do not modify their behavior in response to being modeled — technical architecture, operational process, financial structure — Newton's systemic approach is correct: invest in understanding the mechanism, build the model, and let it compound. In domains where the mechanism is reflexive — where actors observe your strategy and adjust — Machiavelli's ongoing management approach is necessary: the political environment requires active tending because it changes in response to being theorized about.",
+      actionableInsight:
+        "Audit your current attention allocation against a simple domain test. For each area where you are spending significant time, ask: does the underlying mechanism change when the actors observe my approach? Technical systems, operational processes, and financial models are generally non-reflexive — build them once correctly and they compound. Board dynamics, investor relations, competitor responses, and key-hire negotiations are generally reflexive — the actors adjust when they perceive your strategy. Shift your systemic investment toward the non-reflexive domains, where one correct model compounds indefinitely. Shift your active management attention toward the reflexive domains, where ongoing tending is required because the environment changes faster than any model can track. The error is applying systemic thinking to reflexive domains — or active management to non-reflexive ones.",
+    },
+  },
+  {
+    slug: "rockefeller-vs-napoleon-on-monopoly-vs-conquest",
+    type: "collision",
+    frameworkSlug: "john-d-rockefeller",
+    collisionFrameworkSlugs: ["john-d-rockefeller", "napoleon-bonaparte"],
+    title: "Rockefeller vs. Napoleon: Do You Win by Controlling the Infrastructure or by Moving Faster Than Anyone Can Follow?",
+    description:
+      "John D. Rockefeller's competitive strategy was fundamentally infrastructural: build or acquire control over the assets your competitors must use, then set the terms under which they operate. Napoleon's strategy was fundamentally kinetic: move faster than your opponents can respond, achieve objectives before they can assemble a coordinated defense, and repeat before the coalition can recover. Both produced historically dominant positions. But the mechanisms are genuinely incompatible — one requires patience and capital accumulation, the other requires speed and operational tempo — and the choice between them has direct consequences for how founders should allocate their limited resources in competitive markets.",
+    targetKeywords: [
+      "infrastructure control vs speed competitive strategy",
+      "monopoly strategy vs first-mover speed startup",
+      "Rockefeller Napoleon competitive advantage",
+      "building moat vs moving fast startup",
+      "capital accumulation vs execution velocity",
+    ],
+    decisionType: "scaling",
+    hookQuestion:
+      "Is your competitive advantage built by controlling the infrastructure everyone else must use — or by executing so fast that competitors cannot assemble a response before you have already moved on?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "John D. Rockefeller",
+        text: "Speed produces a temporary advantage. The competitor who cannot match your speed today will eventually match it, or find a partner who can. Infrastructure produces a structural advantage: the competitor who cannot avoid using your distribution network, your processing capacity, or your capital relationships must pay your terms regardless of how fast they move. I was not racing competitors — I was making the race irrelevant by building the road all competitors must use. That is a different category of competitive position.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Rockefeller describes a strategy for the actor who has the capital and the time to build infrastructure before the competitive window closes. My campaigns were conducted under the opposite constraint: the coalition of opponents I faced had more capital, more territory, and more time than I did. Speed was not an option I selected — it was the only asymmetric advantage available to a French army that could not outspend or out-wait the combined resources of Austria, Prussia, Russia, and Britain. When you cannot outbuild the opponent's infrastructure, you must move faster than they can coordinate.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Napoleon is describing the correct strategy when the opponent's infrastructure is already built and you lack the capital to replicate or acquire it. But that constraint is itself the product of a prior strategic failure: the failure to begin the infrastructure accumulation before the competitive window closed. In Cleveland in the 1860s, before the railroad rebate structure was consolidated, a well-capitalized actor could have built the infrastructure that Standard Oil built. The actors who instead chose speed — moving faster, opening more wells, refining more barrels — produced volume that had nowhere to go efficiently. Speed in a capital-intensive industry without infrastructure is an expensive way to lose.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "And infrastructure in a rapidly changing competitive environment is an expensive way to own assets that are suddenly obsolete. The railroad network that supported Standard Oil was stable for decades. The coalitions I faced were not. An infrastructure-heavy response to a military coalition that could reposition in weeks would have resulted in perfect fortifications defending the wrong positions. Speed let me attack the coalition's weakest point before the strongest units could reinforce it. Infrastructure would have required me to predict, in advance, where the attack should come — which is exactly what the speed strategy is designed to make unnecessary.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Then the variable is the stability of the competitive landscape. In a stable market — one where the key assets and distribution channels are fixed and the primary source of competitive advantage is control over those assets — the infrastructure approach produces durable structural advantage. In a rapidly shifting competitive environment — one where the terrain itself is changing faster than infrastructure can be built — Napoleon's speed-based approach is correct. The error is not choosing between the two approaches. The error is applying the infrastructure approach to an unstable market, or the speed approach to a stable one where a patient accumulator will simply build around you.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "One final constraint that Rockefeller's model omits: the infrastructure approach requires the opponent to remain cooperative long enough for you to build. Standard Oil's pipeline network succeeded in part because the actors Rockefeller was outmaneuvering did not understand what was being built until it was too late to respond. When the opponent understands the infrastructure play and has the resources to build competing infrastructure, the structural advantage evaporates before it is complete. Speed produces a committed outcome — a battle is won or lost — that the opponent cannot reopen once the position is established. Infrastructure in a market where sophisticated opponents understand what you are building is a race to completion that you may not win.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "john-d-rockefeller",
+      summary:
+        "Rockefeller and Napoleon converge on a market-stability diagnostic. In stable markets where the key assets and distribution channels are fixed, and where competitors will not understand the infrastructure play until it is too late to build competing infrastructure — Rockefeller's approach is correct: accumulate control of the assets all competitors must use, then set the terms. In rapidly shifting markets where terrain changes faster than infrastructure can be built, or where sophisticated competitors will recognize and respond to the infrastructure play before it is complete — Napoleon's speed-based approach is correct: move faster than the opponent can coordinate a response, achieve committed outcomes, and repeat before the coalition recovers.",
+      actionableInsight:
+        "Before deciding between an infrastructure-accumulation strategy and a speed-execution strategy, run two tests. First: how stable is the competitive landscape? If the key distribution channels, data assets, or network relationships in your market will be materially the same in three years as they are today, the infrastructure approach is available — but only if you begin accumulation before competitors understand what you are building. Second: how sophisticated are your primary competitors? If they will recognize an infrastructure play and have the resources to build competing infrastructure, Rockefeller's advantage evaporates in the construction phase. In that case, Napoleon's approach is more reliable: execute faster than they can respond, win committed positions — customers, partnerships, data — that are structurally difficult to reverse, and move on before the response organizes. The infrastructure play requires both a stable landscape and a sufficient window of competitive blindness to reach completion.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -5021,6 +5181,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "terrain-selection model",
       constructIndex: 2,
+    },
+  ],
+  // ── Wave 20 annotation blueprints ────────────────────────────────────
+  "curie-vs-ada-lovelace-on-pioneering-in-a-hostile-field": [
+    {
+      label: "Field evaluation standard test",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "accumulate evidence until they cannot exclude you",
+      constructIndex: 0,
+    },
+    {
+      label: "Conceptual vs. experimental proof",
+      source: (entry) => entry.description,
+      excerpt: "rigorous proof accumulation or visionary conceptual leaping",
+      constructIndex: 1,
+    },
+  ],
+  "newton-vs-machiavelli-on-systems-vs-power": [
+    {
+      label: "Reflexive vs. non-reflexive domains",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "systems that compound automatically",
+      constructIndex: 0,
+    },
+    {
+      label: "Systemic vs. political attention allocation",
+      source: (entry) => entry.description,
+      excerpt: "underlying laws",
+      constructIndex: 2,
+    },
+  ],
+  "rockefeller-vs-napoleon-on-monopoly-vs-conquest": [
+    {
+      label: "Market stability diagnostic",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "controlling the infrastructure",
+      constructIndex: 0,
+    },
+    {
+      label: "Infrastructure vs. speed selection",
+      source: (entry) => entry.description,
+      excerpt: "patient and capital accumulation",
+      constructIndex: 1,
     },
   ],
 };
