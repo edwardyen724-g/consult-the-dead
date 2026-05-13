@@ -671,7 +671,8 @@
     - "when to extend your seed round"
   recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: second-order-thinking-explained
   type: method
