@@ -4,6 +4,13 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-14 (Wave 8)
+
+### Added
+- **Galileo Galilei** added as 27th live mind: framework already fully extracted (18 incidents, 5 bipolar constructs, The Observer archetype); wired into ALLOWED_SLUGS, SLUG_COLOR_VAR, ERA_FALLBACK, DISPLAY_ORDER in `frameworks.ts`; `--color-galileo` (#5b9bd5 dark / #1f5c8a light) added to all three palette blocks in `globals.css`; `website/data/frameworks/galileo-galilei/` bundled; EXPECTED_ROSTER_SIZE bumped 26→27 in `frameworks.test.ts`.
+- Wave 8 insight batch shipped: 5 new single articles — `what-would-galileo-say-about-challenging-conventional-wisdom` (galileo-galilei; evidence), `what-would-archimedes-say-about-technical-leverage` (archimedes; systems), `what-would-epictetus-say-about-managing-uncertainty` (epictetus; resilience), `what-would-frederick-douglass-say-about-building-credibility` (frederick-douglass; persuasion), `what-would-ada-lovelace-say-about-building-for-the-future` (ada-lovelace; product); 1 collision — `what-galileo-and-newton-would-say-about-evidence-vs-consensus` (galileo + newton; evidence); 6 reel integration tests added (70 total passing); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 2139 vitest tests passing.
+- Wave 8 decision pages: `should-i-pivot-my-startup` (33rd, Machiavelli/Edison/Epictetus), `should-i-raise-a-series-a` (34th, Machiavelli/Rockefeller/Carnegie); decisions count updated to 34; 95 topics tracked, 94 shipped.
+
 ## 2026-05-14 (Wave 7)
 
 ### Added

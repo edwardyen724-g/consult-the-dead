@@ -1118,3 +1118,110 @@
   hook_angles: [identity, proof]
   status: shipped
   shipped_at: "2026-05-14"
+
+# ── Wave 8 (shipped 2026-05-14) ──
+# Galileo Galilei added to live roster; 8 new articles + 2 decision pages
+
+- slug: what-would-galileo-say-about-challenging-conventional-wisdom
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to challenge conventional wisdom in business"
+  secondary_queries:
+    - "contrarian thinking strategy founders"
+    - "when to trust your data over expert consensus"
+    - "Galileo decision making business"
+  recommended_council: [galileo-galilei, isaac-newton, niccolo-machiavelli]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-archimedes-say-about-technical-leverage
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "technical leverage startups"
+  secondary_queries:
+    - "Archimedes lever principle business"
+    - "high leverage technical decisions startup"
+    - "how to find leverage in engineering"
+  recommended_council: [archimedes, isaac-newton, ada-lovelace]
+  hook_angles: [shortcut, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-epictetus-say-about-managing-uncertainty
+  type: insight
+  search_volume_estimate: high
+  primary_query: "managing uncertainty in business"
+  secondary_queries:
+    - "Epictetus dichotomy of control founders"
+    - "stoic philosophy for founders uncertainty"
+    - "how to deal with startup uncertainty"
+  recommended_council: [epictetus, marcus-aurelius, niccolo-machiavelli]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-frederick-douglass-say-about-building-credibility
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "building credibility as an outsider"
+  secondary_queries:
+    - "how to build authority from zero"
+    - "credibility without credentials founders"
+    - "Frederick Douglass leadership lessons"
+  recommended_council: [frederick-douglass, abraham-lincoln, niccolo-machiavelli]
+  hook_angles: [proof, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-ada-lovelace-say-about-building-for-the-future
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "building products for the future"
+  secondary_queries:
+    - "Ada Lovelace product thinking founders"
+    - "how to think about future technology platforms"
+    - "visionary product development first principles"
+  recommended_council: [ada-lovelace, isaac-newton, nikola-tesla]
+  hook_angles: [curiosity, shortcut]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-galileo-and-newton-would-say-about-evidence-vs-consensus
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "when to trust evidence over expert consensus"
+  secondary_queries:
+    - "evidence vs consensus decision making"
+    - "anomalous data strategy startup"
+    - "Galileo Newton scientific method business"
+  recommended_council: [galileo-galilei, isaac-newton]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-pivot-my-startup
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I pivot my startup"
+  secondary_queries:
+    - "when to pivot vs persist startup"
+    - "startup pivot decision framework"
+    - "how to know when to pivot a startup"
+  recommended_council: [niccolo-machiavelli, thomas-edison, epictetus]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-raise-a-series-a
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a Series A"
+  secondary_queries:
+    - "Series A fundraising decision"
+    - "when to raise Series A round"
+    - "Series A vs bootstrapping"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
