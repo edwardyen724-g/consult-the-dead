@@ -67,13 +67,13 @@ describe("sitemap()", () => {
     }
   });
 
-  it("emits exactly 5 listicle URLs (one per LISTICLE_SLUGS entry)", async () => {
+  it("emits exactly 8 listicle URLs (one per LISTICLE_SLUGS entry)", async () => {
     const entries = await sitemap();
     const listicleUrls = entries.filter((e) =>
       typeof e.url === "string" && e.url.includes("/listicles/"),
     );
     expect(listicleUrls).toHaveLength(LISTICLE_SLUGS.length);
-    expect(LISTICLE_SLUGS).toHaveLength(5);
+    expect(LISTICLE_SLUGS).toHaveLength(8);
   });
 
   it("uses changeFrequency=monthly and priority=0.6 for every listicle entry", async () => {

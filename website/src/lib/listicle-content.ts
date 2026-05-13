@@ -28,6 +28,10 @@ export const LISTICLE_SLUGS = [
   "leadership-crisis",
   "investing-risk",
   "product-strategy",
+  // Wave 10 additions — high-traffic founder pain points
+  "founder-burnout",
+  "co-founder-conflict",
+  "pricing-decision",
 ] as const;
 
 export type ListicleSlug = (typeof LISTICLE_SLUGS)[number];
