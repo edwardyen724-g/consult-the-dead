@@ -115,6 +115,24 @@ Phase 3 is complete when:
 - The first automation pass can produce publishable scripts without manual rewriting.
 - The posting path is either wired or explicitly deferred with a follow-up task.
 
+**Status as of 2026-05-13:** All generator contract criteria are met. The posting path is explicitly deferred to Phase 4 per §6.1 below. Phase 3 is **complete**.
+
+### 6.1 Instagram posting deferral (Phase 4)
+
+The direct Instagram Graph API posting path is deferred. Deferral rationale:
+
+- Meta Business account credentials, FB Page setup, and Dev App OAuth are external prerequisites that require Edward to act outside the codebase.
+- The generator produces fully reviewable JSON artifacts (`--dry-run`) and the human review loop is well-defined in §5.
+- Posting automation without an explicit quality bar on the first 5 pilot reels risks producing unreviewed content at scale.
+
+**Phase 4 ticket:** Wire Instagram Graph API when the first 5 pilot reels have been exported, reviewed, and confirmed publishable in the same template. See [`MARKETING_STRATEGY.md §Phase 3`](../../MARKETING_STRATEGY.md) and the Phase 4 handoff criteria in that document.
+
+**What Edward needs to do to unblock this:**
+1. Create a Meta Business Suite account and attach an Instagram Professional account.
+2. Set up a Facebook Developer App with `instagram_content_publish` and `pages_read_engagement` permissions.
+3. Complete the OAuth flow and provide the long-lived access token as an environment variable (`META_LONG_LIVED_TOKEN`).
+4. Confirm the first 5 reels passed the pilot quality bar (same template, same voice chain, no rescue edits).
+
 ## 7. Canonical references
 
 - [`MARKETING_STRATEGY.md`](../../MARKETING_STRATEGY.md)
