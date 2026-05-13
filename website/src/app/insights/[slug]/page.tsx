@@ -92,6 +92,22 @@ export default async function InsightPage({ params }: PageProps) {
     entry.targetKeywords,
     entry.decisionType,
   );
+  const faqLd = entry.hookQuestion
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: entry.hookQuestion,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: entry.description,
+            },
+          },
+        ],
+      }
+    : null;
 
   return (
     <main style={{ maxWidth: COL, margin: "0 auto", padding: "80px 24px" }}>
@@ -99,6 +115,12 @@ export default async function InsightPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
 
       <article>
         <header style={{ marginBottom: 48 }}>
