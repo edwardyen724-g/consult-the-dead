@@ -1,0 +1,33 @@
+{
+  "slug": "hiring-first-employee",
+  "h1": "Should You Hire Your First Employee? Machiavelli, Aurelius, and Carnegie on the First Hire",
+  "metaDescription": "Three historical minds who built organizations under pressure disagree on when a founder is actually ready to lead. Run the debate on your situation.",
+  "topicForCta": "hiring my first employee",
+  "intro": [
+    "The question is never whether you need help. You always need help. The question is whether you are ready to stop being the person who does everything and become the person who ensures everything gets done.",
+    "That transition is harder than it sounds. Your first hire isn't just an extra pair of hands — it is the first piece of organizational architecture you build. It shapes culture, sets expectations about performance, and creates a precedent for every hire after it.",
+    "Machiavelli's position on your first hire is deceptively simple: the quality of a prince is visible in the quality of the people they choose. A first hire who is weaker than you in every dimension doesn't make you feel better — it confirms that you are not yet a leader. His test isn't 'can they do the job?' It's 'does choosing them demonstrate good judgment about what the company actually needs?'",
+    "Marcus Aurelius approaches the same decision through the lens of role clarity. His argument: you cannot hold someone accountable for a role you have not clearly defined. If you hire before you know exactly what you need and why, you are outsourcing your own confusion to another person. The bottleneck is almost never that you lack a person. It is usually that you haven't figured out what the right person would actually do.",
+    "Carnegie's view is the most operational: the moment your bottleneck is your own time rather than your own thinking, it is time to hire. But he adds a sharp qualifier — the first person you hire should extend your capability, not replace your attention. The founders who delay their first hire the longest are usually founders who haven't identified what they want to delegate. The founders who hire too early are usually founders who are trying to delegate things they haven't mastered themselves."
+  ],
+  "minds": [
+    {
+      "slug": "niccolo-machiavelli",
+      "name": "Niccolò Machiavelli",
+      "rationale": "Argues that the quality of a leader is most visible in who they choose — your first hire is a test of your own judgment, not just a staffing decision."
+    },
+    {
+      "slug": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "rationale": "Insists on role clarity before hiring — if you can't define what the right person would do, you're outsourcing your own confusion to someone else."
+    },
+    {
+      "slug": "andrew-carnegie",
+      "name": "Andrew Carnegie",
+      "rationale": "Built organizations by delegating work he had mastered — his test is whether the hire extends your capability or tries to replace your thinking."
+    }
+  ],
+  "ctaHeadline": "Run this debate on your actual hiring decision",
+  "ctaButtonLabel": "Debate your first hire in the Agora",
+  "ctaSubtext": "Free. No signup required for your first 3 debates."
+}

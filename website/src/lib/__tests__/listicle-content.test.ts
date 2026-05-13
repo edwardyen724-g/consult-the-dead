@@ -40,7 +40,7 @@ function makeFixture(
 }
 
 describe("LISTICLE_SLUGS", () => {
-  it("contains the 8 prioritised slugs (5 original + 3 Wave 10 additions)", () => {
+  it("contains the 10 prioritised slugs (5 original + 3 Wave 10 + 2 Wave 13 additions)", () => {
     expect(LISTICLE_SLUGS).toEqual([
       "startup-pivot",
       "career-change",
@@ -50,6 +50,8 @@ describe("LISTICLE_SLUGS", () => {
       "founder-burnout",
       "co-founder-conflict",
       "pricing-decision",
+      "hiring-first-employee",
+      "raising-startup-funding",
     ]);
   });
 });

@@ -32,6 +32,9 @@ export const LISTICLE_SLUGS = [
   "founder-burnout",
   "co-founder-conflict",
   "pricing-decision",
+  // Wave 13 additions — hiring and funding decisions
+  "hiring-first-employee",
+  "raising-startup-funding",
 ] as const;
 
 export type ListicleSlug = (typeof LISTICLE_SLUGS)[number];
