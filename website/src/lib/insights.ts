@@ -616,6 +616,39 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
   {
+    slug: "what-would-tesla-say-about-technical-debt",
+    type: "single",
+    frameworkSlug: "nikola-tesla",
+    title: "What Would Tesla Say About Technical Debt?",
+    description:
+      "Tesla ran every system through exhaustive mental simulation before building. His intolerance for 'good enough' engineering reveals a precise framework for diagnosing technical debt: the difference between debt that defers perfection and debt that corrupts the system model.",
+    targetKeywords: [
+      "how to deal with technical debt",
+      "technical debt startup decision",
+      "when to refactor vs ship",
+      "Tesla engineering perfectionism",
+      "should I pay off technical debt",
+    ],
+    decisionType: "technology",
+    hookQuestion:
+      "Your codebase is held together with duct tape and prayer. The team says 'we'll fix it after launch.' But Tesla refused to build anything unless he had fully simulated it in his mind and found no contradictions. Here is his framework for deciding when technical debt is strategic postponement and when it is structural sabotage.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "Technical debt is not a shortcut — it is a promissory note on the integrity of the system. I never built anything I had not already run to completion in my mind. Your debt is accumulating because you are building without that mental model. The cost is not the time to fix it — it is the confusion that spreads when the model is absent.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "A system that cannot be understood from its foundations cannot be corrected at its edges. When your architecture is opaque even to those who built it, you have not accumulated debt — you have abandoned the premise of engineering. Begin with what can be derived, not what was assumed.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "What appears to be a shortcut often creates the path that must be walked three times. Examine the structure before you decide whether the debt is architectural or merely cosmetic. Architectural debt compounds. Cosmetic debt is repaid in an afternoon.",
+      },
+    ],
+  },
+  {
     slug: "what-would-napoleon-say-about-scaling-too-fast",
     type: "single",
     frameworkSlug: "napoleon-bonaparte",
@@ -993,6 +1026,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "what-would-tesla-say-about-technical-debt": [
+    {
+      label: "Perfection vs. viability",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "structural sabotage",
+      constructIndex: 0,
+    },
+    {
+      label: "Future architecture cost",
+      source: (entry) => entry.description,
+      excerpt: "corrupts the system model",
+      constructIndex: 5,
+    },
+  ],
   "what-would-napoleon-say-about-scaling-too-fast": [
     {
       label: "Logistics-first principle",

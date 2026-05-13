@@ -356,6 +356,30 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-tesla-say-about-technical-debt", () => {
+  it("generates a valid reel script with the technology court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-tesla-say-about-technical-debt",
+    );
+    expect(script.slug).toBe("what-would-tesla-say-about-technical-debt");
+    expect(script.frameworkSlug).toBe("nikola-tesla");
+    expect(script.decisionType).toBe("technology");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Technology council: Tesla (main), Newton (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("duct tape and prayer");
+    expect(script.cta).toContain(
+      "/insights/what-would-tesla-say-about-technical-debt",
+    );
+  });
+});
+
 describe("insight article slug — what-would-napoleon-say-about-scaling-too-fast", () => {
   it("generates a valid reel script with the scaling court", () => {
     const script = buildVerdictReelScript(

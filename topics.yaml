@@ -510,7 +510,8 @@
     - "when to refactor vs ship"
   recommended_council: [nikola-tesla]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: what-would-julius-caesar-say-about-moving-into-new-markets
   type: insight
