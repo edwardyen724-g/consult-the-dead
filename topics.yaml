@@ -54,8 +54,9 @@
     - "is open source good for startups"
   recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, proof]
-  status: shipped
-  shipped_at: 2026-05-12
+  status: killed
+  killed_reason: "Superseded by should-i-open-source-my-product (Wave 5, shipped 2026-05-14). Slug was renamed for better search intent match."
+  shipped_at: null
 
 - slug: should-i-pivot-or-persist
   type: decision
