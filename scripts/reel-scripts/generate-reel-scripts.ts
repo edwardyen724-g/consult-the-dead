@@ -73,6 +73,12 @@ const DECISION_COURT: Record<
       "Look at the pattern between domains before you choose the move. The answer is usually in the system that connects the problem, not the problem itself.",
     caption: "Read the pattern between the parts.",
   },
+  identity: {
+    minds: ["Marcus Aurelius", "Marie Curie", "Nikola Tesla"],
+    consensus:
+      "Before you act on the fatigue, name whether the duty itself is broken or just the pace. If the duty is sound, the strain is a season. If the duty is wrong, no amount of rest will fix it.",
+    caption: "Duty first. Then rest.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -88,6 +94,8 @@ const MAIN_BEATS: Record<string, string> = {
     "Ship the future only when the upside is strategic enough to justify the runway it consumes.",
   systems:
     "Look for the pattern that connects the domains. The real answer usually lives between the parts.",
+  identity:
+    "Inspect the duty before you inspect the energy. Fatigue that follows meaningful work is different from fatigue that follows the wrong work.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -103,6 +111,8 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Build the version that changes the frame, but only if the evidence says the frame is worth changing.",
   systems:
     "Cross-domain pattern recognition beats narrow expertise when the issue is really structural.",
+  identity:
+    "Extraordinary output requires extraordinary sacrifice. That is not a flaw in the mission — it is the cost of a mission worth having.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -118,6 +128,8 @@ const CLOSE_BEATS: Record<string, string> = {
     "If the future is worth the delay, commit. If not, ship the pragmatic version and keep learning.",
   systems:
     "Align the move with the system, not the mood of the moment.",
+  identity:
+    "If the duty is real, recover enough to return to it. If it is not, no vacation will make it worth having.",
 };
 
 function titleCase(value: string): string {

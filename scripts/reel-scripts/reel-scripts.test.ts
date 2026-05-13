@@ -155,6 +155,22 @@ describe("buildVerdictReelScript", () => {
   it("throws on an unknown slug", () => {
     expect(() => buildVerdictReelScript("missing-slug")).toThrow(/Unknown insight slug/);
   });
+
+  it("builds a proper council for the identity decisionType (Marcus Aurelius burnout)", () => {
+    const script = buildVerdictReelScript("what-would-marcus-aurelius-say-about-burnout");
+
+    expect(script.slug).toBe("what-would-marcus-aurelius-say-about-burnout");
+    expect(script.decisionType).toBe("identity");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // council must use the DECISION_COURT identity entry — not the generic fallback
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Nikola Tesla");
+    expect(script.consensus).toContain("duty itself is broken");
+    expect(script.captions[1]).toBe("Duty first. Then rest.");
+    expect(script.cta).toContain("/insights/what-would-marcus-aurelius-say-about-burnout");
+  });
 });
 
 describe("CLI behavior", () => {
