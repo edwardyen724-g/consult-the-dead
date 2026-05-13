@@ -2301,6 +2301,68 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "Your startup's survival depends on a partnership with a much larger company that controls your distribution channel. Do you deepen the dependency by expanding the partnership, or do you spend the next year building a path to independence even if it means slower growth?",
     publishedAt: "2026-05-21",
   },
+  // ── Wave 11 collision articles ─────────────────────────────────────────
+  {
+    slug: "caesar-vs-alexander-on-how-fast-to-expand",
+    type: "collision",
+    frameworkSlug: "julius-caesar",
+    collisionFrameworkSlugs: ["julius-caesar", "alexander-the-great"],
+    decisionType: "strategy",
+    title: "Caesar vs. Alexander: Should You Secure Each Step or Bet on Speed?",
+    description:
+      "A collision on expansion pacing. Caesar conquered Gaul methodically: each territory was pacified, integrated into Roman administrative structure, and converted into a tax base before he advanced. Alexander marched from Macedonia to India in 13 years and never stopped to consolidate — he trusted speed and spectacle to prevent organized resistance from forming. Both strategies produced world-historical results. They are genuinely incompatible, and the choice between them has direct implications for any founder deciding how fast to expand.",
+    targetKeywords: [
+      "expansion strategy startup",
+      "how fast to expand startup",
+      "geographic expansion timing",
+      "Caesar Alexander expansion strategy",
+      "sequential vs simultaneous market entry",
+    ],
+    hookQuestion:
+      "You have product-market fit in one city and a team that can execute in two more. You could spend 6 months saturating the first market and building the operational playbook, or you could open all three simultaneously and figure out operations as you go. Caesar would open one at a time. Alexander would open all three today.",
+    publishedAt: "2026-05-21",
+  },
+  {
+    slug: "jobs-vs-edison-on-perfectionism-vs-shipping",
+    type: "collision",
+    frameworkSlug: "steve-jobs",
+    collisionFrameworkSlugs: ["steve-jobs", "thomas-edison"],
+    decisionType: "iteration",
+    title: "Jobs vs. Edison: Should You Ship the 80% Version or Wait for Perfect?",
+    description:
+      "A collision on the right pace of product iteration. Edison ran over 10,000 experiments on the lightbulb, shipped dozens of intermediate products, and treated public iteration as a feature rather than an embarrassment. Jobs killed products that weren't ready, delayed launches by months to fix corner-case details, and staged reveals only when a product could make a maximum-impact statement. Both created category-defining products. Their philosophies about when a product is ready are directly opposed.",
+    targetKeywords: [
+      "ship early vs wait for perfect",
+      "perfectionism vs iteration startup",
+      "when to launch your product",
+      "Jobs Edison product launch",
+      "MVP vs polished product",
+    ],
+    hookQuestion:
+      "Your product works for 80% of users in 80% of cases. Shipping now means feedback from real users but also public exposure of the rough edges. Waiting 3 months means a cleaner launch but 3 months of delayed learning. Edison would ship today. Jobs would wait.",
+    publishedAt: "2026-05-21",
+  },
+  {
+    slug: "cicero-vs-machiavelli-on-winning-by-argument-or-power",
+    type: "collision",
+    frameworkSlug: "cicero",
+    collisionFrameworkSlugs: ["cicero", "niccolo-machiavelli"],
+    decisionType: "persuasion",
+    title:
+      "Cicero vs. Machiavelli: Do You Win by Making Better Arguments or by Controlling the Frame?",
+    description:
+      "A collision on the nature of persuasion. Cicero argued 300+ cases before Roman courts and won the majority on the quality of his logic, evidence, and delivery — his framework holds that a well-constructed argument will prevail with a rational audience. Machiavelli observed that arguments rarely win anything: what wins is who sets the terms of the debate, who controls the institutional machinery, and who has the power to make inaction costly. Both are correct in their respective domains; the question is which domain you are actually in.",
+    targetKeywords: [
+      "how to persuade people in business",
+      "argument vs power in negotiation",
+      "Cicero Machiavelli persuasion",
+      "winning boardroom arguments",
+      "how to win a debate at work",
+    ],
+    hookQuestion:
+      "You need to convince your board that the company should change direction. You have prepared a 20-slide deck with compelling data, clear logic, and three case studies. Cicero says the argument will carry the day if you deliver it well. Machiavelli says the argument is irrelevant — the question is whether you have the votes before you walk into the room.",
+    publishedAt: "2026-05-21",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -3331,6 +3393,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Internal vs. external power base",
       source: (entry) => entry.hookQuestion,
       excerpt: "building a path to independence",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 11 annotation blueprints ──────────────────────────────────────
+  "caesar-vs-alexander-on-how-fast-to-expand": [
+    {
+      label: "Sequential consolidation",
+      source: (entry) => entry.description,
+      excerpt: "pacified, integrated into Roman administrative structure",
+      constructIndex: 0,
+    },
+    {
+      label: "Speed vs. consolidation tension",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "saturating the first market and building the operational playbook",
+      constructIndex: 1,
+    },
+  ],
+  "jobs-vs-edison-on-perfectionism-vs-shipping": [
+    {
+      label: "Maximum-impact statement",
+      source: (entry) => entry.description,
+      excerpt: "staged reveals only when a product could make a maximum-impact statement",
+      constructIndex: 0,
+    },
+    {
+      label: "Perfectionism vs. learning delay",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "3 months of delayed learning",
+      constructIndex: 1,
+    },
+  ],
+  "cicero-vs-machiavelli-on-winning-by-argument-or-power": [
+    {
+      label: "Argument quality threshold",
+      source: (entry) => entry.description,
+      excerpt: "well-constructed argument will prevail with a rational audience",
+      constructIndex: 0,
+    },
+    {
+      label: "Votes before the room",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "whether you have the votes before you walk into the room",
       constructIndex: 1,
     },
   ],

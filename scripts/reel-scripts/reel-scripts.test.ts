@@ -1611,6 +1611,68 @@ describe("Wave 10 collision batch", () => {
   });
 });
 
+describe("Wave 11 collision batch", () => {
+  it("generates a reel script for caesar-vs-alexander-on-how-fast-to-expand", () => {
+    const script = buildVerdictReelScript(
+      "caesar-vs-alexander-on-how-fast-to-expand",
+    );
+    expect(script.slug).toBe("caesar-vs-alexander-on-how-fast-to-expand");
+    expect(script.frameworkSlug).toBe("julius-caesar");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/caesar-vs-alexander-on-how-fast-to-expand",
+    );
+  });
+
+  it("generates a reel script for jobs-vs-edison-on-perfectionism-vs-shipping", () => {
+    const script = buildVerdictReelScript(
+      "jobs-vs-edison-on-perfectionism-vs-shipping",
+    );
+    expect(script.slug).toBe("jobs-vs-edison-on-perfectionism-vs-shipping");
+    expect(script.frameworkSlug).toBe("steve-jobs");
+    expect(script.decisionType).toBe("iteration");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Iteration council: Edison (main), Curie (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Thomas Edison");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/jobs-vs-edison-on-perfectionism-vs-shipping",
+    );
+  });
+
+  it("generates a reel script for cicero-vs-machiavelli-on-winning-by-argument-or-power", () => {
+    const script = buildVerdictReelScript(
+      "cicero-vs-machiavelli-on-winning-by-argument-or-power",
+    );
+    expect(script.slug).toBe("cicero-vs-machiavelli-on-winning-by-argument-or-power");
+    expect(script.frameworkSlug).toBe("cicero");
+    expect(script.decisionType).toBe("persuasion");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Persuasion council: Cicero (main), Franklin (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Cicero");
+    expect(script.councilPass[1].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/cicero-vs-machiavelli-on-winning-by-argument-or-power",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented
