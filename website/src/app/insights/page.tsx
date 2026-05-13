@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllFrameworks, SLUG_COLOR_VAR } from "@/lib/frameworks";
 import type { FrameworkSlug } from "@/lib/frameworks";
-import { INSIGHT_ENTRIES } from "@/lib/insights";
+import { INSIGHT_ENTRIES, getInsightUrl } from "@/lib/insights";
 
 export const metadata: Metadata = {
   title: "Decision Insights — How History's Greatest Minds Would Decide",
@@ -197,6 +197,30 @@ export default function InsightsPage() {
           );
         })}
       </div>
+
+      {/* ── ItemList structured data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Decision Insights — Consult The Dead",
+            description:
+              "How history's greatest minds would approach your toughest decisions. Real cognitive frameworks, not AI personas.",
+            url: "https://www.consultthedead.com/insights",
+            numberOfItems: INSIGHT_ENTRIES.length,
+            itemListElement: INSIGHT_ENTRIES
+              .filter((entry) => fwMap.has(entry.frameworkSlug))
+              .map((entry, idx) => ({
+                "@type": "ListItem",
+                position: idx + 1,
+                name: entry.title,
+                url: getInsightUrl(entry.slug),
+              })),
+          }),
+        }}
+      />
     </main>
   );
 }

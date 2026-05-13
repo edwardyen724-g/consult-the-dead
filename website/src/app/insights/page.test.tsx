@@ -29,11 +29,15 @@ vi.mock("@/lib/frameworks", () => ({
   SLUG_COLOR_VAR: {} as Record<string, string>,
 }));
 
-vi.mock("@/lib/insights", () => ({
-  get INSIGHT_ENTRIES() {
-    return mocks.INSIGHT_ENTRIES;
-  },
-}));
+vi.mock("@/lib/insights", async (importOriginal) => {
+  const real = await importOriginal<typeof import("@/lib/insights")>();
+  return {
+    ...real,
+    get INSIGHT_ENTRIES() {
+      return mocks.INSIGHT_ENTRIES;
+    },
+  };
+});
 
 vi.mock("next/link", () => ({
   default: ({

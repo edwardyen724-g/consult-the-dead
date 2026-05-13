@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-import { DECISION_ENTRIES } from "../../../content/decisions";
+import { DECISION_ENTRIES, getDecisionUrl } from "../../../content/decisions";
 
 const DECISIONS_OG_IMAGE_URL =
   "https://www.consultthedead.com/opengraph-image";
@@ -183,6 +183,28 @@ export default function DecisionsPage() {
           ))}
         </ol>
       </div>
+
+      {/* ── ItemList structured data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Decisions — Consult The Dead",
+            description:
+              "High-intent decisions for founders, examined by councils of historical minds.",
+            url: "https://www.consultthedead.com/decisions",
+            numberOfItems: DECISION_ENTRIES.length,
+            itemListElement: DECISION_ENTRIES.map((entry, idx) => ({
+              "@type": "ListItem",
+              position: idx + 1,
+              name: entry.title,
+              url: getDecisionUrl(entry.slug),
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }
