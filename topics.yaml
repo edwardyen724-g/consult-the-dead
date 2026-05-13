@@ -165,6 +165,138 @@
   status: shipped
   shipped_at: 2026-05-12
 
+- slug: should-i-join-an-accelerator
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I join an accelerator"
+  secondary_queries:
+    - "Y Combinator worth it"
+    - "startup accelerator pros and cons"
+  recommended_council: [niccolo-machiavelli, marie-curie, sun-tzu]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-hire-a-cto-or-find-a-technical-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "hire CTO or find technical cofounder"
+  secondary_queries:
+    - "CTO vs technical cofounder"
+    - "when to hire first technical hire"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-launch-now-or-wait-for-perfect
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch now or wait"
+  secondary_queries:
+    - "when is product ready to launch"
+    - "launch imperfect product"
+  recommended_council: [marie-curie, marcus-aurelius, isaac-newton]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-charge-from-day-one
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I charge customers from day one"
+  secondary_queries:
+    - "free vs paid early startup"
+    - "when to start charging"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-split-equity-50-50-with-my-cofounder
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I split equity 50/50"
+  secondary_queries:
+    - "cofounder equity split"
+    - "how to divide startup equity"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-raise-a-series-a
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a Series A"
+  secondary_queries:
+    - "Series A vs staying bootstrapped"
+    - "when to raise Series A"
+  recommended_council: [niccolo-machiavelli, sun-tzu, marie-curie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-sign-this-term-sheet
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I sign this term sheet"
+  secondary_queries:
+    - "term sheet red flags"
+    - "how to evaluate a term sheet"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [proof, shortcut]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-go-remote-or-in-person
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should startup be remote or in person"
+  secondary_queries:
+    - "remote vs in-person startup"
+    - "is remote work good for startups"
+  recommended_council: [marcus-aurelius, niccolo-machiavelli, marie-curie]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-launch-on-product-hunt
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch on Product Hunt"
+  secondary_queries:
+    - "is Product Hunt worth it"
+    - "Product Hunt launch strategy"
+  recommended_council: [niccolo-machiavelli, sun-tzu, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-offer-a-free-tier
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I offer a free tier"
+  secondary_queries:
+    - "freemium vs paid only"
+    - "free tier conversion strategy"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
+- slug: should-i-rebrand
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I rebrand my startup"
+  secondary_queries:
+    - "when to rebrand a company"
+    - "startup rebrand pros and cons"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [identity, tension]
+  status: shipped
+  shipped_at: 2026-05-12
+
 # ─────────────────────────────────────────────────────────────────────
 # Type "insight" — "what would X say about Y" pop-philosophy queries.
 # Each is /insights/{slug}. We already have ~6 of these — extending the set.
@@ -410,18 +542,8 @@
     - "is building in public worth it"
   recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
   hook_angles: [identity, tension]
-  status: queued
-
-- slug: should-i-charge-for-my-product-or-go-freemium
-  type: decision
-  search_volume_estimate: high
-  primary_query: "freemium vs paid startup"
-  secondary_queries:
-    - "should I offer a free tier"
-    - "freemium conversion rate"
-  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
-  hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
 
 - slug: first-mover-vs-fast-follower-what-sun-tzu-says
   type: insight
