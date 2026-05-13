@@ -4,6 +4,11 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-13 (Build fix)
+
+### Fixed
+- `jobs-to-be-done-explained` insight entry had `type: "method"` which is not assignable to `InsightType` (`"single" | "collision"`); changed to `type: "single"` per existing method-article pattern (cf. `cynefin-framework-explained`). Added 2 missing `INSIGHT_ANNOTATION_BLUEPRINTS` entries so the annotation-layer vitest passes. This was blocking the CI/Build job and the Vercel deployment.
+
 ## 2026-05-21 (Wave 18)
 
 ### Added
