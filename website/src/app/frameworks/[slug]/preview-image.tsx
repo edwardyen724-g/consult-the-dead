@@ -31,6 +31,8 @@ const ACCENT_COLORS: Record<FrameworkSlug, string> = {
   "seneca": "#7d8c5e",
   // SEO listicle expansion 2026-05 (task c7400a14)
   "steve-jobs": "#5a8fb8",
+  // Wave 8 addition 2026-05
+  "galileo-galilei": "#5b9bd5",
 };
 
 export interface FrameworkPreviewData {
