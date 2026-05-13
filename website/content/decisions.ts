@@ -1584,6 +1584,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "startup IP protection strategy",
     ],
   },
+  {
+    slug: "should-i-set-up-a-referral-program",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Set Up a Referral Program?",
+    description:
+      "Referral programs are one of the few growth channels that compound: each new user becomes a potential acquisition vector. But a referral program only works if your product already has users who are genuinely enthusiastic, and the incentive structure has to reward behavior you actually want — not just signups that churn. The mechanics matter as much as the concept: one-sided incentives attract opportunists, two-sided incentives build loyalty, and the wrong reward can cheapen the recommendation. The decision turns on whether your existing retention is strong enough to make word-of-mouth credible and whether the unit economics of a referred user justify the referral cost.",
+    primaryQuery: "should I set up a referral program",
+    secondaryQueries: [
+      "how to build a referral program for a startup",
+      "referral program vs paid acquisition",
+      "when to launch a referral program",
+      "referral program incentive structure",
+      "does a referral program increase growth",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is my product ready to grow through referrals, or am I building a program before I've earned the recommendation?",
+    targetKeywords: [
+      "should I set up a referral program",
+      "referral program startup growth",
+      "how to build a referral program",
+      "referral incentive structure startup",
+      "word of mouth growth strategy",
+    ],
+  },
+  {
+    slug: "should-i-change-my-pricing-model",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Change My Pricing Model?",
+    description:
+      "Pricing is not just a revenue lever — it encodes what you believe about who your customer is, what value they receive, and how much of that value you can capture. Changing pricing mid-stream is dangerous because it resets expectations for existing customers and can trigger churn spikes that obscure whether the new model is actually better. The signal that a pricing change is warranted is usually found in conversion data (prospects who want your product but stall on price) or in NRR (customers who grow but whose spend doesn't grow with them). The question is whether you are leaving money on the table with current customers, repelling the right new customers, or both.",
+    primaryQuery: "should I change my pricing model",
+    secondaryQueries: [
+      "when to change your startup pricing",
+      "subscription vs usage-based pricing",
+      "how to reprice a SaaS product",
+      "pricing model change impact on churn",
+      "freemium vs paid tier pricing decision",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is my current pricing model costing me customers, revenue, or both?",
+    targetKeywords: [
+      "should I change my pricing model",
+      "startup pricing model decision",
+      "subscription vs usage-based pricing startup",
+      "when to reprice your product",
+      "SaaS pricing strategy change",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-head-of-marketing",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Head of Marketing?",
+    description:
+      "A head of marketing is not a solution to not having a growth strategy — it is an amplifier of one you already have. Hired too early, they spend their first six months building from scratch without enough product, budget, or customer data to be effective, and they leave before the work compounds. Hired too late, you burn growth capital on paid channels without the brand architecture or content infrastructure to make any of it efficient. The right moment is when you have found at least one repeatable acquisition channel, have enough budget to give a marketing leader real leverage, and need someone who can build a team rather than execute tactics.",
+    primaryQuery: "should I hire a head of marketing",
+    secondaryQueries: [
+      "when to hire a VP of marketing startup",
+      "head of marketing vs growth lead startup",
+      "first marketing hire startup",
+      "CMO vs head of marketing early stage",
+      "when does a startup need a marketing leader",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Am I ready to hire a head of marketing, or am I trying to buy a strategy I haven't built yet?",
+    targetKeywords: [
+      "should I hire a head of marketing",
+      "when to hire VP marketing startup",
+      "first marketing hire startup",
+      "head of marketing startup decision",
+      "marketing leadership early stage company",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

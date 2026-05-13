@@ -1927,6 +1927,72 @@ describe("Wave 15 collision batch", () => {
   });
 });
 
+describe("Wave 16 collision batch", () => {
+  it("generates a reel script for edison-vs-tesla-on-practical-bets-vs-visionary-bets", () => {
+    const script = buildVerdictReelScript(
+      "edison-vs-tesla-on-practical-bets-vs-visionary-bets",
+    );
+    expect(script.slug).toBe(
+      "edison-vs-tesla-on-practical-bets-vs-visionary-bets",
+    );
+    expect(script.frameworkSlug).toBe("thomas-edison");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Innovation council: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/edison-vs-tesla-on-practical-bets-vs-visionary-bets",
+    );
+  });
+
+  it("generates a reel script for alexander-vs-napoleon-on-when-to-overextend", () => {
+    const script = buildVerdictReelScript(
+      "alexander-vs-napoleon-on-when-to-overextend",
+    );
+    expect(script.slug).toBe("alexander-vs-napoleon-on-when-to-overextend");
+    expect(script.frameworkSlug).toBe("alexander-the-great");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/alexander-vs-napoleon-on-when-to-overextend",
+    );
+  });
+
+  it("generates a reel script for ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data", () => {
+    const script = buildVerdictReelScript(
+      "ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data",
+    );
+    expect(script.slug).toBe(
+      "ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data",
+    );
+    expect(script.frameworkSlug).toBe("ada-lovelace");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

@@ -2821,6 +2821,146 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before you decide whether to build org charts or book lunches, map your three most value-generating relationships and ask two questions about each: First, does the value flow from the relationship itself (trust, history, personal knowledge), or from what the relationship provides access to (information, distribution, credibility)? Second, could an institution — a contract, a community, a product feature — provide that access more reliably than the relationship? If yes to the second question, systematize now: build the structure that captures the value before the relationship changes. If no, invest in the relationship: it is the cheapest and most defensible form of access you have. At 30 people, you likely have two or three relationships worth systematizing and two or three worth deepening. The mistake is applying one strategy to all five.",
     },
   },
+  // ── Wave 16 collision articles ─────────────────────────────────────────
+  {
+    slug: "edison-vs-tesla-on-practical-bets-vs-visionary-bets",
+    type: "collision",
+    frameworkSlug: "thomas-edison",
+    collisionFrameworkSlugs: ["thomas-edison", "nikola-tesla"],
+    decisionType: "innovation",
+    title: "Edison vs. Tesla: Should You Make Practical Bets or Visionary Bets?",
+    description:
+      "Edison built what the market would pay for today. Tesla designed what physics made possible tomorrow. They worked twenty feet apart for a year and disagreed on everything that mattered. Their collision is the foundational tension in every innovation decision: do you bet on what works now, or on what could transform the field?",
+    targetKeywords: [
+      "practical vs visionary innovation",
+      "Edison Tesla innovation strategy",
+      "should I build for today or tomorrow",
+      "incremental vs transformational innovation",
+      "when to make big bets startup",
+    ],
+    hookQuestion:
+      "Are you betting on what works today or what could transform tomorrow?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Thomas Edison",
+        text: "The market does not reward visions — it rewards products. I did not invent the light bulb by theorizing about illumination. I ran over ten thousand experiments until I found the filament that worked, at a price that a household could afford, on a system that I could sell. The visionary who cannot ship is not an innovator. He is a dreamer with good handwriting. My construct is this: a practical bet that ships and generates revenue funds the next bet. A visionary bet that never ships funds nothing.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "Edison describes the method of someone who does not understand the system he is building. I worked in his laboratory. He had no theory — only persistence and capital. He found the incandescent filament through brute elimination, and he built a direct current distribution network that was structurally obsolete before it was complete. I saw the rotating magnetic field in my mind before I built it. When I built the alternating current motor, it performed exactly as calculated. The practical bet that ignores the underlying physics is not pragmatism — it is expensive ignorance.",
+      },
+      {
+        speaker: "Thomas Edison",
+        text: "Tesla's alternating current is a useful technology. It is also a technology that required Westinghouse's capital, Morgan's distribution network, and my prior work establishing that electrical distribution was commercially viable at all. The visionary who arrives after the pragmatist has built the market and claims his vision was superior has confused sequence with causation. Every transformational technology rides on a foundation of practical bets made by people who could not see as far as the visionary but who built the terrain the visionary needed to stand on.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "Edison is making the pragmatist's error: he is confusing market timing with intellectual priority. The alternating current principle did not depend on Edison's DC network — it preceded it and would have been the correct architecture from the beginning if the decision had been made on physical grounds rather than on Edison's commercial interest in the infrastructure he had already built. The practical bet that entrenches a suboptimal architecture is not pragmatism — it is a switching cost that the entire industry pays for decades. I am asking whether your innovation bet is genuinely the right architecture, or whether it is the architecture that is easiest to defend given what you have already built.",
+      },
+      {
+        speaker: "Thomas Edison",
+        text: "Here is the question I would put to any founder: what is your runway? The visionary bet requires time — time for the market to develop, time for the supporting infrastructure to arrive, time for the world to understand what you have built. Tesla's vision of wireless power transmission was not wrong. It was correct and it was fifty years early. He died broke. The practical bet is not inferior to the visionary bet — it is the bet that allows you to still be operating when the visionary moment arrives. If my logic wins here, you ask not whether the transformational bet is correct, but whether you will survive long enough to collect on it.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "And here is where Edison and I converge more than it appears. The correct question is not practical or visionary — it is what kind of unknown you are trying to resolve. If the unknown is whether the market wants the thing at all, Edison is right: build the practical version, generate revenue, and let the market tell you what to build next. If the unknown is whether the architecture is correct — whether the foundational design is sound — then Edison's method of empirical elimination is actively dangerous, because it can find a working answer that is structurally obsolete before it ships. Diagnose the unknown first. Then choose your method.",
+      },
+    ],
+  },
+  {
+    slug: "alexander-vs-napoleon-on-when-to-overextend",
+    type: "collision",
+    frameworkSlug: "alexander-the-great",
+    collisionFrameworkSlugs: ["alexander-the-great", "napoleon-bonaparte"],
+    decisionType: "strategy",
+    title: "Alexander vs. Napoleon: When Does Ambition Become Overextension?",
+    description:
+      "Alexander marched from Macedonia to India in thirteen years and never stopped voluntarily. Napoleon built the largest European empire in a century and then lost it all in Russia. One died undefeated in the field; the other was exiled twice. The question is not whether bold ambition is correct — both men prove it can work. The question is how to distinguish the ambition that compounds from the ambition that overreaches.",
+    targetKeywords: [
+      "when does ambition become overextension",
+      "Alexander Napoleon strategy comparison",
+      "how far to push your startup",
+      "overextension startup warning signs",
+      "bold strategy vs reckless strategy",
+    ],
+    hookQuestion:
+      "At what point does bold ambition become the cause of your undoing?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Alexander the Great",
+        text: "You ask when ambition becomes overextension. I will tell you what I learned in thirteen years of campaigning: it does not become overextension when the territory is far. It becomes overextension when the core is no longer generating the resources and loyalty the advance requires. I reached the Indus because every territory I passed through was converted into a supply base, a recruiting ground, and a political ally before I moved forward. The limit of expansion is not distance. It is the rate at which your existing holdings compound versus the rate at which the advance consumes them.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Alexander describes the condition of sustainable expansion correctly and obscures the failure mode that ended him. He reached the Hyphasis River and his army refused to advance. Not because the logistics had failed — because the psychological contract between a commander and his men has a limit that no logistical system can extend indefinitely. I made the same error in Russia, for different reasons: I assumed the campaign would resolve itself in the same timeframe as every previous campaign, and I did not model what happens when it does not. The overextension that destroys ambition is not the geographic kind — it is the kind where you have advanced beyond the willingness of the people executing the plan to sustain it.",
+      },
+      {
+        speaker: "Alexander the Great",
+        text: "Napoleon is correct that the Hyphasis mutiny was the true limit of the campaign, and I want to name what it reveals. The mutiny did not happen because my army was exhausted — they had marched for thirteen years. It happened because I had not told them where the end was. The visionary who can see the full map but withholds it from the people executing the plan creates the conditions for desertion at the worst possible moment. If I had said at the Oxus that the campaign ends at the Hyphasis, the same men would have reached it without incident. The lesson is not that ambition must be smaller. It is that ambition must be communicated precisely enough that the people carrying it can make an informed commitment.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Alexander is describing a communication failure. I am describing a modeling failure. In Russia, I did not simply fail to communicate the campaign's endpoint — I failed to model what the campaign would cost if the enemy refused to fight a decisive engagement. The Russian strategy of withdrawing and burning their own territory was not in my model. When the actual campaign diverged from the model, I did not update the model fast enough — I kept advancing as if the next battle would produce the decision the last ten had not. The overextension that I committed was not ambition. It was the refusal to revise the model when the data said the model was wrong. That is the failure mode your question is actually about.",
+      },
+      {
+        speaker: "Alexander the Great",
+        text: "Then let me name the precise diagnostic that separates my expansions from Napoleon's Russia. Before every advance, I asked two questions: does the territory I am entering have something that makes holding it easier than holding it from the outside — a port, a chokepoint, a population that will defect to the winner? And does my current base generate enough surplus to sustain the advance without degrading itself? When both answers were yes, I advanced. When either was no, I consolidated first. Napoleon's Russia failed both tests and he advanced anyway. The ambition that compounds is the ambition that applies both tests before every move.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Alexander's two tests are correct and I accept them. I will add a third that I learned from Russia: before every significant advance, model the scenario where the advance does not resolve within the expected timeframe. What does the campaign look like at twice the expected duration? At three times? If the answer at twice the expected duration is catastrophic — if the supply lines cannot hold, if the political coalition fractures, if the home base weakens while you are extended — then the advance is not bold. It is reckless. The difference between bold ambition and overextension is not the size of the bet. It is whether the downside scenario has been modeled honestly and whether you have a path back that does not require the opponent to cooperate.",
+      },
+    ],
+  },
+  {
+    slug: "ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data",
+    type: "collision",
+    frameworkSlug: "ada-lovelace",
+    collisionFrameworkSlugs: ["ada-lovelace", "florence-nightingale"],
+    decisionType: "evidence",
+    title:
+      "Ada Lovelace vs. Florence Nightingale: Should You Build the System or Work the Data?",
+    description:
+      "Lovelace designed a general-purpose computing architecture before a single component existed. Nightingale walked into a hospital killing soldiers at a 42% rate and fixed it with existing data collected on-site. One built the framework first and let applications follow; the other gathered field evidence first and let the system emerge. They represent opposite philosophies about whether architecture or observation is the more reliable path to a correct answer.",
+    targetKeywords: [
+      "systems thinking vs data gathering",
+      "build framework first or gather data first",
+      "Ada Lovelace Florence Nightingale",
+      "architecture first vs evidence first",
+      "when to design system vs collect field data",
+    ],
+    hookQuestion:
+      "Do you design the framework first or gather the evidence first?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Ada Lovelace",
+        text: "I wrote the first algorithm for a machine that did not yet exist. This was not speculation — it was the correct epistemic move, because the architecture of Babbage's Analytical Engine was sufficiently well-specified that I could derive what it made possible before any physical instance existed. The framework precedes the data collection when the framework is what determines which data is meaningful to collect. If you begin gathering field data before you have a model of what you are measuring, you will collect everything and understand nothing. The system tells you what evidence to look for. Evidence without a system is noise with good documentation.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "Lovelace describes the correct move for a domain with a well-specified formal architecture. Medicine in the Crimea was not that domain. When I arrived at Scutari, I did not have a complete model of why soldiers were dying at 42%. I had a mortality rate that was clearly wrong and a set of instruments to measure causes of death. I gathered the data first — cause by cause, ward by ward — and the system emerged from what the data revealed. If I had constructed a theoretical framework before looking, I would have designed around what medical doctrine said should be killing soldiers, not around what was actually killing them. The framework that precedes observation in a poorly-understood domain will encode the prior generation's errors.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "Nightingale is describing a real failure mode — the premature theory that organizes observation around its own assumptions. But she is underestimating the cost of her alternative. An observation program without a guiding model is not neutral. It is shaped by what the observer finds salient, what instruments she brought, and what categories she uses to record what she sees. Nightingale arrived with the concept of cause-of-death categories that structured her entire data collection. Those categories were her framework. The choice is not between framework and no framework — it is between an explicit framework that can be examined and revised, and an implicit framework that shapes the observation without being visible.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "I accept that my cause-of-death categories were a framework — and I want to be precise about what kind of framework they were. They were a minimal framework: broad enough to capture variation in the field, not so detailed that they predicted the answer before I found it. Lovelace's framework for the Analytical Engine was maximal: she specified the operations before the machine existed. The maximal framework is correct when the domain has stable formal properties — when the architecture of the system is knowable in advance of observation. The minimal framework is correct when the domain has emergent properties that reveal themselves only in the field. The question for any decision is: how stable are the properties of what you are studying? If they are stable, Lovelace is right to build the full system first. If they are emergent — if the field will surprise you in ways your theory cannot anticipate — Nightingale is right to gather first and systematize after.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "Nightingale's stable-versus-emergent distinction is the most useful framing either of us has offered. I want to refine it with a second dimension: the cost of being wrong. In the Analytical Engine, the cost of a wrong architectural assumption was a machine that did not compute. High cost, but recoverable — you redesign the machine. In Scutari, the cost of a wrong theoretical assumption was soldiers dying under a treatment regime built on a false model. Also high cost, but less recoverable — the soldiers were already dead. When the cost of a wrong framework is high and the recovery is slow, Nightingale's approach of gathering evidence before committing to an architecture is the more conservative and correct choice. When the cost of gathering without a framework is high — because undirected observation takes years and the window for action is short — the Lovelace approach of building the architecture first is the correct choice.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "We have arrived at the decision rule. Build the system first when the domain has stable formal properties that can be known in advance, the cost of undirected observation exceeds the cost of a wrong framework, and the framework can be explicitly stated and revised as new data arrives. Gather the data first when the domain has emergent properties that resist formal specification, the cost of a wrong prior model exceeds the cost of extended observation, and the field is accessible enough that direct measurement is faster than formal derivation. Lovelace's error would be to specify a computing architecture for a domain she had never observed. Nightingale's error would be to gather mortality data without any model of what categories to use. The method is not determined by temperament — it is determined by the structure of the problem.",
+      },
+    ],
+  },
   // ── Wave 15 collision articles ─────────────────────────────────────────
   {
     slug: "da-vinci-vs-newton-on-breadth-vs-depth",
@@ -4227,6 +4367,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "First-year consolidation",
       source: (entry) => entry.hookQuestion,
       excerpt: "establish authority when you're new",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 16 annotation blueprints ──────────────────────────────────────
+  "edison-vs-tesla-on-practical-bets-vs-visionary-bets": [
+    {
+      label: "Practical vs. visionary bet",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "what works today or what could transform tomorrow",
+      constructIndex: 0,
+    },
+    {
+      label: "Architecture vs. elimination",
+      source: (entry) => entry.description,
+      excerpt: "bet on what works now, or on what could transform the field",
+      constructIndex: 1,
+    },
+  ],
+  "alexander-vs-napoleon-on-when-to-overextend": [
+    {
+      label: "Ambition compounding vs. consuming",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "bold ambition become the cause of your undoing",
+      constructIndex: 0,
+    },
+    {
+      label: "Model revision under pressure",
+      source: (entry) => entry.description,
+      excerpt: "how to distinguish the ambition that compounds",
+      constructIndex: 1,
+    },
+  ],
+  "ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data": [
+    {
+      label: "Framework before observation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "design the framework first or gather the evidence first",
+      constructIndex: 0,
+    },
+    {
+      label: "Stable vs. emergent domain",
+      source: (entry) => entry.description,
+      excerpt: "architecture or observation is the more reliable path",
       constructIndex: 1,
     },
   ],

@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 16)
+
+### Added
+- Wave 16 collision batch shipped: 3 collision insight articles — `edison-vs-tesla-on-practical-bets-vs-visionary-bets` (thomas-edison + nikola-tesla; innovation), `alexander-vs-napoleon-on-when-to-overextend` (alexander-the-great + napoleon-bonaparte; strategy), `ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data` (ada-lovelace + florence-nightingale; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (97 total passing). Total: 38 collision articles shipped.
+- Wave 16 decision pages: `should-i-set-up-a-referral-program` (Carnegie/Franklin/Machiavelli), `should-i-change-my-pricing-model` (Rockefeller/Machiavelli/Aurelius), `should-i-hire-a-head-of-marketing` (Carnegie/Machiavelli/Franklin); decisions count updated to 57; 145 topics tracked (144 shipped, 0 queued).
+
 ## 2026-05-21 (Wave 15)
 
 ### Added

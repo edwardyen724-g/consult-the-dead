@@ -1832,3 +1832,83 @@
   hook_angles: [shortcut, risk]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 16 ─────────────────────────────────────────────────────────────────
+
+- slug: edison-vs-tesla-on-practical-bets-vs-visionary-bets
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I make practical bets or visionary bets"
+  secondary_queries:
+    - "practical vs visionary approach startup"
+    - "incremental innovation vs breakthrough innovation"
+    - "Edison vs Tesla approach to innovation"
+  framework_slugs: [thomas-edison, nikola-tesla]
+  decisionType: innovation
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: alexander-vs-napoleon-on-when-to-overextend
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when does ambition become overextension"
+  secondary_queries:
+    - "when to stop expanding startup"
+    - "overextension risk in business growth"
+    - "how far to push growth before pulling back"
+  framework_slugs: [alexander-the-great, napoleon-bonaparte]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: ada-lovelace-vs-nightingale-on-systems-thinking-vs-field-data
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I design the system first or gather data first"
+  secondary_queries:
+    - "systems thinking vs empirical data approach"
+    - "build the framework first or test in the field"
+    - "top-down vs bottom-up analysis decision"
+  framework_slugs: [ada-lovelace, florence-nightingale]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-set-up-a-referral-program
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I set up a referral program"
+  secondary_queries:
+    - "referral program for startups"
+    - "viral growth referral strategy"
+    - "word of mouth vs paid acquisition"
+  recommended_council: [andrew-carnegie, benjamin-franklin, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-change-my-pricing-model
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I change my pricing model"
+  secondary_queries:
+    - "when to change pricing strategy startup"
+    - "pricing model change startup"
+    - "subscription vs one-time pricing decision"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-a-head-of-marketing
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a head of marketing"
+  secondary_queries:
+    - "when to hire a CMO startup"
+    - "first marketing hire startup"
+    - "head of marketing vs growth marketer startup"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
