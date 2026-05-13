@@ -1404,6 +1404,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "co-marketing partnership decision",
     ],
   },
+  {
+    slug: "should-i-go-remote-or-hire-in-person",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Go Remote-First or Require In-Person?",
+    description:
+      "The remote-vs-office debate is usually framed around productivity data, but the real question is what kind of organization you are actually building. Remote-first gives you access to a global talent pool and lower overhead, but it demands a culture of written communication, asynchronous trust, and deliberate coordination that most early teams are not yet equipped to maintain. In-person concentrates creative energy, speeds up the messy early discovery work, and makes it easier to hold people accountable when accountability systems are not yet formalized. The decision turns on your stage, your team's communication maturity, and whether your work requires the kind of spontaneous collision that only proximity creates.",
+    primaryQuery: "should I go remote or require office",
+    secondaryQueries: [
+      "remote-first vs in-person startup",
+      "should my startup be remote or in-office",
+      "remote work vs office for early stage company",
+      "distributed team vs co-located startup",
+      "remote first startup pros cons",
+    ],
+    recommendedCouncil: [
+      "abraham-lincoln",
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is remote-first or in-person the right default for my stage?",
+    targetKeywords: [
+      "should I go remote or require office",
+      "remote-first vs in-person startup",
+      "remote work startup decision",
+      "distributed team vs co-located",
+      "remote first early stage company",
+    ],
+  },
+  {
+    slug: "should-i-focus-on-profitability-or-growth",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Optimize for Profitability or Growth Right Now?",
+    description:
+      "The profitability-vs-growth tension is really a question about which resource constraint you are betting on: capital availability or market timing. If capital markets are tight and your runway is short, profitability is not a strategic choice — it is a survival requirement. If a competitor is gaining ground in your category and the window to establish market position is closing, burning toward growth may be the only rational bet. The decision turns on your honest read of the competitive landscape, your current burn rate relative to traction, and whether the market will still be there if you arrive profitably but late.",
+    primaryQuery: "should I focus on profitability or growth",
+    secondaryQueries: [
+      "profitability vs growth startup",
+      "should I optimize for profit or scale",
+      "when to focus on profitability startup",
+      "growth at all costs vs sustainable business",
+      "burn rate vs profitability decision",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "Am I at a stage where I should prioritize being profitable or prioritize growing fast?",
+    targetKeywords: [
+      "should I focus on profitability or growth",
+      "profitability vs growth startup",
+      "when to prioritize profit over growth",
+      "startup profitability decision",
+      "growth vs sustainability startup",
+    ],
+  },
+  {
+    slug: "should-i-rebrand-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Rebrand My Startup?",
+    description:
+      "Rebranding is almost never about the name or logo — it is about whether you have outgrown the story you told when you started. A rebrand that follows genuine strategic evolution can sharpen positioning, unlock new markets, and signal to the world that the company has changed. A rebrand driven by aesthetic fatigue or a desire to escape early missteps usually just moves the confusion to a new identity without fixing the underlying message problem. The decision turns on whether your current name and visual language are actively blocking growth, or whether you are mistaking an execution problem for a branding problem.",
+    primaryQuery: "should I rebrand my startup",
+    secondaryQueries: [
+      "when to rebrand a startup",
+      "startup rebrand decision",
+      "how to know if you need to rebrand",
+      "rebranding pros cons startup",
+      "should I change my company name",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "andrew-carnegie",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Is now the right time for my startup to rebrand?",
+    targetKeywords: [
+      "should I rebrand my startup",
+      "startup rebranding decision",
+      "when to rebrand a company",
+      "startup name change decision",
+      "rebranding startup pros cons",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
