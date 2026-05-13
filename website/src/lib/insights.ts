@@ -27,6 +27,12 @@ export interface SingleInsightEntry extends InsightBaseEntry {
 export interface CollisionInsightEntry extends InsightBaseEntry {
   type: "collision";
   collisionFrameworkSlugs: [FrameworkSlug, FrameworkSlug];
+  /** Synthesized verdict: which framework's approach wins the agon and why. */
+  conclusion?: {
+    frameworkSlug?: FrameworkSlug;
+    summary: string;
+    actionableInsight: string;
+  };
 }
 
 export type InsightEntry = SingleInsightEntry | CollisionInsightEntry;
