@@ -3,6 +3,7 @@
  * Task 7deb5fb2 — cynefin-framework-explained (single type).
  * Task ad9b2580 — the-ooda-loop-vs-the-cynefin-framework (collision type).
  * Task ea2ab1d9 — critical-decision-method-explained (single type).
+ * Trendslop — trendslop-why-all-llms-give-the-same-strategic-advice (single type).
  *
  * Method articles differ from "What Would X Say" insight articles:
  *  - No single historical figure as protagonist
@@ -23,6 +24,7 @@ import { getFramework } from "@/lib/frameworks";
 const SINGLE_METHOD_SLUGS = [
   "cynefin-framework-explained",
   "critical-decision-method-explained",
+  "trendslop-why-all-llms-give-the-same-strategic-advice",
 ] as const;
 
 const COLLISION_METHOD_SLUGS = [
@@ -35,18 +37,21 @@ const METHOD_FRAMEWORK_SLUGS: Record<string, string> = {
   "cynefin-framework-explained": "leonardo-da-vinci",
   "the-ooda-loop-vs-the-cynefin-framework": "sun-tzu",
   "critical-decision-method-explained": "marcus-aurelius",
+  "trendslop-why-all-llms-give-the-same-strategic-advice": "isaac-newton",
 };
 
 const METHOD_DECISION_TYPES: Record<string, string> = {
   "cynefin-framework-explained": "systems",
   "the-ooda-loop-vs-the-cynefin-framework": "strategy",
   "critical-decision-method-explained": "leadership",
+  "trendslop-why-all-llms-give-the-same-strategic-advice": "reasoning",
 };
 
 const METHOD_PUBLISHED_DATES: Record<string, string> = {
   "cynefin-framework-explained": "2026-05-12",
   "the-ooda-loop-vs-the-cynefin-framework": "2026-05-13",
   "critical-decision-method-explained": "2026-05-13",
+  "trendslop-why-all-llms-give-the-same-strategic-advice": "2026-05-13",
 };
 
 describe("method articles registry", () => {
@@ -187,6 +192,24 @@ describe("method articles registry", () => {
 
   it("critical-decision-method-explained has at least 3 distinct speakers in agonExcerpt", () => {
     const entry = getInsightEntry("critical-decision-method-explained");
+    expect(entry?.agonExcerpt).toBeDefined();
+    const speakers = new Set(entry!.agonExcerpt!.map((t) => t.speaker));
+    expect(speakers.size).toBeGreaterThanOrEqual(3);
+  });
+
+  // ── trendslop-why-all-llms-give-the-same-strategic-advice specific ─────
+  it("trendslop article title contains 'trendslop' or 'LLM'", () => {
+    const entry = getInsightEntry(
+      "trendslop-why-all-llms-give-the-same-strategic-advice",
+    );
+    const combined = `${entry?.title ?? ""} ${entry?.description ?? ""}`;
+    expect(combined).toMatch(/[Tt]rendslop|LLM|HBR/);
+  });
+
+  it("trendslop article has at least 3 distinct speakers in agonExcerpt", () => {
+    const entry = getInsightEntry(
+      "trendslop-why-all-llms-give-the-same-strategic-advice",
+    );
     expect(entry?.agonExcerpt).toBeDefined();
     const speakers = new Set(entry!.agonExcerpt!.map((t) => t.speaker));
     expect(speakers.size).toBeGreaterThanOrEqual(3);

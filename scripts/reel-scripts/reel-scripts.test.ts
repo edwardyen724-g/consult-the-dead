@@ -356,6 +356,31 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+// ── Method article slug — trendslop (positioning piece) ──────────────────────────
+describe("method article slug — trendslop-why-all-llms-give-the-same-strategic-advice", () => {
+  it("generates a valid reel script with the reasoning council", () => {
+    const script = buildVerdictReelScript(
+      "trendslop-why-all-llms-give-the-same-strategic-advice",
+    );
+    expect(script.slug).toBe("trendslop-why-all-llms-give-the-same-strategic-advice");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("2026 HBR study");
+    expect(script.cta).toContain(
+      "/insights/trendslop-why-all-llms-give-the-same-strategic-advice",
+    );
+  });
+});
+
 // ── Method article slug — critical-decision-method-explained (task ea2ab1d9) ─────
 describe("method article slug — critical-decision-method-explained", () => {
   it("generates a valid reel script with the leadership council", () => {

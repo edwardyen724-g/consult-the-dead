@@ -580,6 +580,40 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Method articles — high-SEO framework explainers (task 7deb5fb2 / ad9b2580 / ea2ab1d9) ──
   {
+    slug: "trendslop-why-all-llms-give-the-same-strategic-advice",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "Trendslop: Why All LLMs Give the Same Strategic Advice",
+    description:
+      "In 2026, Harvard Business Review tested 7 major LLMs across 15,000 strategic scenarios and found they all cluster on the same generic, buzzword-heavy advice. The word they coined for it was trendslop. The structural reason is that language models optimize for predicting consensus text — they cannot generate advice that contradicts the center of mass of their training data. Here is what non-trendslop strategic advice actually looks like.",
+    targetKeywords: [
+      "AI trendslop",
+      "why does ChatGPT give generic advice",
+      "HBR trendslop study",
+      "AI strategic advice quality",
+      "trendslop definition",
+      "ChatGPT gives same advice",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "A 2026 HBR study tested 7 major AI models across 15,000 strategic scenarios. Every model gave essentially the same advice. Move fast, be agile, leverage synergies. The researchers called it trendslop. The structural reason is not that the models are bad — it is that they optimize for predicting text that looks like consensus. They cannot give advice that contradicts the averaged wisdom of their training data. Newton would tell you: if you want an answer different from the consensus, you need a method that verifies from first principles rather than pattern-matching from the center of mass.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "The problem with consulting the crowd is not that the crowd is wrong. The problem is that the crowd cannot tell you anything the crowd does not already believe. Every question I asked about light, gravity, and motion, I asked against the grain of received wisdom — not because I was contrarian, but because received wisdom had never been forced to survive contact with a precisely designed experiment. An AI that trained on received wisdom will reproduce received wisdom. This is not a flaw in the AI. It is a structural consequence of what the AI was built to do.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "The generic advice is not false. It is unhelpful in the specific way that average measurements are unhelpful — they tell you where the distribution is centered but not whether you are in the tail. The founders who need advice are almost always in the tail: a specific situation, a specific resource constraint, a specific competitive position. An answer built from averaging 15,000 training scenarios cannot tell you what is true about your particular situation. It can only tell you what was statistically true about the aggregate.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The emperor who consulted only consensus always governed for the median situation rather than the actual one. Every governance challenge I faced was specific. The plague was not a generic plague. The Germanic incursion was not a generic military problem. The advice I needed was rooted in the actual constructs of the actual situation — not the average of previous situations. That is the value of a framework: it forces you to locate your situation within a structure before generating a recommendation.",
+      },
+    ],
+  },
+  {
     slug: "critical-decision-method-explained",
     type: "single",
     frameworkSlug: "marcus-aurelius",
@@ -1013,6 +1047,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Method article annotation blueprints (task 7deb5fb2 / ad9b2580 / ea2ab1d9) ─────────────
+  "trendslop-why-all-llms-give-the-same-strategic-advice": [
+    {
+      label: "First-principles antidote",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "verifies from first principles",
+      constructIndex: 1,
+    },
+    {
+      label: "Consensus averaging problem",
+      source: (entry) => entry.description,
+      excerpt: "consensus text",
+      constructIndex: 4,
+    },
+  ],
   "critical-decision-method-explained": [
     {
       label: "Pattern-match before deliberation",

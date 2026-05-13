@@ -328,7 +328,8 @@
     - "HBR trendslop study"
   recommended_council: []  # this is the positioning piece
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: cynefin-framework-explained
   type: method
