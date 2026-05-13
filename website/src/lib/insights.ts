@@ -2363,6 +2363,148 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "You need to convince your board that the company should change direction. You have prepared a 20-slide deck with compelling data, clear logic, and three case studies. Cicero says the argument will carry the day if you deliver it well. Machiavelli says the argument is irrelevant — the question is whether you have the votes before you walk into the room.",
     publishedAt: "2026-05-21",
   },
+  // ── Wave 12 collision articles ─────────────────────────────────────────
+  {
+    slug: "tubman-vs-douglass-on-direct-action-vs-advocacy",
+    type: "collision",
+    frameworkSlug: "harriet-tubman",
+    collisionFrameworkSlugs: ["harriet-tubman", "frederick-douglass"],
+    decisionType: "persuasion",
+    title:
+      "Harriet Tubman vs. Frederick Douglass: Should You Act Now or Build Consensus First?",
+    description:
+      "Tubman and Douglass shared the same goal and disagreed sharply on method. Tubman believed that waiting for permission or consensus was itself a form of complicity — she acted, and others followed. Douglass believed that durable change required the moral persuasion of the majority, not only the courage of the individual. Both changed history. The tension between them is the foundational dilemma of anyone who sees what's wrong and must decide whether to move now or build the coalition first.",
+    targetKeywords: [
+      "should I act now or build consensus",
+      "bold action vs persuasion",
+      "direct action vs advocacy",
+      "when to go rogue vs bring others along",
+      "action vs consensus startup",
+    ],
+    hookQuestion:
+      "Your team is six months in. You believe the current approach is fundamentally wrong, but three of four co-founders disagree. Tubman would say: don't wait for permission — act, and those who see it will follow. Douglass would say: you cannot lead where no one will follow, and unilateral action without buy-in rarely sticks. What do you do?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Harriet Tubman",
+        text: "I never ran my railroad by taking a vote. The moment you ask permission from those who benefit from the current arrangement, you have already lost. I called this my 'no looking back' principle: once the mission begins, hesitation is contagion. Every person who chose not to move the night I came for them was someone who calculated that waiting was safer than going. They were wrong. The window closes. If my logic wins here, you do not wait for your three co-founders to agree — you make the first irreversible move and let the results do the persuading.",
+      },
+      {
+        speaker: "Frederick Douglass",
+        text: "Tubman freed hundreds. I helped dismantle the legal architecture that held millions. Those are not competing achievements — they are different weapons. I understood early that courage without rhetoric leaves no institutional change behind it. When I stood before a white abolitionist audience and spoke, I was not asking permission. I was converting the indifferent into the necessary. If my logic wins here, you do not unilaterally pivot — you make the argument so undeniable that the three who disagree convert or step aside. Forced change that the team doesn't understand collapses the moment pressure arrives.",
+      },
+      {
+        speaker: "Harriet Tubman",
+        text: "Douglass had the luxury of a platform — he could wait for an audience to form. My people did not have that luxury. The 'build consensus first' argument presupposes that the system will remain stable while you persuade it. I never assumed that. The consensus you build by waiting is often just the consensus of exhaustion — everyone too tired of the argument to resist any longer. That is not buy-in. That is capitulation dressed as agreement. If the approach is wrong and you know it, every week you spend building consensus is a week the wrong approach is compounding.",
+      },
+      {
+        speaker: "Frederick Douglass",
+        text: "Tubman misreads what I am saying. I am not arguing for patience as virtue. I am arguing for precision as strategy. I timed every public confrontation to the moment when the political cost of ignoring me exceeded the cost of engaging. That is not waiting — it is targeting. The founder who acts unilaterally before the team understands the why will build a technically correct product that the organization cannot execute. The technical correctness of your position is not sufficient. Your co-founders are not opponents to be outmaneuvered — they are the people who must execute whatever you decide.",
+      },
+      {
+        speaker: "Harriet Tubman",
+        text: "Here is what I know: I never lost a single person on the railroad. Not one. That record was not built on waiting for full team agreement — it was built on operational clarity, decisive timing, and the willingness to say 'we move tonight' before the window closed. If you are in the 25% minority and you know you are right, ask yourself honestly: are the other 75% resisting because they have better information, or because change is uncomfortable and the current path still feels safe? Those are different problems with different solutions.",
+      },
+      {
+        speaker: "Frederick Douglass",
+        text: "And here is what I know: the organizations that outlast their founding moments are built on shared understanding, not compliance. I converted opponents into allies because I needed them to remain allies after the immediate crisis passed. The question you must answer is not just 'am I right?' but 'will this organization still be executing this direction in 18 months if I force it now?' Tubman's missions ended when freedom was reached. Your startup must keep running after the decision is made. The consensus that feels slow to build is often the only thing that makes the outcome durable.",
+      },
+    ],
+  },
+  {
+    slug: "ada-lovelace-vs-tesla-on-vision-without-resources",
+    type: "collision",
+    frameworkSlug: "ada-lovelace",
+    collisionFrameworkSlugs: ["ada-lovelace", "nikola-tesla"],
+    decisionType: "innovation",
+    title:
+      "Ada Lovelace vs. Nikola Tesla: Should You Keep Building When You're Out of Resources?",
+    description:
+      "Both Lovelace and Tesla were visionaries who ran out of resources before their ideas could be realized. Lovelace died at 36 with her most important work unpublished and unrecognized; she preserved the vision through precise documentation. Tesla spent his final decades broke and alone, doubling down on increasingly ambitious projects that never shipped. The collision is not about whether to persist — it is about what persistence actually looks like when the resources are gone: preserve and transmit the vision, or keep pushing until something breaks.",
+    targetKeywords: [
+      "should I keep going when out of money",
+      "pivot vs persist when broke",
+      "visionary without resources",
+      "how long to keep building startup",
+      "persistence vs pivoting startup",
+    ],
+    hookQuestion:
+      "You have a technical breakthrough that you believe in deeply. Your funding runs out in 60 days. Eight investors have passed. Lovelace would say: the vision is worth preserving even if the implementation must wait — document it, protect it, find the form in which it can survive. Tesla would say: double down, cut everything else, and build the proof-of-concept that forces the world to pay attention. Do you keep going?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Ada Lovelace",
+        text: "I wrote algorithms for a machine that did not exist and would not exist for a century. My constraint was not resources — it was the form in which the vision could survive without them. The notes I wrote for Babbage's engine were more valuable than any prototype I could have built with the funding available to me, because they expressed the principle precisely enough that someone with future resources could act on them. If my logic wins here, you stop trying to build the full product with 60 days of runway and ask instead: what is the minimal, precise expression of this breakthrough that will survive you running out of money?",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "I understand the position Lovelace describes. I reject it. The algorithm that is never demonstrated is not a breakthrough — it is a hypothesis. I ran out of Morgan's funding and I built anyway. I ran out of credibility in the AC wars and I demonstrated anyway. The proof-of-concept is not a luxury for when resources are available — it is the only argument that investors who have already passed will respond to. Eight investors said no to your pitch. None of them has seen the physical proof yet. Those are not the same rejection. If my logic wins here, you spend the 60 days building the one demonstration that makes the claim undeniable.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "Tesla built his proof-of-concept. Morgan cut off his funding. He spent the remaining decades of his life in poverty chasing demonstrations that grew more ambitious as his resources shrank. That is not persistence — that is a system that mistakes motion for progress. The question is not whether the vision is real. The question is what form the vision takes when the implementation path is blocked. I was a mathematician working in an era that did not yet have the infrastructure for general-purpose computing. The correct response was not to build more expensive machinery I could not fund. It was to document the principle so precisely that it would survive until the infrastructure caught up.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "You are applying my ending to my middle incorrectly. Before the final years, I demonstrated alternating current to the satisfaction of Westinghouse. I lit the Chicago World's Fair. The demonstrations were real, the technology worked, and the adoption followed. The problem was not that I persisted — the problem was that I kept starting new projects before the revenue from the previous ones had compounded. If you have a genuine technical breakthrough, the 60 days is not the end of the story. It is the deadline for the minimum demonstration. Build to that threshold, not to the full vision. I failed when I confused the full vision with the minimum proof. Do not make that mistake.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "And here is where we may agree more than it appears: the question of what constitutes the minimum expression of the breakthrough. For me, the minimum was a specification precise enough to be acted upon later. For Tesla, the minimum was a physical demonstration that could not be dismissed. The answer depends on what is actually blocking adoption — is the investor problem 'we don't believe this is technically possible,' in which case Tesla is right and you need a physical proof? Or is it 'we don't see the market,' in which case no demonstration resolves the objection and you are better served by Lovelace's approach: find the form of the vision that can survive until the market appears.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "Then the decision tree is this: identify the specific objection that killed the last eight pitches. If the objection is technical credibility, spend the 60 days on the demonstration — I am correct. If the objection is market timing or business model, a demonstration does not answer it, and Lovelace's discipline of preserving the principle while pivoting the packaging is the right move. But do not confuse giving up with strategic patience. I never gave up on AC current. I only wish I had given up sooner on the projects where the blocking constraint was not technical.",
+      },
+    ],
+  },
+  {
+    slug: "nightingale-vs-curie-on-data-vs-gut-instinct",
+    type: "collision",
+    frameworkSlug: "florence-nightingale",
+    collisionFrameworkSlugs: ["florence-nightingale", "marie-curie"],
+    decisionType: "evidence",
+    title:
+      "Florence Nightingale vs. Marie Curie: Should You Trust the Data or Your Instincts?",
+    description:
+      "Both Nightingale and Curie were rigorous empiricists who changed their fields through data. But they disagreed on a crucial question: when the data says one thing and the scientist's intuition says the experiment is measuring the wrong thing, which one do you follow? Nightingale's framework demands that you act on the data you have and redesign the experiment after — the data is always more trustworthy than your current theory. Curie's framework says that the deepest breakthroughs come from questioning what the experiment is actually measuring — from noticing that the data is anomalous rather than treating it as a verdict.",
+    targetKeywords: [
+      "should I trust data or gut instinct",
+      "data vs intuition decision",
+      "when to override data with intuition",
+      "A/B test but gut disagrees",
+      "data-driven vs instinct startup",
+    ],
+    hookQuestion:
+      "Your A/B test shows version B wins by 12%. Every dashboard says ship B. But your gut says the test is measuring the wrong thing — that B will hurt retention in month three in ways the 14-day test cannot capture. Nightingale would say: follow the data, always; your intuition is a bias waiting to be proved wrong. Curie would say: the anomaly that makes you uncomfortable is often the most important data point — question what the experiment is actually measuring before you ship. What do you ship?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Florence Nightingale",
+        text: "I walked into Scutari with instincts built from years of nursing. Every one of those instincts told me the problem was the wounds. The data told me the problem was the drains. I followed the data. That is not because I lacked conviction — it is because I understood that intuition is compressed experience, and my experience did not include sanitation engineering. Your gut that 'version B will hurt month-three retention' is a hypothesis. The A/B test is evidence. You do not have the right to override evidence with a hypothesis. You have the right to design a better experiment. Ship B, instrument month-three retention precisely, and then you will have data instead of a feeling.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Nightingale's framework assumes the experiment is measuring what you think it is measuring. I discovered polonium because I refused to accept that my pitchblende measurements were instrument error. The conventional reading of my data would have been to discard the anomaly and report the expected result. I trusted the anomaly instead, because the anomaly was the most informative part of the dataset. Your discomfort with the A/B result is an anomaly — it is your pattern-recognition telling you that something in the setup is off. The question is not whether to trust the data or your gut. The question is whether your gut is identifying a flaw in the experiment design that the data itself cannot surface.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "Curie is making a distinction I recognize — but she is applying it incorrectly to your situation. The reason to question an experiment is when the data produces anomalous results that contradict a well-established prior. My sanitation data was anomalous in exactly that sense: mortality from disease exceeded mortality from battle wounds by a ratio that had no prior explanation. That anomaly was the signal. Your situation is different — you have a clean A/B result that contradicts your prediction, not a result that contradicts established knowledge. Those are different kinds of anomaly. Questioning an experiment because it contradicts your prediction is not scientific skepticism. It is confirmation bias with better vocabulary.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Then let me be more precise. The question I am asking you to answer before you ship is not 'do I believe the test?' It is: 'what is this test actually capable of measuring, and what is it structurally incapable of measuring?' A 14-day A/B test measures 14-day engagement. It does not measure month-three retention by design — not because the result is wrong, but because the experiment was not instrumented to capture it. Nightingale would agree with me on this: she did not simply accept the casualty data as complete. She disaggregated it by cause of death because she understood that the aggregate number was hiding the most important information. Disaggregate your A/B result before you ship.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "I accept that framing. And I will make it operational: if you have a specific, testable hypothesis about what the A/B test is failing to measure — 'version B reduces day-90 retention by creating a habit loop that maximizes short-term engagement at the cost of long-term value' — then you have an obligation to instrument that before shipping. If your instinct is that specific, it deserves a test. What I object to is using vague discomfort to justify overriding data. The founder who says 'my gut says this is wrong' without being able to specify the causal mechanism of that wrongness is not practicing intuition. They are practicing avoidance.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "This is precisely where we converge. The discipline is to make the intuition falsifiable before you act on it. If you can state specifically what you predict will happen to month-three retention and design the measurement that would catch it in the next 30 days, then you have a hypothesis worth running. If you cannot state it specifically enough to design the test, the instinct is not yet ready to override the data — and Nightingale is right to ship B while you develop the better experiment. The gut instinct that cannot be made specific is not a signal. It is noise that happens to feel meaningful.",
+      },
+    ],
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -3436,6 +3578,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Votes before the room",
       source: (entry) => entry.hookQuestion,
       excerpt: "whether you have the votes before you walk into the room",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 12 annotation blueprints ──────────────────────────────────────
+  "tubman-vs-douglass-on-direct-action-vs-advocacy": [
+    {
+      label: "No looking back principle",
+      source: (entry) => entry.description,
+      excerpt: "waiting for permission or consensus was itself a form of complicity",
+      constructIndex: 0,
+    },
+    {
+      label: "Durable change through persuasion",
+      source: (entry) => entry.description,
+      excerpt: "durable change required the moral persuasion of the majority",
+      constructIndex: 1,
+    },
+  ],
+  "ada-lovelace-vs-tesla-on-vision-without-resources": [
+    {
+      label: "Minimum expression of the vision",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "document it, protect it, find the form in which it can survive",
+      constructIndex: 0,
+    },
+    {
+      label: "Demonstration as the only argument",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "build the proof-of-concept that forces the world to pay attention",
+      constructIndex: 1,
+    },
+  ],
+  "nightingale-vs-curie-on-data-vs-gut-instinct": [
+    {
+      label: "Instrument the worry",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "question what the experiment is actually measuring",
+      constructIndex: 0,
+    },
+    {
+      label: "Falsifiable intuition",
+      source: (entry) => entry.description,
+      excerpt: "questioning what the experiment is actually measuring",
       constructIndex: 1,
     },
   ],
