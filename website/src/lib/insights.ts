@@ -1930,6 +1930,192 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 8: insight batch ─────────────────────────────────────────────
+  {
+    slug: "what-would-galileo-say-about-challenging-conventional-wisdom",
+    type: "single",
+    frameworkSlug: "galileo-galilei",
+    decisionType: "evidence",
+    title: "What Would Galileo Say About Challenging Conventional Wisdom?",
+    description:
+      "Galileo Galilei spent thirty years in direct conflict with the most powerful institution in Europe — and won by choosing his battles with precision. He did not challenge everything simultaneously. He picked the point where observational evidence was irrefutable, built the case incrementally, and only confronted the church directly when he had already made the data public and unignorable. For founders who need to challenge an industry's received wisdom, his method is more useful than his legend.",
+    targetKeywords: [
+      "challenging conventional wisdom in business",
+      "how to challenge industry assumptions",
+      "contrarian thinking strategy",
+      "what would Galileo say",
+      "Galileo decision making",
+    ],
+    hookQuestion:
+      "Your industry has a dogma everyone follows — a pricing model, a channel assumption, a product category definition. You have data that contradicts it. Do you publish it directly and invite retaliation, or do you build your case until the evidence becomes undeniable before you force the confrontation?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Galileo",
+        text: "The first obligation is to record the observation accurately. The second is to publish it in a form that the opponent cannot suppress without publicly denying what any equipped observer can verify. I dedicated the Sidereus Nuncius to the Medici not from vanity but from strategy — a patron's name on the cover makes suppression a political problem for the suppressor, not merely a doctrinal one for me.",
+      },
+      {
+        speaker: "Newton",
+        text: "The mathematical description does not argue. It describes. When I published the Principia, I did not request that the existing natural philosophy be abandoned. I simply showed that one set of equations predicted every planetary position, every tide, every projectile arc, within measurement error. The existing framework could not do this. The numbers did the confrontation for me.",
+      },
+      {
+        speaker: "Machiavelli",
+        text: "He who innovates makes enemies of all who prospered under the old order, and only lukewarm defenders of those who might prosper under the new. This is true of doctrines as of princes. The heretic who wins is the one who builds enough institutional protection before he forces the confrontation. Galileo's error was timing — he had the protection of Cosimo II, then Cosimo died, and he proceeded as if nothing had changed. Never challenge a doctrine before you have counted your defenders.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-archimedes-say-about-technical-leverage",
+    type: "single",
+    frameworkSlug: "archimedes",
+    decisionType: "systems",
+    title: "What Would Archimedes Say About Technical Leverage?",
+    description:
+      "Archimedes said: give me a lever long enough and a fulcrum on which to place it, and I shall move the world. He was describing physics. He was also describing every high-leverage technical decision a founder will ever make. The question is not how much force you apply — it is whether you have found the right fulcrum. Archimedes spent his career finding fulcrums in mechanics, fluid dynamics, and war engineering. The method transfers.",
+    targetKeywords: [
+      "technical leverage startups",
+      "Archimedes lever principle business",
+      "high leverage technical decisions",
+      "engineering decisions startup",
+      "how to find technical leverage",
+    ],
+    hookQuestion:
+      "You are working harder than any competitor but moving slower. The effort is not the problem. The system is. Archimedes spent a career finding the minimum point of application to produce the maximum effect. The same structural question applies to your technical stack, your team, and your product.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Archimedes",
+        text: "The problem is never effort. The problem is finding where a small application of force produces a large displacement of outcome. In the Siege of Syracuse I did not produce more soldiers — I built machines that let each soldier control a force thirty times his own strength. The catapult and the claw ship are the same insight as the lever: identify the constraint, design the mechanism that makes that constraint irrelevant, then apply minimum force to the mechanism.",
+      },
+      {
+        speaker: "Newton",
+        text: "Leverage is a consequence of understanding the underlying system. The man who does not understand the relationship between force, mass, and acceleration will apply enormous effort in all directions. The man who understands will apply a single well-calculated force at a single well-chosen moment. Calculation precedes leverage. There is no shortcut.",
+      },
+      {
+        speaker: "Ada Lovelace",
+        text: "The Analytical Engine does not compute faster because it works harder. It computes faster because it works differently — the architecture of the operation determines the output, not the physical force applied to the mechanism. This is true of every technical system. Before you optimize the execution, examine the architecture. The architecture is always the leverage point.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-epictetus-say-about-managing-uncertainty",
+    type: "single",
+    frameworkSlug: "epictetus",
+    decisionType: "resilience",
+    title: "What Would Epictetus Say About Managing Uncertainty?",
+    description:
+      "Epictetus began life as a slave with a broken leg, became one of the most influential philosophers in Roman history, and taught a framework for decision-making under conditions no founder will ever match. The core: the dichotomy of control. Not a slogan — a precise diagnostic tool that separates the variables you can affect from those you cannot, and routes your attention accordingly. It is the most practical uncertainty management framework ever documented.",
+    targetKeywords: [
+      "managing uncertainty business",
+      "Epictetus dichotomy of control",
+      "stoic philosophy founders",
+      "how to deal with uncertainty startup",
+      "Epictetus business advice",
+    ],
+    hookQuestion:
+      "The market shifted, the deal fell through, the co-founder left, the competitor shipped before you. You cannot control any of those facts. What you can control is your response to them — how quickly you reallocate attention, where you commit resources next, and whether the disruption becomes an excuse to avoid the real decisions. Epictetus had a framework for this.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Epictetus",
+        text: "Men are disturbed not by events but by the opinions they form about events. This is not consolation philosophy — it is operational architecture. Every decision begins with a diagnosis: is this within my power to change, or is it not? If not, your only productive move is to change your relation to it. I was a slave. I could not change that fact. I could change everything that depended only on my own faculty of choice. Every uncertainty you face is the same structural question. Answer it before you act.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The obstacle is the way. Not because adversity is pleasant, but because the only path forward runs through the response to the obstacle, not around it. When Marcus Vindex revolted, I did not wish the revolt had not happened — I moved immediately to manage the situation that now existed. The founder who delays action until uncertainty resolves is waiting for a condition that never arrives.",
+      },
+      {
+        speaker: "Machiavelli",
+        text: "Fortune is a woman, and it is necessary, if you wish to master her, to conquer her by force. The prince who waits for certainty before acting cedes the field to the prince who acts in its absence. Uncertainty is not a condition to be managed — it is the permanent operating environment of anyone who intends to accomplish something. The question is not how to reduce it but how to act competently within it.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-frederick-douglass-say-about-building-credibility",
+    type: "single",
+    frameworkSlug: "frederick-douglass",
+    decisionType: "persuasion",
+    title: "What Would Frederick Douglass Say About Building Credibility?",
+    description:
+      "Frederick Douglass was an escaped slave who became the most widely read Black author in American history, an advisor to a president, and the most photographed American of the 19th century. He built credibility from absolute zero — no institutional backing, no social capital, no freedom to operate — through a precise sequence of actions: document the system's internal contradictions, demonstrate you understand its terms better than its defenders, and make the cost of ignoring you higher than the cost of engaging with you.",
+    targetKeywords: [
+      "building credibility as outsider",
+      "how to build authority from zero",
+      "Frederick Douglass leadership lessons",
+      "credibility without credentials",
+      "persuasion strategy founders",
+    ],
+    hookQuestion:
+      "You are the outsider — new market, no brand recognition, no warm introductions, no track record in this specific domain. How do you build credibility fast enough to matter? Douglass went from property to presidential advisor in twenty years. The method is documented.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Douglass",
+        text: "The first act is demonstration. Not argument — demonstration. My Narrative did not argue that I was intelligent. It proved it by existing. A man who cannot be believed when he speaks must do something undeniable. For a founder this means: ship something real before you ask anyone to take your word on anything. The prototype is the argument.",
+      },
+      {
+        speaker: "Lincoln",
+        text: "Credibility in the political sense comes from two things: that you understand the problem as the audience understands it, and that your proposed solution costs them less than the problem does. I did not abolish slavery by claiming it was wrong. I abolished it by making its continuation more costly than its end, to the people whose support I needed to end it. Know what your audience is actually calculating before you ask them to change their calculation.",
+      },
+      {
+        speaker: "Machiavelli",
+        text: "The prince who arrives from outside must accomplish something conspicuous quickly, because his support rests on his current usefulness, not on the affections built over time by a hereditary ruler. The outsider has no account to draw on — he must create one, and he must create it fast, before the inherited skepticism hardens into permanent indifference. Douglass understood this. So must every founder who enters a market without institutional backing.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-ada-lovelace-say-about-building-for-the-future",
+    type: "single",
+    frameworkSlug: "ada-lovelace",
+    decisionType: "product",
+    title: "What Would Ada Lovelace Say About Building Products for the Future?",
+    description:
+      "Ada Lovelace wrote the first computer program for a machine that would not exist for another century. She saw the general-purpose computing architecture in Babbage's mechanical engine before he did — and documented it precisely enough that modern computer scientists can read her notes as design specifications. Her method: understand the architecture before the implementation exists, then specify what the architecture makes possible that nothing before it could do.",
+    targetKeywords: [
+      "building products for the future",
+      "Ada Lovelace product thinking",
+      "how to think about future technology",
+      "visionary product development",
+      "first principles product design",
+    ],
+    hookQuestion:
+      "You are building on a platform — AI, a new hardware paradigm, a regulatory change — that most of your market does not yet understand. You can see what the architecture makes possible. The question is how to build something real and useful today while staying true to the larger vision that only you can see yet.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Ada Lovelace",
+        text: "Babbage saw the Engine as a calculator. I saw it as a general symbol manipulator. The difference is not in the machine — the machine is the same either way. The difference is in the frame applied to the machine, and the frame determines what problems you think to bring to it. The founder who builds on a new platform by asking 'what can this do that the old tool did?' will always be outcompeted by the founder who asks 'what does this architecture make possible that was structurally impossible before?' Those are different questions with different product roadmaps.",
+      },
+      {
+        speaker: "Newton",
+        text: "The principles that govern a system are more durable than any particular application of them. I wrote the Principia not to describe planetary orbits — those were the examples. I wrote it to describe the force law, from which all specific motions follow. Build the general first. The specific applications will multiply themselves once the general principle is correctly stated.",
+      },
+      {
+        speaker: "Tesla",
+        text: "I could see a motor running in my mind before I built it. Not approximately — exactly. I knew the rotating magnetic field principle before I built the first induction motor, and I knew what it would make possible: an entire electrical distribution system based on alternating current that could transmit power over distances direct current could not. The vision is not decoration. The vision is the engineering specification. Work backward from what the architecture makes possible.",
+      },
+    ],
+  },
+  {
+    slug: "what-galileo-and-newton-would-say-about-evidence-vs-consensus",
+    type: "collision",
+    frameworkSlug: "galileo-galilei",
+    collisionFrameworkSlugs: ["galileo-galilei", "isaac-newton"],
+    decisionType: "evidence",
+    title: "Galileo vs. Newton: When Should You Trust Evidence Over Expert Consensus?",
+    description:
+      "A collision article on when to act on anomalous data before expert consensus has caught up, versus waiting for the broader scientific community to validate your findings before committing.",
+    targetKeywords: [
+      "evidence vs consensus decision making",
+      "when to trust your data over experts",
+      "anomalous data strategy",
+      "Galileo Newton scientific method",
+      "first mover data advantage",
+    ],
+    hookQuestion:
+      "Your data shows something the industry doesn't believe yet. Every expert tells you the consensus is correct. Do you act on what you see, or wait for the field to catch up?",
+    publishedAt: "2026-05-14",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -2748,6 +2934,91 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "structural commitment to the destination",
       constructIndex: 3,
+    },
+  ],
+  // ── Wave 8 annotation blueprints ──────────────────────────────────────
+  "what-would-galileo-say-about-challenging-conventional-wisdom": [
+    {
+      label: "Evidence vs. retaliation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "evidence becomes undeniable",
+      constructIndex: 0,
+    },
+    {
+      label: "Battle selection",
+      source: (entry) => entry.description,
+      excerpt: "choosing his battles with precision",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-archimedes-say-about-technical-leverage": [
+    {
+      label: "Effort vs. system",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "The effort is not the problem",
+      constructIndex: 0,
+    },
+    {
+      label: "Fulcrum identification",
+      source: (entry) => entry.description,
+      excerpt: "found the right fulcrum",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-epictetus-say-about-managing-uncertainty": [
+    {
+      label: "Dichotomy of control",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "You cannot control any of those facts",
+      constructIndex: 0,
+    },
+    {
+      label: "Diagnostic precision",
+      source: (entry) => entry.description,
+      excerpt: "precise diagnostic tool",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-frederick-douglass-say-about-building-credibility": [
+    {
+      label: "Demonstration over argument",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "build credibility fast enough",
+      constructIndex: 0,
+    },
+    {
+      label: "Cost of ignoring",
+      source: (entry) => entry.description,
+      excerpt: "cost of ignoring you higher",
+      constructIndex: 1,
+    },
+  ],
+  "what-would-ada-lovelace-say-about-building-for-the-future": [
+    {
+      label: "Architecture vs. implementation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "architecture makes possible",
+      constructIndex: 0,
+    },
+    {
+      label: "Vision as specification",
+      source: (entry) => entry.description,
+      excerpt: "documented it precisely enough",
+      constructIndex: 1,
+    },
+  ],
+  "what-galileo-and-newton-would-say-about-evidence-vs-consensus": [
+    {
+      label: "Data vs. expert consensus",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "industry doesn't believe yet",
+      constructIndex: 0,
+    },
+    {
+      label: "Anomalous data timing",
+      source: (entry) => entry.description,
+      excerpt: "anomalous data before expert consensus",
+      constructIndex: 1,
     },
   ],
 };

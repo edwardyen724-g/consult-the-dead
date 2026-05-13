@@ -1304,6 +1304,129 @@ describe("method article slug — jobs-to-be-done-explained", () => {
   });
 });
 
+// ── Wave 8 insight batch integration tests ──
+describe("Wave 8 insight batch", () => {
+  it("generates a reel script for what-would-galileo-say-about-challenging-conventional-wisdom", () => {
+    const script = buildVerdictReelScript(
+      "what-would-galileo-say-about-challenging-conventional-wisdom",
+    );
+    expect(script.slug).toBe("what-would-galileo-say-about-challenging-conventional-wisdom");
+    expect(script.frameworkSlug).toBe("galileo-galilei");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-galileo-say-about-challenging-conventional-wisdom",
+    );
+  });
+
+  it("generates a reel script for what-would-archimedes-say-about-technical-leverage", () => {
+    const script = buildVerdictReelScript(
+      "what-would-archimedes-say-about-technical-leverage",
+    );
+    expect(script.slug).toBe("what-would-archimedes-say-about-technical-leverage");
+    expect(script.frameworkSlug).toBe("archimedes");
+    expect(script.decisionType).toBe("systems");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Systems council: da Vinci (main), Sun Tzu (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Sun Tzu");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-archimedes-say-about-technical-leverage",
+    );
+  });
+
+  it("generates a reel script for what-would-epictetus-say-about-managing-uncertainty", () => {
+    const script = buildVerdictReelScript(
+      "what-would-epictetus-say-about-managing-uncertainty",
+    );
+    expect(script.slug).toBe("what-would-epictetus-say-about-managing-uncertainty");
+    expect(script.frameworkSlug).toBe("epictetus");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-epictetus-say-about-managing-uncertainty",
+    );
+  });
+
+  it("generates a reel script for what-would-frederick-douglass-say-about-building-credibility", () => {
+    const script = buildVerdictReelScript(
+      "what-would-frederick-douglass-say-about-building-credibility",
+    );
+    expect(script.slug).toBe("what-would-frederick-douglass-say-about-building-credibility");
+    expect(script.frameworkSlug).toBe("frederick-douglass");
+    expect(script.decisionType).toBe("persuasion");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Persuasion council: Cicero (main), Franklin (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Cicero");
+    expect(script.councilPass[1].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-frederick-douglass-say-about-building-credibility",
+    );
+  });
+
+  it("generates a reel script for what-would-ada-lovelace-say-about-building-for-the-future", () => {
+    const script = buildVerdictReelScript(
+      "what-would-ada-lovelace-say-about-building-for-the-future",
+    );
+    expect(script.slug).toBe("what-would-ada-lovelace-say-about-building-for-the-future");
+    expect(script.frameworkSlug).toBe("ada-lovelace");
+    expect(script.decisionType).toBe("product");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Product council: da Vinci (main), Curie (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-ada-lovelace-say-about-building-for-the-future",
+    );
+  });
+
+  it("generates a reel script for what-galileo-and-newton-would-say-about-evidence-vs-consensus", () => {
+    const script = buildVerdictReelScript(
+      "what-galileo-and-newton-would-say-about-evidence-vs-consensus",
+    );
+    expect(script.slug).toBe("what-galileo-and-newton-would-say-about-evidence-vs-consensus");
+    expect(script.frameworkSlug).toBe("galileo-galilei");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-galileo-and-newton-would-say-about-evidence-vs-consensus",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
