@@ -4,6 +4,15 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (SEO: FAQPage schema + build fix)
+
+### Added
+- **FAQPage JSON-LD on all 42 decision pages**: every `/decisions/[slug]` page now emits a FAQPage schema alongside the Article schema. `primaryQuery` → `Question.name`, `description` → `Answer.text`; `hookQuestion` added as a second FAQ entry when it differs from primaryQuery. All 42 decision pages eligible for Google rich results (FAQ expandable in SERP).
+- **FAQPage JSON-LD on all 82+ insight pages**: every `/insights/[slug]` page with a `hookQuestion` emits a FAQPage schema. `hookQuestion` → `Question.name`, `description` → `Answer.text`. 2150 vitest passing (+4 new FAQPage assertions).
+
+### Fixed
+- `preview-image.tsx`: added `"galileo-galilei": "#5b9bd5"` to `ACCENT_COLORS` record — Wave 8 added the 27th live mind but missed this `Record<FrameworkSlug, string>` entry, causing `CI / Build` to fail with a TypeScript type error.
+
 ## 2026-05-21 (Wave 11)
 
 ### Added
