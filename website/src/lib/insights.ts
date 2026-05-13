@@ -881,6 +881,238 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 5: insight + method batch ────────────────────────────────────
+  {
+    slug: "what-would-catherine-the-great-say-about-managing-a-scaling-organization",
+    type: "single",
+    frameworkSlug: "catherine-the-great",
+    title: "What Would Catherine the Great Say About Managing a Scaling Organization?",
+    description:
+      "Catherine the Great inherited a court riddled with conspirators, outdated bureaucracies, and hostile factions — and transformed Russia into a modern empire. Her playbook for scaling an organization: restructure ruthlessly, elevate talent regardless of origin, and govern through clear systems rather than personal heroics.",
+    targetKeywords: [
+      "how to manage a scaling startup",
+      "organizational scaling problems founders",
+      "startup org structure scaling",
+      "how to manage rapid growth startup",
+      "founder leadership scaling team",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "Are you governing your company — or just surviving it? Catherine the Great took control of an empire that resisted her at every level and scaled it into one of the most powerful states in Europe without losing herself in the chaos.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The leader who cannot delegate is the leader who cannot scale. You must build systems that govern in your absence — not personalities that depend on your presence.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Every inflection point of growth demands a new kind of leadership. What got you here may not carry you forward. The founders who survive scaling are those who reinvent themselves faster than the organization does.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "I surrounded myself with people who knew more than I did. That was not weakness — it was the only rational response to the complexity of scaling. Hire above your current ceiling.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-alexander-the-great-say-about-entering-new-markets",
+    type: "single",
+    frameworkSlug: "alexander-the-great",
+    title: "What Would Alexander the Great Say About Entering New Markets?",
+    description:
+      "Alexander the Great conquered territory spanning three continents not by applying the same tactics everywhere, but by adapting to local conditions while maintaining strategic coherence. Each new market had different rules — he learned them, co-opted local talent, and moved before his opponents could react.",
+    targetKeywords: [
+      "how to enter new markets startup",
+      "market expansion strategy founder",
+      "when to expand into new markets",
+      "international expansion startup strategy",
+      "entering new verticals startup",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Alexander the Great entered 20 different territories in 13 years and lost almost none of them. His secret was not brute force — it was speed of learning and local adaptation. You are about to enter a new market. How fast can you learn its rules?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "Know the terrain before you commit your forces. Every market has its own geography — its incumbents, its customer loyalties, its switching costs. Enter ignorant and you will pay with time and capital.",
+      },
+      {
+        speaker: "Niccolo Machiavelli",
+        text: "The prince who enters a new territory must decide quickly whether to govern through the existing power structures or dismantle them. There is no middle path — half-measures leave you vulnerable to both sides.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Every new domain rewards those who approach it with discipline rather than assumption. The methods that work in your existing market are hypotheses in the new one. Test before you scale.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-cleopatra-vii-say-about-strategic-alliances",
+    type: "single",
+    frameworkSlug: "cleopatra-vii",
+    title: "What Would Cleopatra VII Say About Strategic Alliances?",
+    description:
+      "Cleopatra VII kept Egypt sovereign against the most powerful empire in the world by building alliances with precision. She chose partners not by sentiment but by strategic calculus — who held power, what they needed, and what Egypt could offer. She survived what no other Ptolemaic ruler managed: Rome.",
+    targetKeywords: [
+      "startup strategic partnerships",
+      "how to build strategic alliances startup",
+      "partnership strategy for founders",
+      "when to partner vs compete",
+      "coopetition strategy startup",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "What leverage do you actually hold against competitors who outclass you in resources? Cleopatra VII was a small nation surrounded by the most powerful empire on earth — and she kept Egypt sovereign for two decades through strategic alliances.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "An alliance built on mutual necessity is more durable than one built on admiration. Understand clearly what your partner gains from you — because when that calculus shifts, so will the alliance.",
+      },
+      {
+        speaker: "Niccolo Machiavelli",
+        text: "Never be neutral when powerful interests clash around you. The prince who stays neutral wins neither side and loses both. Choose your alliance deliberately, and make it worth your partner's while to uphold.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "The strongest alliances are forged when both parties need each other to survive. Do not partner from a position of desperation — position yourself first so that you bring something irreplaceable to the table.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-john-d-rockefeller-say-about-building-systems-that-scale",
+    type: "single",
+    frameworkSlug: "john-d-rockefeller",
+    title: "What Would John D. Rockefeller Say About Building Systems That Scale?",
+    description:
+      "Rockefeller did not build Standard Oil through personal brilliance alone — he built systems that could replicate efficiency across hundreds of refineries. He standardized processes, eliminated waste with obsessive precision, and created organizational infrastructure long before 'operations' became a startup discipline.",
+    targetKeywords: [
+      "how to build scalable systems startup",
+      "startup operations scaling",
+      "founder building processes at scale",
+      "when to systematize startup operations",
+      "scaling startup without founder dependency",
+    ],
+    decisionType: "systems",
+    hookQuestion:
+      "Rockefeller cut the cost of refining oil by over 80% not through luck or timing — but through relentless systematization. Every inefficiency was a problem to be solved, not accepted. Your startup has chaotic processes held together by heroic effort. What would it look like to systematize one of them this week?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "A system that works reliably under all conditions is more valuable than one that works brilliantly under ideal conditions. Founders mistake clever solutions for systematic ones — and pay for it at scale.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Do not confuse activity with system. The busy founder mistakes motion for progress. True leverage comes from processes that produce consistent outcomes without requiring your attention.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "The mind that can see how a system will fail before it fails is the engineer's greatest asset. Build your processes expecting failure modes — and design the recovery in from the start.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-julius-caesar-say-about-winning-team-loyalty",
+    type: "single",
+    frameworkSlug: "julius-caesar",
+    title: "What Would Julius Caesar Say About Winning Team Loyalty?",
+    description:
+      "Caesar's legions followed him across the Rubicon — an act of treason that could have gotten every one of them killed. They did it because Caesar had spent years earning the kind of loyalty that survives personal risk. He shared hardship, rewarded performance visibly, and made every soldier feel that their fate was tied to his.",
+    targetKeywords: [
+      "how to build team loyalty startup",
+      "employee retention early stage startup",
+      "how founders earn team trust",
+      "startup culture team commitment",
+      "retaining key employees startup",
+    ],
+    decisionType: "hiring",
+    hookQuestion:
+      "Caesar's soldiers crossed the Rubicon knowing it might cost them everything — and they did it because he had earned loyalty that survived personal risk. You are building a team. Would your first ten employees take a significant personal risk for the mission you are building?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "Loyalty is not purchased with salary. It is earned through the character of leadership — through being seen to care about the people in your charge as much as you care about the outcome.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "The men who built Carnegie Steel were not working for wages alone. They were working for the chance to be part of something worth building. Give your team a mission worth risking for.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The leader who demands loyalty without having earned trust is building on sand. Loyalty follows character — and character is revealed under pressure, not in comfort.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-florence-nightingale-say-about-operational-excellence",
+    type: "single",
+    frameworkSlug: "florence-nightingale",
+    title: "What Would Florence Nightingale Say About Operational Excellence?",
+    description:
+      "Nightingale walked into the Scutari Barracks Hospital where soldiers were dying at a 42% rate — not from battle wounds, but from preventable infections caused by chaotic operations. Within months, she had reduced mortality to 2% through systematic process redesign, data tracking, and obsessive attention to operational detail.",
+    targetKeywords: [
+      "operational excellence startup",
+      "how to improve startup operations",
+      "founder fixing broken processes",
+      "startup quality and execution",
+      "data-driven operations startup",
+    ],
+    decisionType: "product",
+    hookQuestion:
+      "Your startup has a silent killer in its operations right now — you just haven't found it yet. Nightingale reduced hospital mortality from 42% to 2% not through better medicine but through obsessive process redesign. Are you measuring the right things?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "Every system that produces poor outcomes does so for a reason that can be identified, measured, and corrected. The question is not whether the problem exists — it is whether you are measuring the right indicators to surface it.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Operational excellence is not a philosophy — it is a discipline. You cannot improve what you do not measure. Start with the data, follow it wherever it leads, and do not let discomfort stop you from acting on what you find.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The leader who maintains high standards in difficult conditions sets the ceiling for what the organization believes is possible. Nightingale's gift was proving that excellence was achievable even in chaos.",
+      },
+    ],
+  },
+  {
+    slug: "first-principles-thinking-explained",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "First Principles Thinking Explained",
+    description:
+      "First principles thinking is the discipline of breaking a problem down to its most basic, verified truths — and reasoning up from those foundations rather than from analogy or convention. Newton used it to derive the laws of motion. Musk used it to reduce rocket costs by 10x. Founders who master it stop copying and start building genuinely novel solutions.",
+    targetKeywords: [
+      "first principles thinking explained",
+      "what is first principles thinking",
+      "first principles vs analogy thinking",
+      "how to use first principles thinking",
+      "elon musk first principles method",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "First principles thinking means refusing to accept assumptions that have not been verified from the ground up. Newton did not accept that the apple fell because 'things fall' — he asked why, derived the mathematics, and gave us gravity. You are solving a problem using the same assumptions everyone else accepts. What would change if you derived the answer from scratch?",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "The method is simple and brutal: state what you know to be true without reference to what others have said, derive the next truth from that, and proceed. Every inherited assumption is a potential source of error.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "I have always found more truth in direct observation than in received doctrine. The eye that sees freshly — without the weight of what it has been told to see — discovers more than the eye that merely confirms.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "Give me a fixed point and a lever long enough, and I will move the world. First principles thinking is how you find that fixed point — the one assumption you can stand on with certainty while you question everything else.",
+      },
+    ],
+  },
   // ── Wave 4: insight + method batch ────────────────────────────────────
   {
     slug: "what-would-cicero-say-about-pitching-to-investors",
@@ -1781,6 +2013,105 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "reproducible",
       constructIndex: 2,
+    },
+  ],
+  // ── Wave 5 annotation blueprints ──────────────────────────────────────
+  "what-would-catherine-the-great-say-about-managing-a-scaling-organization": [
+    {
+      label: "Governing vs surviving",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "governing your company",
+      constructIndex: 0,
+    },
+    {
+      label: "Structural transformation",
+      source: (entry) => entry.description,
+      excerpt: "restructure ruthlessly, elevate talent",
+      constructIndex: 2,
+    },
+  ],
+  "what-would-alexander-the-great-say-about-entering-new-markets": [
+    {
+      label: "Speed of learning",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "speed of learning and local adaptation",
+      constructIndex: 0,
+    },
+    {
+      label: "Local adaptation",
+      source: (entry) => entry.description,
+      excerpt: "adapting to local conditions",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-cleopatra-vii-say-about-strategic-alliances": [
+    {
+      label: "Leverage asymmetry",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "What leverage do you actually hold",
+      constructIndex: 0,
+    },
+    {
+      label: "Alliance calculus",
+      source: (entry) => entry.description,
+      excerpt: "who held power, what they needed",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-john-d-rockefeller-say-about-building-systems-that-scale": [
+    {
+      label: "Systematization leverage",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "relentless systematization",
+      constructIndex: 0,
+    },
+    {
+      label: "Efficiency obsession",
+      source: (entry) => entry.description,
+      excerpt: "eliminated waste with obsessive precision",
+      constructIndex: 2,
+    },
+  ],
+  "what-would-julius-caesar-say-about-winning-team-loyalty": [
+    {
+      label: "Risk-bearing loyalty",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "crossed the Rubicon knowing it might cost them everything",
+      constructIndex: 0,
+    },
+    {
+      label: "Shared hardship",
+      source: (entry) => entry.description,
+      excerpt: "shared hardship, rewarded performance visibly",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-florence-nightingale-say-about-operational-excellence": [
+    {
+      label: "Silent operational killer",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "silent killer in its operations right now",
+      constructIndex: 0,
+    },
+    {
+      label: "Systemic root cause",
+      source: (entry) => entry.description,
+      excerpt: "systemic causes, and fixed the process",
+      constructIndex: 2,
+    },
+  ],
+  "first-principles-thinking-explained": [
+    {
+      label: "Assumption interrogation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "refusing to accept assumptions",
+      constructIndex: 0,
+    },
+    {
+      label: "Ground-up derivation",
+      source: (entry) => entry.description,
+      excerpt: "breaking a problem down to its most basic, verified truths",
+      constructIndex: 4,
     },
   ],
   // ── Wave 4 annotation blueprints ──────────────────────────────────────

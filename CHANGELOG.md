@@ -4,6 +4,11 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-14
+
+### Added
+- Wave 5 content batch shipped (PR #397): 6 insight articles — `what-would-catherine-the-great-say-about-managing-a-scaling-organization` (catherine-the-great; leadership), `what-would-alexander-the-great-say-about-entering-new-markets` (alexander-the-great; strategy), `what-would-cleopatra-vii-say-about-strategic-alliances` (cleopatra-vii; resilience), `what-would-john-d-rockefeller-say-about-building-systems-that-scale` (john-d-rockefeller; systems), `what-would-julius-caesar-say-about-winning-team-loyalty` (julius-caesar; hiring), `what-would-florence-nightingale-say-about-operational-excellence` (florence-nightingale; product); 1 method article — `first-principles-thinking-explained` (isaac-newton; reasoning); 2 new decision pages — `should-i-open-source-my-product` (28th, Alexander/Curie/Machiavelli) and `should-i-expand-internationally` (29th, Cleopatra/Sun Tzu/Newton); completes coverage for all 3 previously unused ALLOWED_SLUGS figures (catherine-the-great, alexander-the-great, cleopatra-vii); 7 reel integration tests added (52 total passing); decisions page copy updated to 29; 9 new topics appended to topics.yaml (72 total, 72 shipped); full suite 2106 vitest + 52 reel tests passing.
+
 ## 2026-05-13
 
 ### Added

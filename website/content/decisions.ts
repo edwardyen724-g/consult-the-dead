@@ -795,6 +795,56 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "pre-Series A bridge round",
     ],
   },
+  {
+    slug: "should-i-open-source-my-product",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I open-source my product?",
+    description:
+      "Alexander the Great, Marie Curie, and Niccolo Machiavelli examine when open-sourcing creates moat versus when it destroys competitive advantage — and the four conditions that determine which outcome you will get.",
+    recommendedCouncil: ["alexander-the-great", "marie-curie", "niccolo-machiavelli"],
+    hookQuestion:
+      "Are you open-sourcing to build distribution, or because you have no other plan to get users?",
+    primaryQuery: "should I open source my product",
+    secondaryQueries: [
+      "open source vs proprietary startup",
+      "open source business model",
+      "when to open source your startup",
+      "open core business model decision",
+    ],
+    targetKeywords: [
+      "should I open source my product",
+      "open source vs proprietary startup",
+      "open source business model",
+      "when to open source your startup",
+      "open core business model decision",
+    ],
+  },
+  {
+    slug: "should-i-expand-internationally",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I expand internationally?",
+    description:
+      "Cleopatra VII, Sun Tzu, and Isaac Newton examine whether international expansion is a growth multiplier or a focus destroyer — and the five signals that indicate you are ready versus the three that indicate you are running from a domestic problem.",
+    recommendedCouncil: ["cleopatra-vii", "sun-tzu", "isaac-newton"],
+    hookQuestion:
+      "Is international expansion creating a new front for growth, or is it escaping the hard work of saturating your home market?",
+    primaryQuery: "should I expand internationally startup",
+    secondaryQueries: [
+      "international expansion timing startup",
+      "when to go international startup",
+      "global expansion startup strategy",
+      "startup international market entry",
+    ],
+    targetKeywords: [
+      "should I expand internationally startup",
+      "international expansion timing startup",
+      "when to go international startup",
+      "global expansion startup strategy",
+      "startup international market entry",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

@@ -803,3 +803,120 @@
   hook_angles: [tension, identity]
   status: shipped
   shipped_at: "2026-05-13"
+
+- slug: what-would-catherine-the-great-say-about-managing-a-scaling-organization
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to manage a scaling startup"
+  secondary_queries:
+    - "organizational scaling problems founders"
+    - "startup org structure scaling"
+    - "how to manage rapid growth startup"
+  recommended_council: [niccolo-machiavelli, marcus-aurelius, marie-curie]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-alexander-the-great-say-about-entering-new-markets
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to enter new markets startup"
+  secondary_queries:
+    - "market expansion strategy founder"
+    - "when to expand into new markets"
+    - "international expansion startup strategy"
+  recommended_council: [sun-tzu, niccolo-machiavelli, marie-curie]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-cleopatra-vii-say-about-strategic-alliances
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "startup strategic partnerships"
+  secondary_queries:
+    - "how to build strategic alliances startup"
+    - "partnership strategy for founders"
+    - "when to partner vs compete"
+  recommended_council: [marcus-aurelius, niccolo-machiavelli, julius-caesar]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-john-d-rockefeller-say-about-building-systems-that-scale
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to build scalable systems startup"
+  secondary_queries:
+    - "startup operations scaling"
+    - "founder building processes at scale"
+    - "when to systematize startup operations"
+  recommended_council: [leonardo-da-vinci, sun-tzu, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-julius-caesar-say-about-winning-team-loyalty
+  type: insight
+  search_volume_estimate: high
+  primary_query: "how to build team loyalty startup"
+  secondary_queries:
+    - "employee retention early stage startup"
+    - "how founders earn team trust"
+    - "startup culture team commitment"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [proof, identity]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: what-would-florence-nightingale-say-about-operational-excellence
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "operational excellence startup"
+  secondary_queries:
+    - "how to improve startup operations"
+    - "founder fixing broken processes"
+    - "data-driven operations startup"
+  recommended_council: [leonardo-da-vinci, marie-curie, marcus-aurelius]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: first-principles-thinking-explained
+  type: method
+  search_volume_estimate: high
+  primary_query: "first principles thinking explained"
+  secondary_queries:
+    - "what is first principles thinking"
+    - "first principles vs analogy thinking"
+    - "how to use first principles thinking"
+  recommended_council: [isaac-newton, leonardo-da-vinci, archimedes]
+  hook_angles: [proof, tension]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-open-source-my-product
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I open source my product"
+  secondary_queries:
+    - "open source vs proprietary startup"
+    - "open source business model"
+    - "when to open source your startup"
+  recommended_council: [alexander-the-great, marie-curie, niccolo-machiavelli]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
+
+- slug: should-i-expand-internationally
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I expand internationally startup"
+  secondary_queries:
+    - "international expansion timing startup"
+    - "when to go international startup"
+    - "global expansion startup strategy"
+  recommended_council: [cleopatra-vii, sun-tzu, isaac-newton]
+  hook_angles: [tension, proof]
+  status: shipped
+  shipped_at: "2026-05-14"
