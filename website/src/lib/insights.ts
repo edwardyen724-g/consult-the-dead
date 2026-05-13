@@ -1665,6 +1665,238 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 7: insight + method batch ────────────────────────────────────
+  {
+    slug: "what-would-da-vinci-say-about-shipping-imperfect-work",
+    type: "single",
+    frameworkSlug: "leonardo-da-vinci",
+    title: "What Would Leonardo da Vinci Say About Shipping Imperfect Work?",
+    description:
+      "Da Vinci famously left many works unfinished — the Mona Lisa was never formally released by him. His framework distinguishes between perfectionism as a creative standard and perfectionism as a trap: know when you are genuinely improving versus when you are avoiding the exposure that shipping requires.",
+    targetKeywords: [
+      "when to ship imperfect product",
+      "ship early vs perfect product startup",
+      "done is better than perfect founder",
+      "how to stop overthinking and ship",
+      "perfectionism trap startup founder",
+    ],
+    decisionType: "iteration",
+    hookQuestion:
+      "You have been refining the product for three months. Every week there is something else that needs to be fixed before you can launch. Da Vinci never formally handed over the Mona Lisa — he kept improving it until it was taken from him. The question is whether you are improving or avoiding.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Thomas Edison",
+        text: "Vision without execution is hallucination. Every day you spend refining without shipping is a day you are operating on theory instead of evidence. The market will tell you more in one week of real use than in six months of internal iteration. Ship it. Learn from people who are not you.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Perfection is not a destination — it is a story you tell yourself to avoid the discomfort of being judged. The Stoic acts on what can be done now, with what is available now. Your product is not the Mona Lisa. And even da Vinci's Mona Lisa was only taken seriously after someone else took it from him.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Science publishes. That is the discipline. A finding that is not published is not science — it is a private belief. The same is true of a product. Until it is in front of users, it is a hypothesis. Ship the hypothesis. Get the data. Then improve from evidence, not from anxiety.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-sun-tzu-say-about-pricing-strategy",
+    type: "single",
+    frameworkSlug: "sun-tzu",
+    title: "What Would Sun Tzu Say About Pricing Strategy?",
+    description:
+      "Sun Tzu's Art of War is fundamentally about terrain and position. Pricing is position in a market — low pricing cedes terrain to competitors, while high pricing signals strength but requires the ability to hold that position. Charge at the frontier your strength can defend, not at the price that merely feels safe.",
+    targetKeywords: [
+      "pricing strategy startup",
+      "how to price your product startup",
+      "value-based pricing founder",
+      "competitive pricing strategy small business",
+      "Sun Tzu business strategy pricing",
+    ],
+    decisionType: "pricing",
+    hookQuestion:
+      "You are about to set a launch price and you are unsure whether to go low to attract users or high to signal quality. Sun Tzu would frame this as a terrain decision. Pricing is not arithmetic — it is position in a competitive landscape. The price you choose claims territory. Make sure you can hold it.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The prince who appears weak invites attack. A low price does not just attract customers — it signals to competitors that the terrain is undefended and worth entering. Set the price that reflects the strength of your position. Raising it later is far harder than defending a high price from the beginning.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Do not price out of fear. Underpricing is not humility — it is a failure of honest self-assessment. If your product delivers real value, the price must reflect that value. Charging less than you are worth is not generosity. It is a claim about yourself that compounds over time.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "A penny saved is a penny earned — but a dollar undercharged is ten dollars of margin you will never recover. The price you set shapes who your customer is. Cheap prices attract price-sensitive customers who leave the moment a cheaper option appears. Price for the customer you want to keep.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-rockefeller-say-about-unit-economics",
+    type: "single",
+    frameworkSlug: "john-d-rockefeller",
+    title: "What Would John D. Rockefeller Say About Unit Economics?",
+    description:
+      "Rockefeller built Standard Oil not through revenue maximization but through obsessive cost control at every step of refining and distribution. His framework: know exactly what each barrel costs and why. Gross margin is not a vanity metric — it is the architecture of survival.",
+    targetKeywords: [
+      "unit economics startup",
+      "how to improve unit economics",
+      "LTV CAC ratio founder",
+      "startup profitability metrics",
+      "gross margin founder explained",
+    ],
+    decisionType: "finance",
+    hookQuestion:
+      "You know your revenue growth but you are not entirely sure what each sale actually costs you to deliver. Rockefeller built the largest oil company in history not by chasing revenue — but by knowing exactly what each barrel of oil cost him at every step. He believed a founder who does not know their unit economics is not running a business. They are running a hypothesis.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Marie Curie",
+        text: "You cannot improve what you have not measured. Rockefeller did not guess at costs — he counted them. Every step in the process was known, tracked, and optimized. The same discipline that produced radioactivity research produced Standard Oil: do not hypothesize about the number. Find the number.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "A system that does not account for its own losses will eventually fail through accumulation of hidden friction. Unit economics is the discipline of making the hidden friction visible. If you do not know what each unit costs you, there is a force operating on your business that you have not modeled. That force will not wait for you to notice it.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "The general who does not know his supply costs cannot plan his campaign. Revenue tells you how well you fight; margin tells you how long you can fight. The strategist who chases victories without knowing the cost of each victory will eventually run out of army. Know the cost of each unit before you scale the battle.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-newton-say-about-debugging-complex-systems",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "What Would Isaac Newton Say About Debugging Complex Systems?",
+    description:
+      "Newton's Principia isolated variables through controlled thought experiments. Debugging is applied first-principles thinking: isolate the variable, form a hypothesis, test it, update the model. Most engineers debug by intuition; Newton would debug by formal reduction.",
+    targetKeywords: [
+      "debugging complex systems startup",
+      "how to fix hard engineering problems",
+      "root cause analysis product issues",
+      "systematic debugging methodology",
+      "first principles debugging software",
+    ],
+    decisionType: "product",
+    hookQuestion:
+      "Your system has a bug that appears intermittently and nobody can reproduce it reliably. The team has been guessing at causes for two days. Newton would find this familiar — complex systems behave unpredictably only until you isolate the right variable. Debugging is not troubleshooting. It is controlled experimentation applied to software.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The painter who does not know anatomy will never understand why the figure looks wrong. The engineer who does not understand the system at the component level will never understand why it fails. Do not debug the surface. Debug the structure underneath it. Draw the internals until the flaw is obvious.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "The principle is the same whether you are isolating a radioactive element or a software defect: hold everything constant except the one variable you are testing. Intuition is not a debugging methodology. Form the hypothesis, isolate the variable, run the controlled test. Do not guess. Experiment.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "When faced with a complex problem, do not let frustration substitute for method. The mind that is irritated by the obstacle loses its capacity to see the obstacle clearly. Approach the bug as a Stoic philosopher approaches any difficulty: with curiosity, not anxiety. The system is not broken — it is behaving according to a rule you have not yet found.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-cleopatra-vii-say-about-managing-investors",
+    type: "single",
+    frameworkSlug: "cleopatra-vii",
+    title: "What Would Cleopatra VII Say About Managing Investors?",
+    description:
+      "Cleopatra held power despite being surrounded by Rome, her own brothers, and shifting alliances that could have destroyed her at any moment. She managed Julius Caesar and Mark Antony as strategic partners — giving them wins that cost her little while maintaining real leverage. Her framework: align interests, never depend, and never let the appearance of dependence become the reality.",
+    targetKeywords: [
+      "how to manage investors",
+      "founder investor relationship tips",
+      "managing board of directors startup",
+      "how to handle difficult investors",
+      "Cleopatra leadership strategy",
+    ],
+    decisionType: "relationship",
+    hookQuestion:
+      "Your lead investor wants more board involvement than you expected. The relationship is still good but the dynamic is shifting. Cleopatra ruled Egypt while managing Julius Caesar and Mark Antony — two of the most powerful men in the world — as partners rather than threats. She never let them control her, and she gave them enough to stay aligned.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The wise ruler does not fear powerful allies — she manages them. The investor who holds capital is not your adversary unless you make him one. Identify what he needs from this relationship beyond financial return. Give him that. It costs you almost nothing and it keeps the relationship productive.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "To subdue the enemy without fighting is the supreme excellence. You do not need to fight your investor — you need to align your interests so precisely that conflict never arises. Know what they value. Show them it is advancing. The general who makes every stakeholder feel they are winning rarely needs to fight any of them.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Dependence invites control. The leader who cannot function without the approval of her backers has already lost the negotiation. Know what you need from the relationship and what you can provide without. Maintain enough independence that the partnership stays mutual. This is not ingratitude — it is the precondition of a healthy alliance.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-harriet-tubman-say-about-resilience-in-hard-times",
+    type: "single",
+    frameworkSlug: "harriet-tubman",
+    title: "What Would Harriet Tubman Say About Resilience in Hard Times?",
+    description:
+      "Tubman's resilience was not about endurance — it was about continuing forward motion under conditions that would justify stopping. She led nineteen missions despite a severe sleep disorder caused by a head injury. Resilience is not willpower. It is a structural commitment to the destination combined with adaptations for the obstacles in the way.",
+    targetKeywords: [
+      "founder resilience hard times",
+      "how to stay motivated as a founder",
+      "startup resilience mental toughness",
+      "how to keep going when startup is failing",
+      "Harriet Tubman leadership lessons",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "Your company has been in a hard stretch for four months. The original momentum is gone. The team is tired. You are asking yourself how much longer you can sustain this. Harriet Tubman ran nineteen missions on the Underground Railroad while experiencing sudden, uncontrollable episodes of sleep caused by a head injury — and she never lost a single person.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The obstacle is not the problem — it is the material from which the solution is built. Resilience is not the absence of difficulty. It is the refusal to let difficulty become the reason to stop. The Stoic does not ask whether the conditions are favorable. She asks what can be done in these conditions, and does that.",
+      },
+      {
+        speaker: "Seneca",
+        text: "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult. Tubman's courage was not the absence of fear — it was action taken despite fear, structured around the clarity of destination. If your destination is real, the difficulty of the path is a logistical problem, not a reason to reconsider.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I was taught that the way of progress is neither swift nor easy. The scientist who abandons a line of inquiry because progress is slow has confused comfort with rigor. Resilience in hard times is the decision to stay in the laboratory when the experiments are failing. You are not failing. You are doing the work that precedes the breakthrough.",
+      },
+    ],
+  },
+  {
+    slug: "jobs-to-be-done-explained",
+    type: "method",
+    frameworkSlug: "isaac-newton",
+    title: "Jobs-to-Be-Done Explained: The Framework Founders Use to Understand What Customers Actually Want",
+    description:
+      "Clayton Christensen's Jobs-to-Be-Done framework says people do not buy products — they hire them to do a job. The McDonald's milkshake example revealed that commuters hire milkshakes for morning-commute boredom management, not nutrition. For founders, discovering the real job your product is hired for is the fastest path to product-market fit.",
+    targetKeywords: [
+      "jobs to be done framework",
+      "JTBD framework explained",
+      "what job is my product hired for",
+      "Clayton Christensen jobs to be done",
+      "product market fit framework",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "You built a product for one use case and users keep using it for something adjacent. Or your churn is high despite good reviews. Clayton Christensen discovered that McDonald's was unknowingly competing with bagels and boredom, not other milkshakes. The Jobs-to-Be-Done framework finds the actual job your product is being hired to do — which is often not what you built it for.",
+    publishedAt: "2026-05-14",
+    agonExcerpt: [
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The painter who does not understand why someone commissions a portrait will paint the wrong thing with great technical skill. Understanding the job to be done is understanding the true constraint. Not what the patron says they want — what the portrait must accomplish for them in the room where it will hang. Begin there.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "The question is not what the substance appears to be. The question is what it is actually doing. The same principle applies to your product: the user behavior you observe is data about the job being done, not confirmation of the job you intended. Watch what people do with it. That is your real product insight.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Men are moved by fear and by love, and the wise prince knows which force is operating before he acts. Your customers are moved by jobs they need done and pains they need avoided. Know which one your product is actually serving. The founder who does not know this is governing a kingdom without a map.",
+      },
+    ],
+  },
   {
     slug: "second-order-thinking-explained",
     type: "single",
@@ -2430,6 +2662,91 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Explicit loss-acceptance",
       source: (entry) => entry.description,
       excerpt: "what kind of empire it would leave",
+      constructIndex: 3,
+    },
+  ],
+  // ── Wave 7 annotation blueprints ──────────────────────────────────────
+  "what-would-da-vinci-say-about-shipping-imperfect-work": [
+    {
+      label: "Perfectionism as avoidance",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "kept improving it until it was taken from him",
+      constructIndex: 0,
+    },
+    {
+      label: "Improvement vs. avoiding exposure",
+      source: (entry) => entry.description,
+      excerpt: "perfectionism as a trap",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-sun-tzu-say-about-pricing-strategy": [
+    {
+      label: "Terrain selection through price",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "Pricing is not arithmetic",
+      constructIndex: 0,
+    },
+    {
+      label: "Positional strength signaling",
+      source: (entry) => entry.description,
+      excerpt: "signals strength but requires the ability to hold that position",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-rockefeller-say-about-unit-economics": [
+    {
+      label: "Cost-per-unit visibility",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "knowing exactly what each sale actually costs",
+      constructIndex: 0,
+    },
+    {
+      label: "Margin architecture",
+      source: (entry) => entry.description,
+      excerpt: "architecture of survival",
+      constructIndex: 2,
+    },
+  ],
+  "what-would-newton-say-about-debugging-complex-systems": [
+    {
+      label: "Controlled variable isolation",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "isolate the right variable",
+      constructIndex: 0,
+    },
+    {
+      label: "Formal reduction discipline",
+      source: (entry) => entry.description,
+      excerpt: "formal reduction",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-cleopatra-vii-say-about-managing-investors": [
+    {
+      label: "Stakeholder alignment",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "dynamic is shifting",
+      constructIndex: 0,
+    },
+    {
+      label: "Dependence vs. partnership",
+      source: (entry) => entry.description,
+      excerpt: "never let them control her",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-harriet-tubman-say-about-resilience-in-hard-times": [
+    {
+      label: "Forward motion under adversity",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "hard stretch for four months",
+      constructIndex: 0,
+    },
+    {
+      label: "Structural commitment to destination",
+      source: (entry) => entry.description,
+      excerpt: "structural commitment to the destination",
       constructIndex: 3,
     },
   ],

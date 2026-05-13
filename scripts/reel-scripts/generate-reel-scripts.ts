@@ -203,6 +203,19 @@ const DECISION_COURT: Record<
       "Procrastination is rarely about the task. It is about a gap between the task as it is and the task as you have told yourself it should be. Find the real reason the thing is not getting done — not the excuse, but the actual obstacle — and the procrastination usually ends.",
     caption: "Name the real reason. Then start.",
   },
+  // ── Wave 7 court entries ─────────────────────────────────────────────
+  finance: {
+    minds: ["John D. Rockefeller", "Marie Curie", "Sun Tzu"],
+    consensus:
+      "Unit economics are not a finance problem — they are a product problem. The margin structure you build in early stages constrains every strategic option you will have later. Do not optimize for growth before you understand the cost architecture underneath it.",
+    caption: "Know what each unit costs. Build from there.",
+  },
+  relationship: {
+    minds: ["Cleopatra VII", "Niccolò Machiavelli", "Sun Tzu"],
+    consensus:
+      "Managing a powerful stakeholder is not about charm — it is about alignment. Give them a win that costs you little, keep the relationship productive, and never let the appearance of dependence become the reality of it.",
+    caption: "Alignment, not dependence.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -264,6 +277,11 @@ const MAIN_BEATS: Record<string, string> = {
     "The hiring decision you regret is always the one where you settled. Hold the bar, design the role for a great person, and wait.",
   procrastination:
     "The thing you are not doing is telling you something. What is the actual obstacle — not the excuse, but the real one? Name it, then address it.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "Name the unit before you optimize anything. Revenue without margin is just a way to burn more money faster.",
+  relationship:
+    "Find the interest behind the position. The investor's stated concern is rarely their real concern. Identify what they actually need from this relationship.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -325,6 +343,11 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Carnegie's management philosophy: hire people smarter than you, pay them well, give them room, and hold them accountable for outcomes — not process.",
   procrastination:
     "Seneca's insight was not that procrastination is laziness — it is that procrastination is a form of self-deception about what the task actually requires.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "The cost structure you accept early becomes the ceiling on every option you have later. Change it now while you still can.",
+  relationship:
+    "Give the win that costs you least while giving them what they value most. Skilled stakeholder management is information asymmetry in your favor.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -386,6 +409,11 @@ const CLOSE_BEATS: Record<string, string> = {
     "Are you designing roles that great people want to be in? That is the real recruitment strategy.",
   procrastination:
     "What is the smallest step you could take on this right now? Take it. The rest follows.",
+  // ── Wave 7 beats ──────────────────────────────────────────────────────
+  finance:
+    "Gross margin is not a vanity metric. It is the architecture of survival. Know it down to the variable cost per transaction.",
+  relationship:
+    "Dependence invites control. Maintain enough leverage that the relationship stays mutual. Know what you need from them and what they need from you.",
 };
 
 function titleCase(value: string): string {

@@ -1134,6 +1134,176 @@ describe("insight article slug — first-principles-thinking-explained", () => {
   });
 });
 
+// ── Wave 7 insight batch integration tests ───────────────────────────────────
+
+describe("insight article slug — what-would-da-vinci-say-about-shipping-imperfect-work", () => {
+  it("generates a valid reel script with the iteration court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-da-vinci-say-about-shipping-imperfect-work",
+    );
+    expect(script.slug).toBe("what-would-da-vinci-say-about-shipping-imperfect-work");
+    expect(script.frameworkSlug).toBe("leonardo-da-vinci");
+    expect(script.decisionType).toBe("iteration");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Iteration council: Edison (main), Curie (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Thomas Edison");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("refining the product");
+    expect(script.cta).toContain(
+      "/insights/what-would-da-vinci-say-about-shipping-imperfect-work",
+    );
+  });
+});
+
+describe("insight article slug — what-would-sun-tzu-say-about-pricing-strategy", () => {
+  it("generates a valid reel script with the pricing court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-sun-tzu-say-about-pricing-strategy",
+    );
+    expect(script.slug).toBe("what-would-sun-tzu-say-about-pricing-strategy");
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("pricing");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Pricing council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("launch price");
+    expect(script.cta).toContain(
+      "/insights/what-would-sun-tzu-say-about-pricing-strategy",
+    );
+  });
+});
+
+describe("insight article slug — what-would-rockefeller-say-about-unit-economics", () => {
+  it("generates a valid reel script with the finance court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-rockefeller-say-about-unit-economics",
+    );
+    expect(script.slug).toBe("what-would-rockefeller-say-about-unit-economics");
+    expect(script.frameworkSlug).toBe("john-d-rockefeller");
+    expect(script.decisionType).toBe("finance");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Finance council: Rockefeller (main), Curie (support), Sun Tzu (close)
+    expect(script.councilPass[0].mind).toBe("John D. Rockefeller");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Sun Tzu");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("revenue growth");
+    expect(script.cta).toContain(
+      "/insights/what-would-rockefeller-say-about-unit-economics",
+    );
+  });
+});
+
+describe("insight article slug — what-would-newton-say-about-debugging-complex-systems", () => {
+  it("generates a valid reel script with the product court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-newton-say-about-debugging-complex-systems",
+    );
+    expect(script.slug).toBe("what-would-newton-say-about-debugging-complex-systems");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("product");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Product council: da Vinci (main), Curie (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("bug that appears intermittently");
+    expect(script.cta).toContain(
+      "/insights/what-would-newton-say-about-debugging-complex-systems",
+    );
+  });
+});
+
+describe("insight article slug — what-would-cleopatra-vii-say-about-managing-investors", () => {
+  it("generates a valid reel script with the relationship court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-cleopatra-vii-say-about-managing-investors",
+    );
+    expect(script.slug).toBe("what-would-cleopatra-vii-say-about-managing-investors");
+    expect(script.frameworkSlug).toBe("cleopatra-vii");
+    expect(script.decisionType).toBe("relationship");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Relationship council: Cleopatra (main), Machiavelli (support), Sun Tzu (close)
+    expect(script.councilPass[0].mind).toBe("Cleopatra VII");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Sun Tzu");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("lead investor");
+    expect(script.cta).toContain(
+      "/insights/what-would-cleopatra-vii-say-about-managing-investors",
+    );
+  });
+});
+
+describe("insight article slug — what-would-harriet-tubman-say-about-resilience-in-hard-times", () => {
+  it("generates a valid reel script with the resilience court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-harriet-tubman-say-about-resilience-in-hard-times",
+    );
+    expect(script.slug).toBe("what-would-harriet-tubman-say-about-resilience-in-hard-times");
+    expect(script.frameworkSlug).toBe("harriet-tubman");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("hard stretch for four months");
+    expect(script.cta).toContain(
+      "/insights/what-would-harriet-tubman-say-about-resilience-in-hard-times",
+    );
+  });
+});
+
+describe("method article slug — jobs-to-be-done-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript(
+      "jobs-to-be-done-explained",
+    );
+    expect(script.slug).toBe("jobs-to-be-done-explained");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("product for one use case");
+    expect(script.cta).toContain(
+      "/insights/jobs-to-be-done-explained",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {

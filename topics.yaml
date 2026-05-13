@@ -999,8 +999,8 @@
     - "how to stop overthinking and ship"
   recommended_council: [leonardo-da-vinci]
   hook_angles: [tension, identity]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: what-would-sun-tzu-say-about-pricing-strategy
   type: insight
@@ -1012,8 +1012,8 @@
     - "competitive pricing strategy small business"
   recommended_council: [sun-tzu]
   hook_angles: [shortcut, proof]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: what-would-rockefeller-say-about-unit-economics
   type: insight
@@ -1025,8 +1025,8 @@
     - "startup profitability metrics"
   recommended_council: [john-d-rockefeller]
   hook_angles: [proof, shortcut]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: what-would-newton-say-about-debugging-complex-systems
   type: insight
@@ -1038,8 +1038,8 @@
     - "systematic debugging methodology"
   recommended_council: [isaac-newton]
   hook_angles: [shortcut, proof]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: what-would-cleopatra-vii-say-about-managing-investors
   type: insight
@@ -1051,8 +1051,8 @@
     - "how to handle difficult investors"
   recommended_council: [cleopatra-vii]
   hook_angles: [tension, identity]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: should-i-use-ai-in-my-business
   type: decision
@@ -1103,8 +1103,8 @@
     - "how to use jobs to be done"
   recommended_council: [marcus-aurelius, leonardo-da-vinci]
   hook_angles: [shortcut, proof]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
 
 - slug: what-would-harriet-tubman-say-about-resilience-in-hard-times
   type: insight
@@ -1116,5 +1116,5 @@
     - "how to keep going when startup is failing"
   recommended_council: [harriet-tubman]
   hook_angles: [identity, proof]
-  status: queued
-  shipped_at: null
+  status: shipped
+  shipped_at: "2026-05-14"
