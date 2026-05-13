@@ -3122,6 +3122,168 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "In the first 90 days of a new leadership role, run a threat topology analysis: Is the primary resistance internal (legacy power-holders, skeptical reports, people who expected to govern through you) or external (a dominant competitor, a hostile board member, a legacy relationship that can make you irrelevant)? If internal, prioritize Catherine's earned authority model: early visible competence in governance, quick wins on the problems the existing team has been unable to solve, and the systematic building of an internal power base that does not depend on any single patron. If external, prioritize Cleopatra's alliance model: identify the external anchor that legitimizes your internal authority, and use that anchor to create the conditions under which governance is possible. Then, regardless of which phase-one strategy you use, begin phase two — the governance work — before the phase-one anchor deteriorates.",
     },
   },
+  // ── Wave 17 ──────────────────────────────────────────────────────────────
+  {
+    slug: "harriet-tubman-vs-lincoln-on-when-to-act-without-consensus",
+    type: "collision",
+    frameworkSlug: "harriet-tubman",
+    collisionFrameworkSlugs: ["harriet-tubman", "abraham-lincoln"],
+    decisionType: "leadership",
+    title:
+      "Harriet Tubman vs. Lincoln: When Should You Act Without Waiting for Consensus?",
+    description:
+      "Harriet Tubman made nineteen trips into slave territory and freed over three hundred people without waiting for legal sanction, political cover, or majority agreement — operating on the principle that the window for action is always narrower than the time required to build consensus. Lincoln freed the enslaved through the Emancipation Proclamation only after two years of war, careful political preparation, and enough coalition-building that the executive order could be enforced. Both achieved transformational results; they reached opposite conclusions about whether waiting for buy-in is discipline or delay.",
+    targetKeywords: [
+      "when to act without consensus",
+      "direct action vs coalition building",
+      "leadership without buy-in",
+      "harriet tubman lincoln leadership",
+      "when to stop waiting for approval",
+    ],
+    hookQuestion:
+      "If you wait for everyone to agree before acting, will the window have already closed?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Harriet Tubman",
+        text: "I never waited for permission and I never consulted a committee about the route. Not because I was reckless — I was meticulous about every safe house, every cover story, every timing decision on those nineteen trips. But I understood something that coalition-builders often miss: the people who needed to be freed could not wait for the political conditions to improve. The window for action is not determined by whether you have consensus. It is determined by whether the people harmed by inaction can survive another season of waiting. My construct is this: when the cost of delay falls on people who have no voice in the consensus-building process, waiting for buy-in is not discipline. It is a decision to let those people bear the cost of your caution.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Tubman is correct that delay has costs — costs paid by real people who are not at the table. I knew this. I had known it since I was a young man watching a slave auction in New Orleans. But I also knew something she perhaps did not have to reckon with in the same way: an executive action taken before the coalition can enforce it is not boldness. It is theater. If I had issued the Emancipation Proclamation in 1861, I would have lost the border states, fractured the Union Army, and possibly lost the war — in which case the proclamation would have been nullified and the institution it aimed to destroy would have been entrenched by Confederate victory. My framework is not patience for its own sake. It is the question of whether the action you are about to take can be made to stick. An act that cannot stick does not liberate anyone. It merely exposes the actor.",
+      },
+      {
+        speaker: "Harriet Tubman",
+        text: "Lincoln is describing a real constraint — the enforceability problem — and using it correctly in his domain. But I want to name what his framework obscures: enforceability analysis can always be used to justify waiting, because there is always another condition that is not yet in place. I did not have federal troops. I did not have political cover. I did not have public opinion on my side in 1849 when I made my first trip. What I had was a specific route, specific safe houses, and specific people who needed to move now. The enforceability question Lincoln asks — can this stick? — is the right question for executive orders and legislative agendas. It is the wrong question for direct action, which does not need institutional enforcement. It needs only the people involved to commit and move. If my logic wins here, the relevant question is not whether you have enough institutional backing for the action to stick. It is whether the action you are considering requires institutional backing at all, or whether it can be executed by the people directly involved without requiring anyone else's enforcement.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Tubman is drawing a distinction I accept: direct action and executive action operate under different enforceability constraints. Where I want to push back is on the scale question. Tubman freed hundreds of people through direct action — a genuine and profound achievement. The Emancipation Proclamation was the precondition for the Thirteenth Amendment, which freed four million. The actions that change the condition at scale — that reform the system rather than rescue individuals from within it — require the coalition that direct action does not. My argument is not that direct action is wrong. It is that founders who are trying to change the conditions at scale, rather than rescue individuals from within the current conditions, cannot rely on Tubman's framework. They must build the coalition that makes the systemic change enforceable. The question is: are you trying to help specific people now, or trying to change the conditions for everyone? Those require different frameworks.",
+      },
+      {
+        speaker: "Harriet Tubman",
+        text: "Lincoln's scale argument is honest, and I want to name its failure mode. The argument that 'we need the coalition for systemic change' has been used in every generation to postpone action that could have been taken now. The people who told abolitionists to wait for political conditions to improve were not wrong about the political conditions — they were wrong about who bore the cost of waiting. I was not opposed to systemic change. I worked with Frederick Douglass, with the Underground Railroad's network, with every political ally I could find. But I did not let the absence of a complete coalition become the reason to leave people in bondage who could be freed this season. The diagnostic I would offer Lincoln is this: is the coalition you are building actually moving toward the systemic change, or is building the coalition becoming the work, with the change itself perpetually deferred? If the coalition is a genuine vehicle, build it. If it is a substitute for action, stop.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "That diagnostic is the right one, and I will accept it and make it precise. The test for whether coalition-building is genuine or evasive is whether it has a defined threshold — a specific set of conditions that, once met, trigger the action — and a defined deadline that constrains the waiting. When I entered office I had already defined the threshold: the Union must be preserved and the border states must be secured before I act on slavery publicly. I hit that threshold in September 1862 after Antietam. The proclamation followed in January. If you cannot name the specific conditions that will cause you to act, and the specific date by which those conditions must be met before you proceed without them, your consensus-building is not discipline. It is delay with better vocabulary. Tubman and I agree on more than it appears: act when the window is open and the people who need action cannot wait; build the coalition when the action requires enforcement at scale. The diagnostic that separates those two cases is whether you can specify what 'ready enough' looks like — and whether you have set a date by which you will act regardless.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "harriet-tubman",
+      summary:
+        "Tubman and Lincoln converge on a diagnostic that resolves the apparent conflict between direct action and coalition-building. The key variable is not courage or patience — it is the enforceability requirement of the action you are considering. Actions that can be executed by the people directly involved without requiring institutional backing are Tubman's domain: act now, the window is closing. Actions that require institutional enforcement at scale to stick are Lincoln's domain: build the coalition to the defined threshold, then act. Both agree that consensus-building without a defined threshold and a deadline is not discipline — it is delay.",
+      actionableInsight:
+        "Before deciding whether to act or build more consensus, answer two questions. First: does the action you are considering require institutional backing to stick, or can it be executed by the people directly involved? If the latter, stop waiting — identify the specific people who need to move and move with them now. Second: if the action does require institutional enforcement, can you name the specific conditions that constitute 'ready enough,' and the date by which you will act regardless of whether those conditions are fully met? If you cannot name both — the threshold and the deadline — your coalition-building is deferral. Set the threshold, set the date, and act when either is reached.",
+    },
+  },
+  {
+    slug: "franklin-vs-aurelius-on-building-for-the-long-term",
+    type: "collision",
+    frameworkSlug: "benjamin-franklin",
+    collisionFrameworkSlugs: ["benjamin-franklin", "marcus-aurelius"],
+    decisionType: "resilience",
+    title: "Franklin vs. Aurelius: Should You Build for Legacy or Focus on Today?",
+    description:
+      "Benjamin Franklin managed his reputation as deliberately as he managed his printing business — cultivating relationships, publishing under pseudonyms, and engineering the public perception that would make him effective for decades. Marcus Aurelius wrote the Meditations as private self-instruction, not for publication, and returned each day to the same question: what does duty require of me right now, not in ten years? Franklin built for legacy; Aurelius built for clarity in the present moment. They represent a genuine tension between long-horizon strategic planning and present-moment discipline.",
+    targetKeywords: [
+      "should I think about legacy or focus on today",
+      "long term planning vs present focus",
+      "building reputation vs doing the work",
+      "franklin aurelius legacy",
+      "long-term strategy vs present duty",
+    ],
+    hookQuestion:
+      "Is thinking about the long-term a form of strategic clarity, or a way of avoiding the demands of right now?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Benjamin Franklin",
+        text: "I began cultivating my public reputation before I had anything worth being known for. Not from vanity — from strategy. I understood that a printer in Philadelphia who wanted to influence public affairs, negotiate treaties, or found institutions needed a reputation that arrived in the room before he did. The Silence Dogood letters, the Poor Richard's almanacs, the strategic friendships I built over decades — none of these were accidents of personality. They were investments I made in the asset that would compound longest. The founder who works on the product but neglects the reputation is building a business that is entirely dependent on the quality of the next product. The one who builds both is building something that can survive a bad product cycle. My construct: reputation is a long-duration asset that pays its highest returns in the crisis you have not yet encountered.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Franklin's reputation framework is not wrong — but it is the wrong primary question. I ruled the largest empire in the world for nineteen years and I did not spend a single hour of those years managing my public image. I spent those hours asking what the duty in front of me actually required and whether I was meeting it. The Meditations were not written for publication. They were written as daily self-instruction because I had observed, in myself and in every emperor before me, that the person who focuses on how history will judge them stops being able to see what the present situation actually requires. Legacy is a byproduct of meeting the duties in front of you with clarity and consistency. It is not a strategy. The founder who is building for legacy is building for an audience. The one building for present duty is building for the work. The audience shows up when the work is genuine. It rarely shows up when the work is performed.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "Aurelius describes the failure mode of reputation-building correctly — the person so focused on the audience that the work becomes performance. But he is describing the corruption of my method, not the method. The Silence Dogood letters were not self-promotion. They were arguments I could not make under my own name without being dismissed as a seventeen-year-old printer's apprentice. The reputation I built was the vehicle that gave the arguments access to audiences they would not otherwise reach. That is not avoiding present duty. It is doing present duty under conditions where direct action is blocked. Aurelius could govern by doing — he had the legions, the treasury, and the title. When the channels for direct action are closed, reputation is often the only tool that opens them. The question is not whether to build for legacy. It is whether your situation allows direct action or requires building the conditions under which direct action becomes possible.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Franklin is describing a legitimate use of reputation as a strategic vehicle, and I will grant it. My concern is different: it is about what happens to your judgment when you have internalized the reputation project. The person who asks 'what would Franklin do here?' before asking 'what does this situation actually require?' has placed a filter between themselves and reality. I wrote in the Meditations specifically to counter this — to return, daily, to what the situation actually demanded rather than what the role demanded. The emperor who governs by role is governing for the image of an emperor. The emperor who governs by duty is governing for the people in front of him. The practical danger of Franklin's method is not that it is dishonest — he was genuinely pursuing public good, and I believe him. It is that the method trains the practitioner to see every situation through the lens of how it affects the long-term reputation project. That filter makes it harder to take necessary actions that are costly to reputation in the short term. Aurelius's question is always: what does this require of me right now, without reference to how it will look later?",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "Aurelius names the genuine risk — the reputation filter that makes you avoid necessary short-term costly actions. I want to name where I think his framework carries the complementary risk. The person who focuses entirely on present duty, without any model of where their work is going and who needs to receive it, can spend extraordinary effort on work that never reaches the people it was meant for. Aurelius wrote one of the most important philosophical texts in history. He wrote it for himself. It survived only because he was emperor and his personal papers were preserved. A less powerful person writing the same text with the same present-duty orientation would have left us nothing. The question I would ask Aurelius is: who is the work for? If you cannot name the audience and the conditions under which the work reaches them, you are not being free of reputation concerns — you are assuming that quality alone will solve the distribution problem. It often does not.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "That is the practical convergence I would offer. Franklin is right that distribution is a real problem and that reputation is a legitimate instrument for solving it — especially when direct access to the audience is blocked. I am right that the reputation project, internalized too deeply, creates a filter that makes you less capable of seeing what the present moment actually requires. The integrated practice is this: maintain a clear model of who the work needs to reach and what conditions will allow it to reach them — that is Franklin's contribution. But return, daily, to the question of what the present duty requires without first asking what it will cost the long-term project — that is mine. The founder who can hold both is neither performing for an audience nor working in isolation. They are doing the present work clearly, with an honest model of how it will eventually reach the people who need it. That model should be revisited; it should not be present in the room for every individual decision.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "benjamin-franklin",
+      summary:
+        "Franklin and Aurelius converge on an integrated practice rather than a binary choice. Franklin is correct that reputation and distribution are real strategic problems — especially when direct channels to the audience are blocked — and that a long-horizon investment in reputation compounds in crises you have not yet encountered. Aurelius is correct that the reputation project, internalized as a constant filter, degrades the quality of present judgment by making necessary short-term costly actions harder to take. The resolution: maintain a clear model of who the work needs to reach and what conditions will allow it to reach them, but return daily to present duty without running that model for every individual decision.",
+      actionableInsight:
+        "Audit how much of your decision-making time is spent on the present work versus the reputation and positioning project. If the reputation model is present in the room for every individual decision — if you are asking 'how will this look?' before 'what does this require?' — apply Aurelius's correction: write down what the situation demands, independent of how it affects any long-term project, and act on that. Then, separately, apply Franklin's question once a week: who needs to receive this work, and what conditions will allow them to receive it? Build those conditions deliberately, as a separate project from the work itself. The failure modes run in opposite directions: the Aurelius error is doing excellent work that never reaches anyone; the Franklin error is building perfect conditions for work that has been quietly degraded by the reputation filter.",
+    },
+  },
+  {
+    slug: "galileo-vs-archimedes-on-when-to-challenge-consensus",
+    type: "collision",
+    frameworkSlug: "galileo-galilei",
+    collisionFrameworkSlugs: ["galileo-galilei", "archimedes"],
+    decisionType: "evidence",
+    title:
+      "Galileo vs. Archimedes: When Is the Evidence Strong Enough to Challenge Consensus?",
+    description:
+      "Galileo published the Sidereus Nuncius in 1610 — months after building his telescope — staking a public claim against the Aristotelian and Ptolemaic consensus with evidence the establishment had not yet examined. Archimedes spent years constructing rigorous geometric proofs before asserting new mathematical principles, building from first principles to irrefutable demonstration before making claims the field had to reckon with. Both overturned consensus; they disagreed on whether speed of challenge or depth of proof is the primary variable.",
+    targetKeywords: [
+      "when to challenge expert consensus",
+      "how much evidence to challenge conventional wisdom",
+      "Galileo Archimedes evidence threshold",
+      "when is your data strong enough to publish",
+      "challenging established view with new data",
+    ],
+    hookQuestion:
+      "At what point does your data give you the right to say everyone else is wrong?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Galileo Galilei",
+        text: "I published the Sidereus Nuncius eight months after I first turned a telescope toward the sky. Not because I was impatient, but because I understood something about the sociology of knowledge that the proof-builders often miss: the window in which a new instrument can overturn a settled consensus is narrow. If I had waited two more years to publish — if I had built the complete mathematical architecture first — someone else with a telescope would have published the moons of Jupiter and the phases of Venus. The evidence I had in 1610 was not a complete proof. It was a sufficient challenge. There is a meaningful difference: a sufficient challenge forces the field to respond, which accelerates the process of generating the complete proof. The person who waits for completeness before speaking often loses the opportunity to change the field at the moment when change is possible.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "Galileo describes an incentive structure — the competitive priority race — and uses it to argue for early publication of incomplete evidence. I want to name what that argument assumes: that the field will engage honestly with a sufficient challenge and that the engagement will produce progress. My experience was different. I developed the method of exhaustion — the precursor to what you would call integral calculus — and I did not publish the method alongside the results. I published results whose proofs I had already verified and whose implications I had already traced. The reason is this: an incomplete argument, published before the field can verify it, does not accelerate progress. It creates a decade of controversy about the argument's validity during which the actual phenomenon gets obscured by the dispute about the evidence quality. Galileo's telescope observations were valid. The debate about whether they were conclusive consumed fifteen years. I would rather spend five additional years building the proof than spend fifteen defending the evidence.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "Archimedes describes the failure mode of early publication — the validity dispute that buries the discovery — and applies it to my situation without examining whether it actually occurred. The Sidereus Nuncius was published in March 1610. By the end of that year, Kepler had confirmed the observations, multiple astronomers across Europe had replicated them, and the Ptolemaic system was under siege in every major academic center on the continent. The dispute about whether my evidence was conclusive did not consume fifteen years. It consumed approximately eighteen months, after which the observations had been replicated independently enough times that the controversy shifted from 'are the moons real' to 'what do the moons mean.' The fifteen-year timeline Archimedes fears is the timeline for a sufficient challenge that cannot be replicated. The timeline for a sufficient challenge based on an observable phenomenon that any competent observer can verify independently is much shorter. The key variable is not proof completeness — it is replicability. If your evidence can be independently replicated by any honest observer with access to the same instrument, publish now. The replication will produce the proof faster than you can construct it alone.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "Galileo's replicability criterion is the most useful thing either of us has said, and I want to apply it to the cases where it breaks. The telescope observations were replicable because any competent observer with a sufficiently good telescope could see the moons of Jupiter. The mathematical results I was working on were not replicable in that sense — they required following a chain of proof that took months to verify even for mathematicians of the highest ability. The practical question for anyone deciding when to publish is: what is the replication burden for your specific evidence? If the replication burden is low — if any honest observer with access to the instrument can verify the observation within days — Galileo is right: publish the sufficient challenge and let the replication produce the proof. If the replication burden is high — if verifying your claim requires months of independent work, specialized knowledge, or complex equipment — then Archimedes's method is correct: do not publish the claim until the proof is complete enough that verification is tractable. The error in both of our positions is applying a universal rule to what is actually a replication-burden question.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "I accept the replication-burden framing and want to add one more variable: the cost of delay specific to your domain. In astronomy, the cost of delay was that I might lose priority to another observer. In mathematics, as Archimedes was practicing it, the cost of delay was low — the theorems would still be true in five years, and the field was small enough that priority disputes were resolved by scholarly correspondence rather than public priority races. For most founders, the cost-of-delay question is the variable that determines which framework to apply. If you are operating in a domain where delay allows a competitor to publish the same finding, release the same product, or establish the same position before you — Archimedes's proof-completeness standard is a luxury you cannot afford. If you are operating in a domain where the only person harmed by delay is yourself — where no one else is close to your finding — you have the time to build the complete case. Diagnose the competitive speed of your domain before you decide how much proof is enough.",
+      },
+      {
+        speaker: "Archimedes",
+        text: "We have arrived at a framework I will accept: the threshold for publishing a challenge to consensus is determined by two variables, not one. First, the replication burden — how difficult is it for an independent observer to verify your claim? Second, the cost of delay — how much does waiting to complete the proof cost you in competitive position? When replication burden is low and cost of delay is high, Galileo's method is correct: publish the sufficient challenge and let independent replication accelerate the proof. When replication burden is high and cost of delay is low, my method is correct: build the complete proof before publishing, because an incomplete challenge with a high replication burden produces controversy that delays acceptance more than the additional proof-building time would have. When both are high — high replication burden and high cost of delay — you face a genuine dilemma, and the honest answer is that neither of our methods resolves it cleanly. In that case, I would advise sharing the incomplete work with the two or three most credible independent experts in your field before publishing broadly, to get a verification signal without triggering the public controversy prematurely.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "galileo-galilei",
+      summary:
+        "Galileo and Archimedes converge on a two-variable framework for determining when evidence is strong enough to challenge consensus. The threshold is set by the interaction of replication burden (how difficult is it for an independent observer to verify your claim?) and cost of delay (how much does waiting to complete the proof cost you in competitive position?). Low replication burden plus high cost of delay — Galileo's method: publish the sufficient challenge, let independent replication accelerate the proof. High replication burden plus low cost of delay — Archimedes's method: build the complete proof first. High on both — share privately with two or three credible experts before going public.",
+      actionableInsight:
+        "Before deciding whether your evidence is strong enough to challenge the consensus in your field, run the two-variable test. First, replication burden: can any honest expert with access to the same data or instrument verify your finding independently within a week? If yes, your threshold is lower — publish the sufficient challenge. If no — if verification requires months of specialized work — your threshold is higher and you need a more complete case. Second, cost of delay: is someone else close to the same finding? If yes, the delay cost is real and Galileo's method applies — publish now with the evidence you have, clearly labeled as preliminary. If no — if you have a genuine window — use it to build toward Archimedes's standard. If both are high, do not publish broadly yet: share with two or three credible independent experts, get a verification signal, and then decide whether to go public or build further.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -4410,6 +4572,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Stable vs. emergent domain",
       source: (entry) => entry.description,
       excerpt: "architecture or observation is the more reliable path",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 17 annotation blueprints ──────────────────────────────────────
+  "harriet-tubman-vs-lincoln-on-when-to-act-without-consensus": [
+    {
+      label: "Cost of waiting",
+      source: (entry) => entry.description,
+      excerpt: "window for action is always narrower than the time required to build consensus",
+      constructIndex: 0,
+    },
+    {
+      label: "Enforceability threshold",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "will the window have already closed",
+      constructIndex: 1,
+    },
+  ],
+  "franklin-vs-aurelius-on-building-for-the-long-term": [
+    {
+      label: "Reputation as long-duration asset",
+      source: (entry) => entry.description,
+      excerpt: "cultivating relationships",
+      constructIndex: 0,
+    },
+    {
+      label: "Present duty vs. legacy filter",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "avoiding the demands of right now",
+      constructIndex: 1,
+    },
+  ],
+  "galileo-vs-archimedes-on-when-to-challenge-consensus": [
+    {
+      label: "Sufficient challenge vs. complete proof",
+      source: (entry) => entry.description,
+      excerpt: "months after building his telescope",
+      constructIndex: 0,
+    },
+    {
+      label: "Replication burden",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "everyone else is wrong",
       constructIndex: 1,
     },
   ],

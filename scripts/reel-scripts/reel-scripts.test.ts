@@ -1993,6 +1993,74 @@ describe("Wave 16 collision batch", () => {
   });
 });
 
+describe("Wave 17 collision batch", () => {
+  it("generates a reel script for harriet-tubman-vs-lincoln-on-when-to-act-without-consensus", () => {
+    const script = buildVerdictReelScript(
+      "harriet-tubman-vs-lincoln-on-when-to-act-without-consensus",
+    );
+    expect(script.slug).toBe(
+      "harriet-tubman-vs-lincoln-on-when-to-act-without-consensus",
+    );
+    expect(script.frameworkSlug).toBe("harriet-tubman");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/harriet-tubman-vs-lincoln-on-when-to-act-without-consensus",
+    );
+  });
+
+  it("generates a reel script for franklin-vs-aurelius-on-building-for-the-long-term", () => {
+    const script = buildVerdictReelScript(
+      "franklin-vs-aurelius-on-building-for-the-long-term",
+    );
+    expect(script.slug).toBe(
+      "franklin-vs-aurelius-on-building-for-the-long-term",
+    );
+    expect(script.frameworkSlug).toBe("benjamin-franklin");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/franklin-vs-aurelius-on-building-for-the-long-term",
+    );
+  });
+
+  it("generates a reel script for galileo-vs-archimedes-on-when-to-challenge-consensus", () => {
+    const script = buildVerdictReelScript(
+      "galileo-vs-archimedes-on-when-to-challenge-consensus",
+    );
+    expect(script.slug).toBe(
+      "galileo-vs-archimedes-on-when-to-challenge-consensus",
+    );
+    expect(script.frameworkSlug).toBe("galileo-galilei");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/galileo-vs-archimedes-on-when-to-challenge-consensus",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

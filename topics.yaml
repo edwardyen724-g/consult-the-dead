@@ -1912,3 +1912,83 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 17 ─────────────────────────────────────────────────────────────────
+
+- slug: harriet-tubman-vs-lincoln-on-when-to-act-without-consensus
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when to act without waiting for consensus"
+  secondary_queries:
+    - "direct action vs building consensus leadership"
+    - "when to lead without buy-in"
+    - "acting without approval in leadership"
+  framework_slugs: [harriet-tubman, abraham-lincoln]
+  decisionType: leadership
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: franklin-vs-aurelius-on-building-for-the-long-term
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I build for legacy or focus on today"
+  secondary_queries:
+    - "long term thinking vs present focus strategy"
+    - "building for legacy vs present moment leadership"
+    - "long horizon planning startup"
+  framework_slugs: [benjamin-franklin, marcus-aurelius]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: galileo-vs-archimedes-on-when-to-challenge-consensus
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "when is evidence strong enough to challenge consensus"
+  secondary_queries:
+    - "when to challenge the status quo with data"
+    - "how much evidence before publishing contrarian view"
+    - "challenging consensus in your field"
+  framework_slugs: [galileo-galilei, archimedes]
+  decisionType: evidence
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-start-a-newsletter
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I start a newsletter for my business"
+  secondary_queries:
+    - "newsletter as growth strategy startup"
+    - "building an email list vs social media"
+    - "when to start a business newsletter"
+  recommended_council: [benjamin-franklin, andrew-carnegie, marcus-aurelius]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-move-upmarket
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I move upmarket to enterprise"
+  secondary_queries:
+    - "when to move upmarket startup"
+    - "SMB to enterprise transition startup"
+    - "enterprise sales vs SMB growth decision"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-implement-okrs
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I implement OKRs"
+  secondary_queries:
+    - "OKRs for startups pros and cons"
+    - "when to implement OKRs in a startup"
+    - "OKR framework early stage company"
+  recommended_council: [andrew-carnegie, marcus-aurelius, benjamin-franklin]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"

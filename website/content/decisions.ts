@@ -1674,6 +1674,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "marketing leadership early stage company",
     ],
   },
+  {
+    slug: "should-i-start-a-newsletter",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Start a Newsletter for My Business?",
+    description:
+      "A newsletter gives you a direct, owned audience that no algorithm can take away — but it also demands consistent content output at the exact moment your product still needs your full attention. The question is whether a newsletter builds distribution leverage or just adds a content obligation that pulls you away from the core product. Most founders who start newsletters too early end up with a list of 200 readers and a product that still doesn't convert. The ones who time it right have something worth writing about and an audience already paying attention.",
+    primaryQuery: "should I start a newsletter for my business",
+    secondaryQueries: [
+      "business newsletter strategy",
+      "newsletter vs social media for founders",
+      "is a newsletter worth it for startups",
+      "email newsletter vs content marketing",
+      "how to build an audience with a newsletter",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "andrew-carnegie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is a newsletter building you an owned audience asset, or is it a distraction from the product that would have made the audience worth having?",
+    targetKeywords: [
+      "should I start a newsletter for my business",
+      "business newsletter strategy startup",
+      "newsletter as distribution channel",
+      "owned audience newsletter vs social media",
+      "email newsletter for founders",
+    ],
+  },
+  {
+    slug: "should-i-move-upmarket",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Move Upmarket to Enterprise Customers?",
+    description:
+      "Enterprise deals bring larger contracts, lower churn, and stronger expansion revenue — but they also bring longer sales cycles, more customization pressure, compliance requirements, and a product roadmap that starts serving a handful of large customers instead of your broader base. Moving upmarket is not just a sales motion change; it restructures your entire company around a different buyer. The decision turns on whether your current SMB or mid-market traction is proof that you can sell, or proof that you have found the right customer.",
+    primaryQuery: "should I move upmarket to enterprise",
+    secondaryQueries: [
+      "when to go upmarket startup",
+      "SMB to enterprise transition SaaS",
+      "enterprise sales cycle startup decision",
+      "upmarket vs staying SMB",
+      "how to sell to enterprise customers",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "Is your SMB traction a sign that you have found the right market, or is it a stepping stone to the enterprise deals that will define the company's ceiling?",
+    targetKeywords: [
+      "should I move upmarket to enterprise",
+      "SMB to enterprise transition startup",
+      "going upmarket SaaS decision",
+      "enterprise sales readiness startup",
+      "upmarket strategy startup",
+    ],
+  },
+  {
+    slug: "should-i-implement-okrs",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Implement OKRs in My Company?",
+    description:
+      "OKRs are an alignment and focus tool — when the company is large enough to have misalignment and small enough that the overhead doesn't dwarf the benefit. Implemented too early, they add bureaucratic weight to a team that should be moving on instinct and iteration. Implemented too late, they arrive after the misalignment has already cost you a quarter or two. The question is not whether OKRs work; they do, for companies in the right conditions. The question is whether your company is in those conditions right now.",
+    primaryQuery: "should I implement OKRs",
+    secondaryQueries: [
+      "OKRs for startups pros cons",
+      "when to implement OKRs in a company",
+      "OKRs vs other goal-setting frameworks",
+      "are OKRs worth it for small teams",
+      "how to introduce OKRs startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "marcus-aurelius",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Are OKRs the alignment tool your company actually needs right now, or are they organizational overhead that will slow a team that is still finding its footing?",
+    targetKeywords: [
+      "should I implement OKRs",
+      "OKRs for startups",
+      "when to use OKRs company",
+      "OKR framework startup decision",
+      "goal setting framework startup",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

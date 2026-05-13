@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 17)
+
+### Added
+- Wave 17 collision batch shipped: 3 collision insight articles — `harriet-tubman-vs-lincoln-on-when-to-act-without-consensus` (harriet-tubman + abraham-lincoln; leadership), `franklin-vs-aurelius-on-building-for-the-long-term` (benjamin-franklin + marcus-aurelius; resilience), `galileo-vs-archimedes-on-when-to-challenge-consensus` (galileo-galilei + archimedes; evidence); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (100 total passing). Total: 41 collision articles shipped.
+- Wave 17 decision pages: `should-i-start-a-newsletter` (Franklin/Carnegie/Aurelius), `should-i-move-upmarket` (Machiavelli/Rockefeller/Carnegie), `should-i-implement-okrs` (Carnegie/Aurelius/Franklin); decisions count updated to 60; 151 topics tracked (150 shipped, 0 queued).
+
 ## 2026-05-21 (Wave 16)
 
 ### Added
