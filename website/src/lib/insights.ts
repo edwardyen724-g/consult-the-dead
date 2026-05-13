@@ -616,6 +616,39 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
   {
+    slug: "what-would-julius-caesar-say-about-moving-into-new-markets",
+    type: "single",
+    frameworkSlug: "julius-caesar",
+    title: "What Would Julius Caesar Say About Moving Into New Markets?",
+    description:
+      "Caesar didn't test new territory — he committed to it. His framework for expansion reveals a counterintuitive principle: irreversibility is a feature, not a risk. Here is what it means for startup market entry.",
+    targetKeywords: [
+      "startup geographic expansion",
+      "when to expand internationally",
+      "market expansion strategy",
+      "how to enter a new market",
+      "Julius Caesar strategy business",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You're considering expanding into a new market. Everyone tells you to run a pilot, test small, keep your options open. But Caesar crossed the Rubicon with no option to retreat — not because he was reckless, but because he understood that irreversibility forces the commitment that half-measures never can. Here is his framework for knowing when to burn the boats.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The general who enters a new territory with one foot still in the old one has already lost both. The market you are entering will test your commitment before it rewards it. If your competitors sense you are willing to retreat, they will make retreat the only option. Enter where you can win — then commit to that terrain completely.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "New markets are principalities. They will resist you. They will conspire against you. The only remedy is to be present — not through representatives, but through structural commitment that makes retreat costlier than advance. A prince who governs his new territory from a distance governs nothing.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Before you cross into unknown territory, map it completely. Not the territory as you wish it to be, but the territory as it is: the existing players, their dependencies, their vulnerabilities, their alliances. The map that saves you is the one you made before the crossing, not the one you tried to make after.",
+      },
+    ],
+  },
+  {
     slug: "what-would-machiavelli-say-about-competitor-espionage",
     type: "single",
     frameworkSlug: "niccolo-machiavelli",
@@ -1059,6 +1092,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "what-would-julius-caesar-say-about-moving-into-new-markets": [
+    {
+      label: "Irreversibility as commitment",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "forces the commitment that half-measures never can",
+      constructIndex: 0,
+    },
+    {
+      label: "Structural presence",
+      source: (entry) => entry.description,
+      excerpt: "irreversibility is a feature",
+      constructIndex: 5,
+    },
+  ],
   "what-would-machiavelli-say-about-competitor-espionage": [
     {
       label: "Reality vs. declaration",

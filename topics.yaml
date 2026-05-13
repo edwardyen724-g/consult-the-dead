@@ -523,7 +523,8 @@
     - "market expansion strategy"
   recommended_council: [julius-caesar]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: what-would-florence-nightingale-say-about-data-driven-decisions
   type: insight

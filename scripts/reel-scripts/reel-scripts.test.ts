@@ -356,6 +356,30 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-julius-caesar-say-about-moving-into-new-markets", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+    expect(script.slug).toBe(
+      "what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+    expect(script.frameworkSlug).toBe("julius-caesar");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    // hookQuestion truncates at 180 chars — assert on text within first 180
+    expect(script.hook.voiceover).toContain("Caesar crossed the Rubicon");
+    expect(script.cta).toContain(
+      "/insights/what-would-julius-caesar-say-about-moving-into-new-markets",
+    );
+  });
+});
+
 describe("insight article slug — what-would-machiavelli-say-about-competitor-espionage", () => {
   it("generates a valid reel script with the strategy court", () => {
     const script = buildVerdictReelScript(
