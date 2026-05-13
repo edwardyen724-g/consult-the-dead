@@ -2244,18 +2244,6 @@
   status: shipped
   shipped_at: "2026-05-13"
 
-- slug: tubman-vs-douglass-on-direct-action-vs-advocacy
-  type: collision
-  search_volume_estimate: medium
-  primary_query: "direct action vs advocacy leadership change"
-  secondary_queries:
-    - "when to act vs when to persuade"
-    - "operational leadership vs political advocacy"
-    - "founder execution vs stakeholder management"
-  recommended_council: [harriet-tubman, frederick-douglass]
-  hook_angles: [tension, identity]
-  status: killed
-
 - slug: caesar-vs-alexander-on-empire-building-speed
   type: collision
   search_volume_estimate: medium
@@ -2283,19 +2271,6 @@
   status: shipped
   shipped_at: "2026-05-13"
 
-- slug: should-i-launch-on-product-hunt
-  type: decision
-  search_volume_estimate: high
-  primary_query: "should I launch on Product Hunt"
-  secondary_queries:
-    - "Product Hunt launch strategy"
-    - "is Product Hunt worth it 2026"
-    - "product hunt launch timing"
-    - "how to get #1 on Product Hunt"
-  recommended_council: [niccolo-machiavelli, benjamin-franklin, marie-curie]
-  hook_angles: [shortcut, proof]
-  status: killed
-
 - slug: should-i-hire-a-contractor-or-full-time
   type: decision
   search_volume_estimate: high
@@ -2321,19 +2296,6 @@
   hook_angles: [tension, identity]
   status: shipped
   shipped_at: "2026-05-13"
-
-- slug: should-i-build-for-enterprise-or-smb
-  type: decision
-  search_volume_estimate: high
-  primary_query: "should I build for enterprise or SMB"
-  secondary_queries:
-    - "enterprise vs SMB startup market"
-    - "upmarket vs downmarket startup strategy"
-    - "enterprise sales vs self-serve product"
-    - "SMB product market fit vs enterprise"
-  recommended_council: [niccolo-machiavelli, john-d-rockefeller, andrew-carnegie]
-  hook_angles: [tension, proof]
-  status: killed
 
 - slug: should-i-launch-a-paid-beta
   type: decision
