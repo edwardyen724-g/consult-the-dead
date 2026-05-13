@@ -196,6 +196,7 @@ describe("pricing page", () => {
     const { tree } = renderPricingClient("annual", false);
     const html = renderToStaticMarkup(tree as ReactElement);
     const trustBadgePos = html.indexOf('data-testid="pro-cta-trust-badge"');
+    const foundingMemberPos = html.indexOf('data-testid="founding-member-notice"');
     const demoSlotPos = html.indexOf('data-testid="pricing-demo-slot"');
     const socialProofPos = html.indexOf("Real decisions people are asking Agora to help with");
 
@@ -205,8 +206,28 @@ describe("pricing page", () => {
     expect(html).toContain("Loom embed or customer callout");
     expect(html).toContain("one real decision in motion");
     expect(trustBadgePos).toBeGreaterThan(-1);
-    expect(demoSlotPos).toBeGreaterThan(trustBadgePos);
+    expect(foundingMemberPos).toBeGreaterThan(trustBadgePos);
+    expect(demoSlotPos).toBeGreaterThan(foundingMemberPos);
     expect(socialProofPos).toBeGreaterThan(demoSlotPos);
+  });
+
+  it("renders the founding-member urgency notice with Q3 2026 deadline and lock-in copy", () => {
+    const { tree } = renderPricingClient("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain('data-testid="founding-member-notice"');
+    expect(html).toContain("Founding-member pricing");
+    expect(html).toContain("Q3 2026");
+    expect(html).toContain("$300/year for life");
+    expect(html).toContain("$360/year");
+    expect(html).toContain("founding-member pricing permanently");
+  });
+
+  it("renders the FAQ founder-support answer with 48-hour email response copy", () => {
+    const { tree } = renderPricingClient("annual", false);
+    const html = renderToStaticMarkup(tree as ReactElement);
+
+    expect(html).toContain("48-hour email response");
   });
 
   it("renders the pricing stats strip with valid stat values", () => {
