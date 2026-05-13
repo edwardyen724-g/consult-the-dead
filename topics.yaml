@@ -576,3 +576,105 @@
   hook_angles: [shortcut, proof]
   status: shipped
   shipped_at: 2026-05-13
+
+# ─────────────────────────────────────────────────────────────────────
+# Wave 3 topic queue — added 2026-05-13, targeting Phase 4+ cadence.
+# Focuses on untapped minds (Steve Jobs, Lincoln, Franklin, Edison,
+# Carnegie) and high-volume founder decision queries not yet covered.
+# ─────────────────────────────────────────────────────────────────────
+
+- slug: what-would-steve-jobs-say-about-product-focus
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Steve Jobs product strategy"
+  secondary_queries:
+    - "Apple product focus decision"
+    - "Steve Jobs on saying no"
+    - "product simplicity startup"
+  recommended_council: [steve-jobs]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: what-would-lincoln-say-about-leading-through-crisis
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Abraham Lincoln leadership lessons"
+  secondary_queries:
+    - "Lincoln leadership style"
+    - "how to lead through uncertainty"
+    - "crisis leadership framework"
+  recommended_council: [abraham-lincoln]
+  hook_angles: [identity, tension]
+  status: queued
+
+- slug: what-would-benjamin-franklin-say-about-time-management
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Benjamin Franklin time management"
+  secondary_queries:
+    - "Franklin productivity system"
+    - "founding father daily routine"
+    - "how to prioritize like Ben Franklin"
+  recommended_council: [benjamin-franklin]
+  hook_angles: [shortcut, identity]
+  status: queued
+
+- slug: what-would-edison-say-about-failure-and-iteration
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Thomas Edison failure quotes"
+  secondary_queries:
+    - "Edison on failure and success"
+    - "iteration mindset startup"
+    - "how to learn from failure"
+  recommended_council: [thomas-edison]
+  hook_angles: [identity, proof]
+  status: queued
+
+- slug: what-would-carnegie-say-about-hiring-and-delegating
+  type: insight
+  search_volume_estimate: medium
+  primary_query: "Andrew Carnegie leadership"
+  secondary_queries:
+    - "Carnegie on delegation"
+    - "how to build a great team"
+    - "hiring strategy startup"
+  recommended_council: [andrew-carnegie]
+  hook_angles: [proof, identity]
+  status: queued
+
+- slug: what-would-seneca-say-about-procrastination
+  type: insight
+  search_volume_estimate: high
+  primary_query: "Seneca on procrastination"
+  secondary_queries:
+    - "Stoic advice for procrastination"
+    - "Seneca time management"
+    - "how to stop procrastinating stoic"
+  recommended_council: [seneca]
+  hook_angles: [identity, shortcut]
+  status: queued
+
+- slug: should-i-do-a-seed-extension
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I do a seed extension"
+  secondary_queries:
+    - "seed extension vs Series A"
+    - "bridge round decision"
+    - "when to extend your seed round"
+  recommended_council: [niccolo-machiavelli, marie-curie, marcus-aurelius]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: second-order-thinking-explained
+  type: method
+  search_volume_estimate: high
+  primary_query: "second order thinking"
+  secondary_queries:
+    - "second order effects examples"
+    - "how to think in second order"
+    - "Charlie Munger second order thinking"
+  recommended_council: []
+  hook_angles: [shortcut, proof]
+  status: queued
