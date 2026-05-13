@@ -1,6 +1,7 @@
 /**
  * Registry tests for method/framework-explainer articles.
- * Task 7deb5fb2 — high-SEO framework explainers shipped via insight page infrastructure.
+ * Task 7deb5fb2 — cynefin-framework-explained (single type).
+ * Task ad9b2580 — the-ooda-loop-vs-the-cynefin-framework (collision type).
  *
  * Method articles differ from "What Would X Say" insight articles:
  *  - No single historical figure as protagonist
@@ -18,16 +19,27 @@ import {
 } from "@/lib/insights";
 import { getFramework } from "@/lib/frameworks";
 
-const METHOD_SLUGS = [
-  "cynefin-framework-explained",
+const SINGLE_METHOD_SLUGS = ["cynefin-framework-explained"] as const;
+
+const COLLISION_METHOD_SLUGS = [
+  "the-ooda-loop-vs-the-cynefin-framework",
 ] as const;
+
+const METHOD_SLUGS = [...SINGLE_METHOD_SLUGS, ...COLLISION_METHOD_SLUGS] as const;
 
 const METHOD_FRAMEWORK_SLUGS: Record<string, string> = {
   "cynefin-framework-explained": "leonardo-da-vinci",
+  "the-ooda-loop-vs-the-cynefin-framework": "sun-tzu",
 };
 
 const METHOD_DECISION_TYPES: Record<string, string> = {
   "cynefin-framework-explained": "systems",
+  "the-ooda-loop-vs-the-cynefin-framework": "strategy",
+};
+
+const METHOD_PUBLISHED_DATES: Record<string, string> = {
+  "cynefin-framework-explained": "2026-05-12",
+  "the-ooda-loop-vs-the-cynefin-framework": "2026-05-13",
 };
 
 describe("method articles registry", () => {
@@ -38,15 +50,23 @@ describe("method articles registry", () => {
     }
   });
 
-  it("all method article entries are single-framework type", () => {
-    for (const slug of METHOD_SLUGS) {
+  it("single-framework method articles have type: single", () => {
+    for (const slug of SINGLE_METHOD_SLUGS) {
       const entry = getInsightEntry(slug);
       expect(entry).toBeDefined();
       expect(entry!.type).toBe("single");
     }
   });
 
-  it("all method article entries reference the expected framework slug", () => {
+  it("collision method articles have type: collision", () => {
+    for (const slug of COLLISION_METHOD_SLUGS) {
+      const entry = getInsightEntry(slug);
+      expect(entry).toBeDefined();
+      expect(entry!.type).toBe("collision");
+    }
+  });
+
+  it("all method article entries reference the expected primary framework slug", () => {
     for (const slug of METHOD_SLUGS) {
       const entry = getInsightEntry(slug);
       expect(entry).toBeDefined();
@@ -74,10 +94,10 @@ describe("method articles registry", () => {
     }
   });
 
-  it("all method article entries are published on 2026-05-12", () => {
+  it("all method article entries have the correct publishedAt date", () => {
     for (const slug of METHOD_SLUGS) {
       const entry = getInsightEntry(slug);
-      expect(entry?.publishedAt).toBe("2026-05-12");
+      expect(entry?.publishedAt).toBe(METHOD_PUBLISHED_DATES[slug]);
     }
   });
 
@@ -115,6 +135,7 @@ describe("method articles registry", () => {
     }
   });
 
+  // ── cynefin-framework-explained specific ────────────────────────────────
   it("cynefin-framework-explained has the primary keyword in its title", () => {
     const entry = getInsightEntry("cynefin-framework-explained");
     expect(entry?.title).toContain("Cynefin");
@@ -125,5 +146,28 @@ describe("method articles registry", () => {
     expect(entry?.agonExcerpt).toBeDefined();
     const speakers = new Set(entry!.agonExcerpt!.map((t) => t.speaker));
     expect(speakers.size).toBeGreaterThanOrEqual(3);
+  });
+
+  // ── the-ooda-loop-vs-the-cynefin-framework specific ─────────────────────
+  it("the-ooda-loop-vs-the-cynefin-framework has both framework keywords in its title", () => {
+    const entry = getInsightEntry("the-ooda-loop-vs-the-cynefin-framework");
+    expect(entry?.title).toContain("OODA");
+    expect(entry?.title).toContain("Cynefin");
+  });
+
+  it("the-ooda-loop-vs-the-cynefin-framework has at least 3 distinct speakers in agonExcerpt", () => {
+    const entry = getInsightEntry("the-ooda-loop-vs-the-cynefin-framework");
+    expect(entry?.agonExcerpt).toBeDefined();
+    const speakers = new Set(entry!.agonExcerpt!.map((t) => t.speaker));
+    expect(speakers.size).toBeGreaterThanOrEqual(3);
+  });
+
+  it("the-ooda-loop-vs-the-cynefin-framework collision includes both sun-tzu and leonardo-da-vinci", () => {
+    const entry = getInsightEntry("the-ooda-loop-vs-the-cynefin-framework");
+    expect(entry?.type).toBe("collision");
+    if (entry?.type === "collision") {
+      expect(entry.collisionFrameworkSlugs).toContain("sun-tzu");
+      expect(entry.collisionFrameworkSlugs).toContain("leonardo-da-vinci");
+    }
   });
 });

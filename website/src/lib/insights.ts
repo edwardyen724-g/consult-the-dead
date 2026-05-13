@@ -578,7 +578,42 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
-  // ── Method articles — high-SEO framework explainers (task 7deb5fb2) ──
+  // ── Method articles — high-SEO framework explainers (task 7deb5fb2 / ad9b2580) ──
+  {
+    slug: "the-ooda-loop-vs-the-cynefin-framework",
+    type: "collision",
+    frameworkSlug: "sun-tzu",
+    collisionFrameworkSlugs: ["sun-tzu", "leonardo-da-vinci"],
+    title: "The OODA Loop vs. the Cynefin Framework",
+    description:
+      "The OODA loop (Observe, Orient, Decide, Act) tells you to move faster than your opponent can think. The Cynefin framework tells you to first understand what kind of problem you have. They give opposite advice — because applying the wrong method in the wrong domain produces results worse than no framework at all. Here is how to know which one fits your situation.",
+    targetKeywords: [
+      "OODA loop vs Cynefin",
+      "OODA loop explained",
+      "Cynefin framework vs OODA",
+      "decision frameworks compared",
+      "when to use OODA loop",
+      "OODA loop decision making",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You have a decision to make and two frameworks sitting on your desk. One says: speed is the master variable — get inside the opponent's decision cycle before they can adapt. The other says: first figure out what kind of problem you have, because the wrong method in the wrong domain produces results worse than no framework at all. Both frameworks are right. The question is which one fits your situation right now.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The OODA loop answers the right question for competitive terrain: whoever processes information and acts faster controls the encounter. The enemy who cannot respond to your last move before you have already made your next one is not fighting you — they are reacting to a situation you have already left. Speed is not a luxury in a fast-moving environment. It is the terrain itself.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The OODA loop is a marvelous instrument — for the domain where the enemy's response is the relevant constraint. But when the problem itself is the constraint, acting fast in the wrong direction is not speed: it is waste at velocity. Cynefin asks the prior question: is this a problem where rapid iteration produces information, or is it a problem where premature commitment destroys the options you need? You must answer that question before you choose your instrument.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Both frameworks are correct about the errors they were designed to prevent. OODA prevents paralysis in fast-moving environments. Cynefin prevents the application of simple solutions to complex systems. The discipline is not choosing between them in theory — it is recognizing, in the specific situation in front of you, which error is more likely.",
+      },
+    ],
+  },
   {
     slug: "cynefin-framework-explained",
     type: "single",
@@ -943,7 +978,21 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       constructIndex: 10,
     },
   ],
-  // ── Method article annotation blueprints (task 7deb5fb2) ─────────────
+  // ── Method article annotation blueprints (task 7deb5fb2 / ad9b2580) ─────────────
+  "the-ooda-loop-vs-the-cynefin-framework": [
+    {
+      label: "Decision tempo",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "inside the opponent's decision cycle",
+      constructIndex: 2,
+    },
+    {
+      label: "Method domain fit",
+      source: (entry) => entry.description,
+      excerpt: "wrong method in the wrong domain",
+      constructIndex: 3,
+    },
+  ],
   "cynefin-framework-explained": [
     {
       label: "Domain diagnosis",

@@ -356,6 +356,29 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+// ── Method article slug — the-ooda-loop-vs-the-cynefin-framework (task ad9b2580) ──
+describe("method article slug — the-ooda-loop-vs-the-cynefin-framework", () => {
+  it("generates a valid reel script with the strategy council", () => {
+    const script = buildVerdictReelScript("the-ooda-loop-vs-the-cynefin-framework");
+    expect(script.slug).toBe("the-ooda-loop-vs-the-cynefin-framework");
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    // Each council mind starts with an uppercase letter (not a raw slug)
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("You have a decision to make");
+    expect(script.cta).toContain("/insights/the-ooda-loop-vs-the-cynefin-framework");
+    expect(script.captions[2]).toContain("/insights/the-ooda-loop-vs-the-cynefin-framework");
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
