@@ -614,6 +614,40 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
+  {
+    slug: "what-would-napoleon-say-about-scaling-too-fast",
+    type: "single",
+    frameworkSlug: "napoleon-bonaparte",
+    title: "What Would Napoleon Say About Scaling Too Fast?",
+    description:
+      "Napoleon's fatal Russian campaign teaches the lesson that kills fast-growing companies: logistical architecture must precede operational tempo, not follow it. His framework shows exactly when scaling is genius and when it is catastrophe.",
+    targetKeywords: [
+      "scaling too fast startup",
+      "signs you are scaling too fast",
+      "Napoleon strategy business",
+      "startup growth problems",
+      "when to scale a startup",
+    ],
+    decisionType: "scaling",
+    hookQuestion:
+      "Your growth metrics look incredible. Headcount is up, offices are opening, partnerships are closing. Then one Tuesday morning the machine stops working and nobody can say why. Napoleon ran the most disciplined military machine in European history and still made this exact mistake. Here is his framework for knowing when speed becomes the failure mode.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "You are not failing because you moved too fast. You are failing because you moved faster than your supply lines could follow. Every commander who has ever overextended his army knew, in the moment of defeat, that the flaw was not courage — it was the gap between tempo and logistics. Close that gap before you add the next division.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The empire that grows fastest is not the empire that wins. The empire that outlasts the next decade wins. Before you celebrate your growth rate, ask what you are depending on to sustain it — and then ask whether that thing is actually in your control.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "A result that cannot be replicated is not a discovery — it is noise. The same is true of growth. If you cannot reproduce the mechanism that created this quarter's numbers in the next three, you have not found a repeatable process. You have found a coincidence.",
+      },
+    ],
+  },
   // ── Batch 3: 'What Would X Say' articles (task 9b797e96) ─────────────
   {
     slug: "what-would-marie-curie-say-about-when-to-trust-the-data",
@@ -956,6 +990,21 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "wrong approach",
       constructIndex: 3,
+    },
+  ],
+  // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "what-would-napoleon-say-about-scaling-too-fast": [
+    {
+      label: "Logistics-first principle",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "stops working and nobody can say why",
+      constructIndex: 8,
+    },
+    {
+      label: "Tempo vs. infrastructure",
+      source: (entry) => entry.description,
+      excerpt: "logistical architecture must precede operational tempo",
+      constructIndex: 5,
     },
   ],
   // ── Batch 3 annotation blueprints (task 9b797e96) ─────────────────────

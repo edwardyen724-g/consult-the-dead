@@ -487,7 +487,8 @@
     - "startup growth problems"
   recommended_council: [napoleon-bonaparte]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: what-would-machiavelli-say-about-competitor-espionage
   type: insight

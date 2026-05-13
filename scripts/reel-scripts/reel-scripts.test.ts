@@ -356,6 +356,32 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — what-would-napoleon-say-about-scaling-too-fast", () => {
+  it("generates a valid reel script with the scaling court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-napoleon-say-about-scaling-too-fast",
+    );
+    expect(script.slug).toBe(
+      "what-would-napoleon-say-about-scaling-too-fast",
+    );
+    expect(script.frameworkSlug).toBe("napoleon-bonaparte");
+    expect(script.decisionType).toBe("scaling");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Scaling council: Napoleon (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Napoleon Bonaparte");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("Your growth metrics look incredible");
+    expect(script.cta).toContain(
+      "/insights/what-would-napoleon-say-about-scaling-too-fast",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
