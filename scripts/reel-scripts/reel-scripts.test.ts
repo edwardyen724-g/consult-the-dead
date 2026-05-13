@@ -524,6 +524,186 @@ describe("insight article slug — what-would-napoleon-say-about-scaling-too-fas
   });
 });
 
+// ── Wave 3 insight batch integration tests ───────────────────────────────────
+
+describe("insight article slug — what-would-steve-jobs-say-about-product-focus", () => {
+  it("generates a valid reel script with the focus court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-steve-jobs-say-about-product-focus",
+    );
+    expect(script.slug).toBe("what-would-steve-jobs-say-about-product-focus");
+    expect(script.frameworkSlug).toBe("steve-jobs");
+    expect(script.decisionType).toBe("focus");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Focus council: Jobs (main), da Vinci (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Steve Jobs");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("thirty features on it");
+    expect(script.cta).toContain(
+      "/insights/what-would-steve-jobs-say-about-product-focus",
+    );
+  });
+});
+
+describe("insight article slug — what-would-lincoln-say-about-leading-through-crisis", () => {
+  it("generates a valid reel script with the crisis court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-lincoln-say-about-leading-through-crisis",
+    );
+    expect(script.slug).toBe(
+      "what-would-lincoln-say-about-leading-through-crisis",
+    );
+    expect(script.frameworkSlug).toBe("abraham-lincoln");
+    expect(script.decisionType).toBe("crisis");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Crisis council: Lincoln (main), Aurelius (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Abraham Lincoln");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("three months into your hardest stretch");
+    expect(script.cta).toContain(
+      "/insights/what-would-lincoln-say-about-leading-through-crisis",
+    );
+  });
+});
+
+describe("insight article slug — what-would-benjamin-franklin-say-about-time-management", () => {
+  it("generates a valid reel script with the time-management court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-benjamin-franklin-say-about-time-management",
+    );
+    expect(script.slug).toBe(
+      "what-would-benjamin-franklin-say-about-time-management",
+    );
+    expect(script.frameworkSlug).toBe("benjamin-franklin");
+    expect(script.decisionType).toBe("time-management");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Time-management council: Franklin (main), Aurelius (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("working long hours");
+    expect(script.cta).toContain(
+      "/insights/what-would-benjamin-franklin-say-about-time-management",
+    );
+  });
+});
+
+describe("insight article slug — what-would-edison-say-about-failure-and-iteration", () => {
+  it("generates a valid reel script with the iteration court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-edison-say-about-failure-and-iteration",
+    );
+    expect(script.slug).toBe(
+      "what-would-edison-say-about-failure-and-iteration",
+    );
+    expect(script.frameworkSlug).toBe("thomas-edison");
+    expect(script.decisionType).toBe("iteration");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Iteration council: Edison (main), Curie (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Thomas Edison");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("ten thousand experiments");
+    expect(script.cta).toContain(
+      "/insights/what-would-edison-say-about-failure-and-iteration",
+    );
+  });
+});
+
+describe("insight article slug — what-would-carnegie-say-about-hiring-and-delegating", () => {
+  it("generates a valid reel script with the hiring court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-carnegie-say-about-hiring-and-delegating",
+    );
+    expect(script.slug).toBe(
+      "what-would-carnegie-say-about-hiring-and-delegating",
+    );
+    expect(script.frameworkSlug).toBe("andrew-carnegie");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("doing too much yourself");
+    expect(script.cta).toContain(
+      "/insights/what-would-carnegie-say-about-hiring-and-delegating",
+    );
+  });
+});
+
+describe("insight article slug — what-would-seneca-say-about-procrastination", () => {
+  it("generates a valid reel script with the procrastination court", () => {
+    const script = buildVerdictReelScript(
+      "what-would-seneca-say-about-procrastination",
+    );
+    expect(script.slug).toBe(
+      "what-would-seneca-say-about-procrastination",
+    );
+    expect(script.frameworkSlug).toBe("seneca");
+    expect(script.decisionType).toBe("procrastination");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Procrastination council: Seneca (main), Aurelius (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Seneca");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("putting off the same conversation");
+    expect(script.cta).toContain(
+      "/insights/what-would-seneca-say-about-procrastination",
+    );
+  });
+});
+
+describe("insight article slug — second-order-thinking-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript(
+      "second-order-thinking-explained",
+    );
+    expect(script.slug).toBe("second-order-thinking-explained");
+    expect(script.frameworkSlug).toBe("marcus-aurelius");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    for (const beat of script.councilPass) {
+      expect(beat.mind).toMatch(/^[A-Z]/);
+    }
+    expect(script.hook.voiceover).toContain("The obvious move seems clear");
+    expect(script.cta).toContain(
+      "/insights/second-order-thinking-explained",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {

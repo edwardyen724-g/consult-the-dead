@@ -881,6 +881,238 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 3: insight + method batch ────────────────────────────────────
+  {
+    slug: "what-would-steve-jobs-say-about-product-focus",
+    type: "single",
+    frameworkSlug: "steve-jobs",
+    title: "What Would Steve Jobs Say About Product Focus?",
+    description:
+      "Jobs returned to Apple in 1997 and immediately cut 70% of its product line. His philosophy was not about doing fewer things — it was about understanding that focus is the only way to do anything well. Every feature you add to a product is a promise you will maintain forever.",
+    targetKeywords: [
+      "Steve Jobs product strategy",
+      "product focus startup",
+      "how to say no to features",
+      "product simplicity Apple",
+      "feature creep decision",
+    ],
+    decisionType: "focus",
+    hookQuestion:
+      "Your roadmap has thirty features on it. The team wants to build five at once. A major customer just asked for something that is not on the list at all. Jobs returned to Apple and cut 70% of the product line in his first week back.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Steve Jobs",
+        text: "People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I'm actually as proud of the things we haven't done as the things I have done. Innovation is saying no to a thousand things.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Simplicity is the ultimate sophistication. The artist who cannot cut the line that does not belong is not an artist — he is an accumulator. Your product is the same. What you remove defines what remains. What remains should be extraordinary.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Confine yourself to the present. Do not try to do everything; do the right thing. A product that does everything does nothing particularly well, and the customer who needs one great thing will not find it buried under thirty adequate ones.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-lincoln-say-about-leading-through-crisis",
+    type: "single",
+    frameworkSlug: "abraham-lincoln",
+    title: "What Would Lincoln Say About Leading Through Crisis?",
+    description:
+      "Lincoln governed during the most disruptive crisis in American history with incomplete information, unreliable generals, and a cabinet of rivals who doubted him. His framework for decision-making under pressure was not certainty — it was calibrated action combined with the structural capacity to revise.",
+    targetKeywords: [
+      "Abraham Lincoln leadership lessons",
+      "how to lead through crisis",
+      "Lincoln decision making",
+      "crisis leadership framework",
+      "leading under pressure uncertainty",
+    ],
+    decisionType: "crisis",
+    hookQuestion:
+      "You are three months into your hardest stretch as a leader. The team is losing confidence. The original plan is not working. You have incomplete information and no guarantee the next decision will be right. Lincoln ran a country through civil war with the same problem.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "I do not think much of a man who is not wiser today than he was yesterday. A crisis does not require you to be right — it requires you to keep moving toward right. Update your decisions as the facts change. Refuse to do so, and you are no longer leading. You are merely persisting.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The impediment to action advances action. What stands in the way becomes the way. A crisis is not an interruption of the work — it is the work in its most concentrated form. The leader who waits for normal conditions to lead has misunderstood the job.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "It is better to be bold than cautious in a crisis, because fortune favors boldness. But boldness without structure is recklessness. Build the decision to survive revision. A leader who cannot change course is not strong — he is brittle.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-benjamin-franklin-say-about-time-management",
+    type: "single",
+    frameworkSlug: "benjamin-franklin",
+    title: "What Would Benjamin Franklin Say About Time Management?",
+    description:
+      "Franklin ran a printing business, served as a diplomat, conducted scientific experiments, and helped write the founding documents of the United States — all in one lifetime. His system was not about doing more things; it was about designing constraints that forced him to do the right things.",
+    targetKeywords: [
+      "Benjamin Franklin time management",
+      "Franklin productivity system",
+      "founding father daily routine",
+      "how to prioritize like Franklin",
+      "daily schedule productivity system",
+    ],
+    decisionType: "time-management",
+    hookQuestion:
+      "You are working long hours but not making progress on what matters. The urgent keeps eating the important. You can feel the week slipping away on things that will not matter in six months. Franklin was running a print shop, conducting experiments, and founding a nation at the same time.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Benjamin Franklin",
+        text: "Lost time is never found again. But the failure is not the lost time — it is the lack of a system that prevents it from being lost in the first place. I asked myself every morning: what good shall I do today? I asked every evening: what good have I done? That two-question structure is the entire system.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Confine yourself to the present. Do not scatter your attention across the past you cannot change and the future you cannot control. The present moment is all you actually have to act in. Spend it on what matters. Every other hour is borrowed.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Time stays long enough for those who use it. The difficulty is not time — it is the courage to refuse what is urgent but unimportant. A full schedule is not a productive schedule. A focused hour outperforms a scattered day.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-edison-say-about-failure-and-iteration",
+    type: "single",
+    frameworkSlug: "thomas-edison",
+    title: "What Would Edison Say About Failure and Iteration?",
+    description:
+      "Edison did not treat failure as the opposite of success — he treated it as the method. His Menlo Park laboratory ran thousands of parallel experiments simultaneously, because the only way to find the light bulb filament that worked was to systematically eliminate the ones that did not.",
+    targetKeywords: [
+      "Thomas Edison failure quotes",
+      "Edison on failure and success",
+      "iteration mindset startup",
+      "how to learn from failure",
+      "systematic experimentation startup",
+    ],
+    decisionType: "iteration",
+    hookQuestion:
+      "You have tried three approaches and none of them worked. The board is asking how long you will keep going. Edison ran over ten thousand experiments to find a working light bulb filament and described each failed experiment as a successful proof of what not to use.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Thomas Edison",
+        text: "I have not failed. I have found ten thousand ways that will not work. Every result that tells you what does not work is a result. You are not stuck — you are narrowing the field. Keep the discipline of the experiment and the answer will eventually be the only thing left.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Failure in an experiment is not a failure of the scientist. It is data. The scientist who abandons the question after the first negative result has confused the experiment with the hypothesis. The hypothesis survives negative results. Update it and run again.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Experience is never in error; it is only your judgment that errs in promising itself such results as are not caused by your experiments. Each failure is a more precise constraint on the space of possible answers. Honor the constraint. It is progress.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-carnegie-say-about-hiring-and-delegating",
+    type: "single",
+    frameworkSlug: "andrew-carnegie",
+    title: "What Would Carnegie Say About Hiring and Delegating?",
+    description:
+      "Carnegie built the largest steel company in the world almost entirely by finding the right people and then getting out of their way. His proposed epitaph read: 'Here lies a man who was able to surround himself with men far cleverer than himself.'",
+    targetKeywords: [
+      "Andrew Carnegie leadership hiring",
+      "Carnegie on delegation",
+      "how to build a great team startup",
+      "hiring strategy founder",
+      "when to delegate as a founder",
+    ],
+    decisionType: "hiring",
+    hookQuestion:
+      "You are doing too much yourself. The people you hired are capable, but you keep second-guessing their decisions and jumping into their work. Carnegie ran the largest steel operation in the world from a distance by designing an organization that did not need him in every meeting.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Andrew Carnegie",
+        text: "No man will make a great leader who wants to do it all himself, or to get all the credit for doing it. The man who acquires the ability to take full possession of his own mind and direct it toward any end may have everything else the world has to offer. First learn what you can do. Then hire people who can do what you cannot.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The first method for estimating the intelligence of a ruler is to look at the men he has around him. Delegation is not abdication — it is judgment expressed through selection. If you cannot trust the people you have chosen, the problem is not delegation. It is hiring.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "If you want something done, ask a busy person. But if you want something done well over a decade, build the system that attracts the right people and then has the discipline to leave them alone. Interference is not leadership — it is anxiety in action.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-seneca-say-about-procrastination",
+    type: "single",
+    frameworkSlug: "seneca",
+    title: "What Would Seneca Say About Procrastination?",
+    description:
+      "Seneca wrote that we suffer more in imagination than in reality. His framework for procrastination was not motivational — it was diagnostic. You are not avoiding the task because you are lazy; you are avoiding it because you have not yet been honest with yourself about what the task actually requires.",
+    targetKeywords: [
+      "Seneca on procrastination",
+      "Stoic advice procrastination",
+      "Seneca time management",
+      "how to stop procrastinating stoic",
+      "procrastination philosophy productivity",
+    ],
+    decisionType: "procrastination",
+    hookQuestion:
+      "You have been putting off the same conversation, the same project, the same decision for weeks. You know you should do it. You tell yourself you will do it tomorrow. Seneca wrote letters on exactly this problem nineteen hundred years ago.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Seneca",
+        text: "It is not that we have a short time to live, but that we waste a great deal of it. Procrastination is not a time problem. It is a honesty problem. You are not unable to do the thing — you are unwilling to face what doing it actually means. Name that, and the delay usually ends.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Do not indulge in dreams of what you mean to do. Do the next thing. The future belongs to those who act in the present, not those who plan to act in some improved version of it. Begin. The beginning is almost everything.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "You may delay, but time will not. The person who waits for the perfect moment to begin has confused preparation with avoidance. Name the first step. Take it. Everything else is downstream of that.",
+      },
+    ],
+  },
+  {
+    slug: "second-order-thinking-explained",
+    type: "single",
+    frameworkSlug: "marcus-aurelius",
+    title: "Second-Order Thinking: How to See What Others Miss",
+    description:
+      "First-order thinking asks what will happen. Second-order thinking asks what will happen next, and then what will happen after that. Marcus Aurelius practiced second-order thinking in everything from political decisions to personal conduct — asking not just what an action would accomplish but what kind of person it would make him, and what kind of empire it would leave.",
+    targetKeywords: [
+      "second order thinking explained",
+      "second order effects examples",
+      "how to think in second order",
+      "Charlie Munger second order thinking",
+      "mental models decision making",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "The obvious move seems clear. Everyone can see the first-order effect. The question is: have you thought through what happens after that? The market reacts. The competitor responds. The incentives shift. Second-order thinking is not complicated — it is just slower.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "For every action there is an equal and opposite reaction. In physics this is a law. In strategy it is a warning. The market you change will change in response to you changing it. Model the response before you act. Most people forget to.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "The consequences of a decision do not stop at the first effect. They cascade through systems in ways that are knowable in advance if you are willing to do the work. Thinking stops at the first layer because thinking is tiring. Second-order thinking is simply the willingness to continue.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Before you speak, ask: what will this produce? Before you act, ask: what will this cause in turn? The emperor who acts without modeling the cascade of his own emotional expression is not governing — he is reacting. Think forward one more step. Then one more after that.",
+      },
+    ],
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -1317,6 +1549,105 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "reproducible",
       constructIndex: 2,
+    },
+  ],
+  // ── Wave 3 annotation blueprints ──────────────────────────────────────
+  "what-would-steve-jobs-say-about-product-focus": [
+    {
+      label: "Product-line pruning",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "cut 70% of the product line",
+      constructIndex: 7,
+    },
+    {
+      label: "Feature commitment cost",
+      source: (entry) => entry.description,
+      excerpt: "promise you will maintain forever",
+      constructIndex: 0,
+    },
+  ],
+  "what-would-lincoln-say-about-leading-through-crisis": [
+    {
+      label: "Epistemic humility in action",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "incomplete information",
+      constructIndex: 8,
+    },
+    {
+      label: "Structured revisability",
+      source: (entry) => entry.description,
+      excerpt: "structural capacity to revise",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-benjamin-franklin-say-about-time-management": [
+    {
+      label: "Cognitive load reduction",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "urgent keeps eating the important",
+      constructIndex: 8,
+    },
+    {
+      label: "Transferred decision capacity",
+      source: (entry) => entry.description,
+      excerpt: "forced him to do the right things",
+      constructIndex: 7,
+    },
+  ],
+  "what-would-edison-say-about-failure-and-iteration": [
+    {
+      label: "Systematic elimination",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "ten thousand experiments",
+      constructIndex: 0,
+    },
+    {
+      label: "Validation through elimination",
+      source: (entry) => entry.description,
+      excerpt: "systematically eliminate the ones that did not",
+      constructIndex: 3,
+    },
+  ],
+  "what-would-carnegie-say-about-hiring-and-delegating": [
+    {
+      label: "Premium autonomy grant",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "second-guessing their decisions",
+      constructIndex: 4,
+    },
+    {
+      label: "Trajectory-first hiring",
+      source: (entry) => entry.description,
+      excerpt: "surround himself with men far cleverer than himself",
+      constructIndex: 0,
+    },
+  ],
+  "what-would-seneca-say-about-procrastination": [
+    {
+      label: "Self-honest diagnosis",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "putting off the same conversation",
+      constructIndex: 3,
+    },
+    {
+      label: "Empirical self-audit",
+      source: (entry) => entry.description,
+      excerpt: "honest with yourself about what the task actually requires",
+      constructIndex: 7,
+    },
+  ],
+  "second-order-thinking-explained": [
+    {
+      label: "Cascade effects attention",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "The market reacts. The competitor responds. The incentives shift.",
+      constructIndex: 19,
+    },
+    {
+      label: "Explicit loss-acceptance",
+      source: (entry) => entry.description,
+      excerpt: "what kind of empire it would leave",
+      constructIndex: 3,
     },
   ],
 };

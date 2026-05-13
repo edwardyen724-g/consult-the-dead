@@ -153,6 +153,43 @@ const DECISION_COURT: Record<
       "Growth rate is not a strategy. Close the gap between operational tempo and logistical architecture before you add the next division. If you cannot reproduce the mechanism that created last quarter's numbers, you have not found a repeatable process — you have found a coincidence.",
     caption: "Tempo follows logistics, not the other way around.",
   },
+  // ── Wave 3 court entries ─────────────────────────────────────────────
+  focus: {
+    minds: ["Steve Jobs", "Leonardo da Vinci", "Marcus Aurelius"],
+    consensus:
+      "The most dangerous thing you can build into a product is optionality you are not willing to cut. Focus is a discipline decision before it is a product decision. Every item that stays on the roadmap is a claim on attention that will not go elsewhere. The question is not what to add — it is what you are willing to remove.",
+    caption: "Say no. That is the whole strategy.",
+  },
+  crisis: {
+    minds: ["Abraham Lincoln", "Marcus Aurelius", "Niccolò Machiavelli"],
+    consensus:
+      "In a crisis, the failure mode is not making the wrong decision — it is pretending you have more certainty than you do and locking yourself into a course you cannot revise. The best crisis decisions are honest about what they do not know, and built with structural capacity to update when new information arrives.",
+    caption: "Decide clearly. Update honestly.",
+  },
+  "time-management": {
+    minds: ["Benjamin Franklin", "Marcus Aurelius", "Leonardo da Vinci"],
+    consensus:
+      "Time management is not a scheduling problem — it is a prioritization problem. You cannot save time; you can only choose what to do with it. The question is whether the way you spend your hours is the result of deliberate choice or accumulated drift from what other people needed from you.",
+    caption: "What did you choose today? Or did it choose you?",
+  },
+  iteration: {
+    minds: ["Thomas Edison", "Marie Curie", "Leonardo da Vinci"],
+    consensus:
+      "Iteration is not a failure mode — it is the mechanism of discovery. The question is not whether you failed, but whether you are failing fast enough and extracting the right information from each failure. An experiment that tells you what does not work is not wasted — it is progress at the speed of honest testing.",
+    caption: "Each failure narrows the field.",
+  },
+  hiring: {
+    minds: ["Andrew Carnegie", "Niccolò Machiavelli", "Benjamin Franklin"],
+    consensus:
+      "Hiring is not a cost to minimize — it is a leverage decision. The right person in the right role will compound your capacity. The wrong person will consume your attention and produce diminishing returns. Hire for trajectory, not just current performance, and design the role so that the right person cannot help but succeed.",
+    caption: "Hire for trajectory. Design the role for success.",
+  },
+  procrastination: {
+    minds: ["Seneca", "Marcus Aurelius", "Benjamin Franklin"],
+    consensus:
+      "Procrastination is rarely about the task. It is about a gap between the task as it is and the task as you have told yourself it should be. Find the real reason the thing is not getting done — not the excuse, but the actual obstacle — and the procrastination usually ends.",
+    caption: "Name the real reason. Then start.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -196,6 +233,19 @@ const MAIN_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Logistical architecture must precede operational tempo. Before you scale to the next level, verify that the supply line can follow.",
+  // ── Wave 3 beats ──────────────────────────────────────────────────────
+  focus:
+    "Focus is a subtraction problem. Every feature you keep is attention you cannot spend elsewhere. Choose what to cut, not just what to build.",
+  crisis:
+    "A crisis does not require perfect decisions — it requires decisions honest about their own uncertainty and built to be revised when the evidence changes.",
+  "time-management":
+    "Every hour you spend on something you did not choose is an hour you did not spend on what matters. The goal is not to do more — it is to do the right things.",
+  iteration:
+    "You are not stuck — you are eliminating. Every failed approach narrows the space of possible answers. Keep going until you run out of wrong answers.",
+  hiring:
+    "The hiring decision you regret is always the one where you settled. Hold the bar, design the role for a great person, and wait.",
+  procrastination:
+    "The thing you are not doing is telling you something. What is the actual obstacle — not the excuse, but the real one? Name it, then address it.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -239,6 +289,19 @@ const SUPPORT_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Every overextension in history looked like momentum until it didn't. The difference between tempo and recklessness is whether the infrastructure is ready.",
+  // ── Wave 3 beats ──────────────────────────────────────────────────────
+  focus:
+    "Jobs did not succeed by building more — he succeeded by cutting everything that did not belong. The discipline to remove is harder than the discipline to add.",
+  crisis:
+    "Lincoln's greatest leadership quality was not certainty. It was his willingness to revise decisions as the war evolved without losing strategic direction.",
+  "time-management":
+    "Franklin designed his day before the day designed him. That is the entire system.",
+  iteration:
+    "Edison did not consider himself to have failed ten thousand times. He considered himself to have successfully proven ten thousand things that did not work.",
+  hiring:
+    "Carnegie's management philosophy: hire people smarter than you, pay them well, give them room, and hold them accountable for outcomes — not process.",
+  procrastination:
+    "Seneca's insight was not that procrastination is laziness — it is that procrastination is a form of self-deception about what the task actually requires.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -282,6 +345,19 @@ const CLOSE_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Close the gap between your growth rate and your operational capacity before the gap closes you.",
+  // ── Wave 3 beats ──────────────────────────────────────────────────────
+  focus:
+    "What is on your roadmap that does not belong? Cut that first. Then build the rest.",
+  crisis:
+    "What does your decision look like if the next thing you hear is bad news? Build the decision to survive that.",
+  "time-management":
+    "At the end of today: did you spend your hours, or did they spend you?",
+  iteration:
+    "What did the last failure tell you? Extract that, then run the next experiment.",
+  hiring:
+    "Are you designing roles that great people want to be in? That is the real recruitment strategy.",
+  procrastination:
+    "What is the smallest step you could take on this right now? Take it. The rest follows.",
 };
 
 function titleCase(value: string): string {
