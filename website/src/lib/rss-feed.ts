@@ -76,7 +76,12 @@ export function buildPublicFeedItems(
     description: entry.description,
     link: `${origin}/insights/${entry.slug}`,
     guid: `${origin}/insights/${entry.slug}`,
-    pubDate: INSIGHT_COLLECTION_DATE,
+    // Use the article's actual publishedAt date so feed readers and SEO
+    // crawlers see the correct freshness signal. Fall back to the original
+    // collection date for legacy entries that lack publishedAt.
+    pubDate: entry.publishedAt
+      ? new Date(`${entry.publishedAt}T00:00:00.000Z`)
+      : INSIGHT_COLLECTION_DATE,
   }));
 
   return [...debateItems, ...insightItems];
