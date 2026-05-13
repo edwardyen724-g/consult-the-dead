@@ -593,7 +593,8 @@
     - "product simplicity startup"
   recommended_council: [steve-jobs]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: what-would-lincoln-say-about-leading-through-crisis
   type: insight
@@ -605,7 +606,8 @@
     - "crisis leadership framework"
   recommended_council: [abraham-lincoln]
   hook_angles: [identity, tension]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: what-would-benjamin-franklin-say-about-time-management
   type: insight
@@ -617,7 +619,8 @@
     - "how to prioritize like Ben Franklin"
   recommended_council: [benjamin-franklin]
   hook_angles: [shortcut, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: what-would-edison-say-about-failure-and-iteration
   type: insight
@@ -629,7 +632,8 @@
     - "how to learn from failure"
   recommended_council: [thomas-edison]
   hook_angles: [identity, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: what-would-carnegie-say-about-hiring-and-delegating
   type: insight
@@ -641,7 +645,8 @@
     - "hiring strategy startup"
   recommended_council: [andrew-carnegie]
   hook_angles: [proof, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: what-would-seneca-say-about-procrastination
   type: insight
@@ -653,7 +658,8 @@
     - "how to stop procrastinating stoic"
   recommended_council: [seneca]
   hook_angles: [identity, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
 
 - slug: should-i-do-a-seed-extension
   type: decision
@@ -677,4 +683,5 @@
     - "Charlie Munger second order thinking"
   recommended_council: []
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-13"
