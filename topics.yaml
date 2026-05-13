@@ -1591,3 +1591,84 @@
   hook_angles: [shortcut, tension]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 13 additions ──────────────────────────────────────────────────────────
+
+- slug: napoleon-vs-caesar-on-knowing-when-to-stop
+  type: collision
+  search_volume_estimate: high
+  primary_query: "when to stop expanding your business"
+  secondary_queries:
+    - "how do you know when to stop pushing"
+    - "overextension business strategy"
+    - "scaling too fast warning signs"
+  framework_slugs: [napoleon-bonaparte, julius-caesar]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: jobs-vs-galileo-on-betting-against-consensus
+  type: collision
+  search_volume_estimate: high
+  primary_query: "should I bet against the market consensus"
+  secondary_queries:
+    - "how to know if you have a contrarian insight"
+    - "betting against consensus startup"
+    - "when is a contrarian bet worth it"
+  framework_slugs: [steve-jobs, galileo-galilei]
+  decisionType: innovation
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: epictetus-vs-seneca-on-how-to-handle-adversity
+  type: collision
+  search_volume_estimate: high
+  primary_query: "how to handle adversity and setbacks"
+  secondary_queries:
+    - "stoic advice for hard times"
+    - "dealing with business failure stoicism"
+    - "accept vs adapt adversity"
+  framework_slugs: [epictetus, seneca]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-for-enterprise-or-smb
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build for enterprise or SMB"
+  secondary_queries:
+    - "enterprise vs SMB market startup"
+    - "go upmarket or stay SMB"
+    - "startup enterprise vs small business focus"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, sun-tzu]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-take-on-technical-debt
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take on technical debt"
+  secondary_queries:
+    - "technical debt worth it startup"
+    - "when to accept technical debt"
+    - "move fast and break things technical debt"
+  recommended_council: [archimedes, nikola-tesla, niccolo-machiavelli]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-accept-this-strategic-partnership
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I accept this strategic partnership"
+  secondary_queries:
+    - "startup partnership worth it"
+    - "how to evaluate strategic partnerships"
+    - "when to say no to a partnership"
+    - "partnership vs independence startup"
+  recommended_council: [niccolo-machiavelli, julius-caesar, cleopatra-vii]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"

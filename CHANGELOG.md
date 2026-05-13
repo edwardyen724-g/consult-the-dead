@@ -4,6 +4,15 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 13)
+
+### Added
+- Wave 13 collision batch shipped: 3 collision insight articles — `napoleon-vs-caesar-on-knowing-when-to-stop` (napoleon-bonaparte + julius-caesar; strategy), `jobs-vs-galileo-on-betting-against-consensus` (steve-jobs + galileo-galilei; innovation), `epictetus-vs-seneca-on-how-to-handle-adversity` (epictetus + seneca; resilience); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (88 total passing). Total: 28 collision articles shipped.
+- Wave 13 decision pages: `should-i-build-for-enterprise-or-smb` (46th; Machiavelli/Rockefeller/Sun Tzu), `should-i-take-on-technical-debt` (47th; Archimedes/Tesla/Machiavelli), `should-i-accept-this-strategic-partnership` (48th; Machiavelli/Caesar/Cleopatra VII); decisions count updated to 48; 127 topics tracked (126 shipped, 0 queued).
+- Wave 13 listicle expansion 8→10: `/listicles/hiring-first-employee` (Machiavelli/Aurelius/Carnegie) and `/listicles/raising-startup-funding` (Machiavelli/Curie/Sun Tzu); sitemap + vitest count assertions updated.
+- **BreadcrumbList JSON-LD** added to all `/decisions/[slug]` and `/insights/[slug]` pages (Home > Decisions/Insights > title); 113+ pages now emit navigation breadcrumbs in SERP.
+- **Homepage WebSite + Organization schema**: planned for next batch (no code changes yet).
+
 ## 2026-05-21 (Wave 12)
 
 ### Added

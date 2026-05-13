@@ -2458,6 +2458,163 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 13 collision articles ─────────────────────────────────────────
+  {
+    slug: "napoleon-vs-caesar-on-knowing-when-to-stop",
+    type: "collision",
+    frameworkSlug: "napoleon-bonaparte",
+    collisionFrameworkSlugs: ["napoleon-bonaparte", "julius-caesar"],
+    decisionType: "strategy",
+    title: "Napoleon vs. Julius Caesar: How Do You Know When to Stop Expanding?",
+    description:
+      "Both Napoleon and Caesar built empires that eventually broke under their own weight — but they broke in different ways and for different reasons. Napoleon's overextension was logistical: his supply lines couldn't support the ambition. Caesar's was political: he accumulated power so fast that the republic couldn't absorb it without erupting. For founders with multiple products and a team spreading thin, this collision surfaces the precise question: at what point does 'more' become the strategy that defeats you?",
+    targetKeywords: [
+      "should I expand or consolidate",
+      "when to stop growing startup",
+      "overextension startup",
+      "how many products should a startup have",
+      "expand vs focus startup strategy",
+    ],
+    hookQuestion:
+      "Your SaaS has 3 products generating $40K MRR. Each one has spawned 2 new ideas the team wants to build. You have 8 engineers. Both Napoleon and Caesar built empires that eventually broke under their own weight. At what point does 'more' become the strategy that defeats you?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "The error is not ambition — it is ambition without logistical architecture behind it. I won at Austerlitz because every corps, every supply depot, every march route had been calculated before the first soldier moved. Where I failed was in Russia: not because the ambition was wrong but because I moved faster than my supply lines could follow. Your 8 engineers are your supply line. If you are spawning 6 new products from 3 existing ones, you are not expanding — you are outrunning your own capacity to sustain anything. The correct question is not whether to expand, but whether your operational infrastructure can support the expansion you are contemplating. My construct here is logistical coherence: can the supply line sustain the advance? If my logic wins, you do not build new products until you have systematized the operations of the existing three to the point where they run without heroic effort.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "Napoleon is describing the mechanics of overextension but missing its deeper structure. I conquered Gaul not by restraining ambition but by converting each new territory into a resource base before advancing. The Gallic campaign funded itself: each province I pacified began generating tax revenue that supported the next campaign. Your three products are not yet self-sustaining resource bases — they are each consuming attention without compounding it. The fundamental question is not how many products you can build but whether each existing product is generating enough leverage — in brand, in customer trust, in distribution — to make the next one easier than the last. If the three are not compounding, adding six more produces six more drains on the same constrained pool. My construct is territorial consolidation: is each position generating resources for the next advance? If my logic wins, you pause expansion and spend the next quarter turning your three products into compounding assets before you open any new fronts.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Caesar is correct about consolidation as the precondition, but he understates the danger of the window closing. I lost in Russia, yes — but I also nearly lost at Waterloo by waiting too long after Elba, allowing the coalition to solidify against me. There are moments in a market where the window for expansion is genuinely open and brief. A competitor who is currently distracted will not remain distracted. A customer segment that is currently underserved will attract funded entrants within 18 months. The failure mode I am warning against is not expansion itself — it is expansion that exceeds your operational tempo. The right answer is to identify, ruthlessly, which one of your six new ideas has the highest strategic value and the best fit with your existing operational capacity — and build only that one, completely, before opening the next front. Concentration of force is not the same as passivity.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "I do not disagree with Napoleon on concentration of force — I crossed the Rubicon with a single legion precisely because concentrated, irreversible commitment produces faster results than dispersed, reversible half-measures. But let me push on the specific variable Napoleon keeps leaving implicit: the difference between overextension that is recoverable and overextension that is not. In Gaul, I sometimes held too many positions at once and had to consolidate under pressure — but the core legions remained intact and the resource base recovered. What I never did was hollow out the core while expanding the periphery. Your 8 engineers are your core legion. The test is this: if you added one new product and it failed, would the failure damage any of the three existing ones? If yes, you are gambling the core on the periphery. If no — if the existing three are truly self-sustaining — then one carefully chosen expansion is not overextension. It is a Gallic probe.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Caesar's Gallic probe framing is useful, and I will extend it into the specific decision you face. Six new ideas is not a decision — it is a symptom of unclear priorities. The founder who cannot say which one of the six is the highest-leverage bet has not done the strategic work yet. My operational framework would force this analysis: rank the six ideas by three criteria — fit with existing customer base, fit with existing engineering capability, and time to positive unit economics. The idea that scores highest on all three is the probe. Build that one. Everything else goes on a list that gets reviewed quarterly but receives no engineering resources until the probe has either succeeded and been systematized or failed and been documented. The Russian mistake was not that I went to Russia — it was that I went without having answered the question of whether the campaign could be self-sustaining within 90 days. Apply that question to your six ideas. Most of them will fail it immediately.",
+      },
+      {
+        speaker: "Julius Caesar",
+        text: "We have converged on the actionable answer, and I want to name what it implies about your underlying strategic posture. The empires that broke under their own weight — mine included, in the political sense — broke not only from overextension but from a failure to build the institutional infrastructure that converts territorial gains into durable power. I was assassinated not because I expanded too fast but because I accumulated personal authority without building the republican institutions that could have absorbed it. Your 3 products at $40K MRR are territorial gains. The question is whether you are building the organizational infrastructure — documented processes, clear ownership, performance metrics — that converts those gains into durable leverage. If your three products each require your personal attention to sustain them, you have not actually consolidated them. You have merely occupied them. The founder who builds six products on top of three uninstutionalized ones is not expanding — they are accelerating toward the point where the whole structure depends on a single indispensable leader. That is not empire-building. That is the precondition for collapse.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Napoleon and Caesar agree that the question is not whether to expand, but whether the existing positions are truly self-sustaining before any new front is opened. Napoleon frames it as logistical coherence — can the supply line support the advance? Caesar frames it as territorial consolidation — is each position generating resources for the next one? Both point to the same diagnostic: if your 3 products each require heroic effort to sustain, you have not actually consolidated them, and adding more products accelerates the path to structural failure.",
+      actionableInsight:
+        "Before building any of the 6 new ideas, run this test on each of your 3 existing products: if you personally stepped away for 30 days, would it sustain itself? If the answer is no for any of them, stop. Systematize those first. Once all three pass the test, apply Napoleon's probe criteria (customer fit, engineering fit, time to positive unit economics) to rank the 6 new ideas. Build the top-ranked one only, and treat it as a probe with a defined success threshold and a 90-day cut-off. That is the difference between expansion that compounds and expansion that consumes.",
+    },
+  },
+  {
+    slug: "jobs-vs-galileo-on-betting-against-consensus",
+    type: "collision",
+    frameworkSlug: "steve-jobs",
+    collisionFrameworkSlugs: ["steve-jobs", "galileo-galilei"],
+    decisionType: "innovation",
+    title: "Steve Jobs vs. Galileo: Should You Bet Against the Market Consensus?",
+    description:
+      "Steve Jobs ignored every form of market consensus — surveys, focus groups, analyst reports — and built products the market said it didn't want. Galileo ignored the most powerful institutional consensus in European history — the Church, the Aristotelian tradition, the entire academic establishment — and proved them wrong with a telescope. Both paid real costs for their contrarianism. The question is not whether to bet against consensus, but how to distinguish genuine insight from delusion when the market disagrees with you.",
+    targetKeywords: [
+      "should I build against market consensus",
+      "contrarian startup idea",
+      "when to ignore market research",
+      "going against conventional wisdom startup",
+      "contrarian product bet",
+    ],
+    hookQuestion:
+      "Every investor, your two advisors, and your own market survey data says there is no demand for what you want to build. You believe they're all measuring the wrong thing. Jobs ignored the consensus and won. Galileo ignored the consensus and nearly lost everything. When is the contrarian bet worth it?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Steve Jobs",
+        text: "Market research cannot tell you what to build because it can only measure what people already understand. When I commissioned the original Macintosh, no market survey said people wanted a graphical interface — they had never used one. When we built the iPhone, every carrier, every analyst, and every competitor said a phone without a keypad would fail. They were measuring the wrong thing. They were asking people about keyboards when the question was whether people wanted a computer in their pocket. The contrarian bet is worth making when you understand something structural about human desire that your market research cannot access — not because the data is wrong, but because the data is measuring a world that your product will make obsolete. My construct is this: if the consensus is measuring preferences within the current paradigm and you are building a product that changes the paradigm, the consensus is not evidence against your idea. It is evidence that the paradigm has not yet shifted. If my logic wins here, you do not defer to the surveys. You ask whether your insight is about what people will want in the new paradigm, or merely what you wish they wanted in the current one.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "Jobs describes the contrarian bet correctly but omits the cost structure. I did not simply ignore the Aristotelian consensus — I built an evidentiary record that could not be dismissed without the dismisser publicly denying observable reality. The telescope did not require the Church to trust my judgment. It required them to look. The founder who bets against market consensus without building the equivalent of the telescope is not a contrarian — they are an optimist with unusually high confidence. Before you ignore your investors, your advisors, and your own survey data, answer this: what is the observable, specific, undeniable thing that you can show them that makes the consensus's prediction falsifiable? Jobs had product demos. I had moons. If you cannot identify what the equivalent of the moons is for your product — the thing that any honest observer would have to engage with rather than dismiss — you have not yet done the work that earns the contrarian position. My construct is evidentiary precision: the contrarian bet is legitimate when the evidence for it is strong enough that disagreement requires active denial of observable fact, not merely a different prior.",
+      },
+      {
+        speaker: "Steve Jobs",
+        text: "Galileo's telescope framing is correct, but I want to push on where it applies and where it breaks. In Galileo's case, the moons of Jupiter were already there — he only needed to build the instrument to make them visible. In product work, the 'moons' do not exist until you build the product. This is the asymmetry that Galileo's framework cannot fully capture: sometimes the contrarian insight is not that the consensus is measuring the current world incorrectly, but that the product itself creates the demand once it exists. Nobody wanted the Walkman before Sony built it. Nobody wanted to carry 1,000 songs in their pocket before the iPod existed. The market research that precedes those products is measuring a world without them — of course it shows no demand. The question Galileo should have asked before his telescope was not 'can I show observers the moons of Jupiter' but 'will moons be visible once I grind this particular lens configuration?' That prior calculation is the founder's work. The evidence comes after, not before. My framework: have you derived — not hoped, derived — that the product you want to build creates the demand it requires? If yes, the consensus is not evidence against it. It is evidence that the product does not yet exist.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "Jobs is making a stronger claim than I would endorse, and I want to name the failure mode it enables. The argument that 'the product creates the demand' is the argument that every founder with a failing product has made to justify continuing. It is structurally unfalsifiable: if demand exists, the product validated the bet; if demand does not exist, the market has not yet understood the product. I ran this risk myself — my early telescope demonstrations were dismissed by philosophers who refused to look, and I had to spend fifteen years building an evidentiary record that made dismissal costly. But I never argued that the moons would appear once people believed in them. I argued that they were already there and that the instrument would make them visible. The distinction matters: if your product is revealing something that exists — a real latent desire, a genuine unmet need that people cannot currently articulate — then the Jobs framework applies. If your product is attempting to create a desire that does not yet exist in any form, the failure rate is orders of magnitude higher and the evidentiary bar before you invest 18 months of engineering time must be correspondingly higher. Show me the latent signal before we call this a contrarian insight rather than a contrarian wish.",
+      },
+      {
+        speaker: "Steve Jobs",
+        text: "The latent signal test is the right question. Here is how I would apply it operationally to your situation. You have investors, advisors, and survey data all pointing the same direction — no demand. But none of them are the market. They are proxies for the market operating inside the current paradigm. The test is not whether those proxies agree with you. The test is whether you can find, in the actual behavior of actual people, the latent signal that your product addresses. It does not have to be large. Before the Macintosh, there were only a few thousand people who had interacted with a graphical interface at Xerox PARC. They were not in any market survey. But they existed, and their response was the latent signal. Your job is not to convince investors using the same market data they have already seen. Your job is to find the people whose behavior already implies the demand for your product — the workarounds, the hacks, the complaints that map to the problem you are solving. If you can find those people, you have a telescope. If you cannot, Galileo is right: you are working from belief, not from evidence.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "We have converged on the precise test, and I will state it in terms that can be applied directly to your situation. The contrarian bet is warranted when three conditions are simultaneously true: first, the consensus is measuring preferences within the existing paradigm and your product changes the paradigm — Jobs's condition. Second, there is a latent signal in current behavior that reveals the unmet need your product addresses, even if that signal is small — my evidentiary condition. Third, you can specify in advance what observable outcome would prove you wrong within 12 months of launch — the falsifiability condition that distinguishes genuine contrarian insight from motivated reasoning. If all three conditions are met, your investors, advisors, and surveys are not evidence against your idea — they are the noise that exists before any paradigm shift. If any of the three conditions fails, you have not yet earned the contrarian position. You are not Galileo with a telescope. You are the philosopher who refused to look through one.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Jobs and Galileo converge on a three-part test for the legitimate contrarian bet: the consensus is measuring the current paradigm while your product changes it (Jobs); there is a latent signal in current behavior that your product addresses, even if small (Galileo); and you can specify in advance what would prove you wrong within 12 months (the falsifiability test). Fail any of the three and you are not a contrarian — you are an optimist without evidence.",
+      actionableInsight:
+        "Before you override your investors, advisors, and market data, answer three questions: First, are they measuring preferences in a world your product makes obsolete? Second, can you find real people whose behavior already implies the need your product addresses — the workarounds, the hacks, the complaints? Third, can you state specifically what outcome at month 12 would prove you wrong? If you can answer all three, proceed. If you cannot answer the third — if your idea is not falsifiable within a defined timeframe — you have not done the hard intellectual work yet. The moons were already there. Find them.",
+    },
+  },
+  {
+    slug: "epictetus-vs-seneca-on-how-to-handle-adversity",
+    type: "collision",
+    frameworkSlug: "epictetus",
+    collisionFrameworkSlugs: ["epictetus", "seneca"],
+    decisionType: "resilience",
+    title: "Epictetus vs. Seneca: How Should You Handle What You Cannot Control?",
+    description:
+      "Both Epictetus and Seneca were Stoics, but they were Stoics who lived radically different lives and drew different operational conclusions from the same philosophy. Epictetus spent decades as a slave with a broken leg and developed a framework of pure acceptance: only your response is yours, everything external is not your business. Seneca was an advisor to emperors, lost and regained enormous wealth, and developed a framework of pragmatic adaptation: accept what you cannot control, but immediately rebuild around the new constraints. For founders facing external crises, these are genuinely different prescriptions.",
+    targetKeywords: [
+      "how to handle things you can't control",
+      "Stoic resilience founder",
+      "dealing with business crisis",
+      "startup crisis outside your control",
+      "how to respond to unexpected adversity",
+    ],
+    hookQuestion:
+      "A major platform your product depends on just changed its API policy. Your revenue drops 60% overnight. You had no warning and no alternative. Epictetus says: only your response is yours. Seneca says: adapt immediately, then rebuild. What do you do when the floor drops out?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Epictetus",
+        text: "Begin with the correct diagnosis before you take any action. The platform changed its policy. That is not in your control — it was never in your control, and the belief that it was was always an illusion. What is in your control is precise and narrow: your judgment about what this means, your decision about what to do next, and the quality of attention you bring to that decision. The founder who spends the first 48 hours in grief, anger, or panic about the 60% revenue drop is spending those 48 hours on things that are not in their control. The revenue drop has already happened. It is a fixed fact. Your only productive move is to ask: given this fixed fact, what is the best action available to me right now, with the resources and relationships I actually have? Not the resources I wish I had. Not the platform policy I wish existed. What I actually have. That is Stoic triage: ruthlessly narrow the field to what is actionable. If my logic wins, your first hour is not spent mourning the revenue — it is spent writing down every asset you currently control and every option that remains open to you. Start there.",
+      },
+      {
+        speaker: "Seneca",
+        text: "Epictetus is describing the correct internal orientation but giving you incomplete operational guidance. I agree completely that the first move is to accept the fact without resistance — the platform has changed its policy, the 60% is gone, and any energy spent wishing otherwise is energy not available for rebuilding. But the Stoic acceptance that Epictetus describes is the precondition for action, not the action itself. After you have accepted the fact, the immediate obligation is adaptation. I spent years in exile under Claudius — stripped of wealth, separated from Rome, everything I had built made suddenly inaccessible. The Stoic response was not to sit peacefully with the acceptance of my circumstances. It was to use the exile as the forcing function it was: to write, to think more clearly without the distractions of court, to build the intellectual capital that would restore my position when the conditions changed. My construct is adaptive momentum: accept the constraint immediately, then begin building the path out of it with the same immediacy. If my logic wins, your first hour is spent on acceptance — and your second hour is spent identifying the fastest path to rebuilding 30% of that revenue from sources the platform policy does not touch.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "Seneca's adaptive momentum frame is practically useful, but I want to push back on the urgency he is injecting into the response. The instruction to immediately start rebuilding 30% of the revenue in the second hour presupposes that you have correctly diagnosed what happened and that speed of response is the primary variable. In my experience — and I am speaking of lived experience under genuinely harsh constraint, not philosophical exile — the founder who moves to rebuild before they have achieved genuine equanimity about what was lost will rebuild from fear rather than from clarity. They will make the first available deal rather than the right deal. They will take on the first alternative distribution channel rather than the correct one. The Stoic discipline is not slowness — it is the refusal to act from a disturbed mind. I did not accept the broken leg as fast as possible and then immediately begin compensating for it. I accepted it until the acceptance was complete. Then the decision-making became clear. Seneca is right that adaptation must follow acceptance. I am saying that the acceptance must be genuine before the adaptation begins, or the adaptation will carry the disturbance forward into the new structure.",
+      },
+      {
+        speaker: "Seneca",
+        text: "I understand the distinction Epictetus is drawing, and I think it maps to a practical variable that founders can use as a test: what is the time horizon of the adversity? Epictetus's framework — acceptance until it is complete, then clarity-based action — is optimal when the constraint is permanent or long-duration. His leg was broken and would not heal. Mine was temporary: exile ends, emperors die, political conditions change. If the platform policy change is permanent — this API is gone and will never return — then Epictetus is right: take the time you need to achieve full acceptance, because you will be building from this new reality for years and a rushed decision now will compound into a structural error. But if the adversity is recoverable — if the 60% revenue drop is a 6-month problem rather than a permanent redefinition of your business — then the urgency of response matters because the window for recovery narrows with every week you spend in acceptance rather than in motion. The practical question is: is this a broken leg or an exile? Permanent constraint or temporary disruption? Your answer to that question should determine the tempo of your Stoic response.",
+      },
+      {
+        speaker: "Epictetus",
+        text: "Seneca's broken-leg vs. exile distinction is the most useful thing either of us has said, and I want to refine it into a decision rule. The test is not just duration — it is whether the adversity has closed a category of option permanently or merely made it temporarily unavailable. If the platform policy change means that the entire distribution category is closed — no API, no partner, no workaround that recovers what was lost — then you are facing a structural permanent change and the Stoic discipline is to accept it fully before rebuilding, because the building will happen on a fundamentally different foundation. But if the adversity means that one specific path is closed while other paths in the same category remain open — other platforms, other APIs, other distribution channels that serve the same customer need — then the urgency of Seneca's adaptive momentum is correct. The diagnosis determines the prescription. Spend the first hour not on rebuilding, not on acceptance, but on that one question: is this category closed, or is this path closed? They require different responses.",
+      },
+      {
+        speaker: "Seneca",
+        text: "We have arrived at a framework I can state precisely. The adversity you face — a platform changing its API and dropping your revenue 60% overnight — requires three moves in sequence, with the sequencing determined by Epictetus's category test. First: accept the fact of the drop with Epictetus's full Stoic acceptance — not rushed, not performative, not immediately channeled into action. The fact is fixed. Let it be fixed without resistance. Second: run Epictetus's category test — is this category closed or is this path closed? If the platform represented the entire category of how your customers find and use your product, you are rebuilding on different terrain and the timeline for adaptation is longer. If the platform was one of several viable paths, the urgency of rebuilding is higher because the window is shorter. Third: once the category is correctly diagnosed, apply adaptive momentum — not from fear, as Epictetus correctly warns, but from the clarity that genuine acceptance produces. The Stoic founder who does this in sequence does not panic in the first 48 hours and does not drift into philosophical passivity. They diagnose, accept, and adapt — in that order, with each stage genuinely complete before the next begins.",
+      },
+    ],
+    conclusion: {
+      summary:
+        "Epictetus and Seneca agree on the first move — accept the fact of the adversity without resistance, fully and genuinely, before taking any action. They diverge on tempo: Epictetus holds that acceptance must be complete before adaptation begins, or the adaptation carries the disturbance forward into the new structure. Seneca holds that adaptive momentum must begin quickly, especially when the adversity is temporary. They converge on a diagnostic that resolves the tension: is this category closed (permanent constraint, Epictetus's prescription) or is this path closed (temporary disruption, Seneca's prescription)?",
+      actionableInsight:
+        "Before you do anything else, run the category test: did the platform change close the entire distribution category for your product, or did it close one specific path while others remain? If category closed — you are rebuilding on different terrain, take the time Epictetus prescribes, accept fully before you act. If path closed — the urgency is higher, other paths exist, and Seneca's adaptive momentum applies: accept the drop, then spend the next 48 hours identifying the fastest path to recovering 30% of that revenue from sources this policy does not touch. The diagnosis determines the tempo. Do not let either Stoic give you permission to skip it.",
+    },
+  },
   {
     slug: "nightingale-vs-curie-on-data-vs-gut-instinct",
     type: "collision",
@@ -3621,6 +3778,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Falsifiable intuition",
       source: (entry) => entry.description,
       excerpt: "questioning what the experiment is actually measuring",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 13 annotation blueprints ──────────────────────────────────────
+  "napoleon-vs-caesar-on-knowing-when-to-stop": [
+    {
+      label: "Logistical coherence test",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "broke under their own weight",
+      constructIndex: 0,
+    },
+    {
+      label: "Territorial consolidation",
+      source: (entry) => entry.description,
+      excerpt: "broke in different ways and for different reasons",
+      constructIndex: 1,
+    },
+  ],
+  "jobs-vs-galileo-on-betting-against-consensus": [
+    {
+      label: "Paradigm vs. preference measurement",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "measuring the wrong thing",
+      constructIndex: 0,
+    },
+    {
+      label: "Evidentiary precision",
+      source: (entry) => entry.description,
+      excerpt: "distinguish genuine insight from delusion",
+      constructIndex: 1,
+    },
+  ],
+  "epictetus-vs-seneca-on-how-to-handle-adversity": [
+    {
+      label: "Category vs. path closed",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "floor drops out",
+      constructIndex: 0,
+    },
+    {
+      label: "Acceptance before adaptation",
+      source: (entry) => entry.description,
+      excerpt: "accept what you cannot control",
       constructIndex: 1,
     },
   ],

@@ -1735,6 +1735,68 @@ describe("Wave 12 collision batch", () => {
   });
 });
 
+describe("Wave 13 collision batch", () => {
+  it("generates a reel script for napoleon-vs-caesar-on-knowing-when-to-stop", () => {
+    const script = buildVerdictReelScript(
+      "napoleon-vs-caesar-on-knowing-when-to-stop",
+    );
+    expect(script.slug).toBe("napoleon-vs-caesar-on-knowing-when-to-stop");
+    expect(script.frameworkSlug).toBe("napoleon-bonaparte");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/napoleon-vs-caesar-on-knowing-when-to-stop",
+    );
+  });
+
+  it("generates a reel script for jobs-vs-galileo-on-betting-against-consensus", () => {
+    const script = buildVerdictReelScript(
+      "jobs-vs-galileo-on-betting-against-consensus",
+    );
+    expect(script.slug).toBe("jobs-vs-galileo-on-betting-against-consensus");
+    expect(script.frameworkSlug).toBe("steve-jobs");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Innovation council: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/jobs-vs-galileo-on-betting-against-consensus",
+    );
+  });
+
+  it("generates a reel script for epictetus-vs-seneca-on-how-to-handle-adversity", () => {
+    const script = buildVerdictReelScript(
+      "epictetus-vs-seneca-on-how-to-handle-adversity",
+    );
+    expect(script.slug).toBe("epictetus-vs-seneca-on-how-to-handle-adversity");
+    expect(script.frameworkSlug).toBe("epictetus");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/epictetus-vs-seneca-on-how-to-handle-adversity",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented
