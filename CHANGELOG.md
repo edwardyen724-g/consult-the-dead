@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-21 (Wave 19)
+
+### Added
+- Wave 19 collision batch shipped: 3 collision insight articles — `carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it` (andrew-carnegie + napoleon-bonaparte; hiring), `tesla-vs-galileo-on-working-against-the-institution` (nikola-tesla + galileo-galilei; resilience), `sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital` (sun-tzu + john-d-rockefeller; strategy); 6 INSIGHT_ANNOTATION_BLUEPRINTS entries added; 3 reel integration tests added (106 total passing). Total: 47 collision articles shipped.
+- Wave 19 decision pages: `should-i-give-equity-to-early-employees` (Carnegie/Machiavelli/Franklin), `should-i-hire-a-sales-team-or-stay-founder-led-sales` (Carnegie/Machiavelli/Rockefeller), `should-i-build-or-buy-a-technology` (Tesla/Carnegie/Machiavelli); decisions count updated to 66; 163 topics tracked (162 shipped, 0 queued).
+
 ## 2026-05-13 (Build fix)
 
 ### Fixed

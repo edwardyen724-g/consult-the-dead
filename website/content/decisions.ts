@@ -1854,6 +1854,96 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "focus vs diversification product startup",
     ],
   },
+  {
+    slug: "should-i-give-equity-to-early-employees",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Give Equity to Early Employees?",
+    description:
+      "Equity aligns incentives and lets you attract talent when cash is limited — but misaligned vesting schedules and over-dilution create serious problems as the company grows. The question is not whether to offer equity at all, but who genuinely deserves ownership versus who simply needs competitive cash compensation. Getting this wrong early locks in a cap table you will be managing for a decade.",
+    primaryQuery: "should I give equity to early employees",
+    secondaryQueries: [
+      "employee equity startup decision",
+      "how much equity to give early employees",
+      "vesting schedule early employees startup",
+      "equity vs salary early stage startup",
+      "employee stock options startup guide",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Are you giving equity because it creates genuine alignment, or because you cannot afford to pay market rates — and do you know the difference?",
+    targetKeywords: [
+      "should I give equity to early employees",
+      "employee equity startup",
+      "how much equity to give employees",
+      "vesting schedule early employees",
+      "startup employee stock options",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-sales-team-or-stay-founder-led-sales",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Hire a Sales Team or Stay Founder-Led Sales?",
+    description:
+      "Founder-led sales builds deep customer insight and creates the tight feedback loops that shape the product in the early stages — but it does not scale beyond a certain revenue threshold. Hiring a sales team before you have documented a repeatable process burns cash and produces inconsistent results. The decision turns on whether the sales motion is understood and codified well enough to hand off, and whether the founder's time is now worth more building pipeline or building product.",
+    primaryQuery: "should I hire a sales team or stay founder-led sales",
+    secondaryQueries: [
+      "founder-led sales vs sales team startup",
+      "when to hire first salesperson",
+      "how to know when to stop doing sales yourself",
+      "scaling sales beyond the founder",
+      "when to build a sales team startup",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "Is your sales process documented and repeatable enough that someone else could run it — or are you still the only one who knows why customers say yes?",
+    targetKeywords: [
+      "should I hire a sales team or stay founder-led sales",
+      "founder-led sales vs hiring sales team",
+      "when to hire first salesperson startup",
+      "scaling sales beyond founder",
+      "repeatable sales process startup",
+    ],
+  },
+  {
+    slug: "should-i-build-or-buy-a-technology",
+    status: "shipped",
+    shippedAt: "2026-05-21",
+    title: "Should I Build or Buy a Technology?",
+    description:
+      "Building gives you control and the potential for competitive differentiation, but it costs time and engineering resources you may not have. Buying gives you speed, but creates vendor dependencies, lock-in risk, and cost structures that can become unmanageable at scale. The decision turns on whether the capability is core to your product and competitive advantage — or peripheral infrastructure that a third-party can reliably provide at a lower total cost than building in-house.",
+    primaryQuery: "should I build or buy a technology",
+    secondaryQueries: [
+      "build vs buy software decision startup",
+      "when to build vs purchase technology",
+      "make vs buy decision framework",
+      "vendor dependency risk startup",
+      "in-house vs third-party technology",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Is this capability core to your product's competitive advantage, or is it infrastructure that will only distract your team from the work that actually differentiates you?",
+    targetKeywords: [
+      "should I build or buy a technology",
+      "build vs buy software decision",
+      "make vs buy startup decision",
+      "vendor dependency risk",
+      "build in-house vs third-party technology",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

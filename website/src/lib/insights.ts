@@ -3284,6 +3284,166 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before deciding whether your evidence is strong enough to challenge the consensus in your field, run the two-variable test. First, replication burden: can any honest expert with access to the same data or instrument verify your finding independently within a week? If yes, your threshold is lower — publish the sufficient challenge. If no — if verification requires months of specialized work — your threshold is higher and you need a more complete case. Second, cost of delay: is someone else close to the same finding? If yes, the delay cost is real and Galileo's method applies — publish now with the evidence you have, clearly labeled as preliminary. If no — if you have a genuine window — use it to build toward Archimedes's standard. If both are high, do not publish broadly yet: share with two or three credible independent experts, get a verification signal, and then decide whether to go public or build further.",
     },
   },
+  // ── Wave 19: collision articles ───────────────────────────────────────
+  {
+    slug: "carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it",
+    type: "collision",
+    frameworkSlug: "andrew-carnegie",
+    collisionFrameworkSlugs: ["andrew-carnegie", "napoleon-bonaparte"],
+    title: "Carnegie vs. Napoleon: Do You Win Loyalty or Demand It?",
+    description:
+      "Carnegie built the largest industrial empire in American history by investing in his people's growth, treating loyalty as something earned through genuine care. Napoleon built the most disciplined military machine in European history through accountability, consequence, and the expectation that performance would be rewarded and failure would not be tolerated. When a key team member is underperforming, these two frameworks produce opposite first moves — and both have produced organizations capable of extraordinary things.",
+    targetKeywords: [
+      "how to build team loyalty startup",
+      "employee development vs performance management",
+      "winning loyalty vs demanding it",
+      "carnegie napoleon leadership",
+      "when to invest in people vs apply pressure",
+    ],
+    decisionType: "hiring",
+    hookQuestion:
+      "When a key team member isn't performing, do you invest in their development or apply pressure and consequence?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Andrew Carnegie",
+        text: "The man who does not take genuine interest in the people around him will never build an organization that outlasts his own attention. I did not demand loyalty from my managers. I earned it — by knowing their names, their families, their ambitions, and by making their advancement my personal concern. A team that follows you because they fear the consequence of not following you will do exactly what is required and nothing more. The team that follows you because you have invested in who they are becoming will do what is required and discover what is possible.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Carnegie describes an admirable philosophy for a peacetime enterprise. I governed men under conditions where ambiguity about consequence was itself a form of danger. The soldier who is not certain that failure to hold his position will cost him something real will calculate whether holding it is worth the personal risk. The answer to an underperforming team member is not more development investment before accountability is clear — it is clarity of expectation first, development as the tool for meeting it, and consequence when the expectation is not met. Loyalty built on care without consequence produces affection. Loyalty built on shared standards produces an army.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Napoleon conflates the outcome he needed — obedience under mortal pressure — with the outcome you need, which is discretionary effort in the absence of direct supervision. My managers ran steel plants I was not present in, made decisions I could not review, and innovated in ways I could not have instructed. That is not the behavior of men who feared consequence. It is the behavior of men who had internalized the mission as their own. The underperforming team member Napoleon would apply pressure to is often the team member who has not yet understood why the work matters. My first move is to make that clear — not through threat but through genuine investment in their understanding.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Carnegie is correct about the conditions under which his approach outperforms mine: complex, autonomous work, where discretionary effort is the variable that matters. I accept that distinction. My concern is different: the founder who defaults to development investment before establishing that the standard exists and is non-negotiable has communicated something about the organization's operating logic that is difficult to revise. The team member who receives development investment before consequence learns that the response to underperformance is support. That is not wrong — but it must be combined with the explicit communication that the standard remains. Development without a clear expectation is indulgence. Development combined with an explicit expectation and a defined timeline is the strongest available signal of genuine investment in the person.",
+      },
+      {
+        speaker: "Andrew Carnegie",
+        text: "Napoleon has arrived at the formulation I would accept. The question is not development or accountability — it is the sequence and the genuine nature of the investment. I never confused care for the person with tolerance for failure to perform. My most successful managers were held to standards I would not compromise. But the standard was communicated as a belief in their capacity to meet it, not as a threat about what would happen if they did not. When both are present — genuine belief in the person and genuine clarity about the standard — the team member experiences not pressure but the recognition that you are serious about their growth and serious about what the organization requires. That combination is what produces loyalty that survives difficulty.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Then the practical answer depends on a prior diagnosis that neither of us has named directly: what is the root cause of the underperformance? If the underperformance comes from unclear expectations, insufficient support, or skills the person has not yet developed — Carnegie's development-first model is correct, because the limiting factor is the person's capability and the investment in it is the rational response. If the underperformance comes from misaligned incentives, insufficient urgency, or the implicit belief that the standard is negotiable — the first move must be clarity of expectation and consequence, not investment. The investment made before the expectation is clear will be interpreted as evidence that the standard is not serious. Diagnose the root cause. Then choose your first move.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "andrew-carnegie",
+      summary:
+        "Carnegie and Napoleon converge on a root-cause diagnostic before prescribing a response to underperformance. Carnegie's development-first model is correct when the limiting factor is capability — unclear expectations, missing skills, or insufficient support. Napoleon's accountability-first model is correct when the limiting factor is urgency — misaligned incentives, negotiable standards, or the absence of clear consequence. Both agree that development investment made before expectations are explicit will be read as evidence that the standard is not serious.",
+      actionableInsight:
+        "Before deciding how to respond to an underperforming team member, diagnose the root cause. Ask: does this person understand precisely what is expected of them and believe the expectation is non-negotiable? If no — start with Napoleon's move: state the expectation, make it specific and time-bound, and make the consequence of not meeting it clear. If yes — start with Carnegie's move: invest genuinely in the person's development, communicate your belief in their capacity to meet the standard, and make your care for their growth evident. The mistake is applying development investment to an urgency problem, or applying pressure to a capability problem. Diagnose first.",
+    },
+  },
+  {
+    slug: "tesla-vs-galileo-on-working-against-the-institution",
+    type: "collision",
+    frameworkSlug: "nikola-tesla",
+    collisionFrameworkSlugs: ["nikola-tesla", "galileo-galilei"],
+    title: "Tesla vs. Galileo: How Do You Keep Building When the System Works Against You?",
+    description:
+      "Tesla fought Edison's direct-current empire openly and on technical merit — and eventually won the war of alternating current while losing most of what he had personally. Galileo faced the most powerful institutional authority in Europe, recanted his findings under threat, and continued his scientific work in private until his ideas had become impossible to suppress. Direct defiance and strategic patience produced different personal outcomes but both advanced the work. The question is not whether to resist — it is how.",
+    targetKeywords: [
+      "how to work against institutions",
+      "fighting incumbents vs working around them",
+      "Tesla Galileo strategy against opposition",
+      "when to fight the system vs route around it",
+      "startup vs incumbent strategy",
+    ],
+    decisionType: "resilience",
+    hookQuestion:
+      "The institutions, investors, or market incumbents are aligned against your approach. Do you fight them directly or work around them?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "I did not choose to fight Edison because I was temperamentally combative. I fought because the technical question — AC versus DC — had a correct answer, and the correct answer was mine. The 'War of Currents' was not a political dispute or a market positioning debate. It was a question of physics. When the facts are unambiguously on your side and the opposition is entrenched not on evidence but on interest, the correct strategy is to make the evidence as public and as undeniable as possible. I lit the Chicago World's Fair with alternating current. That was not a compromise with Edison's system — it was a demonstration that his system could be replaced. The strategy of working around the institution only makes sense when the institution's position cannot be directly falsified.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "Tesla describes the strategy for the case where the institution is technically wrong and you have the tools to prove it in a single public demonstration. My situation was structurally different. The Church's authority was not predicated on physics — it was predicated on interpretation of scripture and the organization of social life. A telescope pointing at the moons of Jupiter was a correct answer to a specific empirical question. It was not a correct answer to the institutional question of whether the Church's interpretation of scripture was authoritative. When I recanted before the Inquisition, I was not abandoning the science. I was correctly identifying that the fight I was in was not primarily a scientific fight, and that a martyr to heliocentrism in 1633 would have produced less scientific progress than an old astronomer under house arrest who continued to write. Strategic patience is not cowardice. It is the recognition that not every institutional obstacle can be resolved by technical demonstration.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "Galileo's recantation was prudent under the conditions he faced. I do not dispute that. But I want to name the cost of the strategic patience model that he does not account for. When I compromised with Westinghouse on the royalty structure, when I deferred to Morgan on the scope of the Wardenclyffe project, when I accepted the institutional constraints that limited what I could build — I was practicing Galileo's patience, and each compromise extended the timeline of the work and ultimately left me unable to complete the most important project I had conceived. The institutional accommodation did not preserve my capacity to work. It slowly consumed it. I am not arguing that direct confrontation is always correct. I am arguing that the strategy of working around institutions has a hidden cost: every routing-around is a concession to the institution's terms, and those concessions compound.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "Tesla names a real failure mode — the strategic patience that becomes permanent accommodation. I want to be precise about what distinguishes the two. I did not stop working when I recanted. I wrote the Discorsi under house arrest, and it was published in the Netherlands outside the Church's jurisdiction. The accommodation was on the institutional register — the public declaration — while the scientific work continued in the only register where it could still advance. The test is not whether you have made a concession to the institution. It is whether the concession has closed the avenue of work itself, or only the avenue of public confrontation. Tesla's compromises eventually closed the work — the funding dried up, the projects were cancelled. My recantation closed the public confrontation but left the work intact. The accommodation is acceptable when it preserves the work. It is fatal when it substitutes for the work.",
+      },
+      {
+        speaker: "Nikola Tesla",
+        text: "Then the practical diagnosis is this: what does the institution actually control? If the institution controls the public demonstration space but not the technical development space, Galileo's approach is correct — cede the public register, preserve the technical work, and let the work outlast the institutional opposition. If the institution controls the resources required for the technical development itself — the capital, the infrastructure, the supply chain — then accommodation is not a viable long-term strategy, because every accommodation increases the institution's leverage over the work. In my case, Morgan controlled the capital. I could route around Edison on technical merit. I could not route around Morgan on resources. Galileo could route around the Church's public authority. He could not have routed around it if the Church had controlled his laboratory. The institution's specific control structure determines whether confrontation or patience is the correct first move.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "We have arrived at the decision rule. Map what the opposing institution actually controls: public demonstration channels, capital and resources, distribution infrastructure, or the work itself. If the institution controls public channels but not the work — Galileo's model applies: cede the public register, route the work through the channel the institution does not control, and let time and replication do the confrontation. If the institution controls the resources the work requires — Tesla's urgency is correct: the accommodation is temporary at best, and the longer you route around rather than confront, the more leverage you cede. If the institution controls the work itself — neither accommodation nor confrontation resolves it, and the strategic answer is to build a parallel infrastructure that makes the institution's control irrelevant. Name what they control before you decide how to respond.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "nikola-tesla",
+      summary:
+        "Tesla and Galileo converge on a diagnostic: the correct response to institutional opposition depends on what the institution actually controls. If it controls public demonstration channels but not the work itself — Galileo's model applies: cede the public register while preserving the technical work. If it controls the resources required for the work — Tesla's urgency is correct: accommodation increases leverage over time and confrontation or parallel infrastructure is necessary. The accommodation is acceptable when it preserves the work; it is fatal when it substitutes for the work.",
+      actionableInsight:
+        "Before deciding whether to fight the institution or route around it, map what the institution specifically controls. Does it control your public credibility and distribution, or does it control your capital, infrastructure, or access to the work itself? If the former, use Galileo's approach: make the public accommodation while continuing the work through channels the institution does not govern. If the latter, use Tesla's urgency: every quarter of accommodation is a quarter in which the institution's leverage over your work compounds. The specific control structure is the variable — not the institution's size or apparent power. Small institutions that control critical resources are more dangerous than large institutions that control only public narrative.",
+    },
+  },
+  {
+    slug: "sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital",
+    type: "collision",
+    frameworkSlug: "sun-tzu",
+    collisionFrameworkSlugs: ["sun-tzu", "john-d-rockefeller"],
+    title: "Sun Tzu vs. Rockefeller: Do You Win by Choosing the Right Terrain or by Controlling Capital?",
+    description:
+      "Sun Tzu's theory of competitive advantage is fundamentally positional: win by fighting on ground where the enemy's strength doesn't apply. Rockefeller's theory is fundamentally infrastructural: eliminate competition by controlling the assets your competitors must use to compete. Both produced decisive, lasting competitive victories — but through mechanisms that are genuinely incompatible, and the choice between them has direct implications for how founders should think about building moats.",
+    targetKeywords: [
+      "competitive advantage strategy startup",
+      "positioning vs capital accumulation strategy",
+      "Sun Tzu Rockefeller competitive moat",
+      "how to build a startup moat",
+      "terrain selection vs infrastructure control",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Is your competitive advantage a positioning choice — or an asset accumulation play?",
+    publishedAt: "2026-05-21",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The general who wins selects the terrain before the battle begins. The terrain determines which force is relevant and which is not. Rockefeller's capital is a form of force — enormous, systematized, capable of crushing any direct competitor. But force deployed on the wrong terrain is wasted force. The question is not how much capital you can accumulate. It is whether the terrain you have selected makes your competitor's capital advantage irrelevant. The startup that competes with an incumbent on the incumbent's chosen terrain will lose regardless of how much terrain they occupy. Select the ground where the incumbent's scale is a liability rather than an asset — regulatory complexity they cannot navigate quickly, customer relationships that require personal attention they cannot provide at scale, technical domains where their legacy architecture is a constraint rather than an advantage. Win there first. The capital question is secondary.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Sun Tzu describes a strategy for the actor who cannot control the terrain — who must maneuver within a landscape they do not own. My approach was different: I did not select favorable terrain. I built it. The pipeline network, the railroad rebates, the refinery network — these were not geographic advantages I discovered. They were infrastructure I constructed at cost, in advance, before my competitors understood what I was doing. The result was not a terrain that made my capital relevant. It was a system my competitors were forced to use, on terms I set. Sun Tzu's terrain selection produces an advantage that lasts until a competitor selects better terrain. My infrastructure control produced an advantage that lasted until the federal government dismantled it. Choose the model that matches your resource level: terrain selection for the actor who must be mobile; infrastructure control for the actor with the patience and capital to build the toll road.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "Rockefeller describes the outcome of his approach without naming its precondition. He built the Standard Oil infrastructure because he had already won the terrain battle in Cleveland — the preferential railroad rates, the refinery consolidations — before any competitor understood that the terrain was being contested. The infrastructure he built was the formalization of a positional advantage he had already achieved. The founder who attempts to build infrastructure control from a position of positional weakness will simply build expensive assets on terrain that better-positioned competitors will outflank. Rockefeller's capital accumulation was not an alternative to terrain selection — it was the stage that followed terrain selection after the initial position was secured. The strategic sequence is terrain first, infrastructure second.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "Sun Tzu is making a historical claim about the sequence of my strategy that I think requires examination. The Cleveland consolidation was not a terrain selection — it was a capital deployment. I bought out competitors at prices they could not refuse, not because I had found a position their strength could not reach, but because I had the capital to make refusal irrational and the operational efficiency to make the combined entity more profitable than the sum of its parts. The positional advantage came after the capital deployment, not before it. The first move was not selecting favorable ground — it was making a capital commitment that changed the ground itself. Sun Tzu's model assumes the terrain is fixed. In markets where capital can alter the terrain, the infrastructure model is not a second-stage move. It is the first move that creates the terrain the positioning model then maps.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "Then we have identified the precise variable that determines which model applies: whether the terrain is fixed or malleable. In a domain where the terrain is fixed — where the competitive landscape has properties that capital cannot buy its way out of, such as network effects that are already concentrated elsewhere, technical domains requiring rare expertise, or customer relationships that are non-transferable — terrain selection is the primary instrument. The actor with superior capital who enters fixed terrain that is already occupied by a well-positioned defender will pay an enormous price for insufficient outcome. In a domain where capital can alter the terrain — commodity markets, infrastructure-dependent industries, distribution-dependent businesses — Rockefeller's infrastructure model is the more powerful instrument. Diagnose the malleability of the terrain before deciding which model to use.",
+      },
+      {
+        speaker: "John D. Rockefeller",
+        text: "We have converged on the diagnostic, and I want to state it as a decision rule for founders with limited capital. If your terrain is fixed — if there are positions in your market that capital cannot purchase and that incumbents have not yet occupied — Sun Tzu is correct: move to those positions immediately, before anyone else identifies them, and defend them at a cost your larger competitors cannot justify paying. If your terrain is malleable — if the positions of competitive advantage are themselves buildable assets — then Rockefeller's model applies, but the entry requirement is meaningful early capital advantage. A founder attempting to build infrastructure control from a position of capital parity with incumbents will simply fund a slower version of the incumbent's expansion. The infrastructure model requires a genuine capital advantage in the specific segment where the infrastructure will be built. If you do not have that advantage, Sun Tzu's terrain selection is not the second-best strategy. It is the only one available to you.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "sun-tzu",
+      summary:
+        "Sun Tzu and Rockefeller converge on a terrain-malleability diagnostic. In markets where competitive terrain is fixed — where capital cannot purchase the positions of advantage — Sun Tzu's positional model is correct: identify the ground the incumbent's scale makes them unable to contest and occupy it before they understand the contest. In markets where terrain is malleable — where capital can construct the infrastructure that competitors must use — Rockefeller's model is correct, provided the founder has a genuine early capital advantage in the specific segment where infrastructure will be built. The error is applying the infrastructure model without capital advantage, or applying the terrain-selection model to a domain where capital can simply buy any terrain you select.",
+      actionableInsight:
+        "Before deciding between a positioning strategy and an infrastructure strategy, run the terrain-malleability test. Ask: can a well-capitalized incumbent buy their way into the position I am trying to occupy? If no — the terrain is fixed, Sun Tzu's model applies, and speed to occupation matters more than capital accumulation. Move immediately to the position where the incumbent's scale is a liability. If yes — the terrain is malleable, and the question shifts to whether you have a genuine capital advantage in the specific segment where infrastructure will be built. If you do, Rockefeller's model applies: build the toll road before competitors realize you are building it. If you do not, the infrastructure model is not available to you — it would simply fund the incumbent's expansion at your expense. Return to Sun Tzu: find the ground their capital cannot make relevant.",
+    },
+  },
   // ── Wave 18: collision articles ───────────────────────────────────────
   {
     slug: "seneca-vs-cicero-on-private-virtue-vs-public-duty",
@@ -4812,6 +4972,49 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "irreversible facts faster than his opponents could deliberate",
       constructIndex: 0,
+    },
+  ],
+  // ── Wave 19 annotation blueprints ────────────────────────────────────
+  "carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it": [
+    {
+      label: "Development vs. accountability first",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "invest in their development or apply pressure",
+      constructIndex: 0,
+    },
+    {
+      label: "Root cause of underperformance",
+      source: (entry) => entry.description,
+      excerpt: "earned through genuine care",
+      constructIndex: 3,
+    },
+  ],
+  "tesla-vs-galileo-on-working-against-the-institution": [
+    {
+      label: "What the institution controls",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "fight them directly or work around them",
+      constructIndex: 0,
+    },
+    {
+      label: "Accommodation vs. preservation of work",
+      source: (entry) => entry.description,
+      excerpt: "strategic patience",
+      constructIndex: 1,
+    },
+  ],
+  "sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital": [
+    {
+      label: "Terrain malleability diagnostic",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "positioning choice — or an asset accumulation play",
+      constructIndex: 0,
+    },
+    {
+      label: "Fixed vs. malleable terrain",
+      source: (entry) => entry.description,
+      excerpt: "terrain-selection model",
+      constructIndex: 2,
     },
   ],
 };

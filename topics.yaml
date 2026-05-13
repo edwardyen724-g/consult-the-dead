@@ -2072,3 +2072,83 @@
   hook_angles: [shortcut, risk]
   status: shipped
   shipped_at: "2026-05-21"
+
+# ── Wave 19 ─────────────────────────────────────────────────────────────────
+
+- slug: carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "winning team loyalty vs demanding performance"
+  secondary_queries:
+    - "develop employees vs hold them accountable"
+    - "loyalty through investment vs consequence leadership"
+    - "Carnegie vs Napoleon leadership style"
+  framework_slugs: [andrew-carnegie, napoleon-bonaparte]
+  decisionType: hiring
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: tesla-vs-galileo-on-working-against-the-institution
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how to keep building when the system works against you"
+  secondary_queries:
+    - "working against institutions startup"
+    - "defying industry incumbents vs working around them"
+    - "strategic patience vs direct confrontation"
+  framework_slugs: [nikola-tesla, galileo-galilei]
+  decisionType: resilience
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "competitive advantage through positioning vs capital"
+  secondary_queries:
+    - "positional strategy vs resource accumulation"
+    - "terrain selection vs capital control competitive strategy"
+    - "Sun Tzu vs Rockefeller competitive strategy"
+  framework_slugs: [sun-tzu, john-d-rockefeller]
+  decisionType: strategy
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-give-equity-to-early-employees
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I give equity to early employees"
+  secondary_queries:
+    - "equity for early employees startup"
+    - "when to give employees equity vs salary"
+    - "startup equity compensation early hires"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-hire-a-sales-team-or-stay-founder-led-sales
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a sales team or stay founder-led sales"
+  secondary_queries:
+    - "founder-led sales vs hiring salespeople"
+    - "when to hire first salesperson startup"
+    - "founder selling vs sales team decision"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, john-d-rockefeller]
+  hook_angles: [shortcut, tension]
+  status: shipped
+  shipped_at: "2026-05-21"
+
+- slug: should-i-build-or-buy-a-technology
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build or buy a technology"
+  secondary_queries:
+    - "build vs buy technology decision startup"
+    - "make or buy software decision"
+    - "when to build in-house vs buy vendor solution"
+  recommended_council: [nikola-tesla, andrew-carnegie, niccolo-machiavelli]
+  hook_angles: [shortcut, risk]
+  status: shipped
+  shipped_at: "2026-05-21"

@@ -2129,6 +2129,74 @@ describe("Wave 18 collision batch", () => {
   });
 });
 
+describe("Wave 19 collision batch", () => {
+  it("generates a reel script for carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it", () => {
+    const script = buildVerdictReelScript(
+      "carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it",
+    );
+    expect(script.slug).toBe(
+      "carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it",
+    );
+    expect(script.frameworkSlug).toBe("andrew-carnegie");
+    expect(script.decisionType).toBe("hiring");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Hiring council: Carnegie (main), Machiavelli (support), Franklin (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Benjamin Franklin");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/carnegie-vs-napoleon-on-winning-loyalty-vs-demanding-it",
+    );
+  });
+
+  it("generates a reel script for tesla-vs-galileo-on-working-against-the-institution", () => {
+    const script = buildVerdictReelScript(
+      "tesla-vs-galileo-on-working-against-the-institution",
+    );
+    expect(script.slug).toBe(
+      "tesla-vs-galileo-on-working-against-the-institution",
+    );
+    expect(script.frameworkSlug).toBe("nikola-tesla");
+    expect(script.decisionType).toBe("resilience");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Resilience council: Aurelius (main), Tesla (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/tesla-vs-galileo-on-working-against-the-institution",
+    );
+  });
+
+  it("generates a reel script for sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital", () => {
+    const script = buildVerdictReelScript(
+      "sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital",
+    );
+    expect(script.slug).toBe(
+      "sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital",
+    );
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/sun-tzu-vs-rockefeller-on-winning-through-terrain-vs-capital",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented
