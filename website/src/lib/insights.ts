@@ -578,6 +578,42 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Method articles — high-SEO framework explainers (task 7deb5fb2) ──
+  {
+    slug: "cynefin-framework-explained",
+    type: "single",
+    frameworkSlug: "leonardo-da-vinci",
+    title: "The Cynefin Framework Explained",
+    description:
+      "The Cynefin framework sorts every decision into one of five domains — Clear, Complicated, Complex, Chaotic, and Disorder — and tells you which decision approach is appropriate for each. Most founders apply the wrong approach: using best-practice checklists in Complex situations, or expert analysis in Chaotic ones. The framework's real value is diagnosing which domain you are in before you decide how to decide.",
+    targetKeywords: [
+      "Cynefin framework",
+      "Cynefin framework explained",
+      "when to use Cynefin",
+      "Cynefin decision making",
+      "Cynefin for founders",
+      "Cynefin framework domains",
+      "complex vs complicated decision making",
+    ],
+    decisionType: "systems",
+    hookQuestion:
+      "You have a decision in front of you. Everyone is asking for a plan — a clear roadmap, best practices, a definitive answer. But what if the problem is not the kind of problem that has a clear answer yet? The Cynefin framework was built for exactly this moment: it tells you which kind of problem you actually have before you decide how to approach it.",
+    publishedAt: "2026-05-12",
+    agonExcerpt: [
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Every system has a structure that precedes its understanding. Before you apply a solution, you must determine what kind of system you are dealing with — a mechanical system that responds predictably to intervention, or a living system that adapts in ways the intervention cannot anticipate. Applying the wrong kind of thinking to the wrong kind of system is not just inefficiency: it is the reliable production of surprise.",
+      },
+      {
+        speaker: "Sun Tzu",
+        text: "The general who treats every battle as the same battle has already lost. The terrain of a complex problem does not reward the tactics of a simple one. In the complex domain, you do not analyze and then act — you probe, observe the response, and then commit. Small bets before large ones. Reversible before irreversible. The probe is not indecision; it is intelligence.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Distinguish what is in your control from what is not. In a complex system, the full outcome is not in your control — only your next probe. The Stoic discipline here is to act with full commitment on the probe while holding the outcome with detachment. You are not the cause of the system's response; you are the observer who decides what to do next.",
+      },
+    ],
+  },
   // ── Batch 3: 'What Would X Say' articles (task 9b797e96) ─────────────
   {
     slug: "what-would-marie-curie-say-about-when-to-trust-the-data",
@@ -905,6 +941,21 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "terrain features",
       constructIndex: 10,
+    },
+  ],
+  // ── Method article annotation blueprints (task 7deb5fb2) ─────────────
+  "cynefin-framework-explained": [
+    {
+      label: "Domain diagnosis",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "which kind of problem you actually have",
+      constructIndex: 0,
+    },
+    {
+      label: "Wrong-approach cost",
+      source: (entry) => entry.description,
+      excerpt: "wrong approach",
+      constructIndex: 3,
     },
   ],
   // ── Batch 3 annotation blueprints (task 9b797e96) ─────────────────────

@@ -337,4 +337,5 @@
     - "when to use Cynefin"
   recommended_council: []
   hook_angles: [shortcut, proof]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-12
