@@ -8,8 +8,8 @@ schema or the documented corpus baseline, the tests will fail and prompt a revie
 Corpus baseline (established by initial pipeline run):
   - 5 curated source texts (All Things Digital D5 dual/solo, D8 liveblog,
     Computer History Museum, Future of the PC 1990)
-  - 30 candidate incidents, all classified as `critical_incident`
-  - 30 reconstructed incidents with CDM probes, IDs incident-001..incident-030
+  - 29 candidate incidents, all classified as `critical_incident` (frozen at 29, PR #175)
+  - 29 reconstructed incidents with CDM probes, IDs incident-001..incident-029
 """
 
 from __future__ import annotations
@@ -34,7 +34,8 @@ CURATED_CORPUS_SOURCES = {
 }
 
 # Number of candidates extracted from the curated corpus
-CURATED_CANDIDATE_COUNT = 30
+# Frozen at 29 in PR #175 (task 27062c01) — one candidate removed during review
+CURATED_CANDIDATE_COUNT = 29
 
 # Required CDM probe keys present in each reconstructed incident
 CDM_PROBE_KEYS = {

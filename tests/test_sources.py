@@ -9,7 +9,7 @@ import httpx
 
 from framework_forge.sources import discovery
 from framework_forge.sources.discovery import discover_sources
-from framework_forge.sources.fetcher import clean_html, fetch_source
+from framework_forge.sources.fetcher import FetchError, clean_html, fetch_source
 from framework_forge.sources.triage import SourceEntry, triage_sources
 
 
@@ -278,7 +278,7 @@ class TestFetchSource:
         error = httpx.ConnectError("connection refused", request=request)
 
         with patch("framework_forge.sources.fetcher.httpx.get", side_effect=error):
-            with pytest.raises(httpx.ConnectError, match="connection refused"):
+            with pytest.raises(FetchError, match="connection refused"):
                 fetch_source(url, output_path)
 
         assert not output_path.exists()

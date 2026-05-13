@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from framework_forge.validation.tier1 import ScenarioResult, Tier1Result
-from framework_forge.validation.tier3_prep import prepare_tier3_materials
+from framework_forge.validation.tier3_prep import Tier3Result, prepare_tier3_materials
 
 
 class SequenceRandom:
@@ -40,8 +40,9 @@ def _build_tier1_result() -> Tier1Result:
     )
 
 
-def _read_packet(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
+def _read_packet(result: Tier3Result) -> dict:
+    """Read the review packet JSON from a Tier3Result's .path attribute."""
+    return json.loads(result.path.read_text(encoding="utf-8"))
 
 
 def test_prepare_tier3_materials_accepts_injected_random_source(tmp_path):
@@ -56,7 +57,7 @@ def test_prepare_tier3_materials_accepts_injected_random_source(tmp_path):
 
     packet = _read_packet(output_path)
 
-    assert output_path.name == "review_packet.json"
+    assert output_path.path.name == "review_packet.json"
     assert packet["person"] == "Steve Jobs"
     assert [pair["labels"] for pair in packet["pairs"]] == [
         {"response_a": "framework", "response_b": "baseline"},
@@ -92,7 +93,7 @@ def test_prepare_tier3_materials_seed_is_reproducible(tmp_path):
     first_packet = _read_packet(first_path)
     second_packet = _read_packet(second_path)
 
-    assert first_path == second_path
+    assert first_path.path == second_path.path
     assert first_packet == second_packet
     assert first_packet["instructions"].startswith(
         "For each scenario below, two responses are given (A and B)."
@@ -110,7 +111,7 @@ def test_prepare_tier3_materials_uses_default_rng_when_unseeded(tmp_path):
 
     packet = _read_packet(output_path)
 
-    assert output_path.name == "review_packet.json"
+    assert output_path.path.name == "review_packet.json"
     assert len(packet["pairs"]) == 2
     assert {pair["scenario"] for pair in packet["pairs"]} == {
         "scenario-1",
