@@ -153,6 +153,19 @@ const DECISION_COURT: Record<
       "Growth rate is not a strategy. Close the gap between operational tempo and logistical architecture before you add the next division. If you cannot reproduce the mechanism that created last quarter's numbers, you have not found a repeatable process — you have found a coincidence.",
     caption: "Tempo follows logistics, not the other way around.",
   },
+  // ── Wave 4 court entries ─────────────────────────────────────────────
+  persuasion: {
+    minds: ["Cicero", "Benjamin Franklin", "Marcus Aurelius"],
+    consensus:
+      "Persuasion is not charm — it is structure. Know your audience's interest before you speak. Argue only what cannot be refuted, and say it in the fewest words the truth allows. The rest is noise that weakens your strongest point.",
+    caption: "Argue only what cannot be refuted.",
+  },
+  control: {
+    minds: ["Epictetus", "Marcus Aurelius", "Seneca"],
+    consensus:
+      "You cannot control outcomes, reputation, or other people's judgments. You can control your own response, effort, and direction. Spend all strategic energy on the second category. Ignore the first entirely. This is not passivity — it is the highest form of focus.",
+    caption: "Control your response. Nothing else.",
+  },
   // ── Wave 3 court entries ─────────────────────────────────────────────
   focus: {
     minds: ["Steve Jobs", "Leonardo da Vinci", "Marcus Aurelius"],
@@ -233,6 +246,11 @@ const MAIN_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Logistical architecture must precede operational tempo. Before you scale to the next level, verify that the supply line can follow.",
+  // ── Wave 4 beats ──────────────────────────────────────────────────────
+  persuasion:
+    "Know your audience's strongest interest before you open your mouth. Argue only what cannot be refuted. Let the rest go.",
+  control:
+    "Divide the world into what you control and what you do not. Spend all energy on the first category. Ignore the second entirely.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
     "Focus is a subtraction problem. Every feature you keep is attention you cannot spend elsewhere. Choose what to cut, not just what to build.",
@@ -289,6 +307,11 @@ const SUPPORT_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Every overextension in history looked like momentum until it didn't. The difference between tempo and recklessness is whether the infrastructure is ready.",
+  // ── Wave 4 beats ──────────────────────────────────────────────────────
+  persuasion:
+    "The softened argument does not protect you — it weakens you. Cicero never hedged what he knew to be true. Say the precise thing.",
+  control:
+    "The Stoic advantage is not that nothing bad happens — it is that nothing external can take your focus away from what you can actually do about it.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
     "Jobs did not succeed by building more — he succeeded by cutting everything that did not belong. The discipline to remove is harder than the discipline to add.",
@@ -345,6 +368,11 @@ const CLOSE_BEATS: Record<string, string> = {
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
     "Close the gap between your growth rate and your operational capacity before the gap closes you.",
+  // ── Wave 4 beats ──────────────────────────────────────────────────────
+  persuasion:
+    "What are the three things about your position that cannot be refuted? Argue those, and only those.",
+  control:
+    "What are you trying to change that is not in your control? Stop. What is? Do that instead.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
     "What is on your roadmap that does not belong? Cut that first. Then build the rest.",

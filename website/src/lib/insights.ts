@@ -881,6 +881,238 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       },
     ],
   },
+  // ── Wave 4: insight + method batch ────────────────────────────────────
+  {
+    slug: "what-would-cicero-say-about-pitching-to-investors",
+    type: "single",
+    frameworkSlug: "cicero",
+    title: "What Would Cicero Say About Pitching to Investors?",
+    description:
+      "Cicero won complex legal cases in the Roman Forum against opponents with more power and status. His persuasion framework — the canon of rhetoric — is not a collection of tricks. It is a systematic approach to understanding your audience and engineering the precise arguments that will move them.",
+    targetKeywords: [
+      "how to pitch investors startup",
+      "investor pitch persuasion",
+      "Cicero rhetoric business",
+      "persuasion techniques fundraising",
+      "how to be more persuasive startup",
+    ],
+    decisionType: "persuasion",
+    hookQuestion:
+      "You are about to walk into the most important pitch of your company's life. You have 12 minutes. Cicero won cases in the Roman Forum with less. His system for persuasion was not about charisma — it was about structure.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Cicero",
+        text: "The first mistake the inexperienced advocate makes is to argue everything. The skilled advocate argues only what cannot be refuted. Before you speak, ask yourself: which three points are so strong that no counterargument survives them? Argue only those. Let the rest go. Your audience's attention is not unlimited. Neither is their tolerance for weakness.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "If you would persuade, you must appeal to interest and not to reason. I never opened a persuasive conversation without first understanding exactly what the other person wanted to walk away with. That is not manipulation — it is the honest work of meeting someone where they are instead of where you want them to be.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Speak briefly and precisely. The person who speaks at length either does not know their argument or does not trust it. The shortest statement of a true thing is almost always the most powerful. Compress what you have to say until it can no longer be compressed. Then say it.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-epictetus-say-about-what-you-can-control",
+    type: "single",
+    frameworkSlug: "epictetus",
+    title: "What Would Epictetus Say About What You Can Control?",
+    description:
+      "Epictetus divided the world into two categories: things within your control (your judgments, desires, and actions) and things outside your control (reputation, wealth, other people's opinions). His entire philosophy was an operating system for directing energy only toward the first category.",
+    targetKeywords: [
+      "what can you control stoicism",
+      "Epictetus dichotomy of control",
+      "stoic philosophy founder",
+      "how to focus on what you control",
+      "Epictetus Enchiridion explained",
+    ],
+    decisionType: "control",
+    hookQuestion:
+      "You are spending mental energy on things that are not in your control — what competitors are doing, what investors think, whether the press covers you. Epictetus was a slave for the first half of his life and built a framework for mastery that has nothing to do with external circumstances.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Epictetus",
+        text: "Some things are in our control and others not. Things in our control are opinion, pursuit, desire, aversion, and whatever are our own actions. Things not in our control are body, reputation, command, and whatever are not our own actions. The wise founder spends no energy on the second category. All strategy is about the first.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "You have power over your mind, not outside events. Realize this, and you will find strength. The competitor who disturbs you, the investor who doubts you, the customer who left — none of these are within your control. Your response to each of them is. Focus your entire strategic effort there.",
+      },
+      {
+        speaker: "Seneca",
+        text: "Begin at once to live, and count each separate day as a separate life. The founder who defers her clarity until the market cooperates, the investor agrees, or the product is perfect has outsourced her agency to things she cannot govern. What are you waiting for? The condition will never be perfect. Begin.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-ada-lovelace-say-about-building-with-ai",
+    type: "single",
+    frameworkSlug: "ada-lovelace",
+    title: "What Would Ada Lovelace Say About Building With AI?",
+    description:
+      "Lovelace was the first to understand that Babbage's Analytical Engine could manipulate symbols beyond numbers — she saw the computer as a general symbol processor. Her key insight was about what machines cannot do: originate. The machine can only do what we know how to order it to perform.",
+    targetKeywords: [
+      "building with AI tools startup",
+      "when to use AI in your product",
+      "Ada Lovelace computer science history",
+      "AI product strategy 2026",
+      "foundation models startup decision",
+    ],
+    decisionType: "technology",
+    hookQuestion:
+      "Your competitors are shipping AI features every week. Your team is asking whether to build on top of foundation models or wait for something better. Ada Lovelace wrote the first algorithm 170 years before GPT-1 and understood something most people miss about how machines actually work.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Nikola Tesla",
+        text: "The machine that is good enough for today will be obsolete in three years if you do not understand why it works. Build on top of AI only if you understand the mechanism well enough to predict where it will fail. The founder who treats a foundation model as a black box has built a dependency she cannot debug.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "To understand the current state of any technology, you must understand its limits before you understand its possibilities. Lovelace saw this clearly: the machine does only what you know how to instruct it to do. AI does not change this. It merely raises the ceiling of what can be instructed.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "The painter who cannot draw cannot paint. The founder who cannot think clearly about the problem cannot delegate it to a machine and expect a good result. AI amplifies what you already know how to do. It does not replace the thinking that precedes instruction.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-harriet-tubman-say-about-leading-a-mission",
+    type: "single",
+    frameworkSlug: "harriet-tubman",
+    title: "What Would Harriet Tubman Say About Leading a Mission?",
+    description:
+      "Tubman ran nineteen missions into slave territory and brought out over 300 people, operating in one of the most hostile environments imaginable. Her framework was not about inspiration — it was about operational intelligence, pre-positioned resources, timing, and refusing to let individual fear compromise the group's mission.",
+    targetKeywords: [
+      "mission-driven leadership startup",
+      "Harriet Tubman leadership lessons",
+      "how to lead a high-stakes team",
+      "leading through uncertainty",
+      "mission-driven company management",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "Harriet Tubman led dozens of people through hostile territory to freedom and never lost a single one. Your company has a mission people believe in. But belief is not enough. Her operational framework for leading under real pressure is precise and counter-intuitive.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The leader who relies on belief alone is vulnerable the moment the mission becomes difficult. Belief is the fuel, but operational excellence is the engine. A mission-driven team that does not have clear procedures for every foreseeable failure will improvise badly when the pressure arrives. Plan the failures before they happen.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The first quality of a leader is to know what she can and cannot control. What she can control: the clarity of the mission, the preparation of the team, and the soundness of the decision. What she cannot control: external conditions, how others react, and the precise timing of success. Lead on the first. Accept the second.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I was taught that the way of progress is neither swift nor easy. The mission-driven leader who expects a clear path has confused inspiration with strategy. Measure the obstacles. Prepare the resources. Execute the plan. The mission is not delivered by belief — it is delivered by systematic work in the direction of a clear goal.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-frederick-douglass-say-about-finding-your-voice",
+    type: "single",
+    frameworkSlug: "frederick-douglass",
+    title: "What Would Frederick Douglass Say About Finding Your Voice?",
+    description:
+      "Douglass understood that the power to persuade came not from diplomatic softening but from precise, irrefutable language. His most powerful rhetorical move was not eloquence — it was specificity. He named names, described incidents, and forced his audience to engage with concrete reality instead of comfortable abstractions.",
+    targetKeywords: [
+      "how to find your voice startup",
+      "Frederick Douglass communication",
+      "public speaking confidence founder",
+      "storytelling persuasion business",
+      "how to speak truth in meetings",
+    ],
+    decisionType: "persuasion",
+    hookQuestion:
+      "You know what you need to say, but you are afraid of how it will land. You are softening the message. Frederick Douglass taught himself to read in secret, escaped from slavery, and then spoke in front of crowds who had never heard a former enslaved person articulate the case for freedom.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Cicero",
+        text: "The case that is softened for politeness is the case that loses. Your opponent is not handicapped by your discomfort. Speak with precision, not with aggression, but do not confuse clarity with confrontation. The precise statement of a true thing is almost always more persuasive than the hedged version of it.",
+      },
+      {
+        speaker: "Benjamin Franklin",
+        text: "I have observed that most people who claim they cannot find the right words have not yet committed to the right position. The words come when the position is clear. If you are softening the message, the question is not how to say it better — it is whether you are fully committed to what you are saying.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "If it is not right, do not do it. If it is not true, do not say it. The voice you are looking for is not a rhetorical technique — it is the consequence of having something true to say and the discipline to say it without apology. Do you have something true? Then say it precisely.",
+      },
+    ],
+  },
+  {
+    slug: "what-would-archimedes-say-about-leverage",
+    type: "single",
+    frameworkSlug: "archimedes",
+    title: "What Would Archimedes Say About Leverage?",
+    description:
+      "Archimedes discovered the law of the lever and immediately understood its strategic implication: the right position and the right tool can multiply force far beyond what raw effort could achieve. His framework for problem-solving was always to find the structural simplification that made the problem trivial before trying to solve it by brute force.",
+    targetKeywords: [
+      "leverage business strategy",
+      "Archimedes lever business lesson",
+      "how to work smarter not harder startup",
+      "strategic leverage startup",
+      "force multiplier business",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You are working extremely hard but the results are not matching the effort. Archimedes said he could move the world with a long enough lever. The same principle applies to every business problem. The question is not how hard you are working — it is whether you have found the lever.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The supreme general wins without fighting — not because he is passive, but because he has chosen the terrain where his strength is disproportionate. Leverage is the terrain advantage. Before you commit force, find the position where your effort multiplies instead of canceling out.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The prince who uses force where cunning would serve has wasted two resources: energy and the advantage of surprise. Every problem you can solve with structure, you should not solve with effort. Find the hinge. Then push on the hinge, not on the wall.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Simplicity is the ultimate sophistication. Every complex problem contains a simpler problem that, if solved, makes the complex one trivial. The engineer's discipline is to find that simpler problem before committing to the brute-force approach. Archimedes would have agreed.",
+      },
+    ],
+  },
+  {
+    slug: "inversion-thinking-explained",
+    type: "single",
+    frameworkSlug: "niccolo-machiavelli",
+    title: "Inversion Thinking: The Mental Model for Avoiding Failure",
+    description:
+      "Inversion is the practice of approaching problems backwards. Instead of asking how to achieve your goal, you ask what would prevent you from achieving it, then remove those obstacles. Machiavelli was the master of this mental model — his works are almost entirely structured as inversions of what Princes believe will keep them in power.",
+    targetKeywords: [
+      "inversion thinking explained",
+      "mental model inversion Charlie Munger",
+      "how to use inversion thinking",
+      "avoid failure mental model",
+      "second order thinking business",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "Instead of asking how to succeed, ask what would guarantee failure — then avoid it. Machiavelli built his entire political philosophy on inverting conventional wisdom about power. This is inversion, the mental model Charlie Munger called one of the most powerful he knew.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Isaac Newton",
+        text: "For every force, an equal and opposite reaction. The strategist who understands this asks not only what she is trying to produce, but what forces will push back when she acts. Inversion is not pessimism — it is physics applied to decision-making. List the failure modes first. Then design around them.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Science advances by falsification, not by confirmation. I never spent time building the case for a hypothesis I had not already attempted to destroy. The same applies to strategy. Before you commit to a plan, spend half the time trying to find the flaw that makes it fail. If you cannot find one, you have earned the confidence to proceed.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Think about what could prevent you from acting rightly. Then remove those things from your path. The Stoic practice of premeditatio malorum is not pessimism — it is anticipation that removes the power of the obstacle before it arrives. Inversion is not a technique. It is a discipline of honesty about what can go wrong.",
+      },
+    ],
+  },
   // ── Wave 3: insight + method batch ────────────────────────────────────
   {
     slug: "what-would-steve-jobs-say-about-product-focus",
@@ -1549,6 +1781,105 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "reproducible",
       constructIndex: 2,
+    },
+  ],
+  // ── Wave 4 annotation blueprints ──────────────────────────────────────
+  "what-would-cicero-say-about-pitching-to-investors": [
+    {
+      label: "Audience channel selection",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "12 minutes",
+      constructIndex: 0,
+    },
+    {
+      label: "Argument engineering",
+      source: (entry) => entry.description,
+      excerpt: "engineering the precise arguments",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-epictetus-say-about-what-you-can-control": [
+    {
+      label: "Externals as instrument",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "not in your control",
+      constructIndex: 0,
+    },
+    {
+      label: "Role-duty framing",
+      source: (entry) => entry.description,
+      excerpt: "directing energy only toward the first category",
+      constructIndex: 4,
+    },
+  ],
+  "what-would-ada-lovelace-say-about-building-with-ai": [
+    {
+      label: "Abstract vs. concrete potential",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "wait for something better",
+      constructIndex: 0,
+    },
+    {
+      label: "Machine limitations principle",
+      source: (entry) => entry.description,
+      excerpt: "can only do what we know how to order it to perform",
+      constructIndex: 5,
+    },
+  ],
+  "what-would-harriet-tubman-say-about-leading-a-mission": [
+    {
+      label: "Single-actor dependency",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "never lost a single one",
+      constructIndex: 0,
+    },
+    {
+      label: "Phase delegation",
+      source: (entry) => entry.description,
+      excerpt: "pre-positioned resources, timing",
+      constructIndex: 2,
+    },
+  ],
+  "what-would-frederick-douglass-say-about-finding-your-voice": [
+    {
+      label: "High-stakes falsification",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "softening the message",
+      constructIndex: 1,
+    },
+    {
+      label: "Structural vulnerability reading",
+      source: (entry) => entry.description,
+      excerpt: "forced his audience to engage with concrete reality",
+      constructIndex: 0,
+    },
+  ],
+  "what-would-archimedes-say-about-leverage": [
+    {
+      label: "Engineering reframe",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "long enough lever",
+      constructIndex: 4,
+    },
+    {
+      label: "Structural simplification",
+      source: (entry) => entry.description,
+      excerpt: "found the structural simplification",
+      constructIndex: 2,
+    },
+  ],
+  "inversion-thinking-explained": [
+    {
+      label: "Reality vs. conventional wisdom",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "inverting conventional wisdom",
+      constructIndex: 0,
+    },
+    {
+      label: "Historical pattern inversion",
+      source: (entry) => entry.description,
+      excerpt: "structured as inversions of what Princes believe",
+      constructIndex: 4,
     },
   ],
   // ── Wave 3 annotation blueprints ──────────────────────────────────────
