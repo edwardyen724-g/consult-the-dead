@@ -69,7 +69,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "What's \"founder support\"?",
-    a: 'Direct email to Edward (the founder). 48-hour response. Real answers about the product, feature requests, decision-framing help. Not a template bot.',
+    a: 'Direct email to Edward (the founder). 48-hour email response. Real answers about the product, feature requests, decision-framing help. Not a template bot.',
   },
   {
     q: 'Is my data private?',
@@ -532,7 +532,7 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
             alignItems: 'center',
             gap: '8px',
             padding: '8px 12px',
-            marginBottom: '56px',
+            marginBottom: '24px',
             border: '1px solid var(--hairline)',
             borderRadius: '999px',
             fontFamily: 'var(--font-mono)',
@@ -544,6 +544,39 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
         >
           <span aria-hidden="true">★</span>
           Used by indie hackers, founders, and researchers
+        </div>
+
+        {/* Founding-member urgency */}
+        <div
+          data-testid="founding-member-notice"
+          style={{
+            marginBottom: '56px',
+            padding: '16px 20px',
+            border: '1px solid var(--hairline)',
+            borderRadius: '8px',
+            background: 'var(--surface-2)',
+          }}
+        >
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '9px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--amber)',
+            margin: 0,
+            marginBottom: '8px',
+          }}>
+            Founding-member pricing
+          </p>
+          <p style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '0.98rem',
+            lineHeight: 1.6,
+            color: 'var(--fg)',
+            margin: 0,
+          }}>
+            Annual subscribers lock in <strong>$300/year for life</strong> — the current rate. After Q3 2026, the annual plan increases to $360/year. Monthly stays at $30/month. Anyone who subscribes on the annual plan before Q3 2026 keeps the founding-member pricing permanently.
+          </p>
         </div>
 
         {/* Demo / case-study slot */}
