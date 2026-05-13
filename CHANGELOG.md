@@ -4,6 +4,12 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-13 (docs + queue)
+
+### Changed
+- README route table updated to reflect Wave 20 state: 27 minds (was 25), 69 decision pages (was 24); added `/quiz` and `/insights/[slug]` routes to the table.
+- `topics.yaml` Wave 21 queue seeded: 10 new entries (5 collision pairs + 5 high-intent decision pages) with `status: queued`. Total: 178 entries, 168 shipped, 10 queued.
+
 ## [Wave 20] — 2026-05-13
 
 ### Added
