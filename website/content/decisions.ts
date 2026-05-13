@@ -934,6 +934,64 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "stealth mode advantages startup",
     ],
   },
+  {
+    slug: "should-i-pivot-my-startup",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Pivot My Startup?",
+    description:
+      "Pivoting means abandoning what you know is not working and committing to something you believe might work — before you have evidence it will. Every major startup pivot combines two decisions: recognizing that the current trajectory is structurally broken, and choosing which adjacent opportunity to bet on. History's most decisive figures held both of these decisions to very different standards.",
+    primaryQuery: "should I pivot my startup",
+    secondaryQueries: [
+      "when to pivot vs persist",
+      "startup pivot decision framework",
+      "how to know when to pivot",
+      "startup pivot examples lessons",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "thomas-edison",
+      "epictetus",
+    ],
+    hookQuestion:
+      "Your current product is generating revenue but not growing. The market is real but smaller than you thought. You have 9 months of runway. The question is whether to double down, pivot to an adjacent opportunity, or shut it down.",
+    targetKeywords: [
+      "should I pivot my startup",
+      "when to pivot a startup",
+      "startup pivot decision",
+      "how to pivot a startup",
+      "pivot vs persist startup",
+    ],
+  },
+  {
+    slug: "should-i-raise-a-series-a",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Raise a Series A?",
+    description:
+      "A Series A round means committing to a venture-scale growth trajectory with institutional oversight, board seats, and performance expectations that cannot be walked back. The decision is not just about whether you can raise the money — it is about whether the venture-scale path is the right path for what you are building, and whether you want to live inside the institutional structure that comes with it.",
+    primaryQuery: "should I raise a Series A",
+    secondaryQueries: [
+      "Series A fundraising decision",
+      "when to raise Series A",
+      "Series A vs bootstrapping",
+      "is Series A right for my startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "andrew-carnegie",
+    ],
+    hookQuestion:
+      "You have product-market fit at a small scale, growing 15% month-over-month, $40k MRR. Two top-tier VCs have reached out. Raising $3-5M would let you hire a sales team and a CTO. Not raising means slower growth but you keep control and profitability. The decision is whether to bet on venture-scale or optimize for a smaller, profitable outcome.",
+    targetKeywords: [
+      "should I raise Series A",
+      "Series A fundraising decision",
+      "when to raise Series A round",
+      "venture capital Series A timing",
+      "should I take VC money Series A",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
