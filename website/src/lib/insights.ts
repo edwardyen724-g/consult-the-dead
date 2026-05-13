@@ -2116,6 +2116,107 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
       "Your data shows something the industry doesn't believe yet. Every expert tells you the consensus is correct. Do you act on what you see, or wait for the field to catch up?",
     publishedAt: "2026-05-14",
   },
+  // ── Wave 9 collision articles ─────────────────────────────────────────
+  {
+    slug: "galileo-vs-newton-on-disrupting-your-own-field",
+    type: "collision",
+    frameworkSlug: "galileo-galilei",
+    collisionFrameworkSlugs: ["galileo-galilei", "isaac-newton"],
+    decisionType: "innovation",
+    title: "Galileo vs. Newton on Disrupting Your Own Field",
+    description:
+      "A collision on whether to publish findings that will make your existing reputation obsolete — the radical disruption approach (Galileo) versus the incremental paradigm-building approach (Newton). Both overturned prior consensus; they did it in completely different ways.",
+    targetKeywords: [
+      "disrupting your own field",
+      "should I cannibalize my product",
+      "self-disruption strategy",
+      "when to pivot your expertise",
+      "Galileo Newton innovation strategy",
+    ],
+    hookQuestion:
+      "Your next product will make your current one obsolete. You could ship it now and control the disruption, or wait and let someone else ship it first. Galileo and Newton faced this exact choice. They reached opposite conclusions.",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "archimedes-vs-ada-lovelace-on-build-vs-theorize",
+    type: "collision",
+    frameworkSlug: "archimedes",
+    collisionFrameworkSlugs: ["archimedes", "ada-lovelace"],
+    decisionType: "product",
+    title: "Archimedes vs. Ada Lovelace: Should You Build or Theorize First?",
+    description:
+      "A collision on whether to start with working prototypes or architectural specifications. Archimedes built physical models of his inventions; Ada Lovelace wrote algorithms for a machine that didn't exist. Both approaches produced revolutionary results. The choice depends on what kind of unknown you're trying to resolve.",
+    targetKeywords: [
+      "build vs theorize startup",
+      "prototyping vs specification first",
+      "architecture before implementation",
+      "Archimedes Ada Lovelace",
+      "product development approach",
+    ],
+    hookQuestion:
+      "You have six months of runway and a product hypothesis. Do you build a scrappy prototype to test the core assumption, or write the full architectural specification first? Archimedes and Ada Lovelace would disagree.",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "douglass-vs-lincoln-on-playing-the-long-game",
+    type: "collision",
+    frameworkSlug: "frederick-douglass",
+    collisionFrameworkSlugs: ["frederick-douglass", "abraham-lincoln"],
+    decisionType: "strategy",
+    title: "Douglass vs. Lincoln: When Does Playing the Long Game Cost You Too Much?",
+    description:
+      "A collision on when to accept a partial win now versus holding out for complete change. Lincoln accepted political constraints to preserve the union before abolishing slavery; Douglass consistently argued that partial progress normalized injustice. Both perspectives are correct. The question is what you are optimizing for.",
+    targetKeywords: [
+      "playing the long game strategy",
+      "partial wins vs complete change",
+      "when to compromise strategy",
+      "Frederick Douglass Lincoln strategy",
+      "when to hold out vs accept deal",
+    ],
+    hookQuestion:
+      "The deal on the table is good but not great. You could take it now and use it as a platform for the next fight, or walk away and hold out for the full outcome. Lincoln would take the deal. Douglass would walk.",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "epictetus-vs-harriet-tubman-on-risk-under-constraint",
+    type: "collision",
+    frameworkSlug: "epictetus",
+    collisionFrameworkSlugs: ["epictetus", "harriet-tubman"],
+    decisionType: "control",
+    title: "Epictetus vs. Harriet Tubman: How Much Risk Is Rational Under Constraint?",
+    description:
+      "A collision on how to act when the system is stacked against you. Epictetus accepted his situation as a slave and found freedom within it; Harriet Tubman ran the Underground Railroad despite the same kind of constraint. Both were right — and they represent two valid strategic responses to operating under a system that punishes direct action.",
+    targetKeywords: [
+      "taking risk under constraint",
+      "when to accept vs resist constraints",
+      "operating under systemic disadvantage",
+      "Epictetus Tubman stoic philosophy",
+      "founder risk taking",
+    ],
+    hookQuestion:
+      "You are operating in a market where the rules favor incumbents. Do you find ways to be effective within those rules, or do you build a parallel system outside them? Epictetus and Harriet Tubman ran opposite experiments.",
+    publishedAt: "2026-05-14",
+  },
+  {
+    slug: "carnegie-vs-rockefeller-on-monopoly-strategy",
+    type: "collision",
+    frameworkSlug: "andrew-carnegie",
+    collisionFrameworkSlugs: ["andrew-carnegie", "john-d-rockefeller"],
+    decisionType: "scaling",
+    title: "Carnegie vs. Rockefeller on Building Market Dominance",
+    description:
+      "A collision on two strategies for achieving market dominance: Carnegie's approach of vertical integration and cost efficiency (own the production, out-cheap everyone), versus Rockefeller's approach of horizontal control and logistics leverage (control the distribution, make alternatives uneconomical). Both built the largest companies of their era. They used opposite playbooks.",
+    targetKeywords: [
+      "market dominance strategy",
+      "vertical vs horizontal integration",
+      "Carnegie vs Rockefeller strategy",
+      "how to build monopoly power",
+      "scaling startup strategy",
+    ],
+    hookQuestion:
+      "You can either win by being the lowest-cost producer at scale (own the production chain), or by controlling the distribution channel that everyone else has to use. Carnegie went vertical. Rockefeller went horizontal. They both won.",
+    publishedAt: "2026-05-14",
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -3018,6 +3119,77 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       label: "Anomalous data timing",
       source: (entry) => entry.description,
       excerpt: "anomalous data before expert consensus",
+      constructIndex: 1,
+    },
+  ],
+  // ── Wave 9 annotation blueprints ──────────────────────────────────────
+  "galileo-vs-newton-on-disrupting-your-own-field": [
+    {
+      label: "Control the disruption",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "control the disruption",
+      constructIndex: 0,
+    },
+    {
+      label: "Opposite conclusions",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "reached opposite conclusions",
+      constructIndex: 1,
+    },
+  ],
+  "archimedes-vs-ada-lovelace-on-build-vs-theorize": [
+    {
+      label: "Scrappy prototype",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "scrappy prototype to test",
+      constructIndex: 0,
+    },
+    {
+      label: "Kind of unknown",
+      source: (entry) => entry.description,
+      excerpt: "kind of unknown you're trying to resolve",
+      constructIndex: 1,
+    },
+  ],
+  "douglass-vs-lincoln-on-playing-the-long-game": [
+    {
+      label: "Platform for the next fight",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "platform for the next fight",
+      constructIndex: 0,
+    },
+    {
+      label: "What you are optimizing for",
+      source: (entry) => entry.description,
+      excerpt: "what you are optimizing for",
+      constructIndex: 1,
+    },
+  ],
+  "epictetus-vs-harriet-tubman-on-risk-under-constraint": [
+    {
+      label: "Rules favor incumbents",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "rules favor incumbents",
+      constructIndex: 0,
+    },
+    {
+      label: "Parallel system outside them",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "parallel system outside them",
+      constructIndex: 1,
+    },
+  ],
+  "carnegie-vs-rockefeller-on-monopoly-strategy": [
+    {
+      label: "Lowest-cost producer",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "lowest-cost producer at scale",
+      constructIndex: 0,
+    },
+    {
+      label: "Opposite playbooks",
+      source: (entry) => entry.description,
+      excerpt: "opposite playbooks",
       constructIndex: 1,
     },
   ],
