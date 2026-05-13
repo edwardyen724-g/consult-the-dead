@@ -650,6 +650,39 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Wave 2: 'What Would X Say' articles ───────────────────────────────
   {
+    slug: "first-mover-vs-fast-follower-what-sun-tzu-says",
+    type: "single",
+    frameworkSlug: "sun-tzu",
+    title: "First-Mover vs. Fast-Follower: What Sun Tzu Says",
+    description:
+      "Sun Tzu's framework dissolves the first-mover vs. fast-follower debate into a better question: who controls the terrain? The timing of market entry matters far less than the position you occupy when the market consolidates.",
+    targetKeywords: [
+      "first mover vs fast follower",
+      "first mover advantage myth",
+      "Sun Tzu competition strategy",
+      "is first mover advantage real",
+      "when to enter a market",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "Everyone tells you to move fast and establish first-mover advantage. But Google wasn't the first search engine. Facebook wasn't the first social network. Apple wasn't the first MP3 player. Sun Tzu's framework explains why the first-mover advantage is usually a trick question.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Sun Tzu",
+        text: "The army that arrives first does not win — the army that occupies the right ground wins. First-mover advantage exists only when the first mover chose the terrain wisely. If your competitor moved first into the wrong position, their head start is a gift. Let them exhaust themselves defending ground that does not matter.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The prince who enters a new domain before it is ready will spend all his resources building what should already exist. The fast-follower who waits until the infrastructure exists — the customers who understand the category, the distribution channels that fit it — often begins where the pioneer ends.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Study the shape of the water before you decide where to swim. The question is not when to enter the market. The question is whether you have mapped the terrain well enough to know which position you are actually competing for.",
+      },
+    ],
+  },
+  {
     slug: "what-would-florence-nightingale-say-about-data-driven-decisions",
     type: "single",
     frameworkSlug: "florence-nightingale",
@@ -1173,6 +1206,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Wave 2 annotation blueprints ──────────────────────────────────────
+  "first-mover-vs-fast-follower-what-sun-tzu-says": [
+    {
+      label: "Upstream terrain vs. downstream force",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "first-mover advantage is usually a trick question",
+      constructIndex: 2,
+    },
+    {
+      label: "Epistemic contest framing",
+      source: (entry) => entry.description,
+      excerpt: "who controls the terrain",
+      constructIndex: 3,
+    },
+  ],
   "what-would-florence-nightingale-say-about-data-driven-decisions": [
     {
       label: "Engineering reframe",

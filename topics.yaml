@@ -559,7 +559,8 @@
     - "Sun Tzu competition strategy"
   recommended_council: [sun-tzu]
   hook_angles: [proof, tension]
-  status: queued
+  status: shipped
+  shipped_at: 2026-05-13
 
 - slug: toulmin-argument-model-explained
   type: method

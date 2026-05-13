@@ -356,6 +356,30 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("insight article slug — first-mover-vs-fast-follower-what-sun-tzu-says", () => {
+  it("generates a valid reel script with the strategy court", () => {
+    const script = buildVerdictReelScript(
+      "first-mover-vs-fast-follower-what-sun-tzu-says",
+    );
+    expect(script.slug).toBe("first-mover-vs-fast-follower-what-sun-tzu-says");
+    expect(script.frameworkSlug).toBe("sun-tzu");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy council: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    // "Google wasn't the first search engine" is within first 180 chars
+    expect(script.hook.voiceover).toContain(
+      "Google wasn't the first search engine",
+    );
+    expect(script.cta).toContain(
+      "/insights/first-mover-vs-fast-follower-what-sun-tzu-says",
+    );
+  });
+});
+
 describe("method article slug — toulmin-argument-model-explained", () => {
   it("generates a valid reel script with the reasoning court", () => {
     const script = buildVerdictReelScript("toulmin-argument-model-explained");
