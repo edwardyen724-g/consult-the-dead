@@ -356,6 +356,24 @@ describe("method article slug — cynefin-framework-explained", () => {
   });
 });
 
+describe("method article slug — toulmin-argument-model-explained", () => {
+  it("generates a valid reel script with the reasoning court", () => {
+    const script = buildVerdictReelScript("toulmin-argument-model-explained");
+    expect(script.slug).toBe("toulmin-argument-model-explained");
+    expect(script.frameworkSlug).toBe("isaac-newton");
+    expect(script.decisionType).toBe("reasoning");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Isaac Newton");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // "Toulmin model was built in 1958" is within first 180 chars of hookQuestion
+    expect(script.hook.voiceover).toContain("Toulmin model was built in 1958");
+    expect(script.cta).toContain("/insights/toulmin-argument-model-explained");
+  });
+});
+
 describe("insight article slug — what-would-florence-nightingale-say-about-data-driven-decisions", () => {
   it("generates a valid reel script with the evidence court", () => {
     const script = buildVerdictReelScript(

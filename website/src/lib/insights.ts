@@ -580,6 +580,40 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
   },
   // ── Method articles — high-SEO framework explainers (task 7deb5fb2) ──
   {
+    slug: "toulmin-argument-model-explained",
+    type: "single",
+    frameworkSlug: "isaac-newton",
+    title: "Toulmin Argument Model Explained",
+    description:
+      "The Toulmin model gives you a six-part structure for any argument: claim, grounds, warrant, backing, qualifier, and rebuttal. It was built to fix the exact failure mode that kills most business arguments — confusing assertion with proof.",
+    targetKeywords: [
+      "Toulmin model of argumentation",
+      "Toulmin argument structure",
+      "how to construct an argument",
+      "claim grounds warrant backing",
+      "toulmin method explained",
+      "argument structure framework",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "You've just made your argument. You have data. You have a conclusion. But your audience isn't persuaded. The Toulmin model was built in 1958 to solve exactly this problem: it maps the six structural elements that separate a compelling argument from an assertion that happens to have a chart attached.",
+    publishedAt: "2026-05-13",
+    agonExcerpt: [
+      {
+        speaker: "Galileo Galilei",
+        text: "The argument that cannot be falsified is not an argument — it is a declaration. I did not claim that the Earth moves by asserting it louder than those who claimed it stood still. I showed them the moons of Jupiter. The grounds of an argument determine whether it can be tested; claims without testable grounds are not science. They are tradition.",
+      },
+      {
+        speaker: "Isaac Newton",
+        text: "Every conclusion in the Principia rests on a chain from axiom to derived proposition. The warrant — the rule that licenses the step from evidence to conclusion — must be explicit. A claim that hides its warrant is a claim that cannot be examined. Make the warrant visible, and the argument becomes correctable.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I did not simply announce that polonium and radium existed. I provided the grounds: the radioactivity measurements, the isolation procedures, the independently verifiable methodology. The qualifier is also essential — I was not claiming certainty beyond what the data supported. A good argument knows its own boundaries.",
+      },
+    ],
+  },
+  {
     slug: "cynefin-framework-explained",
     type: "single",
     frameworkSlug: "leonardo-da-vinci",
@@ -1110,6 +1144,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
     },
   ],
   // ── Method article annotation blueprints (task 7deb5fb2) ─────────────
+  "toulmin-argument-model-explained": [
+    {
+      label: "Precision over qualitative",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "your audience isn't persuaded",
+      constructIndex: 0,
+    },
+    {
+      label: "Empirical rigor vs. speculation",
+      source: (entry) => entry.description,
+      excerpt: "confusing assertion with proof",
+      constructIndex: 3,
+    },
+  ],
   "cynefin-framework-explained": [
     {
       label: "Domain diagnosis",
