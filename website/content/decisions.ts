@@ -845,6 +845,95 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "startup international market entry",
     ],
   },
+  {
+    slug: "should-i-use-ai-in-my-business",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Use AI in My Business?",
+    description:
+      "The question is not whether to use AI — it is which problems AI solves better than your current approach, and which problems it makes worse. This page cuts through the hype to help you identify the right integration point for your business today.",
+    primaryQuery: "should I use AI in my business",
+    secondaryQueries: [
+      "how to use AI in small business",
+      "AI tools for startups",
+      "is AI worth it for small business",
+      "when to adopt AI tools business",
+    ],
+    recommendedCouncil: [
+      "nikola-tesla",
+      "marie-curie",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "AI can automate the wrong things as efficiently as the right ones. Before you integrate, can you name the specific problem AI solves better than your current approach — and what you will do with the time or cost you save?",
+    targetKeywords: [
+      "should I use AI in my business",
+      "how to use AI in small business",
+      "AI tools for startups",
+      "AI adoption business decision",
+      "when to use AI startup",
+    ],
+  },
+  {
+    slug: "should-i-raise-pre-seed",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Raise Pre-Seed Funding?",
+    description:
+      "Pre-seed capital changes the game — or it changes the clock. This page examines what conditions justify taking on investors before you have product-market fit, and what alternatives you should exhaust first.",
+    primaryQuery: "should I raise pre-seed funding",
+    secondaryQueries: [
+      "pre-seed round startup",
+      "what is pre-seed funding",
+      "should I get pre-seed investment",
+      "pre-seed vs bootstrapping",
+      "how to raise pre-seed",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Pre-seed capital buys you time and signal, but it also locks in expectations before you have real data. Have you exhausted customer-funded options first?",
+    targetKeywords: [
+      "should I raise pre-seed funding",
+      "pre-seed round startup",
+      "pre-seed vs bootstrapping",
+      "pre-seed funding requirements",
+      "raise pre-seed investment",
+    ],
+  },
+  {
+    slug: "should-i-launch-in-stealth-mode",
+    status: "shipped",
+    shippedAt: "2026-05-14",
+    title: "Should I Launch in Stealth Mode?",
+    description:
+      "Stealth mode protects a fragile idea from premature critique — but it also delays the feedback that would tell you whether the idea is worth protecting. This page examines the real tradeoffs of building in private versus building in public.",
+    primaryQuery: "should I launch in stealth mode",
+    secondaryQueries: [
+      "stealth startup pros cons",
+      "stealth vs public launch startup",
+      "should I keep my startup secret",
+      "build in stealth mode",
+      "stealth mode startup strategy",
+    ],
+    recommendedCouncil: [
+      "sun-tzu",
+      "niccolo-machiavelli",
+      "isaac-newton",
+    ],
+    hookQuestion:
+      "Stealth buys you time to build something you believe in — but it also delays the day you find out if anyone else believes in it. What does the extra time cost you in real feedback?",
+    targetKeywords: [
+      "should I launch in stealth mode",
+      "stealth startup strategy",
+      "stealth vs public launch",
+      "build in stealth startup",
+      "stealth mode advantages startup",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
