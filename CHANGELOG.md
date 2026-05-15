@@ -4,6 +4,21 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-15 (Aristotle — 29th live mind) — PR #425
+
+### Added
+- **Aristotle** added as the 29th live mind (archetype: The Systematizer — Virtue Through Practical Wisdom)
+  - Framework JSON: 14 incidents, 5 bipolar constructs (phronesis vs. rule-following; categorical precision vs. intuitive judgment; telos-anchored decision vs. situational response; golden mean vs. extreme solutions; systematic virtue vs. pragmatic power)
+  - Registry updates: `ALLOWED_SLUGS`, `ACCENT_COLORS`, `ERA_FALLBACK`, `DISPLAY_ORDER`
+  - Mind landing page data: `howTheyArgue`, `sampleQuotes`, CTAs (`website/data/minds/aristotle.json`)
+  - CSS color variables added to `globals.css` for light + dark palettes
+- **2 insight articles** using Aristotle:
+  - `what-would-aristotle-say-about-making-decisions-under-uncertainty` (single-figure insight, evidence)
+  - `aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power` (collision, leadership)
+- 122 reel-script integration tests passing (2 new for Aristotle articles)
+- README route table updated: `/minds/[id]` count 28 → 29
+- Roster gate bumped 28 → 29 in `frameworks.test.ts`; all 2160 vitest tests passing
+
 ## [Wave 24] — 2026-05-15 — PR #421
 
 ### Added
