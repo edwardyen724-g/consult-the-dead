@@ -24,7 +24,7 @@ describe("GET /feed.xml", () => {
     vi.useRealTimers();
   });
 
-  it("returns canonical RSS XML with public debate and insight links", async () => {
+  it("returns canonical RSS XML with public debate, insight, and decision links", async () => {
     const response = await GET();
 
     expect(response.status).toBe(200);
@@ -39,15 +39,30 @@ describe("GET /feed.xml", () => {
     const debates = getAllDebateSlugs()
       .map((slug) => getDebate(slug))
       .filter((debate): debate is NonNullable<typeof debate> => debate !== null);
+    const items = buildPublicFeedItems({
+      siteUrl: SITE_URL,
+      debates,
+      insightEntries: INSIGHT_ENTRIES,
+      decisionEntries: DECISION_ENTRIES,
+      now: FIXED_NOW,
+    });
+
+    expect(items).toHaveLength(
+      debates.length + INSIGHT_ENTRIES.length + DECISION_ENTRIES.length,
+    );
+    expect(items.filter((item) => item.link.includes("/debates/"))).toHaveLength(
+      debates.length,
+    );
+    expect(items.filter((item) => item.link.includes("/insights/"))).toHaveLength(
+      INSIGHT_ENTRIES.length,
+    );
+    expect(items.filter((item) => item.link.includes("/decisions/"))).toHaveLength(
+      DECISION_ENTRIES.length,
+    );
+
     const expectedXml = serializeRssFeed({
       metadata: buildFeedMetadata(SITE_URL),
-      items: buildPublicFeedItems({
-        siteUrl: SITE_URL,
-        debates,
-        insightEntries: INSIGHT_ENTRIES,
-        decisionEntries: DECISION_ENTRIES,
-        now: FIXED_NOW,
-      }),
+      items,
       now: FIXED_NOW,
     });
 

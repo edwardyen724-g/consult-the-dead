@@ -41,6 +41,14 @@ after deployments touching the relevant feature areas.
 - [Funnel Surface Rollout](funnel-surface-rollout.md) — PRs #121, #125
   - Covers the quiz CTA (header) and footer CTA rollout verification
 
+## Reels
+
+- [Daily Reel/Content Ops Checklist](daily-reel-ops-checklist.md)
+  - Morning execution checklist for Edward to review reel, content, and release state before the day starts
+
+- [Reel Analytics Summary Template](reel-analytics-summary-template.md)
+  - First-pass review template for Phase 5 Instagram Insights reports and the cadence for checking them
+
 ## Pricing
 
 - [Pricing Copy Smoke Runbook](pricing-copy-smoke-runbook.md)

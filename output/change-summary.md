@@ -1,4 +1,250 @@
 ## Task
+- `40c7e88e-dc2d-4307-9bc0-0224f3661867` - Finalize the decision-first homepage hero variant
+
+## Changed Files
+- `website/src/app/page.tsx`
+- `website/src/app/page.test.tsx`
+
+## What Changed
+- Kept the homepage hero on the decision-first headline and first-scroll consensus preview path, while making the secondary CTA explicitly route to the guided quiz.
+- Added a `data-testid` and accessible label to the quiz CTA so the conversion funnel can be asserted directly.
+- Expanded the homepage regression tests to cover both hero CTAs, the guided quiz routing contract, and the secondary CTA label.
+- Removed dead helper code from the homepage test file so ESLint passes cleanly on the touched files.
+
+## Verification
+- `wcx npx vitest run --coverage --coverage.include=src/app/page.tsx src/app/page.test.tsx`
+- `wcx npx eslint src/app/page.tsx src/app/page.test.tsx`
+
+## Results
+- Focused homepage tests passed: `40 tests passed`.
+- Focused coverage for `website/src/app/page.tsx` hit `100%` statements, branches, functions, and lines.
+- ESLint passed on the two touched homepage files with no warnings or errors.
+
+## Task
+- `5b05b9d2-c37c-4700-8bb1-973728cfbb23` - Harden retention-email manifest route contract against cron inventory drift
+
+## Changed Files
+- `website/src/app/api/cron/retention-email/route.ts`
+- `website/src/app/api/cron/retention-email/route.test.ts`
+
+## What Changed
+- Updated the retention-email manifest inventory so the `nudge` and `digest` entries now point at the live `/api/cron/day2-nudge` and `/api/cron/weekly-digest` cron routes instead of the stale nested aliases.
+- Replaced the self-referential manifest test with an explicit expected contract literal so the route inventory and auth metadata will fail the test if future route renames or additions drift from the documented cron inventory.
+
+## Verification
+- `npm test -- src/app/api/cron/retention-email/route.test.ts`
+- `npm run coverage -- --coverage.thresholds.lines=0 --coverage.thresholds.branches=0 --coverage.thresholds.functions=0 --coverage.thresholds.statements=0 src/app/api/cron/retention-email/route.test.ts`
+- `git diff --check -- website/src/app/api/cron/retention-email/route.ts website/src/app/api/cron/retention-email/route.test.ts`
+
+## Results
+- Targeted retention-email manifest tests passed: `2 tests passed`.
+- The standard repo-wide coverage command still reports the existing global 95% gate failure when scoped to this single route test, because the Vitest coverage config measures the whole website surface and excludes API route files from coverage collection.
+- The scoped coverage run completed successfully once the thresholds were overridden, which confirms the manifest test itself is green even though the default site-wide gate remains unchanged.
+
+## Task
+- `4fc76788-26ca-447f-946b-6aed3c3e56c8` - Draft a daily reel/content ops checklist for morning execution
+- `2fcdf79e-e38b-4108-918d-115c5ff5b570` - Define the reel analytics summary template and review cadence
+
+## Changed Files
+- `docs/runbooks/index.md`
+- `docs/runbooks/daily-reel-ops-checklist.md`
+- `docs/runbooks/reel-analytics-summary-template.md`
+- `website/src/app/feed.xml/route.test.ts`
+- `website/src/app/sitemap.test.ts`
+
+## What Changed
+- Added a new Reels section to the runbooks index and linked the two Phase 5 morning-execution runbooks from it.
+- Wrote a concise daily checklist for Edward that covers the reel, content, and release handoff before the workday starts.
+- Wrote a Phase 5 reel analytics summary template with the per-reel fields to capture and a repeatable daily/weekly review cadence.
+- Tightened the RSS feed route regression to assert the current debate, insight, and decision item counts instead of only comparing XML output.
+- Tightened the sitemap regression to assert the current framework, insight, mind, listicle, and decision inventories and the full published route count.
+
+## Verification
+- `./node_modules/.bin/vitest run src/app/feed.xml/route.test.ts src/app/sitemap.test.ts src/lib/rss-feed.test.ts`
+- `./node_modules/.bin/vitest run --coverage`
+
+## Results
+- Targeted feed and sitemap suites passed: `20 tests passed`.
+- Full website coverage passed at `99.59%` statements, `98.28%` branches, `100%` functions, and `99.85%` lines.
+
+## Task
+- `0134fcb9-8127-4bf8-a422-88b1e9068baf` - Tighten /pricing publication rhythm to match /account and /library
+
+## Changed Files
+- `website/src/app/pricing/PricingClient.tsx`
+- `website/src/app/pricing/page.test.tsx`
+
+## What Changed
+- Wrapped the pricing surface in the shared publication shell so the eyebrow, hero, lead, and footer CTAs now read like the account and library publication surfaces.
+- Kept the canonical pricing copy, live stats row, tier cards, billing toggle, checkout CTA, and proof sections intact while moving the page onto the shared shell rhythm.
+- Added a regression test that locks the shared footer links to `/agora` and `/library` alongside the existing pricing-copy assertions.
+
+## Verification
+- `node_modules/.bin/vitest run src/app/pricing/page.test.tsx --coverage`
+- `node_modules/.bin/vitest run --coverage`
+- `node_modules/.bin/eslint src/app/pricing/PricingClient.tsx src/app/pricing/page.test.tsx`
+
+## Results
+- Targeted pricing tests passed: `31 tests passed`.
+- Full website coverage passed at `99.59%` statements, `98.28%` branches, `100%` functions, and `99.85%` lines.
+- ESLint passed on the two edited pricing files.
+
+## Task
+- `f9ebca6a-d80e-4e2e-8df1-25a751c47e5a` - Refresh docs/framework-forge-quickstart.md for current validate CLI and artifact layout
+
+## Changed Files
+- `docs/framework-forge-quickstart.md`
+
+## What Changed
+- Updated the validate command row so it matches the current CLI behavior: `tier1` and `full` write `tier1_results.json`, `tier2` and `full` write `tier2_results.json`, `full` writes `tier3_materials/review_packet.json`, and `floor-check` is console-only.
+- Removed the stale `floor-check_results.json` artifact from the filesystem layout tree and clarified that floor-check does not persist a JSON result.
+
+## Verification
+- `git diff --check -- docs/framework-forge-quickstart.md`
+
+## Results
+- Quickstart now matches the current `framework_forge/cli.py` validate flow and artifact layout.
+
+## Task
+- `e703f527-92eb-456f-8a73-a3c399aedf35` - Reconcile docs/retention-email-sequence.md with the current retention-email cron routes
+
+## Changed Files
+- `docs/retention-email-sequence.md`
+
+## What Changed
+- Renamed the current cron surfaces in the sequence table to `Day 2 Nudge` and `Weekly Digest`.
+- Replaced the stale `/api/cron/retention-emails/nudge` and `/api/cron/retention-emails/digest` paths with the active `/api/cron/day2-nudge` and `/api/cron/weekly-digest` routes.
+
+## Verification
+- `git diff --check -- docs/retention-email-sequence.md`
+
+## Results
+- The retention-email sequence doc now names the current cron route surfaces instead of the old nested aliases.
+
+## Task
+- `76fd94cf-3e95-4775-b596-b7b5e4e7f7ae` - Align sitemap and RSS feed inventories with the current published route counts
+
+## Changed Files
+- `website/src/app/sitemap.test.ts`
+- `website/src/app/feed.xml/route.test.ts`
+- `website/src/lib/rss-feed.ts`
+
+## What Changed
+- Updated the sitemap test to assert the current 10-listicle inventory instead of the stale 5-listicle snapshot, and verified the emitted listicle URLs match the canonical slug order.
+- Reworded the RSS feed metadata so both the title and description now describe the actual feed inventory: debates, insights, and decisions.
+- Renamed the feed route regression test to cover the current debate/insight/decision feed surface.
+
+## Verification
+- `npm run --prefix website test -- src/app/sitemap.test.ts src/app/feed.xml/route.test.ts src/lib/rss-feed.test.ts src/lib/sitemap-data.test.ts`
+- `npm run --prefix website coverage`
+
+## Results
+- Targeted sitemap/feed tests passed: `43 tests passed`.
+- Full website coverage passed at `99.59%` statements, `98.28%` branches, `100%` functions, and `99.85%` lines.
+
+## Task
+- `69f4c5d7-e1e6-41f7-bd32-e5eb22740f42` - Audit outreach debate files against the launch checklist
+
+## Changed Files
+- `docs/outreach-debates/LAUNCH_CHECKLIST.md`
+
+## What Changed
+- Recorded the outreach debate audit result in the launch checklist and updated the audit table to show all 30 debate files passed.
+- Added a short summary noting that the 30-file audit completed cleanly with no placeholders, missing rounds, or consensus gaps.
+
+## Verification
+- `node` audit script against all 30 `docs/outreach-debates/*.md` files for frontmatter, 3 rounds, consensus sections, recommended-action length, footers, and placeholders
+- `git diff --check -- docs/outreach-debates/LAUNCH_CHECKLIST.md output/change-summary.md`
+
+## Results
+- All 30 debate files passed the launch checklist audit.
+- The updated checklist now serves as the durable audit record for the outreach launch gate.
+
+## Task
+- `6334b471-2186-4c4d-83c4-dd5b814a5447` - Align reel duration assertions with the post-fix 30-80s gate
+
+## Changed Files
+- `scripts/reel-scripts/render-reel.py`
+- `scripts/reel-scripts/synthesize-voice.py`
+- `scripts/reel-scripts/tests/test_render_reel.py`
+- `tests/test_synthesize_voice.py`
+
+## What Changed
+- Updated the reel timing-plan and dry-run output strings to advertise the post-fix `30–80s` target range instead of the stale `25–40s` gate.
+- Aligned the corresponding test assertions so both Python suites now validate the same 30–80 second contract.
+
+## Verification
+- `wcx pytest /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/scripts/reel-scripts/tests/test_render_reel.py /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/tests/test_synthesize_voice.py`
+- `rg -n "25–40s|25-40s|25–40|25-40" /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/scripts/reel-scripts /Users/haotingyen/projects/consult-the-dead/.wanman/worktree/tests`
+
+## Results
+- Targeted reel test suites passed: `150 passed, 11 skipped`.
+- No remaining 25–40 gate strings were found under the touched reel script and test paths.
+
+## Task
+- `a1cdf39c-9119-4387-9431-0e87e0c996e9` - Seed Wave 27 topic queue in topics.yaml with 8-10 new entries for next content batch
+
+## Changed Files
+- `topics.yaml`
+
+## What Changed
+- Added eight new Wave 27 queued topics: four collision articles and four decision pages.
+- Kept the queue format consistent with the existing shipped and queued entries, including collision `framework_slugs`/`decisionType` pairs and decision `recommended_council` arrays.
+
+## Verification
+- `git diff --check -- topics.yaml`
+- `rg -n` checks for each new slug in `topics.yaml`
+
+## Results
+- The queue now has eight additional founder-relevant entries with no duplicate slugs.
+- The file passes diff-format sanity checks.
+
+## Task
+- `1ed40482-6ab0-4175-92f5-8fa8ff86d4d9` - Surface founder-checkpoint attribution by channel
+
+## Changed Files
+- `scripts/founder-checkpoint/metrics.ts`
+- `scripts/founder-checkpoint/pull-metrics.ts`
+- `scripts/founder-checkpoint/pull-metrics.test.ts`
+- `scripts/founder-checkpoint/README.md`
+- `scripts/founder-checkpoint/fixtures/smoke-stub.json`
+
+## What Changed
+- Added a deterministic `channel_attribution` summary to the founder-checkpoint report so the retro now groups raw Vercel sources into share, outreach, newsletter, organic, and other buckets.
+- Kept the existing raw `acquisition_channels` output intact so the report still exposes the underlying `utm_source` rows for deeper inspection.
+- Hardened the attribution helper to treat blank source strings as organic `(none)` traffic and to emit stable zero-filled summaries during stub and partial-failure runs.
+- Updated the founder-checkpoint README and smoke fixture to document the new report field and stub shape.
+
+## Verification
+- `bash scripts/founder-checkpoint/run-tests.sh --coverage`
+
+## Results
+- `45` founder-checkpoint tests passed.
+- Coverage on `scripts/founder-checkpoint/metrics.ts` reached `100%` statements, `100%` branches, `100%` functions, and `100%` lines.
+
+## Task
+- `f6f6ae73-c333-4555-8e8b-0ef4e1c4aba1` - Update CHANGELOG and README for Wave 25, Wave 26 (Joan of Arc 30th mind, Aristotle docs)
+
+## Changed Files
+- `README.md`
+- `CHANGELOG.md`
+
+## What Changed
+- Updated the README route table to reflect the current shipped counts: 30 `/minds/[id]` pages and 86 `/decisions` pages.
+- Added the Wave 25, Joan of Arc, and Aristotle merge notes to the changelog, including the current reel-test totals and the corrected decision-page total.
+
+## Verification
+- `node` sanity check against `website/src/lib/frameworks.ts` and `website/content/decisions.ts` for live mind and decision counts
+- `git diff --check -- README.md CHANGELOG.md`
+
+## Results
+- README counts now match the live roster and decision registry.
+- Changelog entry now matches the repo’s current shipped state.
+
+## Blockers
+- The separate F5-TTS pilot synthesis task `433dcb47-b927-49c6-a3ff-968bd1ff4e4d` has no capsule yet, so it cannot be executed safely inside the allowed-path workflow until CEO links or creates one.
+
+## Task
 - `1867c109-52de-40ee-9648-8add653d4789` - Add merge-simulating CI check to catch TypeScript errors that only appear after merge
 
 ## Changed Files
@@ -120,6 +366,24 @@
 ## Results
 - Targeted Vitest coverage passed with `100%` statements, `100%` branches, `100%` functions, and `100%` lines for the touched surface.
 
+## Task
+- `3dad068d-f4a1-4f26-89e4-a20afaa4ae47` - Seed Wave 29 topic queue in topics.yaml with 8-10 new entries for the next content batch
+
+## Changed Files
+- `topics.yaml`
+
+## What Changed
+- Added a new Wave 29 seed section at the end of the topic queue with nine queued entries.
+- Included four collision topics and five decision topics, keeping the same YAML shape used by earlier wave seeds.
+
+## Verification
+- `ruby -e 'require "yaml"; YAML.load_file("/Users/haotingyen/projects/consult-the-dead/.wanman/worktree/topics.yaml"); puts "YAML_OK"'`
+- `git -C /Users/haotingyen/projects/consult-the-dead/.wanman/worktree diff -- topics.yaml`
+
+## Results
+- `topics.yaml` parses cleanly.
+- The queue now has nine additional Wave 29 entries ready for the next content batch.
+
 ## Previous Entries
 
 ## Task
@@ -158,6 +422,23 @@
 - `website/src/app/pricing/PricingClient.tsx`
 - `website/src/app/pricing/page.test.tsx`
 - `docs/phase0-pricing-page-copy.md`
+
+## Task
+- `3ace91b2-c847-4bbb-9e6c-8afe40c967d4` - Reconcile pre-deployment checklist with actual npm scripts and branch-coverage gate language
+
+## Files Changed
+- `docs/pre-deployment-checklist.md`
+
+## What Changed
+- Replaced the stale `npm run coverage` checklist item with the real `npm run test` verification step in `website/`, and clarified that `npm run build` is also run from `website/`.
+- Reworded the sign-off gate to match the branch-coverage policy: branch coverage, not statement coverage, is the approval gate, and any exception must be recorded in the branch-coverage exception registry and linked in the PR.
+
+## Verification
+- `git diff --check -- docs/pre-deployment-checklist.md`
+- `git diff -- docs/pre-deployment-checklist.md`
+
+## Results
+- The checklist now points at executable npm entrypoints and uses the current branch-coverage release-gate language.
 
 ## What Changed
 - Added a dedicated pricing-page demo/case-study slot with embed-ready placeholder copy for a short Loom or first customer callout.
@@ -231,3 +512,99 @@
 
 ## Result
 - No whitespace or patch-format issues in the edited playbook.
+
+---
+
+## Task
+- Reconcile README and content pipeline counts with the current release state.
+
+## Files Changed
+- `README.md`
+- `CONTENT_PIPELINE.md`
+
+## What Changed
+- Confirmed the root README route table already reflects the live `/minds/[id]` and `/decisions` counts.
+- Updated the topic queue snapshot in `CONTENT_PIPELINE.md` to the current `topics.yaml` totals: 226 tracked, 203 shipped, 4 killed, 19 queued.
+
+## Verification
+- `rg -n "Index of all 86 published decision pages|226 topics tracked|203 shipped \\(86 decisions \\+ 106 insights/collisions \\+ 9 method articles \\+ 2 other articles\\)" README.md CONTENT_PIPELINE.md`
+- `git diff -- README.md CONTENT_PIPELINE.md`
+
+## Result
+- The docs now match the current release-state counts.
+
+## Task
+- `20d446c2-ae3a-4300-a215-f39b14672e43` - Reconcile release-state docs after pricing preview metadata gate clears
+
+## Changed Files
+- `docs/design-research.md`
+- `docs/release-notes/2026-05-12-vercel-preview-rate-limit.md`
+- `docs/release-notes/index.md`
+- `docs/pre-deployment-checklist.md`
+
+## What Changed
+- Marked the pricing preview metadata/release-note lane as promoted in design-research and removed the stale unblock candidate from the ranked next-batch list.
+- Added a resolved-status note to the Vercel PR preview rate-limit release note so it records the 2026-05-15 redeploy and pricing metadata verification closure.
+- Promoted that release note in the release-state index with a 2026-05-15 entry and no pending unblock items.
+- Tightened the pre-deployment checklist language so the release-note step must match the promoted index state and stale release-state follow-ups are called out explicitly.
+
+## Verification
+- `git diff --check -- docs/design-research.md docs/release-notes/2026-05-12-vercel-preview-rate-limit.md docs/release-notes/index.md docs/pre-deployment-checklist.md`
+- `rg -n "bb399f47|Unblock the pricing preview metadata gate|release-note follow-ups should stay behind it|stale unblock" docs/design-research.md docs/release-notes docs/pre-deployment-checklist.md`
+
+## Result
+- The stale pricing gate reference is gone from the design-research backlog.
+- The release note now records the 2026-05-15 resolution and the index shows the promoted state.
+- The checklist now mirrors the promoted release-state workflow and calls out stale follow-ups explicitly.
+
+## Task
+- `02dca2f4-9506-42f3-875d-7303bcfda408` - Implement Search Console indexing submitter for generated article drafts
+
+## Changed Files
+- `scripts/content-pipeline/generate-article-drafts.ts`
+- `scripts/content-pipeline/article-pipeline.test.ts`
+
+## What Changed
+- Added a real Search Console/Indexing API submitter that posts the generated `URL_UPDATED` payload to `https://indexing.googleapis.com/v3/urlNotifications:publish` with a bearer token.
+- Kept dry-run behavior intact by only submitting in non-dry-run mode, while preserving artifact generation and the existing payload file output.
+- Added test coverage for env-token resolution, the submitter request shape, non-dry-run submission, and dry-run suppression.
+
+## Verification
+- `npx vitest run scripts/content-pipeline/article-pipeline.test.ts`
+- `npx vitest run scripts/content-pipeline/article-pipeline.test.ts --coverage` (blocked: missing `@vitest/coverage-v8`)
+
+## Result
+- Targeted article-pipeline tests passed: `13 tests passed`.
+- Coverage could not run in this checkout because the V8 coverage provider is not installed.
+
+---
+
+## Task
+- `9802556c-2e01-40f6-920a-7fd21512faca` - Build reel post-scheduler for approved MP4s
+- `5271d7aa-2765-4c28-a373-7104998c4842` - Add Instagram post-scheduler retry and throughput config
+- `759999a5-098d-4c50-bb71-b34a68ce6289` - Write Instagram scheduler failure-mode runbook
+- `9b0d4e3a-d5fc-4662-a1b6-f80100a70a48` - Draft a release note for the phase 4 reel gate update
+
+## Files Changed
+- `scripts/instagram/upload_reel.py`
+- `scripts/instagram/post_scheduler.py`
+- `scripts/instagram/scheduler_config.py`
+- `tests/scripts/instagram/test_post_scheduler.py`
+- `tests/scripts/instagram/test_scheduler_config.py`
+- `docs/runbooks/instagram-scheduler-runbook.md`
+- `docs/release-notes/2026-05-15-phase4-reel-gate.md`
+
+## What Changed
+- Added a 429-aware rate-limit signal to the Instagram upload helper so the scheduler can respect `Retry-After` and stop safely on rate limits.
+- Added a cron-backed reel post scheduler that scans approved MP4s in `output/reels/`, builds public reel URLs, publishes through the existing Instagram upload path, and persists posted/failed records with duplicate-post protection.
+- Added a dedicated scheduler config surface for the cron expression, daily post cap, and 429 backoff settings.
+- Documented the scheduler contract, 429 handling, duplicate protection, and manual recovery steps in a new runbook.
+- Drafted the phase-4 reel gate release note for the corrected duration formula and the handoff to F5-TTS synthesis.
+
+## Verification
+- `wcx pytest tests/scripts/instagram/test_scheduler_config.py tests/scripts/instagram/test_post_scheduler.py`
+- `wcx pytest scripts/instagram/tests/test_upload_reel.py tests/scripts/instagram/test_scheduler_config.py tests/scripts/instagram/test_post_scheduler.py --cov=scripts.instagram --cov-report=term-missing`
+
+## Result
+- Targeted scheduler/upload tests passed: `52 passed`.
+- Coverage for the touched scheduler/config modules reached `100%`; `scripts/instagram/upload_reel.py` reached `96%` overall coverage in the targeted package report.

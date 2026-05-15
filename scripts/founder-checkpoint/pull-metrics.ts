@@ -5,7 +5,8 @@
  * Used by the AR agent on the mid-month and end-of-month founder retro
  * (next deadline: 2026-05-19). Reads paying-subscriber counts from Stripe
  * and the top acquisition channels (utm_source) from Vercel Web
- * Analytics, then prints a structured JSON report on stdout.
+ * Analytics plus a founder-facing attribution summary, then prints a
+ * structured JSON report on stdout.
  *
  * Usage:
  *   tsx scripts/founder-checkpoint/pull-metrics.ts
@@ -51,6 +52,7 @@ main().catch((err) => {
   const fallback: FounderCheckpointReport = {
     generatedAt: new Date().toISOString(),
     paying_users: null,
+    channel_attribution: [],
     acquisition_channels: [],
     notable_channels: [],
     errors: [`fatal: ${(err as Error).message}`],

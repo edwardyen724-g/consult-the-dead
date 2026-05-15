@@ -16,6 +16,7 @@
 import { describe, it, expect } from "vitest";
 import {
   buildReport,
+  buildChannelAttribution,
   buildStubReport,
   checkMissingCredentials,
   classifySubscription,
@@ -110,10 +111,11 @@ const STRIPE_FIXTURE = {
 
 const VERCEL_FIXTURE = {
   data: [
-    { utm_source: "show_hn", sessions: 1200, conversions: 84 },
-    { utm_source: "twitter", sessions: 350, conversions: 11 },
+    { utm_source: "share", sessions: 1200, conversions: 84 },
+    { utm_source: "outreach", sessions: 350, conversions: 11 },
     { utm_source: "(none)", sessions: 980, conversions: 4 },
     { utm_source: "newsletter", sessions: 60, conversions: 7 }, // 11.6% CVR
+    { utm_source: "show_hn", sessions: 220, conversions: 18 },
     { utm_source: "ignored_zero", sessions: 0, conversions: 0 }, // filtered out
   ],
 };
@@ -146,6 +148,7 @@ describe("buildStubReport", () => {
     const r = buildStubReport("2026-05-19T00:00:00.000Z", ["STRIPE_SECRET_KEY"]);
     expect(r.generatedAt).toBe("2026-05-19T00:00:00.000Z");
     expect(r.paying_users).toBeNull();
+    expect(r.channel_attribution).toEqual([]);
     expect(r.acquisition_channels).toEqual([]);
     expect(r.notable_channels).toEqual([]);
     expect(r.missing_credentials).toEqual(["STRIPE_SECRET_KEY"]);
@@ -347,9 +350,10 @@ describe("fetchVercelChannels", () => {
     );
     // ignored_zero is filtered out.
     expect(channels.map((c) => c.utm_source)).toEqual([
-      "show_hn",
+      "share",
       "(none)",
-      "twitter",
+      "outreach",
+      "show_hn",
       "newsletter",
     ]);
     for (const c of channels) {
@@ -475,13 +479,13 @@ describe("fetchVercelChannels", () => {
 describe("detectNotableChannels", () => {
   it("flags high-volume, high-CVR, and lever channels", () => {
     const notable = detectNotableChannels([
-      { utm_source: "show_hn", sessions: 1200, conversions: 84 }, // volume + lever
+      { utm_source: "share", sessions: 1200, conversions: 84 }, // volume + lever
       { utm_source: "newsletter", sessions: 60, conversions: 7 }, // high CVR
       { utm_source: "noise", sessions: 1, conversions: 0 }, // ignored
     ]);
     const keyed = Object.fromEntries(notable.map((n) => [n.utm_source, n.reason]));
-    expect(keyed.show_hn).toMatch(/high volume/);
-    expect(keyed.show_hn).toMatch(/distribution-lever/);
+    expect(keyed.share).toMatch(/high volume/);
+    expect(keyed.share).toMatch(/distribution-lever/);
     expect(keyed.newsletter).toMatch(/high CVR/);
     expect(keyed.noise).toBeUndefined();
   });
@@ -502,11 +506,47 @@ describe("detectNotableChannels", () => {
   });
 });
 
+describe("buildChannelAttribution", () => {
+  it("groups raw sources into deterministic founder buckets", () => {
+    const summary = buildChannelAttribution([
+      { utm_source: "share", sessions: 10, conversions: 2 },
+      { utm_source: "agon_share", sessions: 5, conversions: 1 },
+      { utm_source: "outreach", sessions: 7, conversions: 3 },
+      { utm_source: "email", sessions: 4, conversions: 2 },
+      { utm_source: "newsletter", sessions: 6, conversions: 1 },
+      { utm_source: "(none)", sessions: 8, conversions: 0 },
+      { utm_source: "direct", sessions: 2, conversions: 1 },
+      { utm_source: "   ", sessions: 1, conversions: 0 },
+      { utm_source: "show_hn", sessions: 9, conversions: 4 },
+      { utm_source: "show_hn", sessions: 1, conversions: 1 },
+    ]);
+
+    expect(summary).toEqual([
+      { channel: "share", sessions: 15, conversions: 3, utm_sources: ["agon_share", "share"] },
+      { channel: "outreach", sessions: 11, conversions: 5, utm_sources: ["email", "outreach"] },
+      { channel: "newsletter", sessions: 6, conversions: 1, utm_sources: ["newsletter"] },
+      { channel: "organic", sessions: 11, conversions: 1, utm_sources: ["(none)", "direct"] },
+      { channel: "other", sessions: 10, conversions: 5, utm_sources: ["show_hn"] },
+    ]);
+  });
+
+  it("returns zeroed rows for every founder bucket when no channels exist", () => {
+    expect(buildChannelAttribution([])).toEqual([
+      { channel: "share", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "outreach", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "newsletter", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "organic", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "other", sessions: 0, conversions: 0, utm_sources: [] },
+    ]);
+  });
+});
+
 describe("buildReport (stub mode)", () => {
   it("returns stub report with missing_credentials when env is empty", async () => {
     const r = await buildReport({}, mockFetcher([]), fixedClock);
     expect(r.generatedAt).toBe("2026-05-19T12:00:00.000Z");
     expect(r.paying_users).toBeNull();
+    expect(r.channel_attribution).toEqual([]);
     expect(r.acquisition_channels).toEqual([]);
     expect(r.notable_channels).toEqual([]);
     expect(r.missing_credentials).toEqual([...REQUIRED_ENV_FOR_LIVE]);
@@ -522,12 +562,50 @@ describe("buildReport (full happy path)", () => {
     const report = await buildReport(FULL_ENV, fetcher, fixedClock);
 
     // Top-level shape contract.
-    const expectedKeys = ["generatedAt", "paying_users", "acquisition_channels", "notable_channels"];
+    const expectedKeys = [
+      "generatedAt",
+      "paying_users",
+      "channel_attribution",
+      "acquisition_channels",
+      "notable_channels",
+    ];
     for (const k of expectedKeys) expect(report).toHaveProperty(k);
     expect(report.missing_credentials).toBeUndefined();
     expect(report.errors).toBeUndefined();
 
     expect(report.generatedAt).toBe("2026-05-19T12:00:00.000Z");
+    expect(report.channel_attribution).toEqual([
+      {
+        channel: "share",
+        sessions: 1200,
+        conversions: 84,
+        utm_sources: ["share"],
+      },
+      {
+        channel: "outreach",
+        sessions: 350,
+        conversions: 11,
+        utm_sources: ["outreach"],
+      },
+      {
+        channel: "newsletter",
+        sessions: 60,
+        conversions: 7,
+        utm_sources: ["newsletter"],
+      },
+      {
+        channel: "organic",
+        sessions: 980,
+        conversions: 4,
+        utm_sources: ["(none)"],
+      },
+      {
+        channel: "other",
+        sessions: 220,
+        conversions: 18,
+        utm_sources: ["show_hn"],
+      },
+    ]);
 
     // paying_users sub-shape.
     expect(report.paying_users).toEqual({
@@ -554,7 +632,7 @@ describe("buildReport (full happy path)", () => {
       expect(typeof n.reason).toBe("string");
       expect(n.reason.length).toBeGreaterThan(0);
     }
-    expect(report.notable_channels.find((n) => n.utm_source === "show_hn")).toBeTruthy();
+    expect(report.notable_channels.find((n) => n.utm_source === "share")).toBeTruthy();
   });
 });
 
@@ -566,6 +644,13 @@ describe("buildReport (partial failure)", () => {
     ]);
     const r = await buildReport(FULL_ENV, fetcher, fixedClock);
     expect(r.paying_users).toBeNull();
+    expect(r.channel_attribution.map((c) => c.channel)).toEqual([
+      "share",
+      "outreach",
+      "newsletter",
+      "organic",
+      "other",
+    ]);
     expect(r.acquisition_channels.length).toBeGreaterThan(0);
     expect(r.errors?.[0]).toMatch(/^stripe:/);
   });
@@ -578,6 +663,13 @@ describe("buildReport (partial failure)", () => {
     const r = await buildReport(FULL_ENV, fetcher, fixedClock);
     expect(r.paying_users?.total).toBe(5);
     expect(r.acquisition_channels).toEqual([]);
+    expect(r.channel_attribution).toEqual([
+      { channel: "share", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "outreach", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "newsletter", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "organic", sessions: 0, conversions: 0, utm_sources: [] },
+      { channel: "other", sessions: 0, conversions: 0, utm_sources: [] },
+    ]);
     expect(r.errors?.[0]).toMatch(/^vercel:/);
   });
 });

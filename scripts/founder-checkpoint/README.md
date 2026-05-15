@@ -7,6 +7,9 @@ AR agent's mid- and end-of-month founder retros depend on:
    annual / founding-member buckets.
 2. **Top acquisition channels by `utm_source`** from Vercel Web
    Analytics for the trailing 30 days.
+3. **Founder-channel attribution** that groups the raw sources into the
+   founder-facing share / outreach / newsletter / organic buckets so the
+   retro can see which paths are actually moving revenue.
 
 The script emits a single JSON document on stdout with a stable
 schema. It never throws — when env-vars are missing or an upstream
@@ -45,6 +48,13 @@ env -i PATH="$PATH" tsx scripts/founder-checkpoint/pull-metrics.ts
 {
   "generatedAt": "2026-05-19T16:00:00.000Z",
   "paying_users": { "total": 42, "monthly": 18, "annual": 20, "founding": 4 },
+  "channel_attribution": [
+    { "channel": "share", "utm_sources": ["share"], "sessions": 1200, "conversions": 84 },
+    { "channel": "outreach", "utm_sources": ["outreach"], "sessions": 350, "conversions": 11 },
+    { "channel": "newsletter", "utm_sources": ["newsletter"], "sessions": 60, "conversions": 7 },
+    { "channel": "organic", "utm_sources": ["(none)"], "sessions": 980, "conversions": 4 },
+    { "channel": "other", "utm_sources": ["show_hn"], "sessions": 220, "conversions": 18 }
+  ],
   "acquisition_channels": [
     { "utm_source": "show_hn",  "sessions": 1200, "conversions": 84 },
     { "utm_source": "twitter",  "sessions":  350, "conversions": 11 },
@@ -62,7 +72,8 @@ env -i PATH="$PATH" tsx scripts/founder-checkpoint/pull-metrics.ts
 ```
 
 In stub mode (`missing_credentials.length > 0`) `paying_users` is
-`null`, both arrays are empty, and the document is otherwise valid.
+`null`, `channel_attribution` / `acquisition_channels` / `notable_channels`
+are empty, and the document is otherwise valid.
 
 ## Tests
 
@@ -131,6 +142,7 @@ The AR agent reads the JSON emitted to stdout. The contract fields it depends on
 | `generatedAt` | ISO 8601 | Timestamp of the pull; AR strips this when diffing against the smoke stub |
 | `paying_users.total` | number | Headline subscriber count for the retro |
 | `paying_users.monthly` / `.annual` / `.founding` | number | Plan-level breakdown |
+| `channel_attribution` | array | Deterministic founder-facing summary of share / outreach / newsletter / organic / other sources |
 | `acquisition_channels` | array | All UTM sources with sessions + conversions, sorted by sessions descending |
 | `notable_channels` | array | Subset of channels flagged as distribution levers (high volume or high conversion) |
 | `missing_credentials` | string[] (optional) | Present in stub mode — lists which env vars are unset |
