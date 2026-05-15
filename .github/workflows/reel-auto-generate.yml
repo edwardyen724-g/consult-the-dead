@@ -1,0 +1,85 @@
+name: Article-to-Reel Auto-Trigger
+
+# Generates a verdict-reel JSON artifact for every insight article whenever
+# website/src/lib/insights.ts changes on master.  New and updated reel scripts
+# are committed back to the repository so Edward can pull them locally and
+# feed them to the voice-synthesis pipeline with zero extra steps.
+#
+# Uses [skip ci] on the commit to prevent an infinite workflow loop.
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'website/src/lib/insights.ts'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-reels:
+    name: Auto-Generate Reel Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth: 0 so we can push back to master
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install website dependencies (provides tsconfig + type resolution)
+        working-directory: website
+        run: npm ci
+
+      - name: Generate all reel scripts
+        run: |
+          npx tsx scripts/reel-scripts/generate-all-reels.ts --verbose
+        env:
+          # Ensure the script resolves imports relative to repo root
+          NODE_PATH: .
+
+      - name: Detect changes
+        id: changes
+        run: |
+          git add scripts/reel-scripts/reels/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No reel script changes to commit."
+          else
+            ADDED=$(git diff --cached --name-only --diff-filter=A | wc -l | tr -d ' ')
+            MODIFIED=$(git diff --cached --name-only --diff-filter=M | wc -l | tr -d ' ')
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "added=$ADDED" >> "$GITHUB_OUTPUT"
+            echo "modified=$MODIFIED" >> "$GITHUB_OUTPUT"
+            echo "Reel scripts: $ADDED new, $MODIFIED updated."
+          fi
+
+      - name: Commit reel scripts
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.email "reel-bot@consultthedead.com"
+          git config user.name "Reel Auto-Generator"
+
+          ADDED="${{ steps.changes.outputs.added }}"
+          MODIFIED="${{ steps.changes.outputs.modified }}"
+
+          MSG="chore(reels): auto-generate reel scripts"
+          if [ "$ADDED" -gt "0" ] && [ "$MODIFIED" -gt "0" ]; then
+            MSG="$MSG ($ADDED new, $MODIFIED updated) [skip ci]"
+          elif [ "$ADDED" -gt "0" ]; then
+            MSG="$MSG ($ADDED new) [skip ci]"
+          else
+            MSG="$MSG ($MODIFIED updated) [skip ci]"
+          fi
+
+          git commit -m "$MSG"
+          git push
