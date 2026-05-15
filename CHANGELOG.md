@@ -4,6 +4,33 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-15 (Socrates — 28th live mind) — PR #414
+
+### Added
+- **Socrates** added as the 28th live mind (archetype: The Examiner — Truth Through Radical Inquiry)
+  - Framework JSON: 14 incidents, 5 bipolar constructs (examined belief vs. assumed certainty; self-knowledge as prerequisite; productive aporia vs. false resolution; death-accepting integrity; universal vs. contextual definition)
+  - Registry updates: `ALLOWED_SLUGS`, `ACCENT_COLORS` (`#c9924e` Athenian clay), `ERA_FALLBACK`, `DISPLAY_ORDER`
+  - Mind landing page data: `howTheyArgue`, `sampleQuotes`, CTAs (`website/data/minds/socrates.json`)
+  - CSS color variables added to `globals.css` for light + dark palettes
+- **2 insight articles** using Socrates:
+  - `what-socrates-would-say-about-false-consensus` (single-figure insight)
+  - `socrates-vs-machiavelli-on-examining-before-acting` (collision)
+- 117 reel-script integration tests passing (2 new for Socrates articles)
+- README route table updated: `/minds/[id]` count 27 → 28
+- CTO hotfix: `socrates` added to `ACCENT_COLORS` in `preview-image.tsx` to resolve TypeScript build failure (`Record<FrameworkSlug, string>` requires all keys)
+
+## 2026-05-15 (Instagram Graph API) — PR #413
+
+### Added
+- `scripts/instagram/` — Instagram Graph API integration
+  - `auth.py` — `InstagramAuthClient` with OAuth token exchange, long-lived token refresh, `ensure_valid_token()`, `token_from_env()`, `build_oauth_url()`; credentials read from env vars only
+  - `upload_reel.py` — `ReelUploader` with 3-step Graph API publish flow: create container → poll status → publish; configurable poll interval + timeout
+  - `tests/test_auth.py` — 29 unit tests, HTTP layer fully mocked
+  - `tests/test_upload_reel.py` — 31 unit tests, HTTP layer fully mocked
+  - `__init__.py` package marker
+- `.env.example` — documents `INSTAGRAM_APP_ID`, `INSTAGRAM_APP_SECRET`, `INSTAGRAM_USER_ID`, `INSTAGRAM_ACCESS_TOKEN` env vars
+- 60 unit tests total (all HTTP-mocked, all branches covered, ~99% statement coverage); unblocks pilot reel batch + video render/export pipeline
+
 ## [Wave 22] — 2026-05-15
 
 ### Added
