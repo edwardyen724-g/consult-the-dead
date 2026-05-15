@@ -4142,6 +4142,76 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before your next major strategic commitment, run this minimum-viable examination: identify the one key term the whole plan depends on, and ask each team member to write down — separately, before discussion — what that term means in a specific edge case. If the answers are different, you do not have a strategy. You have a vocabulary that looks like a strategy. The examination is not the meeting where you discuss the definitions. It is the test that reveals whether the definitions are actually shared. If they are not, the two-hour definitional conversation Socrates prescribes is not overhead. It is the fastest path to a plan that will survive contact with reality. If they are, you have confirmed the alignment and can commit with genuine confidence rather than performed agreement.",
     },
   },
+  // ── Aristotle (29th live mind, task 90292bb6) ──────────────────────────────
+  {
+    slug: "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    type: "single",
+    frameworkSlug: "aristotle",
+    title: "What Would Aristotle Say About Making Decisions Under Uncertainty?",
+    description:
+      "Most decision frameworks tell you to gather more data or trust your gut. Aristotle's answer is different: he would tell you that you are asking the wrong question. The issue is not how much data you have — it is whether you have the phronesis to recognize what kind of decision this actually is, what category it belongs to, and what level of certainty is appropriate to that category.",
+    targetKeywords: [
+      "how to make decisions under uncertainty startup",
+      "practical wisdom decision making founder",
+      "first principles decision making business",
+      "Aristotle phronesis practical wisdom business",
+      "systematic reasoning under uncertainty startup",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your team is facing a major strategic decision and you do not have enough data. One advisor says collect more evidence. Another says trust your instincts. Aristotle would tell you that both are asking the wrong question — the right question is what kind of decision this is, and what that category tells you about how much certainty is actually achievable.",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    type: "collision",
+    frameworkSlug: "aristotle",
+    collisionFrameworkSlugs: ["aristotle", "niccolo-machiavelli"],
+    title:
+      "Aristotle vs. Machiavelli: Should You Build for Virtue or for Power?",
+    description:
+      "Aristotle and Niccolo Machiavelli represent the oldest and most durable disagreement in the history of leadership thought. Aristotle argues that the excellent leader is the virtuous leader — that the golden mean, systematically applied, produces better decisions and more durable institutions than any strategy built on calculated pragmatism. Machiavelli argues that virtue is a luxury of stable times and that the leader who survives long enough to build excellent institutions must first master the art of obtaining and holding power, which requires tools that virtue does not sanction. For startup founders building something from nothing in conditions that are neither stable nor forgiving, this collision is not academic: it is the question every founder faces when the virtuous move and the effective move point in different directions.",
+    targetKeywords: [
+      "startup founder ethics vs pragmatism leadership",
+      "Aristotle Machiavelli virtue vs power leadership",
+      "should founders be ethical or pragmatic",
+      "virtue ethics vs realpolitik startup decision",
+      "when to compromise values for business survival",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "You are facing a situation where the principled move and the pragmatic move point in different directions. The principled move aligns with your values but costs you a competitive advantage. The pragmatic move wins the immediate battle but sets a precedent you are not comfortable with. Which framework do you apply?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Aristotle",
+        text: "Before you decide whether this is a pragmatism problem or a virtue problem, you need to establish what category of decision you are making. You are treating this as a choice between two separate values — the ethical and the effective. But I would challenge that framing. The excellent leader is not the one who chooses between virtue and power — the excellent leader is the one who has developed the practical wisdom to see that the virtuous decision and the effective decision usually converge in the medium term. The leader who builds durable institutions on pragmatic shortcuts builds on sand. The question is not 'which move wins today' but 'what kind of organization does each move produce over five years?'",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Aristotle's argument assumes you survive long enough for the medium term to arrive. In my experience of political reality — and I am speaking of actual republics and principalities, not philosophical thought experiments — the virtuous leader who cannot defend his position produces no excellent institutions at all, because he is removed before the medium term arrives. The new prince who applies the golden mean to his adversaries will find that his adversaries are not applying the golden mean to him. Virtue must be supplemented by the capacity to act otherwise when the situation requires it. The leader who cannot recognize when the situation has changed is not virtuous — he is inflexible.",
+      },
+      {
+        speaker: "Aristotle",
+        text: "Machiavelli identifies a real problem and misdiagnoses the solution. He is correct that the leader who cannot adapt to changing circumstances will fail. But the solution is not to abandon the framework of virtue — it is to apply virtue with the appropriate level of precision for the situation. The Nicomachean Ethics does not describe a fixed rulebook; it describes a method of judgment. The courageous action in a stable environment is not the same as the courageous action in an existential crisis. The error is not in seeking virtue — it is in treating virtue as a fixed script rather than as a capacity for judgment. Phronesis — practical wisdom — is precisely the capacity to identify what virtue requires in this specific situation, not to read off the virtuous action from a list of rules.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Then we agree that the question is what the situation requires. Where we differ is on what that means in practice. Aristotle says: apply practical wisdom to identify the virtuous mean in this situation. I say: apply practical wisdom to identify what will actually work in this situation, and do not exclude options in advance on the grounds that they are not virtuous. The leader who pre-commits to never using the lion's force or the fox's cunning has constrained his own toolkit before the fight begins. I am not arguing for unprincipled opportunism — I am arguing for a complete toolkit. Aristotle's framework produces excellent citizens in a well-ordered polis. It produces corpses in a new principality.",
+      },
+      {
+        speaker: "Aristotle",
+        text: "Machiavelli's toolkit argument concedes more than he realizes. He says the excellent leader uses every tool available — including deception and force. But which situations warrant force? Which warrant deception? These are exactly the questions that practical wisdom answers. The person with good judgment will use force when the situation genuinely requires it and not one moment before. The person without it will use force when it is convenient, because convenience is easier to perceive than necessity. The distinction between the virtuous leader who acts ruthlessly when genuinely required and the unprincipled leader who acts ruthlessly whenever it is useful is not a distinction Machiavelli's framework can draw. That is the practical failure of his system.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "aristotle",
+      summary:
+        "Aristotle and Machiavelli converge on a non-obvious point: both argue that the quality of the leader's judgment is more important than any specific rule about what to do. Machiavelli is correct that effective leadership cannot pre-commit to virtue and ignore consequences — the leader who loses power before their excellent institutions are built produces nothing. Aristotle is correct that the framework of practical wisdom is more powerful than any specific rule set, including Machiavelli's, because it generates the right response to novel situations rather than applying a fixed script. The resolution is that Aristotle's phronesis, properly understood, is not a constraint on the toolkit — it is the capacity to use the full toolkit well. The question for a founder is not 'should I be virtuous or pragmatic' but 'do I have the practical wisdom to identify what this specific situation actually requires, and the integrity to do it even when the alternative is more immediately convenient?'",
+      actionableInsight:
+        "When you face a decision where the principled move and the pragmatic move diverge, run Aristotle's classification test before you decide. First: what category is this decision in? Is this a situation where you are genuinely facing an existential threat that requires tools you would not normally use, or is this a situation where pragmatism is more convenient than necessary? Machiavelli's framework applies to the first category and corrupts the second. Second: what does the excellent version of your organization look like in five years, and which decision builds toward that telos? The pragmatic shortcut that wins today but sets a precedent you are not comfortable with is building toward a different organization than the one you set out to build — and that organization will be harder to lead, harder to staff with excellent people, and harder to make decisions in, because the framework for what is acceptable has expanded in ways you did not plan for. Use the full toolkit when the situation genuinely requires it. Use Aristotle's classification test to establish when that threshold is actually met.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -5689,6 +5759,35 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "examination first",
       constructIndex: 2,
+    },
+  ],
+  // ── Aristotle annotation blueprints (task 90292bb6) ───────────────────────
+  "what-would-aristotle-say-about-making-decisions-under-uncertainty": [
+    {
+      label: "Phronesis over data volume",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "what kind of decision this is",
+      constructIndex: 2,
+    },
+    {
+      label: "Category error in uncertainty framing",
+      source: (entry) => entry.description,
+      excerpt: "asking the wrong question",
+      constructIndex: 3,
+    },
+  ],
+  "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power": [
+    {
+      label: "Virtue vs. pragmatism divergence",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "principled move and the pragmatic move",
+      constructIndex: 1,
+    },
+    {
+      label: "Teleological evaluation of decisions",
+      source: (entry) => entry.description,
+      excerpt: "virtuous decision and the effective decision",
+      constructIndex: 4,
     },
   ],
 };

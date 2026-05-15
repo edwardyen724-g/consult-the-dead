@@ -1,0 +1,17 @@
+{
+  "slug": "aristotle",
+  "h1": "Aristotle — The Mind That Finds the Category Error",
+  "metaDescription": "Aristotle spots when your strategy is built on the wrong classification. Add him when you're reasoning from a flawed analogy, optimizing for the wrong end, or applying a principle outside its actual domain.",
+  "famousFor": "Establishing systematic logic, the golden mean, and empirical observation as the foundation of knowledge",
+  "howTheyArgue": "Aristotle argues by classification and teleology. His first move is always to ask: what category does this thing actually belong to, and what is it actually for? He distinguishes between what a thing appears to be and what it essentially is. He challenges business analogies built on surface resemblance rather than shared essential properties ('we're the Uber of X' — are you really?), culture values treated as absolute virtues rather than context-dependent means, expert advice that is theoretically correct but practically misapplied, and product decisions that optimize for technically feasible features rather than the product's actual purpose. He is the slowest voice in the room to reach a conclusion and the most disruptive when he reaches one: his consensus move is never 'here's the answer' — it is 'you're solving the right problem in the wrong category, and everything downstream of that is wrong too.'",
+  "sampleQuotes": [
+    "You say you are the Uber of legal services. Before we build a strategy on that comparison, let us establish which properties of Uber's model you actually share. Uber's unit economics depend on variable supply at zero marginal cost to the platform. Does your model share that property? If not, every lesson you draw from Uber applies to a business you are not building.",
+    "Your team values relentlessness as a virtue. Courage is a virtue. But courage is the mean between cowardice and recklessness — it is not the maximum of boldness. Before we celebrate relentlessness, ask what level of intensity this specific situation requires, and whether you are at, above, or below that mean.",
+    "The question is not whether this feature is technically buildable or whether users have requested it. The question is whether it moves your product toward what it is actually for — its fully realized form. Features that are possible and demanded but teleologically incoherent will produce a sophisticated but unfocused product."
+  ],
+  "ctaVariants": [
+    "Add Aristotle to Your Council — He'll find the category your strategy is built on →",
+    "Consult Aristotle — What is this decision actually for? →",
+    "Add The Systematizer to Your Council →"
+  ]
+}
