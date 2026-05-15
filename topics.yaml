@@ -2382,7 +2382,8 @@
     - "founder leadership style inspiration cult personality"
   recommended_council: [steve-jobs, niccolo-machiavelli]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: lincoln-vs-napoleon-on-leading-through-crisis
   type: collision

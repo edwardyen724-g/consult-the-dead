@@ -2372,25 +2372,25 @@ describe("Wave 21 — 3 collision articles", () => {
     );
   });
 
-  it("generates a reel script for aurelius-vs-galilei-on-practical-vs-theoretical-reasoning", () => {
+  it("generates a reel script for jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love", () => {
     const script = buildVerdictReelScript(
-      "aurelius-vs-galilei-on-practical-vs-theoretical-reasoning",
+      "jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
     expect(script.slug).toBe(
-      "aurelius-vs-galilei-on-practical-vs-theoretical-reasoning",
+      "jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
-    expect(script.frameworkSlug).toBe("marcus-aurelius");
-    expect(script.decisionType).toBe("reasoning");
+    expect(script.frameworkSlug).toBe("steve-jobs");
+    expect(script.decisionType).toBe("leadership");
     expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
     expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
-    // Reasoning council: Newton (main), Curie (support), Aurelius (close)
-    expect(script.councilPass[0].mind).toBe("Isaac Newton");
-    expect(script.councilPass[1].mind).toBe("Marie Curie");
-    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
     expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
     expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
     expect(script.cta).toContain(
-      "/insights/aurelius-vs-galilei-on-practical-vs-theoretical-reasoning",
+      "/insights/jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
   });
 });
