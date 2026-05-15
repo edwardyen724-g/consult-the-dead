@@ -4,6 +4,30 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## 2026-05-15 (Joan of Arc — 30th live mind) — PR #433
+
+### Added
+- **Joan of Arc** added as the 30th live mind (archetype: The Visionary Martyr — Conviction Under Fire)
+  - Framework JSON: 5 bipolar constructs, 12 critical incidents
+  - Color: `#d4a843` (amber-gold)
+- **2 insight articles** using Joan of Arc:
+  - `what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure` (single-figure; leadership)
+  - `joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism` (collision; leadership)
+- 2160 reel tests passing
+
+## 2026-05-15 (Wave 25 content batch) — PR #431
+
+### Added
+- **3 collision insight articles** (Wave 25):
+  - `napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation` — strategy court (Napoleon/Caesar): rapid territorial expansion vs. methodical consolidation for lasting dominance
+  - `cicero-vs-seneca-on-public-action-vs-stoic-withdrawal` — control court (Cicero/Seneca): engaging power structures directly vs. principled withdrawal to preserve integrity
+  - `galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention` — innovation court (Galileo/Ada Lovelace): observation-driven empirical discovery vs. theoretical invention ahead of its time
+- **3 decision pages** (Wave 25, decisions total: 87):
+  - `should-i-raise-a-seed-extension-or-series-a` — fundraising-path decision
+  - `should-i-build-in-public-or-stay-stealth` — go-to-market decision
+  - `should-i-hire-a-head-of-sales-or-keep-founder-led-sales` — team-building decision
+- 128 reel tests passing
+
 ## [Wave 24] — 2026-05-15 — PR #421
 
 ### Added
