@@ -2939,3 +2939,45 @@
   recommended_council: [benjamin-franklin, frederick-douglass, marcus-aurelius]
   hook_angles: [tension, shortcut]
   status: queued
+
+- slug: darwin-vs-mendel-on-observation-vs-controlled-experiment
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "observation vs controlled experiment research strategy"
+  secondary_queries:
+    - "field research vs lab experiment data collection"
+    - "naturalistic observation vs experimental design startup"
+    - "qualitative user research vs quantitative A/B testing"
+    - "Darwin Mendel scientific method founder"
+    - "when to do broad research vs controlled testing"
+  recommended_council: [charles-darwin, marie-curie]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-build-a-marketplace-or-saas
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build a marketplace or SaaS product"
+  secondary_queries:
+    - "marketplace vs SaaS business model comparison"
+    - "two-sided marketplace vs software subscription startup"
+    - "cold start problem marketplace vs SaaS"
+    - "platform vs product startup decision"
+    - "when to build a marketplace vs a SaaS tool"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: napoleon-vs-wellington-on-speed-vs-defense
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "speed vs defensive strategy business competition"
+  secondary_queries:
+    - "aggressive fast-moving vs steady defensive business strategy"
+    - "offense vs defense competitive startup strategy"
+    - "when to be first-mover vs fast-follower"
+    - "Napoleon Wellington leadership strategy comparison"
+    - "blitzkrieg vs trench warfare business metaphor"
+  recommended_council: [napoleon-bonaparte, marcus-aurelius, niccolo-machiavelli]
+  hook_angles: [tension, shortcut]
+  status: queued
