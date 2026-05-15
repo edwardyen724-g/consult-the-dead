@@ -4,6 +4,56 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 24] — 2026-05-15 — PR #421
+
+### Added
+- **3 collision insight articles** (Wave 24):
+  - `caesar-vs-cleopatra-on-political-vs-military-power` — strategy court (Caesar/Cleopatra): political legitimacy vs. military command in company-defining power plays
+  - `tubman-vs-nightingale-on-direct-action-vs-institutional-change` — leadership court (Tubman/Nightingale): ground-level rescue vs. systemic reform for lasting impact
+  - `archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention` — innovation court (Archimedes/da Vinci): pure mathematical insight vs. inventive prototyping for breakthrough impact
+- **3 decision pages** (Wave 24, decisions total: 81):
+  - `should-i-charge-users-or-advertisers` — monetization-model decision (pricing court)
+  - `should-i-go-freemium-or-paid-only` — product-strategy decision (access model)
+  - `should-i-go-outbound-or-inbound` — go-to-market decision (growth channel)
+- 120 reel-script integration tests passing (Wave 24 collisions covered)
+- `topics.yaml`: 6 Wave 24 entries marked shipped
+
+## 2026-05-15 (Instagram CI coverage) — PR #416
+
+### Added
+- `pytest` coverage step added to `.github/workflows/ci.yml` for `scripts/instagram/` Python tests
+- Instagram auth + upload tests now gated in CI (all 60 tests, 99% statement coverage enforced)
+
+## [Wave 23] — 2026-05-15 — PR #419
+
+### Added
+- **3 collision insight articles** (Wave 23):
+  - `carnegie-vs-sun-tzu` — people-vs-positioning court (Carnegie/Sun Tzu): winning through relationships vs. winning through superior terrain and positioning
+  - `catherine-the-great-vs-machiavelli` — power-consolidation court (Catherine/Machiavelli): legitimacy-through-reform vs. pragmatic power realpolitik
+  - `edison-vs-tesla` — iteration-vs-vision court (Edison/Tesla): relentless practical iteration vs. theoretical breakthroughs ahead of their time
+- **3 decision pages** (Wave 23, decisions total: 78):
+  - `should-i-offer-a-free-trial` — acquisition-model decision
+  - `should-i-hire-a-chief-of-staff` — leadership-leverage decision
+  - `should-i-take-angel-investors-or-wait-for-vc` — fundraising-path decision
+- 120 reel-script integration tests passing (3 new for Wave 23 collisions)
+- Wave 23 DECISION_COURT entries added; `topics.yaml` Wave 23 entries marked shipped
+
+## 2026-05-15 (Reel auto-trigger) — PR #418
+
+### Added
+- **Article-to-reel auto-generation on master merge**: GitHub Actions workflow triggers on push to master when `insights.ts` changes; runs `generate-all-reels.ts` and commits `.reel.json` artifacts back with `[skip ci]`
+  - Eliminates manual reel-generation step after each content batch
+  - 117 reel-script integration tests passing at time of merge
+
+## 2026-05-15 (Reel render pipeline) — PR #420
+
+### Added
+- **ffmpeg-based Verdict Reel MP4 export** (`scripts/reel-scripts/render-reel.py`):
+  - Produces 9:16 MP4 from reel JSON + WAV audio using ffmpeg
+  - On-brand kinetic text overlays; mandatory captions; no AI avatar
+  - 87 tests at 99% statement coverage; `--cov-fail-under=95` enforced in CI
+  - Closes the Phase 4 gap between audio synthesis (`synthesize-voice.py`) and Instagram posting (`scripts/instagram/upload_reel.py`)
+
 ## 2026-05-15 (Socrates — 28th live mind) — PR #414
 
 ### Added
