@@ -33,6 +33,8 @@ const ACCENT_COLORS: Record<FrameworkSlug, string> = {
   "steve-jobs": "#5a8fb8",
   // Wave 8 addition 2026-05
   "galileo-galilei": "#5b9bd5",
+  // Socrates addition 2026-05 (task ce256e9b)
+  "socrates": "#c9924e",
 };
 
 export interface FrameworkPreviewData {
