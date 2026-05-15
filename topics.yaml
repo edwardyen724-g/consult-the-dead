@@ -2873,3 +2873,61 @@
   recommended_council: [andrew-carnegie, niccolo-machiavelli, julius-caesar]
   hook_angles: [tension, shortcut]
   status: queued
+
+# ── Wave 26 seed entries ──────────────────────────────────────────────────────
+
+- slug: tubman-vs-douglass-on-sacrifice-vs-persuasion
+  type: collision
+  search_volume_estimate: high
+  primary_query: "direct action vs advocacy which is more effective for change"
+  secondary_queries:
+    - "personal sacrifice vs moral persuasion leadership strategy"
+    - "when to act vs when to build public support founder"
+    - "execution-first vs communication-first change strategy startup"
+    - "showing up vs speaking out which drives faster impact"
+    - "direct operator vs public advocate founder identity"
+  recommended_council: [harriet-tubman, frederick-douglass]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: carnegie-vs-rockefeller-on-merit-vs-monopoly
+  type: collision
+  search_volume_estimate: high
+  primary_query: "hire for talent and build systems vs control the market and eliminate competition"
+  secondary_queries:
+    - "meritocracy vs market control business strategy"
+    - "talent-first vs supply-chain control competitive moat"
+    - "building great teams vs dominating distribution channels"
+    - "Carnegie management philosophy vs Rockefeller monopoly strategy"
+    - "people-led growth vs structural dominance startup"
+  recommended_council: [andrew-carnegie, john-d-rockefeller]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-focus-on-retention-or-acquisition
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I focus on retaining customers or acquiring new ones"
+  secondary_queries:
+    - "retention vs acquisition SaaS growth strategy"
+    - "churn reduction vs top-of-funnel growth startup priority"
+    - "when to fix retention before scaling acquisition"
+    - "leaky bucket problem SaaS growth"
+    - "customer lifetime value vs new customer growth startup"
+  recommended_council: [andrew-carnegie, benjamin-franklin, niccolo-machiavelli]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-invest-in-content-marketing
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I invest in content marketing for my startup"
+  secondary_queries:
+    - "content marketing vs paid ads early-stage startup"
+    - "when to start a startup blog or content strategy"
+    - "SEO content vs performance marketing founder choice"
+    - "long-term content moat vs short-term paid growth"
+    - "inbound marketing strategy early startup stage"
+  recommended_council: [benjamin-franklin, frederick-douglass, marcus-aurelius]
+  hook_angles: [tension, shortcut]
+  status: queued
