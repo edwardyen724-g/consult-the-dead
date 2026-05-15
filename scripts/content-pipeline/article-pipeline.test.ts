@@ -12,6 +12,7 @@ import {
   routePathForTopicType,
   selectTopicRecord,
   slugToTitle,
+  submitSearchConsolePayload,
   runCli,
   writeDraftArtifacts,
 } from "./generate-article-drafts";
@@ -68,7 +69,7 @@ describe("topic parsing and selection", () => {
     const direct = selectTopicRecord(topics, { record: explicit });
 
     expect(explicit.primaryQuery).toBe("should I raise VC or bootstrap");
-    expect(explicit.status).toBe("queued");
+    expect(explicit.status).toBe("shipped");
     expect(queued.status).toBe("queued");
     expect(queued.slug.length).toBeGreaterThan(0);
     expect(direct).toBe(explicit);
@@ -160,6 +161,13 @@ describe("draft generation", () => {
     );
 
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ctd-content-pipeline-"));
+    const submitSearchConsolePayloadMock = vi.fn(async () => ({
+      endpoint: "https://indexing.googleapis.com/v3/urlNotifications:publish",
+      response: {
+        ok: true,
+      },
+    }));
+
     await runCli([
       "--slug",
       "should-i-quit-my-job-to-start-a-company",
@@ -168,7 +176,9 @@ describe("draft generation", () => {
       "--site-base-url",
       "https://consultthedead.com",
       "--no-dry-run",
-    ]);
+    ], {
+      submitSearchConsolePayload: submitSearchConsolePayloadMock,
+    });
     await runCli([
       "--slug",
       "should-i-raise-vc-or-bootstrap",
@@ -177,7 +187,14 @@ describe("draft generation", () => {
       "--site-base-url",
       "https://consultthedead.com",
       "--dry-run",
-    ]);
+    ], {
+      submitSearchConsolePayload: submitSearchConsolePayloadMock,
+    });
+    expect(submitSearchConsolePayloadMock).toHaveBeenCalledWith({
+      url: "https://consultthedead.com/decisions/should-i-quit-my-job-to-start-a-company",
+      type: "URL_UPDATED",
+    });
+    submitSearchConsolePayloadMock.mockClear();
     const outputs = buildOutputPaths(
       {
         slug: "should-i-quit-my-job-to-start-a-company",
@@ -191,6 +208,67 @@ describe("draft generation", () => {
     expect(markdown).toContain("Should I Quit My Job to Start a Company");
     expect(markdown).toContain("Run your own version in the Agora");
     expect(payload).toContain("/decisions/should-i-quit-my-job-to-start-a-company");
+    expect(submitSearchConsolePayloadMock).not.toHaveBeenCalled();
+  });
+
+  it("submits the Search Console payload with an access token from the environment", async () => {
+    const originalToken = process.env.SEARCH_CONSOLE_ACCESS_TOKEN;
+    const fetchImpl = vi.fn(async () => {
+      return {
+        ok: true,
+        status: 200,
+        statusText: "OK",
+        json: async () => ({
+          urlNotificationMetadata: {
+            latestUpdate: {
+              notifyTime: "2026-05-09T12:00:00.000Z",
+            },
+          },
+        }),
+        text: async () => "",
+      } as never;
+    });
+
+    process.env.SEARCH_CONSOLE_ACCESS_TOKEN = "env-token";
+
+    try {
+      const result = await submitSearchConsolePayload(
+        {
+          url: "https://consultthedead.com/decisions/should-i-raise-vc-or-bootstrap",
+          type: "URL_UPDATED",
+        },
+        {
+          fetchImpl: fetchImpl as never,
+        },
+      );
+
+      expect(fetchImpl).toHaveBeenCalledWith(
+        "https://indexing.googleapis.com/v3/urlNotifications:publish",
+        expect.objectContaining({
+          method: "POST",
+          headers: expect.objectContaining({
+            Authorization: "Bearer env-token",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({
+            url: "https://consultthedead.com/decisions/should-i-raise-vc-or-bootstrap",
+            type: "URL_UPDATED",
+          }),
+        }),
+      );
+      expect(result).toEqual({
+        endpoint: "https://indexing.googleapis.com/v3/urlNotifications:publish",
+        response: {
+          urlNotificationMetadata: {
+            latestUpdate: {
+              notifyTime: "2026-05-09T12:00:00.000Z",
+            },
+          },
+        },
+      });
+    } finally {
+      process.env.SEARCH_CONSOLE_ACCESS_TOKEN = originalToken;
+    }
   });
 
   it("does not write draft artifacts in dry-run mode", async () => {
@@ -215,6 +293,55 @@ describe("draft generation", () => {
 
     await expect(fs.access(draftOutputs.markdownPath)).rejects.toThrow();
     await expect(fs.access(draftOutputs.searchConsolePath)).rejects.toThrow();
+  });
+
+  it("submits the payload in non-dry-run mode and skips submission for dry-run", async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "ctd-content-pipeline-submit-"));
+    const submitSearchConsolePayloadMock = vi.fn(async () => ({
+      endpoint: "https://indexing.googleapis.com/v3/urlNotifications:publish",
+      response: {
+        ok: true,
+      },
+    }));
+
+    await runCli(
+      [
+        "--slug",
+        "should-i-quit-my-job-to-start-a-company",
+        "--output-dir",
+        tempDir,
+        "--site-base-url",
+        "https://consultthedead.com",
+        "--no-dry-run",
+      ],
+      {
+        submitSearchConsolePayload: submitSearchConsolePayloadMock,
+      },
+    );
+
+    expect(submitSearchConsolePayloadMock).toHaveBeenCalledWith({
+      url: "https://consultthedead.com/decisions/should-i-quit-my-job-to-start-a-company",
+      type: "URL_UPDATED",
+    });
+
+    submitSearchConsolePayloadMock.mockClear();
+
+    await runCli(
+      [
+        "--slug",
+        "should-i-raise-vc-or-bootstrap",
+        "--output-dir",
+        tempDir,
+        "--site-base-url",
+        "https://consultthedead.com",
+        "--dry-run",
+      ],
+      {
+        submitSearchConsolePayload: submitSearchConsolePayloadMock,
+      },
+    );
+
+    expect(submitSearchConsolePayloadMock).not.toHaveBeenCalled();
   });
 
   it("throws when a framework JSON is missing its incident database", async () => {
