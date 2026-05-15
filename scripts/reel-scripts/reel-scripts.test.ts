@@ -2394,6 +2394,52 @@ describe("Wave 21 — 3 collision articles", () => {
       "/insights/jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
   });
+
+  // ── Wave 23 reel tests ──────────────────────────────────────────────────
+
+  it("generates a reel script for what-would-aristotle-say-about-making-decisions-under-uncertainty", () => {
+    const script = buildVerdictReelScript(
+      "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+    expect(script.slug).toBe(
+      "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+    expect(script.frameworkSlug).toBe("aristotle");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+  });
+
+  it("generates a reel script for aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power", () => {
+    const script = buildVerdictReelScript(
+      "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+    expect(script.slug).toBe(
+      "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+    expect(script.frameworkSlug).toBe("aristotle");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+  });
 });
 
 // ── Wave 24: 3 collision articles ────────────────────────────────────────

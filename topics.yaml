@@ -2460,6 +2460,34 @@
 
 # ── Wave 23+ entries ──────────────────────────────────────────────────────────
 
+- slug: what-would-aristotle-say-about-making-decisions-under-uncertainty
+  type: single
+  search_volume_estimate: high
+  primary_query: "how to make decisions under uncertainty startup"
+  secondary_queries:
+    - "practical wisdom decision making founder"
+    - "first principles decision making business"
+    - "Aristotle phronesis practical wisdom business"
+    - "systematic reasoning under uncertainty startup"
+  recommended_council: [aristotle]
+  hook_angles: [proof, shortcut]
+  status: shipped
+  shipped_at: "2026-05-15"
+
+- slug: aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power
+  type: collision
+  search_volume_estimate: high
+  primary_query: "startup founder ethics vs pragmatism leadership"
+  secondary_queries:
+    - "Aristotle Machiavelli virtue vs power leadership"
+    - "should founders be ethical or pragmatic"
+    - "virtue ethics vs realpolitik startup decision"
+    - "when to compromise values for business survival"
+  recommended_council: [aristotle, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-15"
+
 - slug: tubman-vs-nightingale-on-field-action-vs-institution-building
   type: collision
   search_volume_estimate: medium
