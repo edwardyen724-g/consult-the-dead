@@ -2601,6 +2601,75 @@ describe("Wave 23 collision reel tests", () => {
   });
 });
 
+// ── Wave 25: 3 collision articles ────────────────────────────────────────
+describe("Wave 25 — 3 collision articles", () => {
+  it("generates a reel script for napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation", () => {
+    const script = buildVerdictReelScript(
+      "napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation",
+    );
+    expect(script.slug).toBe(
+      "napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation",
+    );
+    expect(script.frameworkSlug).toBe("napoleon-bonaparte");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
+    // Strategy court: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation",
+    );
+  });
+
+  it("generates a reel script for cicero-vs-seneca-on-public-action-vs-stoic-withdrawal", () => {
+    const script = buildVerdictReelScript(
+      "cicero-vs-seneca-on-public-action-vs-stoic-withdrawal",
+    );
+    expect(script.slug).toBe(
+      "cicero-vs-seneca-on-public-action-vs-stoic-withdrawal",
+    );
+    expect(script.frameworkSlug).toBe("cicero");
+    expect(script.decisionType).toBe("control");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
+    // Control court: Epictetus (main), Aurelius (support), Seneca (close)
+    expect(script.councilPass[0].mind).toBe("Epictetus");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Seneca");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/cicero-vs-seneca-on-public-action-vs-stoic-withdrawal",
+    );
+  });
+
+  it("generates a reel script for galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention", () => {
+    const script = buildVerdictReelScript(
+      "galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention",
+    );
+    expect(script.slug).toBe(
+      "galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention",
+    );
+    expect(script.frameworkSlug).toBe("galileo-galilei");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
+    // Innovation court: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
