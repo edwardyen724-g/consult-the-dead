@@ -1,4 +1,30 @@
 ## Task
+- `4fc76788-26ca-447f-946b-6aed3c3e56c8` - Draft a daily reel/content ops checklist for morning execution
+- `2fcdf79e-e38b-4108-918d-115c5ff5b570` - Define the reel analytics summary template and review cadence
+
+## Changed Files
+- `docs/runbooks/index.md`
+- `docs/runbooks/daily-reel-ops-checklist.md`
+- `docs/runbooks/reel-analytics-summary-template.md`
+- `website/src/app/feed.xml/route.test.ts`
+- `website/src/app/sitemap.test.ts`
+
+## What Changed
+- Added a new Reels section to the runbooks index and linked the two Phase 5 morning-execution runbooks from it.
+- Wrote a concise daily checklist for Edward that covers the reel, content, and release handoff before the workday starts.
+- Wrote a Phase 5 reel analytics summary template with the per-reel fields to capture and a repeatable daily/weekly review cadence.
+- Tightened the RSS feed route regression to assert the current debate, insight, and decision item counts instead of only comparing XML output.
+- Tightened the sitemap regression to assert the current framework, insight, mind, listicle, and decision inventories and the full published route count.
+
+## Verification
+- `./node_modules/.bin/vitest run src/app/feed.xml/route.test.ts src/app/sitemap.test.ts src/lib/rss-feed.test.ts`
+- `./node_modules/.bin/vitest run --coverage`
+
+## Results
+- Targeted feed and sitemap suites passed: `20 tests passed`.
+- Full website coverage passed at `99.59%` statements, `98.28%` branches, `100%` functions, and `99.85%` lines.
+
+## Task
 - `0134fcb9-8127-4bf8-a422-88b1e9068baf` - Tighten /pricing publication rhythm to match /account and /library
 
 ## Changed Files

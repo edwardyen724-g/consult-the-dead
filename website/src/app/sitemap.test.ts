@@ -1,10 +1,11 @@
 /**
  * Tests for /sitemap.xml route.
  *
- * Verifies that the sitemap emits one URL per listicle slug at
- * changeFrequency=monthly, priority=0.6, and one URL per decision entry
- * at changeFrequency=weekly, priority=0.8. Existing URL sets
- * (frameworks, insights, minds, agons) are preserved alongside them.
+ * Verifies that the sitemap emits the current published inventory:
+ * one URL per framework, insight, mind, listicle, and decision entry,
+ * with the expected changeFrequency/priority values for listicles and
+ * decisions. Existing top-level pages and public agons are preserved
+ * alongside them.
  *
  * The DB fetch is stubbed out via vi.mock so this test runs without
  * Postgres and without booting Next.js.
@@ -28,27 +29,11 @@ vi.mock("@/lib/sitemap-data", async (importOriginal) => {
   };
 });
 
-// Stub static data libs to return minimal deterministic fixtures.
-vi.mock("@/lib/frameworks", () => ({
-  ALLOWED_SLUGS: ["isaac-newton"],
-}));
-
-vi.mock("@/lib/insights", () => ({
-  INSIGHT_ENTRIES: [],
-}));
-
-vi.mock("@/lib/mind-content", () => ({
-  MIND_SLUGS: ["isaac-newton"],
-}));
-
-// listicle-content is NOT mocked — we want the real LISTICLE_SLUGS
-// and listicleCanonicalUrl so the test proves the production values.
-
-// content/decisions is NOT mocked — we want the real DECISION_ENTRIES
-// so the test proves the production values.
-
 import sitemap from "./sitemap";
+import { ALLOWED_SLUGS } from "@/lib/frameworks";
+import { INSIGHT_ENTRIES } from "@/lib/insights";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
+import { MIND_SLUGS } from "@/lib/mind-content";
 import { DECISION_ENTRIES, getDecisionUrl } from "../../content/decisions";
 
 const SITE_URL = "https://www.consultthedead.com";
@@ -87,19 +72,14 @@ describe("sitemap()", () => {
     }
   });
 
-  it("preserves all 5 canonical listicle slugs in output URLs", async () => {
+  it("preserves the current 10-listicle inventory in output URLs", async () => {
     const entries = await sitemap();
-    const expectedUrls = [
-      `${SITE_URL}/listicles/startup-pivot`,
-      `${SITE_URL}/listicles/career-change`,
-      `${SITE_URL}/listicles/leadership-crisis`,
-      `${SITE_URL}/listicles/investing-risk`,
-      `${SITE_URL}/listicles/product-strategy`,
-    ];
-    const urls = entries.map((e) => e.url);
-    for (const expected of expectedUrls) {
-      expect(urls).toContain(expected);
-    }
+    const listicleUrls = entries
+      .filter((e) => typeof e.url === "string" && e.url.includes("/listicles/"))
+      .map((e) => e.url);
+    expect(listicleUrls).toEqual(
+      LISTICLE_SLUGS.map((slug) => listicleCanonicalUrl(slug)),
+    );
   });
 
   it("still emits framework, mind, and top-level pages alongside listicles", async () => {
@@ -108,10 +88,41 @@ describe("sitemap()", () => {
 
     // Top-level page
     expect(urls).toContain(SITE_URL);
-    // Framework page from the mocked ALLOWED_SLUGS
+    // Framework page from the current ALLOWED_SLUGS inventory
     expect(urls).toContain(`${SITE_URL}/frameworks/isaac-newton`);
-    // Mind page from the mocked MIND_SLUGS
+    // Mind page from the current MIND_SLUGS inventory
     expect(urls).toContain(`${SITE_URL}/minds/isaac-newton`);
+  });
+
+  it("matches the current framework, insight, and mind inventories", async () => {
+    const entries = await sitemap();
+
+    const frameworkUrls = entries.filter(
+      (e) => typeof e.url === "string" && e.url.startsWith(`${SITE_URL}/frameworks/`),
+    );
+    const insightUrls = entries.filter(
+      (e) => typeof e.url === "string" && e.url.startsWith(`${SITE_URL}/insights/`),
+    );
+    const mindUrls = entries.filter(
+      (e) => typeof e.url === "string" && e.url.startsWith(`${SITE_URL}/minds/`),
+    );
+
+    expect(frameworkUrls).toHaveLength(ALLOWED_SLUGS.length);
+    expect(insightUrls).toHaveLength(INSIGHT_ENTRIES.length);
+    expect(mindUrls).toHaveLength(MIND_SLUGS.length);
+  });
+
+  it("matches the current published route inventory count", async () => {
+    const entries = await sitemap();
+
+    expect(entries).toHaveLength(
+      4 +
+        ALLOWED_SLUGS.length +
+        INSIGHT_ENTRIES.length +
+        MIND_SLUGS.length +
+        LISTICLE_SLUGS.length +
+        DECISION_ENTRIES.length,
+    );
   });
 
   it("emits one URL per decision entry", async () => {
