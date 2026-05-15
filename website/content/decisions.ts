@@ -2397,6 +2397,157 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "start your own agon on go-to-market strategy",
     ],
   },
+  // ── Wave 25 decisions ────────────────────────────────────────────────────
+  {
+    slug: "should-i-hire-a-head-of-sales-or-keep-founder-led-sales",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Hire a Head of Sales or Keep Founder-Led Sales?",
+    description:
+      "The VP Sales hire is one of the highest-leverage and most frequently mistimed decisions a B2B founder makes. The case for hiring sooner is straightforward: the founder is the bottleneck, you cannot build a scalable revenue process while also running it, and every month of founder-led sales is a month you are not building the sales infrastructure that will determine your growth trajectory in years two through five. The case for waiting is also straightforward: a sales leader hired before the product-market fit signal is clear enough to give them a repeatable playbook will fail because no playbook exists yet, will cost you six to twelve months of salary and equity, and will leave you back at founder-led sales but with a worse financial position and a demoralized team. The diagnostic variable is not company size or revenue level — it is whether you have a repeatable motion. If you can describe, in a single page, the ICP characteristics that predict a short sales cycle and high lifetime value, the specific pain points that create urgency, and the sequence of discovery-to-close that works more than 60% of the time, you are ready to hire someone to run that motion. If you cannot write that page, you are not ready — you need more founder-led reps to find the pattern, not a sales leader to operationalize a pattern you have not yet found.",
+    primaryQuery: "should I hire a VP of sales or stay founder-led sales",
+    secondaryQueries: [
+      "when to hire head of sales startup founder",
+      "founder-led sales vs hiring sales leader timing",
+      "VP sales hire timing early stage B2B startup",
+      "sales leader vs founder selling company stage",
+      "when to build sales team from founder-led motion",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "niccolo-machiavelli",
+      "sun-tzu",
+    ],
+    hookQuestion:
+      "You are closing deals but you are also the only one who knows how to close them. Can you write a repeatable sales playbook today — or are you still running enough experiments to find the pattern?",
+    targetKeywords: [
+      "should I hire VP of sales startup",
+      "founder-led sales vs head of sales timing",
+      "when to hire first sales leader B2B startup",
+      "VP sales hire readiness checklist startup",
+      "start your own agon on sales team building",
+    ],
+  },
+  {
+    slug: "should-i-raise-prices-or-compete-on-value",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Raise Prices or Compete on Value?",
+    description:
+      "The pricing decision is deceptively framed as a choice between raising prices and competing on value — but in practice, the real question is whether your current price accurately reflects the value you are already delivering, or whether you are underpricing value you have already built. If you are underpricing, raising prices is not competing on price against value — it is correcting a miscommunication about what the product is worth. The clearest signal that you are underpricing: your best customers, when asked directly, would pay more and are surprised that you charge what you do. The clearest signal that you have a value problem rather than a price problem: the customers most resistant to price increases are also your worst-fit customers — the ones with the highest support burden, the lowest expansion revenue, and the most churn risk. Serving them at a price you cannot afford is not a growth strategy; it is a subsidy program for your worst fits paid for by your best ones. Competing on value means building product differentiation that makes price comparison irrelevant — features, integrations, support, or strategic positioning that the competitor who charges less simply cannot match. This is the correct strategy when the product is genuinely undifferentiated and the primary customer decision criterion is price. When the product is differentiated, the correct strategy is to price the differentiation, not to hide it under a price point that signals equivalence with the undifferentiated alternatives.",
+    primaryQuery: "should I raise prices or add more value startup",
+    secondaryQueries: [
+      "pricing strategy startup raise prices or compete on value",
+      "when to raise prices SaaS startup",
+      "value-based pricing vs competitive pricing decision",
+      "underpricing startup product signs and fix",
+      "pricing power vs value creation startup decision",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marcus-aurelius",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Your best customers would pay more and your worst customers would churn at a higher price. Is the price problem a product problem, or is it a communication problem about value you have already built?",
+    targetKeywords: [
+      "should I raise prices or add more value startup",
+      "raise prices vs compete on value startup decision",
+      "when to increase SaaS pricing startup",
+      "value-based pricing strategy for founders",
+      "start your own agon on pricing strategy",
+    ],
+  },
+  {
+    slug: "should-i-launch-an-enterprise-tier",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Launch an Enterprise Tier?",
+    description:
+      "The enterprise tier decision is a product strategy and go-to-market commitment disguised as a packaging question. Adding an enterprise tier is not just creating a higher price point — it requires building the compliance infrastructure (SOC 2, SSO/SAML, audit logs, data residency), the sales motion (outbound, RFP responses, legal review, multi-stakeholder procurement), the support infrastructure (SLAs, dedicated customer success, escalation paths), and the product features (custom permissions, role-based access, API rate limit increases, admin tooling) that enterprise buyers require as table stakes. The question is not whether enterprise revenue would be good to have — of course it would — but whether your current organization can serve enterprise accounts without degrading the product and service quality that your existing customers depend on, and whether the enterprise opportunity is large enough and accessible enough to justify the organizational transformation required to pursue it. The clearest signals that you are ready: you have inbound enterprise interest from accounts large enough to justify the build cost, your core product already solves the problem at the scale those accounts need, and you have at least one person who has run enterprise sales or customer success before. The clearest signals that you are not ready: the interest is aspirational rather than inbound, the core product requires significant architecture work to meet enterprise requirements, and the team asking for the enterprise tier has never closed an enterprise deal.",
+    primaryQuery: "should I launch enterprise tier startup",
+    secondaryQueries: [
+      "SMB vs enterprise product tier decision startup",
+      "when to add enterprise pricing tier SaaS",
+      "enterprise sales readiness checklist startup",
+      "enterprise tier requirements SOC2 SSO startup",
+      "moving from SMB to enterprise product strategy",
+    ],
+    recommendedCouncil: [
+      "julius-caesar",
+      "sun-tzu",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "Enterprise accounts are asking about your product and the deal sizes would transform your revenue. But enterprise means SOC 2, SSO, custom procurement, and a sales motion you have not built. Is the opportunity large enough to justify building the organization that can serve it?",
+    targetKeywords: [
+      "should I launch enterprise tier startup",
+      "enterprise pricing tier readiness startup",
+      "when to add enterprise plan SaaS product",
+      "enterprise vs SMB strategy startup decision",
+      "start your own agon on enterprise tier launch",
+    ],
+  },
+  {
+    slug: "should-i-raise-a-seed-extension-or-series-a",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Raise a Seed Extension or Series A?",
+    description:
+      "The choice between a seed extension and a Series A is not a fundraising decision — it is a milestone honesty decision. A Series A requires you to demonstrate that the core growth engine works: that you have found the customer segment, the pricing, the acquisition channel, and the retention rate that justify institutional capital at the scale a Series A implies. A seed extension means you have not yet demonstrated those things, and you are asking existing or new small-check investors to buy you the time to find them. The strategic error is raising a seed extension because the Series A metrics are close but not quite there — a decision that typically delays the reckoning by six to nine months without changing the fundamental dynamics, and leaves you raising the Series A from a weaker position because the extension capital is nearly gone and the metrics have improved only modestly. The harder but more honest version of the question is: do we have enough evidence that this business works to justify the operating model a Series A implies, or do we need to run a specific set of experiments that would produce that evidence — and if so, how much capital do those experiments require?",
+    primaryQuery: "should I raise a seed extension or Series A",
+    secondaryQueries: [
+      "seed extension vs Series A timing decision",
+      "when to raise Series A startup metrics required",
+      "bridge round vs next round startup funding decision",
+      "pre-Series A readiness assessment startup",
+      "how to decide between seed extension and Series A",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marie-curie",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "Your metrics are improving but not yet at Series A benchmarks. A seed extension buys you nine more months. Is that enough time to close the gap — or are you delaying a harder conversation about whether the growth engine actually works?",
+    targetKeywords: [
+      "should I raise a seed extension or Series A",
+      "seed extension vs Series A startup decision",
+      "when is startup ready for Series A",
+      "bridge round vs Series A founder decision",
+      "start your own agon on fundraising strategy",
+    ],
+  },
+  {
+    slug: "should-i-build-in-public-or-stay-stealth",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Build in Public or Stay Stealth?",
+    description:
+      "Building in public and staying stealth are not just different communication strategies — they reflect different theories about where early competitive advantage comes from and what your most constrained resource is at the current stage. Building in public generates distribution, feedback, and accountability before you have a product to distribute: the audience you build while building is the audience you launch to, and the feedback loop from public building accelerates product decisions by giving you a larger, more diverse set of perspectives than any internal team can generate. The cost is that you signal your direction to competitors before you have a durable advantage, and you create reputational exposure if the public trajectory includes failures, pivots, or false starts that would have been invisible in stealth mode. Staying stealth preserves optionality: you can explore, fail, and redirect without the social cost of public pivots, and you can build a technical or operational moat before competitors know the direction. The cost is that stealth is expensive — you lose the distribution and feedback benefits of public building, and you arrive at launch with no audience, no validated messaging, and no community investment in your success. The diagnostic is not about which approach feels more authentic. It is about whether your primary risk is competitive imitation or distribution scarcity at launch.",
+    primaryQuery: "should I build in public or stay in stealth mode",
+    secondaryQueries: [
+      "build in public vs stealth startup strategy",
+      "sharing startup progress publicly pros and cons",
+      "when to go stealth vs build in public founder",
+      "build in public audience distribution strategy",
+      "stealth mode vs open development early stage startup",
+    ],
+    recommendedCouncil: [
+      "benjamin-franklin",
+      "niccolo-machiavelli",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "Going public with your build process would grow your audience and sharpen your product thinking — but it would also show competitors exactly what you are building before you have a moat. Is your primary risk that competitors will copy you, or that you will launch to silence?",
+    targetKeywords: [
+      "should I build in public or stay stealth startup",
+      "build in public vs stealth mode founder decision",
+      "when to share startup progress publicly",
+      "stealth startup vs open building strategy",
+      "start your own agon on build in public strategy",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

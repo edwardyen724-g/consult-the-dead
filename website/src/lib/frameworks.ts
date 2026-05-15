@@ -42,6 +42,8 @@ export const ALLOWED_SLUGS = [
   "socrates",
   // Aristotle added as 29th live mind (task 90292bb6) — 2026-05
   "aristotle",
+  // Joan of Arc added as 30th live mind (task 406365da) — 2026-05
+  "joan-of-arc",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -83,6 +85,8 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "socrates": "var(--color-socrates)",
   // Aristotle added as 29th live mind 2026-05
   "aristotle": "var(--color-aristotle)",
+  // Joan of Arc added as 30th live mind 2026-05
+  "joan-of-arc": "var(--color-joan-of-arc)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -122,6 +126,8 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "socrates": "c. 470–399 BC",
   // Aristotle added as 29th live mind 2026-05
   "aristotle": "384–322 BC",
+  // Joan of Arc added as 30th live mind 2026-05
+  "joan-of-arc": "1412–1431",
 };
 
 /* ── Display order for the index page ── */
@@ -153,6 +159,7 @@ export const DISPLAY_ORDER: FrameworkSlug[] = [
   "catherine-the-great",
   "alexander-the-great",
   "julius-caesar",
+  "joan-of-arc",
   "napoleon-bonaparte",
   "cleopatra-vii",
   "steve-jobs",

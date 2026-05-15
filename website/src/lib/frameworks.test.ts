@@ -52,12 +52,12 @@ const EXPANSION_SLUGS = [
 ] as const;
 
 /**
- * After adding Aristotle as the 29th live mind (task 90292bb6, 2026-05), the
- * live roster contains exactly 29 minds. Albert Einstein is shipped as data
+ * After adding Joan of Arc as the 30th live mind (task 406365da, 2026-05), the
+ * live roster contains exactly 30 minds. Albert Einstein is shipped as data
  * but his slug is held out of ALLOWED_SLUGS pending Hebrew University legal
  * review (see header comment in frameworks.ts).
  */
-const EXPECTED_ROSTER_SIZE = 29;
+const EXPECTED_ROSTER_SIZE = 30;
 
 describe("ALLOWED_SLUGS roster gate", () => {
   it("contains exactly EXPECTED_ROSTER_SIZE minds (Einstein excluded)", () => {

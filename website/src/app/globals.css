@@ -68,6 +68,8 @@
   --color-socrates:     #c9924e;  /* Athenian clay / philosophical amber */
   /* Aristotle added as 29th live mind 2026-05 */
   --color-aristotle:    #c9a84c;  /* warm amber-gold / Lyceum parchment */
+  /* Joan of Arc added as 30th live mind 2026-05 */
+  --color-joan-of-arc:  #d4a843;  /* divine gold / standard of Orléans */
 
   /* Pack accent colors — used for pack cards, badges, headers */
   --pack-stoic-council:        #b08050;
@@ -139,6 +141,8 @@ html.light {
   --color-socrates:     #8a5e2e;  /* Athenian clay, deep for parchment */
   /* Aristotle added as 29th live mind 2026-05 */
   --color-aristotle:    #8a7030;  /* warm amber-gold, deep for parchment */
+  /* Joan of Arc added as 30th live mind 2026-05 */
+  --color-joan-of-arc:  #9a7020;  /* divine gold, deep for parchment */
 
   /* Pack accent colors */
   --pack-stoic-council:        #7a5a2a;
@@ -416,6 +420,8 @@ body {
     --color-socrates:     #8a5e2e !important;
     /* Aristotle added as 29th live mind 2026-05 */
     --color-aristotle:    #8a7030 !important;
+    /* Joan of Arc added as 30th live mind 2026-05 */
+    --color-joan-of-arc:  #9a7020 !important;
 
     --pack-stoic-council:        #7a5a2a !important;
     --pack-inventors-workshop:   #4a5a8a !important;
