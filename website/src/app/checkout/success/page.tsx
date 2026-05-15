@@ -24,7 +24,7 @@ export const ONBOARDING_STEPS: {
   {
     label: 'Explore Pro-only frameworks',
     detail:
-      'All 27 historical minds — including Steve Jobs, Galileo Galilei, and Julius Caesar — plus the full 5-mind council configuration.',
+      'All 28 historical minds — including Steve Jobs, Galileo Galilei, Socrates, and Julius Caesar — plus the full 5-mind council configuration.',
     href: '/frameworks',
     cta: 'Browse frameworks →',
   },

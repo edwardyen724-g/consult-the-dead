@@ -2395,6 +2395,51 @@ describe("Wave 21 — 3 collision articles", () => {
   });
 });
 
+// ── Socrates (28th live mind, task ce256e9b) ──────────────────────────────
+describe("Socrates — single insight and collision reel tests", () => {
+  it("generates a reel script for what-socrates-would-say-about-false-consensus", () => {
+    const script = buildVerdictReelScript(
+      "what-socrates-would-say-about-false-consensus",
+    );
+    expect(script.slug).toBe("what-socrates-would-say-about-false-consensus");
+    expect(script.frameworkSlug).toBe("socrates");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence court: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-socrates-would-say-about-false-consensus",
+    );
+  });
+
+  it("generates a reel script for socrates-vs-machiavelli-on-examining-before-acting", () => {
+    const script = buildVerdictReelScript(
+      "socrates-vs-machiavelli-on-examining-before-acting",
+    );
+    expect(script.slug).toBe(
+      "socrates-vs-machiavelli-on-examining-before-acting",
+    );
+    expect(script.frameworkSlug).toBe("socrates");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence court: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/socrates-vs-machiavelli-on-examining-before-acting",
+    );
+  });
+});
+
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the
 // Einstein article (why-chatgpt-gives-generic-advice-and-what-to-do-instead)
 // is un-hidden pending legal review. No reel test yet since the slug is commented

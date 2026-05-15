@@ -52,13 +52,12 @@ const EXPANSION_SLUGS = [
 ] as const;
 
 /**
- * After the Wave 8 roster expansion (2026-05), the live roster contains
- * exactly 27 minds. Albert Einstein is shipped as data but his slug is held
- * out of ALLOWED_SLUGS pending Hebrew University legal review (see header
- * comment in frameworks.ts). Steve Jobs was added for the product listicle
- * page; Galileo Galilei was added in Wave 8 (framework already extracted).
+ * After adding Socrates as the 28th live mind (task ce256e9b, 2026-05), the
+ * live roster contains exactly 28 minds. Albert Einstein is shipped as data
+ * but his slug is held out of ALLOWED_SLUGS pending Hebrew University legal
+ * review (see header comment in frameworks.ts).
  */
-const EXPECTED_ROSTER_SIZE = 27;
+const EXPECTED_ROSTER_SIZE = 28;
 
 describe("ALLOWED_SLUGS roster gate", () => {
   it("contains exactly EXPECTED_ROSTER_SIZE minds (Einstein excluded)", () => {

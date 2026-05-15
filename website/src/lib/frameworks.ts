@@ -38,6 +38,8 @@ export const ALLOWED_SLUGS = [
   "steve-jobs",
   // Wave 8 roster expansion 2026-05 — Galileo Galilei (framework already extracted)
   "galileo-galilei",
+  // Socrates added as 28th live mind (task ce256e9b / capsule a24e6e0c) — 2026-05
+  "socrates",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -75,6 +77,8 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "steve-jobs": "var(--color-jobs)",
   // Wave 8 roster expansion 2026-05
   "galileo-galilei": "var(--color-galileo)",
+  // Socrates added as 28th live mind 2026-05
+  "socrates": "var(--color-socrates)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -110,10 +114,13 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "steve-jobs": "1955–2011",
   // Wave 8 roster expansion 2026-05
   "galileo-galilei": "1564–1642",
+  // Socrates added as 28th live mind 2026-05
+  "socrates": "c. 470–399 BC",
 };
 
 /* ── Display order for the index page ── */
 export const DISPLAY_ORDER: FrameworkSlug[] = [
+  "socrates",
   "galileo-galilei",
   "isaac-newton",
   // "albert-einstein", // HIDDEN 2026-04-16
