@@ -4,14 +4,34 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
-## [Wave 23] — 2026-05-15
+## [Wave 24] — 2026-05-15 — PR #421
+
+### Added
+- **3 collision insight articles** (Wave 24):
+  - `caesar-vs-cleopatra-on-political-vs-military-power` — strategy court (Caesar/Cleopatra): political legitimacy vs. military command in company-defining power plays
+  - `tubman-vs-nightingale-on-direct-action-vs-institutional-change` — leadership court (Tubman/Nightingale): ground-level rescue vs. systemic reform for lasting impact
+  - `archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention` — innovation court (Archimedes/da Vinci): pure mathematical insight vs. inventive prototyping for breakthrough impact
+- **3 decision pages** (Wave 24, decisions total: 81):
+  - `should-i-charge-users-or-advertisers` — monetization-model decision (pricing court)
+  - `should-i-go-freemium-or-paid-only` — product-strategy decision (access model)
+  - `should-i-go-outbound-or-inbound` — go-to-market decision (growth channel)
+- 120 reel-script integration tests passing (Wave 24 collisions covered)
+- `topics.yaml`: 6 Wave 24 entries marked shipped
+
+## 2026-05-15 (Instagram CI coverage) — PR #416
+
+### Added
+- `pytest` coverage step added to `.github/workflows/ci.yml` for `scripts/instagram/` Python tests
+- Instagram auth + upload tests now gated in CI (all 60 tests, 99% statement coverage enforced)
+
+## [Wave 23] — 2026-05-15 — PR #419
 
 ### Added
 - **3 collision insight articles** (Wave 23):
   - `carnegie-vs-sun-tzu` — people-vs-positioning court (Carnegie/Sun Tzu): winning through relationships vs. winning through superior terrain and positioning
   - `catherine-the-great-vs-machiavelli` — power-consolidation court (Catherine/Machiavelli): legitimacy-through-reform vs. pragmatic power realpolitik
   - `edison-vs-tesla` — iteration-vs-vision court (Edison/Tesla): relentless practical iteration vs. theoretical breakthroughs ahead of their time
-- **3 decision pages** (Wave 23, decisions total: 81):
+- **3 decision pages** (Wave 23, decisions total: 78):
   - `should-i-offer-a-free-trial` — acquisition-model decision
   - `should-i-hire-a-chief-of-staff` — leadership-leverage decision
   - `should-i-take-angel-investors-or-wait-for-vc` — fundraising-path decision
