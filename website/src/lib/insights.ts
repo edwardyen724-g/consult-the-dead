@@ -4605,6 +4605,61 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before committing your research investment to foundational theoretical work or applied synthesis, run this diagnostic: what is the primary uncertainty in your product — is it that the underlying phenomenon is not yet understood, or that the implementation of an understood phenomenon has not yet been done? If the phenomenon is understood and the uncertainty is implementation, da Vinci's synthesis model is almost always faster. Map the domains that contain the relevant principles, identify the combinations that have not been tried, and build the synthesis. If the phenomenon is genuinely not understood — if the most important question about your product is whether the underlying science actually works the way you believe it does — Archimedes is right: the applied work will hit a wall at the theoretical gap, and no amount of implementation effort will break through it. Invest in understanding the principle first, even if the timeline to application is longer. The companies that have done this have typically found that the theoretical foundation is the moat no competitor can copy, because they cannot buy the years required to build it.",
     },
   },
+  // ── Wave 23 Joan of Arc additions ────────────────────────────────────────
+  {
+    slug: "what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure",
+    type: "single",
+    frameworkSlug: "joan-of-arc",
+    title: "What Would Joan of Arc Say About Staying True to a Vision Under Pressure",
+    description:
+      "Joan of Arc held her conviction against armies, institutions, and interrogators. Her framework reveals what distinguishes real commitment from the kind that collapses at the first investor pushback or board objection.",
+    targetKeywords: [
+      "how to stay true to your vision",
+      "conviction under pressure startup",
+      "when to stand firm vs compromise vision",
+      "founder conviction vs committee pressure",
+    ],
+    decisionType: "conviction",
+    hookQuestion:
+      "Your board wants you to soften the product thesis. Your investors are nervous. Every advisor is suggesting a more cautious version of the thing you set out to build. The pressure is real — but is the pressure right?",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism",
+    type: "collision",
+    frameworkSlug: "joan-of-arc",
+    collisionFrameworkSlugs: ["joan-of-arc", "harriet-tubman"],
+    title: "Joan of Arc vs. Harriet Tubman on Conviction vs. Pragmatism",
+    description:
+      "Both Joan and Tubman moved before the institutions gave permission. But Joan refused every tactical compromise; Tubman bent the route constantly while holding the destination fixed. Which framework applies when the mission is right but the path is uncertain?",
+    targetKeywords: [
+      "conviction vs pragmatism leadership",
+      "when to compromise strategy vs mission",
+      "unwavering commitment vs adaptive execution",
+      "mission-driven leadership under constraints",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "You are certain about the destination but the direct path is blocked. Do you find another route, or do you make the blockage itself the confrontation?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Joan of Arc",
+        text: "You are asking whether to take the route that avoids the obstacle, or the route that goes through it. I understand the appeal of the detour — it feels safer, it preserves the mission, it gets you to the same place. But it does not get you to the same place. The obstacle is itself a statement about what is possible. When you route around it, you confirm that the obstacle has authority over you. The people watching — the ones you need to believe — see that you accommodated the thing that stood against the mission. The directness of the path is not incidental to the mission. Sometimes it is the mission.",
+      },
+      {
+        speaker: "Harriet Tubman",
+        text: "Joan describes a choice between two routes as though the destination is always reachable if you are willing to pay the cost of the direct path. I ran nineteen missions on the Underground Railroad. Not one of them went in a straight line. The route changed every time, sometimes mid-journey, sometimes because the information I had was wrong, sometimes because the people I was moving were at the edge of their endurance. If I had demanded a direct path as a condition of moving forward, the people behind me would be dead or back in chains. What I held fixed was not the route. It was the outcome: freedom, for every person who stepped onto that road with me. The destination is the conviction. The route is the problem to be solved freshly every time the conditions change.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "harriet-tubman",
+      summary:
+        "Joan and Tubman agree on more than it first appears: both moved before the institutions permitted it, both held conviction as non-negotiable, and both paid personally for the commitments they refused to abandon. The divergence is not about whether to hold the mission — it is about whether the specific path to the mission is itself a core element of that mission. Joan's framework is correct when the confrontation with the obstacle is load-bearing: when the act of routing around would communicate something that undermines the mission itself, or when the obstacle's existence is precisely what needs to be named and overcome. Tubman's framework is correct when the deliverable is the outcome and the mechanism of delivery is secondary: when what matters is that the people behind you reach the destination, and no one will benefit from a demonstration of directness that leaves them at the checkpoint.",
+      actionableInsight:
+        "The diagnostic question is whether the obstacle is separable from the mission or whether confronting it is part of what makes the mission legible. If you are building in a space where the specific path — the public confrontation, the refusal to soften the thesis, the naming of what others will not name — is what establishes the credibility of the destination, Joan is right: the detour costs you something the destination alone cannot restore. If the obstacle is an implementation constraint — a market condition, a regulatory requirement, a distribution limitation — and the mission is defined by the outcome rather than by the specific method of reaching it, Tubman is right: find the route that gets your people through. Before routing around your next major obstacle, ask this: if the people watching see me take the detour, will they still believe in the destination? If yes, route. If the detour itself undermines the belief, hold the direct line.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -6181,6 +6236,20 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "virtuous decision and the effective decision",
       constructIndex: 4,
+    },
+  ],
+  "what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure": [
+    {
+      label: "Conviction under board pressure",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "soften the product thesis",
+      constructIndex: 0,
+    },
+    {
+      label: "Real vs. performed commitment",
+      source: (entry) => entry.description,
+      excerpt: "real commitment",
+      constructIndex: 2,
     },
   ],
 };
