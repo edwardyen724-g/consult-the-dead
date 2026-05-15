@@ -16,6 +16,28 @@ dev = [
     "pytest-asyncio>=0.23.0",
     "pytest-cov>=5.0.0",
 ]
+# TTS backends for reel voiceover synthesis (synthesize-voice.py)
+# Primary: F5-TTS — MIT licensed, zero-shot voice cloning from ~30s reference audio
+# Fallback: Chatterbox — MIT licensed (Resemble AI), also zero-shot voice cloning
+# Both require: numpy, soundfile (included as transitive deps)
+tts-f5 = [
+    "f5-tts>=1.1.0",
+    "numpy>=1.26.0",
+    "soundfile>=0.12.0",
+]
+tts-chatterbox = [
+    "chatterbox-tts>=0.1.0",
+    "numpy>=1.26.0",
+    "soundfile>=0.12.0",
+    "torch>=2.0.0",
+]
+tts-all = [
+    "f5-tts>=1.1.0",
+    "chatterbox-tts>=0.1.0",
+    "numpy>=1.26.0",
+    "soundfile>=0.12.0",
+    "torch>=2.0.0",
+]
 
 [tool.setuptools.packages.find]
 include = ["framework_forge*"]
