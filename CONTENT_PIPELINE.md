@@ -192,7 +192,7 @@ Edward's review pass takes ~5 min/article. Don't skip it. Generic AI content kil
 
 ## 8. Topic queue
 
-Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-15: **203 topics tracked** — 181 shipped (75 decisions + 96 insights/collisions + 9 method articles + 1 other article), 4 killed, 18 queued (Wave 23 core 10 + Wave 23 seed 8). Wave 22 batch complete (lincoln-vs-napoleon, nightingale-vs-curie, jobs-vs-machiavelli collisions; saas-or-agency, waitlist, niche-down decisions; 115 reel tests); F5-TTS voice synthesis script added. Wave 23 queue seeded (einstein-vs-newton, carnegie-vs-sun-tzu, catherine-vs-machiavelli collisions; 5 decisions). Will be supplemented by trends-API-driven discovery in Phase 4.
+Lives in [`topics.yaml`](topics.yaml) at repo root. As of 2026-05-15: **203 topics tracked** — 187 shipped (78 decisions + 99 insights/collisions + 9 method articles + 1 other article), 4 killed, 12 queued (Wave 23 remaining 4 + Wave 23 seed 8). Wave 23 batch complete (tubman-vs-nightingale, archimedes-vs-da-vinci, edison-vs-tesla collisions; freemium-or-paid, outbound-or-inbound, seed-extension-or-series-a decisions; 118 reel tests). Wave 23 queue seeded (einstein-vs-newton, carnegie-vs-sun-tzu, catherine-vs-machiavelli collisions; 5 decisions). Will be supplemented by trends-API-driven discovery in Phase 4.
 
 Each entry:
 ```yaml

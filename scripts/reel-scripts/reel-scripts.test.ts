@@ -2393,6 +2393,72 @@ describe("Wave 21 — 3 collision articles", () => {
       "/insights/jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
   });
+
+  // ── Wave 23 reel tests ──────────────────────────────────────────────────
+
+  it("generates a reel script for tubman-vs-nightingale-on-field-action-vs-institution-building", () => {
+    const script = buildVerdictReelScript(
+      "tubman-vs-nightingale-on-field-action-vs-institution-building",
+    );
+    expect(script.slug).toBe(
+      "tubman-vs-nightingale-on-field-action-vs-institution-building",
+    );
+    expect(script.frameworkSlug).toBe("harriet-tubman");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/tubman-vs-nightingale-on-field-action-vs-institution-building",
+    );
+  });
+
+  it("generates a reel script for archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention", () => {
+    const script = buildVerdictReelScript(
+      "archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+    expect(script.slug).toBe(
+      "archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+    expect(script.frameworkSlug).toBe("archimedes");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Innovation council: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+  });
+
+  it("generates a reel script for edison-vs-tesla-on-ownership-vs-breakthrough", () => {
+    const script = buildVerdictReelScript(
+      "edison-vs-tesla-on-ownership-vs-breakthrough",
+    );
+    expect(script.slug).toBe("edison-vs-tesla-on-ownership-vs-breakthrough");
+    expect(script.frameworkSlug).toBe("thomas-edison");
+    expect(script.decisionType).toBe("iteration");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Iteration council: Edison (main), Curie (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Thomas Edison");
+    expect(script.councilPass[1].mind).toBe("Marie Curie");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/edison-vs-tesla-on-ownership-vs-breakthrough",
+    );
+  });
 });
 
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the

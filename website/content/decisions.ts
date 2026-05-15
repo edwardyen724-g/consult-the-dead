@@ -2212,6 +2212,97 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "paid beta strategy product market fit",
     ],
   },
+  // ── Wave 23 decisions ─────────────────────────────────────────────────────
+  {
+    slug: "should-i-go-freemium-or-paid-only",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Go Freemium or Paid-Only?",
+    description:
+      "Freemium and paid-only are not just pricing decisions — they are claims about where your product's value is proven, who your primary customer is, and what kind of conversion funnel your growth model requires. A freemium model works when the free tier genuinely demonstrates the core value proposition to users who can then be converted by experiencing the product, and when the economics of free-to-paid conversion support the cost of serving the free user base. A paid-only model works when the product value is clearly articulable without a free trial, when the target customer has budget authority and standard purchasing behavior, and when the freemium tier would attract users who dilute product feedback and inflate vanity metrics without contributing to a viable customer segment. The decision turns on the conversion mechanism: is usage itself the strongest argument for paying, or is the value clearer before first use than after?",
+    primaryQuery: "should I launch freemium or paid only",
+    secondaryQueries: [
+      "freemium vs paid model startup decision",
+      "when to use freemium product strategy",
+      "freemium conversion rate startup",
+      "free tier vs premium only pricing decision",
+      "PLG product led growth freemium strategy",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "Is your product's value most convincing when someone uses it for free — or when you articulate what it does before they try it?",
+    targetKeywords: [
+      "should I go freemium or paid only startup",
+      "freemium vs paid only business model decision",
+      "freemium pricing strategy startup",
+      "when to use freemium model product",
+      "PLG freemium vs direct sales startup",
+    ],
+  },
+  {
+    slug: "should-i-go-outbound-or-inbound",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Focus on Outbound or Inbound Sales?",
+    description:
+      "Outbound and inbound are not just sales channel choices — they are claims about where your most valuable customers are and how much they already know they need what you offer. Outbound works when you can identify a specific buyer profile, when the problem you solve is real but not yet on the buyer's active priority list, and when the economics of direct outreach per closed deal are favorable relative to the customer's lifetime value. Inbound works when the problem is already on the buyer's search agenda — when they are actively looking for solutions and the content or SEO or word-of-mouth surface can capture them at that intent moment. The mistake most early-stage founders make is choosing inbound as a patience strategy when they should be doing outbound to generate signal fast, or running outbound at scale before they have product-market fit and wasting reach on a product that does not yet convert. The correct choice depends on the maturity of the buyer's awareness of the problem, the searchability of the solution category, and the current stage of product-market fit.",
+    primaryQuery: "should I focus on outbound or inbound sales startup",
+    secondaryQueries: [
+      "outbound vs inbound marketing startup early stage",
+      "cold outreach vs content marketing startup",
+      "when to switch from outbound to inbound",
+      "PLG vs SLG go to market strategy",
+      "outbound sales vs SEO content startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Are your best potential customers already searching for what you offer — or do they not yet know your solution exists?",
+    targetKeywords: [
+      "should I do outbound or inbound sales startup",
+      "outbound vs inbound go to market early stage",
+      "when to do cold outreach vs content marketing startup",
+      "outbound sales strategy early startup",
+      "inbound vs outbound startup sales decision",
+    ],
+  },
+  {
+    slug: "should-i-raise-a-seed-extension-or-series-a",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Raise a Seed Extension or Series A?",
+    description:
+      "The choice between a seed extension and a Series A is not primarily a valuation decision — it is a question of whether you have the metrics and story that Series A investors require, and whether the cost of getting there on a seed extension is lower than the dilution and momentum cost of raising a Series A you are not ready for. A seed extension is appropriate when you are 6-12 months from a credible Series A story, the dilution is limited, and the extension buys you the specific metric or milestone that closes the narrative gap. A Series A is appropriate when you have the product-market fit signal, the revenue growth, and the unit economics that institutional investors expect, and when your biggest constraint is the capital to scale what you have already proved. Raising a Series A before the metrics are ready is one of the most common and costly mistakes in the startup lifecycle: it either fails and kills the company's ability to raise at all, or succeeds at terms that reflect the weakness of the story and creates a down-round risk at the B.",
+    primaryQuery: "should I raise a seed extension or Series A",
+    secondaryQueries: [
+      "seed extension vs Series A timing decision",
+      "when to raise Series A startup metrics",
+      "bridge round vs next round startup funding",
+      "pre-Series A funding strategy startup",
+      "should I extend seed or go to Series A",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marie-curie",
+      "john-d-rockefeller",
+    ],
+    hookQuestion:
+      "Do you have the metrics and narrative that Series A investors require right now — or are you 6-12 months away from that story?",
+    targetKeywords: [
+      "should I raise seed extension or Series A",
+      "seed extension vs Series A startup timing",
+      "when to raise Series A startup",
+      "bridge funding vs Series A startup",
+      "seed extension strategy startup fundraising",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

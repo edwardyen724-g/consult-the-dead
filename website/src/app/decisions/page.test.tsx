@@ -46,11 +46,11 @@ describe("DecisionsPage metadata", () => {
 });
 
 describe("DecisionsPage rendering", () => {
-  it("renders all 75 decision entries", () => {
+  it("renders all 78 decision entries", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(DECISION_ENTRIES).toHaveLength(75);
+    expect(DECISION_ENTRIES).toHaveLength(78);
 
     // Use slug-based links rather than title text since renderToStaticMarkup
     // HTML-encodes apostrophes in titles (e.g. "It's" → "It&#x27;s").
@@ -104,7 +104,7 @@ describe("DecisionsPage rendering", () => {
     const html = renderToStaticMarkup(element);
 
     const matches = html.match(/data-testid="decision-item"/g);
-    expect(matches).toHaveLength(75);
+    expect(matches).toHaveLength(78);
   });
 
   it("renders the page heading", () => {

@@ -2470,7 +2470,7 @@
     - "when to operate outside the system vs inside"
   recommended_council: [harriet-tubman, florence-nightingale]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
 
 - slug: archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention
   type: collision
@@ -2482,7 +2482,7 @@
     - "when to invest in foundational research vs ship product"
   recommended_council: [archimedes, leonardo-da-vinci]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
 
 - slug: should-i-charge-users-or-advertisers
   type: decision
@@ -2522,7 +2522,7 @@
     - "should I extend seed or go to Series A"
   recommended_council: [niccolo-machiavelli, marie-curie, john-d-rockefeller]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
 
 - slug: should-i-go-freemium-or-paid-only
   type: decision
@@ -2536,7 +2536,7 @@
     - "PLG product led growth freemium strategy"
   recommended_council: [niccolo-machiavelli, benjamin-franklin, marcus-aurelius]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
 
 - slug: edison-vs-tesla-on-ownership-vs-breakthrough
   type: collision
@@ -2549,7 +2549,7 @@
     - "building systems vs creating breakthroughs"
   recommended_council: [thomas-edison, nikola-tesla]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
 
 - slug: should-i-go-outbound-or-inbound
   type: decision
@@ -2563,7 +2563,7 @@
     - "outbound sales vs SEO content startup"
   recommended_council: [niccolo-machiavelli, sun-tzu, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
 
 - slug: lovelace-vs-babbage-on-vision-vs-execution
   type: collision
