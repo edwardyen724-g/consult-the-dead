@@ -35,6 +35,8 @@ const ACCENT_COLORS: Record<FrameworkSlug, string> = {
   "galileo-galilei": "#5b9bd5",
   // Socrates addition 2026-05 (task ce256e9b)
   "socrates": "#c9924e",
+  // Aristotle addition 2026-05 (task 90292bb6)
+  "aristotle": "#c9a84c",
 };
 
 export interface FrameworkPreviewData {

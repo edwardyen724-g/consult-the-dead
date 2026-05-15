@@ -2306,6 +2306,97 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "start your own agon",
     ],
   },
+  // ── Wave 24 decisions ────────────────────────────────────────────────────
+  {
+    slug: "should-i-charge-users-or-advertisers",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Charge Users or Advertisers?",
+    description:
+      "The decision between charging users directly and charging advertisers for access to users is a fundamental business model choice that determines your incentive structure, your growth dynamics, and your competitive defensibility — and the right answer depends on whether you can build an audience large enough for advertising economics to work before you run out of runway, and whether your users will tolerate the advertising model that pays for the product. The advertising model requires scale: you need enough users, with enough attention and enough demographic value, to sell access to that attention at rates that cover your costs and generate returns. Until you reach that scale, you are running a subsidized product that burns cash while building toward a revenue threshold that may be further away than your runway allows. The subscription model requires value density: users must find the product valuable enough to pay for it directly, which is a higher bar than casual usage but a lower bar than the massive scale advertising requires. The critical diagnostic is which question you can answer faster — whether a subset of your users will pay, or whether a large enough audience will form to attract advertiser spend.",
+    primaryQuery: "should I charge users or advertisers",
+    secondaryQueries: [
+      "subscription model vs advertising revenue startup",
+      "consumer subscription vs ads business model decision",
+      "freemium advertising vs paid subscription choice",
+      "monetization model choice early stage startup",
+      "when to use advertising vs direct payment startup",
+    ],
+    recommendedCouncil: [
+      "john-d-rockefeller",
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Can your product build an audience at the scale advertising economics require before your runway ends — or is a smaller group of users willing to pay directly for the value you are delivering today?",
+    targetKeywords: [
+      "should I charge users or advertisers startup",
+      "subscription vs advertising business model decision",
+      "user-pays vs advertiser-pays monetization choice",
+      "when to use ads vs subscription startup",
+      "start your own agon on monetization model",
+    ],
+  },
+  {
+    slug: "should-i-go-freemium-or-paid-only",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Go Freemium or Paid-Only?",
+    description:
+      "The freemium vs. paid-only decision turns on two variables that most founders underestimate: the conversion rate from free to paid that your product can realistically achieve, and the cost of serving free users at the scale freemium requires to produce meaningful paid conversion volume. Freemium is a top-of-funnel strategy, not a revenue strategy — the free tier exists to reduce acquisition friction and let users discover product value before committing to payment. The model works when the product has a natural activation moment that creates enough value to motivate conversion, when the cost to serve free users is low enough that you can afford to run a large free tier, and when the free tier creates genuine network effects or word-of-mouth that reduces your paid acquisition cost. Paid-only works when your product serves a professional or commercial context where buyers expect to pay, when the free tier would undermine the perceived value of the product, or when the cost of serving free users would require capital you do not have. The error is choosing freemium because it feels lower-friction without calculating whether the conversion economics actually work at your cost structure and conversion rate.",
+    primaryQuery: "should I launch freemium or paid only",
+    secondaryQueries: [
+      "freemium vs paid model startup decision",
+      "when to use freemium product strategy for SaaS",
+      "freemium conversion rate calculation startup",
+      "free tier vs premium only pricing strategy",
+      "PLG product led growth freemium decision",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "marcus-aurelius",
+    ],
+    hookQuestion:
+      "What is the conversion rate from free to paid that your freemium model needs to cover your cost of serving free users — and do you have evidence your product can actually achieve that conversion rate at the scale the model requires?",
+    targetKeywords: [
+      "should I go freemium or paid only startup",
+      "freemium vs paid subscription model decision",
+      "when to use freemium strategy for startup",
+      "free tier vs paid only pricing startup",
+      "start your own agon on freemium strategy",
+    ],
+  },
+  {
+    slug: "should-i-go-outbound-or-inbound",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Go Outbound or Inbound?",
+    description:
+      "Outbound and inbound are not just different sales tactics — they represent opposite theories about where your best customers come from and what the highest-leverage use of your early GTM resources is. Outbound (cold outreach, SDRs, direct sales) gives you control over the pipeline: you can target specific personas, company sizes, and verticals, and you can generate pipeline on a predictable timeline regardless of whether your content or SEO has matured. The cost is that outbound is labor-intensive, scales linearly with headcount, and generates customers who were found by you rather than customers who came because the product solved a problem they were actively searching for. Inbound (content, SEO, PLG, community) gives you customers with higher intent and lower acquisition cost at scale, but requires time to build: your content needs to rank, your community needs to form, your product-led loop needs to activate. The strategic diagnostic is not which is better in the abstract — it is which your current stage, budget, and product context makes viable. Early-stage companies with short runways and no organic flywheel often need outbound to survive the time it takes for inbound to work. Companies with products that solve problems users actively search for should prioritize inbound before the window to build organic authority closes.",
+    primaryQuery: "should I focus on outbound or inbound sales startup",
+    secondaryQueries: [
+      "outbound vs inbound marketing early stage startup",
+      "cold outreach vs content marketing startup strategy",
+      "when to switch from outbound to inbound GTM",
+      "PLG vs SLG go to market strategy decision",
+      "outbound sales vs SEO content for startup growth",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "sun-tzu",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Does your product solve a problem users are actively searching for right now — or do you need to reach buyers who do not yet know they have the problem your product solves?",
+    targetKeywords: [
+      "should I go outbound or inbound sales startup",
+      "outbound vs inbound marketing startup decision",
+      "when to use outbound vs inbound GTM strategy",
+      "cold outreach vs content marketing founder decision",
+      "start your own agon on go-to-market strategy",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {

@@ -2394,6 +2394,121 @@ describe("Wave 21 — 3 collision articles", () => {
       "/insights/jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
     );
   });
+
+  // ── Wave 23 reel tests ──────────────────────────────────────────────────
+
+  it("generates a reel script for what-would-aristotle-say-about-making-decisions-under-uncertainty", () => {
+    const script = buildVerdictReelScript(
+      "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+    expect(script.slug).toBe(
+      "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+    expect(script.frameworkSlug).toBe("aristotle");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    );
+  });
+
+  it("generates a reel script for aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power", () => {
+    const script = buildVerdictReelScript(
+      "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+    expect(script.slug).toBe(
+      "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+    expect(script.frameworkSlug).toBe("aristotle");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    );
+  });
+});
+
+// ── Wave 24: 3 collision articles ────────────────────────────────────────
+describe("Wave 24 — 3 collision articles", () => {
+  it("generates a reel script for caesar-vs-cleopatra-on-political-vs-military-power", () => {
+    const script = buildVerdictReelScript(
+      "caesar-vs-cleopatra-on-political-vs-military-power",
+    );
+    expect(script.slug).toBe(
+      "caesar-vs-cleopatra-on-political-vs-military-power",
+    );
+    expect(script.frameworkSlug).toBe("julius-caesar");
+    expect(script.decisionType).toBe("strategy");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Strategy court: Sun Tzu (main), Machiavelli (support), da Vinci (close)
+    expect(script.councilPass[0].mind).toBe("Sun Tzu");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/caesar-vs-cleopatra-on-political-vs-military-power",
+    );
+  });
+
+  it("generates a reel script for tubman-vs-nightingale-on-direct-action-vs-institutional-change", () => {
+    const script = buildVerdictReelScript(
+      "tubman-vs-nightingale-on-direct-action-vs-institutional-change",
+    );
+    expect(script.slug).toBe(
+      "tubman-vs-nightingale-on-direct-action-vs-institutional-change",
+    );
+    expect(script.frameworkSlug).toBe("harriet-tubman");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership court: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/tubman-vs-nightingale-on-direct-action-vs-institutional-change",
+    );
+  });
+
+  it("generates a reel script for archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention", () => {
+    const script = buildVerdictReelScript(
+      "archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+    expect(script.slug).toBe(
+      "archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+    expect(script.frameworkSlug).toBe("archimedes");
+    expect(script.decisionType).toBe("innovation");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Innovation court: Tesla (main), da Vinci (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    );
+  });
 });
 
 // ── generate-all-reels smoke tests ─────────────────────────────────────────

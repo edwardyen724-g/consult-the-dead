@@ -40,6 +40,8 @@ export const ALLOWED_SLUGS = [
   "galileo-galilei",
   // Socrates added as 28th live mind (task ce256e9b / capsule a24e6e0c) — 2026-05
   "socrates",
+  // Aristotle added as 29th live mind (task 90292bb6) — 2026-05
+  "aristotle",
 ] as const;
 
 export type FrameworkSlug = (typeof ALLOWED_SLUGS)[number];
@@ -79,6 +81,8 @@ export const SLUG_COLOR_VAR: Record<FrameworkSlug, string> = {
   "galileo-galilei": "var(--color-galileo)",
   // Socrates added as 28th live mind 2026-05
   "socrates": "var(--color-socrates)",
+  // Aristotle added as 29th live mind 2026-05
+  "aristotle": "var(--color-aristotle)",
 };
 
 /* ── Fallback era strings (some JSONs lack born/died) ── */
@@ -116,11 +120,14 @@ const ERA_FALLBACK: Record<FrameworkSlug, string> = {
   "galileo-galilei": "1564–1642",
   // Socrates added as 28th live mind 2026-05
   "socrates": "c. 470–399 BC",
+  // Aristotle added as 29th live mind 2026-05
+  "aristotle": "384–322 BC",
 };
 
 /* ── Display order for the index page ── */
 export const DISPLAY_ORDER: FrameworkSlug[] = [
   "socrates",
+  "aristotle",
   "galileo-galilei",
   "isaac-newton",
   // "albert-einstein", // HIDDEN 2026-04-16

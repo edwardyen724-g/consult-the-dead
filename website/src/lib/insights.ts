@@ -4142,6 +4142,76 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Before your next major strategic commitment, run this minimum-viable examination: identify the one key term the whole plan depends on, and ask each team member to write down — separately, before discussion — what that term means in a specific edge case. If the answers are different, you do not have a strategy. You have a vocabulary that looks like a strategy. The examination is not the meeting where you discuss the definitions. It is the test that reveals whether the definitions are actually shared. If they are not, the two-hour definitional conversation Socrates prescribes is not overhead. It is the fastest path to a plan that will survive contact with reality. If they are, you have confirmed the alignment and can commit with genuine confidence rather than performed agreement.",
     },
   },
+  // ── Aristotle (29th live mind, task 90292bb6) ──────────────────────────────
+  {
+    slug: "what-would-aristotle-say-about-making-decisions-under-uncertainty",
+    type: "single",
+    frameworkSlug: "aristotle",
+    title: "What Would Aristotle Say About Making Decisions Under Uncertainty?",
+    description:
+      "Most decision frameworks tell you to gather more data or trust your gut. Aristotle's answer is different: he would tell you that you are asking the wrong question. The issue is not how much data you have — it is whether you have the phronesis to recognize what kind of decision this actually is, what category it belongs to, and what level of certainty is appropriate to that category.",
+    targetKeywords: [
+      "how to make decisions under uncertainty startup",
+      "practical wisdom decision making founder",
+      "first principles decision making business",
+      "Aristotle phronesis practical wisdom business",
+      "systematic reasoning under uncertainty startup",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your team is facing a major strategic decision and you do not have enough data. One advisor says collect more evidence. Another says trust your instincts. Aristotle would tell you that both are asking the wrong question — the right question is what kind of decision this is, and what that category tells you about how much certainty is actually achievable.",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power",
+    type: "collision",
+    frameworkSlug: "aristotle",
+    collisionFrameworkSlugs: ["aristotle", "niccolo-machiavelli"],
+    title:
+      "Aristotle vs. Machiavelli: Should You Build for Virtue or for Power?",
+    description:
+      "Aristotle and Niccolo Machiavelli represent the oldest and most durable disagreement in the history of leadership thought. Aristotle argues that the excellent leader is the virtuous leader — that the golden mean, systematically applied, produces better decisions and more durable institutions than any strategy built on calculated pragmatism. Machiavelli argues that virtue is a luxury of stable times and that the leader who survives long enough to build excellent institutions must first master the art of obtaining and holding power, which requires tools that virtue does not sanction. For startup founders building something from nothing in conditions that are neither stable nor forgiving, this collision is not academic: it is the question every founder faces when the virtuous move and the effective move point in different directions.",
+    targetKeywords: [
+      "startup founder ethics vs pragmatism leadership",
+      "Aristotle Machiavelli virtue vs power leadership",
+      "should founders be ethical or pragmatic",
+      "virtue ethics vs realpolitik startup decision",
+      "when to compromise values for business survival",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "You are facing a situation where the principled move and the pragmatic move point in different directions. The principled move aligns with your values but costs you a competitive advantage. The pragmatic move wins the immediate battle but sets a precedent you are not comfortable with. Which framework do you apply?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Aristotle",
+        text: "Before you decide whether this is a pragmatism problem or a virtue problem, you need to establish what category of decision you are making. You are treating this as a choice between two separate values — the ethical and the effective. But I would challenge that framing. The excellent leader is not the one who chooses between virtue and power — the excellent leader is the one who has developed the practical wisdom to see that the virtuous decision and the effective decision usually converge in the medium term. The leader who builds durable institutions on pragmatic shortcuts builds on sand. The question is not 'which move wins today' but 'what kind of organization does each move produce over five years?'",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Aristotle's argument assumes you survive long enough for the medium term to arrive. In my experience of political reality — and I am speaking of actual republics and principalities, not philosophical thought experiments — the virtuous leader who cannot defend his position produces no excellent institutions at all, because he is removed before the medium term arrives. The new prince who applies the golden mean to his adversaries will find that his adversaries are not applying the golden mean to him. Virtue must be supplemented by the capacity to act otherwise when the situation requires it. The leader who cannot recognize when the situation has changed is not virtuous — he is inflexible.",
+      },
+      {
+        speaker: "Aristotle",
+        text: "Machiavelli identifies a real problem and misdiagnoses the solution. He is correct that the leader who cannot adapt to changing circumstances will fail. But the solution is not to abandon the framework of virtue — it is to apply virtue with the appropriate level of precision for the situation. The Nicomachean Ethics does not describe a fixed rulebook; it describes a method of judgment. The courageous action in a stable environment is not the same as the courageous action in an existential crisis. The error is not in seeking virtue — it is in treating virtue as a fixed script rather than as a capacity for judgment. Phronesis — practical wisdom — is precisely the capacity to identify what virtue requires in this specific situation, not to read off the virtuous action from a list of rules.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Then we agree that the question is what the situation requires. Where we differ is on what that means in practice. Aristotle says: apply practical wisdom to identify the virtuous mean in this situation. I say: apply practical wisdom to identify what will actually work in this situation, and do not exclude options in advance on the grounds that they are not virtuous. The leader who pre-commits to never using the lion's force or the fox's cunning has constrained his own toolkit before the fight begins. I am not arguing for unprincipled opportunism — I am arguing for a complete toolkit. Aristotle's framework produces excellent citizens in a well-ordered polis. It produces corpses in a new principality.",
+      },
+      {
+        speaker: "Aristotle",
+        text: "Machiavelli's toolkit argument concedes more than he realizes. He says the excellent leader uses every tool available — including deception and force. But which situations warrant force? Which warrant deception? These are exactly the questions that practical wisdom answers. The person with good judgment will use force when the situation genuinely requires it and not one moment before. The person without it will use force when it is convenient, because convenience is easier to perceive than necessity. The distinction between the virtuous leader who acts ruthlessly when genuinely required and the unprincipled leader who acts ruthlessly whenever it is useful is not a distinction Machiavelli's framework can draw. That is the practical failure of his system.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "aristotle",
+      summary:
+        "Aristotle and Machiavelli converge on a non-obvious point: both argue that the quality of the leader's judgment is more important than any specific rule about what to do. Machiavelli is correct that effective leadership cannot pre-commit to virtue and ignore consequences — the leader who loses power before their excellent institutions are built produces nothing. Aristotle is correct that the framework of practical wisdom is more powerful than any specific rule set, including Machiavelli's, because it generates the right response to novel situations rather than applying a fixed script. The resolution is that Aristotle's phronesis, properly understood, is not a constraint on the toolkit — it is the capacity to use the full toolkit well. The question for a founder is not 'should I be virtuous or pragmatic' but 'do I have the practical wisdom to identify what this specific situation actually requires, and the integrity to do it even when the alternative is more immediately convenient?'",
+      actionableInsight:
+        "When you face a decision where the principled move and the pragmatic move diverge, run Aristotle's classification test before you decide. First: what category is this decision in? Is this a situation where you are genuinely facing an existential threat that requires tools you would not normally use, or is this a situation where pragmatism is more convenient than necessary? Machiavelli's framework applies to the first category and corrupts the second. Second: what does the excellent version of your organization look like in five years, and which decision builds toward that telos? The pragmatic shortcut that wins today but sets a precedent you are not comfortable with is building toward a different organization than the one you set out to build — and that organization will be harder to lead, harder to staff with excellent people, and harder to make decisions in, because the framework for what is acceptable has expanded in ways you did not plan for. Use the full toolkit when the situation genuinely requires it. Use Aristotle's classification test to establish when that threshold is actually met.",
+    },
+  },
   // ── Wave 23 collision articles ────────────────────────────────────────────
   {
     slug: "carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain",
@@ -4303,6 +4373,121 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "Edison and Tesla converge on a decision rule that depends on whether the founder is making an incremental decision or a paradigm decision. For incremental decisions — optimizations within an established technical approach — Edison's model is correct: invest in the platform, the distribution, the integrations, and the standards that make your solution the commercial default, because commercial viability in the current paradigm compounds faster than technical optimality that is not yet deployable. For paradigm decisions — choices about the fundamental technical architecture — Tesla's model is required: validate the foundation before building the system, because platform infrastructure built on a structurally wrong technical foundation converts into sunk cost when the paradigm shifts. The failure modes are symmetric: Edison's failure mode is investing in ownership of a technically wrong foundation and discovering the sunk cost when the superior paradigm arrives; Tesla's failure mode is achieving the breakthrough and failing to build the commercialization engine required to capture the value of the discovery.",
       actionableInsight:
         "Before your next major infrastructure investment — a platform build, a deep integration, a standards-setting move, a patent portfolio accumulation — run the paradigm diagnostic. Ask: am I making an incremental decision (optimizing within a technical approach whose dominance I am confident in) or a paradigm decision (committing to a fundamental technical architecture whose long-run correctness I am uncertain about)? If it is incremental, apply Edison's model: invest aggressively in ownership, distribution, and system-building, because the compound value of being the default platform in a validated paradigm is enormous. If it is a paradigm decision, apply Tesla's model first: invest in validating the technical foundation before building the system on top of it. The specific question to ask is: what is the most likely technical approach that could make my current architecture look like DC electricity in ten years? If you cannot identify a plausible successor technology, your foundation is probably stable enough to build on. If you can identify one — if there is a technical approach that, if it works, would make your current investment obsolete — that is the research problem to solve before you invest in the infrastructure.",
+    },
+  },
+  // ── Wave 24: collision articles ───────────────────────────────────────
+  {
+    slug: "caesar-vs-cleopatra-on-political-vs-military-power",
+    type: "collision",
+    frameworkSlug: "julius-caesar",
+    collisionFrameworkSlugs: ["julius-caesar", "cleopatra-vii"],
+    title:
+      "Caesar vs. Cleopatra: Do You Win Through Military Dominance or Political Alliance?",
+    description:
+      "Julius Caesar and Cleopatra VII represent two of the most studied models of power consolidation in the ancient world — and their approaches were not merely different in style but opposed in their fundamental assumptions about what power actually is. Caesar's model was rooted in military dominance: force creates facts on the ground, and political reality follows military reality. Control the legions, control the territory, control the outcome. Cleopatra's model was rooted in alliance and political intelligence: power is a network of interests, not a field of force, and the ruler who understands what everyone else needs can bind those interests together into a coalition that no army can break, because the coalition re-forms after every battle. For founders deciding how to compete in markets with established incumbents, how to manage relationships with investors and partners who hold disproportionate leverage, and how to consolidate a position once an early advantage is won, this collision defines when direct competitive force is the correct instrument and when it creates the very resistance it was meant to eliminate.\n\nThe Caesar model appeals to founders who are operating in markets where speed and dominance can create permanent structural advantages — category definition, standard-setting, network effects that compound before competitors can respond. When you can move faster than the market can organize a response, force projection works: you set the terms before the negotiation begins. The risk is that markets, like provinces, can be won and lost. A competitor who loses the battle rarely surrenders the war, and a founder who wins through dominance rather than alignment often finds that their initial victories require continuous re-winning, because no durable loyalty has been created. Cleopatra understood something Caesar did not fully apply: the cost of maintaining a coalition built on shared interest is lower over time than the cost of holding territory by force, because the coalition is self-interested in its own continuation.\n\nThe practical synthesis for founders is a sequencing question, not a binary choice. Force projection — moving fast, taking ground, establishing facts — is correct when the window for first-mover advantage is short and the market will consolidate around whoever moves first. But durable competitive position almost always requires switching from force to alliance: building relationships with customers, partners, and stakeholders that are genuinely mutual rather than extractive, so that the ecosystem has a stake in your success and not merely a transaction with your product. The founders who win through Caesar's methods early and Cleopatra's methods later build companies that are both well-positioned and defensible. The founders who never make the switch find themselves perpetually re-winning positions that should have become permanent.",
+    targetKeywords: [
+      "military dominance vs political alliance strategy",
+      "Caesar Cleopatra leadership comparison founders",
+      "force vs alliance competitive strategy startup",
+      "when to compete directly vs build coalitions",
+      "power consolidation strategy for founders",
+    ],
+    decisionType: "strategy",
+    hookQuestion:
+      "You have the resources to move aggressively and take market ground before competitors respond — but doing so will create adversaries in the ecosystem you need. Do you strike first and deal with the fallout, or build the alliances that make the strike unnecessary?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Julius Caesar",
+        text: "The alliance that requires continuous maintenance is not an advantage — it is a liability dressed as a partnership. I did not hold Rome by asking permission. I moved before the opposition could organize, established facts the Senate had to accept, and made the cost of resistance higher than the cost of compliance. The founder who negotiates with every competitor and partner from a position of equal standing will find that parity invites challenge. You are either setting terms or accepting them. The moment you stop projecting strength is the moment the coalition you thought you had built begins to test its options.",
+      },
+      {
+        speaker: "Cleopatra VII",
+        text: "Caesar describes a method that works until it does not, and then catastrophically. The Ides of March were not an accident — they were the inevitable result of a model that creates enemies faster than it neutralizes them. I did not hold Egypt by force of Roman legions. I held it by making myself indispensable to the most powerful forces in the Mediterranean simultaneously, by understanding what each of them needed and positioning myself as the entity through whom those needs were best served. A coalition built on genuine mutual interest does not require re-winning. The parties to it are invested in your continued success because your success is their success. That is a structural advantage no army can break.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "julius-caesar",
+      summary:
+        "Caesar and Cleopatra converge on a reality that founders in competitive markets face directly: the initial move and the durable position require different instruments. Caesar is correct that speed of force projection can create structural advantages that matter enormously in markets where the first entrant sets the terms. Cleopatra is correct that those advantages decay without alignment — that the territory won by force must eventually be held by interest, or it will be contested indefinitely. The resolution for founders is sequential: use velocity and force to establish facts in the market when the window is short, then deliberately switch to coalition-building to make those facts durable. The founder who never switches is always re-winning yesterday's battle. The founder who never projects force never establishes the position that makes the coalition worth joining.",
+      actionableInsight:
+        "Before your next competitive move, diagnose whether you are in the phase where velocity creates durable advantage or the phase where alliance creates durable defense. If your market has not yet consolidated around a dominant player and the window to set category terms is open, Caesar's method is correct: move faster than the market can organize a response, and deal with the political consequences from a position of established strength. If your market has consolidated enough that the primary risk is not who wins first but who holds longest, Cleopatra's method is correct: identify the stakeholders whose interests align with yours, make those interests explicit, and build relationships that are genuinely mutual rather than transactional. The clearest signal that you need to switch from Caesar to Cleopatra: you are winning individual battles but finding that your competitive position is not becoming more secure with each win.",
+    },
+  },
+  {
+    slug: "tubman-vs-nightingale-on-direct-action-vs-institutional-change",
+    type: "collision",
+    frameworkSlug: "harriet-tubman",
+    collisionFrameworkSlugs: ["harriet-tubman", "florence-nightingale"],
+    title:
+      "Tubman vs. Nightingale: Do You Change the World by Direct Action or by Building Institutions?",
+    description:
+      "Harriet Tubman and Florence Nightingale both changed the world — but through mechanisms so different that they represent not just tactical alternatives but opposite theories of where leverage lives when you are trying to create large-scale change against entrenched resistance. Tubman's model was direct action: the wrong is happening now, the people suffering cannot wait for institutions to reform, and the agent of change must operate in the field, at personal risk, executing the rescue mission directly. Every person she moved through the Underground Railroad was a concrete result that no institution had produced and that waiting for institutional change would have denied entirely. Nightingale's model was institutional transformation: the suffering she witnessed in Scutari during the Crimean War was not fixable by any individual action at scale — the mechanism producing the suffering was systemic, embedded in hospital practices, army medical doctrine, and government policy, and the only intervention at the scale of the problem was to change those systems. For founders deciding whether to build the product that addresses the problem directly or to change the industry infrastructure that produces the problem, this collision defines when each model is the higher-leverage choice.\n\nThe Tubman model is most powerful when the gap between what exists and what is needed is immediate and concrete: there are people in front of you right now who cannot wait for systems to improve, the direct action is feasible with available resources, and each execution produces a real outcome rather than a probability of a future outcome. Early-stage founders building in markets where users are actively suffering from the absence of a solution — not merely underserved but genuinely harmed — should recognize Tubman's logic: ship the direct solution, get real people to safety, and treat institutional change as a secondary effect of demonstrated necessity. The Nightingale model is most powerful when the problem is systemic, when direct action addresses symptoms while leaving the mechanism intact, and when the leverage for change exists at the level of standards, protocols, or policy rather than individual transactions.\n\nThe critical diagnostic for founders is whether the problem they are solving recurs because of individual gaps or because of systemic structure. If individual users keep encountering the same pain point because the underlying system keeps producing it, direct action rescues today's user while tomorrow's faces the same situation. If individual users are being failed by a system that does not have to be structured the way it is, the institutional intervention is the only one that actually closes the loop. Tubman would say: get the person out now, do not wait for the system to change. Nightingale would say: until the system changes, you will be running this rescue operation indefinitely.",
+    targetKeywords: [
+      "direct action vs institutional change leadership strategy",
+      "Harriet Tubman Florence Nightingale leadership comparison",
+      "grassroots action vs systems change founder decision",
+      "when to fix the system vs work around it startup",
+      "movement building vs institution building founder",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "The problem your users face is real and urgent — and it is also the product of a system that will keep producing that problem as long as the system exists. Do you rescue the users in front of you now, or change the system that keeps creating users who need rescuing?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Harriet Tubman",
+        text: "The people waiting in the dark cannot afford the time it takes to reform the system. I have stood at the edge of what is possible and looked at what is necessary, and they are not always the same thing. The institution will change — or it will not — but the people suffering now will not benefit from a change that comes five years after they needed it. I went back nineteen times not because I had a theory about systems but because there were people who needed to move and I knew the route. The most honest thing a leader can do in the face of an urgent wrong is the direct thing: fix what is in front of you, now, with what you have.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "Tubman's courage is beyond question and her results were real. But she could not free everyone, because the Underground Railroad was not a scalable institution — it was an act of individual heroism repeated against odds that would eventually have closed it. I did not merely nurse soldiers in Scutari. I collected the mortality data that proved the Army's sanitation practices were killing more men than enemy fire, and I used that data to change the practices of every military hospital in the British Empire. The individual intervention rescues the person in front of you. The systemic intervention rescues every person who will ever be in that position. When you have the leverage to change the institution, the direct action is the smaller ambition.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "harriet-tubman",
+      summary:
+        "Tubman and Nightingale converge on a point that founders building in broken markets must internalize: direct action and institutional change are not substitutes but complements that are appropriate at different phases of the same problem. Tubman is correct that the urgent and concrete case demands direct intervention — that waiting for systems to change while people suffer is a moral failure dressed as strategic patience. Nightingale is correct that direct intervention without institutional change is perpetual triage — that the most scalable form of the direct action is the action that removes the need for itself. The resolution for founders is to use direct product delivery to prove necessity, build the evidence base that makes institutional change legible, and then apply leverage at the system level once the direct approach has demonstrated that the problem is real, urgent, and solvable.",
+      actionableInsight:
+        "Before deciding between a direct-action product strategy and a systems-change strategy, answer two questions. First: is the problem producing a queue that cannot wait? If users are being harmed by the absence of a solution right now and the harm is concrete, Tubman's method is right — ship the direct intervention, measure the results, and use the evidence to build the case for systemic change. Second: does your intervention eliminate the mechanism that produces the problem, or does it address the output of a mechanism that will keep running? If it addresses the output, your growth model is perpetual triage, and at some point you will need Nightingale's method to close the loop. The clearest signal that you need to shift from direct action to institutional leverage: your user base is growing faster than your direct intervention can serve them, and the mechanism producing your users is structural rather than accidental.",
+    },
+  },
+  {
+    slug: "archimedes-vs-da-vinci-on-pure-theory-vs-applied-invention",
+    type: "collision",
+    frameworkSlug: "archimedes",
+    collisionFrameworkSlugs: ["archimedes", "leonardo-da-vinci"],
+    title:
+      "Archimedes vs. da Vinci: Should You Pursue Pure Theory or Applied Invention?",
+    description:
+      "Archimedes and Leonardo da Vinci were both polymaths who combined mathematical rigor with mechanical invention — but their relationship between theory and application was inverted. Archimedes pursued pure theory as the primary goal: his mathematical proofs about areas, volumes, and the properties of curves were ends in themselves, and the mechanical inventions — the Archimedes screw, the war machines of Syracuse, the compound pulley — were demonstrations of theoretical principles rather than the point of the inquiry. Da Vinci pursued application as the primary goal: his notebooks are full of designs for flying machines, hydraulic systems, and military engineering, and the theoretical understanding he accumulated was in service of making things that worked rather than understanding principles for their own sake. Both produced transformative results. Both have enduring influence. But they represent genuinely different theories about where the leverage in innovation lives: in the depth of theoretical foundation, or in the breadth of applied synthesis. For founders deciding how to allocate research investment — between foundational understanding and shipping prototypes, between building deep proprietary knowledge and combining existing capabilities — this collision defines when each approach creates the larger compounding advantage.\n\nThe Archimedes argument for pure theory is a long-term leverage argument: deep theoretical understanding produces unexpected applications that no one could have anticipated from the applied direction. The most important technological revolutions of the modern era — electromagnetism, quantum mechanics, information theory — were driven by theoretical advances that preceded their applications by decades, and the founders of the industries that emerged from those advances inherited a theoretical foundation they could not have built themselves in the applied direction alone. The cost of building on theoretical foundations is time: the gap between theoretical insight and commercial application can be measured in years or decades, and founders with limited runway often cannot afford to occupy that gap. The da Vinci argument is a synthesis argument: the applied inventor does not need to build the foundational theory from scratch, but needs to understand it deeply enough to recognize what can be combined in ways no one has combined before. The insight is cross-domain pattern recognition — seeing that a principle from hydraulics applies to pneumatics, that a mechanism from clockmaking applies to medicine, that a material property from metallurgy applies to architecture.\n\nFor founders in technology-intensive markets, the practical resolution is a portfolio question: what theoretical foundation does your product require, and does that foundation already exist in a form you can leverage, or does it need to be created? If the theoretical foundation exists — if the core science is established, if the engineering principles are known, if the primary uncertainty is implementation rather than discovery — da Vinci's synthesis model is almost always faster and more capital-efficient. You do not need to prove that neural networks can learn; you need to recognize that they can learn the specific pattern your problem requires and combine the right architecture to do it. If the theoretical foundation does not exist — if you are genuinely operating at the frontier of what is known, if the primary uncertainty is not implementation but discovery — Archimedes is right: the applied direction will hit a wall that only theoretical work can break through.",
+    targetKeywords: [
+      "pure research vs applied invention startup decision",
+      "Archimedes da Vinci theory vs practice innovation",
+      "foundational research vs shipping product founder",
+      "when to invest in theory vs build fast innovation",
+      "research-first vs product-first startup approach",
+    ],
+    decisionType: "innovation",
+    hookQuestion:
+      "You are building in a technically complex domain where the underlying science is partially understood but not fully proven. Do you invest in building the theoretical foundation that would make your product genuinely novel, or do you synthesize what is already known and ship faster?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Archimedes",
+        text: "The lever does not work because I built one that worked. The lever works because I understood the principle that governs all levers, in every material, under every load, in every configuration that will ever exist. The value of that understanding is not in the specific machine — it is in the generalization. A founder who builds a product without understanding the principle behind it has built a thing that works under the conditions it was tested in. A founder who understands the principle has built a family of things that will work under conditions no one has yet encountered. The theoretical foundation is not overhead. It is the compounding asset that makes the applied work defensible.",
+      },
+      {
+        speaker: "Leonardo da Vinci",
+        text: "Archimedes describes the ideal outcome of pure theory and assumes it is the only path to that outcome. I have filled notebooks with designs for machines that do not yet exist by synthesizing principles from domains that have never been combined. The hydraulic ram I designed draws on principles from water flow, mechanical advantage, and material stress that are individually well-established — but combining them in that configuration had not been done. The synthesis produces novelty without requiring original theoretical discovery. What pure theory cannot do is respond to the world as it actually is: irregular, interdisciplinary, and full of problems that do not respect the boundaries of established fields. The applied inventor sees connections the theoretical mathematician cannot, because the theorist has organized the world into tractable problems, and the world is not organized that way.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "archimedes",
+      summary:
+        "Archimedes and da Vinci converge on a diagnostic that founders building at the frontier must apply honestly: the question is not whether theory or application is superior, but whether the theoretical foundation required for your product already exists or needs to be built. Archimedes is correct that deep theoretical understanding produces the most durable and generalizable competitive advantages — that a company built on genuine theoretical insight is more defensible than one built on applied synthesis of known principles. Da Vinci is correct that cross-domain synthesis produces novelty at far lower cost when the foundational components already exist — that most applied innovation problems are synthesis problems, not discovery problems, and treating them as discovery problems wastes time and capital. The resolution is an honest assessment of where the frontier actually is in your domain.",
+      actionableInsight:
+        "Before committing your research investment to foundational theoretical work or applied synthesis, run this diagnostic: what is the primary uncertainty in your product — is it that the underlying phenomenon is not yet understood, or that the implementation of an understood phenomenon has not yet been done? If the phenomenon is understood and the uncertainty is implementation, da Vinci's synthesis model is almost always faster. Map the domains that contain the relevant principles, identify the combinations that have not been tried, and build the synthesis. If the phenomenon is genuinely not understood — if the most important question about your product is whether the underlying science actually works the way you believe it does — Archimedes is right: the applied work will hit a wall at the theoretical gap, and no amount of implementation effort will break through it. Invest in understanding the principle first, even if the timeline to application is longer. The companies that have done this have typically found that the theoretical foundation is the moat no competitor can copy, because they cannot buy the years required to build it.",
     },
   },
 ];
@@ -5852,6 +6037,35 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "examination first",
       constructIndex: 2,
+    },
+  ],
+  // ── Aristotle annotation blueprints (task 90292bb6) ───────────────────────
+  "what-would-aristotle-say-about-making-decisions-under-uncertainty": [
+    {
+      label: "Phronesis over data volume",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "what kind of decision this is",
+      constructIndex: 2,
+    },
+    {
+      label: "Category error in uncertainty framing",
+      source: (entry) => entry.description,
+      excerpt: "asking the wrong question",
+      constructIndex: 3,
+    },
+  ],
+  "aristotle-vs-machiavelli-on-systematic-virtue-vs-pragmatic-power": [
+    {
+      label: "Virtue vs. pragmatism divergence",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "principled move and the pragmatic move",
+      constructIndex: 1,
+    },
+    {
+      label: "Teleological evaluation of decisions",
+      source: (entry) => entry.description,
+      excerpt: "virtuous decision and the effective decision",
+      constructIndex: 4,
     },
   ],
 };
