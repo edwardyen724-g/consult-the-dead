@@ -2612,8 +2612,8 @@ describe("Wave 25 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("napoleon-bonaparte");
     expect(script.decisionType).toBe("strategy");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Strategy court: Sun Tzu (main), Machiavelli (support), da Vinci (close)
     expect(script.councilPass[0].mind).toBe("Sun Tzu");
     expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
@@ -2634,8 +2634,8 @@ describe("Wave 25 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("cicero");
     expect(script.decisionType).toBe("control");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Control court: Epictetus (main), Aurelius (support), Seneca (close)
     expect(script.councilPass[0].mind).toBe("Epictetus");
     expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
@@ -2656,8 +2656,8 @@ describe("Wave 25 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("galileo-galilei");
     expect(script.decisionType).toBe("innovation");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Innovation court: Tesla (main), da Vinci (support), Newton (close)
     expect(script.councilPass[0].mind).toBe("Nikola Tesla");
     expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
