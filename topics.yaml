@@ -2591,3 +2591,117 @@
   recommended_council: [benjamin-franklin, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, identity]
   status: queued
+
+# ── Wave 23 seed entries ──────────────────────────────────────────────────────
+
+- slug: einstein-vs-newton-on-intuitive-leaps-vs-systematic-proof
+  type: collision
+  search_volume_estimate: high
+  primary_query: "intuition vs systematic proof in decision making"
+  secondary_queries:
+    - "Albert Einstein Isaac Newton discovery method comparison"
+    - "when to trust your model before you can prove it"
+    - "intuitive insight vs step-by-step derivation founder"
+    - "visionary bet vs evidence-based decision startup"
+    - "first principles intuition vs experimental proof"
+  recommended_council: [albert-einstein, isaac-newton]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain
+  type: collision
+  search_volume_estimate: high
+  primary_query: "winning through relationships vs positioning in business"
+  secondary_queries:
+    - "Andrew Carnegie Sun Tzu leadership strategy comparison"
+    - "people-first vs position-first startup strategy"
+    - "relationship capital vs strategic terrain founder"
+    - "building loyalty vs exploiting competitive position"
+    - "people strategy vs market positioning startup"
+  recommended_council: [andrew-carnegie, sun-tzu]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "how to reform a broken system from within"
+  secondary_queries:
+    - "Catherine the Great Machiavelli reform vs overthrow leadership"
+    - "inherit a broken company or team and fix it"
+    - "reform from within vs disrupt and replace strategy"
+    - "new leader inherits dysfunction what to do"
+    - "when to work within constraints vs rewrite the rules"
+  recommended_council: [catherine-the-great, niccolo-machiavelli]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-offer-a-free-trial
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I offer a free trial for my SaaS"
+  secondary_queries:
+    - "free trial vs freemium vs paid only SaaS"
+    - "how long should a SaaS free trial be"
+    - "free trial conversion rate startup"
+    - "should my product have a trial period"
+    - "opt-in vs opt-out free trial startup strategy"
+  recommended_council: [niccolo-machiavelli, benjamin-franklin, marie-curie]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-hire-a-chief-of-staff
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I hire a chief of staff as a startup founder"
+  secondary_queries:
+    - "chief of staff vs EA vs COO startup"
+    - "when to hire a chief of staff founder"
+    - "chief of staff role early stage startup"
+    - "founder leverage operations hire"
+    - "should I get a chief of staff or COO first"
+  recommended_council: [andrew-carnegie, marcus-aurelius, niccolo-machiavelli]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-take-angel-investors-or-wait-for-vc
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I take angel investors or wait for VC"
+  secondary_queries:
+    - "angel investor vs venture capital funding startup"
+    - "angel round before seed round startup strategy"
+    - "when to raise angel vs institutional money"
+    - "angel investors pros cons startup founder"
+    - "bootstrap vs angel vs VC funding path startup"
+  recommended_council: [niccolo-machiavelli, john-d-rockefeller, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-use-equity-to-compensate-advisors
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I give equity to startup advisors"
+  secondary_queries:
+    - "advisor equity startup how much to give"
+    - "startup advisor agreement equity percentage"
+    - "when to use equity vs cash to pay advisors"
+    - "strategic advisor vs paid consultant startup"
+    - "advisor FAST agreement startup equity"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-sunset-a-product-feature
+  type: decision
+  search_volume_estimate: medium
+  primary_query: "should I remove or sunset a product feature"
+  secondary_queries:
+    - "when to cut a product feature startup"
+    - "feature deprecation strategy product management"
+    - "how to sunset a feature without losing users"
+    - "product simplification vs feature retention"
+    - "killing features startup product decision"
+  recommended_council: [steve-jobs, niccolo-machiavelli, marcus-aurelius]
+  hook_angles: [tension, shortcut]
+  status: queued

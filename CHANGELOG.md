@@ -4,6 +4,37 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 22] — 2026-05-15
+
+### Added
+- **3 collision insight articles** (Wave 22):
+  - `lincoln-vs-napoleon-on-leading-through-crisis` — crisis court (Lincoln/Napoleon; Aurelius in council): steadiness vs. decisive velocity when a company-defining crisis hits
+  - `nightingale-vs-curie-on-field-evidence-vs-theoretical-proof` — evidence court (Nightingale/Curie): acting on messy field data vs. waiting for controlled experimental proof
+  - `jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love` — leadership court (Jobs/Machiavelli): building loyalty through mission vs. building compliance through consequence
+- **3 decision pages** (Wave 22, decisions total: 75):
+  - `should-i-build-a-saas-or-an-agency` (Machiavelli/Rockefeller/Franklin; high-volume business-model decision)
+  - `should-i-launch-with-a-waitlist` (Machiavelli/Curie/Franklin; high-volume pre-launch decision)
+  - `should-i-niche-down-or-stay-broad` (Sun Tzu/Machiavelli/Aurelius; high-volume market-focus decision)
+- 115 reel-script integration tests passing (3 new for Wave 22 collisions)
+- `topics.yaml`: 6 Wave 22 core entries marked shipped; 7 new Wave 23+ queued entries seeded
+
+## 2026-05-15 (F5-TTS voice synthesis)
+
+### Added
+- `scripts/reel-scripts/synthesize-voice.py` — reads a `VerdictReelScript` JSON artifact and synthesizes voiceover using **F5-TTS** (MIT, primary) or **Chatterbox TTS** (MIT, fallback)
+  - Extracts `hook.voiceover + councilPass[].line + consensus + cta` segments
+  - Supports both current JSON format and extended `.voiceover` fields
+  - Inserts calibrated silences between segments (0.3–0.5s)
+  - `--dry-run` mode: prints script text + estimated duration without TTS call
+  - `--reference-audio` for zero-shot voice cloning in both backends
+  - `--backend` flag: `auto` (default) / `f5tts` / `chatterbox`
+  - Fails fast on missing slug, malformed JSON, or unavailable backends
+
+## 2026-05-15 (docs + queue)
+
+### Changed
+- `CONTENT_PIPELINE.md` topic counts updated to post-Wave-21 + Wave-22-seed state: 187 topics tracked, 174 shipped (72 decisions + 92 insights/collisions), 9 queued (Wave 22 core 6 + Wave 23+ 3).
+
 ## [Wave 21] — 2026-05-13
 
 ### Added
