@@ -22,6 +22,20 @@ export interface AcquisitionChannel {
   conversions: number;
 }
 
+export type FounderChannel =
+  | "share"
+  | "outreach"
+  | "newsletter"
+  | "organic"
+  | "other";
+
+export interface ChannelAttribution {
+  channel: FounderChannel;
+  utm_sources: string[];
+  sessions: number;
+  conversions: number;
+}
+
 export interface NotableChannel {
   utm_source: string;
   reason: string;
@@ -32,6 +46,7 @@ export interface NotableChannel {
 export interface FounderCheckpointReport {
   generatedAt: string;
   paying_users: PayingUsers | null;
+  channel_attribution: ChannelAttribution[];
   acquisition_channels: AcquisitionChannel[];
   notable_channels: NotableChannel[];
   missing_credentials?: string[];
@@ -97,6 +112,7 @@ export function buildStubReport(
   const out: FounderCheckpointReport = {
     generatedAt,
     paying_users: null,
+    channel_attribution: [],
     acquisition_channels: [],
     notable_channels: [],
   };
@@ -326,6 +342,58 @@ export function detectNotableChannels(channels: AcquisitionChannel[]): NotableCh
   return out;
 }
 
+const FOUNDER_CHANNEL_SOURCES: Record<FounderChannel, string[]> = {
+  share: ["agon_share", "share"],
+  outreach: ["email", "outreach"],
+  newsletter: ["newsletter"],
+  organic: ["(none)", "direct", "organic"],
+  other: [],
+};
+
+function normalizeSource(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+/**
+ * Group raw Vercel sources into the founder-facing acquisition buckets.
+ * The summary is deterministic: fixed bucket order, alphabetical source
+ * lists, and stable zero-filled rows so the retro can compare periods.
+ */
+export function buildChannelAttribution(
+  channels: AcquisitionChannel[]
+): ChannelAttribution[] {
+  const tallies = new Map<FounderChannel, ChannelAttribution>();
+  for (const channel of ["share", "outreach", "newsletter", "organic", "other"] as const) {
+    tallies.set(channel, { channel, utm_sources: [], sessions: 0, conversions: 0 });
+  }
+
+  for (const row of channels) {
+    const rawSource = row.utm_source.trim().length > 0 ? row.utm_source.trim() : "(none)";
+    const source = normalizeSource(rawSource);
+    const matched =
+      (Object.entries(FOUNDER_CHANNEL_SOURCES).find(
+        ([channel, sources]) =>
+          channel !== "other" && sources.includes(source)
+      )?.[0] as FounderChannel | undefined) ?? "other";
+    const bucket = tallies.get(matched)!;
+    bucket.sessions += row.sessions;
+    bucket.conversions += row.conversions;
+    bucket.utm_sources.push(rawSource);
+  }
+
+  return (["share", "outreach", "newsletter", "organic", "other"] as const).map((channel) => {
+    const bucket = tallies.get(channel)!;
+    return {
+      channel,
+      sessions: bucket.sessions,
+      conversions: bucket.conversions,
+      utm_sources: [...new Set(bucket.utm_sources)].sort((a, b) =>
+        a.localeCompare(b)
+      ),
+    };
+  });
+}
+
 /** Default Clock implementation that reads the system clock. */
 export const defaultClock: Clock = {
   nowISO: () => new Date().toISOString(),
@@ -389,6 +457,7 @@ export async function buildReport(
   const report: FounderCheckpointReport = {
     generatedAt,
     paying_users: payingUsers,
+    channel_attribution: buildChannelAttribution(channels),
     acquisition_channels: channels,
     notable_channels: detectNotableChannels(channels),
   };

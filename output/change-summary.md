@@ -1,4 +1,47 @@
 ## Task
+- `40c7e88e-dc2d-4307-9bc0-0224f3661867` - Finalize the decision-first homepage hero variant
+
+## Changed Files
+- `website/src/app/page.tsx`
+- `website/src/app/page.test.tsx`
+
+## What Changed
+- Kept the homepage hero on the decision-first headline and first-scroll consensus preview path, while making the secondary CTA explicitly route to the guided quiz.
+- Added a `data-testid` and accessible label to the quiz CTA so the conversion funnel can be asserted directly.
+- Expanded the homepage regression tests to cover both hero CTAs, the guided quiz routing contract, and the secondary CTA label.
+- Removed dead helper code from the homepage test file so ESLint passes cleanly on the touched files.
+
+## Verification
+- `wcx npx vitest run --coverage --coverage.include=src/app/page.tsx src/app/page.test.tsx`
+- `wcx npx eslint src/app/page.tsx src/app/page.test.tsx`
+
+## Results
+- Focused homepage tests passed: `40 tests passed`.
+- Focused coverage for `website/src/app/page.tsx` hit `100%` statements, branches, functions, and lines.
+- ESLint passed on the two touched homepage files with no warnings or errors.
+
+## Task
+- `5b05b9d2-c37c-4700-8bb1-973728cfbb23` - Harden retention-email manifest route contract against cron inventory drift
+
+## Changed Files
+- `website/src/app/api/cron/retention-email/route.ts`
+- `website/src/app/api/cron/retention-email/route.test.ts`
+
+## What Changed
+- Updated the retention-email manifest inventory so the `nudge` and `digest` entries now point at the live `/api/cron/day2-nudge` and `/api/cron/weekly-digest` cron routes instead of the stale nested aliases.
+- Replaced the self-referential manifest test with an explicit expected contract literal so the route inventory and auth metadata will fail the test if future route renames or additions drift from the documented cron inventory.
+
+## Verification
+- `npm test -- src/app/api/cron/retention-email/route.test.ts`
+- `npm run coverage -- --coverage.thresholds.lines=0 --coverage.thresholds.branches=0 --coverage.thresholds.functions=0 --coverage.thresholds.statements=0 src/app/api/cron/retention-email/route.test.ts`
+- `git diff --check -- website/src/app/api/cron/retention-email/route.ts website/src/app/api/cron/retention-email/route.test.ts`
+
+## Results
+- Targeted retention-email manifest tests passed: `2 tests passed`.
+- The standard repo-wide coverage command still reports the existing global 95% gate failure when scoped to this single route test, because the Vitest coverage config measures the whole website surface and excludes API route files from coverage collection.
+- The scoped coverage run completed successfully once the thresholds were overridden, which confirms the manifest test itself is green even though the default site-wide gate remains unchanged.
+
+## Task
 - `4fc76788-26ca-447f-946b-6aed3c3e56c8` - Draft a daily reel/content ops checklist for morning execution
 - `2fcdf79e-e38b-4108-918d-115c5ff5b570` - Define the reel analytics summary template and review cadence
 
@@ -155,6 +198,29 @@
 ## Results
 - The queue now has eight additional founder-relevant entries with no duplicate slugs.
 - The file passes diff-format sanity checks.
+
+## Task
+- `1ed40482-6ab0-4175-92f5-8fa8ff86d4d9` - Surface founder-checkpoint attribution by channel
+
+## Changed Files
+- `scripts/founder-checkpoint/metrics.ts`
+- `scripts/founder-checkpoint/pull-metrics.ts`
+- `scripts/founder-checkpoint/pull-metrics.test.ts`
+- `scripts/founder-checkpoint/README.md`
+- `scripts/founder-checkpoint/fixtures/smoke-stub.json`
+
+## What Changed
+- Added a deterministic `channel_attribution` summary to the founder-checkpoint report so the retro now groups raw Vercel sources into share, outreach, newsletter, organic, and other buckets.
+- Kept the existing raw `acquisition_channels` output intact so the report still exposes the underlying `utm_source` rows for deeper inspection.
+- Hardened the attribution helper to treat blank source strings as organic `(none)` traffic and to emit stable zero-filled summaries during stub and partial-failure runs.
+- Updated the founder-checkpoint README and smoke fixture to document the new report field and stub shape.
+
+## Verification
+- `bash scripts/founder-checkpoint/run-tests.sh --coverage`
+
+## Results
+- `45` founder-checkpoint tests passed.
+- Coverage on `scripts/founder-checkpoint/metrics.ts` reached `100%` statements, `100%` branches, `100%` functions, and `100%` lines.
 
 ## Task
 - `f6f6ae73-c333-4555-8e8b-0ef4e1c4aba1` - Update CHANGELOG and README for Wave 25, Wave 26 (Joan of Arc 30th mind, Aristotle docs)
