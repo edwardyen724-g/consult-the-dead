@@ -4,6 +4,38 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 23] — 2026-05-15 — PR #419
+
+### Added
+- **3 collision insight articles** (Wave 23):
+  - `carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain` — "Carnegie vs. Sun Tzu: Do You Win by Building the Right Team or Owning the Right Position?" (Carnegie/Sun Tzu; team loyalty vs. positional advantage)
+  - `catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system` — "Catherine vs. Machiavelli: How Do You Reform a Broken System From Within?" (Catherine the Great/Machiavelli; gradual reform vs. swift consolidation)
+  - `edison-vs-tesla-on-ownership-vs-breakthrough` — "Edison vs. Tesla: Should You Own the System or Achieve the Breakthrough?" (Edison/Tesla; commercial ownership vs. pure innovation)
+- **3 decision pages** (Wave 23, decisions total: 78):
+  - `should-i-offer-a-free-trial` (Machiavelli/Franklin/Curie; high-volume SaaS pricing decision)
+  - `should-i-hire-a-chief-of-staff` (Carnegie/Machiavelli/Aurelius; high-volume scaling decision)
+  - `should-i-take-angel-investors-or-wait-for-vc` (Machiavelli/Rockefeller/Franklin; high-volume fundraising decision)
+- 120 reel-script integration tests passing (3 new for Wave 23 collisions)
+- `topics.yaml`: 6 Wave 23 entries marked shipped
+
+## 2026-05-15 (reel render pipeline) — PR #420
+
+### Added
+- `scripts/reel-scripts/render-reel.py` — ffmpeg-based Verdict Reel MP4 export pipeline
+  - Generates 9:16 portrait MP4 with on-brand kinetic text and mandatory captions
+  - No AI avatar — all text-driven visual composition
+  - `--output`, `--reel-json`, `--audio` flags for compositing pipeline
+  - 87 unit tests at 99% statement coverage; `--cov-fail-under=95` enforced in CI
+  - CI step added to `.github/workflows/ci.yml` — closes Phase 4 gap between audio synthesis and Instagram posting
+
+## 2026-05-15 (article-to-reel auto-trigger) — PR #418
+
+### Added
+- `.github/workflows/reel-auto-generate.yml` — GHA workflow that triggers on master push when `insights.ts` changes; runs `generate-all-reels.ts` and commits `.reel.json` artifacts with `[skip ci]`
+- `scripts/reel-scripts/generate-all-reels.ts` — batch script to generate all reel scripts from shipped insight slugs
+- `scripts/reel-scripts/reels/.gitkeep` — artifact output directory
+- 117 reel-script integration tests passing
+
 ## 2026-05-15 (Socrates — 28th live mind) — PR #414
 
 ### Added
