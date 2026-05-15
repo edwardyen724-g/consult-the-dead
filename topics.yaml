@@ -2554,7 +2554,8 @@
     - "should I extend seed or go to Series A"
   recommended_council: [niccolo-machiavelli, marie-curie, john-d-rockefeller]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-go-freemium-or-paid-only
   type: decision
@@ -2625,7 +2626,8 @@
     - "stealth mode vs open development startup"
   recommended_council: [benjamin-franklin, niccolo-machiavelli, marie-curie]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 # ── Wave 23 seed entries ──────────────────────────────────────────────────────
 
@@ -2760,7 +2762,8 @@
     - "fighting institutional dysfunction vs building around it"
   recommended_council: [cicero, seneca]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: tubman-vs-douglass-on-direct-rescue-vs-building-coalitions
   type: collision
@@ -2788,7 +2791,8 @@
     - "hypergrowth vs controlled expansion startup tradeoffs"
   recommended_council: [napoleon-bonaparte, julius-caesar]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention
   type: collision
@@ -2802,7 +2806,8 @@
     - "observation and iteration vs conceptual invention product strategy"
   recommended_council: [galileo-galilei, ada-lovelace]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-hire-a-head-of-sales-or-keep-founder-led-sales
   type: decision
@@ -2816,7 +2821,8 @@
     - "scaling sales beyond founder startup playbook"
   recommended_council: [andrew-carnegie, niccolo-machiavelli, sun-tzu]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: newton-vs-galileo-on-mathematical-certainty-vs-empirical-observation
   type: collision
@@ -2844,7 +2850,8 @@
     - "founder as consensus builder vs founder as decider"
   recommended_council: [abraham-lincoln, julius-caesar]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-raise-prices-or-compete-on-value
   type: decision
@@ -2858,7 +2865,8 @@
     - "premium pricing vs value-based pricing early startup"
   recommended_council: [john-d-rockefeller, niccolo-machiavelli, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-launch-an-enterprise-tier
   type: decision
@@ -2872,7 +2880,8 @@
     - "when is a startup ready to pursue enterprise customers"
   recommended_council: [andrew-carnegie, niccolo-machiavelli, julius-caesar]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 # ── Wave 26 seed entries ──────────────────────────────────────────────────────
 
