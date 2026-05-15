@@ -2745,3 +2745,131 @@
   recommended_council: [steve-jobs, niccolo-machiavelli, marcus-aurelius]
   hook_angles: [tension, shortcut]
   status: queued
+
+# ── Wave 25 seed entries ──────────────────────────────────────────────────────
+
+- slug: cicero-vs-seneca-on-public-action-vs-stoic-withdrawal
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "should I fight the broken system or accept it and move on"
+  secondary_queries:
+    - "when to push back on a broken system vs accept constraints"
+    - "activist founder vs stoic detachment startup culture"
+    - "engaging in public battles vs focusing inward as a leader"
+    - "when does advocacy distract from building startup"
+    - "fighting institutional dysfunction vs building around it"
+  recommended_council: [cicero, seneca]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: tubman-vs-douglass-on-direct-rescue-vs-building-coalitions
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "direct action vs building systems for change"
+  secondary_queries:
+    - "individual rescue vs institutional reform approach founder"
+    - "when to act alone vs build alliances for systemic change"
+    - "direct impact now vs slower coalition-building strategy"
+    - "grassroots action vs political coalition startup parallel"
+    - "single operator execution vs movement building for change"
+  recommended_council: [harriet-tubman, frederick-douglass]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: napoleon-vs-caesar-on-speed-of-conquest-vs-consolidation
+  type: collision
+  search_volume_estimate: high
+  primary_query: "move fast and break things vs consolidate and build"
+  secondary_queries:
+    - "speed of expansion vs consolidating gains startup strategy"
+    - "when to slow down and solidify vs keep pushing forward"
+    - "rapid land-grab vs defensible position growth startup"
+    - "blitzscaling vs sustainable scaling founder decision"
+    - "hypergrowth vs controlled expansion startup tradeoffs"
+  recommended_council: [napoleon-bonaparte, julius-caesar]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: galileo-vs-ada-lovelace-on-empirical-discovery-vs-theoretical-invention
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "data-driven discovery vs theoretical invention in product"
+  secondary_queries:
+    - "empirical experimentation vs theoretical frameworks in product development"
+    - "when to run experiments vs trust the theoretical model startup"
+    - "data-first product discovery vs vision-first product design"
+    - "hypothesis testing vs first-principles reasoning founder approach"
+    - "observation and iteration vs conceptual invention product strategy"
+  recommended_council: [galileo-galilei, ada-lovelace]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-hire-a-head-of-sales-or-keep-founder-led-sales
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I hire a head of sales or stay founder-led"
+  secondary_queries:
+    - "when to hire a VP of sales startup"
+    - "founder-led sales limits when to hand off"
+    - "first sales hire startup timing"
+    - "head of sales vs founder selling startup stage"
+    - "scaling sales beyond founder startup playbook"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, sun-tzu]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: newton-vs-galileo-on-mathematical-certainty-vs-empirical-observation
+  type: collision
+  search_volume_estimate: high
+  primary_query: "data-driven decisions vs first-principles reasoning in product"
+  secondary_queries:
+    - "when to trust the model vs run the experiment startup"
+    - "theoretical framework vs empirical testing product development"
+    - "math-first vs experiment-first product strategy"
+    - "first-principles reasoning vs A/B testing startup decisions"
+    - "deductive product design vs inductive product discovery"
+  recommended_council: [isaac-newton, galileo-galilei]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: lincoln-vs-caesar-on-coalition-leadership-vs-unilateral-execution
+  type: collision
+  search_volume_estimate: high
+  primary_query: "build consensus vs make the call yourself as a founder"
+  secondary_queries:
+    - "consensus leadership vs decisive authority startup"
+    - "when to build buy-in vs just decide and move fast"
+    - "democratic leadership vs autocratic execution startup growth"
+    - "collaborative decision-making vs command and control founder"
+    - "founder as consensus builder vs founder as decider"
+  recommended_council: [abraham-lincoln, julius-caesar]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-raise-prices-or-compete-on-value
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise prices for my SaaS startup"
+  secondary_queries:
+    - "when to raise prices startup pricing strategy"
+    - "competing on price vs competing on value B2B SaaS"
+    - "how to raise prices without losing customers startup"
+    - "pricing power vs volume game startup"
+    - "premium pricing vs value-based pricing early startup"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-launch-an-enterprise-tier
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I add an enterprise tier to my SaaS"
+  secondary_queries:
+    - "when to go enterprise for B2B SaaS startup"
+    - "SMB vs enterprise SaaS strategy founder decision"
+    - "enterprise sales cycle too long startup early stage"
+    - "adding enterprise plan to PLG SaaS product"
+    - "when is a startup ready to pursue enterprise customers"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, julius-caesar]
+  hook_angles: [tension, shortcut]
+  status: queued
