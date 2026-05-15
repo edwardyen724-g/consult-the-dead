@@ -4,6 +4,36 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 23] — 2026-05-15
+
+### Added
+- **3 collision insight articles** (Wave 23):
+  - `carnegie-vs-sun-tzu` — people-vs-positioning court (Carnegie/Sun Tzu): winning through relationships vs. winning through superior terrain and positioning
+  - `catherine-the-great-vs-machiavelli` — power-consolidation court (Catherine/Machiavelli): legitimacy-through-reform vs. pragmatic power realpolitik
+  - `edison-vs-tesla` — iteration-vs-vision court (Edison/Tesla): relentless practical iteration vs. theoretical breakthroughs ahead of their time
+- **3 decision pages** (Wave 23, decisions total: 81):
+  - `should-i-offer-a-free-trial` — acquisition-model decision
+  - `should-i-hire-a-chief-of-staff` — leadership-leverage decision
+  - `should-i-take-angel-investors-or-wait-for-vc` — fundraising-path decision
+- 120 reel-script integration tests passing (3 new for Wave 23 collisions)
+- Wave 23 DECISION_COURT entries added; `topics.yaml` Wave 23 entries marked shipped
+
+## 2026-05-15 (Reel auto-trigger) — PR #418
+
+### Added
+- **Article-to-reel auto-generation on master merge**: GitHub Actions workflow triggers on push to master when `insights.ts` changes; runs `generate-all-reels.ts` and commits `.reel.json` artifacts back with `[skip ci]`
+  - Eliminates manual reel-generation step after each content batch
+  - 117 reel-script integration tests passing at time of merge
+
+## 2026-05-15 (Reel render pipeline) — PR #420
+
+### Added
+- **ffmpeg-based Verdict Reel MP4 export** (`scripts/reel-scripts/render-reel.py`):
+  - Produces 9:16 MP4 from reel JSON + WAV audio using ffmpeg
+  - On-brand kinetic text overlays; mandatory captions; no AI avatar
+  - 87 tests at 99% statement coverage; `--cov-fail-under=95` enforced in CI
+  - Closes the Phase 4 gap between audio synthesis (`synthesize-voice.py`) and Instagram posting (`scripts/instagram/upload_reel.py`)
+
 ## 2026-05-15 (Socrates — 28th live mind) — PR #414
 
 ### Added

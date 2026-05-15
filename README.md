@@ -20,7 +20,7 @@ The landing page lives in [`/website`](./website). The framework-extraction pipe
 | `/debates` | Public, static-generated | Sample debate index — browse pre-built debate records by topic; each links to a detail page at `/debates/[slug]` |
 | `/insights` | Public, static-generated, SEO | Index of all insight articles (single-figure and head-to-head collision pieces) |
 | `/insights/[slug]` | Public, static-generated, SEO | Individual insight article — "What Would X Say About Y" (single-figure) and "X vs Y on Z" (collision); ships with reel script and framework annotation layer |
-| `/decisions` | Public, static-generated | Index of all 75 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
+| `/decisions` | Public, static-generated | Index of all 81 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
 | `/decisions/[slug]` | Public, static-generated | Individual decision page with debate, council recommendation, and Agora CTA |
 | `/feed.xml` | Public | RSS feed for public debates and insights |
 | `/pricing` | Public | Plan comparison and upgrade flow |
