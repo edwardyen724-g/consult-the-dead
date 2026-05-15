@@ -242,6 +242,13 @@ const DECISION_COURT: Record<
       "Incremental decisions warrant platform ownership. Paradigm decisions require validating the foundation before building on it.",
     caption: "Incremental or paradigm? Decide first.",
   },
+  // ── Wave 23 Joan of Arc addition ─────────────────────────────────────
+  conviction: {
+    minds: ["Joan of Arc", "Harriet Tubman", "Marcus Aurelius"],
+    consensus:
+      "Name what you are willing to risk for this conviction. Move before the permission arrives.",
+    caption: "Conviction is movement. Not agreement.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -318,6 +325,9 @@ const MAIN_BEATS: Record<string, string> = {
     "Name the few people whose changed behavior shifts the dysfunction most. Start there.",
   ownership:
     "Ask whether this is incremental or paradigm. Validate the foundation before building on it.",
+  // ── Wave 23 Joan of Arc addition ─────────────────────────────────────
+  conviction:
+    "Name whether the conviction is verified by results, not just felt. Move before the conditions are perfect.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -394,6 +404,9 @@ const SUPPORT_BEATS: Record<string, string> = {
     "Compliance without commitment is a ceiling. Build belief before announcing everything is broken.",
   ownership:
     "The DC system was commercially viable — until AC physics made it a liability.",
+  // ── Wave 23 Joan of Arc addition ─────────────────────────────────────
+  conviction:
+    "The institution will validate the conviction after the results are in — not before.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -470,6 +483,9 @@ const CLOSE_BEATS: Record<string, string> = {
     "Would the reform look different if the three most resistant people left? If yes, the dysfunction is concentrated.",
   ownership:
     "Name the technical approach most likely to make your architecture obsolete. Solve that first.",
+  // ── Wave 23 Joan of Arc addition ─────────────────────────────────────
+  conviction:
+    "The act of holding the conviction in the face of the institution is the proof the conviction is real.",
 };
 
 function titleCase(value: string): string {

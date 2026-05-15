@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "person": "Joan of Arc",
+    "domain": "Leadership, Conviction, Military Strategy",
+    "archetype_name": "The Standard-Bearer",
+    "archetype_title": "Action Before Permission",
+    "accent_color": "#d4a843",
+    "born": "c. 1412",
+    "died": "1431",
+    "generated_utc": "2026-05-15T00:00:00.000000+00:00",
+    "primary_sources": [
+      "Trial of Condemnation (1431) — official transcripts of Joan's interrogation by the Rouen ecclesiastical court",
+      "Trial of Nullification (1456) — testimony of 115 witnesses collected for the posthumous rehabilitation",
+      "Letters of Joan of Arc (1429–1431) — her dictated correspondence to the English, Burgundians, and the city of Tournai",
+      "Journal du Siège d'Orléans (1429) — contemporary account of the Orléans campaign",
+      "Chronique de la Pucelle — contemporary chronicle covering Joan's campaigns from Vaucouleurs to Reims"
+    ],
+    "secondary_sources": [
+      "Régine Pernoud, Joan of Arc: By Herself and Her Witnesses (1962) — primary-source compilation with analysis",
+      "Kelly DeVries, Joan of Arc: A Military Leader (1999) — military-historical analysis of her tactical decisions",
+      "Helen Castor, Joan of Arc: A History (2014) — contextual narrative grounded in contemporary documentation"
+    ],
+    "incident_count": 12,
+    "construct_count": 5,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Joan of Arc perceives every situation as a test of whether the stated commitment is genuine — looking for the gap between what an institution or leader claims to believe and what they are actually willing to risk, then moving into that gap before consensus forms, treating pre-emptive action as the only mechanism that converts claimed conviction into real conviction.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008"
+    ],
+    "holdout_validation": [
+      "incident-009",
+      "incident-010",
+      "incident-011"
+    ],
+    "what_they_notice_first": "The gap between stated commitment and actual risk tolerance — the leader who says this is the right direction but will not move until conditions are perfect, the institution that claims authority but requires collective cover before acting",
+    "what_they_ignore": "Coalition cost, the informational value of institutional consensus, the possibility that the direct path to the goal makes the goal harder to achieve by alienating the people required to sustain it"
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Conviction-driven action vs. consensus-required action",
+      "positive_pole": "Moves before the coalition exists, treating pre-emptive action as the mechanism that creates the coalition — acts on the basis of genuine conviction without waiting for institutional permission or collective validation",
+      "negative_pole": "Treats consensus formation as the prerequisite for action — waits until the relevant stakeholders have aligned before moving, on the grounds that unilateral action without coalition support fails even when the direction is correct",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-002",
+        "incident-003",
+        "incident-005"
+      ],
+      "behavioral_implication": "When a founder is waiting for board alignment before launching a product they believe in, Joan would ask whether the alignment is required because the product will fail without it, or because the founder does not actually believe the product is ready — and would distinguish these as categorically different situations requiring categorically different responses"
+    },
+    {
+      "construct": "Personal authority vs. institutional authority",
+      "positive_pole": "Grounds authority in direct conviction and demonstrated results, treating institutional endorsement as lagging evidence that confirms conviction already held — willing to act against institutional resistance when conviction is clear",
+      "negative_pole": "Grounds authority in institutional position and mandate, treating personal conviction without institutional backing as insufficient license for significant action — requires formal sanction before acting at scale",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-003",
+        "incident-004",
+        "incident-009"
+      ],
+      "behavioral_implication": "When institutional authorities demand that a leader defer action pending formal review, Joan would ask whether the review is designed to improve the decision or to distribute responsibility for it — and would proceed if conviction was clear and delay was costly, accepting that the institutional endorsement must be earned retrospectively through results"
+    },
+    {
+      "construct": "Personal sacrifice as commitment signal vs. self-preservation as strategic asset",
+      "positive_pole": "Treats personal risk-taking as the primary signal of genuine conviction — willingness to be at the front of the line is what distinguishes real belief from performed belief, and is the mechanism by which others are drawn into the mission",
+      "negative_pole": "Treats the leader's survival and continued capacity as a strategic asset that must be protected — accepts that the leader's willingness to take personal risk must be weighed against the cost to the mission if the leader is incapacitated",
+      "derived_from_incidents": [
+        "incident-005",
+        "incident-007",
+        "incident-008",
+        "incident-010"
+      ],
+      "behavioral_implication": "When a founder is deciding whether to make a public commitment that is personally costly — burning a bridge with an investor, publicly naming a competitor's bad practice — Joan would ask whether the reluctance is strategic or whether it is simply fear dressed in strategic language, and would demand an honest answer to that question before accepting any claim that caution is warranted"
+    },
+    {
+      "construct": "Direct action vs. deliberation",
+      "positive_pole": "Treats deliberation as a cost to be minimized when conviction is clear — the window of opportunity closes while committees meet, and the value of action before the window closes often exceeds the value of better information that arrives after it",
+      "negative_pole": "Treats deliberation as the mechanism that converts individual conviction into group capability — accepting the time cost of deliberation as necessary for building the shared understanding required for sustained collective action",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-006",
+        "incident-007",
+        "incident-011"
+      ],
+      "behavioral_implication": "When a leadership team is iterating on a product decision and the iteration is producing marginal improvements while the competitive window narrows, Joan would identify the moment when additional deliberation is consuming more value than it is generating and push for a decision — accepting the cost of imperfect information in exchange for preserving the window"
+    },
+    {
+      "construct": "Mission integrity vs. tactical compromise",
+      "positive_pole": "Refuses to soften the core mission in order to reduce friction with the institutions required to support it — treats the integrity of the mission as the primary mechanism by which the mission remains worth pursuing",
+      "negative_pole": "Accepts tactical modification of stated mission goals as a legitimate mechanism for preserving the coalition required to pursue the mission — recognizes that a mission that drives away its supporters cannot be executed",
+      "derived_from_incidents": [
+        "incident-008",
+        "incident-009",
+        "incident-010",
+        "incident-012"
+      ],
+      "behavioral_implication": "When investors, board members, or advisors are pushing a founder to articulate a less ambitious version of the product mission to broaden appeal, Joan would ask whether the modification would make the mission more achievable by building a larger coalition, or whether it would make the mission no longer worth achieving — and would draw the line at the point where modification eliminates the thing that made the mission worth pursuing"
+    }
+  ],
+  "blind_spots": [
+    {
+      "description": "Coalition attrition: Joan's pattern of acting before the coalition is assembled and demanding that results justify the action retrospectively works when the results arrive quickly enough to sustain the coalition through the period of unilateral risk. When results are delayed or incomplete, the coalition fractures before the mission is achieved. Her capture at Compiègne followed a period when her military victories had not translated into political consolidation, and her Burgundian allies had been alienated by her insistence on the direct path over the negotiated path.",
+      "evidence": [
+        "The Burgundian alliance was available for negotiation after Reims but Joan's opposition to the truce terms contributed to the Burgundians' return to the English alliance",
+        "The Paris assault failed in part because the political coalition required to sustain a siege was not assembled before the attack was launched"
+      ]
+    },
+    {
+      "description": "Institutional legibility: Joan's authority derived from her personal conviction and demonstrated results, not from institutional mandate. This meant that when the results stopped coming — or when the results were ambiguous — she had no institutional position to fall back on. The Rouen trial exposed the fragility of authority that rests entirely on conviction and outcome: when the outcomes were reframed as heresy rather than victory, she had no institutional resource with which to defend the source of her authority.",
+      "evidence": [
+        "Her trial interrogators successfully shifted the frame from military results to theological correctness, a domain where her conviction was not self-validating",
+        "The Charles VII court's failure to ransom her or negotiate her release reflected the limits of authority grounded in results: the results had stopped, and the institutional relationship had no independent basis"
+      ]
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "Board meeting where the CEO is being asked to soften the product thesis to broaden investor appeal",
+      "ordinary_response": "Present a modified version of the thesis that preserves the core while addressing the investors' concerns",
+      "framework_response": "Identify whether the modification eliminates the core reason the product is worth building — and refuse the modification if it does, accepting the cost of the investor's continued resistance over the cost of mission dilution",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Competitive window is closing while the team iterates toward a decision",
+      "ordinary_response": "Continue deliberation until a sufficiently confident decision is reached",
+      "framework_response": "Identify the moment when additional deliberation costs more in lost window than it gains in improved decision quality, call the decision, and move — accepting imperfect information as the price of preserving the opportunity",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Institutional resistance to a decision the leader is certain is correct",
+      "ordinary_response": "Build the coalition through education, demonstration, and incremental persuasion before moving",
+      "framework_response": "Move before the coalition is assembled and allow the results to build the coalition that deliberation would not — treating conviction as sufficient license for action when the opportunity cost of waiting for consensus is high",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Leader considering a public commitment that is personally costly",
+      "ordinary_response": "Evaluate the strategic cost of the commitment against its benefits and defer if the cost-benefit is unclear",
+      "framework_response": "Distinguish whether the reluctance is genuinely strategic or whether it is fear dressed as strategy — and take the commitment if conviction is clear, treating the personal cost as the signal that validates the commitment for others",
+      "confidence": "medium"
+    },
+    {
+      "situation_type": "Negotiated compromise is available that would preserve the mission at reduced scope",
+      "ordinary_response": "Accept the compromise as a pragmatic mechanism for preserving the coalition and the mission",
+      "framework_response": "Examine whether the reduced-scope mission is still worth pursuing on its own terms — refuse if the scope reduction eliminates the reason the mission was worth pursuing, even if refusal costs the coalition",
+      "confidence": "high"
+    }
+  ],
+  "critical_incident_database": [
+    {
+      "id": "incident-001",
+      "decision": "At age 16, Joan traveled alone from Domrémy to Vaucouleurs to demand that the local garrison commander Robert de Baudricourt give her an escort to the Dauphin's court — an unprecedented request from an unknown peasant girl with no institutional standing.",
+      "context": "France in 1428 was in crisis: English forces controlled much of the north, the Dauphin Charles had not been crowned, and Orléans was under siege. Joan had no military experience, no social position, and no institutional backing. She had only her conviction that she had been called to raise the siege.",
+      "divergence_explanation": "The conventional response to a peasant girl's claim of divine mandate was dismissal. Joan's decision to present herself to Baudricourt anyway, twice, before finally receiving an escort, establishes the core pattern: she treated conviction as sufficient license to begin, and treated the first rejection as a data point about timing rather than a verdict on the mission."
+    },
+    {
+      "id": "incident-002",
+      "decision": "When brought before the Dauphin Charles at Chinon, Joan reportedly identified him in disguise among his courtiers, then spoke privately with him about matters that convinced him of the authenticity of her mission — before any institutional validation had been conducted.",
+      "context": "Charles had disguised himself among his court to test whether Joan's claimed divine guidance was genuine. The encounter preceded the theological examination at Poitiers that would be required for official sanction.",
+      "divergence_explanation": "Joan did not wait for the official theological examination before making her case directly to Charles. Her approach was to demonstrate conviction through direct engagement, then allow institutional validation to follow. The results confirmed her approach: the Poitiers commission cleared her, but the decision to proceed had already been made on the basis of the direct encounter."
+    },
+    {
+      "id": "incident-003",
+      "decision": "Joan insisted on commanding the relief force at Orléans rather than serving in an advisory or symbolic capacity, demanding that the military commanders execute her tactical plans rather than the cautious relief strategy they had planned.",
+      "context": "The experienced French commanders had planned a methodical resupply strategy that avoided major engagement with the English. Joan overrode their plans in favor of a direct assault on the English fortifications, which they believed was suicidal.",
+      "divergence_explanation": "The commanders' plan was strategically defensible but psychologically catastrophic: a resupply that avoided battle would not break the English stranglehold on the city. Joan identified that the mission was not merely to resupply Orléans but to break the siege — and that breaking the siege required direct confrontation, not tactical avoidance. She was correct, and the siege was broken in nine days."
+    },
+    {
+      "id": "incident-004",
+      "decision": "After lifting the siege of Orléans, Joan persuaded the Dauphin to pursue an aggressive Loire campaign rather than waiting to consolidate gains — forcing a series of engagements with English forces across the Loire valley that cleared the path to Reims.",
+      "context": "The conventional strategy after Orléans would have been to consolidate the liberated territories and negotiate from strength. Joan argued instead for immediate exploitation of the momentum to continue north.",
+      "divergence_explanation": "She identified that the window created by the Orléans victory would close as the English regrouped, and that the momentum of victory was itself a military resource that had to be consumed before it expired. The Loire campaign succeeded because it moved faster than the English response."
+    },
+    {
+      "id": "incident-005",
+      "decision": "Joan led the assault on Les Tourelles at Orléans on May 7, 1429 from the front, continuing to direct the assault after being wounded by an arrow through the shoulder — removing the arrow herself and returning to the battle.",
+      "context": "The assault on Les Tourelles was the decisive engagement of the Orléans siege. Joan's wound was significant and her commanders urged her to withdraw. She refused.",
+      "divergence_explanation": "Her decision to continue after being wounded was not tactical — it was a signal. Her presence at the front after taking the wound was the mechanism by which the assault was sustained past the point where the demoralized French troops would have broken. Her personal cost was the instrument of collective capability."
+    },
+    {
+      "id": "incident-006",
+      "decision": "Against the advice of her commanders and the Dauphin's council, Joan pushed for an immediate march to Reims for the coronation — a route that passed through English and Burgundian-controlled territory — rather than waiting for the military situation to be secured.",
+      "context": "After the Loire campaign, the Dauphin's council was divided on whether to march to Reims immediately or to consolidate control of the Loire region first. The march would be dangerous and the city itself was not secured.",
+      "divergence_explanation": "Joan's argument was not primarily military — it was political. The coronation at Reims would transform the Dauphin from a claimant to a legitimate king, changing the nature of the conflict. She correctly identified that the political transformation was more valuable than the military consolidation, and that the window for the coronation march would not remain open indefinitely."
+    },
+    {
+      "id": "incident-007",
+      "decision": "Joan dictated a series of letters to the English commanders demanding that they withdraw from France, addressing Henry VI directly as though her authority to make such demands was established — before she had won a single battle.",
+      "context": "The letters were sent before and during the Orléans campaign. They were addressed to the English king and his commanders in terms that assumed Joan's authority was real and the English withdrawal was a genuine demand rather than a formality.",
+      "divergence_explanation": "The letters were not diplomatic — they were a public statement of conviction. By making the demand formally, Joan established the frame within which the subsequent victories would be interpreted: not as lucky French military successes but as the fulfillment of a legitimate demand that the English had refused. She created the interpretive framework before the events that would confirm it."
+    },
+    {
+      "id": "incident-008",
+      "decision": "Joan opposed the truce negotiations with Burgundy after the Reims coronation, arguing that the Burgundians should be given a short ultimatum rather than a generous ceasefire — even as the French court was committed to negotiation.",
+      "context": "After the coronation of Charles VII, the strategic situation shifted toward diplomacy. A truce with Burgundy was politically attractive and the court was pursuing it seriously. Joan's opposition was based on her conviction that Burgundian neutrality could not be trusted and that the military advantage should be pressed.",
+      "divergence_explanation": "She was correct on the military logic: the Burgundians used the truce to regroup and subsequently returned to active alliance with the English. But she was unable to persuade the court, and her political isolation following the truce negotiations marked the beginning of the period that ended with her capture."
+    },
+    {
+      "id": "incident-009",
+      "decision": "During her trial at Rouen, Joan refused to take the oath to answer all questions truthfully about matters she had not yet been asked — insisting she would answer truthfully about those things she had knowledge of, but refusing a blanket oath that could be used to force self-incriminating statements.",
+      "context": "The trial was conducted by an ecclesiastical court with clear intent to convict. Joan had no legal counsel and was operating in a hostile institutional environment. The oath demand was designed to create a mechanism for extracting damaging testimony.",
+      "divergence_explanation": "Joan identified the structural trap immediately: an unlimited oath answered to interrogators seeking conviction would be used against her regardless of the truth of her answers. Her partial oath — agreeing to answer truthfully about what she knew while refusing the unlimited scope — was legally sophisticated and reflected the same pattern she showed in military contexts: she identified what the actual demand was beneath the stated demand, and refused the structural trap while accepting the legitimate portion."
+    },
+    {
+      "id": "incident-010",
+      "decision": "When asked during her trial whether she was in a state of grace — a question designed as a theological trap — Joan answered: 'If I am not, may God bring me to it; if I am, may God keep me in it.'",
+      "context": "The question was a trap: claiming to be in a state of grace would be presumptuous and heretical; denying it would undermine her claim to divine mission. The interrogators believed there was no safe answer.",
+      "divergence_explanation": "Joan found the answer that was both truthful and structurally resistant to the trap — she neither claimed nor denied the state of grace, but expressed the appropriate disposition toward it. The chroniclers noted that the interrogators were impressed against their will. Her capacity to find the load-bearing response in a hostile institutional context was consistent across her trial testimony."
+    },
+    {
+      "id": "incident-011",
+      "decision": "Joan initially signed an abjuration document that would have saved her life, then retracted it within four days, accepting the death penalty as the consequence.",
+      "context": "Under extreme pressure and the threat of immediate execution, Joan signed a document abjuring her claimed visions and agreeing to submit to ecclesiastical authority. She then retracted, stating that she had sinned against God in denying her mission.",
+      "divergence_explanation": "The abjuration represents the one moment where her conviction broke under institutional pressure — and the retraction represents its restoration. The sequence is diagnostically important: the pressure that produced the abjuration was existential, and it still failed to hold. Her retraction, which she knew would result in her execution, was a statement that the cost of mission betrayal exceeded the cost of death."
+    },
+    {
+      "id": "incident-012",
+      "decision": "At the moment of her execution, Joan asked for a cross to hold, which an English soldier made for her from two twigs. She died saying the name of Jesus, maintaining the coherence of her stated conviction to the end.",
+      "context": "Joan was burned at the stake in Rouen on May 30, 1431. The execution was witnessed by an unusually large crowd including senior English officials and clergy.",
+      "divergence_explanation": "The execution is the final data point in the pattern: she did not recant, did not seek mercy, and did not use the public platform of her death to moderate the positions that had brought her to it. The consistency of her behavior from Vaucouleurs through Rouen demonstrates that her conviction was not situational — it did not adapt to the institutional environment or to the personal cost."
+    }
+  ]
+}

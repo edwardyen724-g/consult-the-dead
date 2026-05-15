@@ -2939,3 +2939,34 @@
   recommended_council: [benjamin-franklin, frederick-douglass, marcus-aurelius]
   hook_angles: [tension, shortcut]
   status: queued
+
+# ── Wave 23 Joan of Arc additions ─────────────────────────────────────────────
+- slug: what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure
+  type: decision
+  search_volume_estimate: high
+  primary_query: "how to stay true to your vision under pressure"
+  secondary_queries:
+    - "conviction under pressure startup"
+    - "when to stand firm vs compromise vision"
+    - "founder conviction vs committee pressure"
+    - "how to hold your product thesis against investor pushback"
+    - "staying committed to vision when everyone disagrees"
+  recommended_council: [joan-of-arc]
+  hook_angles: [tension, identity]
+  status: shipped
+  shipped_at: "2026-05-15"
+
+- slug: joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism
+  type: collision
+  search_volume_estimate: high
+  primary_query: "conviction vs pragmatism leadership decision"
+  secondary_queries:
+    - "when to compromise strategy vs mission"
+    - "unwavering commitment vs adaptive execution"
+    - "mission-driven leadership under constraints"
+    - "Joan of Arc Harriet Tubman conviction pragmatism comparison"
+    - "direct path vs adaptive route to mission"
+  recommended_council: [joan-of-arc, harriet-tubman]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-15"

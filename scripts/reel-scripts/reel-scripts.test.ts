@@ -2670,6 +2670,53 @@ describe("Wave 25 — 3 collision articles", () => {
   });
 });
 
+// ── Wave 23 Joan of Arc addition ─────────────────────────────────────────
+describe("Wave 23 Joan of Arc reel tests", () => {
+  it("generates a reel script for what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure", () => {
+    const script = buildVerdictReelScript(
+      "what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure",
+    );
+    expect(script.slug).toBe(
+      "what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure",
+    );
+    expect(script.frameworkSlug).toBe("joan-of-arc");
+    expect(script.decisionType).toBe("conviction");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
+    // Conviction court: Joan of Arc (main), Harriet Tubman (support), Marcus Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Joan of Arc");
+    expect(script.councilPass[1].mind).toBe("Harriet Tubman");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/what-would-joan-of-arc-say-about-staying-true-to-a-vision-under-pressure",
+    );
+  });
+
+  it("generates a reel script for joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism", () => {
+    const script = buildVerdictReelScript(
+      "joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism",
+    );
+    expect(script.slug).toBe(
+      "joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism",
+    );
+    expect(script.frameworkSlug).toBe("joan-of-arc");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
+    // Leadership court: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/joan-of-arc-vs-harriet-tubman-on-conviction-vs-pragmatism",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
