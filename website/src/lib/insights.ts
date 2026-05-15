@@ -3909,6 +3909,169 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "When you encounter a constraint that is blocking your progress — a regulatory requirement, a market condition, a stakeholder resistance, a resource limitation — apply a two-step diagnostic before choosing your response. Step one (Epictetus): separate what is within your control from what is not. Your product decisions, your team's focus, your response to the constraint — these are always yours to act on, constraint or no constraint. Redirect your primary energy here. Do not wait for the constraint to resolve before acting on what you can control. Step two (Seneca): before treating the constraint as permanently fixed, identify the cheapest test of its moveability. Can you redesign the product to avoid the regulatory scope? Can you find a legal precedent that changes the interpretation? Can you demonstrate a data point that shifts the stakeholder's position? Run that test at low cost. If the constraint moves, you have captured an option. If it does not, you have confirmed the boundary honestly, and the Epictetan focus on your controllables is not resignation — it is the correct allocation of limited agency.",
     },
   },
+  // ── Wave 22: collision articles ───────────────────────────────────────
+  {
+    slug: "lincoln-vs-napoleon-on-leading-through-crisis",
+    type: "collision",
+    frameworkSlug: "abraham-lincoln",
+    collisionFrameworkSlugs: ["abraham-lincoln", "napoleon-bonaparte"],
+    title:
+      "Lincoln vs. Napoleon: When a Crisis Demands Steadiness and When It Demands Force",
+    description:
+      "Abraham Lincoln and Napoleon Bonaparte both led through existential crises — Lincoln held a fractured nation together during a civil war fought over its founding contradiction, and Napoleon led armies through campaigns where a single battle could reverse years of strategic gain. But their crisis leadership models were opposites. Lincoln's approach was characterized by radical patience: absorb the uncertainty, resist the pressure to foreclose options, hold the coalition together by giving dissenting voices a seat at the table, and wait for the moment when the political and military conditions align. Napoleon's approach was characterized by decisive velocity: identify the hinge point of the crisis, concentrate force there before the opponent can react, and accept the risk of being wrong in exchange for the asymmetric upside of being first. For founders facing company-defining crises — a cash runway emergency, a product failure, a key team departure, a competitive attack — this collision determines when Lincoln's patience is the correct response and when Napoleon's speed is.",
+    targetKeywords: [
+      "crisis leadership founder startup",
+      "how to lead through company crisis",
+      "Lincoln Napoleon crisis decision making",
+      "wartime CEO leadership crisis management",
+      "founder leadership style crisis uncertainty",
+    ],
+    decisionType: "crisis",
+    hookQuestion:
+      "When the crisis hits and the team is losing confidence, does the right move require steadiness and coalition-building — or concentrated force before the window closes?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "A crisis that destroys a leader is almost never the external event. It is the decision to foreclose options before the situation requires it. When I entered office, seven states had already seceded and four more were on the edge. Every advisor I had urged a decisive response — a proclamation, a military strike, a political ultimatum that would clarify the stakes. I refused. Not because I lacked resolve, but because I understood that the coalition required to resolve the crisis could not survive the statement that seemed most decisive. The Emancipation Proclamation waited two years not because I was uncertain about its necessity but because the military and political conditions had to be in place before the proclamation could function as a weapon rather than a liability. Crisis leadership is the discipline of knowing which actions foreclose options and which actions preserve them.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Lincoln's approach was appropriate for a political crisis in which the primary resource is public support. Mine were operational crises in which the primary resource is initiative. At Austerlitz, I had separated the allied command by sending a feint toward my right flank, tempting them to reinforce a position that was not my actual objective. The window for the attack through their weakened center was measured in hours. A Lincoln-style patience in that moment would have allowed Kutuzov to recognize his mistake and close the gap. There are crises in which the key insight is that your opponent has made an error they cannot yet see — and your job is to move before they see it. The decisive error is not moving too fast; it is moving at normal speed in a moment that required a different tempo.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "I agree on the diagnosis — the question is how a founder distinguishes between a crisis that requires Napoleon's tempo and a crisis that requires mine. My observation is that Napoleon's model fails when the crisis is not a single battle but a long campaign. The Civil War was not Austerlitz. There was no two-hour window and no single flanking maneuver that would resolve it. The error I saw in my generals repeatedly — McClellan most visibly — was treating a long-campaign crisis with short-battle tactics: moving decisively when the situation required patience, and then explaining each failure as a temporary setback rather than evidence that the tempo itself was wrong. A founder who applies Napoleon's model to a crisis that requires sustained coalition management will win individual battles and lose the campaign.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Lincoln identifies the correct failure mode for my approach. The campaign frame changes the calculation. But I want to name the failure mode that runs in the opposite direction: the leader who defaults to patience as a cover for indecision, and calls it coalition management. I lost the 1812 campaign in Russia not because I moved too fast — I moved at exactly the speed the operation required through France and into Poland. I lost it because when the strategic situation changed — when Moscow did not produce the political capitulation I expected — I could not revise the objective fast enough. The failure was not impatience. It was the opposite: I held to the original frame when the evidence required a new one. In a crisis, patience and decisiveness are not stable personality traits; they are decisions that need to be re-evaluated each time the signal changes.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Then we converge on the diagnostic framework. The question is not whether you are a patient leader or a decisive one. The question is: what does the structure of this specific crisis require? The relevant variables are the time-sensitivity of the key decision (which determines how much patience is available), the coalition fragility (which determines how much force can be applied without fracturing the support structure), and the reversibility of the available moves (which determines how much optionality it is worth preserving). A crisis that is time-sensitive, coalition-stable, and irreversible calls for Napoleon's tempo. A crisis that is time-extended, coalition-fragile, and partially reversible calls for mine. Most founders will face more of the second category than the first, which is why Lincoln's model is underweighted in startup culture and Napoleon's is overweighted.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "I accept the framework with one addition: even in Lincoln's category of crisis, there will be moments inside the long campaign where a Napoleon-style window opens. The Emancipation Proclamation, which Lincoln described as having waited for the right military and political conditions, was itself a decisive move at a specific moment. The discipline Lincoln describes — preserving options, building coalitions, refusing to foreclose — was the preparation for that decisive moment, not an alternative to it. The worst crisis leadership combines Lincoln's patience with none of my decisiveness: the leader who preserves all options indefinitely and never exercises the ones that became available. Coalition-building is preparation for a decision, not a substitute for one.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "abraham-lincoln",
+      summary:
+        "Lincoln and Napoleon converge on a two-variable diagnostic. The first variable is time structure: is this a short-window crisis where an opponent's error is temporarily exploitable (Napoleon's domain) or a long-campaign crisis where the primary constraint is coalition stability over time (Lincoln's domain)? The second variable is decision reversibility: moves that foreclose future options require the conditions to be more fully developed before execution; moves that can be revised or expanded on subsequent iterations can be made earlier. Most company-level crises combine Lincoln's time structure with occasional Napoleon-style windows inside them. The failure modes are symmetric: applying Napoleon's tempo to a long-campaign crisis produces a series of individually decisive moves that collectively fragment the coalition; applying Lincoln's patience to a short-window crisis allows the exploitable moment to close.",
+      actionableInsight:
+        "When a crisis hits your company, run this diagnostic before choosing a response tempo. First, determine the time structure: does a decisive action now capture a window that will close within days, or is this a multi-month situation where the primary resource is team coherence and stakeholder trust? If it is a short-window situation (a competitor is vulnerable, a deal is time-limited, a narrative can be shaped before it solidifies), move at Napoleon's tempo — concentrate force on the hinge point before it closes. If it is a long-campaign situation (cash runway, product-market fit, team culture fractures), move at Lincoln's tempo — preserve coalitions, maintain optionality, and wait for the conditions that make each decision reversible enough to act on. In both cases, avoid the symmetric failure modes: Napoleon's patience failure (holding the original frame after the evidence requires a new one) and Lincoln's decisiveness failure (building toward a decision indefinitely and never executing it when the window opens).",
+    },
+  },
+  {
+    slug: "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    type: "collision",
+    frameworkSlug: "florence-nightingale",
+    collisionFrameworkSlugs: ["florence-nightingale", "marie-curie"],
+    title:
+      "Nightingale vs. Curie: Do You Act on Field Data — or Wait for Controlled Proof?",
+    description:
+      "Florence Nightingale and Marie Curie were both rigorous empiricists who fundamentally changed their fields through evidence-based reasoning — but their evidence models were opposites. Nightingale operated in a field environment where she could not control variables, could not run controlled experiments, and could not wait for academic validation: soldiers were dying at a rate that would empty the hospital faster than any treatment could refill it. She acted on field observations, statistical patterns in messy data, and probability estimates derived from conditions she could not fully isolate. Curie operated in a laboratory environment built specifically to isolate variables, eliminate confounds, and produce findings that could be replicated anywhere in the world by anyone with the right equipment. The radioactivity research she and Pierre produced was built on the premise that a result that cannot be replicated under controlled conditions is not a result. For founders deciding when to act on product feedback, market signals, and early customer data versus when to insist on controlled experiments before committing to a direction, this collision defines the conditions under which each evidence standard is appropriate.",
+    targetKeywords: [
+      "field evidence vs controlled experiment decision making startup",
+      "when to act on customer data vs wait for proof",
+      "Florence Nightingale Marie Curie empirical evidence",
+      "product feedback vs A/B test startup",
+      "messy field data vs clean experiment business decision",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your early data is pointing in a clear direction — but you cannot be certain the signal is real because the conditions are noisy. Do you act on what the field data is telling you, or do you design a controlled test first?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Florence Nightingale",
+        text: "In the Crimea, I could not run a controlled trial. The mortality rate in the Barrack Hospital was above 40 percent during the winter of 1854-55, and the army's medical establishment had a theory for it: the men were weak from the campaign. My statistical analysis of the admission and death records showed a different pattern. The deaths were not distributed across disease categories in the way they would be if the cause were individual weakness — they were concentrated in infectious disease categories that responded to sanitation interventions in hospitals where those interventions had been tried. I could not isolate the variable perfectly. I could not build a randomized trial. What I had was a pattern in messy data that was strong enough to act on despite the confounds. The sanitation changes saved thousands of lives before any controlled study validated the mechanism. The standard of evidence required to act is determined by the cost of waiting, not by the elegance of the experimental design.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I understand the cost-of-waiting argument, and I accept it in emergency conditions. But Nightingale's model has a failure mode that is invisible from inside the field data. In 1903, I had isolated polonium and radium — two new elements with measurable radioactive properties. The scientific community's first response was to question whether the measurements were instrument error, contamination, or observer bias. The validation required that Pierre and I reproduce the results under controlled conditions that any competent laboratory could replicate. Without that validation, the discovery would not have changed physics — it would have been a disputed observation. The field evidence model does not produce the kind of proof that changes structural understanding. It produces actions. For decisions about what to do right now, Nightingale's standard is appropriate. For decisions about whether the underlying model is correct, mine is required.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "The distinction Curie is drawing — between operational decisions and structural model validation — is real and important. My objection is to the default assumption that laboratory-grade evidence is always achievable and always worth waiting for before acting. In the business and policy contexts where most decisions are made, the equivalent of a controlled laboratory rarely exists: the market is the field, not the lab. An investor who withholds funding until a startup produces laboratory-grade proof of demand will never fund anything at the seed stage, because that proof cannot be produced before the market exists. The question is not whether controlled evidence is better than field evidence in isolation — it obviously is — but whether controlled evidence is achievable at the decision point, and whether the cost of waiting for it is lower than the cost of acting on a less perfect signal.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Nightingale's point about availability is correct. My response is that the demand for controlled evidence should raise the standard for field evidence rather than eliminate it. The failure mode I see in field evidence reasoning is the confusion of pattern with cause. Nightingale's sanitation intervention worked — but not because the data pattern was causal. It worked because the underlying mechanism was real, and the pattern happened to track it reasonably well in her specific field conditions. In many cases, field data patterns do not track the underlying mechanism. They track confounds — customer segments that happen to have higher baseline retention, markets that happen to have favorable macro conditions, product features that happen to be adopted by users who would have stayed anyway. Acting on those patterns as if they were causal is the failure mode of field evidence reasoning. Before you act on field data, you need a causal hypothesis that is at least plausible — not proven, but mechanically coherent.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "The causal hypothesis requirement is the convergence point. I did not simply act on the death-rate pattern without a theory. I had a mechanistic hypothesis — that the specific disease categories causing deaths in the Barrack Hospital were transmitted by conditions that sanitation interventions addressed. The hypothesis was not proven at the level Curie would require. But it was coherent, it had antecedent support from studies in other hospitals, and it predicted the specific effect I observed. The decision framework is: field evidence is actionable when you have a mechanically coherent causal hypothesis, the pattern in the field data is consistent with that hypothesis, the confounds that could explain the pattern without the hypothesis being true have been considered and found less likely, and the cost of waiting for controlled validation exceeds the cost of acting on a potentially wrong model. All four conditions were met in the Crimea. The third and fourth are the ones most often not evaluated.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I will accept that framework as a practical standard. My addition is on the fourth condition — the cost comparison. The cost of acting on a wrong model is often underestimated in startup contexts because the actions taken on field evidence compound. A company that acts on a wrong causal model for long enough builds an organization, a product, and a cost structure optimized for a market that does not actually exist. The sunk cost of those investments makes it harder to revise the model when the controlled evidence eventually arrives or when the field evidence contradicts itself. The discipline of building checkpoints — moments where the field-evidence hypothesis is tested against new data — is what makes the Nightingale model safe to use over extended timeframes. Act on the field evidence, but set explicit conditions under which you will update or abandon the hypothesis.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "florence-nightingale",
+      summary:
+        "Nightingale and Curie converge on a four-condition test for when field evidence is sufficient to act on without controlled validation. The conditions are: (1) a mechanically coherent causal hypothesis exists — not proven, but plausible given prior evidence; (2) the field data pattern is consistent with the hypothesis; (3) the most likely confounds that could explain the pattern without the hypothesis being true have been considered and found less likely than the hypothesis; (4) the cost of waiting for controlled validation exceeds the cost of acting on a model that might be wrong. When all four conditions are met, Nightingale's field-evidence standard is actionable. When controlled experiments are available and the cost of waiting is low, Curie's laboratory standard is required. The failure modes are symmetric: Nightingale's failure mode is acting on patterns that are confound-driven rather than causal; Curie's failure mode is waiting for laboratory-grade proof in a field that cannot produce it, and thereby forfeiting options that a less perfect signal would have supported.",
+      actionableInsight:
+        "When you have early product feedback, market data, or customer signals that are pointing in a direction but are not clean enough to constitute controlled proof, run Nightingale's four-condition check before deciding whether to act. First: do you have a causal hypothesis that is mechanically coherent — not just a correlation, but a plausible explanation of why the mechanism produces the pattern? Second: is the field data pattern consistent with that hypothesis? Third: have you identified the most likely confounds — the explanations that could produce the same pattern without your hypothesis being true — and are those confounds less likely than your hypothesis? Fourth: is the cost of designing and waiting for a controlled test higher than the cost of acting on a model that might be wrong? If all four conditions pass, act on the field data. If you fail the third condition — if there is a confound you have not ruled out that is roughly as likely as your hypothesis — design a low-cost test that differentiates between them before committing. Set explicit checkpoints at which you will re-evaluate the hypothesis against new incoming data so you do not compound investments on a wrong model.",
+    },
+  },
+  {
+    slug: "aurelius-vs-galilei-on-practical-vs-theoretical-reasoning",
+    type: "collision",
+    frameworkSlug: "marcus-aurelius",
+    collisionFrameworkSlugs: ["marcus-aurelius", "galileo-galilei"],
+    title:
+      "Aurelius vs. Galilei: When You Don't Have Proof Yet, Do You Act on First Principles or Wait for Evidence?",
+    description:
+      "Marcus Aurelius and Galileo Galilei both operated in environments where acting on unproven principles carried significant risk — but their responses to that risk diverged sharply. Aurelius, as emperor of Rome, dealt with a world in which most of the decisions that mattered could not be deferred until evidence arrived: armies needed to move, magistrates needed instructions, policies needed implementation. His Stoic framework was built to guide action under epistemic uncertainty, using first principles about human nature, power, and virtue to derive practical decisions in the absence of conclusive data. Galileo, as an experimental natural philosopher, built his entire method around the refusal to act on principle when observation was available: heliocentrism was not a philosophical inference for him but a measurably correct model, and the difference between philosophical conjecture and confirmed observation mattered enormously for which claims could be made with confidence. For founders deciding whether to act now on their product hypothesis or wait for the data to confirm it, this collision defines when first-principles reasoning is a legitimate guide to action and when it is a sophisticated rationalization for a conclusion already reached.",
+    targetKeywords: [
+      "first principles reasoning vs waiting for data startup",
+      "act on hypothesis vs wait for evidence product decision",
+      "Marcus Aurelius Stoic reasoning practical decision",
+      "Galileo empirical evidence vs theoretical reasoning",
+      "when to launch before proof startup strategy",
+    ],
+    decisionType: "reasoning",
+    hookQuestion:
+      "You have a strong first-principles argument for why your product hypothesis is correct — but the data to prove it doesn't exist yet. Do you act on the argument or wait for the evidence?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Marcus Aurelius",
+        text: "The Stoic framework I inherited from Epictetus and developed through seventeen years of governing the empire was not built to produce certainty. It was built to produce appropriate action under conditions where certainty is not available and cannot be waited for. When I faced the Marcomannic Wars — a threat to the Danube frontier that required military and administrative decisions that would affect the empire for generations — I did not have the evidence base that a philosopher in a library would demand. I had first-principles reasoning about what threats of that type historically required, judgment about the character of the commanders I had available, and a framework for deciding which options preserved future optionality and which foreclosed it. First-principles reasoning is not a substitute for evidence. It is the decision-making apparatus for situations where the evidence you would want is not available at the speed the decision requires.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "The Stoic framework describes a real and necessary form of practical judgment. My concern is with the epistemological status of first-principles claims — the degree of confidence they warrant when they have not been tested against observation. The heliocentric model I confirmed through telescopic observation was not new as a claim when I verified it — Copernicus had published the heliocentric hypothesis in 1543, sixty-seven years before my Sidereus Nuncius. The hypothesis was reasonable, mathematically consistent, and philosophically attractive. It was also wrong in some of its specifics: Copernicus assumed circular orbits, which Kepler had to correct, and the full mechanism was not understood until Newton. The history of unverified first-principles reasoning in natural philosophy is a history of plausible claims that were wrong in exactly the details that mattered. The demand for observation is not perfectionism; it is the recognition that the prior probability that an untested principle is correct in all relevant details is much lower than it feels from inside the argument.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "Galileo identifies the correct risk, but applies it to a domain where it does not fully transfer. In natural philosophy, the cost of an error in a first-principles claim is delayed discovery — the field converges on the right model eventually, and the interim errors are correctable. In governance and in business, the cost of waiting for observation before acting is often the loss of the option you were trying to exercise. The Marcomannic threat did not pause while I waited for a controlled study of frontier defense strategy. The question of whether to cross the Danube and pursue the enemy into their own territory was time-constrained in a way that natural philosophy questions are not. The appropriate confidence level for a first-principles claim in a time-sensitive operational context is lower than the confidence level appropriate for a published scientific result — because the alternative is not a different answer, it is no answer at all.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "The time-sensitivity argument is the crux. My response is that time-sensitivity is often used to justify acting on first-principles reasoning when the real constraint is not time but cognitive discomfort with uncertainty. In my experience, the moments when I was most tempted to act on a plausible principle before testing it were the moments when the test would have been inconvenient or when the principle was intellectually satisfying. The Inquisition pressured me to recant the heliocentric model on the grounds that acting on an unproven principle was epistemically reckless — a characterization I reject — but the more honest version of that pressure was that the evidence I had assembled was not yet conclusive in every particular. The discipline of demanding observation is hardest precisely when the principle feels most true. A founder who acts on a first-principles argument for their product hypothesis and then interprets all subsequent market signals through that argument has not done empirical reasoning; they have done motivated reasoning with first-principles packaging.",
+      },
+      {
+        speaker: "Marcus Aurelius",
+        text: "The motivated reasoning failure mode is real and worth guarding against. My response is that the guard against motivated reasoning is not the demand for controlled observation — it is the discipline of identifying what specific observation would falsify the principle before you act on it. In the Meditations, I returned repeatedly to the practice of examining whether my judgments were tracking reality or tracking my preferences. The Stoic discipline of distinguishing impressions from facts is exactly the practice Galileo is describing as empirical rigor — applied to practical judgment rather than natural philosophy. The test is not whether you have controlled evidence before acting. The test is whether you can state, in advance of acting, what evidence you would need to see to conclude the principle was wrong — and whether you commit to updating if that evidence arrives.",
+      },
+      {
+        speaker: "Galileo Galilei",
+        text: "That is the convergence point. The demand for a falsifiability condition before acting on first-principles reasoning is the equivalent, in practical judgment, of the experimental method in natural philosophy. Before you act on a product hypothesis derived from first principles, state the specific market signal that would falsify it. Not the signal that would confirm it — confirmation is easy to find once you are looking for it — but the signal that would require you to conclude the hypothesis was wrong. If you cannot state that falsifying signal, the reasoning is not first-principles; it is motivated. If you can state it and you genuinely commit to updating when it arrives, the first-principles reasoning is legitimate as a guide to action under uncertainty — which is the only honest use of it.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "marcus-aurelius",
+      summary:
+        "Aurelius and Galilei converge on a falsifiability condition as the test for whether first-principles reasoning is a legitimate guide to action. Before acting on a principle that has not been empirically confirmed, state — in advance and with precision — the specific observable signal that would require you to conclude the principle is wrong. If you cannot state that falsifying signal, you are not doing first-principles reasoning; you are doing motivated reasoning with philosophical packaging. If you can state it and genuinely commit to updating when it arrives, acting on the first-principles argument is appropriate under the conditions Aurelius specifies: when the decision is time-sensitive enough that waiting for controlled validation would forfeit the option, and when the alternative to acting on the principle is not better evidence but no decision at all. The symmetric failure modes are Galileo's risk (acting on a plausible principle that is wrong in exactly the details that matter) and Aurelius's risk (waiting for laboratory-grade certainty in a domain that cannot produce it, and thereby losing the decision to time).",
+      actionableInsight:
+        "When you have a strong first-principles argument for your product hypothesis but the empirical evidence to prove it does not yet exist, apply this two-step protocol before committing. Step one (Galileo): state, specifically, what observable signal would falsify your hypothesis. Not a signal that would confirm it — a signal that would require you to conclude it is wrong. If you cannot produce a specific falsifying signal, pause. The reasoning is likely motivated. Reconstruct the argument and identify what you would need to observe to conclude you were wrong. Step two (Aurelius): assess whether the decision is time-sensitive enough that waiting for that falsifying observation would forfeit the option you are trying to exercise. If waiting is feasible — if you can cheaply collect the data that would test the hypothesis before the window closes — wait. If waiting is not feasible — if the decision is genuinely time-constrained and the falsifying condition is specified clearly — act on the first-principles argument, but build an explicit mechanism for collecting the falsifying signal and commit to updating when it arrives. The goal is not certainty before action. It is intellectual honesty about what would change your mind.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {

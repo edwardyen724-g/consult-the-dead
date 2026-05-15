@@ -2095,6 +2095,93 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "contractor vs employee cost comparison startup",
     ],
   },
+  // ── Wave 22 decisions ────────────────────────────────────────────────────
+  {
+    slug: "should-i-build-a-saas-or-an-agency",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Build a SaaS or an Agency?",
+    description:
+      "The SaaS vs. agency decision is fundamentally a question about how you want to trade early cash flow certainty against long-term leverage on your time. An agency generates revenue faster — you sell hours or outcomes at margin, the client pays, and the model is legible from day one. But agency revenue is structurally capped by headcount, and every dollar of revenue requires ongoing service delivery that does not compound. SaaS generates leverage — once the product is built, each additional customer costs less than the last, and the gap between marginal cost and marginal revenue widens over time. But SaaS requires a longer runway before revenue materializes, a product that can be defined and scoped precisely enough to build, and a market where the problem is consistent enough across customers that a single solution works for all of them. The error is not choosing one model over the other; it is choosing the agency model when you have a product, or the SaaS model when you have a service.",
+    primaryQuery: "should I build a SaaS or an agency",
+    secondaryQueries: [
+      "SaaS vs agency business model comparison",
+      "should I productize my consulting or build software",
+      "agency to SaaS transition when to make the switch",
+      "service business vs software product founder decision",
+      "sell services or build a product startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Does your solution require customization for every client — or is the problem consistent enough across customers that a single product could solve it for all of them without you being in the loop?",
+    targetKeywords: [
+      "should I build a SaaS or an agency",
+      "SaaS vs agency business model decision",
+      "productize consulting vs build software product",
+      "agency vs SaaS which is better founder",
+      "when to switch from agency to SaaS model",
+    ],
+  },
+  {
+    slug: "should-i-launch-with-a-waitlist",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Launch with a Waitlist?",
+    description:
+      "A waitlist is a pre-launch signal collection mechanism that does two things simultaneously: it generates a list of people who expressed enough interest to register, and it imposes a deliberate delay on your first real-user feedback loop. The case for a waitlist is that it creates artificial scarcity and social proof, builds an audience before the product exists, and allows you to manufacture a launch moment with momentum. The case against it is that waitlist signups are the lowest-friction signal available — registering for a waitlist costs nothing, requires no commitment, and selects for curiosity rather than genuine intent to use or pay. The critical variable is what you are trying to learn: if the question is whether there is any interest in your concept, a waitlist can answer it, but almost any interesting concept will generate waitlist signups, so the signal is weak. If the question is whether users will retain, pay, or refer — which are the questions that actually determine product-market fit — a waitlist delays the feedback you need and generates a false sense of validation that makes it harder to hear the real signal when it arrives.",
+    primaryQuery: "should I launch with a waitlist",
+    secondaryQueries: [
+      "waitlist launch strategy pros cons startup",
+      "pre-launch waitlist vs open beta product launch",
+      "should I build a waitlist before launching",
+      "waitlist hype strategy startup marketing",
+      "when to use a waitlist for product launch",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "marie-curie",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "What question are you trying to answer with the waitlist — is it whether anyone is interested in your concept, or whether users will retain and pay once they try it? Those require different strategies.",
+    targetKeywords: [
+      "should I launch with a waitlist",
+      "waitlist launch strategy startup decision",
+      "pre-launch waitlist pros and cons",
+      "when to use waitlist product launch",
+      "waitlist vs open beta product launch strategy",
+    ],
+  },
+  {
+    slug: "should-i-niche-down-or-stay-broad",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Niche Down or Stay Broad?",
+    description:
+      "The niche-vs.-broad decision is really a question about where your competitive advantage is most defensible and where the friction in your sales process is highest. A narrow niche creates the conditions for domination: you understand the customer's specific context better than any competitor who is serving a broader market, your product can be optimized for their specific workflows, and your word-of-mouth compounds within a defined community. A broad target market creates the conditions for scale: more potential customers, more use cases, more revenue ceiling. The error most founders make is defaulting to broad out of fear that niche is too small — before testing whether they can achieve meaningful penetration in the niche first. The strategic logic is almost always: go narrow enough to win, then expand from a position of strength. The companies that stayed broad from day one and succeeded did so despite the breadth, not because of it, and almost all of them had an unfair advantage in distribution or brand that allowed them to skip the step where niche dominance would otherwise have been required.",
+    primaryQuery: "should I niche down or stay broad",
+    secondaryQueries: [
+      "narrow target market vs broad audience startup decision",
+      "should I focus on one customer segment startup",
+      "niche vs generalist product strategy comparison",
+      "when to niche down your startup target market",
+      "product market fit niche first then expand",
+    ],
+    recommendedCouncil: ["sun-tzu", "niccolo-machiavelli", "marcus-aurelius"],
+    hookQuestion:
+      "Can you achieve meaningful market penetration in a narrow segment with your current resources — and does winning that segment create a natural expansion path, or does it trap you in a market that is too small to grow from?",
+    targetKeywords: [
+      "should I niche down or stay broad startup",
+      "niche vs broad product strategy decision",
+      "narrow market vs total addressable market startup",
+      "when to niche down startup target market",
+      "niche first then expand product strategy",
+    ],
+  },
   {
     slug: "should-i-launch-a-paid-beta",
     status: "shipped",

@@ -2368,7 +2368,8 @@
     - "practical data collection vs scientific rigor business"
   recommended_council: [florence-nightingale, marie-curie]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love
   type: collision
@@ -2394,7 +2395,8 @@
     - "crisis leadership founder strategy"
   recommended_council: [abraham-lincoln, napoleon-bonaparte]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-build-a-saas-or-an-agency
   type: decision
@@ -2408,7 +2410,8 @@
     - "should I sell services or build a product"
   recommended_council: [niccolo-machiavelli, john-d-rockefeller, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-launch-with-a-waitlist
   type: decision
@@ -2422,7 +2425,8 @@
     - "when to use a waitlist for product launch"
   recommended_council: [niccolo-machiavelli, marie-curie, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-niche-down-or-stay-broad
   type: decision
@@ -2436,7 +2440,22 @@
     - "product market fit niche vs broad"
   recommended_council: [sun-tzu, niccolo-machiavelli, marcus-aurelius]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
+
+- slug: aurelius-vs-galilei-on-practical-vs-theoretical-reasoning
+  type: collision
+  search_volume_estimate: high
+  primary_query: "first principles reasoning vs waiting for data startup"
+  secondary_queries:
+    - "act on hypothesis vs wait for evidence product decision"
+    - "Marcus Aurelius Stoic reasoning practical decision"
+    - "when to launch before proof startup strategy"
+    - "first principles vs empirical evidence business decision"
+  recommended_council: [marcus-aurelius, galileo-galilei]
+  hook_angles: [tension, shortcut]
+  status: shipped
+  shipped_at: "2026-05-15"
 
 # ── Wave 23+ entries ──────────────────────────────────────────────────────────
 
@@ -2475,4 +2494,99 @@
     - "monetization model choice startup"
   recommended_council: [john-d-rockefeller, niccolo-machiavelli, benjamin-franklin]
   hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: caesar-vs-cleopatra-on-political-vs-military-power
+  type: collision
+  search_volume_estimate: high
+  primary_query: "political influence vs direct power startup leadership"
+  secondary_queries:
+    - "alliance building vs force in leadership strategy"
+    - "Julius Caesar Cleopatra leadership style"
+    - "soft power vs hard power CEO founder"
+    - "when to negotiate vs dominate in business"
+  recommended_council: [julius-caesar, cleopatra-vii]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-raise-a-seed-extension-or-series-a
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise a seed extension or Series A"
+  secondary_queries:
+    - "seed extension vs Series A timing decision"
+    - "when to raise Series A startup metrics"
+    - "bridge round vs next round startup funding"
+    - "pre-Series A funding strategy startup"
+    - "should I extend seed or go to Series A"
+  recommended_council: [niccolo-machiavelli, marie-curie, john-d-rockefeller]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-go-freemium-or-paid-only
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I launch freemium or paid only"
+  secondary_queries:
+    - "freemium vs paid model startup decision"
+    - "when to use freemium product strategy"
+    - "freemium conversion rate startup"
+    - "free tier vs premium only pricing decision"
+    - "PLG product led growth freemium strategy"
+  recommended_council: [niccolo-machiavelli, benjamin-franklin, marcus-aurelius]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: edison-vs-tesla-on-ownership-vs-breakthrough
+  type: collision
+  search_volume_estimate: high
+  primary_query: "Edison Tesla inventor ownership vs discovery tradeoff"
+  secondary_queries:
+    - "Thomas Edison Nikola Tesla invention strategy comparison"
+    - "patent strategy vs open innovation startup"
+    - "own the platform vs invent the breakthrough"
+    - "building systems vs creating breakthroughs"
+  recommended_council: [thomas-edison, nikola-tesla]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: should-i-go-outbound-or-inbound
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I focus on outbound or inbound sales startup"
+  secondary_queries:
+    - "outbound vs inbound marketing startup early stage"
+    - "cold outreach vs content marketing startup"
+    - "when to switch from outbound to inbound"
+    - "PLG vs SLG go to market strategy"
+    - "outbound sales vs SEO content startup"
+  recommended_council: [niccolo-machiavelli, sun-tzu, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: lovelace-vs-babbage-on-vision-vs-execution
+  type: collision
+  search_volume_estimate: medium
+  primary_query: "vision vs execution technology startup"
+  secondary_queries:
+    - "Ada Lovelace Charles Babbage vision execution"
+    - "product visionary vs engineering execution founder"
+    - "when is the vision too far ahead of the technology"
+    - "inventor vs builder startup founding team"
+  recommended_council: [ada-lovelace, archimedes]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-build-in-public-or-stay-stealth
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I build in public or stay in stealth"
+  secondary_queries:
+    - "build in public vs stealth startup strategy"
+    - "sharing progress publicly startup pros cons"
+    - "when to go stealth startup launch strategy"
+    - "build in public audience marketing strategy"
+    - "stealth mode vs open development startup"
+  recommended_council: [benjamin-franklin, niccolo-machiavelli, marie-curie]
+  hook_angles: [tension, identity]
   status: queued
