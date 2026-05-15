@@ -2777,3 +2777,59 @@
   recommended_council: [andrew-carnegie, niccolo-machiavelli, sun-tzu]
   hook_angles: [tension, shortcut]
   status: queued
+
+- slug: newton-vs-galileo-on-mathematical-certainty-vs-empirical-observation
+  type: collision
+  search_volume_estimate: high
+  primary_query: "data-driven decisions vs first-principles reasoning in product"
+  secondary_queries:
+    - "when to trust the model vs run the experiment startup"
+    - "theoretical framework vs empirical testing product development"
+    - "math-first vs experiment-first product strategy"
+    - "first-principles reasoning vs A/B testing startup decisions"
+    - "deductive product design vs inductive product discovery"
+  recommended_council: [isaac-newton, galileo-galilei]
+  hook_angles: [tension, proof]
+  status: queued
+
+- slug: lincoln-vs-caesar-on-coalition-leadership-vs-unilateral-execution
+  type: collision
+  search_volume_estimate: high
+  primary_query: "build consensus vs make the call yourself as a founder"
+  secondary_queries:
+    - "consensus leadership vs decisive authority startup"
+    - "when to build buy-in vs just decide and move fast"
+    - "democratic leadership vs autocratic execution startup growth"
+    - "collaborative decision-making vs command and control founder"
+    - "founder as consensus builder vs founder as decider"
+  recommended_council: [abraham-lincoln, julius-caesar]
+  hook_angles: [tension, identity]
+  status: queued
+
+- slug: should-i-raise-prices-or-compete-on-value
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I raise prices for my SaaS startup"
+  secondary_queries:
+    - "when to raise prices startup pricing strategy"
+    - "competing on price vs competing on value B2B SaaS"
+    - "how to raise prices without losing customers startup"
+    - "pricing power vs volume game startup"
+    - "premium pricing vs value-based pricing early startup"
+  recommended_council: [john-d-rockefeller, niccolo-machiavelli, benjamin-franklin]
+  hook_angles: [tension, shortcut]
+  status: queued
+
+- slug: should-i-launch-an-enterprise-tier
+  type: decision
+  search_volume_estimate: high
+  primary_query: "should I add an enterprise tier to my SaaS"
+  secondary_queries:
+    - "when to go enterprise for B2B SaaS startup"
+    - "SMB vs enterprise SaaS strategy founder decision"
+    - "enterprise sales cycle too long startup early stage"
+    - "adding enterprise plan to PLG SaaS product"
+    - "when is a startup ready to pursue enterprise customers"
+  recommended_council: [andrew-carnegie, niccolo-machiavelli, julius-caesar]
+  hook_angles: [tension, shortcut]
+  status: queued
