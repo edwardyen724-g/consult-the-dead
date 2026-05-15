@@ -20,12 +20,38 @@ The landing page lives in [`/website`](./website). The framework-extraction pipe
 | `/debates` | Public, static-generated | Sample debate index — browse pre-built debate records by topic; each links to a detail page at `/debates/[slug]` |
 | `/insights` | Public, static-generated, SEO | Index of all insight articles (single-figure and head-to-head collision pieces) |
 | `/insights/[slug]` | Public, static-generated, SEO | Individual insight article — "What Would X Say About Y" (single-figure) and "X vs Y on Z" (collision); ships with reel script and framework annotation layer |
-| `/decisions` | Public, static-generated | Index of all 75 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
+| `/decisions` | Public, static-generated | Index of all 78 published decision pages (e.g. "Should I raise VC or bootstrap?"); each card links to its decision detail page |
 | `/decisions/[slug]` | Public, static-generated | Individual decision page with debate, council recommendation, and Agora CTA |
 | `/feed.xml` | Public | RSS feed for public debates and insights |
 | `/pricing` | Public | Plan comparison and upgrade flow |
 | `/library` | Pro, authenticated | Saved agon library |
 
+
+## Reel Automation Pipeline
+
+The reel pipeline converts insight articles into Instagram Verdict Reels. All scripts live under [`/scripts`](./scripts).
+
+### Pipeline stages
+
+| Stage | Script | Input | Output |
+|-------|--------|-------|--------|
+| 1. JSON generation | `scripts/reel-scripts/generate-all-reels.ts` | `INSIGHT_ENTRIES` (auto-triggered on master merge via `.github/workflows/reel-auto-generate.yml`) | `scripts/reel-scripts/reels/<slug>.reel.json` |
+| 2. Voice synthesis | `scripts/reel-scripts/synthesize-voice.py` | `<slug>.reel.json` | `<slug>.wav` |
+| 3. Video render | `scripts/reel-scripts/render-reel.py` | `<slug>.reel.json` + `<slug>.wav` | `<slug>.mp4` (9:16, 1080×1920) |
+| 4. Post to Instagram | `scripts/instagram/upload_reel.py` | `<slug>.mp4` | Published Instagram Reel |
+
+### Key flags
+
+- `generate-all-reels.ts`: `--dry-run`, `--verbose`
+- `synthesize-voice.py`: `--backend auto|f5tts|chatterbox`, `--dry-run`, `--reference-audio`
+- `render-reel.py`: `--dry-run` (prints timing plan), `--accent '#hex'` (override brand color)
+- `upload_reel.py`: reads Instagram credentials from env (`INSTAGRAM_APP_ID`, `INSTAGRAM_APP_SECRET`, `INSTAGRAM_USER_ID`, `INSTAGRAM_ACCESS_TOKEN`); see `.env.example`
+
+### CI coverage
+
+- Stage 1 (JSON): `pnpm test` via Vitest (integrated in `reel-scripts.test.ts`)
+- Stage 3 (render): `pytest scripts/reel-scripts/tests/test_render_reel.py` — 87 tests, 99% coverage
+- Stage 4 (Instagram): `pytest scripts/instagram/` — 60 tests, ~99% coverage (HTTP-mocked)
 
 ## Framework Forge
 

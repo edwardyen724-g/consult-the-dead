@@ -4,6 +4,52 @@ All notable changes to this repository are documented in this file.
 
 The project does not currently use semantic releases, so this changelog records major repository milestones and user-visible changes in reverse chronological order.
 
+## [Wave 23] — 2026-05-15
+
+### Added
+- **3 collision insight articles** (Wave 23):
+  - `carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain` — people-vs-positioning court (Carnegie/Sun Tzu): winning through relationships and talent vs. winning through superior terrain and positioning
+  - `catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system` — reform court (Catherine/Machiavelli): legitimacy-through-coalition-building vs. early authority establishment
+  - `edison-vs-tesla-on-ownership-vs-breakthrough` — iteration-vs-vision court (Edison/Tesla): relentless practical system-building vs. theoretical breakthroughs ahead of their time
+- **3 decision pages** (Wave 23, decisions total: 78):
+  - `should-i-offer-a-free-trial` — acquisition-model decision
+  - `should-i-hire-a-chief-of-staff` — leadership-leverage decision
+  - `should-i-take-angel-investors-or-wait-for-vc` — fundraising-path decision
+- 120 reel-script integration tests passing (3 new for Wave 23 collisions)
+- Wave 23 `DECISION_COURT` entries added; `topics.yaml` Wave 23 entries marked shipped
+
+## 2026-05-15 (Reel render pipeline) — PR #420
+
+### Added
+- **ffmpeg-based Verdict Reel MP4 export** (`scripts/reel-scripts/render-reel.py`):
+  - Accepts a reel JSON script + WAV voiceover, produces a 9:16 (1080×1920) MP4
+  - On-brand kinetic text captions: dark Agora background (`#0e0904`), per-framework accent colors (all 28 minds mapped), serif headline + monospace label layers
+  - Word-rate timing model (2.5 wps) consistent with `synthesize-voice.py`
+  - `--dry-run` prints timing plan without calling ffmpeg; `--accent` overrides brand color
+  - `ffprobe` probes actual WAV duration; falls back to estimate if unavailable
+  - 87 pytest tests at 99% statement coverage; `--cov-fail-under=95` enforced in CI
+- New `CI / Reel Render Pipeline Tests` job added to `.github/workflows/ci.yml`
+- Closes the Phase 4 gap between audio synthesis (`synthesize-voice.py`) and Instagram posting (`scripts/instagram/upload_reel.py`)
+
+## 2026-05-15 (Reel auto-trigger) — PR #418
+
+### Added
+- **Article-to-reel auto-generation on master merge**: GitHub Actions workflow (`.github/workflows/reel-auto-generate.yml`) triggers on push to `master` when `website/src/lib/insights.ts` changes
+  - Runs `generate-all-reels.ts` and commits new/updated `.reel.json` files to `scripts/reel-scripts/reels/` with `[skip ci]` to prevent infinite loops
+  - Eliminates the manual reel-generation step after each content batch
+- `scripts/reel-scripts/generate-all-reels.ts` — generates deterministic reel JSON for every slug in `INSIGHT_ENTRIES`; supports `--dry-run` and `--verbose`; idempotent
+- `scripts/reel-scripts/reels/.gitkeep` — tracks the reel output directory
+- 2 smoke tests in `reel-scripts.test.ts` verifying `generateAllReels()` produces no errors and covers all registered insight slugs
+- 117 reel-script integration tests passing at time of merge
+
+## 2026-05-15 (Instagram CI coverage) — PR #416
+
+### Added
+- **Instagram Python CI job** added to `.github/workflows/ci.yml`:
+  - `instagram-python-tests` job: Python 3.12 + project dev dependencies (`pip install -e .[dev]`)
+  - Runs `pytest scripts/instagram/ --cov=scripts/instagram --cov-report=term-missing`
+  - Ensures `auth.py` and `upload_reel.py` are covered on every CI run
+
 ## 2026-05-15 (Socrates — 28th live mind) — PR #414
 
 ### Added
