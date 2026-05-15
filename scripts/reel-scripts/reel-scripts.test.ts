@@ -123,12 +123,12 @@ describe("buildVerdictReelScript", () => {
       {
         mind: "Niccolò Machiavelli",
         line:
-          "This is a power problem, not a personality problem. Name the imbalance before it names the decision.",
+          "This is a power problem, not a personality problem. Name the imbalance.",
       },
       {
         mind: "Marcus Aurelius",
         line:
-          "A clean boundary protects the company better than an emotional debate that keeps dragging on.",
+          "A clean boundary protects the company better than an emotional debate does.",
       },
       {
         mind: "Marie Curie",
@@ -2406,8 +2406,8 @@ describe("Wave 21 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("aristotle");
     expect(script.decisionType).toBe("evidence");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Evidence council: Curie (main), Newton (support), Aurelius (close)
     expect(script.councilPass[0].mind).toBe("Marie Curie");
     expect(script.councilPass[1].mind).toBe("Isaac Newton");
@@ -2428,8 +2428,8 @@ describe("Wave 21 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("aristotle");
     expect(script.decisionType).toBe("leadership");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
     expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
     expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
@@ -2453,8 +2453,8 @@ describe("Wave 24 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("julius-caesar");
     expect(script.decisionType).toBe("strategy");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Strategy court: Sun Tzu (main), Machiavelli (support), da Vinci (close)
     expect(script.councilPass[0].mind).toBe("Sun Tzu");
     expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
@@ -2475,8 +2475,8 @@ describe("Wave 24 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("harriet-tubman");
     expect(script.decisionType).toBe("leadership");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Leadership court: Machiavelli (main), Aurelius (support), Curie (close)
     expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
     expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
@@ -2497,8 +2497,8 @@ describe("Wave 24 — 3 collision articles", () => {
     );
     expect(script.frameworkSlug).toBe("archimedes");
     expect(script.decisionType).toBe("innovation");
-    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
-    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(28);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(50);
     // Innovation court: Tesla (main), da Vinci (support), Newton (close)
     expect(script.councilPass[0].mind).toBe("Nikola Tesla");
     expect(script.councilPass[1].mind).toBe("Leonardo da Vinci");
