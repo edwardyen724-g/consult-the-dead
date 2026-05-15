@@ -2327,6 +2327,72 @@ describe("Wave 21 — 3 collision articles", () => {
       "/insights/epictetus-vs-seneca-on-accepting-vs-transforming-constraints",
     );
   });
+
+  // ── Wave 22 reel tests ──────────────────────────────────────────────────
+
+  it("generates a reel script for lincoln-vs-napoleon-on-leading-through-crisis", () => {
+    const script = buildVerdictReelScript(
+      "lincoln-vs-napoleon-on-leading-through-crisis",
+    );
+    expect(script.slug).toBe("lincoln-vs-napoleon-on-leading-through-crisis");
+    expect(script.frameworkSlug).toBe("abraham-lincoln");
+    expect(script.decisionType).toBe("crisis");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Crisis council: Lincoln (main), Aurelius (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Abraham Lincoln");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/lincoln-vs-napoleon-on-leading-through-crisis",
+    );
+  });
+
+  it("generates a reel script for nightingale-vs-curie-on-field-evidence-vs-theoretical-proof", () => {
+    const script = buildVerdictReelScript(
+      "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+    expect(script.slug).toBe(
+      "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+    expect(script.frameworkSlug).toBe("florence-nightingale");
+    expect(script.decisionType).toBe("evidence");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Evidence council: Curie (main), Newton (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Marie Curie");
+    expect(script.councilPass[1].mind).toBe("Isaac Newton");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    );
+  });
+
+  it("generates a reel script for jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love", () => {
+    const script = buildVerdictReelScript(
+      "jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
+    );
+    expect(script.slug).toBe(
+      "jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
+    );
+    expect(script.frameworkSlug).toBe("steve-jobs");
+    expect(script.decisionType).toBe("leadership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Leadership council: Machiavelli (main), Aurelius (support), Curie (close)
+    expect(script.councilPass[0].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[1].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass[2].mind).toBe("Marie Curie");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
+    );
+  });
 });
 
 // ── Note: "meta" decisionType DECISION_COURT entry is ready for when the

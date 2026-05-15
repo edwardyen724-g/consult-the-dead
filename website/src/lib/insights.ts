@@ -3909,6 +3909,169 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "When you encounter a constraint that is blocking your progress — a regulatory requirement, a market condition, a stakeholder resistance, a resource limitation — apply a two-step diagnostic before choosing your response. Step one (Epictetus): separate what is within your control from what is not. Your product decisions, your team's focus, your response to the constraint — these are always yours to act on, constraint or no constraint. Redirect your primary energy here. Do not wait for the constraint to resolve before acting on what you can control. Step two (Seneca): before treating the constraint as permanently fixed, identify the cheapest test of its moveability. Can you redesign the product to avoid the regulatory scope? Can you find a legal precedent that changes the interpretation? Can you demonstrate a data point that shifts the stakeholder's position? Run that test at low cost. If the constraint moves, you have captured an option. If it does not, you have confirmed the boundary honestly, and the Epictetan focus on your controllables is not resignation — it is the correct allocation of limited agency.",
     },
   },
+  // ── Wave 22: collision articles ───────────────────────────────────────
+  {
+    slug: "lincoln-vs-napoleon-on-leading-through-crisis",
+    type: "collision",
+    frameworkSlug: "abraham-lincoln",
+    collisionFrameworkSlugs: ["abraham-lincoln", "napoleon-bonaparte"],
+    title:
+      "Lincoln vs. Napoleon: When a Crisis Demands Steadiness and When It Demands Force",
+    description:
+      "Abraham Lincoln and Napoleon Bonaparte both led through existential crises — Lincoln held a fractured nation together during a civil war fought over its founding contradiction, and Napoleon led armies through campaigns where a single battle could reverse years of strategic gain. But their crisis leadership models were opposites. Lincoln's approach was characterized by radical patience: absorb the uncertainty, resist the pressure to foreclose options, hold the coalition together by giving dissenting voices a seat at the table, and wait for the moment when the political and military conditions align. Napoleon's approach was characterized by decisive velocity: identify the hinge point of the crisis, concentrate force there before the opponent can react, and accept the risk of being wrong in exchange for the asymmetric upside of being first. For founders facing company-defining crises — a cash runway emergency, a product failure, a key team departure, a competitive attack — this collision determines when Lincoln's patience is the correct response and when Napoleon's speed is.",
+    targetKeywords: [
+      "crisis leadership founder startup",
+      "how to lead through company crisis",
+      "Lincoln Napoleon crisis decision making",
+      "wartime CEO leadership crisis management",
+      "founder leadership style crisis uncertainty",
+    ],
+    decisionType: "crisis",
+    hookQuestion:
+      "When the crisis hits and the team is losing confidence, does the right move require steadiness and coalition-building — or concentrated force before the window closes?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Abraham Lincoln",
+        text: "A crisis that destroys a leader is almost never the external event. It is the decision to foreclose options before the situation requires it. When I entered office, seven states had already seceded and four more were on the edge. Every advisor I had urged a decisive response — a proclamation, a military strike, a political ultimatum that would clarify the stakes. I refused. Not because I lacked resolve, but because I understood that the coalition required to resolve the crisis could not survive the statement that seemed most decisive. The Emancipation Proclamation waited two years not because I was uncertain about its necessity but because the military and political conditions had to be in place before the proclamation could function as a weapon rather than a liability. Crisis leadership is the discipline of knowing which actions foreclose options and which actions preserve them.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Lincoln's approach was appropriate for a political crisis in which the primary resource is public support. Mine were operational crises in which the primary resource is initiative. At Austerlitz, I had separated the allied command by sending a feint toward my right flank, tempting them to reinforce a position that was not my actual objective. The window for the attack through their weakened center was measured in hours. A Lincoln-style patience in that moment would have allowed Kutuzov to recognize his mistake and close the gap. There are crises in which the key insight is that your opponent has made an error they cannot yet see — and your job is to move before they see it. The decisive error is not moving too fast; it is moving at normal speed in a moment that required a different tempo.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "I agree on the diagnosis — the question is how a founder distinguishes between a crisis that requires Napoleon's tempo and a crisis that requires mine. My observation is that Napoleon's model fails when the crisis is not a single battle but a long campaign. The Civil War was not Austerlitz. There was no two-hour window and no single flanking maneuver that would resolve it. The error I saw in my generals repeatedly — McClellan most visibly — was treating a long-campaign crisis with short-battle tactics: moving decisively when the situation required patience, and then explaining each failure as a temporary setback rather than evidence that the tempo itself was wrong. A founder who applies Napoleon's model to a crisis that requires sustained coalition management will win individual battles and lose the campaign.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "Lincoln identifies the correct failure mode for my approach. The campaign frame changes the calculation. But I want to name the failure mode that runs in the opposite direction: the leader who defaults to patience as a cover for indecision, and calls it coalition management. I lost the 1812 campaign in Russia not because I moved too fast — I moved at exactly the speed the operation required through France and into Poland. I lost it because when the strategic situation changed — when Moscow did not produce the political capitulation I expected — I could not revise the objective fast enough. The failure was not impatience. It was the opposite: I held to the original frame when the evidence required a new one. In a crisis, patience and decisiveness are not stable personality traits; they are decisions that need to be re-evaluated each time the signal changes.",
+      },
+      {
+        speaker: "Abraham Lincoln",
+        text: "Then we converge on the diagnostic framework. The question is not whether you are a patient leader or a decisive one. The question is: what does the structure of this specific crisis require? The relevant variables are the time-sensitivity of the key decision (which determines how much patience is available), the coalition fragility (which determines how much force can be applied without fracturing the support structure), and the reversibility of the available moves (which determines how much optionality it is worth preserving). A crisis that is time-sensitive, coalition-stable, and irreversible calls for Napoleon's tempo. A crisis that is time-extended, coalition-fragile, and partially reversible calls for mine. Most founders will face more of the second category than the first, which is why Lincoln's model is underweighted in startup culture and Napoleon's is overweighted.",
+      },
+      {
+        speaker: "Napoleon Bonaparte",
+        text: "I accept the framework with one addition: even in Lincoln's category of crisis, there will be moments inside the long campaign where a Napoleon-style window opens. The Emancipation Proclamation, which Lincoln described as having waited for the right military and political conditions, was itself a decisive move at a specific moment. The discipline Lincoln describes — preserving options, building coalitions, refusing to foreclose — was the preparation for that decisive moment, not an alternative to it. The worst crisis leadership combines Lincoln's patience with none of my decisiveness: the leader who preserves all options indefinitely and never exercises the ones that became available. Coalition-building is preparation for a decision, not a substitute for one.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "abraham-lincoln",
+      summary:
+        "Lincoln and Napoleon converge on a two-variable diagnostic. The first variable is time structure: is this a short-window crisis where an opponent's error is temporarily exploitable (Napoleon's domain) or a long-campaign crisis where the primary constraint is coalition stability over time (Lincoln's domain)? The second variable is decision reversibility: moves that foreclose future options require the conditions to be more fully developed before execution; moves that can be revised or expanded on subsequent iterations can be made earlier. Most company-level crises combine Lincoln's time structure with occasional Napoleon-style windows inside them. The failure modes are symmetric: applying Napoleon's tempo to a long-campaign crisis produces a series of individually decisive moves that collectively fragment the coalition; applying Lincoln's patience to a short-window crisis allows the exploitable moment to close.",
+      actionableInsight:
+        "When a crisis hits your company, run this diagnostic before choosing a response tempo. First, determine the time structure: does a decisive action now capture a window that will close within days, or is this a multi-month situation where the primary resource is team coherence and stakeholder trust? If it is a short-window situation (a competitor is vulnerable, a deal is time-limited, a narrative can be shaped before it solidifies), move at Napoleon's tempo — concentrate force on the hinge point before it closes. If it is a long-campaign situation (cash runway, product-market fit, team culture fractures), move at Lincoln's tempo — preserve coalitions, maintain optionality, and wait for the conditions that make each decision reversible enough to act on. In both cases, avoid the symmetric failure modes: Napoleon's patience failure (holding the original frame after the evidence requires a new one) and Lincoln's decisiveness failure (building toward a decision indefinitely and never executing it when the window opens).",
+    },
+  },
+  {
+    slug: "nightingale-vs-curie-on-field-evidence-vs-theoretical-proof",
+    type: "collision",
+    frameworkSlug: "florence-nightingale",
+    collisionFrameworkSlugs: ["florence-nightingale", "marie-curie"],
+    title:
+      "Nightingale vs. Curie: Do You Act on Field Data — or Wait for Controlled Proof?",
+    description:
+      "Florence Nightingale and Marie Curie were both rigorous empiricists who fundamentally changed their fields through evidence-based reasoning — but their evidence models were opposites. Nightingale operated in a field environment where she could not control variables, could not run controlled experiments, and could not wait for academic validation: soldiers were dying at a rate that would empty the hospital faster than any treatment could refill it. She acted on field observations, statistical patterns in messy data, and probability estimates derived from conditions she could not fully isolate. Curie operated in a laboratory environment built specifically to isolate variables, eliminate confounds, and produce findings that could be replicated anywhere in the world by anyone with the right equipment. The radioactivity research she and Pierre produced was built on the premise that a result that cannot be replicated under controlled conditions is not a result. For founders deciding when to act on product feedback, market signals, and early customer data versus when to insist on controlled experiments before committing to a direction, this collision defines the conditions under which each evidence standard is appropriate.",
+    targetKeywords: [
+      "field evidence vs controlled experiment decision making startup",
+      "when to act on customer data vs wait for proof",
+      "Florence Nightingale Marie Curie empirical evidence",
+      "product feedback vs A/B test startup",
+      "messy field data vs clean experiment business decision",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your early data is pointing in a clear direction — but you cannot be certain the signal is real because the conditions are noisy. Do you act on what the field data is telling you, or do you design a controlled test first?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Florence Nightingale",
+        text: "In the Crimea, I could not run a controlled trial. The mortality rate in the Barrack Hospital was above 40 percent during the winter of 1854-55, and the army's medical establishment had a theory for it: the men were weak from the campaign. My statistical analysis of the admission and death records showed a different pattern. The deaths were not distributed across disease categories in the way they would be if the cause were individual weakness — they were concentrated in infectious disease categories that responded to sanitation interventions in hospitals where those interventions had been tried. I could not isolate the variable perfectly. I could not build a randomized trial. What I had was a pattern in messy data that was strong enough to act on despite the confounds. The sanitation changes saved thousands of lives before any controlled study validated the mechanism. The standard of evidence required to act is determined by the cost of waiting, not by the elegance of the experimental design.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I understand the cost-of-waiting argument, and I accept it in emergency conditions. But Nightingale's model has a failure mode that is invisible from inside the field data. In 1903, I had isolated polonium and radium — two new elements with measurable radioactive properties. The scientific community's first response was to question whether the measurements were instrument error, contamination, or observer bias. The validation required that Pierre and I reproduce the results under controlled conditions that any competent laboratory could replicate. Without that validation, the discovery would not have changed physics — it would have been a disputed observation. The field evidence model does not produce the kind of proof that changes structural understanding. It produces actions. For decisions about what to do right now, Nightingale's standard is appropriate. For decisions about whether the underlying model is correct, mine is required.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "The distinction Curie is drawing — between operational decisions and structural model validation — is real and important. My objection is to the default assumption that laboratory-grade evidence is always achievable and always worth waiting for before acting. In the business and policy contexts where most decisions are made, the equivalent of a controlled laboratory rarely exists: the market is the field, not the lab. An investor who withholds funding until a startup produces laboratory-grade proof of demand will never fund anything at the seed stage, because that proof cannot be produced before the market exists. The question is not whether controlled evidence is better than field evidence in isolation — it obviously is — but whether controlled evidence is achievable at the decision point, and whether the cost of waiting for it is lower than the cost of acting on a less perfect signal.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "Nightingale's point about availability is correct. My response is that the demand for controlled evidence should raise the standard for field evidence rather than eliminate it. The failure mode I see in field evidence reasoning is the confusion of pattern with cause. Nightingale's sanitation intervention worked — but not because the data pattern was causal. It worked because the underlying mechanism was real, and the pattern happened to track it reasonably well in her specific field conditions. In many cases, field data patterns do not track the underlying mechanism. They track confounds — customer segments that happen to have higher baseline retention, markets that happen to have favorable macro conditions, product features that happen to be adopted by users who would have stayed anyway. Acting on those patterns as if they were causal is the failure mode of field evidence reasoning. Before you act on field data, you need a causal hypothesis that is at least plausible — not proven, but mechanically coherent.",
+      },
+      {
+        speaker: "Florence Nightingale",
+        text: "The causal hypothesis requirement is the convergence point. I did not simply act on the death-rate pattern without a theory. I had a mechanistic hypothesis — that the specific disease categories causing deaths in the Barrack Hospital were transmitted by conditions that sanitation interventions addressed. The hypothesis was not proven at the level Curie would require. But it was coherent, it had antecedent support from studies in other hospitals, and it predicted the specific effect I observed. The decision framework is: field evidence is actionable when you have a mechanically coherent causal hypothesis, the pattern in the field data is consistent with that hypothesis, the confounds that could explain the pattern without the hypothesis being true have been considered and found less likely, and the cost of waiting for controlled validation exceeds the cost of acting on a potentially wrong model. All four conditions were met in the Crimea. The third and fourth are the ones most often not evaluated.",
+      },
+      {
+        speaker: "Marie Curie",
+        text: "I will accept that framework as a practical standard. My addition is on the fourth condition — the cost comparison. The cost of acting on a wrong model is often underestimated in startup contexts because the actions taken on field evidence compound. A company that acts on a wrong causal model for long enough builds an organization, a product, and a cost structure optimized for a market that does not actually exist. The sunk cost of those investments makes it harder to revise the model when the controlled evidence eventually arrives or when the field evidence contradicts itself. The discipline of building checkpoints — moments where the field-evidence hypothesis is tested against new data — is what makes the Nightingale model safe to use over extended timeframes. Act on the field evidence, but set explicit conditions under which you will update or abandon the hypothesis.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "florence-nightingale",
+      summary:
+        "Nightingale and Curie converge on a four-condition test for when field evidence is sufficient to act on without controlled validation. The conditions are: (1) a mechanically coherent causal hypothesis exists — not proven, but plausible given prior evidence; (2) the field data pattern is consistent with the hypothesis; (3) the most likely confounds that could explain the pattern without the hypothesis being true have been considered and found less likely than the hypothesis; (4) the cost of waiting for controlled validation exceeds the cost of acting on a model that might be wrong. When all four conditions are met, Nightingale's field-evidence standard is actionable. When controlled experiments are available and the cost of waiting is low, Curie's laboratory standard is required. The failure modes are symmetric: Nightingale's failure mode is acting on patterns that are confound-driven rather than causal; Curie's failure mode is waiting for laboratory-grade proof in a field that cannot produce it, and thereby forfeiting options that a less perfect signal would have supported.",
+      actionableInsight:
+        "When you have early product feedback, market data, or customer signals that are pointing in a direction but are not clean enough to constitute controlled proof, run Nightingale's four-condition check before deciding whether to act. First: do you have a causal hypothesis that is mechanically coherent — not just a correlation, but a plausible explanation of why the mechanism produces the pattern? Second: is the field data pattern consistent with that hypothesis? Third: have you identified the most likely confounds — the explanations that could produce the same pattern without your hypothesis being true — and are those confounds less likely than your hypothesis? Fourth: is the cost of designing and waiting for a controlled test higher than the cost of acting on a model that might be wrong? If all four conditions pass, act on the field data. If you fail the third condition — if there is a confound you have not ruled out that is roughly as likely as your hypothesis — design a low-cost test that differentiates between them before committing. Set explicit checkpoints at which you will re-evaluate the hypothesis against new incoming data so you do not compound investments on a wrong model.",
+    },
+  },
+  {
+    slug: "jobs-vs-machiavelli-on-inspiring-fear-vs-inspiring-love",
+    type: "collision",
+    frameworkSlug: "steve-jobs",
+    collisionFrameworkSlugs: ["steve-jobs", "niccolo-machiavelli"],
+    title:
+      "Jobs vs. Machiavelli: Should Founders Build Loyalty Through Love or Through Fear?",
+    description:
+      "Steve Jobs and Niccolò Machiavelli represent two of the most studied and most misunderstood positions on how leaders build lasting loyalty. Machiavelli's argument in The Prince is not that cruelty is desirable — it is that love and fear are both tools, and fear is the more durable one because it does not depend on conditions the leader cannot control. A person who loves you may stop loving you if circumstances change; a person who fears consequences will not change behavior until the consequences change. Jobs's argument, as expressed through three decades of building Apple, Pixar, and NeXT, is that mission-level belief produces a form of loyalty that neither love nor fear can reach: people who believe they are doing work that matters will outperform people who are merely devoted or merely compliant, because belief is internally motivated in a way that neither devotion nor compliance can replicate. For founders deciding how to shape the culture of their company — how much to invest in vision, in accountability, in personal relationship, in consequences — this collision defines when Machiavelli's realism about power is the correct guide and when Jobs's idealism about mission is justified.",
+    targetKeywords: [
+      "should founders be feared or loved by employees",
+      "Steve Jobs leadership style inspiration vs fear",
+      "Machiavelli is it better to be feared or loved leader",
+      "how to build employee loyalty as a founder",
+      "founder leadership style inspiration cult personality",
+    ],
+    decisionType: "leadership",
+    hookQuestion:
+      "Should founders inspire loyalty through love or through fear?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Steve Jobs",
+        text: "I never tried to make people fear me. What I tried to do was make them believe — genuinely believe — that the work we were doing mattered enough to demand the best they had. When I told a team that a product they had built was shit, I was not trying to generate fear of consequences. I was trying to break the frame in which 'good enough' was an acceptable answer. The fear that some people describe feeling around me was the fear of not living up to what the work required — and that is not a management instrument. It is the natural response to being in the presence of work that has a standard. If the work doesn't have a standard that creates some fear of failure, the work doesn't matter enough.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Jobs is describing what I would call the ideal case of love-based loyalty — where the devotion attaches to the mission rather than the person, and the standard is enforced by belief rather than consequences. I do not dispute that this ideal exists or that it produces exceptional results when it is achieved. My concern is with the failure mode of the ideal. Jobs is also describing the mechanism of fear without acknowledging it as such: the fear of not living up to the work is still fear. The 'reality distortion field' that Jobs's colleagues described — the experience of being convinced that the impossible was achievable, and feeling the consequences of not achieving it — is not a description of love. It is a description of a particularly sophisticated form of accountability enforcement, where the standard is so high and the leader's belief in it so absolute that failure to meet it feels like a personal betrayal of something sacred.",
+      },
+      {
+        speaker: "Steve Jobs",
+        text: "The test of love versus fear as a leadership instrument is what happens after the leader leaves. An organization built on fear — on compliance with consequences enforced by a specific person — loses its coherence the moment the feared figure is gone. The enforcement mechanism disappears with the enforcer. An organization built on genuine belief in the mission can sustain that belief after the leader departs because the mission predates and outlasts any individual. When I was pushed out of Apple in 1985, the company did not hold. Not because the people stopped caring, but because the vision had not been distributed deeply enough into the organization to operate without me as its interpreter. That was my failure — not the approach, but the execution. The approach is still correct: if you build loyalty through mission, the mission can survive you. If you build loyalty through fear of you, nothing survives you.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "The 1985 example is instructive, but Jobs draws the wrong lesson from it. The problem at Apple in 1985 was not insufficient love of the mission. The problem was insufficient structure — the accountability mechanisms that Jobs had built were too personal, too dependent on his presence, too idiosyncratic to be reproduced by Sculley. This is a structural failure, not a failure of the love-versus-fear model. My recommendation for a prince who must be absent from his territories is precisely this: build institutions, not dependencies. The enforcement structure should operate regardless of whether the feared figure is present. A founder who builds that structure correctly — clear standards, clear consequences, clear processes for applying them — can be absent, depart, or be succeeded without the structure collapsing. Jobs failed to do this. He is correct that love of mission is more durable than fear of a person. But his model conflates love of mission with love of Jobs, and then uses the failure of the latter to argue against the reliability of Machiavellian structure.",
+      },
+      {
+        speaker: "Steve Jobs",
+        text: "The structural argument is correct, and I accept it as a convergence point. The question is not whether you want people to be devoted or disciplined — you want both. The question is the sequence and the priority. Fear-first leadership establishes compliance before it establishes vision. Vision-first leadership establishes mission before it establishes accountability. The failure mode of fear-first is that the compliance is real but the belief never arrives — you get an organization of people who follow the rules and have no idea why the rules matter. The failure mode of vision-first is that the belief is real but the accountability is inconsistent, because holding people to a standard feels like betraying the relationship. The resolution is that accountability is not in tension with mission — it is an expression of it. When I rejected work that didn't meet the standard, I was not punishing people. I was refusing to let the mission be betrayed by work that was below it.",
+      },
+      {
+        speaker: "Niccolò Machiavelli",
+        text: "Then we are closer than the framing of the question suggests. The practical recommendation I would offer a founder is this: establish the performance standard before you establish the personal relationship. The standard gives the relationship its content — devotion to what? loyalty to what purpose? — and makes the accountability structure legible as mission-defense rather than arbitrary authority. A founder who establishes the relationship first and the standard second will always find it harder to enforce the standard, because enforcement feels like a change in the relationship rather than a feature of it. Jobs's model works when the mission is clear enough that the standard is self-evident, and when the leader is present enough to interpret the standard continuously. Machiavelli's model works when the standard must operate in the leader's absence, or when the mission cannot yet be articulated clearly enough to carry the enforcement weight. Most organizations need both: Jobs's mission clarity to give the standard meaning, and Machiavelli's structural discipline to make the standard survive.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "steve-jobs",
+      summary:
+        "Jobs and Machiavelli converge on a sequencing principle: establish the performance standard before the personal relationship, so that accountability is legible as mission-defense rather than arbitrary authority. The deeper convergence is that love and fear are not alternatives — they are instruments that operate at different organizational scales and time horizons. Jobs's model (mission-based devotion) is more durable than fear when it can be distributed through the organization deeply enough to operate without the leader as interpreter. Machiavelli's model (structured accountability) is more reliable when the mission is not yet clear enough to carry the enforcement weight, or when the leader must operate at scale or distance. The failure modes are symmetric: Jobs's failure mode is belief that never reaches accountability structure, producing an organization where vision is real but standards are inconsistently enforced. Machiavelli's failure mode is compliance that never reaches belief, producing an organization that follows rules and has no idea why the rules matter.",
+      actionableInsight:
+        "When building your founding team or early culture, apply this sequencing rule: establish the performance standard explicitly before you establish the personal relationship, so that when you enforce the standard, it reads as 'this is what we agreed the work requires' rather than 'I am changing the terms of our relationship.' Make the standard specific enough that people can evaluate their own work against it without asking you — this is the distributional test for whether your mission is clear enough to carry its own enforcement weight. Then test which model your current situation requires. If you are in an early-stage organization where the mission is still being defined and the team is small enough that you can be present as the standard-interpreter, Jobs's model is appropriate: invest in mission clarity first, and let accountability flow from it. If you are scaling, if you are managing people you cannot directly observe, or if the mission is not yet articulate enough to generate self-enforced standards, Machiavelli's model is required: build the accountability structure first, and make it legible as mission-service. The worst outcome is neither: an organization with warm relationships and no standards, where 'we believe in what we're doing' functions as a substitute for 'we are doing it well.'",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
