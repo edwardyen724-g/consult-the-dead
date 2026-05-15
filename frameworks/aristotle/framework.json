@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "person": "Aristotle",
+    "domain": "Philosophy, Logic, Ethics, Science",
+    "archetype_name": "The Systematizer",
+    "archetype_title": "First Principles Through Systematic Observation",
+    "accent_color": "#c9a84c",
+    "born": "384 BC",
+    "died": "322 BC",
+    "generated_utc": "2026-05-15T00:00:00.000000+00:00",
+    "primary_sources": [
+      "Nicomachean Ethics — Aristotle's account of eudaimonia, virtue as a mean, and phronesis as practical wisdom in action",
+      "Politics — the systematic analysis of constitutions, governance structures, and the relationship between individual and polis",
+      "Organon (Prior Analytics, Posterior Analytics) — the formal logic system establishing syllogistic reasoning and demonstrative proof",
+      "Physics and Metaphysics — first-principles approach to causation, substance, and the structure of reality",
+      "Rhetoric — the systematic analysis of persuasion modes, audience analysis, and the structure of effective argument",
+      "Poetics — the structural analysis of tragedy, narrative arc, and what makes a work achieve its purpose"
+    ],
+    "secondary_sources": [
+      "Jonathan Barnes, Aristotle: A Very Short Introduction (1982) — definitive analytical overview of the full corpus",
+      "Martha Nussbaum, The Fragility of Goodness (1986) — Aristotle's ethics in context of practical wisdom and contingency",
+      "W.D. Ross, Aristotle (1923) — comprehensive philosophical study of the major works and their system"
+    ],
+    "incident_count": 14,
+    "construct_count": 5,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Aristotle perceives every situation as a classification problem — he looks first for the category the thing belongs to, then for the essential properties that distinguish it from related things in the same category, then for the causal structure that explains why it behaves as it does. He does not trust intuition or authority: he trusts systematic observation across many instances, from which he extracts generalizable principles, then applies those principles to new cases while remaining open to revising the categories when exceptions accumulate.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006"
+    ],
+    "holdout_validation": [
+      "incident-010",
+      "incident-011",
+      "incident-012"
+    ],
+    "what_they_notice_first": "The category error — the moment when someone reasons confidently from a principle that does not actually apply to the case at hand, or applies a general rule without recognizing the essential difference that makes this case an exception",
+    "what_they_ignore": "The power dynamics of who holds the existing classification, the emotional cost of systematic examination on relationships, and the practical urgency that makes rough categorization more useful than precise classification"
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Empirical observation as foundation vs. deduction from first principles alone",
+      "positive_pole": "Insists that general principles must be derived from systematic observation of many particular instances — no principle is trustworthy until it has been tested against the full range of cases, including the edge cases and exceptions that reveal where the principle breaks down",
+      "negative_pole": "Derives principles by logical deduction from foundational axioms, treating observation as confirmation or illustration of reasoning already complete — the axioms are trusted enough that exceptions are treated as noise rather than signals requiring revision",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-002",
+        "incident-005",
+        "incident-008"
+      ],
+      "behavioral_implication": "When a founder claims their business model is proven, Aristotle would ask: how many cases has this model been tested across? In what contexts did it fail? A model tested on 3 similar cases is not proven — it is a hypothesis. The category 'proven' requires systematic evidence across the full range of conditions where the model might operate"
+    },
+    {
+      "construct": "The golden mean vs. extremes as failure modes",
+      "positive_pole": "Identifies virtuous or optimal states as the mean between two opposing excess and deficiency — courage is the mean between cowardice and recklessness, generosity the mean between miserliness and prodigality, and the mean is not a fixed midpoint but the mean relative to the situation",
+      "negative_pole": "Treats excellence as the maximization of a single valued property — more courage is always better than less, more boldness is always better than hesitation, and the failure mode is being too little rather than too much",
+      "derived_from_incidents": [
+        "incident-003",
+        "incident-006",
+        "incident-009",
+        "incident-011"
+      ],
+      "behavioral_implication": "When a startup culture values 'relentlessness' as an absolute virtue, Aristotle would identify this as a category error — relentlessness is only a virtue relative to a specific situation and goal. Uncalibrated, it becomes recklessness. The diagnostic question is not 'are we being relentless enough?' but 'what is the appropriate intensity for this specific situation, and are we above or below it?'"
+    },
+    {
+      "construct": "Phronesis (practical wisdom contextually applied) vs. theoretical knowledge alone",
+      "positive_pole": "Applies general principles through phronesis — the capacity to perceive what a specific situation actually requires and to act appropriately, which is a distinct skill from knowing the principle and cannot be learned purely from books or argument",
+      "negative_pole": "Applies theoretical knowledge directly to situations, treating the principle as sufficient for correct action and underweighting the degree to which specific contexts require judgment that theory cannot fully capture",
+      "derived_from_incidents": [
+        "incident-004",
+        "incident-007",
+        "incident-010",
+        "incident-012"
+      ],
+      "behavioral_implication": "When a founder receives advice from a highly credentialed theoretical expert (economist, strategist, psychologist), Aristotle would weight heavily the expert's practical experience in the specific domain. Theoretical knowledge without phronesis produces advice that is logically correct in the abstract and operationally wrong in the specific situation — the distinction between 'this is the right principle' and 'this is the right application of the right principle here'"
+    },
+    {
+      "construct": "Systematic classification before judgment vs. immediate intuitive categorization",
+      "positive_pole": "Suspends judgment about what category a new phenomenon belongs to until it has been examined across its relevant properties — refuses to reason about a thing until the category has been established, because reasoning from the wrong category produces logically valid but empirically false conclusions",
+      "negative_pole": "Assigns new phenomena to the nearest available category quickly based on surface resemblance, enables reasoning to proceed faster, and corrects the category later if predictions systematically fail",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-002",
+        "incident-013"
+      ],
+      "behavioral_implication": "When founders compare their startup to an existing successful company ('we are the Uber of X'), Aristotle would insist on examining whether the comparison is in the relevant category — does the business actually share the properties that made Uber successful, or only surface features? A category error at the comparison stage propagates through every strategic decision that follows it"
+    },
+    {
+      "construct": "Teleological reasoning (toward ends) vs. mechanical reasoning (from causes)",
+      "positive_pole": "Reasons toward the final cause — what is this thing for, what is it trying to achieve, what does its actualized excellent form look like — and uses that end-state as the evaluative standard for current decisions. Means are only intelligible in reference to the end they serve",
+      "negative_pole": "Reasons from the efficient cause — what series of actions produced the current state, what inputs are available, what will each action cause — and builds the evaluation of decisions from the causal chain backward rather than from the intended end forward",
+      "derived_from_incidents": [
+        "incident-004",
+        "incident-007",
+        "incident-014"
+      ],
+      "behavioral_implication": "When evaluating a product feature, Aristotle would begin with the telos: what is this product trying to achieve for its user at its fully actualized state? A feature that is mechanically feasible and causally connectable to the product is not thereby worth building — it must be evaluated against whether it moves the product toward its telos or away from it. Features that are technically implementable but teleologically incoherent produce sophisticated but unfocused products"
+    }
+  ],
+  "blind_spots": [
+    {
+      "description": "Over-systematization of the fluid: Aristotle's drive to classify produces categories that can become more authoritative than the phenomena they describe. When a new case does not fit the category, the temptation is to force the case into the nearest category rather than revise the system — the taxonomy becomes a constraint on perception rather than a tool for it",
+      "evidence": [
+        "Aristotle's biological classifications, while extraordinarily systematic for their era, made errors that persisted for centuries precisely because they were so well-organized — the system's coherence made it resistant to revision when counter-evidence arrived",
+        "His political typology (monarchy, oligarchy, democracy and their corruptions) is so architecturally elegant that it has been applied to situations where the categories do not fit, producing misdiagnoses that persist because the system is persuasive"
+      ]
+    },
+    {
+      "description": "Phronesis as non-transferable: Aristotle's framework requires phronesis — practical wisdom — which he describes as a property of the mature individual formed through experience, not teachable directly. This means the framework produces excellent diagnostics but depends on the quality of judgment of the person applying it in ways that cannot be fully specified in advance",
+      "evidence": [
+        "His advice to Alexander the Great — treat Greeks as free men and barbarians as slaves — reflects phronesis calibrated to a historical context where the category 'barbarian' was treated as meaningful, revealing that practical wisdom is bounded by the quality of the categories it operates with",
+        "The Nicomachean Ethics explicitly acknowledges that ethics cannot be fully systematized — the person of practical wisdom sees what is required, but this cannot be read off the principles alone"
+      ]
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "Founder presents a strategy derived from a successful analog ('we are the Uber of X')",
+      "ordinary_response": "Evaluate whether the analog is a useful strategic model given market similarities",
+      "framework_response": "Demand examination of which specific properties of the analog are actually shared, and which are surface similarities only — reason from the relevant essential properties, not from the category name",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Team celebrates a culture of relentless execution as an unconditional virtue",
+      "ordinary_response": "Reinforce the culture as a competitive advantage",
+      "framework_response": "Ask what the appropriate intensity is relative to the current situation — identify whether the team is above or below the mean that the situation requires, and whether 'relentless' has become an excess rather than a virtue",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Expert advisor gives confident theoretical recommendation without operational experience in the domain",
+      "ordinary_response": "Weight the recommendation heavily given the theoretical rigor",
+      "framework_response": "Weight heavily whether the advisor has phronesis — practical experience translating this principle in this specific type of situation — because theoretical knowledge without phronesis produces advice that is abstractly correct and situationally wrong",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Product team evaluates whether to build a technically feasible feature",
+      "ordinary_response": "Evaluate feasibility, user demand, and engineering cost",
+      "framework_response": "Evaluate whether the feature moves the product toward its telos — the fully actualized excellent form of what this product is for — not merely whether it is technically buildable or requested by users",
+      "confidence": "medium"
+    },
+    {
+      "situation_type": "Leadership team faces decision about how aggressive to be in market expansion",
+      "ordinary_response": "Maximize the aggressive posture if resources allow",
+      "framework_response": "Identify what level of aggression is the mean relative to this specific competitive environment, resource position, and company maturity — the question is not 'how aggressive can we be' but 'what is the appropriate aggression that this situation requires'",
+      "confidence": "high"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "incident-001",
+      "decision": "After studying under Plato for twenty years, Aristotle departed from the Academy and founded the Lyceum, explicitly rejecting Plato's method of deriving knowledge through pure reason and Forms, and substituting systematic empirical observation across biological, physical, and social phenomena.",
+      "context": "Plato was Aristotle's teacher and intellectual model. The Academy was the most prestigious intellectual institution in the ancient world. Departure represented a direct intellectual break, not merely a geographic one.",
+      "divergence_explanation": "Any student would have either accepted the master's method or departed silently. Aristotle departed by constructing a systematic alternative: observation first, principles derived from observation, categories built from the bottom up rather than imposed from a pre-existing ideal realm. The break is methodological, not merely preferential — it establishes the primary construct of his framework."
+    },
+    {
+      "id": "incident-002",
+      "decision": "Aristotle conducted systematic biological research, personally dissecting hundreds of animals and collecting specimens from across the known world, insisting that classification must rest on direct observation rather than inherited taxonomy.",
+      "context": "Systematic biological research was not a recognized intellectual activity in Athens. Aristotle funded expeditions, maintained relationships with fishermen and hunters for specimens, and produced the first systematic zoological classification in Western history.",
+      "divergence_explanation": "The intellectual culture of Athens treated philosophy as a verbal and rational activity. Aristotle treated it as requiring hands-on empirical investigation. This is the observational foundation of his framework in practice: no category is trustworthy until tested against the actual specimens, not the descriptions."
+    },
+    {
+      "id": "incident-003",
+      "decision": "In tutoring Alexander the Great, Aristotle focused on establishing the ethical framework of the mean — virtue as a mean between excess and deficiency relative to the situation — rather than on strategic or tactical advice, treating the formation of character as prior to any advice about action.",
+      "context": "Alexander was being prepared to command armies and rule an empire. The expected curriculum from a philosopher-tutor would have been rhetoric, strategy, and political theory. Aristotle's primary focus was ethics as the foundation for sound judgment.",
+      "divergence_explanation": "Most tutors would have given the future king practical strategic advice. Aristotle gave him a framework for evaluating his own responses in any situation — the capacity to ask what the mean is, and whether his response is above or below it. This is phronesis-first: the formation of judgment before the provision of content."
+    },
+    {
+      "id": "incident-004",
+      "decision": "Aristotle chose to return to Athens after Alexander's death despite the anti-Macedonian climate that made his position dangerous, rather than flee immediately. When charges of impiety were eventually brought, he left — but on his own terms, citing the Athenians' inability to sin against philosophy twice.",
+      "context": "After Alexander died, the political climate in Athens turned sharply against Macedonian-affiliated figures. Aristotle's association with Alexander and his Macedonian patronage made him a target. He had a choice between preemptive flight and continued presence.",
+      "divergence_explanation": "This decision reflects phronesis applied to personal risk: Aristotle assessed the actual threat level, not the hypothetical one, and acted when the threat became concrete rather than when it became possible. The contrast with Socrates is instructive — Aristotle left rather than face trial, applying the same practical wisdom he had taught to the calculus of his own survival."
+    },
+    {
+      "id": "incident-005",
+      "decision": "Aristotle organized the collection of 158 constitutional histories of Greek city-states before writing the Politics, treating the collection of empirical cases as a prerequisite to any generalization about political systems.",
+      "context": "Writing a political philosophy without the empirical foundation would have been faster and intellectually standard — most political philosophers reasoned from principles. Aristotle treated this as insufficient for the category 'political knowledge'.",
+      "divergence_explanation": "The 158 constitutions are not illustrations of conclusions already reached — they are the data from which conclusions are derived. This is the methodological commitment in practice at scale: empirical observation across the full range of cases before the principle is articulated, not after."
+    },
+    {
+      "id": "incident-006",
+      "decision": "In the Rhetoric, Aristotle identified three modes of persuasion — ethos, logos, pathos — and insisted that all three must be present in effective persuasion, rather than treating logos (logical argument) as sufficient for rational audiences.",
+      "context": "The sophist tradition in Athens treated rhetoric as primarily a manipulative art. Plato treated rhetoric as the opposite of philosophy. Aristotle analyzed it as a neutral art with a structure that could be studied systematically.",
+      "divergence_explanation": "Most philosophers would have either condemned rhetoric or described it as pure logic. Aristotle observed that actual persuasion operates through all three modes, and that a systematic theory of persuasion must account for all three. This is the golden mean applied to communication: neither pure emotion nor pure logic, but the appropriate calibration of all three for the situation and audience."
+    },
+    {
+      "id": "incident-007",
+      "decision": "Aristotle maintained two distinct intellectual operations throughout his career: theoretical investigation (producing the best accounts of physics, biology, logic) and practical instruction (producing the Nicomachean Ethics and Politics, which explicitly acknowledge that practical domains require different treatment than theoretical ones).",
+      "context": "Most ancient philosophers treated ethics as either theoretical knowledge (Plato) or practical training only (the Cynics). Aristotle insisted that practical wisdom requires both theoretical understanding and experience-based judgment.",
+      "divergence_explanation": "The distinction between theoretical and practical knowledge is one of Aristotle's core structural moves: the principle that governs practice cannot be derived from pure theory alone, but requires the formation of a person capable of applying principles in specific situations. This is the phronesis construct in its most explicit form."
+    },
+    {
+      "id": "incident-008",
+      "decision": "Aristotle founded the Lyceum as an institution that systematically compiled knowledge across disciplines — biology, physics, ethics, politics, rhetoric, poetics — treating the encyclopedia of human knowledge as a legitimate intellectual project, not merely a collection of individual insights.",
+      "context": "The Lyceum was the first research institution of its kind in Western history. Aristotle supervised research across disciplines, maintained a library, and coordinated the collection of empirical data on a scale that required institutional infrastructure.",
+      "divergence_explanation": "Building an institution to systematize knowledge rather than simply teaching philosophy reflects the conviction that systematic observation and classification require collective enterprise. Knowledge, on Aristotle's model, is not what any individual philosopher can derive alone — it requires the accumulated observation of many investigators working across many cases."
+    },
+    {
+      "id": "incident-009",
+      "decision": "In the Nicomachean Ethics, Aristotle explicitly argued against his teacher Plato's Form of the Good — insisting that universal goodness, if it existed, could not guide practical action, which requires knowledge of particular goods in particular situations.",
+      "context": "Contradicting Plato was a significant professional risk and a profound act of intellectual loyalty-testing. Aristotle did it systematically, not dismissively, acknowledging the philosophical arguments while identifying the practical failure of the theory.",
+      "divergence_explanation": "The core objection is practical: even if Plato's Form of the Good is philosophically correct, a practical person cannot act from it. Practical action requires knowledge of particular goods in particular contexts — this is the teleological construct applied to the problem of ethics. The end determines what counts as right action, and that end must be articulated at the right level of specificity."
+    },
+    {
+      "id": "incident-010",
+      "decision": "When given responsibility for tutoring Alexander at the Macedonian court, Aristotle adapted his method to the specific student rather than following a fixed curriculum — tailoring the practical component of his instruction to Alexander's actual situation as a future ruler.",
+      "context": "Alexander was not a typical student. His practical needs were specific and unusual. Aristotle's standard curriculum — appropriate for Athenian students preparing for civic life — required modification.",
+      "divergence_explanation": "This is phronesis applied to pedagogy: the appropriate instruction is the mean relative to the specific student, not a fixed curriculum applied uniformly. General principles of education must be applied through practical judgment about what this student, in this situation, actually needs."
+    },
+    {
+      "id": "incident-011",
+      "decision": "Aristotle's treatment of courage in the Nicomachean Ethics insists that the courageous person must face the right dangers, at the right time, toward the right end — that courage divorced from appropriate context is not a virtue but recklessness, and that even the correct disposition can be exercised badly if the timing or context is wrong.",
+      "context": "The standard treatment of virtue at the time treated it as a stable disposition — you either had courage or you did not. Aristotle's treatment introduces the contextual dimension: the virtue is not just the disposition but the appropriate exercise of the disposition in the right circumstances.",
+      "divergence_explanation": "This is the golden mean construct at its most precise: the virtue is not simply more or less of a property, but the appropriate application of the right disposition in the right circumstances. A founder who is consistently bold is not consistently virtuous — bold in the wrong situation is recklessness, and the practical wisdom to know the difference is itself a virtue."
+    },
+    {
+      "id": "incident-012",
+      "decision": "Aristotle's final written works — the Nicomachean Ethics and Politics — explicitly acknowledge that political and ethical knowledge is less precise than mathematical knowledge and should not be expected to achieve the same level of determinacy.",
+      "context": "Ancient philosophy often sought to achieve mathematical-level precision for ethical and political claims. Aristotle rejected this goal as a category error: the precision appropriate to ethics is the precision appropriate to ethics, not the precision appropriate to mathematics.",
+      "divergence_explanation": "This is systematic classification applied to the epistemology of the different sciences: each domain has a characteristic level of precision that is appropriate to it, and demanding more precision than the domain can deliver is itself an error. The practical domains require practical-level precision, not theoretical-level precision."
+    },
+    {
+      "id": "incident-013",
+      "decision": "When classifying political constitutions in the Politics, Aristotle distinguished between constitutions by reference to the number of rulers and the end they serve — adding the teleological dimension (who benefits) to the formal dimension (how many rule) to produce a classification that his predecessors had missed.",
+      "context": "Prior political classifications sorted constitutions by number of rulers: one (monarchy), few (oligarchy), many (democracy). Aristotle added the evaluative dimension: the same constitutional form can serve the common good or the rulers' private interest, producing six types rather than three.",
+      "divergence_explanation": "This is the teleological construct in classification: the category is only complete when the end served by the thing is included. A constitution cannot be fully classified by its formal structure alone — the direction it points, who it serves, is part of the essential nature. This doubles the resolution of the taxonomy and changes what questions need to be asked about any specific regime."
+    },
+    {
+      "id": "incident-014",
+      "decision": "In the Poetics, Aristotle analyzed tragedy by identifying its essential structure — hamartia, reversal of fortune, recognition, catharsis — and argued that the best tragedies achieve their effect through the plot's internal logic rather than through spectacle or manipulation.",
+      "context": "Greek audiences and critics valued dramatic spectacle. The theatrical culture privileged visual and emotional impact. Aristotle's Poetics argues from first principles about what tragedy is for — what its telos is — and derives the structural requirements from that end.",
+      "divergence_explanation": "The teleological method applied to art criticism: the form that best achieves the work's purpose is the best form, and the purpose must be understood before the form can be evaluated. The critic who praises spectacle without first establishing what drama is for is reasoning from the wrong category — confusing what is most striking with what is most effective at achieving the end."
+    }
+  ]
+}
