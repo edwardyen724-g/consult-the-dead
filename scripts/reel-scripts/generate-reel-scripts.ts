@@ -223,6 +223,25 @@ const DECISION_COURT: Record<
       "Generic advice is the default output of any system trained on the average of everything. The antidote is not more AI — it is a specific framework extracted from real decisions by real people who operated under real constraints. Specificity beats generality. Every time.",
     caption: "Specific beats generic. Always.",
   },
+  // ── Wave 23 court entries ─────────────────────────────────────────────
+  "people-vs-terrain": {
+    minds: ["Andrew Carnegie", "Sun Tzu", "Niccolò Machiavelli"],
+    consensus:
+      "Neither people alone nor terrain alone produces a durable competitive advantage. Identify your primary constraint: if you cannot name the position worth defending, solve the terrain problem first. If you have a clear position but cannot execute at the required tempo, solve the people problem first. Confusing the two produces better-staffed wrong strategies or cleaner strategy documents that nobody can execute.",
+    caption: "Constraint first. Then invest.",
+  },
+  reform: {
+    minds: ["Catherine the Great", "Niccolò Machiavelli", "Marcus Aurelius"],
+    consensus:
+      "Before choosing your reform model, run the concentration diagnostic. Identify the three to five people whose behavior, if changed, would shift the dysfunction most significantly. If those people exist and can be named, apply direct authority establishment to them and coalition-building to everyone else. If the dysfunction is genuinely diffuse, establish trust before you announce what is broken — reform requires the cooperation of people who currently benefit from the status quo, and you cannot buy that cooperation with authority alone.",
+    caption: "Diagnose first. Then reform.",
+  },
+  ownership: {
+    minds: ["Thomas Edison", "Nikola Tesla", "Isaac Newton"],
+    consensus:
+      "The decision between platform ownership and breakthrough-seeking depends on whether the choice is incremental or paradigm-level. For incremental decisions within a validated technical foundation, invest in ownership — the compound value of being the default platform is enormous. For paradigm decisions where the fundamental architecture is uncertain, validate the foundation before building the system. The failure modes are symmetric: building a platform on a technically wrong foundation, and achieving a breakthrough without the commercialization engine required to capture its value.",
+    caption: "Incremental or paradigm? Decide first.",
+  },
 };
 
 const MAIN_BEATS: Record<string, string> = {
@@ -292,6 +311,13 @@ const MAIN_BEATS: Record<string, string> = {
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
     "The problem with generic AI advice is structural: it regresses to the mean of everything it has seen. A framework built from one person's actual decisions does not regress — it extrapolates from that specific reasoning pattern.",
+  // ── Wave 23 beats ─────────────────────────────────────────────────────
+  "people-vs-terrain":
+    "Identify your primary constraint before investing. If you cannot name a position worth defending, the terrain problem is unsolved. If you have clear terrain but cannot execute at the required tempo, the people problem is unsolved. Hire for the terrain you have committed to, not for a general capability that fits no specific fight.",
+  reform:
+    "Run the concentration diagnostic before choosing your reform approach. Name the three to five people whose behavior, if changed, would shift the dysfunction most. Apply direct authority to those specific people. Apply patient coalition-building to everyone else.",
+  ownership:
+    "Ask whether this is an incremental decision or a paradigm decision. For incremental improvements within a validated technical foundation, invest in ownership and platform control. For paradigm-level architectural choices, validate the foundation before building the system on top of it.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
@@ -361,6 +387,13 @@ const SUPPORT_BEATS: Record<string, string> = {
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
     "Curie did not publish generalities — she published precise experimental results and specific measurements. The value of a historical reasoning framework is identical: it encodes the specific cues, goals, and constraints of real decisions, not the average of all decisions ever made.",
+  // ── Wave 23 beats ─────────────────────────────────────────────────────
+  "people-vs-terrain":
+    "Great people on the wrong terrain produce impressive execution of the wrong strategy. Great terrain without capable people produces a defensible position nobody can occupy. Build both in parallel, and let each inform the other.",
+  reform:
+    "Compliance without commitment is a ceiling, not a foundation. Build toward genuine belief in the direction by demonstrating competence within the existing frame before announcing everything is broken. The coalition you need to reform the system is inside the system you are reforming.",
+  ownership:
+    "Commercial viability is not the same as technical correctness. The DC system was commercially viable — until the physics of AC transmission made the entire infrastructure a liability. Know the difference before you invest in owning the platform.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
@@ -430,6 +463,13 @@ const CLOSE_BEATS: Record<string, string> = {
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
     "Stop asking for advice. Start specifying the framework and the decision. The output will be different, and it will be better.",
+  // ── Wave 23 beats ─────────────────────────────────────────────────────
+  "people-vs-terrain":
+    "What is the primary constraint right now — terrain clarity or execution capability? Invest in the one that is actually blocking progress. Do not defer both.",
+  reform:
+    "What would the reform look like if the three most resistant people left tomorrow? If the answer is 'completely different,' the dysfunction is concentrated. If the answer is 'about the same,' the dysfunction is cultural. The intervention differs significantly between those two cases.",
+  ownership:
+    "Before you invest in owning the platform, identify the most likely technical approach that could make your current architecture obsolete in ten years. If you cannot name one, build the platform. If you can, solve that problem first.",
 };
 
 function titleCase(value: string): string {

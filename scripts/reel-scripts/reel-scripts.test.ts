@@ -2445,6 +2445,73 @@ describe("Socrates — single insight and collision reel tests", () => {
 // is un-hidden pending legal review. No reel test yet since the slug is commented
 // out. Restore the test when albert-einstein is restored to ALLOWED_SLUGS.
 
+// ── Wave 23 reel tests ──────────────────────────────────────────────────────
+describe("Wave 23 collision reel tests", () => {
+  it("generates a reel script for carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain", () => {
+    const script = buildVerdictReelScript(
+      "carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain",
+    );
+    expect(script.slug).toBe(
+      "carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain",
+    );
+    expect(script.frameworkSlug).toBe("andrew-carnegie");
+    expect(script.decisionType).toBe("people-vs-terrain");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // People-vs-terrain court: Carnegie (main), Sun Tzu (support), Machiavelli (close)
+    expect(script.councilPass[0].mind).toBe("Andrew Carnegie");
+    expect(script.councilPass[1].mind).toBe("Sun Tzu");
+    expect(script.councilPass[2].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/carnegie-vs-sun-tzu-on-winning-through-people-vs-terrain",
+    );
+  });
+
+  it("generates a reel script for catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system", () => {
+    const script = buildVerdictReelScript(
+      "catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system",
+    );
+    expect(script.slug).toBe(
+      "catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system",
+    );
+    expect(script.frameworkSlug).toBe("catherine-the-great");
+    expect(script.decisionType).toBe("reform");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Reform court: Catherine (main), Machiavelli (support), Aurelius (close)
+    expect(script.councilPass[0].mind).toBe("Catherine the Great");
+    expect(script.councilPass[1].mind).toBe("Niccolò Machiavelli");
+    expect(script.councilPass[2].mind).toBe("Marcus Aurelius");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system",
+    );
+  });
+
+  it("generates a reel script for edison-vs-tesla-on-ownership-vs-breakthrough", () => {
+    const script = buildVerdictReelScript(
+      "edison-vs-tesla-on-ownership-vs-breakthrough",
+    );
+    expect(script.slug).toBe("edison-vs-tesla-on-ownership-vs-breakthrough");
+    expect(script.frameworkSlug).toBe("thomas-edison");
+    expect(script.decisionType).toBe("ownership");
+    expect(script.estimatedDurationSeconds).toBeGreaterThanOrEqual(25);
+    expect(script.estimatedDurationSeconds).toBeLessThanOrEqual(40);
+    // Ownership court: Edison (main), Tesla (support), Newton (close)
+    expect(script.councilPass[0].mind).toBe("Thomas Edison");
+    expect(script.councilPass[1].mind).toBe("Nikola Tesla");
+    expect(script.councilPass[2].mind).toBe("Isaac Newton");
+    expect(script.councilPass.length).toBeGreaterThanOrEqual(3);
+    expect(script.hook.voiceover.length).toBeGreaterThanOrEqual(1);
+    expect(script.cta).toContain(
+      "/insights/edison-vs-tesla-on-ownership-vs-breakthrough",
+    );
+  });
+});
+
 if (typeof g.expect === "undefined" && typeof process !== "undefined") {
   let failed = 0;
   for (const suite of suites) {
