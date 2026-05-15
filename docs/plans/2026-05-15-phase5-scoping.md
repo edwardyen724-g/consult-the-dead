@@ -1,6 +1,6 @@
 # Phase 5 Scoping — Next Automation Horizon
 
-**Status:** Active — pilot eval complete; duration fix in progress; Track C running
+**Status:** Active — duration formula fixed (PR #428); formula now accurate but council beats too long; Track C running
 **Owner:** CEO
 **Last updated:** 2026-05-15
 
@@ -24,12 +24,32 @@ Before Phase 5 tasks can start, all of the following must be true (per `docs/pla
 - [x] CTA, captions, and council order consistent across the batch ← **PASS** (dry-run eval, PR #422)
 - [x] Edward can review a generated script in one pass without re-authoring ← **PASS** (editorial quality confirmed)
 
-**Pilot result (2026-05-15, dry-run):**
+**Pilot result (2026-05-15, dry-run, PR #422 — original eval):**
 - **Editorial quality:** PASS — hook questions are scenario-first and engaging; council voices are distinct; no JSON errors
 - **Duration:** FAIL — `estimatedDurationSeconds` formula counts article description length instead of spoken word count; reports 30s but dry-run computes 49–73s
-- **Fix in progress:** task `07b7fe5b`, capsule `a82132d3`, branch `wanman/fix-reel-duration-formula`
+- **Fix in progress:** task `07b7fe5b`, branch `wanman/fix-reel-duration-formula` (PR #428)
 - **Voice synthesis:** Not yet tested — F5-TTS not installed in current environment
-- **Next gate:** re-run dry-run eval after duration fix merges; if duration 25–40s, proceed to F5-TTS installation and actual synthesis
+
+**Re-eval result (2026-05-15, task `3de2e7f8` — post duration-formula fix, PR #428):**
+
+Formula now counts words across all 6 spoken segments (hookQuestion + MAIN_BEATS + SUPPORT_BEATS + CLOSE_BEATS + consensus + CTA) at 2.5 wps + 2.2s pauses per reel.
+
+| # | Slug | estimatedDurationSeconds | Word count | In 25–40s range |
+|---|------|--------------------------|------------|-----------------|
+| 1 | `what-would-marcus-aurelius-say-about-burnout` | 53 s | 126 words | FAIL (over) |
+| 2 | `what-would-marie-curie-say-about-when-to-trust-the-data` | 46 s | 110 words | FAIL (over) |
+| 3 | `what-would-tesla-say-about-technical-debt` | 50 s | 119 words | FAIL (over) |
+| 4 | `what-would-steve-jobs-say-about-product-focus` | 55 s | 132 words | FAIL (over) |
+| 5 | `what-would-lincoln-say-about-leading-through-crisis` | 54 s | 129 words | FAIL (over) |
+
+**Duration row result: FAIL (formula accurate; council beats too long)**
+
+The formula is now correct — estimates (46–55s) closely match the voice-level estimates from PR #422 (49–73s). The root cause is that council beats (MAIN_BEATS + SUPPORT_BEATS + CLOSE_BEATS) average 60–70 words each across the pilot slugs, and the consensus paragraph averages ~20 words. Together they push every reel 6–15s over the 40s ceiling.
+
+**Required fix before exit gate can be cleared:** Trim council beat lines to ≤ 15 words each and consensus to ≤ 15 words. This alone should bring reels in the 35–42s range, close enough to target after minor CTA trimming. A follow-up task is needed to trim `MAIN_BEATS`, `SUPPORT_BEATS`, `CLOSE_BEATS`, and `DECISION_COURT[*].consensus` entries.
+
+- **Voice synthesis:** Not yet tested — F5-TTS not installed in current environment
+- **Next gate:** trim council beats → re-run dry-run eval → if duration 25–40s, proceed to F5-TTS installation and actual synthesis
 
 ---
 
@@ -105,7 +125,7 @@ Three candidate tracks, evaluated below. CEO decision logged in §Decision after
 
 **Selected track(s):** Track C (active) + Track A (unblocked when duration fix merges + F5-TTS installed)
 
-**Rationale:** Track C (Aristotle + Wave 25) has no blockers and directly advances product value. Track A (scheduling) requires the duration fix to land and F5-TTS to be installed before the pilot can be re-run cleanly. Once PR #424 (duration fix) merges and F5-TTS is installed via `pip install ".[tts-f5]"`, re-run the pilot eval and if duration is 25–40s, the Phase 4 exit gate is cleared and Track A tasks can begin.
+**Rationale:** Track C (Aristotle + Wave 25) has no blockers and directly advances product value. Track A (scheduling) requires the duration fix to land, council beats to be trimmed, and F5-TTS to be installed before the pilot can be re-run cleanly. PR #428 fixed the duration formula — formula is now accurate — but re-eval confirms council beats are still too long (46–55s vs 25–40s target). Council beat trimming is required before the Phase 4 exit gate can clear and Track A tasks can begin.
 
 **Phase 5 initiative:** To be created when Phase 4 exit gate fully clears. Track C tasks are already in initiative `d0884bfe`.
 
