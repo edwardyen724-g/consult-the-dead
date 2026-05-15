@@ -44,6 +44,17 @@ _DEFAULT_POLL_TIMEOUT  = 300 # seconds before giving up on container readiness
 class ReelUploadError(RuntimeError):
     """Raised when the reel upload or publish step fails."""
 
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: int | None = None,
+        retry_after_seconds: float | None = None,
+    ) -> None:
+        super().__init__(message)
+        self.status_code = status_code
+        self.retry_after_seconds = retry_after_seconds
+
 
 @dataclass
 class ReelUploadResult:
@@ -221,19 +232,57 @@ class ReelUploader:
     @staticmethod
     def _parse_response(response: httpx.Response, *, context: str) -> dict:
         """Parse a Graph API response, raising on error."""
+        status_code = ReelUploader._status_code(response)
+        if status_code == 429:
+            retry_after_seconds = ReelUploader._retry_after_seconds(response)
+            message = f"{context}: HTTP 429 rate limit exceeded"
+            if retry_after_seconds is not None:
+                message += f" — retry after {retry_after_seconds}s"
+            raise ReelUploadError(
+                message,
+                status_code=429,
+                retry_after_seconds=retry_after_seconds,
+            )
+
         try:
             data = response.json()
         except Exception as exc:
             raise ReelUploadError(
-                f"{context}: failed to parse JSON — {exc}"
+                f"{context}: failed to parse JSON — {exc}",
+                status_code=status_code,
             ) from exc
 
         if "error" in data:
             err = data["error"]
             raise ReelUploadError(
-                f"{context}: Graph API error {err.get('code')} — {err.get('message')}"
+                f"{context}: Graph API error {err.get('code')} — {err.get('message')}",
+                status_code=status_code,
+            )
+
+        if status_code is not None and status_code >= 400:
+            raise ReelUploadError(
+                f"{context}: HTTP {status_code} response without Graph API error payload: {data}",
+                status_code=status_code,
             )
         return data
+
+    @staticmethod
+    def _status_code(response: httpx.Response) -> int | None:
+        status_code = getattr(response, "status_code", None)
+        return status_code if isinstance(status_code, int) else None
+
+    @staticmethod
+    def _retry_after_seconds(response: httpx.Response) -> float | None:
+        headers = getattr(response, "headers", None)
+        if headers is None:
+            return None
+        retry_after = headers.get("Retry-After")
+        if retry_after is None:
+            return None
+        try:
+            return float(retry_after)
+        except (TypeError, ValueError):
+            return None
 
     def __enter__(self) -> "ReelUploader":
         return self

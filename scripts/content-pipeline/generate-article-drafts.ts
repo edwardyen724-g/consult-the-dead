@@ -64,10 +64,26 @@ export interface DraftOptions {
   generatedAt?: string;
 }
 
+export interface SearchConsoleSubmissionResult {
+  endpoint: string;
+  response: unknown;
+}
+
+export interface SearchConsoleSubmitOptions {
+  accessToken?: string;
+  endpoint?: string;
+  fetchImpl?: typeof fetch;
+}
+
+export interface RunCliDependencies {
+  submitSearchConsolePayload?: typeof submitSearchConsolePayload;
+}
+
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DEFAULT_TOPICS_PATH = path.join(ROOT_DIR, "topics.yaml");
 const DEFAULT_OUTPUT_DIR = path.join(ROOT_DIR, "output", "content-pipeline");
 const DEFAULT_SITE_BASE_URL = "https://consultthedead.com";
+const DEFAULT_SEARCH_CONSOLE_ENDPOINT = "https://indexing.googleapis.com/v3/urlNotifications:publish";
 const FALLBACK_COUNCIL = ["marcus-aurelius", "niccolo-machiavelli", "sun-tzu"];
 const ACRONYMS = new Map([
   ["ai", "AI"],
@@ -546,6 +562,55 @@ export async function writeDraftArtifacts(
   return outputs;
 }
 
+function resolveSearchConsoleAccessToken(explicitToken?: string): string {
+  const token =
+    explicitToken ??
+    process.env.SEARCH_CONSOLE_ACCESS_TOKEN ??
+    process.env.GOOGLE_INDEXING_API_ACCESS_TOKEN ??
+    process.env.GOOGLE_INDEXING_ACCESS_TOKEN;
+
+  if (!token) {
+    throw new Error(
+      "Search Console access token is not set. Provide SEARCH_CONSOLE_ACCESS_TOKEN or GOOGLE_INDEXING_API_ACCESS_TOKEN.",
+    );
+  }
+
+  return token;
+}
+
+export async function submitSearchConsolePayload(
+  payload: ArticleDraftArtifact["searchConsolePayload"],
+  options: SearchConsoleSubmitOptions = {},
+): Promise<SearchConsoleSubmissionResult> {
+  const endpoint = options.endpoint ?? DEFAULT_SEARCH_CONSOLE_ENDPOINT;
+  const fetchImpl = options.fetchImpl ?? globalThis.fetch;
+
+  if (typeof fetchImpl !== "function") {
+    throw new Error("Global fetch is not available for Search Console submission");
+  }
+
+  const response = await fetchImpl(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${resolveSearchConsoleAccessToken(options.accessToken)}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.text().catch(() => "");
+    throw new Error(
+      `Search Console submission failed with ${response.status}${response.statusText ? ` ${response.statusText}` : ""}${errorBody ? `: ${errorBody}` : ""}`,
+    );
+  }
+
+  return {
+    endpoint,
+    response: await response.json().catch(() => null),
+  };
+}
+
 export function parseArgv(argv: string[]) {
   const options: {
     slug?: string;
@@ -594,7 +659,10 @@ export function parseArgv(argv: string[]) {
   return options;
 }
 
-export async function runCli(argv = process.argv.slice(2)): Promise<void> {
+export async function runCli(
+  argv = process.argv.slice(2),
+  dependencies: RunCliDependencies = {},
+): Promise<void> {
   const options = parseArgv(argv);
   const topics = await loadTopicsFromFile(options.topicsPath);
   const topic = selectTopicRecord(topics, { slug: options.slug });
@@ -604,6 +672,11 @@ export async function runCli(argv = process.argv.slice(2)): Promise<void> {
   const outputs = options.dryRun
     ? buildOutputPaths(draft, options.outputDir)
     : await writeDraftArtifacts(draft, options.outputDir);
+
+  if (!options.dryRun) {
+    const submitter = dependencies.submitSearchConsolePayload ?? submitSearchConsolePayload;
+    await submitter(draft.searchConsolePayload);
+  }
 
   const mode = options.dryRun ? "dry-run" : "write";
   process.stdout.write(
