@@ -2850,8 +2850,7 @@
     - "founder as consensus builder vs founder as decider"
   recommended_council: [abraham-lincoln, julius-caesar]
   hook_angles: [tension, identity]
-  status: shipped
-  shipped_at: "2026-05-15"
+  status: queued
 
 - slug: should-i-raise-prices-or-compete-on-value
   type: decision
