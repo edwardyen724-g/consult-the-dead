@@ -40,7 +40,7 @@ const DECISION_COURT: Record<
   pivot: {
     minds: ["Isaac Newton", "Marie Curie", "Niccolò Machiavelli"],
     consensus:
-      "Do not pivot because the room is anxious. Pivot only when the evidence has broken the current model and the old path is clearly burning runway.",
+      "Pivot only when evidence breaks the model. Anxiety is not evidence.",
     caption: "Stop guessing. Start measuring.",
   },
   leadership: {
@@ -52,194 +52,194 @@ const DECISION_COURT: Record<
   strategy: {
     minds: ["Sun Tzu", "Niccolò Machiavelli", "Leonardo da Vinci"],
     consensus:
-      "Win by choosing terrain, not by forcing a frontal clash. Shape the market so the incumbent's strength stops mattering as much.",
+      "Win by choosing terrain. Shape the market until the incumbent's strength stops mattering.",
     caption: "Do not fight the wrong battle.",
   },
   evidence: {
     minds: ["Marie Curie", "Isaac Newton", "Marcus Aurelius"],
     consensus:
-      "Collect enough signal to decide honestly, then move. The danger is not waiting too long; it is pretending the data is already clear when it is not.",
+      "Collect enough signal to decide honestly, then move. Do not pretend the data is clear when it is not.",
     caption: "Signal before speed.",
   },
   innovation: {
     minds: ["Nikola Tesla", "Leonardo da Vinci", "Isaac Newton"],
     consensus:
-      "Build the future if the upside is genuinely strategic, not cosmetic. The bet is justified when the new version changes the frame, not just the polish.",
+      "Build the future only when the new version changes the frame, not just the polish.",
     caption: "Build the version that changes the frame.",
   },
   systems: {
     minds: ["Leonardo da Vinci", "Sun Tzu", "Marcus Aurelius"],
     consensus:
-      "Look at the pattern between domains before you choose the move. The answer is usually in the system that connects the problem, not the problem itself.",
+      "The answer lives in the system connecting the parts, not in any single problem.",
     caption: "Read the pattern between the parts.",
   },
   // ── Extended court entries — added for full reel coverage (task ae4fab8d) ──
   burnout: {
     minds: ["Marcus Aurelius", "Marie Curie", "Niccolò Machiavelli"],
     consensus:
-      "Before you rest, name whether the duty itself is broken or just the pace. If the duty is sound, the strain is a season. If the duty is wrong, no amount of rest will fix it.",
+      "Name whether the duty is broken or just the pace. If the duty is wrong, rest will not fix it.",
     caption: "Duty first. Then rest.",
   },
   resilience: {
     minds: ["Marcus Aurelius", "Nikola Tesla", "Marie Curie"],
     consensus:
-      "Failure is not the opposite of progress — it is the cost of honest experimentation. The question is not whether you failed but whether you extracted the right lesson before moving on.",
+      "Failure is the cost of honest experimentation. Extract the right lesson before moving on.",
     caption: "Extract the lesson. Keep moving.",
   },
   "self-doubt": {
     minds: ["Marcus Aurelius", "Marie Curie", "Isaac Newton"],
     consensus:
-      "Self-doubt is only useful when it points to a real gap. When it points to fear of judgment, it is noise. Separate the two before you let it change your direction.",
+      "Self-doubt pointing to a real gap is signal. Pointing to fear of judgment, it is noise. Separate them.",
     caption: "Signal or noise? Decide first.",
   },
   shipping: {
     minds: ["Nikola Tesla", "Niccolò Machiavelli", "Marie Curie"],
     consensus:
-      "Ship when the core function is honest. Do not ship when the gap between the promise and the product will cost you the trust you cannot rebuild in the next version.",
+      "Ship when the core is honest. Do not ship when the gap will cost you trust you cannot rebuild.",
     caption: "Ship the honest version.",
   },
   creativity: {
     minds: ["Leonardo da Vinci", "Nikola Tesla", "Marcus Aurelius"],
     consensus:
-      "Creative block is not a shortage of ideas — it is a signal that you have stopped making things with your hands. Return to the smallest version of the work and let momentum rebuild itself.",
+      "Creative block means you stopped making. Return to the smallest version of the work and let momentum rebuild.",
     caption: "Make something small. Then continue.",
   },
   rebuild: {
     minds: ["Isaac Newton", "Leonardo da Vinci", "Marcus Aurelius"],
     consensus:
-      "Start from the axioms, not the assumptions. Rebuilding from first principles is slower at the start and faster at the end — but only if you are honest about which beliefs actually survive first-principles scrutiny.",
+      "Start from the axioms, not the assumptions. Only beliefs that survive first-principles scrutiny belong in the rebuild.",
     caption: "Axioms first. Then build.",
   },
   reasoning: {
     minds: ["Isaac Newton", "Marie Curie", "Marcus Aurelius"],
     consensus:
-      "The goal of first-principles thinking is not novelty — it is honesty. Strip back to what you can actually prove, then rebuild the argument only as far as the evidence supports.",
+      "Strip back to what you can actually prove. Rebuild the argument only as far as the evidence supports.",
     caption: "Prove it. Then extend it.",
   },
   portfolio: {
     minds: ["Niccolò Machiavelli", "Marie Curie", "Marcus Aurelius"],
     consensus:
-      "Pruning a portfolio is a resource-allocation problem, not an identity crisis. Cut what is no longer aligned with where the leverage is going, not what you have the most emotional history with.",
+      "Cut what no longer aligns with where leverage is going, not what you have the most history with.",
     caption: "Prune toward leverage.",
   },
   "product strategy": {
     minds: ["Sun Tzu", "Niccolò Machiavelli", "Marie Curie"],
     consensus:
-      "Product strategy is terrain selection before it is feature selection. Pick the ground where the evidence says you can win, then let the product follow the terrain — not the other way around.",
+      "Pick the ground where evidence says you can win. Let the product follow the terrain, not the other way around.",
     caption: "Terrain first. Product second.",
   },
   technology: {
     minds: ["Nikola Tesla", "Isaac Newton", "Leonardo da Vinci"],
     consensus:
-      "Technology bets are right or wrong based on physics and first principles, not the current hype cycle. Build the version that would still be right in ten years, not the version that fits the current narrative.",
+      "Technology bets are right or wrong based on physics, not hype. Build what is still right in ten years.",
     caption: "What is still true in ten years?",
   },
   product: {
     minds: ["Leonardo da Vinci", "Marie Curie", "Niccolò Machiavelli"],
     consensus:
-      "A good product decision requires knowing what the user actually needs, what the data says they do, and what it costs to change. Disagreement among those three is where the real decision lives.",
+      "Align user need, data, and cost to change. The disagreement between those three is the real decision.",
     caption: "Need, data, cost. Align all three.",
   },
   pricing: {
     minds: ["Niccolò Machiavelli", "Marcus Aurelius", "Marie Curie"],
     consensus:
-      "Pricing is a claim about value. Get the claim wrong and you either underprice what you built or overprice what you have not yet earned. Charge what the value actually is, not what feels safe.",
+      "Pricing is a claim about value. Charge what the value actually is, not what feels safe.",
     caption: "Charge what the value actually is.",
   },
   // ── Wave 2 court entries ─────────────────────────────────────────────
   scaling: {
     minds: ["Napoleon Bonaparte", "Marcus Aurelius", "Marie Curie"],
     consensus:
-      "Growth rate is not a strategy. Close the gap between operational tempo and logistical architecture before you add the next division. If you cannot reproduce the mechanism that created last quarter's numbers, you have not found a repeatable process — you have found a coincidence.",
+      "Growth rate is not a strategy. Close the gap between tempo and logistics before you add the next division.",
     caption: "Tempo follows logistics, not the other way around.",
   },
   // ── Wave 4 court entries ─────────────────────────────────────────────
   persuasion: {
     minds: ["Cicero", "Benjamin Franklin", "Marcus Aurelius"],
     consensus:
-      "Persuasion is not charm — it is structure. Know your audience's interest before you speak. Argue only what cannot be refuted, and say it in the fewest words the truth allows. The rest is noise that weakens your strongest point.",
+      "Know your audience's interest before you speak. Argue only what cannot be refuted, in the fewest words truth allows.",
     caption: "Argue only what cannot be refuted.",
   },
   control: {
     minds: ["Epictetus", "Marcus Aurelius", "Seneca"],
     consensus:
-      "You cannot control outcomes, reputation, or other people's judgments. You can control your own response, effort, and direction. Spend all strategic energy on the second category. Ignore the first entirely. This is not passivity — it is the highest form of focus.",
+      "You cannot control outcomes or judgments. Control only your own response and effort. Ignore everything else.",
     caption: "Control your response. Nothing else.",
   },
   // ── Wave 3 court entries ─────────────────────────────────────────────
   focus: {
     minds: ["Steve Jobs", "Leonardo da Vinci", "Marcus Aurelius"],
     consensus:
-      "The most dangerous thing you can build into a product is optionality you are not willing to cut. Focus is a discipline decision before it is a product decision. Every item that stays on the roadmap is a claim on attention that will not go elsewhere. The question is not what to add — it is what you are willing to remove.",
+      "Focus is a discipline decision. The question is not what to add — it is what to remove.",
     caption: "Say no. That is the whole strategy.",
   },
   crisis: {
     minds: ["Abraham Lincoln", "Marcus Aurelius", "Niccolò Machiavelli"],
     consensus:
-      "In a crisis, the failure mode is not making the wrong decision — it is pretending you have more certainty than you do and locking yourself into a course you cannot revise. The best crisis decisions are honest about what they do not know, and built with structural capacity to update when new information arrives.",
+      "The crisis failure mode is pretending certainty you do not have. Decide honestly and build in capacity to update.",
     caption: "Decide clearly. Update honestly.",
   },
   "time-management": {
     minds: ["Benjamin Franklin", "Marcus Aurelius", "Leonardo da Vinci"],
     consensus:
-      "Time management is not a scheduling problem — it is a prioritization problem. You cannot save time; you can only choose what to do with it. The question is whether the way you spend your hours is the result of deliberate choice or accumulated drift from what other people needed from you.",
+      "You cannot save time. The only question is whether your hours are deliberate choice or accumulated drift.",
     caption: "What did you choose today? Or did it choose you?",
   },
   iteration: {
     minds: ["Thomas Edison", "Marie Curie", "Leonardo da Vinci"],
     consensus:
-      "Iteration is not a failure mode — it is the mechanism of discovery. The question is not whether you failed, but whether you are failing fast enough and extracting the right information from each failure. An experiment that tells you what does not work is not wasted — it is progress at the speed of honest testing.",
+      "Iteration is the mechanism of discovery. Are you failing fast enough and extracting the right lesson each time?",
     caption: "Each failure narrows the field.",
   },
   hiring: {
     minds: ["Andrew Carnegie", "Niccolò Machiavelli", "Benjamin Franklin"],
     consensus:
-      "Hiring is not a cost to minimize — it is a leverage decision. The right person in the right role will compound your capacity. The wrong person will consume your attention and produce diminishing returns. Hire for trajectory, not just current performance, and design the role so that the right person cannot help but succeed.",
+      "Hiring is a leverage decision. Hire for trajectory, and design the role so the right person cannot help but succeed.",
     caption: "Hire for trajectory. Design the role for success.",
   },
   procrastination: {
     minds: ["Seneca", "Marcus Aurelius", "Benjamin Franklin"],
     consensus:
-      "Procrastination is rarely about the task. It is about a gap between the task as it is and the task as you have told yourself it should be. Find the real reason the thing is not getting done — not the excuse, but the actual obstacle — and the procrastination usually ends.",
+      "Procrastination is rarely about the task. Find the actual obstacle — not the excuse — and it usually ends.",
     caption: "Name the real reason. Then start.",
   },
   // ── Wave 7 court entries ─────────────────────────────────────────────
   finance: {
     minds: ["John D. Rockefeller", "Marie Curie", "Sun Tzu"],
     consensus:
-      "Unit economics are not a finance problem — they are a product problem. The margin structure you build in early stages constrains every strategic option you will have later. Do not optimize for growth before you understand the cost architecture underneath it.",
+      "Unit economics are a product problem. Early margin structure constrains every strategic option you will have later.",
     caption: "Know what each unit costs. Build from there.",
   },
   relationship: {
     minds: ["Cleopatra VII", "Niccolò Machiavelli", "Sun Tzu"],
     consensus:
-      "Managing a powerful stakeholder is not about charm — it is about alignment. Give them a win that costs you little, keep the relationship productive, and never let the appearance of dependence become the reality of it.",
+      "Give them a win that costs you little. Keep the relationship productive. Never let dependence become real.",
     caption: "Alignment, not dependence.",
   },
   // ── Wave 8 court entries ─────────────────────────────────────────────
   meta: {
     minds: ["Marie Curie", "Isaac Newton", "Niccolò Machiavelli"],
     consensus:
-      "Generic advice is the default output of any system trained on the average of everything. The antidote is not more AI — it is a specific framework extracted from real decisions by real people who operated under real constraints. Specificity beats generality. Every time.",
+      "Generic advice regresses to the mean. A framework built from real decisions under real constraints does not.",
     caption: "Specific beats generic. Always.",
   },
   // ── Wave 23 court entries ─────────────────────────────────────────────
   "people-vs-terrain": {
     minds: ["Andrew Carnegie", "Sun Tzu", "Niccolò Machiavelli"],
     consensus:
-      "Neither people alone nor terrain alone produces a durable competitive advantage. Identify your primary constraint: if you cannot name the position worth defending, solve the terrain problem first. If you have a clear position but cannot execute at the required tempo, solve the people problem first. Confusing the two produces better-staffed wrong strategies or cleaner strategy documents that nobody can execute.",
+      "Identify your primary constraint first. Solve the terrain problem or the people problem — not both at once.",
     caption: "Constraint first. Then invest.",
   },
   reform: {
     minds: ["Catherine the Great", "Niccolò Machiavelli", "Marcus Aurelius"],
     consensus:
-      "Before choosing your reform model, run the concentration diagnostic. Identify the three to five people whose behavior, if changed, would shift the dysfunction most significantly. If those people exist and can be named, apply direct authority establishment to them and coalition-building to everyone else. If the dysfunction is genuinely diffuse, establish trust before you announce what is broken — reform requires the cooperation of people who currently benefit from the status quo, and you cannot buy that cooperation with authority alone.",
+      "Run the concentration diagnostic first. Name the few people whose changed behavior shifts the dysfunction most, then act.",
     caption: "Diagnose first. Then reform.",
   },
   ownership: {
     minds: ["Thomas Edison", "Nikola Tesla", "Isaac Newton"],
     consensus:
-      "The decision between platform ownership and breakthrough-seeking depends on whether the choice is incremental or paradigm-level. For incremental decisions within a validated technical foundation, invest in ownership — the compound value of being the default platform is enormous. For paradigm decisions where the fundamental architecture is uncertain, validate the foundation before building the system. The failure modes are symmetric: building a platform on a technically wrong foundation, and achieving a breakthrough without the commercialization engine required to capture its value.",
+      "Incremental decisions warrant platform ownership. Paradigm decisions require validating the foundation before building on it.",
     caption: "Incremental or paradigm? Decide first.",
   },
 };
@@ -519,7 +519,7 @@ export function buildVerdictReelScript(slug: string): VerdictReelScript {
   const main = MAIN_BEATS[entry.decisionType] ?? `Frame the issue through ${titleCase(entry.decisionType)} before you decide.`;
   const support = SUPPORT_BEATS[entry.decisionType] ?? "Use the council to separate signal from noise.";
   const close = CLOSE_BEATS[entry.decisionType] ?? "Choose the move that keeps the system honest.";
-  const duration = estimateDurationSeconds(entry);
+  const duration = estimateDurationSeconds(entry, council);
 
   return {
     slug: entry.slug,
@@ -546,9 +546,23 @@ export function buildVerdictReelScript(slug: string): VerdictReelScript {
   };
 }
 
-function estimateDurationSeconds(entry: InsightEntry): number {
-  const base = 26 + Math.round((entry.hookQuestion.length + entry.description.length) / 140);
-  return Math.max(25, Math.min(40, base));
+const _WORDS_PER_SECOND = 2.5;
+const _PAUSE_SECONDS = 2.2; // ~0.4 hook pause + 3×0.5 council pauses + 0.3 consensus pause
+
+function wordCount(text: string): number {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function estimateDurationSeconds(entry: InsightEntry, council: { consensus: string }): number {
+  const hook = truncate(entry.hookQuestion, 180);
+  const main = MAIN_BEATS[entry.decisionType] ?? `Frame the issue through ${entry.decisionType} before you decide.`;
+  const support = SUPPORT_BEATS[entry.decisionType] ?? "Use the council to separate signal from noise.";
+  const close = CLOSE_BEATS[entry.decisionType] ?? "Choose the move that keeps the system honest.";
+  const cta = `Read the full article at /insights/${entry.slug} and bring your own decision.`;
+
+  const words = wordCount(hook) + wordCount(main) + wordCount(support) + wordCount(close) + wordCount(council.consensus) + wordCount(cta);
+  const spoken = words / _WORDS_PER_SECOND;
+  return Math.round(spoken + _PAUSE_SECONDS);
 }
 
 export function renderVerdictReelScript(script: VerdictReelScript): string {
