@@ -246,230 +246,230 @@ const DECISION_COURT: Record<
 
 const MAIN_BEATS: Record<string, string> = {
   pivot:
-    "Do not pivot on vibes. Wait until the evidence falsifies the current model, then move decisively.",
+    "Do not pivot on vibes. Wait until evidence falsifies the model, then move.",
   leadership:
-    "This is a power problem, not a personality problem. Name the imbalance before it names the decision.",
+    "This is a power problem, not a personality problem. Name the imbalance.",
   strategy:
-    "Do not attack strength head-on. Reframe the terrain until the fight changes shape.",
+    "Do not attack strength head-on. Reframe the terrain until the fight changes.",
   evidence:
-    "Keep collecting signal until the dataset can stand on its own. Do not confuse impatience with clarity.",
+    "Keep collecting signal until the dataset stands alone. Impatience is not clarity.",
   innovation:
-    "Ship the future only when the upside is strategic enough to justify the runway it consumes.",
+    "Ship the future only when the upside justifies the runway it consumes.",
   systems:
-    "Look for the pattern that connects the domains. The real answer usually lives between the parts.",
+    "Look for the pattern connecting the domains. The answer lives between the parts.",
   // ── Extended beats (task ae4fab8d) ──
   burnout:
-    "Inspect the duty before you inspect the energy. Fatigue that follows meaningful work is different from fatigue that follows the wrong work.",
+    "Inspect the duty before you inspect the energy. Check the duty first.",
   resilience:
-    "Do not treat failure as evidence you are wrong. Treat it as data on where the model needs updating.",
+    "Do not treat failure as proof you are wrong. Treat it as data.",
   "self-doubt":
-    "Name whether the doubt is pointing at a real gap or a fear of judgment. Only one of those is worth acting on.",
+    "Name whether the doubt points at a real gap or fear of judgment.",
   shipping:
-    "Ship when the core function is honest and the gap between the promise and the product will not cost you trust you cannot rebuild.",
+    "Ship when the core is honest and the gap will not cost you trust.",
   creativity:
-    "The block is not a shortage of ideas. Return to making something with your hands — momentum follows action, not intention.",
+    "The block is not a shortage of ideas. Return to making something now.",
   rebuild:
-    "Start from what you can actually prove, not from what you have always assumed. First principles is a discipline, not a slogan.",
+    "Start from what you can actually prove. First principles is a discipline.",
   reasoning:
-    "Strip the argument to its axioms. Then rebuild only as far as the evidence can carry the weight.",
+    "Strip the argument to its axioms. Rebuild only as far as evidence allows.",
   portfolio:
-    "Prune toward where the leverage is going, not where your emotional history is concentrated.",
+    "Prune toward where the leverage is going, not your emotional history.",
   "product strategy":
-    "Strategy is terrain selection before it is feature selection. Pick the ground where you can win, then let the product follow.",
+    "Strategy is terrain selection before feature selection. Pick ground you can win.",
   technology:
-    "Technology bets should be justified by physics and first principles, not by the current hype cycle.",
+    "Technology bets must be justified by physics, not the current hype cycle.",
   product:
-    "A good product decision aligns what the user needs, what the data shows, and what it costs to change. Disagreement between those three is where the real decision lives.",
+    "Align user need, data, and cost to change. Disagreement is the real decision.",
   pricing:
-    "Pricing is a claim about value. Charge what the value actually is — not what feels safe, not what the competition charges.",
+    "Pricing is a claim about value. Charge what the value actually is.",
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
-    "Logistical architecture must precede operational tempo. Before you scale to the next level, verify that the supply line can follow.",
+    "Logistical architecture must precede operational tempo. Verify the supply line first.",
   // ── Wave 4 beats ──────────────────────────────────────────────────────
   persuasion:
-    "Know your audience's strongest interest before you open your mouth. Argue only what cannot be refuted. Let the rest go.",
+    "Know your audience's strongest interest first. Argue only what cannot be refuted.",
   control:
-    "Divide the world into what you control and what you do not. Spend all energy on the first category. Ignore the second entirely.",
+    "Divide the world into what you control and what you do not. Choose accordingly.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
-    "Focus is a subtraction problem. Every feature you keep is attention you cannot spend elsewhere. Choose what to cut, not just what to build.",
+    "Focus is a subtraction problem. Choose what to cut, not just what to build.",
   crisis:
-    "A crisis does not require perfect decisions — it requires decisions honest about their own uncertainty and built to be revised when the evidence changes.",
+    "A crisis requires decisions honest about uncertainty and built to be revised.",
   "time-management":
-    "Every hour you spend on something you did not choose is an hour you did not spend on what matters. The goal is not to do more — it is to do the right things.",
+    "Every hour not deliberately chosen is an hour not spent on what matters.",
   iteration:
-    "You are not stuck — you are eliminating. Every failed approach narrows the space of possible answers. Keep going until you run out of wrong answers.",
+    "You are not stuck — you are eliminating. Every failure narrows the space.",
   hiring:
-    "The hiring decision you regret is always the one where you settled. Hold the bar, design the role for a great person, and wait.",
+    "The hire you regret is always the one where you settled. Hold the bar.",
   procrastination:
-    "The thing you are not doing is telling you something. What is the actual obstacle — not the excuse, but the real one? Name it, then address it.",
+    "Name the actual obstacle — not the excuse, the real one — then address it.",
   // ── Wave 7 beats ──────────────────────────────────────────────────────
   finance:
-    "Name the unit before you optimize anything. Revenue without margin is just a way to burn more money faster.",
+    "Name the unit before you optimize anything. Revenue without margin burns faster.",
   relationship:
-    "Find the interest behind the position. The investor's stated concern is rarely their real concern. Identify what they actually need from this relationship.",
+    "Find the interest behind the position. Their stated concern is rarely the real one.",
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
-    "The problem with generic AI advice is structural: it regresses to the mean of everything it has seen. A framework built from one person's actual decisions does not regress — it extrapolates from that specific reasoning pattern.",
+    "Generic advice regresses to the mean. A framework from real decisions does not.",
   // ── Wave 23 beats ─────────────────────────────────────────────────────
   "people-vs-terrain":
-    "Identify your primary constraint before investing. If you cannot name a position worth defending, the terrain problem is unsolved. If you have clear terrain but cannot execute at the required tempo, the people problem is unsolved. Hire for the terrain you have committed to, not for a general capability that fits no specific fight.",
+    "Identify your primary constraint before investing. Name what is actually blocking progress.",
   reform:
-    "Run the concentration diagnostic before choosing your reform approach. Name the three to five people whose behavior, if changed, would shift the dysfunction most. Apply direct authority to those specific people. Apply patient coalition-building to everyone else.",
+    "Name the few people whose changed behavior shifts the dysfunction most. Start there.",
   ownership:
-    "Ask whether this is an incremental decision or a paradigm decision. For incremental improvements within a validated technical foundation, invest in ownership and platform control. For paradigm-level architectural choices, validate the foundation before building the system on top of it.",
+    "Ask whether this is incremental or paradigm. Validate the foundation before building on it.",
 };
 
 const SUPPORT_BEATS: Record<string, string> = {
   pivot:
-    "Treat the business like a model under test: if it no longer predicts reality, the old strategy has failed.",
+    "If the model no longer predicts reality, the old strategy has already failed.",
   leadership:
-    "A clean boundary protects the company better than an emotional debate that keeps dragging on.",
+    "A clean boundary protects the company better than an emotional debate does.",
   strategy:
     "Incumbents defend positions, not possibilities. Make them defend the wrong terrain.",
   evidence:
-    "The goal is not more data forever. The goal is enough data to stop lying to yourself.",
+    "The goal is not more data forever. Get enough data to stop lying to yourself.",
   innovation:
-    "Build the version that changes the frame, but only if the evidence says the frame is worth changing.",
+    "Build the version that changes the frame — only if the evidence says it is worth it.",
   systems:
-    "Cross-domain pattern recognition beats narrow expertise when the issue is really structural.",
+    "Cross-domain pattern recognition beats narrow expertise when the issue is structural.",
   // ── Extended beats (task ae4fab8d) ──
   burnout:
-    "Extraordinary output requires extraordinary sacrifice — but only when the sacrifice is in service of the right duty. Check the duty first.",
+    "Extraordinary output requires sacrifice — but only in service of the right duty.",
   resilience:
-    "The experiment only fails completely if you stop before the lesson is extracted.",
+    "The experiment only fails completely if you stop before extracting the lesson.",
   "self-doubt":
-    "Productive doubt asks 'what do I need to learn?' Corrosive doubt asks 'what will they think?' Know which one is running.",
+    "Productive doubt asks what to learn. Corrosive doubt asks what they will think.",
   shipping:
-    "The right time to ship is when the core is honest and the gap between promise and product is survivable.",
+    "Ship when the core is honest and the gap between promise and product is survivable.",
   creativity:
-    "Creativity is not inspiration followed by execution. It is execution that generates its own momentum.",
+    "Creativity is not inspiration followed by execution. Execution generates its own momentum.",
   rebuild:
-    "Most rebuilds fail not because the new idea was wrong but because the team rebuilt from assumption instead of axiom.",
+    "Most rebuilds fail because the team rebuilt from assumption instead of axiom.",
   reasoning:
-    "The strength of a conclusion is limited by the honesty of its premises. Make the premises explicit before you argue the conclusion.",
+    "The strength of a conclusion is limited by the honesty of its premises.",
   portfolio:
-    "The portfolio that looks diversified often is not. Identify the common failure mode before you call it balanced.",
+    "The portfolio that looks diversified often is not. Find the common failure mode.",
   "product strategy":
-    "Incumbents protect positions, not possibilities. Move into the terrain they are not defending yet.",
+    "Incumbents protect positions, not possibilities. Move into terrain they are not defending.",
   technology:
-    "The question is not whether the technology is impressive. The question is whether it changes the frame in a way that matters.",
+    "The question is not whether the technology is impressive — it is whether it changes the frame.",
   product:
-    "Users tell you what they want, but the data shows you what they do. When those two conflict, trust the data and investigate the gap.",
+    "When user desire and usage data conflict, trust the data and investigate the gap.",
   pricing:
-    "Underpricing is not generosity — it is a claim that your work is worth less than it is. That claim compounds over time.",
+    "Underpricing is not generosity. It claims your work is worth less than it is.",
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
-    "Every overextension in history looked like momentum until it didn't. The difference between tempo and recklessness is whether the infrastructure is ready.",
+    "Overextension looks like momentum until it does not. Is your infrastructure ready?",
   // ── Wave 4 beats ──────────────────────────────────────────────────────
   persuasion:
-    "The softened argument does not protect you — it weakens you. Cicero never hedged what he knew to be true. Say the precise thing.",
+    "The softened argument weakens you. Say the precise thing and stop hedging.",
   control:
-    "The Stoic advantage is not that nothing bad happens — it is that nothing external can take your focus away from what you can actually do about it.",
+    "Nothing external can take your focus from what you can actually do about it.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
-    "Jobs did not succeed by building more — he succeeded by cutting everything that did not belong. The discipline to remove is harder than the discipline to add.",
+    "Jobs succeeded by cutting everything that did not belong. Removal is harder than addition.",
   crisis:
-    "Lincoln's greatest leadership quality was not certainty. It was his willingness to revise decisions as the war evolved without losing strategic direction.",
+    "Lincoln's strength was willingness to revise decisions without losing strategic direction.",
   "time-management":
     "Franklin designed his day before the day designed him. That is the entire system.",
   iteration:
-    "Edison did not consider himself to have failed ten thousand times. He considered himself to have successfully proven ten thousand things that did not work.",
+    "Edison proved ten thousand things that did not work. That is still progress.",
   hiring:
-    "Carnegie's management philosophy: hire people smarter than you, pay them well, give them room, and hold them accountable for outcomes — not process.",
+    "Hire people smarter than you, give them room, hold them accountable for outcomes.",
   procrastination:
-    "Seneca's insight was not that procrastination is laziness — it is that procrastination is a form of self-deception about what the task actually requires.",
+    "Procrastination is self-deception about what the task actually requires. Name it.",
   // ── Wave 7 beats ──────────────────────────────────────────────────────
   finance:
-    "The cost structure you accept early becomes the ceiling on every option you have later. Change it now while you still can.",
+    "Early cost structure becomes the ceiling on every option you will have later.",
   relationship:
-    "Give the win that costs you least while giving them what they value most. Skilled stakeholder management is information asymmetry in your favor.",
+    "Give the win that costs you least while giving them what they value most.",
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
-    "Curie did not publish generalities — she published precise experimental results and specific measurements. The value of a historical reasoning framework is identical: it encodes the specific cues, goals, and constraints of real decisions, not the average of all decisions ever made.",
+    "Curie published precise measurements, not generalities. Real frameworks encode real constraints.",
   // ── Wave 23 beats ─────────────────────────────────────────────────────
   "people-vs-terrain":
-    "Great people on the wrong terrain produce impressive execution of the wrong strategy. Great terrain without capable people produces a defensible position nobody can occupy. Build both in parallel, and let each inform the other.",
+    "Great people on wrong terrain execute the wrong strategy impressively. Fix terrain first.",
   reform:
-    "Compliance without commitment is a ceiling, not a foundation. Build toward genuine belief in the direction by demonstrating competence within the existing frame before announcing everything is broken. The coalition you need to reform the system is inside the system you are reforming.",
+    "Compliance without commitment is a ceiling. Build belief before announcing everything is broken.",
   ownership:
-    "Commercial viability is not the same as technical correctness. The DC system was commercially viable — until the physics of AC transmission made the entire infrastructure a liability. Know the difference before you invest in owning the platform.",
+    "The DC system was commercially viable — until AC physics made it a liability.",
 };
 
 const CLOSE_BEATS: Record<string, string> = {
   pivot:
-    "If the metrics say the model is broken, cut the path that keeps the burn alive.",
+    "If the metrics say the model is broken, cut the path keeping the burn alive.",
   leadership:
     "Make the cut clean, protect the team, and do not let resentment write the script.",
   strategy:
-    "Choose the move that changes the geometry of the market, not the one that feels boldest.",
+    "Choose the move that changes the market's geometry, not the one that feels boldest.",
   evidence:
-    "When the signal is finally strong enough, decide once and move without apology.",
+    "When the signal is strong enough, decide once and move without apology.",
   innovation:
-    "If the future is worth the delay, commit. If not, ship the pragmatic version and keep learning.",
+    "If the future is worth the delay, commit. If not, ship the pragmatic version.",
   systems:
     "Align the move with the system, not the mood of the moment.",
   // ── Extended beats (task ae4fab8d) ──
   burnout:
-    "If the duty is real, recover enough to return to it. If it is not, no vacation will make it worth having.",
+    "If the duty is real, recover to return. If it is not, no vacation fixes it.",
   resilience:
     "Do not just survive the failure. Extract the insight that justifies the cost.",
   "self-doubt":
-    "Act on the best available evidence of your own ability. Revise only when the data warrants revision — not when the feeling does.",
+    "Act on the best evidence of your ability. Revise when data warrants — not feeling.",
   shipping:
-    "Do not wait for perfect. Ship the version that is honest about what it does and what it does not.",
+    "Do not wait for perfect. Ship the version honest about what it does and does not.",
   creativity:
-    "Start with the smallest thing you can make today. The rest of the work follows from there.",
+    "Start with the smallest thing you can make today. The rest follows.",
   rebuild:
-    "Build from axioms to conclusions, not from conclusions backward. The second way produces confidence without accuracy.",
+    "Build from axioms to conclusions. The reverse produces confidence without accuracy.",
   reasoning:
-    "When the argument holds at the axiom level, commit. When it does not, rebuild before you extend.",
+    "When the argument holds at the axiom level, commit. If not, rebuild first.",
   portfolio:
-    "Cut what is no longer aligned with where the leverage is going. Hold what is irreplaceable. Do not confuse the two.",
+    "Cut what no longer aligns with leverage. Hold what is irreplaceable. Know the difference.",
   "product strategy":
-    "Choose the terrain where the incumbent's strength stops mattering. Then build specifically for that terrain.",
+    "Choose terrain where the incumbent's strength stops mattering. Build for that terrain.",
   technology:
-    "The right technology bet changes the frame. The wrong one just adds complexity to an already complicated situation.",
+    "The right bet changes the frame. The wrong one adds complexity to a complicated situation.",
   product:
-    "When need, data, and cost align, ship. When they do not, the disagreement is the most important signal you have.",
+    "When need, data, and cost align, ship. If they do not, the disagreement is the signal.",
   pricing:
-    "Set the price that reflects the value you are actually delivering. Then have the integrity to defend it.",
+    "Set the price that reflects the value you are delivering. Then defend it.",
   // ── Wave 2 beats ──────────────────────────────────────────────────────
   scaling:
-    "Close the gap between your growth rate and your operational capacity before the gap closes you.",
+    "Close the gap between growth rate and operational capacity before the gap closes you.",
   // ── Wave 4 beats ──────────────────────────────────────────────────────
   persuasion:
-    "What are the three things about your position that cannot be refuted? Argue those, and only those.",
+    "What three things about your position cannot be refuted? Argue those and only those.",
   control:
-    "What are you trying to change that is not in your control? Stop. What is? Do that instead.",
+    "What are you trying to change that is not in your control? Stop. Do what is.",
   // ── Wave 3 beats ──────────────────────────────────────────────────────
   focus:
-    "What is on your roadmap that does not belong? Cut that first. Then build the rest.",
+    "What is on your roadmap that does not belong? Cut that first. Then build.",
   crisis:
-    "What does your decision look like if the next thing you hear is bad news? Build the decision to survive that.",
+    "What does your decision look like if the next news is bad? Build for that.",
   "time-management":
-    "At the end of today: did you spend your hours, or did they spend you?",
+    "At day's end: did you spend your hours, or did they spend you?",
   iteration:
     "What did the last failure tell you? Extract that, then run the next experiment.",
   hiring:
-    "Are you designing roles that great people want to be in? That is the real recruitment strategy.",
+    "Are you designing roles that great people want? That is the real recruitment strategy.",
   procrastination:
-    "What is the smallest step you could take on this right now? Take it. The rest follows.",
+    "What is the smallest step you could take right now? Take it. The rest follows.",
   // ── Wave 7 beats ──────────────────────────────────────────────────────
   finance:
-    "Gross margin is not a vanity metric. It is the architecture of survival. Know it down to the variable cost per transaction.",
+    "Gross margin is the architecture of survival. Know it down to variable cost per transaction.",
   relationship:
-    "Dependence invites control. Maintain enough leverage that the relationship stays mutual. Know what you need from them and what they need from you.",
+    "Dependence invites control. Maintain leverage so the relationship stays mutual.",
   // ── Wave 8 beats ──────────────────────────────────────────────────────
   meta:
-    "Stop asking for advice. Start specifying the framework and the decision. The output will be different, and it will be better.",
+    "Stop asking for advice. Specify the framework and the decision. The output will be better.",
   // ── Wave 23 beats ─────────────────────────────────────────────────────
   "people-vs-terrain":
-    "What is the primary constraint right now — terrain clarity or execution capability? Invest in the one that is actually blocking progress. Do not defer both.",
+    "What is the primary constraint — terrain clarity or execution capability? Invest in what is blocking.",
   reform:
-    "What would the reform look like if the three most resistant people left tomorrow? If the answer is 'completely different,' the dysfunction is concentrated. If the answer is 'about the same,' the dysfunction is cultural. The intervention differs significantly between those two cases.",
+    "Would the reform look different if the three most resistant people left? If yes, the dysfunction is concentrated.",
   ownership:
-    "Before you invest in owning the platform, identify the most likely technical approach that could make your current architecture obsolete in ten years. If you cannot name one, build the platform. If you can, solve that problem first.",
+    "Name the technical approach most likely to make your architecture obsolete. Solve that first.",
 };
 
 function titleCase(value: string): string {
