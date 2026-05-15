@@ -2549,7 +2549,8 @@
     - "building systems vs creating breakthroughs"
   recommended_council: [thomas-edison, nikola-tesla]
   hook_angles: [tension, proof]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-go-outbound-or-inbound
   type: decision
@@ -2620,7 +2621,8 @@
     - "people strategy vs market positioning startup"
   recommended_council: [andrew-carnegie, sun-tzu]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: catherine-the-great-vs-machiavelli-on-reforming-a-legacy-system
   type: collision
@@ -2634,7 +2636,8 @@
     - "when to work within constraints vs rewrite the rules"
   recommended_council: [catherine-the-great, niccolo-machiavelli]
   hook_angles: [tension, identity]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-offer-a-free-trial
   type: decision
@@ -2648,7 +2651,8 @@
     - "opt-in vs opt-out free trial startup strategy"
   recommended_council: [niccolo-machiavelli, benjamin-franklin, marie-curie]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-hire-a-chief-of-staff
   type: decision
@@ -2662,7 +2666,8 @@
     - "should I get a chief of staff or COO first"
   recommended_council: [andrew-carnegie, marcus-aurelius, niccolo-machiavelli]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-take-angel-investors-or-wait-for-vc
   type: decision
@@ -2676,7 +2681,8 @@
     - "bootstrap vs angel vs VC funding path startup"
   recommended_council: [niccolo-machiavelli, john-d-rockefeller, benjamin-franklin]
   hook_angles: [tension, shortcut]
-  status: queued
+  status: shipped
+  shipped_at: "2026-05-15"
 
 - slug: should-i-use-equity-to-compensate-advisors
   type: decision

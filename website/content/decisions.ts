@@ -2212,6 +2212,100 @@ export const DECISION_ENTRIES: DecisionEntry[] = [
       "paid beta strategy product market fit",
     ],
   },
+  // ── Wave 23 decision pages ─────────────────────────────────────────────────
+  {
+    slug: "should-i-offer-a-free-trial",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Offer a Free Trial?",
+    description:
+      "A free trial is not a pricing decision — it is an evidence decision. The question is whether the friction of requiring payment upfront will eliminate more qualified users than it filters unqualified ones, and whether you trust the product enough to let prospects experience it before they commit.",
+    primaryQuery: "Should I offer a free trial for my SaaS?",
+    secondaryQueries: [
+      "free trial vs freemium vs paid only SaaS",
+      "how long should a SaaS free trial be",
+      "free trial conversion rate startup",
+      "should my product have a trial period",
+      "opt-in vs opt-out free trial startup strategy",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "benjamin-franklin",
+      "marie-curie",
+    ],
+    hookQuestion:
+      "If you remove the payment barrier, do you get better signal about who actually values the product — or do you get a list of people who will never pay, and a product that has devalued itself by being free?",
+    targetKeywords: [
+      "should I offer a free trial for my SaaS",
+      "free trial vs freemium SaaS decision",
+      "how long should a SaaS free trial be",
+      "free trial conversion rate startup",
+      "opt-in vs opt-out free trial startup strategy",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-hire-a-chief-of-staff",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Hire a Chief of Staff?",
+    description:
+      "A chief of staff is a leverage multiplier for a founder whose primary bottleneck is attention, not capability. The question is whether the time you spend managing an additional hire will be recovered by the time they free up — and whether you have enough operating infrastructure for a CoS to actually plug into.",
+    primaryQuery: "Should I hire a chief of staff as a startup founder?",
+    secondaryQueries: [
+      "chief of staff vs EA vs COO startup",
+      "when to hire a chief of staff founder",
+      "chief of staff role early stage startup",
+      "founder leverage operations hire",
+      "should I get a chief of staff or COO first",
+    ],
+    recommendedCouncil: [
+      "andrew-carnegie",
+      "marcus-aurelius",
+      "niccolo-machiavelli",
+    ],
+    hookQuestion:
+      "You are the bottleneck on a dozen things simultaneously. A chief of staff could clear the queue — but only if the queue has enough structure that someone else can manage it. Does it?",
+    targetKeywords: [
+      "should I hire a chief of staff startup founder",
+      "chief of staff vs COO early stage startup",
+      "when to hire chief of staff founder",
+      "founder leverage operations hire startup",
+      "chief of staff role startup decision",
+      "start your own agon",
+    ],
+  },
+  {
+    slug: "should-i-take-angel-investors-or-wait-for-vc",
+    status: "shipped",
+    shippedAt: "2026-05-15",
+    title: "Should I Take Angel Investors or Wait for VC?",
+    description:
+      "Angel capital and institutional VC are not the same instrument at different price points. They carry different board structures, different expectation timelines, different signaling implications, and different leverage dynamics. The choice is not just about the check size — it is about which set of relationships and constraints you are willing to operate under for the next three to five years.",
+    primaryQuery: "Should I take angel investors or wait for VC?",
+    secondaryQueries: [
+      "angel investor vs venture capital funding startup",
+      "angel round before seed round startup strategy",
+      "when to raise angel vs institutional money",
+      "angel investors pros cons startup founder",
+      "bootstrap vs angel vs VC funding path startup",
+    ],
+    recommendedCouncil: [
+      "niccolo-machiavelli",
+      "john-d-rockefeller",
+      "benjamin-franklin",
+    ],
+    hookQuestion:
+      "Angel money is available now at terms you can accept. VC is six months away and uncertain. Is taking the angel round the smart early move — or does it set signals and structures that make the institutional round harder?",
+    targetKeywords: [
+      "should I take angel investors or wait for VC",
+      "angel investor vs venture capital startup decision",
+      "angel round before seed round startup strategy",
+      "when to raise angel vs VC startup funding",
+      "angel investors pros cons early stage startup",
+      "start your own agon",
+    ],
+  },
 ];
 
 export function getDecisionEntry(slug: string): DecisionEntry | undefined {
