@@ -4072,6 +4072,76 @@ export const INSIGHT_ENTRIES: InsightEntry[] = [
         "When building your founding team or early culture, apply this sequencing rule: establish the performance standard explicitly before you establish the personal relationship, so that when you enforce the standard, it reads as 'this is what we agreed the work requires' rather than 'I am changing the terms of our relationship.' Make the standard specific enough that people can evaluate their own work against it without asking you — this is the distributional test for whether your mission is clear enough to carry its own enforcement weight. Then test which model your current situation requires. If you are in an early-stage organization where the mission is still being defined and the team is small enough that you can be present as the standard-interpreter, Jobs's model is appropriate: invest in mission clarity first, and let accountability flow from it. If you are scaling, if you are managing people you cannot directly observe, or if the mission is not yet articulate enough to generate self-enforced standards, Machiavelli's model is required: build the accountability structure first, and make it legible as mission-service. The worst outcome is neither: an organization with warm relationships and no standards, where 'we believe in what we're doing' functions as a substitute for 'we are doing it well.'",
     },
   },
+  // ── Socrates (28th live mind, task ce256e9b) ───────────────────────────────
+  {
+    slug: "what-socrates-would-say-about-false-consensus",
+    type: "single",
+    frameworkSlug: "socrates",
+    title: "What Socrates Would Say About Your Team's False Consensus",
+    description:
+      "When your team agrees too fast, Socrates would diagnose the problem as a definitional failure, not an alignment success. His method of productive examination reveals why the fastest consensus is almost always the most dangerous.",
+    targetKeywords: [
+      "team consensus startup decision making",
+      "groupthink startup how to avoid",
+      "Socratic method business decision",
+      "how to test assumptions startup",
+      "false consensus in startup teams",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your team just had a thirty-minute meeting and everyone agreed on the strategy. Nobody pushed back. Is that a sign you have a strong team — or a sign nobody actually examined the key assumption?",
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "socrates-vs-machiavelli-on-examining-before-acting",
+    type: "collision",
+    frameworkSlug: "socrates",
+    collisionFrameworkSlugs: ["socrates", "niccolo-machiavelli"],
+    title:
+      "Socrates vs. Machiavelli: Should You Examine the Premise or Just Act?",
+    description:
+      "Socrates and Niccolo Machiavelli represent two of the most opposed positions in the history of thought about decision-making under uncertainty. Socrates' method is examination first: no action is legitimate until the assumptions driving the action have been tested, the key terms defined, and the internal contradictions surfaced. Machiavelli's method is action first: conditions change faster than examinations complete, and a leader who waits for certainty before acting will find the window has closed while they were still in dialogue. For startup founders who simultaneously face real time pressure and the real risk of building on false premises, this collision defines when radical examination produces better outcomes and when it produces paralysis dressed as rigor.",
+    targetKeywords: [
+      "should I question assumptions before deciding startup",
+      "analysis paralysis vs decisive action startup",
+      "Socrates Machiavelli decision making philosophy",
+      "when to examine vs when to act business decision",
+      "first principles vs pragmatic decision making founder",
+    ],
+    decisionType: "evidence",
+    hookQuestion:
+      "Your team is about to commit to a major strategic direction. One advisor says you need to examine whether the core assumption is actually true before you execute. Another says you are burning time you do not have. Who is right?",
+    publishedAt: "2026-05-15",
+    agonExcerpt: [
+      {
+        speaker: "Socrates",
+        text: "You say you are committing to this direction. Before we discuss how to execute it, let us first agree on what we mean by the key term. You have described the goal as finding product-market fit. I have heard this phrase used in this conversation to mean at least three different things: that your users retain, that your users pay, and that your users refer others. These are not the same thing. A product can achieve one without the others. Which of the three are you actually measuring? Until we agree on a definition that holds in all cases, your plan is not a plan. It is a vocabulary that sounds like a plan.",
+      },
+      {
+        speaker: "Niccolo Machiavelli",
+        text: "Socrates identifies a real problem and proposes the wrong solution. Yes, the definition of product-market fit is imprecise. Yes, different team members mean different things. The question is whether you solve this by stopping to define it precisely before any action, or by acting on the best available definition and sharpening the definition as evidence arrives. My experience of political reality tells me that the window for action closes while the dialogue is still open. By the time Socrates has produced a definition that satisfies his examination, three months have passed, your competitor has shipped, and the problem you were examining has changed. The imprecise definition that enables action is worth more than the precise definition that arrives too late.",
+      },
+      {
+        speaker: "Socrates",
+        text: "Machiavelli's argument is the most dangerous kind of argument: it is correct in its premise and wrong in its conclusion. He is right that time pressure is real. He is right that perfect certainty is unavailable. But he draws from this the conclusion that you should act on an unexamined premise, when the correct conclusion is that you should use the available time to examine the premise quickly rather than skip the examination entirely. A team that acts on three different definitions of success will collect three different data sets, read them as confirmation, and discover at the end of the quarter that they have no idea whether what they built worked. This is not faster than two hours of definitional work at the start. It is vastly slower, and it produces false confidence in addition to lost time.",
+      },
+      {
+        speaker: "Niccolo Machiavelli",
+        text: "Two hours of definitional work will not produce agreement if the underlying disagreement is about values, not vocabulary. Socrates treats conceptual disagreement as a problem of definition. Often it is a problem of interest, priority, or power, and no amount of examination will surface the resolution, because the parties are not actually trying to find the truth. They are trying to win. In those cases, action is not the failure mode. Action is what forces the real positions to become legible. You discover what people actually believe when they have to commit to something, not when they are in dialogue about it.",
+      },
+      {
+        speaker: "Socrates",
+        text: "Then we agree on more than Machiavelli suggests. The examination is not valuable because it produces agreement. It is valuable because it surfaces the disagreement that was hidden under apparent consensus. If the team agrees too easily, that is not a sign of alignment. It is a sign that no one has tested the definition that looks shared but is not. The examination does not have to take months. It takes as long as it takes to ask: what would it look like if we were wrong about this? A team that cannot answer that question in two minutes has not examined the premise. They have performed agreement.",
+      },
+    ],
+    conclusion: {
+      frameworkSlug: "socrates",
+      summary:
+        "Socrates and Machiavelli converge on a non-obvious point: the examination is most valuable not when the team is genuinely aligned, but when they appear aligned without having tested the definition. Machiavelli is correct that time pressure is real and that waiting for perfect certainty before acting guarantees being too late. Socrates is correct that acting on an unexamined premise produces false confidence and longer feedback cycles, not faster learning. The resolution is a minimum-viable examination: before committing to any direction that depends on a key term, spend the time required to ask what it would look like if the premise were wrong. That is the irreducible minimum that separates genuine strategic commitment from expensive guessing with good vocabulary.",
+      actionableInsight:
+        "Before your next major strategic commitment, run this minimum-viable examination: identify the one key term the whole plan depends on, and ask each team member to write down — separately, before discussion — what that term means in a specific edge case. If the answers are different, you do not have a strategy. You have a vocabulary that looks like a strategy. The examination is not the meeting where you discuss the definitions. It is the test that reveals whether the definitions are actually shared. If they are not, the two-hour definitional conversation Socrates prescribes is not overhead. It is the fastest path to a plan that will survive contact with reality. If they are, you have confirmed the alignment and can commit with genuine confidence rather than performed agreement.",
+    },
+  },
 ];
 
 export function getInsightEntry(slug: string): InsightEntry | undefined {
@@ -5590,6 +5660,35 @@ const INSIGHT_ANNOTATION_BLUEPRINTS: Record<
       source: (entry) => entry.description,
       excerpt: "acceptance is wisdom and when it is resignation",
       constructIndex: 1,
+    },
+  ],
+  // ── Socrates annotation blueprints (task ce256e9b) ─────────────────────
+  "what-socrates-would-say-about-false-consensus": [
+    {
+      label: "Consensus as definitional failure",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "Nobody pushed back",
+      constructIndex: 0,
+    },
+    {
+      label: "Examined vs. assumed alignment",
+      source: (entry) => entry.description,
+      excerpt: "definitional failure",
+      constructIndex: 0,
+    },
+  ],
+  "socrates-vs-machiavelli-on-examining-before-acting": [
+    {
+      label: "Examination before commitment",
+      source: (entry) => entry.hookQuestion,
+      excerpt: "examine whether the core assumption is actually true",
+      constructIndex: 0,
+    },
+    {
+      label: "Action window vs. definitional rigor",
+      source: (entry) => entry.description,
+      excerpt: "examination first",
+      constructIndex: 2,
     },
   ],
 };

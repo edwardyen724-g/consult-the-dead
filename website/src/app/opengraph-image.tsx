@@ -240,7 +240,7 @@ function HomepageBody() {
           textTransform: "uppercase",
         }}
       >
-        <span>27 minds · extracted via Critical Decision Method</span>
+        <span>28 minds · extracted via Critical Decision Method</span>
         <span>consultthedead.com</span>
       </div>
     </div>

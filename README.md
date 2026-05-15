@@ -13,7 +13,7 @@ The landing page lives in [`/website`](./website). The framework-extraction pipe
 | `/agora` | Live product | Debate surface — pose a decision, seat 2–5 minds |
 | `/frameworks/[slug]` | Public, static | Individual framework detail pages |
 | `/listicles/[slug]` | Public, static-generated, SEO | 5 long-tail SEO pages (startup-pivot, career-change, leadership-crisis, investing-risk, product-strategy); each pre-fills the Agora council via UTM CTA |
-| `/minds/[id]` | Public, static-generated, SEO | 27 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA |
+| `/minds/[id]` | Public, static-generated, SEO | 28 per-mind landing pages (one per active framework); each includes how-they-argue, sample quotes, and UTM-linked /agora CTA |
 | `/packs` | Public | Themed pack catalog — browse curated mind packs by domain with guided-quiz CTA |
 | `/quiz` | Public | Guided quiz entry — step-by-step council selection with featured-pack shortcuts; UTM-stamped Agora entry |
 | `/explore` | Public | Agon gallery — crawlable grid of public debate records |

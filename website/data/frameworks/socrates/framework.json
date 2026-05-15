@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "person": "Socrates",
+    "domain": "Philosophy, Ethics, Epistemology",
+    "archetype_name": "The Examiner",
+    "archetype_title": "Truth Through Radical Inquiry",
+    "accent_color": "#c9924e",
+    "born": "c. 470",
+    "died": "399 BC",
+    "generated_utc": "2026-05-15T00:00:00.000000+00:00",
+    "primary_sources": [
+      "Plato, Apology — Socrates' trial defense and account of his philosophical mission",
+      "Plato, Meno — the doctrine of recollection and examination of virtue as knowledge",
+      "Plato, Euthyphro — the examination of piety and the Euthyphro dilemma",
+      "Plato, Republic Book I — the examination of justice through refutation of Thrasymachus",
+      "Plato, Crito — Socrates' refusal to escape Athens and the argument from just institutions",
+      "Plato, Phaedo — the final hours and arguments for the examined life at the point of death",
+      "Xenophon, Memorabilia — independent account of Socrates' conversations and methods"
+    ],
+    "secondary_sources": [
+      "Gregory Vlastos, Socrates: Ironist and Moral Philosopher (1991) — definitive analytical study of the Socratic method",
+      "C.C.W. Taylor, Socrates: A Very Short Introduction (1998) — historical context and philosophical reconstruction",
+      "Alexander Nehamas, The Art of Living (1998) — Socratic philosophy as a practice of self-construction"
+    ],
+    "incident_count": 14,
+    "construct_count": 5,
+    "prediction_count": 5
+  },
+  "perceptual_lens": {
+    "statement": "Socrates perceives every situation as a question about the validity of the assumptions driving the decision-maker's current position — systematically exposing the internal contradictions in what people believe they know, looking for the premise that collapses under examination and reveals their map is wrong while they are confident it is correct.",
+    "derived_from": [
+      "incident-001",
+      "incident-002",
+      "incident-003",
+      "incident-004",
+      "incident-005",
+      "incident-006",
+      "incident-007",
+      "incident-008"
+    ],
+    "holdout_validation": [
+      "incident-009",
+      "incident-010",
+      "incident-011"
+    ],
+    "what_they_notice_first": "The hidden assumption in the confident claim — the word that seems clear but has never been defined, the precedent invoked without being tested, the plan that depends on a premise no one has examined",
+    "what_they_ignore": "Short-term coalition dynamics, the cost of examining too long, the question of whether the examined conclusion can be acted upon before the situation resolves without you"
+  },
+  "bipolar_constructs": [
+    {
+      "construct": "Examined belief vs. assumed certainty",
+      "positive_pole": "Treats every confident position as a candidate for examination — including its own — and withholds commitment until the definition has been tested against counter-examples, edge cases, and the claimant's own contradictory prior commitments",
+      "negative_pole": "Accepts the current consensus as the operating premise and builds from there, treating inherited categories and standard definitions as sufficiently stable for practical decision-making",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-002",
+        "incident-004",
+        "incident-007"
+      ],
+      "behavioral_implication": "When a founder presents a confident market thesis, Socrates would not evaluate whether the strategy is correct — he would examine whether the key term ('the market', 'product-market fit', 'our customer') has been defined precisely enough for the strategy to be falsifiable at all"
+    },
+    {
+      "construct": "Self-knowledge as prerequisite to action vs. domain expertise as sufficient for action",
+      "positive_pole": "Insists that the decision-maker understand the boundaries and biases of their own reasoning before applying technical skill — treats ignorance of one's ignorance as the primary cause of catastrophic decisions",
+      "negative_pole": "Treats accumulated domain knowledge and track record as sufficient license to act — assumes that good judgment in a field comes from deep domain expertise without requiring meta-level self-examination",
+      "derived_from_incidents": [
+        "incident-001",
+        "incident-003",
+        "incident-008",
+        "incident-011"
+      ],
+      "behavioral_implication": "When a highly credentialed expert gives a confident recommendation, Socrates would ask the expert to examine the limits of their knowledge before accepting the recommendation — not because the expert is wrong, but because overconfidence in expertise is the most dangerous form of ignorance"
+    },
+    {
+      "construct": "Productive aporia vs. false resolution",
+      "positive_pole": "Deliberately engineers confusion and acknowledged ignorance as the necessary precondition for genuine learning — treats the discomfort of not-knowing as the honest starting position from which correct understanding can eventually be built",
+      "negative_pole": "Produces a working definition or operating framework quickly to enable action, accepting that the definition will be imprecise and will be revised later, prioritizing forward progress over definitional correctness",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-005",
+        "incident-006"
+      ],
+      "behavioral_implication": "When a team is stuck because their definition of success is ambiguous, Socrates would resist the pressure to adopt a working definition and instead systematically demonstrate why each candidate definition fails — even if this delays decision-making — because a decision based on a false clarity is worse than acknowledged uncertainty"
+    },
+    {
+      "construct": "Death-accepting integrity vs. survival-preserving accommodation",
+      "positive_pole": "Refuses to modify positions under external threat — including threats to life, reputation, or livelihood — on the grounds that a position abandoned under coercion was never genuinely held and provides no useful evidence about what is true",
+      "negative_pole": "Accepts that positions must be adapted to the social and political environment they operate in — that a correct idea held in isolation achieves nothing compared to a modified version of the idea that survives and propagates",
+      "derived_from_incidents": [
+        "incident-009",
+        "incident-010",
+        "incident-012"
+      ],
+      "behavioral_implication": "When institutional pressure (investors, customers, board members) demands a change in stated position, Socrates would ask whether the position is being abandoned because examination revealed it was wrong, or because the social cost of holding it became too high — and would refuse to change it in the latter case even at catastrophic personal cost"
+    },
+    {
+      "construct": "Universal definition vs. contextual case-by-case judgment",
+      "positive_pole": "Insists that a genuine understanding of any concept requires a definition that holds across all cases — that a concept that only applies in some contexts, or whose application depends on who is evaluating it, has not been defined at all",
+      "negative_pole": "Accepts that concepts like 'good', 'just', or 'successful' are inherently context-dependent and that the attempt to find a universal definition misunderstands the nature of practical knowledge",
+      "derived_from_incidents": [
+        "incident-002",
+        "incident-004",
+        "incident-013"
+      ],
+      "behavioral_implication": "When a startup uses a metric like 'engagement' or 'value' without a precise definition, Socrates would demand a definition that works for every type of user in every context before treating any data based on that metric as meaningful — a definition that only applies to the easy cases is not a definition"
+    }
+  ],
+  "blind_spots": [
+    {
+      "description": "Paralysis by examination: the Socratic method has no native stopping rule — examination can always continue, and there is no internal mechanism for determining when enough examination has been done to justify action",
+      "evidence": [
+        "The Socratic dialogues end in aporia (acknowledged ignorance) far more often than in a positive conclusion — the process is optimized for destroying false certainty, not for generating actionable knowledge",
+        "Socrates' own life demonstrates the cost: his refusal to examine the political consequences of his method before the trial left him without the practical resources to survive it"
+      ]
+    },
+    {
+      "description": "Coalition blindness: the Socratic method systematically damages the relationships it touches — being examined by Socrates publicly revealed influential Athenians as less knowledgeable than they believed, producing powerful enemies without any apparent recognition that this was happening",
+      "evidence": [
+        "The jury that condemned him was composed substantially of people he had examined or who knew people he had examined — the method generated its own opposition",
+        "His response to this pattern was to continue the examination rather than modify it, suggesting that coalition cost was not a variable he tracked"
+      ]
+    }
+  ],
+  "behavioral_divergence_predictions": [
+    {
+      "situation_type": "Pre-launch strategy meeting where the team has convergent consensus on target customer",
+      "ordinary_response": "Validate the consensus and move to execution",
+      "framework_response": "Ask each team member to define 'target customer' precisely and test whether the definitions are actually the same — expose the false consensus before the launch discovers it",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Investor demands pivot away from current position due to competitive pressure",
+      "ordinary_response": "Assess the investor's argument on its merits and pivot if the logic is compelling",
+      "framework_response": "Distinguish whether the pivot is warranted by examination of the evidence or by the social pressure of the investor relationship — refuse the pivot if the position hasn't been examined and found wanting",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Expert advisor gives confident recommendation in their domain",
+      "ordinary_response": "Weight the recommendation heavily given the advisor's credentials and track record",
+      "framework_response": "Ask the advisor to articulate the boundaries of their knowledge — what they know they don't know, and what they might not know they don't know — before weighting the recommendation",
+      "confidence": "high"
+    },
+    {
+      "situation_type": "Team in productive flow toward a decision that resolves an urgent ambiguity",
+      "ordinary_response": "Support the momentum and allow the working resolution to be adopted",
+      "framework_response": "Interrupt the momentum to test whether the emerging resolution actually resolves the ambiguity or merely removes its emotional discomfort — accept increased timeline cost in exchange for definitional correctness",
+      "confidence": "medium"
+    },
+    {
+      "situation_type": "Founder considering whether to modify their stated values under competitive pressure",
+      "ordinary_response": "Adapt stated values to match revealed preferences in competitive context",
+      "framework_response": "Force examination of whether the stated values were genuinely held to begin with, and whether modifying them constitutes a correction of a false claim or an abandonment of a true one",
+      "confidence": "high"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "incident-001",
+      "decision": "After the Oracle at Delphi declared no one wiser than Socrates, he chose to examine the Athenian statesmen, poets, and craftsmen to test whether the oracle was correct, rather than accept the declaration and move on.",
+      "context": "Socrates was reportedly baffled by the oracle's claim. He believed he knew nothing of value. Rather than accept the compliment or dismiss it, he undertook a systematic examination of the people considered wisest in Athens.",
+      "divergence_explanation": "Any other person receiving this oracle would have accepted the compliment or dismissed it as flattery. Socrates treated it as a premise to be examined. This exposes his core pattern: confidence itself — including confidence in a favorable verdict — is treated as a candidate for examination."
+    },
+    {
+      "id": "incident-002",
+      "decision": "When examining Euthyphro's confident definition of piety — 'what is dear to the gods' — Socrates systematically demonstrated through the Euthyphro dilemma that the definition fails under examination, leaving both men without a usable definition.",
+      "context": "Euthyphro was confidently prosecuting his own father for impiety. Socrates interrupted him to examine whether Euthyphro's confidence was justified by a genuine understanding of piety.",
+      "divergence_explanation": "The outcome is aporia — neither man knows what piety is. This is Socrates' optimized output: the destruction of false certainty, even when the destruction produces no replacement. He treats productive confusion as more valuable than false resolution."
+    },
+    {
+      "id": "incident-003",
+      "decision": "Socrates refused the jury's offer of a lesser punishment — exile or a fine — choosing death over abandoning his philosophical mission.",
+      "context": "After being convicted by a narrow margin, Socrates could propose an alternative penalty. His friends expected him to propose exile. Instead, he proposed a penalty the jury found insulting, effectively ensuring the death sentence.",
+      "divergence_explanation": "Survival required accommodation. Socrates refused on the grounds that his mission — the examination of himself and others — was the most valuable service he could render Athens, and that accepting exile would constitute an admission that the examination was wrong to conduct."
+    },
+    {
+      "id": "incident-004",
+      "decision": "Throughout the Meno, Socrates examined whether virtue can be taught by first demanding a definition of virtue, then demonstrating that none of the proposed definitions hold, rather than accepting a working definition and proceeding.",
+      "context": "Meno wanted a practical answer about virtue education. Socrates insisted that the practical question cannot be answered before the definitional question is resolved.",
+      "divergence_explanation": "Most teachers would accept an imprecise working definition and address the practical question. Socrates refused — the definitional question is prior to the practical question, and the practical answer derived from a false definition is worthless or actively harmful."
+    },
+    {
+      "id": "incident-005",
+      "decision": "Socrates consistently elicited answers from his interlocutors through questions rather than providing his own positions — the elenctic method — even when he held views that could have been stated directly.",
+      "context": "Across dozens of documented dialogues, Socrates chose to draw out his interlocutors' positions and examine them rather than teach by assertion.",
+      "divergence_explanation": "The choice to teach through examination rather than assertion is not merely pedagogical. It reflects Socrates' belief that a person cannot genuinely hold a belief they have not examined themselves — that understanding produced by examination is categorically different from understanding produced by being told."
+    },
+    {
+      "id": "incident-006",
+      "decision": "In the Crito, when Crito offered detailed practical arguments for why Socrates should escape, Socrates refused to accept the arguments until they had been examined against the question of whether it is ever right to do wrong in response to wrong.",
+      "context": "Crito had arranged an escape. His arguments were practical and compelling: Socrates' death would harm his friends, his children, his city. Socrates insisted on examining the prior question of whether the escape was just before considering the practical arguments.",
+      "divergence_explanation": "The practical arguments were strong. Socrates' refusal to engage them until the prior question was resolved is his characteristic move: the practical analysis is worthless if it rests on an unexamined premise about what is just."
+    },
+    {
+      "id": "incident-007",
+      "decision": "After examining craftsmen and finding them had genuine technical knowledge, Socrates concluded that their error was believing their technical knowledge extended to areas it didn't cover — this was worse than his ignorance.",
+      "context": "The craftsmen genuinely knew their trades. Socrates was genuinely ignorant. Yet he concluded he was wiser because he did not believe his ignorance was knowledge.",
+      "divergence_explanation": "This reveals a structural priority: knowing the limits of your knowledge is more valuable than the knowledge itself, because exceeding those limits — while believing you have not — is the primary cause of catastrophic decision-making."
+    },
+    {
+      "id": "incident-008",
+      "decision": "Socrates described his own ignorance as his primary qualification for philosophy — 'I know that I know nothing' — and used this position as the starting point rather than an embarrassment to be overcome.",
+      "context": "Across multiple dialogues, Socrates began from a profession of ignorance and used it as a methodological tool to disarm interlocutors' defenses.",
+      "divergence_explanation": "Starting from ignorance is the opposite of standard expert positioning. It is a tool for forcing the interlocutor into genuine examination rather than performance of knowledge."
+    },
+    {
+      "id": "incident-009",
+      "decision": "At his trial, Socrates refused to appeal to pity or to present himself in a politically favorable light, even when his supporters urged him to make emotional appeals to the jury.",
+      "context": "His friends believed a different defense style would have acquitted him. Socrates chose to present his case as an examination of whether his life's work was valuable — not as a plea for survival.",
+      "divergence_explanation": "He treated the trial as an opportunity for examination of his mission rather than as a survival problem. The result was death. He accepted this as the appropriate outcome of a consistent position."
+    },
+    {
+      "id": "incident-010",
+      "decision": "Socrates refused to cease philosophy even when the Thirty Tyrants ordered him to stop bringing young men to his conversations.",
+      "context": "The Thirty Tyrants briefly controlled Athens and gave Socrates a direct order to stop his philosophical conversations. He found a technical compliance that allowed him to continue.",
+      "divergence_explanation": "He found a way to continue the examination under adverse political conditions — not by accommodation, but by exploiting ambiguity in the restriction. The mission was non-negotiable."
+    },
+    {
+      "id": "incident-011",
+      "decision": "After the defeat of Athens in the Peloponnesian War, Socrates continued to publicly question the political and strategic decisions that led to the defeat, at personal risk.",
+      "context": "Athens was under occupation and political pressure. Questioning Athenian decisions in public was dangerous. Socrates continued.",
+      "divergence_explanation": "The asymmetric cost-benefit here is clear: examination of the premises behind Athenian defeat was more valuable than the personal safety cost. This is a stable behavioral pattern, not a situational exception."
+    },
+    {
+      "id": "incident-012",
+      "decision": "When Crito argued that public opinion mattered for practical reasons — it could help or harm them — Socrates rejected the argument on the grounds that only the opinion of the knowledgeable person about justice matters, not the opinion of the many.",
+      "context": "Crito raised reputation and social cost as a reason to escape. Socrates refused to weight public opinion as evidence about what is right.",
+      "divergence_explanation": "He separated the epistemic question (what is true) from the political question (what does the majority believe) and refused to let the latter inform decisions about the former."
+    },
+    {
+      "id": "incident-013",
+      "decision": "In the Republic Book I, Socrates systematically demolished Thrasymachus's position that justice is whatever is in the interest of the stronger — not by arguing for an alternative, but by showing the position contradicts itself.",
+      "context": "Thrasymachus was a sophist with a confident, cynical view of justice that resonated politically. Socrates chose to defeat it by internal examination rather than by asserting a counter-view.",
+      "divergence_explanation": "The primary tool is refutation by self-contradiction, not counter-assertion. This is the most stable form of argument Socrates has: showing that the position, examined on its own terms, fails."
+    },
+    {
+      "id": "incident-014",
+      "decision": "Socrates consistently described his role as a 'gadfly' — an irritant that keeps Athens from falling asleep into comfortable false certainties — rather than as a teacher providing positive knowledge.",
+      "context": "This self-characterization appeared in his Apology defense and was consistent across his public life.",
+      "divergence_explanation": "The gadfly role is explicitly parasitic on the health of the host: it only works if the host has confident false beliefs. Socrates understood that his value was in the examination, not in the positive knowledge produced. A city without complacent certainties would have no use for him."
+    }
+  ]
+}
