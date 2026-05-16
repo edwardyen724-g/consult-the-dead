@@ -92,15 +92,6 @@ const FAQ: { q: string; a: string }[] = [
   },
 ]
 
-const DEMO_SLOT = {
-  label: 'Demo slot',
-  headline: 'A short Loom can live here, or this can become the first customer case study.',
-  body:
-    'Use this space for a 60-90 second walkthrough that shows one real decision in motion, then swap in a proof block once the first customer story is ready.',
-  placeholderLabel: 'Embed-ready frame',
-  placeholderBody: 'Loom embed or customer callout',
-}
-
 function parsePricingStatsPatch(value: unknown): Partial<PricingStats> | null {
   if (typeof value !== 'object' || value === null) return null
   const stats = value as Record<string, unknown>
@@ -227,7 +218,7 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
     ? 'Redirecting to checkout…'
     : 'Start 7-day Pro trial'
   const proCtaSubtext =
-    'Checkout unlocks Opus, the persistent library, PDF export, deeper research, and a short demo slot for the first customer story.'
+    'Checkout unlocks Opus, the persistent library, PDF export, and deeper research.'
 
   return (
     <main style={{ background: 'var(--bg)', color: 'var(--fg)', minHeight: '100vh' }}>
@@ -678,117 +669,6 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
             Annual subscribers lock in <strong>$300/year for life</strong> — the current rate. After Q3 2026, the annual plan increases to $360/year. Monthly stays at $30/month. Anyone who subscribes on the annual plan before Q3 2026 keeps the founding-member pricing permanently.
           </p>
         </div>
-
-        {/* Demo / case-study slot */}
-        <section
-          data-testid="pricing-demo-slot"
-          aria-label="Product demo slot"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.15fr) minmax(220px, 0.85fr)',
-            gap: '16px',
-            alignItems: 'stretch',
-            marginBottom: '56px',
-          }}
-        >
-          <div
-            style={{
-              border: '1px solid var(--hairline)',
-              borderRadius: '8px',
-              padding: '20px',
-              background: 'var(--surface)',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '9px',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: 'var(--amber)',
-                margin: 0,
-                marginBottom: '12px',
-              }}
-            >
-              {DEMO_SLOT.label}
-            </p>
-            <h2
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '1.4rem',
-                fontWeight: 400,
-                letterSpacing: '-0.02em',
-                lineHeight: 1.35,
-                color: 'var(--fg)',
-                margin: 0,
-                marginBottom: '12px',
-              }}
-            >
-              {DEMO_SLOT.headline}
-            </h2>
-            <p
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '0.98rem',
-                lineHeight: 1.65,
-                color: 'var(--fg-dim)',
-                margin: 0,
-              }}
-            >
-              {DEMO_SLOT.body}
-            </p>
-          </div>
-
-          <div
-            style={{
-              border: '1px dashed var(--hairline)',
-              borderRadius: '8px',
-              padding: '20px',
-              background: 'var(--surface-2)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              minHeight: '190px',
-              gap: '8px',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '9px',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: 'var(--fg-faint)',
-                margin: 0,
-              }}
-            >
-              {DEMO_SLOT.placeholderLabel}
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '1rem',
-                lineHeight: 1.6,
-                color: 'var(--fg)',
-                margin: 0,
-              }}
-            >
-              {DEMO_SLOT.placeholderBody}
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '9px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--fg-faint)',
-                margin: 0,
-              }}
-            >
-              Keep the proof concrete: one decision, one result, one reason to keep reading.
-            </p>
-          </div>
-        </section>
 
         {/* Social proof strip */}
         <div style={{ marginBottom: '56px' }}>

@@ -196,7 +196,7 @@ describe("pricing page", () => {
     expect(html).toContain("Unlimited debates with your own Anthropic key. Still free tier, still no signup.");
     expect(html).toContain("7-day trial, then $25/mo annual or $30/mo monthly. Opus, persistent library, PDF, and deeper research.");
     expect(html).toContain("Start 7-day Pro trial");
-    expect(html).toContain("Checkout unlocks Opus, the persistent library, PDF export, deeper research, and a short demo slot for the first customer story.");
+    expect(html).toContain("Checkout unlocks Opus, the persistent library, PDF export, and deeper research.");
     expect(html).toContain("You&#x27;ll see a prompt to upgrade to Pro or add your own key.");
     expect(html).toContain("Best for people who are already using the product weekly.");
   });
@@ -207,25 +207,6 @@ describe("pricing page", () => {
 
     expect(html).toContain('data-testid="pro-cta-trust-badge"');
     expect(html).toContain("Used by indie hackers, founders, and researchers");
-  });
-
-  it("renders a dedicated demo slot for a Loom embed or first customer case study", () => {
-    const { tree } = renderPricingClient("annual", false);
-    const html = renderToStaticMarkup(tree as ReactElement);
-    const trustBadgePos = html.indexOf('data-testid="pro-cta-trust-badge"');
-    const foundingMemberPos = html.indexOf('data-testid="founding-member-notice"');
-    const demoSlotPos = html.indexOf('data-testid="pricing-demo-slot"');
-    const socialProofPos = html.indexOf("Real decisions people are asking Agora to help with");
-
-    expect(html).toContain('data-testid="pricing-demo-slot"');
-    expect(html).toContain("A short Loom can live here, or this can become the first customer case study.");
-    expect(html).toContain("Embed-ready frame");
-    expect(html).toContain("Loom embed or customer callout");
-    expect(html).toContain("one real decision in motion");
-    expect(trustBadgePos).toBeGreaterThan(-1);
-    expect(foundingMemberPos).toBeGreaterThan(trustBadgePos);
-    expect(demoSlotPos).toBeGreaterThan(foundingMemberPos);
-    expect(socialProofPos).toBeGreaterThan(demoSlotPos);
   });
 
   it("renders the founding-member urgency notice with Q3 2026 deadline and lock-in copy", () => {
