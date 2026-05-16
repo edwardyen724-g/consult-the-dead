@@ -32,6 +32,21 @@ import {
   PRICING_STATS_DEFAULT,
   type PricingStats,
 } from "@/lib/pricing/stats";
+import {
+  LAUNCH_DEAL_CAP,
+  LAUNCH_DEAL_EXPIRES_AT_ISO,
+  LAUNCH_DEAL_PRICE_USD,
+  type LaunchDealStatus,
+} from "@/lib/pricing/launch-deal";
+
+const DEFAULT_LAUNCH_DEAL: LaunchDealStatus = {
+  cap: LAUNCH_DEAL_CAP,
+  claimed: 0,
+  expired: false,
+  available: true,
+  priceUsd: LAUNCH_DEAL_PRICE_USD,
+  expiresAt: LAUNCH_DEAL_EXPIRES_AT_ISO,
+};
 
 type CheckoutResponse = {
   status: number;
@@ -135,7 +150,9 @@ function renderPricingClient(
   mockUseEffect.mockReset();
   mockUseState.mockImplementationOnce(() => [billing, setBilling]);
   mockUseState.mockImplementationOnce(() => [loading, setLoading]);
+  mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
   mockUseState.mockImplementationOnce(() => [initialStats, setStats]);
+  mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
   const tree = (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
     initialStats,
@@ -406,8 +423,9 @@ describe("pricing page", () => {
   it("registers a useEffect to fetch /api/stats on mount", () => {
     renderPricingClient("annual", false);
 
-    // useEffect should have been called once with a function and empty deps
-    expect(mockUseEffect).toHaveBeenCalledTimes(1);
+    // useEffect should have been called twice on mount: one for /api/stats,
+    // one for /api/stripe/launch-deal. The first effect is /api/stats.
+    expect(mockUseEffect).toHaveBeenCalledTimes(2);
     const [effectCallback, deps] = mockUseEffect.mock.calls[0] as [
       () => void,
       unknown[],
@@ -422,7 +440,9 @@ describe("pricing page", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({
@@ -439,7 +459,7 @@ describe("pricing page", () => {
     (PricingClient as unknown as (props: { initialStats: PricingStats }) => unknown)({
       initialStats: PRICING_STATS_DEFAULT,
     });
-    expect(mockUseEffect).toHaveBeenCalledTimes(1);
+    expect(mockUseEffect).toHaveBeenCalledTimes(2);
     const [effectCallback] = mockUseEffect.mock.calls[0] as [() => void];
     effectCallback();
 
@@ -463,7 +483,9 @@ describe("pricing page", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({ ok: false });
@@ -485,7 +507,9 @@ describe("pricing page", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({
@@ -510,7 +534,9 @@ describe("pricing page", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockRejectedValueOnce(new Error("network failure"));
@@ -646,7 +672,9 @@ describe("live count refresh regression — pricing stats strip", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({
@@ -677,7 +705,9 @@ describe("live count refresh regression — pricing stats strip", () => {
     mockUseEffect.mockReset();
     mockUseState.mockImplementationOnce(() => ["annual", vi.fn()]);
     mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
+    mockUseState.mockImplementationOnce(() => [false, vi.fn()]);
     mockUseState.mockImplementationOnce(() => [PRICING_STATS_DEFAULT, setStats]);
+    mockUseState.mockImplementationOnce(() => [DEFAULT_LAUNCH_DEAL, vi.fn()]);
 
     const fetchMock = globalThis.fetch as unknown as ReturnType<typeof vi.fn>;
     fetchMock.mockResolvedValueOnce({

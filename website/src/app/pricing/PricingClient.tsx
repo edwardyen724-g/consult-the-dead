@@ -10,6 +10,21 @@ import {
   PRO_AGONS_PER_MONTH,
   PRO_MONTHLY_PRICE,
 } from '@/lib/pricing/pricing-constants'
+import {
+  LAUNCH_DEAL_CAP,
+  LAUNCH_DEAL_EXPIRES_AT_ISO,
+  LAUNCH_DEAL_PRICE_USD,
+  type LaunchDealStatus,
+} from '@/lib/pricing/launch-deal'
+
+const LAUNCH_DEAL_INITIAL_STATUS: LaunchDealStatus = {
+  cap: LAUNCH_DEAL_CAP,
+  claimed: 0,
+  expired: false,
+  available: true,
+  priceUsd: LAUNCH_DEAL_PRICE_USD,
+  expiresAt: LAUNCH_DEAL_EXPIRES_AT_ISO,
+}
 
 /**
  * Social-proof debate scenario cards (marketing brief 22ee79de §Part 2).
@@ -109,7 +124,9 @@ export interface PricingClientProps {
 export default function PricingClient({ initialStats }: PricingClientProps) {
   const [billing, setBilling] = useState<'monthly' | 'annual'>('annual')
   const [loading, setLoading] = useState(false)
+  const [launchLoading, setLaunchLoading] = useState(false)
   const [stats, setStats] = useState<PricingStats>(initialStats)
+  const [launchDeal, setLaunchDeal] = useState<LaunchDealStatus>(LAUNCH_DEAL_INITIAL_STATUS)
   const router = useRouter()
 
   useEffect(() => {
@@ -122,6 +139,35 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
       })
       .catch(() => {
         /* silently degrade — the server-seeded stats remain visible */
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/stripe/launch-deal')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: unknown) => {
+        if (!data || typeof data !== 'object') return
+        const d = data as Record<string, unknown>
+        if (
+          typeof d.cap === 'number' &&
+          typeof d.claimed === 'number' &&
+          typeof d.expired === 'boolean' &&
+          typeof d.available === 'boolean' &&
+          typeof d.priceUsd === 'number' &&
+          typeof d.expiresAt === 'string'
+        ) {
+          setLaunchDeal({
+            cap: d.cap,
+            claimed: d.claimed,
+            expired: d.expired,
+            available: d.available,
+            priceUsd: d.priceUsd,
+            expiresAt: d.expiresAt,
+          })
+        }
+      })
+      .catch(() => {
+        /* silently degrade — card shows the initial available state */
       })
   }, [])
 
@@ -145,6 +191,34 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
       if (data.url) window.location.href = data.url
     } finally {
       setLoading(false)
+    }
+  }
+
+  async function handleLaunchCheckout() {
+    setLaunchLoading(true)
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const utm_campaign = params.get('utm_campaign') ?? 'launch-deal'
+      const utm_content = params.get('utm_content') ?? undefined
+
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ billingPeriod: 'launch', utm_campaign, utm_content }),
+      })
+      if (res.status === 401) {
+        router.push('/sign-in')
+        return
+      }
+      if (res.status === 410) {
+        // Sold out or expired — refresh the card state so the UI matches.
+        setLaunchDeal((prev) => ({ ...prev, available: false }))
+        return
+      }
+      const data = await res.json()
+      if (data.url) window.location.href = data.url
+    } finally {
+      setLaunchLoading(false)
     }
   }
 
@@ -355,6 +429,13 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
             </p>
           </div>
         </div>
+
+        {/* Launch deal — first 30 customers, $99/year, expires 2026-05-31. */}
+        <LaunchDealCard
+          status={launchDeal}
+          loading={launchLoading}
+          onClaim={handleLaunchCheckout}
+        />
 
         {/* Pricing controls */}
         <div style={{ marginBottom: '48px' }}>
@@ -861,5 +942,151 @@ export default function PricingClient({ initialStats }: PricingClientProps) {
         </div>
       </div>
     </main>
+  )
+}
+
+function formatLaunchDealDeadline(iso: string): string {
+  const date = new Date(iso)
+  if (Number.isNaN(date.getTime())) return 'May 31'
+  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' })
+}
+
+function LaunchDealCard({
+  status,
+  loading,
+  onClaim,
+}: {
+  status: LaunchDealStatus
+  loading: boolean
+  onClaim: () => void
+}) {
+  const { cap, claimed, expired, available, priceUsd } = status
+  const remaining = Math.max(0, cap - claimed)
+  const soldOut = !expired && claimed >= cap
+  const deadlineLabel = formatLaunchDealDeadline(status.expiresAt)
+
+  const headline = available
+    ? `Launch deal — $${priceUsd}/year`
+    : expired
+      ? 'Launch deal — closed'
+      : 'Launch deal — sold out'
+
+  const subhead = available
+    ? `First ${cap} customers. Expires ${deadlineLabel}.`
+    : expired
+      ? `The $${priceUsd}/year launch price ended ${deadlineLabel}. The annual plan below is the rack rate.`
+      : `All ${cap} launch slots claimed. The annual plan below is the rack rate.`
+
+  const ctaLabel = loading
+    ? 'Redirecting to checkout…'
+    : `Claim launch price`
+
+  const counterLabel = available
+    ? `${claimed} of ${cap} claimed · ${remaining} left`
+    : soldOut
+      ? `${cap} of ${cap} claimed`
+      : `Expired ${deadlineLabel}`
+
+  return (
+    <section
+      data-testid="launch-deal-card"
+      aria-label="Launch deal"
+      style={{
+        marginBottom: '32px',
+        padding: '24px',
+        border: '1px solid var(--amber)',
+        borderRadius: '8px',
+        background: 'linear-gradient(180deg, var(--surface-2), var(--surface))',
+        boxShadow: '0 0 0 1px color-mix(in srgb, var(--amber) 30%, transparent)',
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.9fr)',
+        gap: '20px',
+        alignItems: 'center',
+      }}
+    >
+      <div>
+        <p style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '9px',
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: 'var(--amber)',
+          margin: 0,
+          marginBottom: '10px',
+        }}>
+          Show HN launch · limited
+        </p>
+        <h2 style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: '1.6rem',
+          fontWeight: 400,
+          letterSpacing: '-0.02em',
+          lineHeight: 1.2,
+          margin: 0,
+          marginBottom: '10px',
+          color: 'var(--fg)',
+        }}>
+          {headline}
+        </h2>
+        <p style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: '1rem',
+          lineHeight: 1.6,
+          color: 'var(--fg-dim)',
+          margin: 0,
+          marginBottom: '12px',
+        }}>
+          {subhead}
+        </p>
+        <p
+          data-testid="launch-deal-counter"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: available ? 'var(--amber)' : 'var(--fg-faint)',
+            margin: 0,
+          }}
+        >
+          {counterLabel}
+        </p>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <p style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: '0.95rem',
+          lineHeight: 1.55,
+          color: 'var(--fg)',
+          margin: 0,
+        }}>
+          Full Pro: Opus synthesis, persistent library, PDF export, deeper research, founder support. Locked in at <strong>${priceUsd}/year</strong> for the first {cap} subscribers.
+        </p>
+        <button
+          data-testid="launch-deal-cta"
+          onClick={onClaim}
+          disabled={loading || !available}
+          style={{
+            width: '100%',
+            border: '1px solid var(--ink)',
+            background: !available
+              ? 'var(--surface)'
+              : loading ? 'var(--ink)' : 'var(--amber)',
+            color: !available
+              ? 'var(--fg-faint)'
+              : loading ? 'var(--surface)' : 'var(--ink)',
+            borderRadius: '999px',
+            padding: '14px 18px',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '10px',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            cursor: !available || loading ? 'default' : 'pointer',
+          }}
+        >
+          {available ? ctaLabel : (expired ? 'Offer ended' : 'Sold out')}
+        </button>
+      </div>
+    </section>
   )
 }

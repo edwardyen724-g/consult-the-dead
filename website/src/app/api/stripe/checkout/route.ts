@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth, clerkClient } from '@clerk/nextjs/server'
 import Stripe from 'stripe'
+import {
+  LAUNCH_DEAL_CAP,
+  countLaunchDealClaims,
+  isLaunchDealExpired,
+} from '@/lib/pricing/launch-deal'
 
 export const runtime = 'nodejs'
+
+type BillingPeriod = 'monthly' | 'annual' | 'launch'
 
 // Lazy-initialised Stripe client. Constructing `new Stripe(...)` at module
 // top-level forces `next build` page-data collection to fail when
@@ -29,10 +36,32 @@ export async function POST(request: NextRequest) {
 
   const searchParams = request.nextUrl.searchParams
   const body = await request.json().catch(() => ({}))
-  const billingPeriod: 'monthly' | 'annual' = body.billingPeriod === 'annual' ? 'annual' : 'monthly'
-  const priceId = billingPeriod === 'annual'
-    ? process.env.STRIPE_PRICE_ANNUAL!
-    : process.env.STRIPE_PRICE_MONTHLY!
+  const billingPeriod: BillingPeriod =
+    body.billingPeriod === 'launch'
+      ? 'launch'
+      : body.billingPeriod === 'annual'
+        ? 'annual'
+        : 'monthly'
+
+  let priceId: string
+  if (billingPeriod === 'launch') {
+    const launchPriceId = process.env.STRIPE_PRICE_LAUNCH_ANNUAL
+    if (!launchPriceId) {
+      return NextResponse.json({ error: 'Launch deal is not configured' }, { status: 503 })
+    }
+    if (isLaunchDealExpired()) {
+      return NextResponse.json({ error: 'Launch deal has expired' }, { status: 410 })
+    }
+    const claimed = await countLaunchDealClaims(stripe, launchPriceId)
+    if (claimed >= LAUNCH_DEAL_CAP) {
+      return NextResponse.json({ error: 'Launch deal sold out' }, { status: 410 })
+    }
+    priceId = launchPriceId
+  } else {
+    priceId = billingPeriod === 'annual'
+      ? process.env.STRIPE_PRICE_ANNUAL!
+      : process.env.STRIPE_PRICE_MONTHLY!
+  }
 
   // Pull UTM attribution from either the JSON body (preferred path: client
   // forwards window.location params when calling this endpoint) or the
@@ -81,7 +110,9 @@ export async function POST(request: NextRequest) {
     customer: customerId,
     mode: 'subscription',
     line_items: [{ price: priceId, quantity: 1 }],
-    subscription_data: { trial_period_days: 7 },
+    ...(billingPeriod === 'launch'
+      ? {}
+      : { subscription_data: { trial_period_days: 7 } }),
     success_url: `${SITE_URL}/checkout/success`,
     cancel_url: `${SITE_URL}/pricing`,
     metadata,
