@@ -220,7 +220,7 @@ export default async function Image() {
                 textWrap: "balance",
               }}
             >
-              Run your hardest decision through 18 historical minds.
+              Run your hardest decision through 30 historical minds.
             </div>
 
             <div

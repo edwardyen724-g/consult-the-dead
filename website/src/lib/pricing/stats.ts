@@ -36,7 +36,7 @@ export type PricingStats = {
  * places when the roster grows.
  */
 export const PRICING_STATS_DEFAULT: PricingStats = {
-  minds: 18,
+  minds: 30,
   debatesInLibrary: 30,
 };
 
@@ -44,7 +44,7 @@ export const PRICING_STATS_DEFAULT: PricingStats = {
  * Format the stats row shown below the pricing hero.
  *
  * Returns an ordered list of short label strings, e.g.:
- *   ["18 minds", "30 debates in the library", "1,234 agons run", "Free to start"]
+ *   ["30 minds", "30 debates in the library", "1,234 agons run", "Free to start"]
  *
  * The `agonsRun` label is only included when `stats.agonsRun` is defined so
  * the strip always shows meaningful social proof — never a zero placeholder.

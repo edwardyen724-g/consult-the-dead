@@ -7,12 +7,12 @@ import { PACKS, getActivePackMembers } from "@/lib/packs";
 export const metadata: Metadata = {
   title: "The Council — Consult The Dead",
   description:
-    "Meet the minds. 18 decision-making frameworks extracted from documented historical incidents. Organized by theme — choose who argues your next decision.",
+    "Meet the minds. 30 decision-making frameworks extracted from documented historical incidents. Organized by theme — choose who argues your next decision.",
   robots: { index: false, follow: false },
   openGraph: {
     title: "All Decision Frameworks — Consult The Dead",
     description:
-      "18 minds, extracted and validated. Each framework is built from documented critical decisions — not quotes, not style imitations.",
+      "30 minds, extracted and validated. Each framework is built from documented critical decisions — not quotes, not style imitations.",
     url: "https://www.consultthedead.com/frameworks",
     images: ["/frameworks/opengraph-image"],
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "All Decision Frameworks — Consult The Dead",
     description:
-      "18 minds, extracted and validated. Each framework is built from documented critical decisions — not quotes, not style imitations.",
+      "30 minds, extracted and validated. Each framework is built from documented critical decisions — not quotes, not style imitations.",
     images: ["/frameworks/twitter-image"],
   },
 };

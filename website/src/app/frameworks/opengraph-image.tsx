@@ -2,7 +2,7 @@
  * Static Open Graph image for /frameworks (the frameworks index page).
  *
  * This is a branded index card — no slug-specific data needed. It conveys
- * the breadth of the Council (18 minds, decision frameworks) so social
+ * the breadth of the Council (30 minds, decision frameworks) so social
  * shares of the index page feel intentional rather than default.
  */
 import { ImageResponse } from "next/og";
@@ -138,7 +138,7 @@ function IndexBody() {
               color: FG,
             }}
           >
-            18 minds, extracted and validated.
+            30 minds, extracted and validated.
           </h1>
 
           <p

@@ -265,7 +265,7 @@ describe("pricing page", () => {
     const html = renderToStaticMarkup(tree as ReactElement);
 
     expect(html).toContain('data-testid="pricing-stats"');
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("30 debates in the library");
     expect(html).toContain("Free to start");
   });
@@ -381,7 +381,7 @@ describe("pricing page", () => {
     // data-testid="pricing-stats" wrapper must be present
     expect(html).toContain('data-testid="pricing-stats"');
     // Static defaults always show
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("30 debates in the library");
     expect(html).toContain("Free to start");
   });
@@ -396,7 +396,7 @@ describe("pricing page", () => {
 
     expect(html).toContain("1234 agons run");
     // The other labels must still be present
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("30 debates in the library");
     expect(html).toContain("Free to start");
   });
@@ -633,7 +633,7 @@ describe("pricing page", () => {
 
     expect(tree.props.initialStats).toEqual(PRICING_STATS_DEFAULT);
     expect(html).toContain('data-testid="pricing-stats"');
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("30 debates in the library");
     expect(html).not.toContain("agons run");
     expect(html).toContain("Free to start");
@@ -650,7 +650,7 @@ describe("live count refresh regression — pricing stats strip", () => {
     const { tree } = renderPricingClient("annual", false, PRICING_STATS_DEFAULT);
     const html = renderToStaticMarkup(tree as ReactElement);
     expect(html).not.toContain("agons run");
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("Free to start");
   });
 
@@ -660,7 +660,7 @@ describe("live count refresh regression — pricing stats strip", () => {
     const html = renderToStaticMarkup(tree as ReactElement);
     expect(html).toContain('data-testid="pricing-stats"');
     expect(html).toContain("0 agons run");
-    expect(html).toContain("18 minds");
+    expect(html).toContain("30 minds");
     expect(html).toContain("30 debates in the library");
     expect(html).toContain("Free to start");
   });

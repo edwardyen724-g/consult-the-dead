@@ -53,7 +53,7 @@ describe("pricing opengraph-image", () => {
     const text = collectText((response as { body: unknown }).body).join(" ");
 
     expect(response).toMatchObject({ options: size });
-    expect(text).toContain("Run your hardest decision through 18 historical minds.");
+    expect(text).toContain("Run your hardest decision through 30 historical minds.");
     expect(text).toContain("They'll disagree. You'll decide.");
     expect(text).toContain(getPricingMetadataTitle());
     expect(text).toContain(getPricingMetadataDescription());
