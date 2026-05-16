@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import Link from "next/link";
-import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { ThemeToggle } from "./ThemeToggle";
 import { buildQuizEntryHref } from "@/lib/ctr-experiment";
 
@@ -43,11 +43,57 @@ const QUIZ_CTA_STYLE = {
   flexShrink: 0,
 };
 
+const UPGRADE_CTA_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '10px',
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  color: 'var(--amber)',
+  textDecoration: 'none',
+  fontWeight: 500,
+};
+
+const PRO_BADGE_STYLE = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '9px',
+  letterSpacing: '0.16em',
+  textTransform: 'uppercase' as const,
+  padding: '2px 6px',
+  borderRadius: '3px',
+  border: '1px solid var(--amber)',
+  color: 'var(--amber)',
+  background: 'transparent',
+  marginRight: '8px',
+  whiteSpace: 'nowrap' as const,
+};
+
 export function Header() {
-  const { isSignedIn } = useAuth()
+  const { isLoaded, isSignedIn, user } = useUser()
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const navLinks = (
+  const showSignedInNav = isLoaded && isSignedIn
+  const isPro = showSignedInNav && user?.publicMetadata?.subscription_tier === "pro"
+
+  const navLinks = showSignedInNav ? (
+    <>
+      <Link href="/agora" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        The Agora
+      </Link>
+      <Link href="/library" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
+        Library
+      </Link>
+      {!isPro && (
+        <Link
+          href="/pricing"
+          style={UPGRADE_CTA_STYLE}
+          onClick={() => setMobileOpen(false)}
+          aria-label="Upgrade to Pro"
+        >
+          Upgrade
+        </Link>
+      )}
+    </>
+  ) : (
     <>
       <Link href="/agora" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         The Agora
@@ -58,16 +104,6 @@ export function Header() {
       <Link href={HEADER_QUIZ_ENTRY_HREF} style={QUIZ_CTA_NAV_STYLE} onClick={() => setMobileOpen(false)}>
         Find Your Mind
       </Link>
-      {isSignedIn && (
-        <Link href="/library" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
-          Library
-        </Link>
-      )}
-      {isSignedIn && (
-        <Link href="/account" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
-          Account
-        </Link>
-      )}
       <Link href="/pricing" style={NAV_LINK_STYLE} onClick={() => setMobileOpen(false)}>
         Pricing
       </Link>
@@ -155,8 +191,8 @@ export function Header() {
 
         {/* Right: auth + CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-          <span className="gm-right-signin">
-            {!isSignedIn ? (
+          <span className="gm-right-signin" style={{ display: 'inline-flex', alignItems: 'center' }}>
+            {!showSignedInNav ? (
               <SignInButton mode="redirect"><button style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
@@ -169,23 +205,28 @@ export function Header() {
                   padding: 0,
                 }}>Sign in</button></SignInButton>
             ) : (
-              <UserButton />
+              <>
+                {isPro && <span style={PRO_BADGE_STYLE} aria-label="Pro subscriber">Pro</span>}
+                <UserButton />
+              </>
             )}
           </span>
-          <Link href="/agora" style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            padding: '8px 16px',
-            borderRadius: '4px',
-            background: 'var(--amber)',
-            color: 'var(--bg)',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-          }}>
-            Enter
-          </Link>
+          {!showSignedInNav && (
+            <Link href="/agora" style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '10px',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              padding: '8px 16px',
+              borderRadius: '4px',
+              background: 'var(--amber)',
+              color: 'var(--bg)',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}>
+              Enter
+            </Link>
+          )}
           <span className="gm-theme-desktop">
             <ThemeToggle />
           </span>
@@ -241,7 +282,7 @@ export function Header() {
         }}
       >
         {navLinks}
-        {!isSignedIn && (
+        {!showSignedInNav && (
           <SignInButton mode="redirect"><button style={{
               ...NAV_LINK_STYLE,
               background: 'none',
