@@ -120,13 +120,13 @@ describe("AgoraApp sample questions", () => {
 
     // Each example topic button must have an aria-label announcing the click-to-fill action
     expect(markup).toContain(
-      'aria-label="Use sample question: Should I raise VC or bootstrap?"',
+      'aria-label="Run sample question: Should I raise VC or bootstrap?"',
     );
     expect(markup).toContain(
-      'aria-label="Use sample question: Should we open-source our core product?"',
+      'aria-label="Run sample question: Should we open-source our core product?"',
     );
     expect(markup).toContain(
-      'aria-label="Use sample question: My industry is being automated — pivot into AI, or double down on domain depth?"',
+      'aria-label="Run sample question: My industry is being automated — pivot into AI, or double down on domain depth?"',
     );
   });
 
@@ -135,9 +135,9 @@ describe("AgoraApp sample questions", () => {
 
     // Count how many type="button" occurrences relate to example cards
     // We verify all three example topics appear paired with type="button"
-    const matches = markup.match(/type="button"[^>]*aria-label="Use sample question:/g);
+    const matches = markup.match(/type="button"[^>]*aria-label="Run sample question:/g);
     // type attr comes before aria-label in rendered HTML, so check both orders
-    const matchesAlt = markup.match(/aria-label="Use sample question:[^"]*"[^>]*>/g);
+    const matchesAlt = markup.match(/aria-label="Run sample question:[^"]*"[^>]*>/g);
     expect((matches?.length ?? 0) + (matchesAlt?.length ?? 0)).toBeGreaterThanOrEqual(3);
   });
 });

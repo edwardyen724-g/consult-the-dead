@@ -360,16 +360,24 @@ export function AgoraApp({
   // councilSlugs: optional override — when provided the council is applied to
   // state atomically with the agon-start transition, allowing callers to skip
   // the council stage without React state timing issues.
-  async function startAgon(councilSlugs?: string[]) {
+  // topicOverride: optional override — used by the one-click example flow so the
+  // POST body doesn't read a stale state.topic before React has flushed setState.
+  async function startAgon(councilSlugs?: string[], topicOverride?: string) {
     const activeCouncil = councilSlugs ?? state.council;
     const mindMax = isPro ? MIND_MAX : 3;
     if (activeCouncil.length < MIND_MIN || activeCouncil.length > mindMax) return;
+
+    const activeTopic = (topicOverride ?? state.topic).trim();
+    if (activeTopic.length < 10) return;
 
     setState((s) => ({
       ...s,
       // If a council was supplied externally, seat it now so the agon and
       // any subsequent stages (consensus, etc.) see the right minds.
       ...(councilSlugs ? { council: councilSlugs } : {}),
+      // Same for the topic — when an override is passed, persist it so the
+      // agon / council / consensus stages render the right question.
+      ...(topicOverride !== undefined ? { topic: topicOverride } : {}),
       // Skip the Research stage entirely when the toggle is off — there's
       // nothing to show, and the agon will start streaming as soon as the
       // server emits round_start.
@@ -400,7 +408,7 @@ export function AgoraApp({
         headers,
         signal: controller.signal,
         body: JSON.stringify({
-          topic: state.topic.trim(),
+          topic: activeTopic,
           mindSlugs: activeCouncil,
           rounds: TOTAL_ROUNDS,
           research: state.researchEnabled,
@@ -456,6 +464,16 @@ export function AgoraApp({
     }
 
     startAgon(suggested);
+  }
+
+  // One-click from an example card: takes the example topic, computes its
+  // suggested council, and fires the agon — bypassing the typed-input gate so
+  // a cold visitor can land on a real debate in one click.
+  function beginAndStartAgonFromExample(exampleTopic: string) {
+    const trimmed = exampleTopic.trim();
+    if (trimmed.length < 10) return;
+    const suggested = suggestCouncil(trimmed, minds);
+    startAgon(suggested, trimmed);
   }
 
   function handleAgonEvent(event: AgonEvent) {
@@ -669,6 +687,7 @@ export function AgoraApp({
               }
               onSubmit={beginFromTopic}
               onQuickStart={beginAndStartAgon}
+              onExampleClick={beginAndStartAgonFromExample}
             />
           )}
 
@@ -908,6 +927,7 @@ function TopicStage({
   setResearchEnabled,
   onSubmit,
   onQuickStart,
+  onExampleClick,
 }: {
   topic: string;
   setTopic: (t: string) => void;
@@ -917,6 +937,7 @@ function TopicStage({
   setResearchEnabled: (v: boolean) => void;
   onSubmit: () => void;
   onQuickStart: () => void;
+  onExampleClick: (exampleTopic: string) => void;
 }) {
   const valid = topic.trim().length >= 10;
   const wordCount = topic.trim() ? topic.trim().split(/\s+/).length : 0;
@@ -1149,8 +1170,8 @@ function TopicStage({
             <button
               key={ex}
               type="button"
-              aria-label={`Use sample question: ${ex}`}
-              onClick={() => setTopic(ex)}
+              aria-label={`Run sample question: ${ex}`}
+              onClick={() => onExampleClick(ex)}
               style={{
                 background: "var(--surface)",
                 border: "1px solid var(--hairline)",
