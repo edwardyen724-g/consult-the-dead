@@ -334,7 +334,9 @@ export async function* runAgon(
     model: isPro ? "claude-opus-4-6" : CONVERGENCE_MODEL,
     max_tokens: CONVERGENCE_MAX_TOKENS,
     system:
-      "You are a strategic synthesis analyst. You distill multi-perspective debates into structured, actionable JSON. You never hedge. You always return valid JSON with no surrounding prose.",
+      process.env.PROMPT_VARIANT === "v2"
+        ? "You are a translator. Three historical minds just debated a real decision in dense academic language. Your only job is to rewrite their argument so a busy founder can act on it in 60 seconds. Translate every academic phrase from the transcript into plain English. The user prompt gives you a substitution table — follow it. Never echo phrases like 'load-bearing,' 'perceptual lens,' 'construct,' 'ontological,' 'instrument readiness,' 'configuration problem,' 'structural commitment,' 'mechanism-naming,' 'epistemic.' If you write one of those words, you have failed the task — rewrite. 9th-grade vocabulary, average sentence under 20 words. Return valid JSON only — nothing else before or after."
+        : "You are a strategic synthesis analyst. You distill multi-perspective debates into structured, actionable JSON. You never hedge. You always return valid JSON with no surrounding prose.",
     messages: [{ role: "user", content: convergencePrompt }],
   });
 

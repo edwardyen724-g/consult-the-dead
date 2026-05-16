@@ -1,6 +1,10 @@
 import type { FrameworkSlug } from "@/lib/frameworks";
 import type { AgonTurn } from "./types";
 
+function getPromptVariant(): "v1" | "v2" {
+  return process.env.PROMPT_VARIANT === "v2" ? "v2" : "v1";
+}
+
 interface BuildTurnPromptArgs {
   topic: string;
   selfName: string;
@@ -98,6 +102,7 @@ export function buildConvergencePrompt(
   args: BuildConvergencePromptArgs
 ): string {
   const { topic, council, turns, research } = args;
+  const variant = getPromptVariant();
 
   const transcript = turns
     .map(
@@ -111,6 +116,75 @@ export function buildConvergencePrompt(
     ? `\n\nResearch that informed the agon:\n${research}\n`
     : "";
 
+  if (variant === "v2") {
+    // v2 — plain-language consensus. The minds spoke academic; YOU translate.
+    return `You just observed a debate between ${councilLine} on a real decision a busy founder is facing.
+
+THE DECISION:
+${topic}
+
+FULL TRANSCRIPT (note: the minds spoke in dense, academic language — your job is to translate their argument into plain words for the reader):
+${transcript}${researchBlock}
+
+YOUR JOB: write a CONVERGENCE SYNTHESIS that the reader can act on in 60 seconds. This is the ONLY part of the page they're guaranteed to read carefully. Treat it as a plain-language briefing, not a philosophy paper.
+
+═══════════════════════════════════════════════════════════
+TRANSLATION RULES (NON-NEGOTIABLE)
+═══════════════════════════════════════════════════════════
+
+The transcript uses academic phrasing. When you cite or summarize what a mind said, you MUST translate it. NEVER use these phrases in your output — substitute as shown:
+
+| If transcript says | YOU say |
+|---|---|
+| "load-bearing" / "load-bearing disagreement" | "main disagreement" / "the key thing they disagree on" |
+| "structural commitment" | "lasting decision" |
+| "mechanism-naming" | "naming what's actually causing the result" |
+| "perceptual lens" / "construct" | "way of seeing this" / "the angle they look from" |
+| "instrument readiness" / "instrument degradation" | "is your team / product still healthy" / "wear and tear on the team" |
+| "configuration problem" | "setup question" / "how the pieces fit" |
+| "ontological" / "ontological integrity" | "real" / "what this actually is" |
+| "epistemic" / "epistemic state" | "what you actually know" / "knowledge gap" |
+| "diagnostic imperative" / "diagnostic moment" | "you have to figure out X before doing anything" |
+| "binding constraint" | "the thing holding you back" |
+| "dual-axis assessment" | "two things to check" |
+| "systemic" / "systemic integrity" | "across the whole company" / "holding together" |
+| "behavioral divergence" | "where they'd do something different than most people" |
+| "trade-off" | "choice between X and Y" |
+| "synthesize" (verb) | "combine" / "bring together" |
+| "leverage" (verb) | "use" / "build on" |
+| "optimize" (verb) | "fix" / "tune" |
+| Any other Latinate / academic word your reader would have to look up | a plain English equivalent |
+
+If you find yourself reaching for an academic phrase, STOP and rewrite. Average sentence under 20 words. Any sentence over 30 words must be broken up. 9th-grade vocabulary throughout.
+
+═══════════════════════════════════════════════════════════
+OUTPUT
+═══════════════════════════════════════════════════════════
+
+Return a single JSON object — nothing else. Fields:
+
+{
+  "points": "string — 2–4 sentences. Where the minds agreed. Say which minds agreed and what they both believe, in plain words. Not generic praise — be specific. The reader should know exactly what these historical figures all signed off on.",
+  "pointsSummary": "string — under 20 words. The agreement, in words an 8th-grader would understand. For a tooltip.",
+  "tensions": "string — 2–4 sentences. The main argument that splits the council. Name each mind and what they say, in plain words. A reader should finish this and know: Mind A thinks X, Mind B thinks Y, and those can't both be true.",
+  "tensionsSummary": "string — under 20 words. What they disagree on, in simple words.",
+  "action": "string — 1–3 sentences. The single concrete action the reader should take. Be decisive. If the council split, recommend the path with the strongest argument and say why. Plain words only.",
+  "actionSummary": "string — under 20 words. The recommendation in one line.",
+  "steps": ["string — concrete next step", "string — concrete next step", "string — concrete next step", "string — optional", "string — optional"],
+  "stepsSummary": "string — under 20 words. What needs to happen this week.",
+  "risks": "string — 2–4 sentences. What could go wrong with the recommended action, attributed to which mind raised the concern. Include the biggest blind spot. Plain language.",
+  "risksSummary": "string — under 20 words. The biggest risk, named."
+}
+
+Rules:
+- Output ONLY the JSON object. No prose before or after. No markdown code fences.
+- Be specific. Cite minds by name. Reference what they actually argued — translated into plain words.
+- Do not hedge. The reader needs to act on this.
+- "steps" must contain 3–5 items, each a concrete action with a number, deadline, or specific artifact.
+- Re-read your draft before returning. If ANY phrase from the translation table appears, rewrite that sentence.`;
+  }
+
+  // v1 — original convergence prompt, unchanged
   return `You just observed a structured agon between ${councilLine} on the user's decision.
 
 THE DECISION:
