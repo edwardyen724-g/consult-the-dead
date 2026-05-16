@@ -1193,55 +1193,61 @@ function TopicStage({
         </div>
       </div>
 
-      {/* API key — always visible so users with a key don't have to hunt for the toggle */}
-      <div
-        style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}
+      {/* API key — collapsed behind a disclosure so cold visitors aren't asked to
+          reason about a sk-ant-... field on first load. Expands on click and
+          auto-expands when a key has already been saved so returning users see it. */}
+      <details
         data-testid="api-key-section"
+        open={apiKey.length > 0}
+        style={{ marginTop: "64px", paddingTop: "24px", borderTop: "1px solid var(--hairline)" }}
       >
-        <div
+        <summary
           className="font-mono"
           style={{
             fontSize: "11px",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             color: "var(--fg-dim)",
-            marginBottom: "8px",
+            cursor: "pointer",
+            listStyle: "none",
           }}
         >
-          Your Anthropic key{apiKey ? " (saved)" : " — optional, bypasses the 3/day limit"}
+          Your Anthropic key{apiKey ? " (saved)" : " — optional, bypasses the 3/day limit"} ›
+        </summary>
+        <div style={{ marginTop: "12px" }}>
+          <input
+            id="agora-api-key"
+            type="password"
+            value={apiKey}
+            onChange={(e) => setApiKey(e.target.value)}
+            placeholder="sk-ant-..."
+            style={{
+              width: "100%",
+              maxWidth: "480px",
+              background: "transparent",
+              border: "1px solid var(--hairline)",
+              borderRadius: "4px",
+              color: "var(--fg)",
+              fontFamily: "var(--font-mono)",
+              fontSize: "13px",
+              padding: "10px 12px",
+              outline: "none",
+            }}
+          />
+          <div
+            className="font-mono"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.04em",
+              color: "var(--fg-dim)",
+              marginTop: "8px",
+              lineHeight: 1.5,
+            }}
+          >
+            Stored only in your browser. Skips the daily free-tier limit.
+          </div>
         </div>
-        <input
-          id="agora-api-key"
-          type="password"
-          value={apiKey}
-          onChange={(e) => setApiKey(e.target.value)}
-          placeholder="sk-ant-..."
-          style={{
-            width: "100%",
-            maxWidth: "480px",
-            background: "transparent",
-            border: "1px solid var(--hairline)",
-            borderRadius: "4px",
-            color: "var(--fg)",
-            fontFamily: "var(--font-mono)",
-            fontSize: "13px",
-            padding: "10px 12px",
-            outline: "none",
-          }}
-        />
-        <div
-          className="font-mono"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.04em",
-            color: "var(--fg-dim)",
-            marginTop: "8px",
-            lineHeight: 1.5,
-          }}
-        >
-          Stored only in your browser. Skips the daily free-tier limit.
-        </div>
-      </div>
+      </details>
     </div>
   );
 }
