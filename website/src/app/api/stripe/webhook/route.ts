@@ -59,10 +59,18 @@ export async function POST(request: NextRequest) {
     const utmCampaign = sessionMetadata.utm_campaign
     const utmContent = sessionMetadata.utm_content
     const customerEmail = (customer as Stripe.Customer).email ?? undefined
-    const billingInterval = (session.subscription
-      ? ((await stripe.subscriptions.retrieve(session.subscription as string))
-          .items.data[0]?.price.recurring?.interval === 'year' ? 'annual' : 'monthly')
-      : 'monthly')
+
+    // Resolve the actual subscription so we know both the billing interval AND
+    // the exact price the user paid. The launch deal ($99/year) and the rack
+    // annual ($300/year) both flow through here; the confirmation email needs
+    // to render the right number.
+    const subscription = session.subscription
+      ? await stripe.subscriptions.retrieve(session.subscription as string)
+      : null
+    const price = subscription?.items.data[0]?.price ?? null
+    const billingInterval =
+      price?.recurring?.interval === 'year' ? 'annual' : 'monthly'
+    const priceCents = price?.unit_amount ?? null
 
     try {
       await trackEvent('paid_subscription', {
@@ -85,7 +93,7 @@ export async function POST(request: NextRequest) {
         } catch {
           // Non-fatal — greeting falls back to "Hi,"
         }
-        await sendSubscriptionConfirmation(customerEmail, firstName, billingInterval)
+        await sendSubscriptionConfirmation(customerEmail, firstName, billingInterval, priceCents)
       } catch {
         // Email failure must not block the webhook response
       }
