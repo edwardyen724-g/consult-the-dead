@@ -82,7 +82,7 @@ Free tier: 3 debates/day, no signup, no card.
 First 30 annual subs get $99/year (expires May 31).
 
 The whole debate above:
-https://consultthedead.com/agora/a/<share-id>
+https://consultthedead.com/agora/a/yez2eewryy
 
 Build a council, bring a real decision: https://consultthedead.com/agora
 ```
@@ -90,7 +90,7 @@ Build a council, bring a real decision: https://consultthedead.com/agora
 **Notes:**
 - TWO links in the last tweet — one to the read-only example, one to the live tool. The example link first because most readers want to finish the story before committing to action.
 - Mention the launch deal but don't headline it — the credibility comes from the debate quality, not the discount.
-- Update `<share-id>` with the actual ID before posting.
+- Share-id filled (`yez2eewryy` — Harry Brodsky agon, selected as launch anchor).
 - Word count: 38.
 
 ## Total thread word count: ~256 words
@@ -121,7 +121,7 @@ Run each as a separate thread, 48h apart minimum. Don't re-thread the same hook 
 
 1. **The 4-panel screenshot grid** for tweet 1. Crop from the strongest of your 5 generated debates.
 2. **The two quotes in tweets 2 and 3.** Verbatim, from the SAME debate that's screenshotted.
-3. **The `<share-id>` in tweet 5.**
+3. ~~The `<share-id>` in tweet 5.~~ (Filled — `yez2eewryy`)
 4. **The topic in tweet 1** if your strongest debate isn't the cofounder firing case — swap the entire topic line and tweets 2–3 accordingly.
 
 ## Risk / conflicts
