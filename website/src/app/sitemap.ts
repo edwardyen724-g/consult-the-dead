@@ -32,7 +32,7 @@ import { INSIGHT_ENTRIES } from "@/lib/insights";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
 import { MIND_SLUGS } from "@/lib/mind-content";
 
-import { DECISION_ENTRIES, getDecisionUrl } from "../../content/decisions";
+import { getActiveDecisions, getDecisionUrl } from "../../content/decisions";
 
 import { buildSitemapEntries, fetchPublicAgonRows, type PublicAgonRow } from "@/lib/sitemap-data";
 
@@ -63,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  const decisionPages: MetadataRoute.Sitemap = DECISION_ENTRIES.map((entry) => ({
+  const decisionPages: MetadataRoute.Sitemap = getActiveDecisions(now).map((entry) => ({
     url: getDecisionUrl(entry.slug, SITE_URL),
     lastModified: now,
     changeFrequency: "weekly" as const,

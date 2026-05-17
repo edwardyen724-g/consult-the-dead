@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-import { DECISION_ENTRIES, getDecisionUrl } from "../../../content/decisions";
+import { getActiveDecisions, getDecisionUrl } from "../../../content/decisions";
 
 const DECISIONS_OG_IMAGE_URL =
   "https://www.consultthedead.com/opengraph-image";
@@ -9,11 +9,11 @@ const DECISIONS_OG_IMAGE_URL =
 export const metadata: Metadata = {
   title: "Decisions — Consult The Dead",
   description:
-    "86 high-intent decisions for founders, examined by councils of historical minds. Find the exact question you are facing and start your own agon.",
+    "High-intent decisions for founders, examined by councils of historical minds. Find the exact question you are facing and start your own agon.",
   openGraph: {
     title: "Decisions — Consult The Dead",
     description:
-      "86 high-intent decisions for founders, examined by councils of historical minds.",
+      "High-intent decisions for founders, examined by councils of historical minds.",
     url: "https://www.consultthedead.com/decisions",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Decisions — Consult The Dead",
     description:
-      "86 high-intent decisions for founders, examined by councils of historical minds.",
+      "High-intent decisions for founders, examined by councils of historical minds.",
     images: [DECISIONS_OG_IMAGE_URL],
   },
   alternates: {
@@ -36,7 +36,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 3600;
+
 export default function DecisionsPage() {
+  const activeDecisions = getActiveDecisions();
   return (
     <div
       style={{
@@ -98,7 +101,7 @@ export default function DecisionsPage() {
               maxWidth: "56ch",
             }}
           >
-            {DECISION_ENTRIES.length} high-intent decisions for founders,
+            {activeDecisions.length} high-intent decisions for founders,
             examined by councils of historical minds. Each page frames the
             real question, surfaces the tradeoffs, and opens a pre-loaded agon
             in the Agora.
@@ -115,7 +118,7 @@ export default function DecisionsPage() {
             gap: "2px",
           }}
         >
-          {DECISION_ENTRIES.map((entry) => (
+          {activeDecisions.map((entry) => (
             <li key={entry.slug} data-testid="decision-item">
               <Link
                 href={`/decisions/${entry.slug}`}
@@ -195,8 +198,8 @@ export default function DecisionsPage() {
             description:
               "High-intent decisions for founders, examined by councils of historical minds.",
             url: "https://www.consultthedead.com/decisions",
-            numberOfItems: DECISION_ENTRIES.length,
-            itemListElement: DECISION_ENTRIES.map((entry, idx) => ({
+            numberOfItems: activeDecisions.length,
+            itemListElement: activeDecisions.map((entry, idx) => ({
               "@type": "ListItem",
               position: idx + 1,
               name: entry.title,

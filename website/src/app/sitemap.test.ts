@@ -44,12 +44,14 @@ vi.mock("@/lib/mind-content", () => ({
 // listicle-content is NOT mocked — we want the real LISTICLE_SLUGS
 // and listicleCanonicalUrl so the test proves the production values.
 
-// content/decisions is NOT mocked — we want the real DECISION_ENTRIES
-// so the test proves the production values.
+// content/decisions is NOT mocked — we want the real DECISION_ENTRIES /
+// getActiveDecisions() so the test proves the production values. The
+// sitemap emits one URL per *active* (published) decision, gated by
+// shippedAt — see getActiveDecisions() in content/decisions.ts.
 
 import sitemap from "./sitemap";
 import { LISTICLE_SLUGS, listicleCanonicalUrl } from "@/lib/listicle-content";
-import { DECISION_ENTRIES, getDecisionUrl } from "../../content/decisions";
+import { getActiveDecisions, getDecisionUrl } from "../../content/decisions";
 
 const SITE_URL = "https://www.consultthedead.com";
 
@@ -114,22 +116,23 @@ describe("sitemap()", () => {
     expect(urls).toContain(`${SITE_URL}/minds/isaac-newton`);
   });
 
-  it("emits one URL per decision entry", async () => {
+  it("emits one URL per active decision entry", async () => {
     const entries = await sitemap();
     const urls = entries.map((e) => e.url);
 
-    for (const entry of DECISION_ENTRIES) {
+    for (const entry of getActiveDecisions()) {
       expect(urls).toContain(getDecisionUrl(entry.slug, SITE_URL));
     }
   });
 
-  it("emits exactly one decision URL per DECISION_ENTRIES entry", async () => {
+  it("emits exactly one decision URL per active decision entry", async () => {
     const entries = await sitemap();
     const decisionUrls = entries.filter(
       (e) => typeof e.url === "string" && e.url.includes("/decisions/"),
     );
-    expect(decisionUrls).toHaveLength(DECISION_ENTRIES.length);
-    expect(DECISION_ENTRIES.length).toBeGreaterThanOrEqual(9);
+    const active = getActiveDecisions();
+    expect(decisionUrls).toHaveLength(active.length);
+    expect(active.length).toBeGreaterThanOrEqual(9);
   });
 
   it("uses changeFrequency=weekly and priority=0.8 for every decision entry", async () => {
