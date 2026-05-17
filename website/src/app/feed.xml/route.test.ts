@@ -7,7 +7,7 @@ import {
   buildPublicFeedItems,
   serializeRssFeed,
 } from "@/lib/rss-feed";
-import { DECISION_ENTRIES } from "../../../content/decisions";
+import { getActiveDecisions } from "../../../content/decisions";
 
 import { GET } from "./route";
 
@@ -45,7 +45,7 @@ describe("GET /feed.xml", () => {
         siteUrl: SITE_URL,
         debates,
         insightEntries: INSIGHT_ENTRIES,
-        decisionEntries: DECISION_ENTRIES,
+        decisionEntries: getActiveDecisions(FIXED_NOW),
         now: FIXED_NOW,
       }),
       now: FIXED_NOW,

@@ -10,6 +10,7 @@ import {
   getDecisionEntry,
   getDecisionPublishedAt,
   getDecisionUrl,
+  isDecisionPublished,
 } from "../../../../content/decisions";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -26,7 +27,7 @@ export const revalidate = 3600;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const entry = getDecisionEntry(slug);
-  if (!entry) {
+  if (!entry || !isDecisionPublished(entry)) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function DecisionPage({ params }: PageProps) {
   const { slug } = await params;
   const entry = getDecisionEntry(slug);
-  if (!entry) notFound();
+  if (!entry || !isDecisionPublished(entry)) notFound();
 
   const frameworks = entry.recommendedCouncil
     .map((frameworkSlug) => getFramework(frameworkSlug))

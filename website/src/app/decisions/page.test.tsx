@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
-import { DECISION_ENTRIES } from "../../../content/decisions";
+import { getActiveDecisions } from "../../../content/decisions";
 
 vi.mock("next/link", () => ({
   default: ({
@@ -29,8 +29,8 @@ describe("DecisionsPage metadata", () => {
     expect(String(metadata.title)).toContain("Consult The Dead");
   });
 
-  it("has a description that mentions the number of decisions", () => {
-    expect(metadata.description).toContain("86");
+  it("has a description that mentions high-intent decisions", () => {
+    expect(metadata.description).toContain("High-intent decisions");
   });
 
   it("has a canonical URL pointing to /decisions", () => {
@@ -46,24 +46,25 @@ describe("DecisionsPage metadata", () => {
 });
 
 describe("DecisionsPage rendering", () => {
-  it("renders all 86 decision entries", () => {
+  it("renders every currently-active decision entry", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(DECISION_ENTRIES).toHaveLength(86);
+    const active = getActiveDecisions();
+    expect(active.length).toBeGreaterThanOrEqual(86);
 
     // Use slug-based links rather than title text since renderToStaticMarkup
     // HTML-encodes apostrophes in titles (e.g. "It's" → "It&#x27;s").
-    for (const entry of DECISION_ENTRIES) {
+    for (const entry of active) {
       expect(html).toContain(`href="/decisions/${entry.slug}"`);
     }
   });
 
-  it("renders links pointing to /decisions/[slug] for every entry", () => {
+  it("renders links pointing to /decisions/[slug] for every active entry", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    for (const entry of DECISION_ENTRIES) {
+    for (const entry of getActiveDecisions()) {
       expect(html).toContain(`href="/decisions/${entry.slug}"`);
     }
   });
@@ -77,11 +78,11 @@ describe("DecisionsPage rendering", () => {
     expect(html).toContain('href="/decisions/should-i-rebrand"');
   });
 
-  it("includes the entry count in the description text", () => {
+  it("includes the active entry count in the description text", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("86");
+    expect(html).toContain(String(getActiveDecisions().length));
   });
 
   it("includes a back link to the home page", () => {
@@ -99,12 +100,12 @@ describe("DecisionsPage rendering", () => {
     expect(html).toContain('data-testid="decisions-list"');
   });
 
-  it("renders a decision-item test id for each entry", () => {
+  it("renders a decision-item test id for each active entry", () => {
     const element = DecisionsPage();
     const html = renderToStaticMarkup(element);
 
     const matches = html.match(/data-testid="decision-item"/g);
-    expect(matches).toHaveLength(86);
+    expect(matches).toHaveLength(getActiveDecisions().length);
   });
 
   it("renders the page heading", () => {
@@ -121,8 +122,8 @@ describe("DecisionsPage rendering", () => {
     expect(html).toContain("agon");
   });
 
-  it("has no duplicate slugs across all entries", () => {
-    const slugs = DECISION_ENTRIES.map((e) => e.slug);
+  it("has no duplicate slugs across active entries", () => {
+    const slugs = getActiveDecisions().map((e) => e.slug);
     const uniqueSlugs = new Set(slugs);
     expect(uniqueSlugs.size).toBe(slugs.length);
   });

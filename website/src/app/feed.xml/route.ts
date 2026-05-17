@@ -5,7 +5,7 @@ import {
   buildPublicFeedItems,
   serializeRssFeed,
 } from "@/lib/rss-feed";
-import { DECISION_ENTRIES } from "../../../content/decisions";
+import { getActiveDecisions } from "../../../content/decisions";
 
 export const revalidate = 3600;
 
@@ -21,7 +21,7 @@ export async function GET() {
     siteUrl: SITE_URL,
     debates,
     insightEntries: INSIGHT_ENTRIES,
-    decisionEntries: DECISION_ENTRIES,
+    decisionEntries: getActiveDecisions(now),
     now,
   });
   const xml = serializeRssFeed({
