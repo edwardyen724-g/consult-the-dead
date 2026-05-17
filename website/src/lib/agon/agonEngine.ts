@@ -384,16 +384,51 @@ function parseConsensusJson(raw: string): ConsensusResult {
     return v.filter((x): x is string => typeof x === "string");
   }
 
+  // v2 post-processor: regex-scrub remaining academic phrases the substitution
+  // table in the prompt sometimes fails to suppress. Belt-and-suspenders on the
+  // consensus output specifically — preserves the gravitas of round speeches
+  // (which v2 leaves untouched) while ensuring the consensus reads plain.
+  function scrub(text: string): string {
+    if (process.env.PROMPT_VARIANT !== "v2") return text;
+    return text
+      .replace(/\bload-bearing disagreement\b/gi, "main disagreement")
+      .replace(/\bload-bearing\b/gi, "main")
+      .replace(/\bstructural commitment\b/gi, "lasting decision")
+      .replace(/\bmechanism-naming\b/gi, "naming what causes the result")
+      .replace(/\bperceptual lens\b/gi, "way of seeing this")
+      .replace(/\binstrument readiness\b/gi, "team and product health")
+      .replace(/\binstrument degradation\b/gi, "team and product strain")
+      .replace(/\bconfiguration problem\b/gi, "setup question")
+      .replace(/\bontological integrity\b/gi, "real coherence")
+      .replace(/\bontological\b/gi, "real")
+      .replace(/\bepistemic state\b/gi, "what you know")
+      .replace(/\bepistemic\b/gi, "knowledge-based")
+      .replace(/\bdiagnostic imperative\b/gi, "thing you must figure out first")
+      .replace(/\bbinding constraint\b/gi, "main thing holding you back")
+      .replace(/\bdual-axis assessment\b/gi, "two things to check")
+      .replace(/\bsystemic integrity\b/gi, "company-wide health")
+      .replace(/\bbehavioral divergence\b/gi, "where they'd act differently than most")
+      .replace(/\bcognitive construct\b/gi, "thinking pattern")
+      .replace(/(?<![a-z])construct(?!ion|ed|ing|ive|s )\b/gi, "pattern")
+      .replace(/\btrade-off\b/gi, "choice between options")
+      .replace(/\bstrategic synthesis\b/gi, "summary")
+      .replace(/(?<=\s)synthesize(?=\s)/gi, "combine")
+      .replace(/(?<=\s)leverage(?=\s)/gi, "use");
+  }
+  function scrubArr(arr: string[]): string[] {
+    return arr.map(scrub);
+  }
+
   return {
-    points: str("points"),
-    pointsSummary: str("pointsSummary"),
-    tensions: str("tensions"),
-    tensionsSummary: str("tensionsSummary"),
-    action: str("action"),
-    actionSummary: str("actionSummary"),
-    steps: strArr("steps"),
-    stepsSummary: str("stepsSummary"),
-    risks: str("risks"),
-    risksSummary: str("risksSummary"),
+    points: scrub(str("points")),
+    pointsSummary: scrub(str("pointsSummary")),
+    tensions: scrub(str("tensions")),
+    tensionsSummary: scrub(str("tensionsSummary")),
+    action: scrub(str("action")),
+    actionSummary: scrub(str("actionSummary")),
+    steps: scrubArr(strArr("steps")),
+    stepsSummary: scrub(str("stepsSummary")),
+    risks: scrub(str("risks")),
+    risksSummary: scrub(str("risksSummary")),
   };
 }
