@@ -2,15 +2,15 @@
 
 > **Status:** v2 draft, 2026-05-15. v1 had three credibility-killing errors (wrong mind count, named two minds — Marx, Rand — that aren't on the live roster, wrong product positioning as "current events" instead of "your decision"). v2 below is corrected and HN-voiced.
 
-## Title (66 chars — well under HN's 80-char cap)
+## Title (77 chars — under HN's 80-char cap)
 
-**Show HN: Run your hardest decision through 30 historical minds**
+**Show HN: Consult the Dead – 30 historical minds, each with a JSON decision framework**
 
 ### Title alternatives (pick one before posting)
-1. `Show HN: Run your hardest decision through 30 historical minds` ← recommended
-2. `Show HN: 30 historical minds debate your decision in 3 rounds`
-3. `Show HN: Decision engine — 30 historical minds argue your choice`
-4. `Show HN: Multi-agent council where 30 historical minds debate your call`
+1. `Show HN: Consult the Dead – 30 historical minds, each with a JSON decision framework` ← recommended (leads with mechanism, not verb)
+2. `Show HN: 30 historical minds debate your decision; each reasons from a JSON framework`
+3. `Show HN: Multi-agent debate where each historical mind reasons from a JSON framework`
+4. `Show HN: Run your hardest decision through 30 historical minds` (previous recommended — softer hook)
 
 ## Post Body
 
@@ -42,11 +42,13 @@ LARP-ing as a Renaissance villain.
 
 The debate is multi-agent SSE: each round streams turn-by-turn, minds
 respond to *each other's* arguments not in parallel, and the consensus
-stage is Opus synthesis over 3-5 Sonnet streams. The whole thing fits
-under a 60s time-to-first-output for the default 3-mind council.
+stage is Opus synthesis over 3-5 Sonnet streams. Cold-visit
+time-to-first-output is under 60s for the default 3-mind council — if
+you see worse than that, it's a bug, please tell me.
 
 You can BYO Anthropic key from the topic screen — it bypasses our daily
-free cap and your key never leaves your browser's localStorage.
+free cap and the key never leaves localStorage (never hits our server
+logs).
 
 **Why I built it:**
 
@@ -63,22 +65,19 @@ calculus — and a way to make the disagreement legible, not averaged out.
   Open question: do they feel philosophically honest, or are they
   sophisticated caricatures? Genuinely want HN to push on this.
 - The Council Consensus stage will sometimes hedge. Working on it.
-- No "current events" mode — this is for *your* decision, not commentary.
 
 **Pricing:**
 
-Solo founder. $30/mo Pro (unlimited debates, 5-mind councils, Opus
-synthesis, persistent library). Free tier stays at 3/day forever.
-
-Launch week: first 30 annual subscribers get $99/year (deal expires
-2026-05-31). Not gating anything on it — just a one-time thank-you for
-early signal.
+Free tier is 3 debates/day, no signup. BYO Anthropic key is free and
+unlimited (key stays in localStorage, never hits our server logs). Pro
+is $30/mo or $300/yr with a 7-day trial — unlimited debates, 5-mind
+councils, Opus consensus, persistent library. Launch week: first 30
+annual signups are $99/year through May 31. No urgency play — Pro just
+stays $30/mo if you miss it.
 
 Would especially value feedback on:
 1. Whether the framework outputs hold up philosophically
-2. Whether the time-to-first-debate flow makes sense for someone landing
-   cold
-3. Any minds whose frameworks feel obviously wrong from your read
+2. Any minds whose frameworks feel obviously wrong from your read
 
 https://consultthedead.com
 ```
@@ -109,8 +108,8 @@ https://consultthedead.com
 
 ## What's missing — Edward must fill before posting
 
-1. **The embedded debate link** (`[INSERT: ...]` block above). Pick the strongest of your 5 generated debates. Topic should be one HN audience cares about — firing a cofounder, raise vs bootstrap, kill a feature 6 users love.
-2. **The 3 names in paragraph 1** — match them to whoever appears in the embedded debate so the post flows continuously into the linked artifact.
+1. ~~The embedded debate link.~~ (Filled — `yez2eewryy`, Harry Brodsky agon, "niche down vs go broad". If the cofounder topic doesn't match this debate's actual question, swap the topic + 3 names below to match.)
+2. **The 3 names in paragraph 1** — current draft names Marcus Aurelius + Machiavelli as the "land in different places" example. If the embedded debate (`yez2eewryy`) doesn't feature both, swap to the strongest divergence in that debate so the post flows continuously into the linked artifact.
 3. **The honest constraint section** — if any of your 5 generated debates surfaced a mind whose framework felt off, name it. Acknowledging a weakness up-front earns trust.
 
 ## Conflicts / risks
