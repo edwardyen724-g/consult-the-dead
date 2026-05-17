@@ -231,12 +231,11 @@ export default async function PublicAgonPage({ params }: PageProps) {
         <ShareCtaStyles />
         <Header />
 
-        <ConversionLeadIn ctaHref={ctaHref} />
-
-        {/* Above-the-fold conversion CTA. Hidden in print + on
-            screens ≤720px (the sticky bar at the bottom carries the
-            same message there to avoid stacking on mobile). */}
-        <ShareCtaStrip shareId={agon.share_id} variant="inline" />
+        {/* CTAs moved below the consensus block — a cold visitor lands here
+            from HN/Twitter and needs to see the debate substance before any
+            "begin your own agon" push. "Liked the verdict?" only makes sense
+            after they've read it. The sticky bottom bar still carries the
+            CTA above-the-fold on mobile. */}
 
         <Section label="The Question">
           <p
@@ -436,6 +435,15 @@ export default async function PublicAgonPage({ params }: PageProps) {
             </ConsensusBlock>
           </Section>
         )}
+
+        {/* CTAs — placed AFTER the consensus so a cold visitor has read the
+            verdict before being asked to "begin your own agon." */}
+        <ConversionLeadIn ctaHref={ctaHref} />
+
+        {/* Inline share CTA strip. Hidden in print + on screens ≤720px
+            (the sticky bar at the bottom carries the same message there
+            to avoid stacking on mobile). */}
+        <ShareCtaStrip shareId={agon.share_id} variant="inline" />
 
         {/* Highlight insight pull-quote — the most notable single
             takeaway from the council's consensus, surfaced near the
