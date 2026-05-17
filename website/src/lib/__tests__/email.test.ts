@@ -13,7 +13,7 @@ vi.mock("resend", () => ({
   },
 }));
 
-import { sendFirstAgonRecap } from "../email";
+import { sendFirstAgonRecap, sendSubscriptionConfirmation } from "../email";
 
 beforeEach(() => {
   sendMock.mockClear();
@@ -66,5 +66,36 @@ describe("sendFirstAgonRecap", () => {
         },
       ),
     ).rejects.toThrow("missing recipient email");
+  });
+});
+
+describe("sendSubscriptionConfirmation", () => {
+  it("renders the launch-deal price ($99/year) verbatim, not the rack rate", async () => {
+    await sendSubscriptionConfirmation("ada@example.com", "Ada", "annual", 9900);
+    const html = sendMock.mock.calls[0][0].html as string;
+    expect(html).toContain("$99/year");
+    expect(html).not.toContain("$300/year");
+    expect(html).not.toContain("founding-member");
+  });
+
+  it("renders the rack annual price ($300/year) when that's what was paid", async () => {
+    await sendSubscriptionConfirmation("ada@example.com", "Ada", "annual", 30000);
+    const html = sendMock.mock.calls[0][0].html as string;
+    expect(html).toContain("$300/year");
+    expect(html).not.toContain("$99/year");
+  });
+
+  it("falls back to a generic annual label when priceCents is missing", async () => {
+    await sendSubscriptionConfirmation("ada@example.com", "Ada", "annual");
+    const html = sendMock.mock.calls[0][0].html as string;
+    expect(html).toContain("Agora Pro — Annual");
+    expect(html).not.toContain("$300/year");
+    expect(html).not.toContain("$99/year");
+  });
+
+  it("uses the flat monthly price for monthly plans", async () => {
+    await sendSubscriptionConfirmation("ada@example.com", "Ada", "monthly", 3000);
+    const html = sendMock.mock.calls[0][0].html as string;
+    expect(html).toContain("$30/month");
   });
 });

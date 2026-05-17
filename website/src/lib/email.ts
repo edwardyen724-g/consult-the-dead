@@ -1,5 +1,4 @@
 import { Resend } from 'resend'
-import { getPricingFoundingMemberSummary } from './pricing-copy'
 import {
   FREE_AGONS_PER_DAY,
   PRO_AGONS_PER_MONTH,
@@ -100,13 +99,24 @@ export async function sendWelcomeEmail(to: string, name: string): Promise<void> 
 export async function sendSubscriptionConfirmation(
   to: string,
   name: string,
-  plan: string
+  plan: string,
+  priceCents?: number | null,
 ): Promise<void> {
   const greeting = name ? `Hi ${name},` : 'Hi,'
   const isAnnual = plan === 'annual'
   const planLabel = isAnnual ? 'Agora Pro — Annual' : 'Agora Pro — Monthly'
+  // Render the actual price the user paid, not a hardcoded rack rate. The
+  // $99/year launch deal and the $300/year rack annual both flow through
+  // here; priceCents from the Stripe subscription keeps the email truthful
+  // for whichever the user bought.
+  const priceUsd =
+    typeof priceCents === 'number' && Number.isFinite(priceCents)
+      ? Math.round(priceCents / 100)
+      : null
   const planDetail = isAnnual
-    ? `Early subscribers lock in ${getPricingFoundingMemberSummary()} for life`
+    ? priceUsd != null
+      ? `$${priceUsd}/year — locked in at this rate for life`
+      : 'Annual — locked in at this rate for life'
     : `$${PRO_MONTHLY_PRICE}/month`
 
   await getResend().emails.send({

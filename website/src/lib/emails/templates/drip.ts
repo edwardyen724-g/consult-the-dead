@@ -11,7 +11,6 @@
  */
 
 import { buildUtmUrl } from '../utm'
-import { getPricingFoundingMemberSummary } from '../../pricing-copy'
 import {
   PRO_AGONS_PER_MONTH,
   PRO_ANNUAL_PRICE,
@@ -226,7 +225,7 @@ export function renderDripDay7(vars: DripVariables = {}): RenderedEmail {
     '',
     `Pro gives you ${PRO_AGONS_PER_MONTH} debates a month, Opus for synthesis, and a permanent library so nothing is lost.`,
     '',
-    `7-day trial, then $${PRO_MONTHLY_PRICE}/mo monthly or $${PRO_ANNUAL_PRICE}/yr annual (${getPricingFoundingMemberSummary()}): ${proUrl}`,
+    `7-day trial, then $${PRO_MONTHLY_PRICE}/mo monthly or $${PRO_ANNUAL_PRICE}/yr annual: ${proUrl}`,
     '',
     'If free is working for you, no action needed. The 3 debates/day will always be there.',
     '',

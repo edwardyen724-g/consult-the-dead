@@ -156,6 +156,7 @@ describe('POST /api/stripe/webhook', () => {
               recurring: {
                 interval: 'year',
               },
+              unit_amount: 30000,
             },
           },
         ],
@@ -174,6 +175,7 @@ describe('POST /api/stripe/webhook', () => {
       'ada@example.com',
       'Ada',
       'annual',
+      30000,
     )
     expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
     expect(mocks.trackEvent).toHaveBeenCalledWith('paid_subscription', {
@@ -268,6 +270,7 @@ describe('POST /api/stripe/webhook', () => {
               recurring: {
                 interval: 'month',
               },
+              unit_amount: 3000,
             },
           },
         ],
@@ -283,6 +286,7 @@ describe('POST /api/stripe/webhook', () => {
       'ada@example.com',
       'Ada',
       'monthly',
+      3000,
     )
     expect(mocks.trackEvent).toHaveBeenCalledTimes(1)
     expect(mocks.trackEvent).toHaveBeenCalledWith('paid_subscription', {
@@ -319,6 +323,7 @@ describe('POST /api/stripe/webhook', () => {
               recurring: {
                 interval: 'year',
               },
+              unit_amount: 30000,
             },
           },
         ],
@@ -338,6 +343,7 @@ describe('POST /api/stripe/webhook', () => {
       'ada@example.com',
       'Ada',
       'annual',
+      30000,
     )
   })
 
@@ -427,7 +433,7 @@ describe('POST /api/stripe/webhook', () => {
       email: 'grace@example.com',
     })
     mocks.subscriptionRetrieve.mockResolvedValue({
-      items: { data: [{ price: { recurring: { interval: 'month' } } }] },
+      items: { data: [{ price: { recurring: { interval: 'month' }, unit_amount: 3000 } }] },
     })
 
     const { POST } = await import('./route')
@@ -439,6 +445,7 @@ describe('POST /api/stripe/webhook', () => {
       'grace@example.com',
       'Grace',
       'monthly',
+      3000,
     )
   })
 
@@ -460,7 +467,7 @@ describe('POST /api/stripe/webhook', () => {
       email: 'ada@example.com',
     })
     mocks.subscriptionRetrieve.mockResolvedValue({
-      items: { data: [{ price: { recurring: { interval: 'month' } } }] },
+      items: { data: [{ price: { recurring: { interval: 'month' }, unit_amount: 3000 } }] },
     })
 
     const { POST } = await import('./route')
@@ -472,6 +479,7 @@ describe('POST /api/stripe/webhook', () => {
       'ada@example.com',
       '',
       'monthly',
+      3000,
     )
   })
 })
