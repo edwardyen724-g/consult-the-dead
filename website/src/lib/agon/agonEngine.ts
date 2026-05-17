@@ -384,12 +384,11 @@ function parseConsensusJson(raw: string): ConsensusResult {
     return v.filter((x): x is string => typeof x === "string");
   }
 
-  // v2 post-processor: regex-scrub remaining academic phrases the substitution
-  // table in the prompt sometimes fails to suppress. Belt-and-suspenders on the
-  // consensus output specifically — preserves the gravitas of round speeches
-  // (which v2 leaves untouched) while ensuring the consensus reads plain.
+  // Post-processor: regex-scrub residual academic phrases on the consensus
+  // output. Substitutions are safe across both v1 and v2 — academic register
+  // is unwanted in either variant. Always-on (no env-var gate) so warm
+  // function instances cannot bypass it after env reconfiguration.
   function scrub(text: string): string {
-    if (process.env.PROMPT_VARIANT !== "v2") return text;
     return text
       .replace(/\bload-bearing disagreement\b/gi, "main disagreement")
       .replace(/\bload-bearing\b/gi, "main")
