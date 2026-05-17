@@ -25,8 +25,7 @@ you're carrying, then a Council Consensus synthesizes a recommendation.
 Free tier: 3 debates/day, no signup, no card.
 https://consultthedead.com/agora
 
-[INSERT: link to strongest debate from Edward's 5, e.g.
-https://consultthedead.com/agora/a/<share-id>]
+https://consultthedead.com/agora/a/yez2eewryy
 → that's a real debate the engine produced on "should I fire my only
    cofounder when conviction diverges?" — Marcus Aurelius and Machiavelli
    land in different places, which is the point.
